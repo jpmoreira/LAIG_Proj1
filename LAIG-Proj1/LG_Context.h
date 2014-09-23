@@ -10,7 +10,7 @@
 #define __LAIG_Proj1__Context__
 
 #include <stdio.h>
-#include <OpenGL/OpenGL.h>
+#include <GL/glew.h>
 #include <CGFtexture.h>
 
 #endif /* defined(__LAIG_Proj1__Context__) */
@@ -142,5 +142,5 @@ private:
      
      */
     
-    void cloneTexture(LG_Context *context)
+    void cloneTexture(LG_Context *context);
 };
