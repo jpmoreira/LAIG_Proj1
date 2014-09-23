@@ -37,14 +37,16 @@ class LG_Context
 {
 
     GLdouble  matrix[4][4];
-    GLdouble ambient[4];
-    GLdouble diffuse[4];
-    GLdouble specular[4];
+    LG_LightArray ambient;
+    LG_LightArray diffuse;
+    LG_LightArray specular;
     GLdouble shininess;
     CGFtexture *texture;
     
     
 public:
+    
+    
     
     
     LG_Context();
@@ -126,5 +128,19 @@ private:
      */
     void cloneMatrix(LG_Context *contextToClone);
     
-    void cloneLightArray(GLdouble * lightArray);
+    /**
+     
+     Clones all light parameters from one LG_Context to another.
+     
+     
+     */
+    void cloneLightParameters(LG_Context * contextToClone);
+    
+    /**
+     
+     Clones the texture parameters from one LG_Context to another.
+     
+     */
+    
+    void cloneTexture(LG_Context *context)
 };

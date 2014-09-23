@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 José Pedro Moreira. All rights reserved.
 //
 
-#include "Context.h"
+#include "LG_Context.h"
 
 
 
@@ -33,6 +33,8 @@ LG_Context * LG_Context::clone(){
     LG_Context * newContext=new LG_Context();
     
     newContext->cloneMatrix(this);
+    
+    newContext->cloneLightParameters(this);
     
     
     
@@ -115,5 +117,25 @@ void LG_Context::cloneMatrix(LG_Context * contextToClone){
             matrix[col][line]=contextToClone->matrix[col][line];
         }
     }
+
+}
+
+void LG_Context::cloneLightParameters(LG_Context * contextToClone)
+{
+
+    for (int i=0; i<4; i++) {
+        ambient[i]=contextToClone->ambient[i];
+        diffuse[i]=contextToClone->diffuse[i];
+        specular[i]=contextToClone->specular[i];
+    }
+    
+    shininess=contextToClone->shininess;
+    
+}
+
+
+void LG_Context::cloneTexture(LG_Context *context){
+
+#error implement this
 
 }
