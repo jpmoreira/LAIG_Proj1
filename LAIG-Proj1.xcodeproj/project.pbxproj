@@ -7,7 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		54174DCB19D033CC0039E991 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54174DCA19D033CC0039E991 /* main.cpp */; };
+		5405EFC319D09E4F00BEED1E /* LG_Context.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5405EFBD19D09E4F00BEED1E /* LG_Context.cpp */; };
+		5405EFC419D09E4F00BEED1E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5405EFBF19D09E4F00BEED1E /* main.cpp */; };
+		5405EFC519D09E4F00BEED1E /* XMLScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5405EFC119D09E4F00BEED1E /* XMLScene.cpp */; };
+		5436BE4319D0AD7F00D4831A /* libTinyXML.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4219D0AD7F00D4831A /* libTinyXML.a */; };
+		5436BE4519D0AD9200D4831A /* libCGF.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4419D0AD9200D4831A /* libCGF.a */; };
+		5436BE4719D0AD9E00D4831A /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4619D0AD9E00D4831A /* OpenGL.framework */; };
+		5436BE4919D0ADA400D4831A /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4819D0ADA400D4831A /* CoreServices.framework */; };
+		5436BE4B19D0ADAC00D4831A /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4A19D0ADAC00D4831A /* GLUT.framework */; };
+		5436BE4D19D0ADC800D4831A /* GLUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4C19D0ADC800D4831A /* GLUI.framework */; };
+		5436BE4F19D0ADF500D4831A /* libGLEW.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4E19D0ADF500D4831A /* libGLEW.a */; };
+		5436BE5119D0ADFF00D4831A /* libGLEWmx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE5019D0ADFF00D4831A /* libGLEWmx.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +33,21 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5405EFBD19D09E4F00BEED1E /* LG_Context.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Context.cpp; sourceTree = "<group>"; };
+		5405EFBE19D09E4F00BEED1E /* LG_Context.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_Context.h; sourceTree = "<group>"; };
+		5405EFBF19D09E4F00BEED1E /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		5405EFC019D09E4F00BEED1E /* main.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = main.h; sourceTree = "<group>"; };
+		5405EFC119D09E4F00BEED1E /* XMLScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XMLScene.cpp; sourceTree = "<group>"; };
+		5405EFC219D09E4F00BEED1E /* XMLScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLScene.h; sourceTree = "<group>"; };
 		54174DC719D033CC0039E991 /* LAIG-Proj1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "LAIG-Proj1"; sourceTree = BUILT_PRODUCTS_DIR; };
-		54174DCA19D033CC0039E991 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		5436BE4219D0AD7F00D4831A /* libTinyXML.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libTinyXML.a; path = /usr/local/lib/libTinyXML.a; sourceTree = "<absolute>"; };
+		5436BE4419D0AD9200D4831A /* libCGF.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCGF.a; path = /usr/local/lib/libCGF.a; sourceTree = "<absolute>"; };
+		5436BE4619D0AD9E00D4831A /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		5436BE4819D0ADA400D4831A /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
+		5436BE4A19D0ADAC00D4831A /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
+		5436BE4C19D0ADC800D4831A /* GLUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUI.framework; path = /Library/Frameworks/GLUI.framework; sourceTree = "<absolute>"; };
+		5436BE4E19D0ADF500D4831A /* libGLEW.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGLEW.a; path = /usr/local/Cellar/glew/1.10.0/lib/libGLEW.a; sourceTree = "<absolute>"; };
+		5436BE5019D0ADFF00D4831A /* libGLEWmx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGLEWmx.a; path = /usr/local/Cellar/glew/1.10.0/lib/libGLEWmx.a; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +55,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5436BE5119D0ADFF00D4831A /* libGLEWmx.a in Frameworks */,
+				5436BE4F19D0ADF500D4831A /* libGLEW.a in Frameworks */,
+				5436BE4D19D0ADC800D4831A /* GLUI.framework in Frameworks */,
+				5436BE4B19D0ADAC00D4831A /* GLUT.framework in Frameworks */,
+				5436BE4919D0ADA400D4831A /* CoreServices.framework in Frameworks */,
+				5436BE4719D0AD9E00D4831A /* OpenGL.framework in Frameworks */,
+				5436BE4519D0AD9200D4831A /* libCGF.a in Frameworks */,
+				5436BE4319D0AD7F00D4831A /* libTinyXML.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				54174DC919D033CC0039E991 /* LAIG-Proj1 */,
+				5436BE5219D0AE6500D4831A /* Frameworks */,
 				54174DC819D033CC0039E991 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -57,8 +89,29 @@
 		54174DC919D033CC0039E991 /* LAIG-Proj1 */ = {
 			isa = PBXGroup;
 			children = (
-				54174DCA19D033CC0039E991 /* main.cpp */,
+				5405EFBD19D09E4F00BEED1E /* LG_Context.cpp */,
+				5405EFBE19D09E4F00BEED1E /* LG_Context.h */,
+				5405EFBF19D09E4F00BEED1E /* main.cpp */,
+				5405EFC019D09E4F00BEED1E /* main.h */,
+				5405EFC119D09E4F00BEED1E /* XMLScene.cpp */,
+				5405EFC219D09E4F00BEED1E /* XMLScene.h */,
 			);
+			path = "LAIG-Proj1";
+			sourceTree = "<group>";
+		};
+		5436BE5219D0AE6500D4831A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5436BE5019D0ADFF00D4831A /* libGLEWmx.a */,
+				5436BE4E19D0ADF500D4831A /* libGLEW.a */,
+				5436BE4C19D0ADC800D4831A /* GLUI.framework */,
+				5436BE4A19D0ADAC00D4831A /* GLUT.framework */,
+				5436BE4819D0ADA400D4831A /* CoreServices.framework */,
+				5436BE4619D0AD9E00D4831A /* OpenGL.framework */,
+				5436BE4419D0AD9200D4831A /* libCGF.a */,
+				5436BE4219D0AD7F00D4831A /* libTinyXML.a */,
+			);
+			name = Frameworks;
 			path = "LAIG-Proj1";
 			sourceTree = "<group>";
 		};
@@ -118,7 +171,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54174DCB19D033CC0039E991 /* main.cpp in Sources */,
+				5405EFC519D09E4F00BEED1E /* XMLScene.cpp in Sources */,
+				5405EFC319D09E4F00BEED1E /* LG_Context.cpp in Sources */,
+				5405EFC419D09E4F00BEED1E /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +213,17 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/opt/X11/include/,
+					/usr/local/include/CGF,
+					"/usr/local/include/**",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"/usr/local/lib/**",
+					/usr/local/Cellar/glew/1.10.0/lib,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -193,6 +259,17 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/opt/X11/include/,
+					/usr/local/include/CGF,
+					"/usr/local/include/**",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"/usr/local/lib/**",
+					/usr/local/Cellar/glew/1.10.0/lib,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
@@ -202,6 +279,14 @@
 		54174DCF19D033CC0039E991 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/glew/1.10.0/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -209,6 +294,14 @@
 		54174DD019D033CC0039E991 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/glew/1.10.0/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -232,6 +325,7 @@
 				54174DD019D033CC0039E991 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
