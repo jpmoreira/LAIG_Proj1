@@ -331,3 +331,11 @@ UpgradeLog*.htm
 FakesAssemblies/
 
 */LAIG-Proj1.xcodeproj
+lib/README.txt
+lib/CGFlib.rar
+LAIG-Proj1/LAIG-Proj1.vcxproj.filters
+LAIG-Proj1/LAIG-Proj1.vcxproj
+LAIG-Proj1.sln
+include/XMLScene.h
+include/tinyxml.h
+include/tinystr.h
