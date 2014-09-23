@@ -339,3 +339,4 @@ LAIG-Proj1.sln
 include/XMLScene.h
 include/tinyxml.h
 include/tinystr.h
+*.pbxproj

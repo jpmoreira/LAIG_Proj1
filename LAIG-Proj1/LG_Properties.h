@@ -33,7 +33,7 @@ typedef GLdouble LG_LightArray[4];
  
  */
 
-class LG_Context
+class LG_Properties
 {
 
     GLdouble  matrix[4][4];
@@ -49,9 +49,9 @@ public:
     
     
     
-    LG_Context();
+    LG_Properties();
     
-    LG_Context(GLdouble *matrix,GLdouble amb[4],GLdouble diff[4],GLdouble spec[4],GLdouble shininess);
+    LG_Properties(GLdouble *matrix,GLdouble amb[4],GLdouble diff[4],GLdouble spec[4],GLdouble shininess);
     void setTexture(CGFtexture *newText);
     
     
@@ -60,7 +60,7 @@ public:
      * Clones a context. Creates a copy of the context.
      *
     */
-    LG_Context * clone();
+    LG_Properties * clone();
     
     
     /**
@@ -68,7 +68,7 @@ public:
      Clones a Context object but changes it's light component.
      
      */
-    LG_Context * clone_changeLight(GLdouble amb[4],GLdouble diff[4],GLdouble spec[4],GLdouble shininess);
+    LG_Properties * clone_changeLight(GLdouble amb[4],GLdouble diff[4],GLdouble spec[4],GLdouble shininess);
     
     
     /**
@@ -77,7 +77,7 @@ public:
      
      
      */
-    LG_Context * clone_changeTexture(CGFtexture *newTexture);
+    LG_Properties * clone_changeTexture(CGFtexture *newTexture);
     
     
     /**
@@ -86,14 +86,14 @@ public:
      Clones a context but changes the matrix for this context.
      
      */
-    LG_Context * clone_changeMatrix(GLdouble newMatrix[4][4]);
+    LG_Properties * clone_changeMatrix(GLdouble newMatrix[4][4]);
     
     /**
      
      Clones a context but applies a rotation to the current matrix.
      
      */
-    LG_Context * clone_Rotate(double angle,LG_Axis axis);
+    LG_Properties * clone_Rotate(double angle,LG_Axis axis);
     
     
     /**
@@ -101,14 +101,14 @@ public:
      Clones a context but applies a translation to the current matrix.
      
      */
-    LG_Context * clone_Translate(double dx,double dy, double dz);
+    LG_Properties * clone_Translate(double dx,double dy, double dz);
     
     /**
      
      Clones a context but applies a scaling operation to the current matrix.
      
      */
-    LG_Context * clone_Scale(double sx,double sy,double sz);
+    LG_Properties * clone_Scale(double sx,double sy,double sz);
     
 
     
@@ -126,21 +126,21 @@ private:
      Clones the other contexts matrix
      
      */
-    void cloneMatrix(LG_Context *contextToClone);
+    void cloneMatrix(LG_Properties *contextToClone);
     
     /**
      
-     Clones all light parameters from one LG_Context to another.
+     Clones all light parameters from one LG_Properties to another.
      
      
      */
-    void cloneLightParameters(LG_Context * contextToClone);
+    void cloneLightParameters(LG_Properties * contextToClone);
     
     /**
      
-     Clones the texture parameters from one LG_Context to another.
+     Clones the texture parameters from one LG_Properties to another.
      
      */
     
-    void cloneTexture(LG_Context *context);
+    void cloneTexture(LG_Properties *context);
 };

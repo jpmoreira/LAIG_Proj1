@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 José Pedro Moreira. All rights reserved.
 //
 
-#include "LG_Context.h"
+#include "LG_Properties.h"
 
 
 
@@ -15,7 +15,7 @@
 #pragma mark - Constructors
 
 
-LG_Context::LG_Context():texture(NULL){
+LG_Properties::LG_Properties():texture(NULL){
     
     loadIdentity();
 
@@ -28,9 +28,9 @@ LG_Context::LG_Context():texture(NULL){
 
 #pragma mark - Cloning
 
-LG_Context * LG_Context::clone(){
+LG_Properties * LG_Properties::clone(){
 
-    LG_Context * newContext=new LG_Context();
+    LG_Properties * newContext=new LG_Properties();
     
     newContext->cloneMatrix(this);
     
@@ -50,7 +50,7 @@ LG_Context * LG_Context::clone(){
  Clones a Context object but changes it's light component.
  
  */
-LG_Context clone_changeLight(GLdouble amb[4],GLdouble diff[4],GLdouble spec[4],GLdouble shininess);
+LG_Properties clone_changeLight(GLdouble amb[4],GLdouble diff[4],GLdouble spec[4],GLdouble shininess);
 
 
 /**
@@ -59,7 +59,7 @@ LG_Context clone_changeLight(GLdouble amb[4],GLdouble diff[4],GLdouble spec[4],G
  
  
  */
-LG_Context clone_changeTexture(CGFtexture *newTexture);
+LG_Properties clone_changeTexture(CGFtexture *newTexture);
 
 
 /**
@@ -68,14 +68,14 @@ LG_Context clone_changeTexture(CGFtexture *newTexture);
  Clones a context but changes the matrix for this context.
  
  */
-LG_Context clone_changeMatrix(GLdouble newMatrix[4][4]);
+LG_Properties clone_changeMatrix(GLdouble newMatrix[4][4]);
 
 /**
  
  Clones a context but applies a rotation to the current matrix.
  
  */
-LG_Context clone_Rotate(double angle,LG_Axis axis);
+LG_Properties clone_Rotate(double angle,LG_Axis axis);
 
 
 /**
@@ -83,20 +83,20 @@ LG_Context clone_Rotate(double angle,LG_Axis axis);
  Clones a context but applies a translation to the current matrix.
  
  */
-LG_Context clone_Translate(double dx,double dy, double dz);
+LG_Properties clone_Translate(double dx,double dy, double dz);
 
 /**
  
  Clones a context but applies a scaling operation to the current matrix.
  
  */
-LG_Context clone_Scale(double sx,double sy,double sz);
+LG_Properties clone_Scale(double sx,double sy,double sz);
 
 
 #pragma mark - Helper Methods
 
 
-void LG_Context::loadIdentity(){
+void LG_Properties::loadIdentity(){
 
     for (int col=0; col<4; col++) {
         for (int line=0; line<4; line++) {
@@ -110,7 +110,7 @@ void LG_Context::loadIdentity(){
 }
 
 
-void LG_Context::cloneMatrix(LG_Context * contextToClone){
+void LG_Properties::cloneMatrix(LG_Properties * contextToClone){
     
     for (int col=0; col<4; col++) {
         for (int line=0; line<4; line++) {
@@ -120,7 +120,7 @@ void LG_Context::cloneMatrix(LG_Context * contextToClone){
 
 }
 
-void LG_Context::cloneLightParameters(LG_Context * contextToClone)
+void LG_Properties::cloneLightParameters(LG_Properties * contextToClone)
 {
 
     for (int i=0; i<4; i++) {
@@ -134,7 +134,7 @@ void LG_Context::cloneLightParameters(LG_Context * contextToClone)
 }
 
 
-void LG_Context::cloneTexture(LG_Context *context){
+void LG_Properties::cloneTexture(LG_Properties *context){
 
 #error implement this
 
