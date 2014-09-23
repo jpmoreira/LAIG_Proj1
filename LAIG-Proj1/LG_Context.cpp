@@ -37,7 +37,7 @@ LG_Context * LG_Context::clone(){
     newContext->cloneLightParameters(this);
     
     
-    
+#error continue implementation here
     
     return newContext;
     
