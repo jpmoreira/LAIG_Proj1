@@ -12,19 +12,26 @@
 using std::vector;
 
 
+
 #pragma mark - Constructors
-LG_Node::LG_Node(LG_Node_Map *map):childsIDs(LG_ID_Vector()),properties(new LG_Properties()){
+LG_Node::LG_Node(LG_Node_Map *map,string theIdentifier):childsIDs(LG_ID_Vector()),properties(new LG_Properties()),identifier(theIdentifier),map(map){
     
+    
+    map->insert(LG_Node_Map_Pair(identifier,this));//add itself to the map automatically
     
     
     
 }
 
 
-LG_Node::LG_Node(LG_Properties *propertiesToDuplicate):childsIDs(LG_ID_Vector()),properties(propertiesToDuplicate->clone()){
+#pragma mark - Drawing
 
+
+void LG_Node::draw(){
 
 }
+
+
 
 
 #pragma mark - Managing Childs
@@ -35,7 +42,10 @@ LG_Node * LG_Node::child(int childNr){
     
     string* childID=childsIDs[childNr];
     
-      return map->find(childID)->second;
+    auto it=map->find(*childID);
+    
+    if (it==map->end()) return NULL;
+    return it->second;
 
 
 }
@@ -43,11 +53,11 @@ LG_Node * LG_Node::child(int childNr){
 
 
 
-void LG_Node::addChild(string *childID){
+void LG_Node::addChild(LG_Node *nodeToAdd){
     
     
     
-    childsIDs.push_back(childID);
+    childsIDs.push_back(&nodeToAdd->identifier);
 
 
 }

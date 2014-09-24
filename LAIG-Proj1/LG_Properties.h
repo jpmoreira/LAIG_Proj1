@@ -13,7 +13,7 @@
 #include <GL/glew.h>
 #include <CGFtexture.h>
 
-#endif /* defined(__LAIG_Proj1__Context__) */
+
 
 typedef enum{
 
@@ -26,6 +26,14 @@ typedef enum{
 
 typedef GLdouble LG_LightArray[4];
 
+typedef GLdouble LG_Matrix[4][4];
+
+#define LG_LightValue_Not_Set -1
+
+#define LG_LightList_InitialValue {LG_LightValue_Not_Set,LG_LightValue_Not_Set,LG_LightValue_Not_Set,LG_LightValue_Not_Set}
+
+#define LG_Matrix_InitialValue {LG_LightList_InitialValue,LG_LightList_InitialValue,LG_LightList_InitialValue,LG_LightList_InitialValue}
+
 
 /**
  
@@ -36,111 +44,58 @@ typedef GLdouble LG_LightArray[4];
 class LG_Properties
 {
 
-    GLdouble  matrix[4][4];
-    LG_LightArray ambient;
-    LG_LightArray diffuse;
-    LG_LightArray specular;
-    GLdouble shininess;
-    CGFtexture *texture;
+
     
     
 public:
+    
+    //public for testing purposes
+    LG_Matrix  matrix=LG_Matrix_InitialValue;
+    LG_LightArray ambient=LG_LightList_InitialValue;
+    LG_LightArray diffuse=LG_LightList_InitialValue;
+    LG_LightArray specular=LG_LightList_InitialValue;
+    GLdouble shininess=LG_LightValue_Not_Set;
+    CGFtexture *texture=NULL;
+
     
     
     
     
     LG_Properties();
+    /**
+     
+     Simple constructor. Properties that are not to be set should be set to NULL, with the exception of shininess that should be set to the value LG_Shininess_Not_Set
+     
+     
+     */
+    LG_Properties(LG_Matrix matrix,LG_LightArray amb,LG_LightArray diff,LG_LightArray spec,GLdouble shininess);
     
-    LG_Properties(GLdouble *matrix,GLdouble amb[4],GLdouble diff[4],GLdouble spec[4],GLdouble shininess);
+    
     void setTexture(CGFtexture *newText);
     
     
     
-    /**
-     * Clones a context. Creates a copy of the context.
-     *
-    */
-    LG_Properties * clone();
-    
-    
-    /**
-     
-     Clones a Context object but changes it's light component.
-     
-     */
-    LG_Properties * clone_changeLight(GLdouble amb[4],GLdouble diff[4],GLdouble spec[4],GLdouble shininess);
-    
-    
-    /**
-     
-     Clones a Context object but changes the texture.
-     
-     
-     */
-    LG_Properties * clone_changeTexture(CGFtexture *newTexture);
-    
-    
-    /**
-     
-     
-     Clones a context but changes the matrix for this context.
-     
-     */
-    LG_Properties * clone_changeMatrix(GLdouble newMatrix[4][4]);
-    
-    /**
-     
-     Clones a context but applies a rotation to the current matrix.
-     
-     */
-    LG_Properties * clone_Rotate(double angle,LG_Axis axis);
-    
-    
-    /**
-     
-     Clones a context but applies a translation to the current matrix.
-     
-     */
-    LG_Properties * clone_Translate(double dx,double dy, double dz);
-    
-    /**
-     
-     Clones a context but applies a scaling operation to the current matrix.
-     
-     */
-    LG_Properties * clone_Scale(double sx,double sy,double sz);
-    
-
     
 private:
-    /**
-     
-     Loads the identity matrix onto the matrix data member of this object
-     
-     
-     */
-    void loadIdentity();
     
     /**
      
-     Clones the other contexts matrix
+     Clones a matrix and stores a copy in the matrix data member
      
      */
-    void cloneMatrix(LG_Properties *contextToClone);
+    
+    inline void cloneMatrix(LG_Matrix matrixToClone);
     
     /**
      
-     Clones all light parameters from one LG_Properties to another.
+     Clones a light array and stores it in the data member .
      
      
      */
-    void cloneLightParameters(LG_Properties * contextToClone);
+    inline static void cloneLightArray(LG_LightArray source,LG_LightArray dest);
     
-    /**
-     
-     Clones the texture parameters from one LG_Properties to another.
-     
-     */
-    
-    void cloneTexture(LG_Properties *context);
+
 };
+
+
+#endif /* defined(__LAIG_Proj1__Context__) */

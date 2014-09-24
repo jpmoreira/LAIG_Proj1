@@ -25,13 +25,16 @@ using std::map;
 class LG_Node;//forward declaration for typedef
 
 
-typedef map<string *, LG_Node *> LG_Node_Map;
+typedef map<string , LG_Node *> LG_Node_Map;
 typedef vector<string *> LG_ID_Vector;
+typedef std::pair<string , LG_Node *> LG_Node_Map_Pair;
+
+typedef GLdouble LG_Point[3];
 
 class LG_Node{
     
     
-private:
+protected:
     
     
     
@@ -59,7 +62,7 @@ private:
      
      */
     
-    string *identifier;
+    string identifier;
     
     
     /**
@@ -79,21 +82,11 @@ public:
     
     /**
      
-     Simple constructor
+     Simple constructor. It automatically adds the node to the map
      
      */
-    LG_Node(LG_Node_Map* theMap);
+    LG_Node(LG_Node_Map* theMap,string theIdentifier);
     
-    
-    
-    /**
-     
-     Constructor with initial properties set
-     
-     */
-    
-    
-    LG_Node(LG_Properties *properties);
     
     
     /**
@@ -103,7 +96,7 @@ public:
      
      */
     
-    virtual void draw()=0;
+    virtual void draw();
     
     
     /**
@@ -122,9 +115,7 @@ public:
      */
     
     
-    void addChild(string *childID);
-    
-    
+    void addChild(LG_Node *childToAdd);
     
     
     

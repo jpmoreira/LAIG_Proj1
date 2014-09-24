@@ -7,4 +7,12 @@
 //
 
 
-#include "main.h"
+#include "XMLScene.h"
+int main(){
+
+
+    char * filename="ola";
+    
+    XMLScene *scene=new XMLScene(filename);
+
+}
