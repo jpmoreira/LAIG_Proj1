@@ -44,18 +44,20 @@ typedef GLdouble LG_Matrix[4][4];
 class LG_Properties
 {
 
+    
+private:
 
-    
-    
-public:
-    
-    //public for testing purposes
     LG_Matrix  matrix=LG_Matrix_InitialValue;
     LG_LightArray ambient=LG_LightList_InitialValue;
     LG_LightArray diffuse=LG_LightList_InitialValue;
     LG_LightArray specular=LG_LightList_InitialValue;
     GLdouble shininess=LG_LightValue_Not_Set;
     CGFtexture *texture=NULL;
+    
+    
+public:
+    
+
 
     
     
@@ -74,7 +76,17 @@ public:
     void setTexture(CGFtexture *newText);
     
     
+    /**
+     
+     
+     Uses the openGL glMultMatrixd to multiply the current matrix for the matrix on this object
+     
+     */
+    inline void multMatrix(){
     
+        glMultMatrixd((GLdouble *)this->matrix);
+    
+    };//inline for speed purposes
     
 private:
     
@@ -93,6 +105,7 @@ private:
      
      */
     inline static void cloneLightArray(LG_LightArray source,LG_LightArray dest);
+   
     
 
 };

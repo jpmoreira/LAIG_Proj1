@@ -7,6 +7,7 @@
 //
 
 #include "LG_Properties.h"
+#include <GL/glew.h>
 
 
 
@@ -66,5 +67,7 @@ void LG_Properties::cloneLightArray(GLdouble *source, GLdouble *dest){
     
     for (int i=0; i<4; i++) dest[i]=source[i];
 }
+
+
 
 

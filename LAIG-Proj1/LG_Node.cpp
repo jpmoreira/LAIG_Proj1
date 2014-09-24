@@ -40,6 +40,7 @@ LG_Node * LG_Node::child(int childNr){
 
     
     
+    if (childNr>=childsIDs.size())return NULL;
     string* childID=childsIDs[childNr];
     
     auto it=map->find(*childID);

@@ -1,5 +1,6 @@
 #define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
 #include "catch.h"
+#define private public //disable encapsulation for following files, allowing testing to be done
 #include "LG_Properties.h"
 
 

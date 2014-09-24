@@ -12,6 +12,8 @@
 #include <stdio.h>
 #include "LG_Node.h"
 
+#define LG_Origin_3D_Point {0,0,0}
+
 #endif /* defined(__LAIG_Proj1__LG_Triangle__) */
 
 
@@ -21,9 +23,9 @@ class LG_Triangle : public LG_Node {
     
 private:
     
-    LG_Point pt1;
-    LG_Point pt2;
-    LG_Point pt3;
+    LG_Point pt1=LG_Origin_3D_Point;
+    LG_Point pt2=LG_Origin_3D_Point;
+    LG_Point pt3=LG_Origin_3D_Point;
     
     /**
      
@@ -45,9 +47,15 @@ public:
      
      */
     
-    LG_Triangle(LG_Node_Map *map,LG_Point pt1,LG_Point pt2, LG_Point pt3);
+    LG_Triangle(LG_Node_Map *map,string identif,LG_Point pt1,LG_Point pt2, LG_Point pt3);
 
     
+    /**
+     
+     Simple constructor that creates a triangle with all three vertexes at the origin
+     
+     */
+    LG_Triangle(LG_Node_Map *map,string identif);
     
      virtual void draw();
     

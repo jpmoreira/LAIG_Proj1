@@ -1,5 +1,6 @@
 #define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
 #include "catch.h"
+#define private public//here for testing purposes basicaly disables incapsulation for the files included after
 #include "LG_Node.h"
 
 
@@ -39,15 +40,29 @@ TEST_CASE( "Test child operations" ) {
         
         root->addChild(child);
         
-        
         LG_Node *supposedChild=root->child(0);
-        
-
         
         REQUIRE(supposedChild==child);
         
+    }
+    
+    
+    SECTION("Accessing Illegal child"){
+    
+        
+        
+        LG_Node * child=new LG_Node(theMap,"child");
+        
+        root->addChild(child);
+        
+        LG_Node *supposedChild=root->child(1);
+        
+        REQUIRE(supposedChild==NULL);
+    
     
     }
+    
+
     
     
     

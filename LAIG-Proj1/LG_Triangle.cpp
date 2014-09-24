@@ -14,10 +14,18 @@
 #pragma mark - Constructors
 
 
-LG_Triangle::LG_Triangle(LG_Node_Map *map,LG_Point point1,LG_Point point2, LG_Point point3):LG_Node(map){
+LG_Triangle::LG_Triangle(LG_Node_Map *map,string identifier,LG_Point point1,LG_Point point2, LG_Point point3):LG_Node(map,identifier){
     
     
+    this->copyPoints(point1, point2, point3);
     
+    
+}
+
+
+LG_Triangle::LG_Triangle(LG_Node_Map *map,string identifier):LG_Node(map,identifier){
+
+
 }
 
 #pragma mark - Inherited Methods
@@ -28,7 +36,7 @@ void LG_Triangle::draw(){
     
     glPushMatrix();
     
-    glMultMatrixd(properties->matrix);
+    properties->multMatrix();
     
     glVertex3d(pt1[0], pt1[1], pt1[2]);
     glVertex3d(pt2[0], pt2[1], pt2[2]);
