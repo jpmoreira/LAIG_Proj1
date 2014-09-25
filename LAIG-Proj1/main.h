@@ -20,7 +20,7 @@ int main(){
     
     printf("Ola");
     
-    char * filename="ola";
+    char * filename="test.xml";
     XMLScene *scene=new XMLScene(filename);
     
     
