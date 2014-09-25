@@ -1,0 +1,121 @@
+//
+//  LG_Parsable_Node.cpp
+//  LAIG-Proj1
+//
+//  Created by José Pedro Moreira on 24/09/14.
+//  Copyright (c) 2014 José Pedro Moreira. All rights reserved.
+//
+
+#include "LG_Parsable_Node.h"
+
+
+
+LG_Parsable_Node::LG_Parsable_Node(LG_Node_Map *map,string identif):LG_Node(map,identif){
+    
+
+}
+
+
+
+#pragma mark - Generic Parse Exception
+
+
+LG_Parse_Exception::LG_Parse_Exception(string *elem):element(elem){
+
+
+}
+
+LG_Parse_Exception::~LG_Parse_Exception(){
+
+    delete element;
+
+}
+
+#pragma mark - Wrong Attribute Value Exception
+
+
+char * LG_Parse_Exception_Wrong_Attribute_Value::what(){
+
+
+    string tempMessage="Wrong Attribute Value on Element "+*element+".\nValue: "+*actualValue+"\nExpected: [";
+    
+    int i;
+    for (i=0; i<expectedValues->size()-1; i++) {
+        tempMessage+=expectedValues->at(i)+" or ";//add each element but the last one, with the "or" after
+    }
+    
+    tempMessage+=expectedValues->at(i)+"].";//add last element and close brackets
+    
+    
+    return strdup(tempMessage.c_str());//create copy on the heap and return
+
+}
+
+
+LG_Parse_Exception_Wrong_Attribute_Value::LG_Parse_Exception_Wrong_Attribute_Value(string* elem,string* attrib,string* value,vector<string> *expected):LG_Parse_Exception(elem),attribute(attrib),actualValue(value),expectedValues(expected){
+    
+    
+
+
+}
+
+LG_Parse_Exception_Wrong_Attribute_Value::~LG_Parse_Exception_Wrong_Attribute_Value(){
+
+    delete attribute;
+    delete expectedValues;
+    delete actualValue;
+
+}
+
+
+
+#pragma mark - Wrong Element Name Exception
+
+
+LG_Parse_Exception_Wrong_Element_Name::LG_Parse_Exception_Wrong_Element_Name(string * expectedElementName, string * actualElementName):LG_Parse_Exception(actualElementName),expectedElementName(expectedElementName){
+    
+    
+
+
+}
+
+LG_Parse_Exception_Wrong_Element_Name::~LG_Parse_Exception_Wrong_Element_Name(){
+
+    delete expectedElementName;
+
+}
+
+
+char * LG_Parse_Exception_Wrong_Element_Name::what(){
+
+    
+    string tempMessage="Wrong Element Name. Expected "+*expectedElementName+".\nBut Got: "+*element+".";
+    
+    
+    return strdup(tempMessage.c_str());
+    
+    
+}
+
+
+#pragma mark - Missing Attribute Name Exception
+
+
+LG_Parse_Exception_Missing_Attribute::LG_Parse_Exception_Missing_Attribute(string *elementName,string * missingAtt):LG_Parse_Exception(elementName),missingAttribute(missingAtt){
+
+
+}
+
+char * LG_Parse_Exception_Missing_Attribute::what(){
+    
+    string message="Missing attribute "+*missingAttribute+" for element "+*element+".";
+    
+    return strdup(message.c_str());
+}
+
+LG_Parse_Exception_Missing_Attribute::~LG_Parse_Exception_Missing_Attribute(){
+    
+    delete missingAttribute;
+
+
+}

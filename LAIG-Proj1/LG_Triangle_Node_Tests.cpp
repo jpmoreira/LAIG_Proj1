@@ -39,10 +39,12 @@ TEST_CASE("Triangle Nodes tests"){
     SECTION("Test default point values"){
         
         
+
+        LG_Point origin=LG_Origin_3D_Point;
     
-        for (int i=0; i<3; i++) REQUIRE(rootTriangle->pt1[i]==0);
-        for (int i=0; i<3; i++) REQUIRE(rootTriangle->pt2[i]==0);
-        for (int i=0; i<3; i++) REQUIRE(rootTriangle->pt3[i]==0);
+        for (int i=0; i<3; i++) REQUIRE(rootTriangle->pt1[i]==origin[i]);
+        for (int i=0; i<3; i++) REQUIRE(rootTriangle->pt2[i]==origin[i]);
+        for (int i=0; i<3; i++) REQUIRE(rootTriangle->pt3[i]==origin[i]);
         
         
         

@@ -33,7 +33,6 @@ void LG_Node::draw(){
 
 
 
-
 #pragma mark - Managing Childs
 
 LG_Node * LG_Node::child(int childNr){
