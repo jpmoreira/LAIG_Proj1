@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5405EFC319D09E4F00BEED1E /* LG_Context.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5405EFBD19D09E4F00BEED1E /* LG_Context.cpp */; };
+		5405EFC319D09E4F00BEED1E /* LG_Properties.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5405EFBD19D09E4F00BEED1E /* LG_Properties.cpp */; };
 		5405EFC419D09E4F00BEED1E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5405EFBF19D09E4F00BEED1E /* main.cpp */; };
 		5405EFC519D09E4F00BEED1E /* XMLScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5405EFC119D09E4F00BEED1E /* XMLScene.cpp */; };
 		5436BE4319D0AD7F00D4831A /* libTinyXML.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4219D0AD7F00D4831A /* libTinyXML.a */; };
@@ -18,10 +18,45 @@
 		5436BE4D19D0ADC800D4831A /* GLUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4C19D0ADC800D4831A /* GLUI.framework */; };
 		5436BE4F19D0ADF500D4831A /* libGLEW.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4E19D0ADF500D4831A /* libGLEW.a */; };
 		5436BE5119D0ADFF00D4831A /* libGLEWmx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE5019D0ADFF00D4831A /* libGLEWmx.a */; };
+		5458029C19D1DA5000C9DF32 /* LG_Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5458029A19D1DA5000C9DF32 /* LG_Node.cpp */; };
+		545802A019D1EC0500C9DF32 /* LG_Triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5458029E19D1EC0500C9DF32 /* LG_Triangle.cpp */; };
+		545802AF19D2BEC700C9DF32 /* LG_Nodes_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 545802A319D2BE4D00C9DF32 /* LG_Nodes_Tests.cpp */; };
+		545802BD19D2C7A800C9DF32 /* LG_Properties_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 545802B019D2C6D400C9DF32 /* LG_Properties_Tests.cpp */; };
+		545802BE19D2C90C00C9DF32 /* LG_Properties.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5405EFBD19D09E4F00BEED1E /* LG_Properties.cpp */; };
+		545802BF19D2D7FF00C9DF32 /* LG_Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5458029A19D1DA5000C9DF32 /* LG_Node.cpp */; };
+		545802C019D2D83B00C9DF32 /* LG_Properties.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5405EFBD19D09E4F00BEED1E /* LG_Properties.cpp */; };
+		545802CF19D30FB400C9DF32 /* LG_Triangle_Node_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 545802C119D30BE200C9DF32 /* LG_Triangle_Node_Tests.cpp */; };
+		545802D019D30FB400C9DF32 /* LG_Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5458029A19D1DA5000C9DF32 /* LG_Node.cpp */; };
+		545802D119D30FB400C9DF32 /* LG_Triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5458029E19D1EC0500C9DF32 /* LG_Triangle.cpp */; };
+		545802D219D30FB400C9DF32 /* LG_Properties.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5405EFBD19D09E4F00BEED1E /* LG_Properties.cpp */; };
+		545802D319D3142800C9DF32 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4619D0AD9E00D4831A /* OpenGL.framework */; };
+		545802D619D3175500C9DF32 /* LG_Lighting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 545802D419D3175500C9DF32 /* LG_Lighting.cpp */; };
+		545802D919D31C6700C9DF32 /* LG_Parsable_Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 545802D719D31C6700C9DF32 /* LG_Parsable_Node.cpp */; };
+		545802EA19D3FF4C00C9DF32 /* LG_Parsing_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 545802DA19D3FAA000C9DF32 /* LG_Parsing_Tests.cpp */; };
+		545802EB19D3FF5200C9DF32 /* LG_Parsable_Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 545802D719D31C6700C9DF32 /* LG_Parsable_Node.cpp */; };
+		545802EC19D46C5800C9DF32 /* LG_Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5458029A19D1DA5000C9DF32 /* LG_Node.cpp */; };
+		545802ED19D46C6600C9DF32 /* LG_Properties.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5405EFBD19D09E4F00BEED1E /* LG_Properties.cpp */; };
+		545802EE19D48C0300C9DF32 /* libTinyXML.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4219D0AD7F00D4831A /* libTinyXML.a */; };
+		545802FC19D4996400C9DF32 /* LG_Globals_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 545802EF19D4992C00C9DF32 /* LG_Globals_Tests.cpp */; };
+		545802FD19D4996400C9DF32 /* LG_Lighting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 545802D419D3175500C9DF32 /* LG_Lighting.cpp */; };
+		545802FE19D4996400C9DF32 /* LG_Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5458029A19D1DA5000C9DF32 /* LG_Node.cpp */; };
+		545802FF19D4996400C9DF32 /* LG_Parsable_Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 545802D719D31C6700C9DF32 /* LG_Parsable_Node.cpp */; };
+		5458030019D4996400C9DF32 /* LG_Properties.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5405EFBD19D09E4F00BEED1E /* LG_Properties.cpp */; };
+		5458030119D4997100C9DF32 /* libTinyXML.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4219D0AD7F00D4831A /* libTinyXML.a */; };
+		5458030419D49EA700C9DF32 /* TestGlobals.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5458030219D49E5B00C9DF32 /* TestGlobals.xml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		54174DC519D033CB0039E991 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = usr/share/man/man1;
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		545802A619D2BEB100C9DF32 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -30,13 +65,49 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		545802B419D2C79F00C9DF32 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		545802C619D30F7400C9DF32 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		545802DE19D3FB1100C9DF32 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		545802F319D4994300C9DF32 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = testFiles;
+			dstSubfolderSpec = 16;
+			files = (
+				5458030419D49EA700C9DF32 /* TestGlobals.xml in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5405EFBD19D09E4F00BEED1E /* LG_Context.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Context.cpp; sourceTree = "<group>"; };
-		5405EFBE19D09E4F00BEED1E /* LG_Context.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_Context.h; sourceTree = "<group>"; };
+		5405EFBD19D09E4F00BEED1E /* LG_Properties.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Properties.cpp; sourceTree = "<group>"; };
+		5405EFBE19D09E4F00BEED1E /* LG_Properties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_Properties.h; sourceTree = "<group>"; };
 		5405EFBF19D09E4F00BEED1E /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		5405EFC019D09E4F00BEED1E /* main.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = main.h; sourceTree = "<group>"; };
 		5405EFC119D09E4F00BEED1E /* XMLScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XMLScene.cpp; sourceTree = "<group>"; };
 		5405EFC219D09E4F00BEED1E /* XMLScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLScene.h; sourceTree = "<group>"; };
 		54174DC719D033CC0039E991 /* LAIG-Proj1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "LAIG-Proj1"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,6 +119,27 @@
 		5436BE4C19D0ADC800D4831A /* GLUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUI.framework; path = /Library/Frameworks/GLUI.framework; sourceTree = "<absolute>"; };
 		5436BE4E19D0ADF500D4831A /* libGLEW.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGLEW.a; path = /usr/local/Cellar/glew/1.10.0/lib/libGLEW.a; sourceTree = "<absolute>"; };
 		5436BE5019D0ADFF00D4831A /* libGLEWmx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGLEWmx.a; path = /usr/local/Cellar/glew/1.10.0/lib/libGLEWmx.a; sourceTree = "<absolute>"; };
+		5458029819D1D8BA00C9DF32 /* test.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = test.xml; sourceTree = "<group>"; };
+		5458029A19D1DA5000C9DF32 /* LG_Node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Node.cpp; sourceTree = "<group>"; };
+		5458029B19D1DA5000C9DF32 /* LG_Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_Node.h; sourceTree = "<group>"; };
+		5458029E19D1EC0500C9DF32 /* LG_Triangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Triangle.cpp; sourceTree = "<group>"; };
+		5458029F19D1EC0500C9DF32 /* LG_Triangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_Triangle.h; sourceTree = "<group>"; };
+		545802A219D2BDC700C9DF32 /* Catch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Catch.h; sourceTree = "<group>"; };
+		545802A319D2BE4D00C9DF32 /* LG_Nodes_Tests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Nodes_Tests.cpp; sourceTree = "<group>"; };
+		545802A819D2BEB100C9DF32 /* LG_Nodes_Tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LG_Nodes_Tests; sourceTree = BUILT_PRODUCTS_DIR; };
+		545802B019D2C6D400C9DF32 /* LG_Properties_Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Properties_Tests.cpp; sourceTree = "<group>"; };
+		545802B619D2C79F00C9DF32 /* LG_Properties_Tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LG_Properties_Tests; sourceTree = BUILT_PRODUCTS_DIR; };
+		545802C119D30BE200C9DF32 /* LG_Triangle_Node_Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Triangle_Node_Tests.cpp; sourceTree = "<group>"; };
+		545802C819D30F7400C9DF32 /* LG_Triangle_Tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LG_Triangle_Tests; sourceTree = BUILT_PRODUCTS_DIR; };
+		545802D419D3175500C9DF32 /* LG_Lighting.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Lighting.cpp; sourceTree = "<group>"; };
+		545802D519D3175500C9DF32 /* LG_Lighting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_Lighting.h; sourceTree = "<group>"; };
+		545802D719D31C6700C9DF32 /* LG_Parsable_Node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Parsable_Node.cpp; sourceTree = "<group>"; };
+		545802D819D31C6700C9DF32 /* LG_Parsable_Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_Parsable_Node.h; sourceTree = "<group>"; };
+		545802DA19D3FAA000C9DF32 /* LG_Parsing_Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Parsing_Tests.cpp; sourceTree = "<group>"; };
+		545802E019D3FB1100C9DF32 /* LG_Parse_Exceptions_Tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LG_Parse_Exceptions_Tests; sourceTree = BUILT_PRODUCTS_DIR; };
+		545802EF19D4992C00C9DF32 /* LG_Globals_Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Globals_Tests.cpp; sourceTree = "<group>"; };
+		545802F519D4994300C9DF32 /* LG_Globals_Tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LG_Globals_Tests; sourceTree = BUILT_PRODUCTS_DIR; };
+		5458030219D49E5B00C9DF32 /* TestGlobals.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestGlobals.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +155,44 @@
 				5436BE4719D0AD9E00D4831A /* OpenGL.framework in Frameworks */,
 				5436BE4519D0AD9200D4831A /* libCGF.a in Frameworks */,
 				5436BE4319D0AD7F00D4831A /* libTinyXML.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		545802A519D2BEB100C9DF32 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		545802B319D2C79F00C9DF32 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		545802C519D30F7400C9DF32 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				545802D319D3142800C9DF32 /* OpenGL.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		545802DD19D3FB1100C9DF32 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				545802EE19D48C0300C9DF32 /* libTinyXML.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		545802F219D4994300C9DF32 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5458030119D4997100C9DF32 /* libTinyXML.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +212,11 @@
 			isa = PBXGroup;
 			children = (
 				54174DC719D033CC0039E991 /* LAIG-Proj1 */,
+				545802A819D2BEB100C9DF32 /* LG_Nodes_Tests */,
+				545802B619D2C79F00C9DF32 /* LG_Properties_Tests */,
+				545802C819D30F7400C9DF32 /* LG_Triangle_Tests */,
+				545802E019D3FB1100C9DF32 /* LG_Parse_Exceptions_Tests */,
+				545802F519D4994300C9DF32 /* LG_Globals_Tests */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -89,11 +224,13 @@
 		54174DC919D033CC0039E991 /* LAIG-Proj1 */ = {
 			isa = PBXGroup;
 			children = (
-				5405EFBD19D09E4F00BEED1E /* LG_Context.cpp */,
-				5405EFBE19D09E4F00BEED1E /* LG_Context.h */,
+				545802A119D2BD4F00C9DF32 /* Tests */,
+				5458029D19D1EBE900C9DF32 /* LG_Node */,
+				5405EFBD19D09E4F00BEED1E /* LG_Properties.cpp */,
+				5405EFBE19D09E4F00BEED1E /* LG_Properties.h */,
 				5405EFBF19D09E4F00BEED1E /* main.cpp */,
-				5405EFC019D09E4F00BEED1E /* main.h */,
 				5405EFC119D09E4F00BEED1E /* XMLScene.cpp */,
+				5458029819D1D8BA00C9DF32 /* test.xml */,
 				5405EFC219D09E4F00BEED1E /* XMLScene.h */,
 			);
 			path = "LAIG-Proj1";
@@ -113,6 +250,35 @@
 			);
 			name = Frameworks;
 			path = "LAIG-Proj1";
+			sourceTree = "<group>";
+		};
+		5458029D19D1EBE900C9DF32 /* LG_Node */ = {
+			isa = PBXGroup;
+			children = (
+				545802D419D3175500C9DF32 /* LG_Lighting.cpp */,
+				545802D519D3175500C9DF32 /* LG_Lighting.h */,
+				5458029A19D1DA5000C9DF32 /* LG_Node.cpp */,
+				5458029B19D1DA5000C9DF32 /* LG_Node.h */,
+				5458029E19D1EC0500C9DF32 /* LG_Triangle.cpp */,
+				5458029F19D1EC0500C9DF32 /* LG_Triangle.h */,
+				545802D719D31C6700C9DF32 /* LG_Parsable_Node.cpp */,
+				545802D819D31C6700C9DF32 /* LG_Parsable_Node.h */,
+			);
+			name = LG_Node;
+			sourceTree = "<group>";
+		};
+		545802A119D2BD4F00C9DF32 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				545802A219D2BDC700C9DF32 /* Catch.h */,
+				545802A319D2BE4D00C9DF32 /* LG_Nodes_Tests.cpp */,
+				545802C119D30BE200C9DF32 /* LG_Triangle_Node_Tests.cpp */,
+				545802B019D2C6D400C9DF32 /* LG_Properties_Tests.cpp */,
+				545802DA19D3FAA000C9DF32 /* LG_Parsing_Tests.cpp */,
+				545802EF19D4992C00C9DF32 /* LG_Globals_Tests.cpp */,
+				5458030219D49E5B00C9DF32 /* TestGlobals.xml */,
+			);
+			name = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,6 +301,91 @@
 			productReference = 54174DC719D033CC0039E991 /* LAIG-Proj1 */;
 			productType = "com.apple.product-type.tool";
 		};
+		545802A719D2BEB100C9DF32 /* LG_Nodes_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 545802AC19D2BEB100C9DF32 /* Build configuration list for PBXNativeTarget "LG_Nodes_Tests" */;
+			buildPhases = (
+				545802A419D2BEB100C9DF32 /* Sources */,
+				545802A519D2BEB100C9DF32 /* Frameworks */,
+				545802A619D2BEB100C9DF32 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LG_Nodes_Tests;
+			productName = LG_Nodes_Tests;
+			productReference = 545802A819D2BEB100C9DF32 /* LG_Nodes_Tests */;
+			productType = "com.apple.product-type.tool";
+		};
+		545802B519D2C79F00C9DF32 /* LG_Properties_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 545802BA19D2C79F00C9DF32 /* Build configuration list for PBXNativeTarget "LG_Properties_Tests" */;
+			buildPhases = (
+				545802B219D2C79F00C9DF32 /* Sources */,
+				545802B319D2C79F00C9DF32 /* Frameworks */,
+				545802B419D2C79F00C9DF32 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LG_Properties_Tests;
+			productName = LG_Properties_Tests;
+			productReference = 545802B619D2C79F00C9DF32 /* LG_Properties_Tests */;
+			productType = "com.apple.product-type.tool";
+		};
+		545802C719D30F7400C9DF32 /* LG_Triangle_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 545802CC19D30F7400C9DF32 /* Build configuration list for PBXNativeTarget "LG_Triangle_Tests" */;
+			buildPhases = (
+				545802C419D30F7400C9DF32 /* Sources */,
+				545802C519D30F7400C9DF32 /* Frameworks */,
+				545802C619D30F7400C9DF32 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LG_Triangle_Tests;
+			productName = LG_Triangle_Tests;
+			productReference = 545802C819D30F7400C9DF32 /* LG_Triangle_Tests */;
+			productType = "com.apple.product-type.tool";
+		};
+		545802DF19D3FB1100C9DF32 /* LG_Parse_Exceptions_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 545802E419D3FB1100C9DF32 /* Build configuration list for PBXNativeTarget "LG_Parse_Exceptions_Tests" */;
+			buildPhases = (
+				545802DC19D3FB1100C9DF32 /* Sources */,
+				545802DD19D3FB1100C9DF32 /* Frameworks */,
+				545802DE19D3FB1100C9DF32 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LG_Parse_Exceptions_Tests;
+			productName = LG_Parse_Exceptions_Tests;
+			productReference = 545802E019D3FB1100C9DF32 /* LG_Parse_Exceptions_Tests */;
+			productType = "com.apple.product-type.tool";
+		};
+		545802F419D4994300C9DF32 /* LG_Globals_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 545802F919D4994300C9DF32 /* Build configuration list for PBXNativeTarget "LG_Globals_Tests" */;
+			buildPhases = (
+				545802F119D4994300C9DF32 /* Sources */,
+				545802F219D4994300C9DF32 /* Frameworks */,
+				545802F319D4994300C9DF32 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LG_Globals_Tests;
+			productName = LG_Globals_Tests;
+			productReference = 545802F519D4994300C9DF32 /* LG_Globals_Tests */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -145,6 +396,21 @@
 				ORGANIZATIONNAME = "José Pedro Moreira";
 				TargetAttributes = {
 					54174DC619D033CB0039E991 = {
+						CreatedOnToolsVersion = 6.0.1;
+					};
+					545802A719D2BEB100C9DF32 = {
+						CreatedOnToolsVersion = 6.0.1;
+					};
+					545802B519D2C79F00C9DF32 = {
+						CreatedOnToolsVersion = 6.0.1;
+					};
+					545802C719D30F7400C9DF32 = {
+						CreatedOnToolsVersion = 6.0.1;
+					};
+					545802DF19D3FB1100C9DF32 = {
+						CreatedOnToolsVersion = 6.0.1;
+					};
+					545802F419D4994300C9DF32 = {
 						CreatedOnToolsVersion = 6.0.1;
 					};
 				};
@@ -162,6 +428,11 @@
 			projectRoot = "";
 			targets = (
 				54174DC619D033CB0039E991 /* LAIG-Proj1 */,
+				545802A719D2BEB100C9DF32 /* LG_Nodes_Tests */,
+				545802B519D2C79F00C9DF32 /* LG_Properties_Tests */,
+				545802C719D30F7400C9DF32 /* LG_Triangle_Tests */,
+				545802DF19D3FB1100C9DF32 /* LG_Parse_Exceptions_Tests */,
+				545802F419D4994300C9DF32 /* LG_Globals_Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -171,9 +442,66 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				545802D919D31C6700C9DF32 /* LG_Parsable_Node.cpp in Sources */,
+				545802D619D3175500C9DF32 /* LG_Lighting.cpp in Sources */,
+				545802A019D1EC0500C9DF32 /* LG_Triangle.cpp in Sources */,
+				5458029C19D1DA5000C9DF32 /* LG_Node.cpp in Sources */,
 				5405EFC519D09E4F00BEED1E /* XMLScene.cpp in Sources */,
-				5405EFC319D09E4F00BEED1E /* LG_Context.cpp in Sources */,
+				5405EFC319D09E4F00BEED1E /* LG_Properties.cpp in Sources */,
 				5405EFC419D09E4F00BEED1E /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		545802A419D2BEB100C9DF32 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				545802C019D2D83B00C9DF32 /* LG_Properties.cpp in Sources */,
+				545802BF19D2D7FF00C9DF32 /* LG_Node.cpp in Sources */,
+				545802AF19D2BEC700C9DF32 /* LG_Nodes_Tests.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		545802B219D2C79F00C9DF32 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				545802BE19D2C90C00C9DF32 /* LG_Properties.cpp in Sources */,
+				545802BD19D2C7A800C9DF32 /* LG_Properties_Tests.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		545802C419D30F7400C9DF32 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				545802CF19D30FB400C9DF32 /* LG_Triangle_Node_Tests.cpp in Sources */,
+				545802D019D30FB400C9DF32 /* LG_Node.cpp in Sources */,
+				545802D119D30FB400C9DF32 /* LG_Triangle.cpp in Sources */,
+				545802D219D30FB400C9DF32 /* LG_Properties.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		545802DC19D3FB1100C9DF32 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				545802ED19D46C6600C9DF32 /* LG_Properties.cpp in Sources */,
+				545802EC19D46C5800C9DF32 /* LG_Node.cpp in Sources */,
+				545802EB19D3FF5200C9DF32 /* LG_Parsable_Node.cpp in Sources */,
+				545802EA19D3FF4C00C9DF32 /* LG_Parsing_Tests.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		545802F119D4994300C9DF32 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				545802FC19D4996400C9DF32 /* LG_Globals_Tests.cpp in Sources */,
+				545802FD19D4996400C9DF32 /* LG_Lighting.cpp in Sources */,
+				545802FE19D4996400C9DF32 /* LG_Node.cpp in Sources */,
+				545802FF19D4996400C9DF32 /* LG_Parsable_Node.cpp in Sources */,
+				5458030019D4996400C9DF32 /* LG_Properties.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +634,96 @@
 			};
 			name = Release;
 		};
+		545802AD19D2BEB100C9DF32 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		545802AE19D2BEB100C9DF32 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		545802BB19D2C79F00C9DF32 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		545802BC19D2C79F00C9DF32 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		545802CD19D30F7400C9DF32 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		545802CE19D30F7400C9DF32 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		545802E519D3FB1100C9DF32 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		545802E619D3FB1100C9DF32 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		545802FA19D4994300C9DF32 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		545802FB19D4994300C9DF32 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -326,6 +744,46 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		545802AC19D2BEB100C9DF32 /* Build configuration list for PBXNativeTarget "LG_Nodes_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				545802AD19D2BEB100C9DF32 /* Debug */,
+				545802AE19D2BEB100C9DF32 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		545802BA19D2C79F00C9DF32 /* Build configuration list for PBXNativeTarget "LG_Properties_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				545802BB19D2C79F00C9DF32 /* Debug */,
+				545802BC19D2C79F00C9DF32 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		545802CC19D30F7400C9DF32 /* Build configuration list for PBXNativeTarget "LG_Triangle_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				545802CD19D30F7400C9DF32 /* Debug */,
+				545802CE19D30F7400C9DF32 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		545802E419D3FB1100C9DF32 /* Build configuration list for PBXNativeTarget "LG_Parse_Exceptions_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				545802E519D3FB1100C9DF32 /* Debug */,
+				545802E619D3FB1100C9DF32 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		545802F919D4994300C9DF32 /* Build configuration list for PBXNativeTarget "LG_Globals_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				545802FA19D4994300C9DF32 /* Debug */,
+				545802FB19D4994300C9DF32 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

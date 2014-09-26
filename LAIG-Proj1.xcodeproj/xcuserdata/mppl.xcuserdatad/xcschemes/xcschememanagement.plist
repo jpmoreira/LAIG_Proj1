@@ -14,10 +14,60 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>LG_Globals_Tests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
+		<key>LG_Nodes_Tests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>LG_Parse_Exceptions_Tests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+		<key>LG_Properties_Tests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>LG_Triangle_Tests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>54174DC619D033CB0039E991</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>545802A719D2BEB100C9DF32</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>545802B519D2C79F00C9DF32</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>545802C719D30F7400C9DF32</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>545802DF19D3FB1100C9DF32</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>545802F419D4994300C9DF32</key>
 		<dict>
 			<key>primary</key>
 			<true/>
