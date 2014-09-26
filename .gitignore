@@ -340,3 +340,5 @@ include/XMLScene.h
 include/tinyxml.h
 include/tinystr.h
 *.pbxproj
+LAIG-Proj1/XMLScene___.cpp
+LAIG-Proj1/XMLScene___.h
