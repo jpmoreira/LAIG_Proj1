@@ -27,14 +27,14 @@ private:
      To control if openGL is to use ilumination in both faces
      
      */
-    bool doublesided=false;
+    bool doublesided;
     
     /**
      
      To control if openGL is  to use local ilumination
      
      */
-    bool local=true;
+    bool local;
     
     /**
      
@@ -42,7 +42,7 @@ private:
      
      */
     
-    bool enabled=true;
+    bool enabled;
     
     /**
      

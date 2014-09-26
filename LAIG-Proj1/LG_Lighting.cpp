@@ -6,13 +6,13 @@
 #pragma mark - Constructors
 
 
-LG_Lighting::LG_Lighting(LG_Node_Map *map,TiXmlNode *node):LG_Parsable_Node(map,LG_Lighting_Node_ID){
+LG_Lighting::LG_Lighting(LG_Node_Map *map,TiXmlNode *node):LG_Parsable_Node(map,LG_Lighting_Node_ID),doublesided(false),local(true),enabled(true){
     
     
 
     enum TiXmlNode::NodeType type=(enum TiXmlNode::NodeType )node->Type();
     
- 
+#warning Do verifications here
     
 }
 
