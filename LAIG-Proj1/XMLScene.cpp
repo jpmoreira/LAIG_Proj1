@@ -57,12 +57,46 @@ XMLScene::XMLScene(char *filename)
 
 	if(camerasElement == NULL){
 		printf("ERROR cameras block not found!\n");
+		exit(1);
 	}
 	else{
 		printf("processing cameras\n");
 		printf("%s\n", camerasElement->Attribute("initial"));
 
 		if(!fillCamerasElement(camerasElement))
+			exit(2);
+	}
+
+	if (lightsElement == NULL){
+		printf("ERROR lights block not found!\n");
+		exit(1);
+	}
+	else{
+		printf("processing lights\n");
+
+		if (!fillLightsElement(lightsElement))
+			exit(2);
+	}
+
+
+	if (texturesElement == NULL){
+		printf("ERROR textures block not found!\n");
+		exit(1);
+	} else{
+		printf("processing textures\n");
+
+		fillTexturesElement(texturesElement);
+	}
+
+
+	if (appearancesElement == NULL){
+		printf("ERROR appearences block not found!\n");
+		exit(1);
+	}
+	else{
+		printf("processing appearences\n");
+		
+		if (!fillAppearencesElement(appearancesElement))
 			exit(2);
 	}
 
@@ -381,8 +415,8 @@ bool XMLScene::fillLightsElement(TiXmlElement *lightsElement){
 
 		if(strcmp(type, "spot")==0){
 			//getting specific spot light attributes
-			if(lightElement->QueryFloatAttribute("angle", &angle)==NULL ||
-				lightElement->QueryFloatAttribute("exponent", &exponent)==NULL)
+			if(lightElement->QueryFloatAttribute("angle", &angle)!=TIXML_SUCCESS||
+				lightElement->QueryFloatAttribute("exponent", &exponent) != TIXML_SUCCESS)
 				continue;
 
 			target=(char *) lightElement->Attribute("target");
@@ -408,7 +442,7 @@ bool XMLScene::fillLightsElement(TiXmlElement *lightsElement){
 
 
 		pos = (char *) lightElement->Attribute("pos");
-		if(!(pos && sscanf(pos, "%f %f %f", pos_x, pos_y, pos_z) == 3))
+		if(!(pos && sscanf(pos, "%f %f %f", &pos_x, &pos_y, &pos_z) == 3))
 			continue;
 
 		/*if(!fillLightComponents(lightElement))
@@ -443,13 +477,13 @@ bool XMLScene::fillLightsElement(TiXmlElement *lightsElement){
 				//add component here
 			}
 
-		} while ((lightComponent = lightElement->NextSiblingElement("component")));
+		} while ((lightComponent = lightComponent->NextSiblingElement("component")));
 
 
 		//save light according to type
 
 		at_least_one = true;
-	} while ((lightElement=lightsElement->NextSiblingElement("light")));
+	} while ((lightElement=lightElement->NextSiblingElement("light")));
 
 	return at_least_one;
 }
@@ -474,11 +508,12 @@ void XMLScene::fillTexturesElement(TiXmlElement *texturesElement){
 			if(file== NULL || strcmp(file, "") == 0)
 				continue;
 
-			if(textureElement->QueryFloatAttribute("texlength_s", &texlength_s) == NULL ||
-				textureElement->QueryFloatAttribute("texlength_t", &texlength_t) == NULL)
+			if (textureElement->QueryFloatAttribute("texlength_s", &texlength_s) != TIXML_SUCCESS ||
+				textureElement->QueryFloatAttribute("texlength_t", &texlength_t) != TIXML_SUCCESS)
 				continue;
 
 			//save texture
+			printf("texture created successfuly\n");
 
 		} while ((textureElement= texturesElement->NextSiblingElement("texture")));
 }
@@ -487,7 +522,7 @@ void XMLScene::fillTexturesElement(TiXmlElement *texturesElement){
 bool XMLScene::fillAppearencesElement(TiXmlElement *appearencesElement){
 	bool at_least_one = false;
 
-	TiXmlElement *appearenceElement = appearancesElement->FirstChildElement("appearence");
+	TiXmlElement *appearenceElement = appearancesElement->FirstChildElement("appearance");
 
 	if(appearenceElement)
 		do
@@ -506,7 +541,7 @@ bool XMLScene::fillAppearencesElement(TiXmlElement *appearencesElement){
 			if(!(textureref==NULL || strcmp(textureref, "")== 0))
 				textureref_associated = true;
 
-			if((appearenceElement->QueryFloatAttribute("shininess", &shininess))==NULL)
+			if((appearenceElement->QueryFloatAttribute("shininess", &shininess))!=TIXML_SUCCESS)
 				continue;
 
 			//components
@@ -537,9 +572,9 @@ bool XMLScene::fillAppearencesElement(TiXmlElement *appearencesElement){
 				{
 					specular=true;
 					//add component
-				} else continue;
+				}
 
-			} while (appearenceComponent= appearenceElement->NextSiblingElement("component"));
+			} while ((appearenceComponent= appearenceComponent->NextSiblingElement("component")));
 
 
 
