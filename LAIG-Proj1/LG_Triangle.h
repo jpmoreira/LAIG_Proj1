@@ -23,9 +23,9 @@ class LG_Triangle : public LG_Node {
     
 private:
     
-    LG_Point pt1=LG_Origin_3D_Point;
-    LG_Point pt2=LG_Origin_3D_Point;
-    LG_Point pt3=LG_Origin_3D_Point;
+    LG_Point pt1;
+    LG_Point pt2;
+    LG_Point pt3;
     
     /**
      

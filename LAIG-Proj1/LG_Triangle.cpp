@@ -14,7 +14,7 @@
 #pragma mark - Constructors
 
 
-LG_Triangle::LG_Triangle(LG_Node_Map *map,string identifier,LG_Point point1,LG_Point point2, LG_Point point3):LG_Node(map,identifier){
+LG_Triangle::LG_Triangle(LG_Node_Map *map,string identifier,LG_Point point1,LG_Point point2, LG_Point point3):LG_Node(map,identifier),pt1(LG_Origin_3D_Point),pt2(LG_Origin_3D_Point),pt3(LG_Origin_3D_Point){
     
     
     this->copyPoints(point1, point2, point3);
