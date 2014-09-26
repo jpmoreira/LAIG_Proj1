@@ -49,7 +49,7 @@ private:
      To control the ambient light color. Tipically white or brown.
      
      */
-    LG_LightArray ambient=LG_LightList_InitialValue;
+	LG_LightArray ambient;
     
     
     

@@ -12,7 +12,7 @@ LG_Lighting::LG_Lighting(LG_Node_Map *map,TiXmlNode *node):LG_Parsable_Node(map,
 
     enum TiXmlNode::NodeType type=(enum TiXmlNode::NodeType )node->Type();
     
-#warning Do verifications here
+//#warning Do verifications here
     
 }
 

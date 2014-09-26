@@ -2,7 +2,7 @@
 #include "catch.h"
 #define private public //disable encapsulation for following files, allowing testing to be done
 
-#import "LG_Triangle.h"
+#include "LG_Triangle.h"
 
 
 TEST_CASE("Triangle Nodes tests"){
