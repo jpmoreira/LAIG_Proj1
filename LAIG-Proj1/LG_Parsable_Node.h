@@ -120,7 +120,6 @@ public:
     
     static inline double doubleValueForAttribute(TiXmlAttribute *att){
         
-#warning allow usage of , instead of . in for doubles
         
         
         double value;
