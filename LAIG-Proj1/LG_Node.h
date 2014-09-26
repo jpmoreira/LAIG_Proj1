@@ -14,7 +14,15 @@
 #include <string>
 #include <map>
 #include "LG_Node.h"
-#include "LG_Properties.h"
+#include <GL/glew.h>
+//#include "LG_Properties.h"
+
+#define LG_LightValue_Not_Set -1
+
+#define LG_LightList_InitialValue {LG_LightValue_Not_Set,LG_LightValue_Not_Set,LG_LightValue_Not_Set,LG_LightValue_Not_Set}
+
+#define LG_Matrix_InitialValue {LG_LightList_InitialValue,LG_LightList_InitialValue,LG_LightList_InitialValue,LG_LightList_InitialValue}
+
 
 
 
@@ -30,6 +38,11 @@ typedef vector<string *> LG_ID_Vector;
 typedef std::pair<string , LG_Node *> LG_Node_Map_Pair;
 
 typedef GLdouble LG_Point[3];
+typedef GLdouble LG_LightArray[4];
+typedef GLdouble LG_Matrix[4][4];
+
+
+
 
 class LG_Node{
     
@@ -52,7 +65,7 @@ protected:
      The properties for this object
      
      */
-    LG_Properties *properties;
+    //LG_Properties *properties;
     
     
     /**

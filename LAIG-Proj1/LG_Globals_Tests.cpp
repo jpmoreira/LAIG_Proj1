@@ -3,6 +3,7 @@
 #define private public //disable encapsulation for following files, allowing testing to be done
 
 #include <tinyxml.h>
+#include <LG_Lighting.h>
 
 TEST_CASE("Testing lighting"){
 
@@ -14,6 +15,9 @@ TEST_CASE("Testing lighting"){
     
     
     TiXmlElement *ele=(TiXmlElement *)doc->FirstChild();
+   
+
+    LG_Parsable_Node *node=new LG_Parsable_Node(NULL,"ola");
     
     int cmp=strcmp(ele->Value(), "lighting");
     

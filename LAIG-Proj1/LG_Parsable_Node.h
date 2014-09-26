@@ -16,6 +16,8 @@
 #include <math.h>
 #include <cfloat>
 
+using std::exception;
+
 
 #define LG_INVALID_INT INT_MAX
 #define LG_INVALID_DOUBLE DBL_MAX //didn't use NaN because checking nan==nan always returns false
@@ -129,6 +131,9 @@ public:
         
         
     }
+    
+    
+
 
 };
 

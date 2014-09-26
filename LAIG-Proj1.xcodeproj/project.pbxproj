@@ -44,6 +44,8 @@
 		5458030019D4996400C9DF32 /* LG_Properties.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5405EFBD19D09E4F00BEED1E /* LG_Properties.cpp */; };
 		5458030119D4997100C9DF32 /* libTinyXML.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4219D0AD7F00D4831A /* libTinyXML.a */; };
 		5458030419D49EA700C9DF32 /* TestGlobals.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5458030219D49E5B00C9DF32 /* TestGlobals.xml */; };
+		5458030719D5803600C9DF32 /* LG_Culling.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5458030519D5803600C9DF32 /* LG_Culling.cpp */; };
+		5458030A19D5804400C9DF32 /* LG_Drawing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5458030819D5804400C9DF32 /* LG_Drawing.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -140,6 +142,10 @@
 		545802EF19D4992C00C9DF32 /* LG_Globals_Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Globals_Tests.cpp; sourceTree = "<group>"; };
 		545802F519D4994300C9DF32 /* LG_Globals_Tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LG_Globals_Tests; sourceTree = BUILT_PRODUCTS_DIR; };
 		5458030219D49E5B00C9DF32 /* TestGlobals.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestGlobals.xml; sourceTree = "<group>"; };
+		5458030519D5803600C9DF32 /* LG_Culling.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Culling.cpp; sourceTree = "<group>"; };
+		5458030619D5803600C9DF32 /* LG_Culling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_Culling.h; sourceTree = "<group>"; };
+		5458030819D5804400C9DF32 /* LG_Drawing.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Drawing.cpp; sourceTree = "<group>"; };
+		5458030919D5804400C9DF32 /* LG_Drawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_Drawing.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,6 +269,10 @@
 				5458029F19D1EC0500C9DF32 /* LG_Triangle.h */,
 				545802D719D31C6700C9DF32 /* LG_Parsable_Node.cpp */,
 				545802D819D31C6700C9DF32 /* LG_Parsable_Node.h */,
+				5458030519D5803600C9DF32 /* LG_Culling.cpp */,
+				5458030619D5803600C9DF32 /* LG_Culling.h */,
+				5458030819D5804400C9DF32 /* LG_Drawing.cpp */,
+				5458030919D5804400C9DF32 /* LG_Drawing.h */,
 			);
 			name = LG_Node;
 			sourceTree = "<group>";
@@ -446,9 +456,11 @@
 				545802D619D3175500C9DF32 /* LG_Lighting.cpp in Sources */,
 				545802A019D1EC0500C9DF32 /* LG_Triangle.cpp in Sources */,
 				5458029C19D1DA5000C9DF32 /* LG_Node.cpp in Sources */,
+				5458030A19D5804400C9DF32 /* LG_Drawing.cpp in Sources */,
 				5405EFC519D09E4F00BEED1E /* XMLScene.cpp in Sources */,
 				5405EFC319D09E4F00BEED1E /* LG_Properties.cpp in Sources */,
 				5405EFC419D09E4F00BEED1E /* main.cpp in Sources */,
+				5458030719D5803600C9DF32 /* LG_Culling.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

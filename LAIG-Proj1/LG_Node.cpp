@@ -14,7 +14,7 @@ using std::vector;
 
 
 #pragma mark - Constructors
-LG_Node::LG_Node(LG_Node_Map *map,string theIdentifier):childsIDs(LG_ID_Vector()),properties(new LG_Properties()),identifier(theIdentifier),map(map){
+LG_Node::LG_Node(LG_Node_Map *map,string theIdentifier):childsIDs(LG_ID_Vector()),identifier(theIdentifier),map(map){
     
     
     map->insert(LG_Node_Map_Pair(identifier,this));//add itself to the map automatically

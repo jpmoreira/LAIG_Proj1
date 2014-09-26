@@ -36,7 +36,7 @@ void LG_Triangle::draw(){
     
     glPushMatrix();
     
-    properties->multMatrix();
+    //properties->multMatrix();
     
     glVertex3d(pt1[0], pt1[1], pt1[2]);
     glVertex3d(pt2[0], pt2[1], pt2[2]);
