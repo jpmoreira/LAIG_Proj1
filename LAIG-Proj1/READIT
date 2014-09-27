@@ -1,0 +1,38 @@
+O Ficheiro LG_Drawing tem já a implementação do construtor com a validação implementada... ainda n testada.
+
+
+Basicamente a ideia é que imaginando que tens o node para os drawings na variavel node e na variavel map o map que ja tem lá eventualmente os outros nos que ja criaste, o codigo funcione assim:
+
+
+LG_Node_Map map;
+TiXMLElement *node;
+
+try{
+    LG_Drawing *drawingNode=new LG_Drawing(map,node);
+}
+catch(LG_Parse_Exception *ex){
+
+    //Se entrar aqui é porque houve um problema
+
+    printf(ex->what());//imprime a mensagem de erro
+
+    return;//retorna de onde estas porque este nó é obrigatório
+
+}
+
+//Se chegou aqui é porque tudo correu bem e tudo no nó está bem
+
+//continuar para os proximos nós
+
+
+
+
+AGORA O QUE SE PASSA DENTRO DO CONSTRUTOR:
+
+
+dentro do construtor começa-se por chamar verifyElementName(TiXmlElement *element) que verifica se o nome do elemento está bom senão lança uma excepção!
+
+depois e chamado verifyElementAttributesAndValues(TiXmlElement *element) que itera por entre todos os atributos do nó vai tentando atribuir os valores que consegue e no fim verifica se ha algum por atribuir, se houver lança uma excepção.
+
+Para estas duas funçoes se quiseres ver melhor como funcionar para implementar nas outras classes vê a implementação que tem comentários, se n perceberes dá uma apitadela que eu digo-te algo!
+

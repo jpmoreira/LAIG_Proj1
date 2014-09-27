@@ -65,20 +65,19 @@ void verifyElementAttributesAndValues(TiXmlElement *element){
     
     TiXmlAttribute *att=element->FirstAttribute();//get first attribute
     
-    while (att) {
+    while (att) {//para cada atributo
         
-        str_eq(att->Name(), LG_Drawing_Mode_Att_Name)
-        if (str_eq(att->Name(), LG_Drawing_Mode_Att_Name)){
+        if (str_eq(att->Name(), LG_Drawing_Mode_Att_Name)){//se o nome é o do atributo drawing
         
             
-            char * values[3];
+            char * values[3];//array com os possiveis valores
             
             values[0]=LG_Drawing_Fill_String;
             values[1]=LG_Drawing_Line_String;
             values[2]=LG_Drawing_Point_String;
             
-            int value=LG_Parsable_Node::stringValue(att, values, 3);
-            if (value>=0) this->mode=(LG_Drawing_Mode)value;//possible to cast right away
+            int value=LG_Parsable_Node::stringValue(att, values, 3);//tenta ver que valor é o que está no atributo
+            if (value>=0) this->mode=(LG_Drawing_Mode)value;//caso o valor retornado seja >=0 então pode-se fazer logo cast para o tipo adequado e guardar o valor
            
             
         }
@@ -106,7 +105,7 @@ void verifyElementAttributesAndValues(TiXmlElement *element){
     }
     
     
-    //if any parameter is not set then this attribute is missing
+    //verify if something is missing
     if (mode==LG_Drawing_Not_Set)
         throw new LG_Parse_Exception_Missing_Attribute(LG_Drawing_Node_Name,LG_Drawing_Mode_Att_Name);
    

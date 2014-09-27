@@ -113,6 +113,7 @@
 		5405EFC119D09E4F00BEED1E /* XMLScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XMLScene.cpp; sourceTree = "<group>"; };
 		5405EFC219D09E4F00BEED1E /* XMLScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLScene.h; sourceTree = "<group>"; };
 		54174DC719D033CC0039E991 /* LAIG-Proj1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "LAIG-Proj1"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5435E6DA19D6D7CC004169BD /* READIT */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = READIT; sourceTree = "<group>"; };
 		5436BE4219D0AD7F00D4831A /* libTinyXML.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libTinyXML.a; path = /usr/local/lib/libTinyXML.a; sourceTree = "<absolute>"; };
 		5436BE4419D0AD9200D4831A /* libCGF.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCGF.a; path = /usr/local/lib/libCGF.a; sourceTree = "<absolute>"; };
 		5436BE4619D0AD9E00D4831A /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -272,6 +273,7 @@
 				5458030519D5803600C9DF32 /* LG_Culling.cpp */,
 				5458030619D5803600C9DF32 /* LG_Culling.h */,
 				5458030819D5804400C9DF32 /* LG_Drawing.cpp */,
+				5435E6DA19D6D7CC004169BD /* READIT */,
 				5458030919D5804400C9DF32 /* LG_Drawing.h */,
 			);
 			name = LG_Node;
@@ -764,6 +766,7 @@
 				545802AE19D2BEB100C9DF32 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		545802BA19D2C79F00C9DF32 /* Build configuration list for PBXNativeTarget "LG_Properties_Tests" */ = {
 			isa = XCConfigurationList;
@@ -772,6 +775,7 @@
 				545802BC19D2C79F00C9DF32 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		545802CC19D30F7400C9DF32 /* Build configuration list for PBXNativeTarget "LG_Triangle_Tests" */ = {
 			isa = XCConfigurationList;
@@ -780,6 +784,7 @@
 				545802CE19D30F7400C9DF32 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		545802E419D3FB1100C9DF32 /* Build configuration list for PBXNativeTarget "LG_Parse_Exceptions_Tests" */ = {
 			isa = XCConfigurationList;
@@ -788,6 +793,7 @@
 				545802E619D3FB1100C9DF32 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		545802F919D4994300C9DF32 /* Build configuration list for PBXNativeTarget "LG_Globals_Tests" */ = {
 			isa = XCConfigurationList;
@@ -796,6 +802,7 @@
 				545802FB19D4994300C9DF32 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
