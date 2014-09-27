@@ -132,7 +132,54 @@ public:
         
     }
     
+    /**
+     
+     A method that says wich of the allowed values is found in the attribute. If none is found then -1 is returned
+     
+     */
     
+    
+    static inline int stringValue(TiXmlAttribute *att,char ** allowedValues,int nrAllowedValues){
+        
+        for (int i=0; i<nrAllowedValues; i++) {
+            
+            if (strcmp(att->Value(), allowedValues[i])==0){
+                return i;
+            }
+        }
+        
+        return -1;
+                
+        
+    
+    
+    }
+    
+    
+    static inline bool lightArrayValue(TiXmlAttribute *att,LG_LightArray& lightArrayToFill){
+    
+        
+        
+    
+        int nrFound=sscanf(att->Value(),"%lf %lf %lf %lf",&(lightArrayToFill[0]),&(lightArrayToFill[1]),&(lightArrayToFill[2]),&(lightArrayToFill[3]));
+        
+        if (nrFound!=4){
+        
+            for(int i=0;i<4;i++)
+                lightArrayToFill[i]=LG_LightValue_Not_Set;
+            return false;
+            
+        }
+        
+    
+        
+        
+        return true;
+        
+        
+        
+        
+    }
 
 
 };

@@ -24,6 +24,9 @@
 #define LG_Matrix_InitialValue {LG_LightList_InitialValue,LG_LightList_InitialValue,LG_LightList_InitialValue,LG_LightList_InitialValue}
 
 
+#define str_eq( value1 , value2 ) (strcmp(value1,value2)==0)
+
+
 
 
 using  std::vector;

@@ -137,3 +137,89 @@ TEST_CASE("Testing parsing an invalid bool"){
     
     
 }
+
+
+TEST_CASE("Testing parsing a valid string"){
+
+    
+    TiXmlAttribute *att=new TiXmlAttribute("att","aString");
+    
+    char * values[3];
+    
+    char string1[]="string1";
+    char string2[]="anotherString";
+    char string3[]="aString";
+    values[0]=string1;
+    values[1]=string2;
+    values[2]=string3;
+    
+    int i=LG_Parsable_Node::stringValue(att, values, 3);
+    
+    REQUIRE(i>=0);
+    
+    
+
+}
+
+
+TEST_CASE("Testing parsing an invalid string"){
+    
+    
+    TiXmlAttribute *att=new TiXmlAttribute("att","aThatIsWrong");
+    
+    char * values[3];
+    
+    char string1[]="string1";
+    char string2[]="anotherString";
+    char string3[]="aString";
+    values[0]=string1;
+    values[1]=string2;
+    values[2]=string3;
+    
+    int i=LG_Parsable_Node::stringValue(att, values, 3);
+    
+    REQUIRE(i==-1);
+    
+    
+    
+}
+
+
+TEST_CASE("Testing lightArray correct parsing"){
+
+
+    
+    TiXmlAttribute *att=new TiXmlAttribute("att","20.3 10.4 1.4 0.56");
+    
+    LG_LightArray array;
+    
+    bool correct=LG_Parsable_Node::lightArrayValue(att, array);
+    
+    REQUIRE(correct);
+    REQUIRE(abs(array[0]-20.3)<=0.0001);
+    REQUIRE(abs(array[1]-10.4)<=0.0001);
+    REQUIRE(abs(array[2]-1.4)<=0.0001);
+    REQUIRE(abs(array[3]-0.56)<=0.0001);
+    
+    
+    
+
+}
+
+TEST_CASE("Testing lightArray incorrect parsing"){
+    
+    
+    
+    TiXmlAttribute *att=new TiXmlAttribute("att","20.3 10.4 1.4 ");//missing one element
+    
+    LG_LightArray array;
+    
+    bool correct=LG_Parsable_Node::lightArrayValue(att, array);
+    
+    REQUIRE(!correct);
+    
+    
+    
+}
+
+
