@@ -342,7 +342,7 @@ bool XMLScene::fillCamerasElement(TiXmlElement *camerasElement){
 
 		at_leat_one = true;	//all values were successfully set, valid tag
 
-	}	while((perspectiveElement=camerasElement->NextSiblingElement("perspective"))); //repeat for every perspective tag
+	}	while((perspectiveElement=perspectiveElement->NextSiblingElement("perspective"))); //repeat for every perspective tag
 
 
 	//**processing ortho elements**
@@ -383,7 +383,7 @@ bool XMLScene::fillCamerasElement(TiXmlElement *camerasElement){
 
 		at_leat_one= true;
 
-	}	while ((orthoElement=camerasElement->NextSiblingElement("ortho")));
+	}	while ((orthoElement=orthoElement->NextSiblingElement("ortho")));
 
 
 	return at_leat_one & initial_found;
@@ -522,9 +522,9 @@ void XMLScene::fillTexturesElement(TiXmlElement *texturesElement){
 bool XMLScene::fillAppearencesElement(TiXmlElement *appearencesElement){
 	bool at_least_one = false;
 
-	TiXmlElement *appearenceElement = appearancesElement->FirstChildElement("appearance");
+	TiXmlElement *appearanceElement = appearancesElement->FirstChildElement("appearance");
 
-	if(appearenceElement)
+	if(appearanceElement)
 		do
 		{
 			char *id, *textureref;
@@ -533,22 +533,22 @@ bool XMLScene::fillAppearencesElement(TiXmlElement *appearencesElement){
 			float shininess;
 
 
-			id = (char *) appearenceElement->Attribute("id");
+			id = (char *) appearanceElement->Attribute("id");
 			if(id==NULL || strcmp(id, "")== 0)
 				continue;
 
-			textureref = (char *) appearenceElement->Attribute("textureref");
+			textureref = (char *) appearanceElement->Attribute("textureref");
 			if(!(textureref==NULL || strcmp(textureref, "")== 0))
 				textureref_associated = true;
 
-			if((appearenceElement->QueryFloatAttribute("shininess", &shininess))!=TIXML_SUCCESS)
+			if((appearanceElement->QueryFloatAttribute("shininess", &shininess))!=TIXML_SUCCESS)
 				continue;
 
 			//components
 			char *type, *value;
 			float r,g,b,a;
 
-			TiXmlElement *appearenceComponent = appearenceElement->FirstChildElement("component");
+			TiXmlElement *appearenceComponent = appearanceElement->FirstChildElement("component");
 
 			if(!appearenceComponent)
 				continue;
@@ -579,7 +579,7 @@ bool XMLScene::fillAppearencesElement(TiXmlElement *appearencesElement){
 
 
 			at_least_one=true;
-		} while ((appearenceElement=appearancesElement->NextSiblingElement("appearence")));
+		} while ((appearanceElement=appearancesElement->NextSiblingElement("appearance")));
 
 		return at_least_one;
 }
