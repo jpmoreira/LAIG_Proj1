@@ -51,12 +51,13 @@ private:
     
 public:
     
-    LG_Drawing(LG_Node_Map *map,TiXmlNode *node);
+    LG_Drawing(LG_Node_Map *map,TiXmlElement *element);
     
     LG_Drawing(LG_Node_Map *map,LG_Drawing_Mode md,LG_Shading_Mode shading,LG_LightArray background);
     
-    virtual void verifyElementName(TiXmlElement *element)=0;
-    virtual void verifyElementAttributesAndValues(TiXmlElement *element)=0;
+    void verifyElementName(TiXmlElement *element);
+    void verifyElementAttributesAndValues(TiXmlElement *element);
+    
 
     
     

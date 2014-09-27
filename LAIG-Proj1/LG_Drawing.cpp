@@ -28,13 +28,13 @@
 
 
 
-LG_Drawing::LG_Drawing(LG_Node_Map *map,TiXmlNode *node):LG_Parsable_Node(map,_LG_Drawing_NodeID),mode(LG_Drawing_Not_Set),shading(LG_Shading_Not_Set){
+LG_Drawing::LG_Drawing(LG_Node_Map *map,TiXmlElement *element):LG_Parsable_Node(map,_LG_Drawing_NodeID),mode(LG_Drawing_Not_Set),shading(LG_Shading_Not_Set){
     
     
     
     
-    verifyElementAttributesAndValues((TiXmlElement *) node);
-	verifyElementAttributesAndValues((TiXmlElement *)node);
+    verifyElementName(element);
+	verifyElementAttributesAndValues(element);
     
 }
 
@@ -48,7 +48,8 @@ LG_Drawing::LG_Drawing(LG_Node_Map *map,LG_Drawing_Mode md,LG_Shading_Mode shadi
 }
 
 
-void verifyElementName(TiXmlElement *element){
+void LG_Drawing::verifyElementName(TiXmlElement *element){
+    
     
     if(strcmp(element->Value(), LG_Drawing_Node_Name)==0)return;
     
@@ -60,7 +61,7 @@ void verifyElementName(TiXmlElement *element){
 
 }
 
-void verifyElementAttributesAndValues(TiXmlElement *element){
+void LG_Drawing::verifyElementAttributesAndValues(TiXmlElement *element){
     
     
     TiXmlAttribute *att=element->FirstAttribute();//get first attribute
@@ -90,7 +91,7 @@ void verifyElementAttributesAndValues(TiXmlElement *element){
             values[1]=LG_Shading_Gourad_String;
             
             int value=LG_Parsable_Node::stringValue(att, values, 2);
-            if (values>=0) this->mode=(LG_Shading_Mode)value;
+            if (values>=0) this->shading=(LG_Shading_Mode)value;
 
         
         }
@@ -105,15 +106,31 @@ void verifyElementAttributesAndValues(TiXmlElement *element){
     }
     
     
-    //verify if something is missing
-    if (this->mode==LG_Drawing_Not_Set)
-        throw new LG_Parse_Exception_Missing_Attribute(LG_Drawing_Node_Name,LG_Drawing_Mode_Att_Name);
-   
-    else if(this->shading==LG_Shading_Not_Set)
-        throw new LG_Parse_Exception_Missing_Attribute(LG_Drawing_Node_Name,LG_Shading_Mode_Att_Name);
     
-    else if(this->background[0]==LG_LightValue_Not_Set)
-        throw new LG_Parse_Exception_Missing_Attribute(LG_Drawing_Node_Name,LG_Background_Att_Name);
+    string *node_name=new string(LG_Drawing_Node_Name);
+    
+    //verify if something is missing
+    if (this->mode==LG_Drawing_Not_Set){
+    
+        
+        throw new LG_Parse_Exception_Missing_Attribute(node_name,new string(LG_Drawing_Mode_Att_Name));
+    }
+    
+   
+    else if(this->shading==LG_Shading_Not_Set){
+    
+        throw new LG_Parse_Exception_Missing_Attribute(node_name,new string(LG_Shading_Mode_Att_Name));
+
+    }
+    
+    else if(this->background[0]==LG_LightValue_Not_Set){
+        
+    
+    
+        
+        throw new LG_Parse_Exception_Missing_Attribute(node_name,new string(LG_Background_Att_Name));
+
+    }
     
 
 

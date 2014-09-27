@@ -14,6 +14,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>LG_Drawing_Tests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
 		<key>LG_Globals_Tests.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -43,6 +48,11 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>54174DC619D033CB0039E991</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5435E6E119D72CF9004169BD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
