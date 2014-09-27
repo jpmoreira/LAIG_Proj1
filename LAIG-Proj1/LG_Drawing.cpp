@@ -33,8 +33,8 @@ LG_Drawing::LG_Drawing(LG_Node_Map *map,TiXmlNode *node):LG_Parsable_Node(map,_L
     
     
     
-    verifyElementAttributesAndValues(node);
-    verifyElementAttributesAndValues(node);
+    verifyElementAttributesAndValues((TiXmlElement *) node);
+	verifyElementAttributesAndValues((TiXmlElement *)node);
     
 }
 
@@ -106,13 +106,13 @@ void verifyElementAttributesAndValues(TiXmlElement *element){
     
     
     //verify if something is missing
-    if (mode==LG_Drawing_Not_Set)
+    if (this->mode==LG_Drawing_Not_Set)
         throw new LG_Parse_Exception_Missing_Attribute(LG_Drawing_Node_Name,LG_Drawing_Mode_Att_Name);
    
-    else if(shading==LG_Shading_Not_Set)
+    else if(this->shading==LG_Shading_Not_Set)
         throw new LG_Parse_Exception_Missing_Attribute(LG_Drawing_Node_Name,LG_Shading_Mode_Att_Name);
     
-    else if(background[0]==LG_LightValue_Not_Set)
+    else if(this->background[0]==LG_LightValue_Not_Set)
         throw new LG_Parse_Exception_Missing_Attribute(LG_Drawing_Node_Name,LG_Background_Att_Name);
     
 
