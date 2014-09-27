@@ -8,11 +8,14 @@
 
 
 #include "XMLScene.h"
+#include <stdio.h>
+#include <Windows.h>
 int main(){
 
 
-    char * filename="ola";
+    char * filename="test.xml";
     
     XMLScene *scene=new XMLScene(filename);
+	
 
 }

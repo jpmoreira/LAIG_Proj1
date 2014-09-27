@@ -62,7 +62,7 @@
     <!-- bloco de texturas. Este bloco tem de existir mas pode estar vazio, se nao forem usadas texturas -->
     <!--   ver topico 'Notas finais' no enunciado sobre os parametros texlength_... -->
     <textures>
-        <texture id="texture1" file="tex1.png" texlength_s="3" texlength_t="3" />
+        <texture id="texture1" file="tex1.png" texlength_s="3.1" texlength_t="2.1" />
       <texture id="texture2" file="tex2.png" texlength_s="2" texlength_t="3" />
     </textures>
     
@@ -73,8 +73,8 @@
         <!--   textureref e opcional, a utilizar caso haja textura associada a esta aparencia -->
         <appearance id="appear1" shininess="0.8" textureref="stuff" >
             <component type="ambient" value="0.7 0.7 0.7 0.9" />
-            <component type="diffuse" value="ff ff ff ff" />
-            <component type="specular" value="ff ff ff ff" />
+            <component type="diffuse" value="0.9 0.7 0.7 0.9" />
+            <component type="specular" value="ff 0.7 0.7 0.9" />
         </appearance>
 
       <appearance id="appear2" shininess="1">
