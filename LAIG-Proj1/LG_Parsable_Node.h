@@ -203,4 +203,11 @@ private:
 };
 
 
+class LG_Parse_Exception_Missing_Element: LG_Parse_Exception{
+
+
+    LG_Parse_Exception_Missing_Element(string *elem);
+
+};
+
 #endif /* defined(__LAIG_Proj1__LG_Parsable_Node__) */

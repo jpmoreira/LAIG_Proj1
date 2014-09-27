@@ -12,8 +12,14 @@
 
 
 
-LG_Culling::LG_Culling(LG_Node_Map *map,TiXmlNode *node):LG_Parsable_Node(map,_LG_Drawing_NodeID){
+
+LG_Culling::LG_Culling(LG_Node_Map *map,TiXmlNode *node):LG_Parsable_Node(map,_LG_Culling_NodeID),face(LG_Culling_Face_Not_Set),order(LG_Culling_Order_Not_Set){
+
     
-    //DO verification here for the element
-    
+
 }
+LG_Culling::LG_Culling(LG_Node_Map *map,TiXmlNode *node,LG_Culling_Order ord,LG_Culling_Face f):LG_Parsable_Node(map,_LG_Culling_NodeID),face(f),order(ord){
+    
+
+}
+

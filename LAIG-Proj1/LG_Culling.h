@@ -12,45 +12,47 @@
 #include <stdio.h>
 
 
-#define _LG_Drawing_NodeID "_LG_Culling"
+#define _LG_Culling_NodeID "_LG_Culling"
 
 #include "LG_Parsable_Node.h"
 
 
-typedef enum {
-    
-    LG_Drawing_Fill,
-    LG_Drawing_Line,
-    LG_Drawing_Point,
-    LG_Drawing_Not_Set
-    
-    
-}LG_Drawing_Mode;
+#define LG_Culling_Back_String "back"
+#define LG_Culling_Front_String "front"
+#define LG_Culling_None_String "none"
+#define LG_Culling_Both_String "both"
 
-typedef enum {
-    
-    LG_Flat,
-    LG_Gouraud,
-    LG_Shading_Not_Set
-    
-    
-}LG_Shading_Mode;
+typedef enum{
+
+    LG_Back,
+    LG_Front,
+    LG_None,
+    LG_Both,
+    LG_Culling_Face_Not_Set
+
+} LG_Culling_Face;
+
+
+typedef enum{
+
+    LG_Culling_Order_CW,
+    LG_Culling_Order_CCW,
+    LG_Culling_Order_Not_Set
+} LG_Culling_Order;
 
 class LG_Culling : public LG_Parsable_Node{
     
 private:
-    LG_Drawing_Mode mode=LG_Drawing_Not_Set;
     
-    LG_Shading_Mode shading=LG_Shading_Not_Set;
-    
-    LG_LightArray background=LG_LightList_InitialValue;
-    
+    LG_Culling_Order order;
+    LG_Culling_Face face;
     
 public:
     
+    
+    
     LG_Culling(LG_Node_Map *map,TiXmlNode *node);
-    
-    
+    LG_Culling(LG_Node_Map *map,TiXmlNode *node,LG_Culling_Order order,LG_Culling_Face face);
     
     
     

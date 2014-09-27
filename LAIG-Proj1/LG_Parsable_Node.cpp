@@ -119,3 +119,10 @@ LG_Parse_Exception_Missing_Attribute::~LG_Parse_Exception_Missing_Attribute(){
 
 
 }
+
+#pragma mark - Missing Element Exception
+
+LG_Parse_Exception_Missing_Element::LG_Parse_Exception_Missing_Element(string *elem):LG_Parse_Exception(elem){
+
+
+}
