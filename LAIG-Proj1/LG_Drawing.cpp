@@ -20,7 +20,7 @@
 
 
 #define LG_Shading_Flat_String "flat"
-#define LG_Shading_Gourad_String "gourad"
+#define LG_Shading_Gourad_String "gouraud"
 
 #define LG_Drawing_Node_Name "drawing"
 
