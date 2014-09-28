@@ -1,0 +1,8 @@
+<triangle xyz1="0 0 0" xyz2="0  0  10" xyz3="0 10 10" />
+
+<triangle xyz1="0 0" xyz2="0  0  10" xyz3="0 10 10" />
+
+<triangle xyz1="0 0 0" xyz2="0  0  10" />
+
+
+<notATriangle xyz1="0 0 0" xyz2="0  0  10" xyz3="0 10 10" />

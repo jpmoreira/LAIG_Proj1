@@ -20,7 +20,7 @@
 
 
 #define LG_Shading_Flat_String "flat"
-#define LG_Shading_Gourad_String "gourad"
+#define LG_Shading_Gourad_String "gouraud"
 
 #define LG_Drawing_Node_Name "drawing"
 
@@ -40,7 +40,7 @@ LG_Drawing::LG_Drawing(LG_Node_Map *map,TiXmlElement *element):LG_Parsable_Node(
 
 LG_Drawing::LG_Drawing(LG_Node_Map *map,LG_Drawing_Mode md,LG_Shading_Mode shading,LG_LightArray bkg):LG_Parsable_Node(map,_LG_Drawing_NodeID),mode(md),shading(shading){
     
-    for (int i=0; i<4; i++) {
+    for (int i=0; i<LG_LightArray_Lenght; i++) {
         background[i]=bkg[i];
     }
     

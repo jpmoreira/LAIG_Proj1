@@ -217,9 +217,95 @@ TEST_CASE("Testing lightArray incorrect parsing"){
     bool correct=LG_Parsable_Node::lightArrayValue(att, array);
     
     REQUIRE(!correct);
+    REQUIRE(abs(array[0]-LG_LightValue_Not_Set)<=0.00001);
+    REQUIRE(abs(array[1]-LG_LightValue_Not_Set)<=0.00001);
+    REQUIRE(abs(array[2]-LG_LightValue_Not_Set)<=0.00001);
+    REQUIRE(abs(array[3]-LG_LightValue_Not_Set)<=0.00001);
     
     
     
 }
+
+
+TEST_CASE("Testing lightArray too lenghty parsing"){
+    
+    
+    
+    TiXmlAttribute *att=new TiXmlAttribute("att","20.3 10.4 1.4 1.5 3.5");//missing one element
+    
+    LG_LightArray array;
+    
+    bool correct=LG_Parsable_Node::lightArrayValue(att, array);
+    
+    REQUIRE(!correct);
+    REQUIRE(abs(array[0]-LG_LightValue_Not_Set)<=0.00001);
+    REQUIRE(abs(array[1]-LG_LightValue_Not_Set)<=0.00001);
+    REQUIRE(abs(array[2]-LG_LightValue_Not_Set)<=0.00001);
+    REQUIRE(abs(array[3]-LG_LightValue_Not_Set)<=0.00001);
+    
+    
+    
+}
+
+
+TEST_CASE("Testing correct LG_Point"){
+    
+    
+    TiXmlAttribute *att =new TiXmlAttribute("att","20.3 30.0 5.0");
+    
+    LG_Point3D pt;
+    
+    bool correct=LG_Parsable_Node::pointArrayValue(att, pt);
+    
+    
+    REQUIRE(correct);
+    REQUIRE(abs(pt[0]-20.3)<=0.0001);
+    REQUIRE(abs(pt[1]-30.0)<=0.0001);
+    REQUIRE(abs(pt[2]-5.0)<=0.0001);
+
+}
+
+TEST_CASE("Testing incorrect LG_Point3D (too short)"){
+    
+    
+    TiXmlAttribute *att =new TiXmlAttribute("att","20.3 30.0");
+    
+    LG_Point3D pt;
+    
+    bool correct=LG_Parsable_Node::pointArrayValue(att, pt);
+    
+    
+     REQUIRE(!correct);
+     REQUIRE(abs(pt[0]-LG_INVALID_DOUBLE)<=0.0001);
+     REQUIRE(abs(pt[1]-LG_INVALID_DOUBLE)<=0.0001);
+     REQUIRE(abs(pt[2]-LG_INVALID_DOUBLE)<=0.0001);
+     
+    
+    
+    
+    
+}
+
+TEST_CASE("Testing incorrect LG_Point3D (too large)"){
+    
+    
+    TiXmlAttribute *att =new TiXmlAttribute("att","20.3 30.0 50.7 44.9");
+    
+    LG_Point3D pt;
+    
+    bool correct=LG_Parsable_Node::pointArrayValue(att, pt);
+    
+    
+    REQUIRE(!correct);
+    REQUIRE(abs(pt[0]-LG_INVALID_DOUBLE)<=0.0001);
+    REQUIRE(abs(pt[1]-LG_INVALID_DOUBLE)<=0.0001);
+    REQUIRE(abs(pt[2]-LG_INVALID_DOUBLE)<=0.0001);
+    
+    
+    
+    
+    
+}
+
 
 

@@ -37,7 +37,7 @@ typedef enum{
 #define LG_BOOL_STRING_FALSE "false"
 
 
-class LG_Parsable_Node : LG_Node{
+class LG_Parsable_Node : public LG_Node{
 
 public:
 	/**
@@ -50,6 +50,7 @@ public:
 	LG_Parsable_Node(LG_Node_Map *map, string identif);
 
 protected:
+<<<<<<< HEAD
 
 	/**
 
@@ -183,8 +184,251 @@ public:
 		}
 		return true;
 	}
+=======
+    
+        
+public:
+    
+    /**
+     
+     A method that extracts the int value from an attribute. If the value isn't an int than
+     
+     LG_INVALID_INT is returned.
+     
+     */
+    static inline int intValueForAttribute(TiXmlAttribute *att){
+        
+        int value;
+        int result=att->QueryIntValue(&value);
+        
+        if (result==TIXML_SUCCESS)return value;
+        
+        return LG_INVALID_INT;
+        
+        
+        
+        
+    }
+
+    
+    
+    /**
+     
+     A method that extracts the positive int value from an attribute. If the value isn't an int than
+     
+     LG_INVALID_INT is returned.
+     
+     */
+    
+    static inline unsigned int positiveIntValueForAttribute(TiXmlAttribute *att){
+        
+        int value;
+        int result=att->QueryIntValue(&value);
+        
+        if (result==TIXML_SUCCESS){
+        
+            if(value>0)return value;
+            
+        }
+        
+        return LG_INVALID_INT;
+        
+        
+        
+        
+    }
+
+    
+    
+    /**
+     
+     A method that extracts the bool value from an attribute. If the bool is true LG_True is returned, if false LG_False is returned. In case an invalid bool is present LG_Invalid_Bool is returned.
+     */
+    
+    static inline LG_BOOL boolValueForAttribute(TiXmlAttribute *att){
+        
+        
+        const char * value=att->Value();
+        
+        int compareResult=strcmp(value, LG_BOOL_STRING_TRUE);
+        if (compareResult==0) return LG_True;
+        compareResult=strcmp(value, LG_BOOL_STRING_FALSE);
+        if (compareResult==0)return LG_False;
+        return LG_Invalid_Bool;
+        
+    }
+    
+    /**
+     
+     
+     A method that extracts the double value from an attribute. In case an invalid double is present, LG_INVALID_DOUBLE is returned.
+     
+     */
+    
+    static inline double doubleValueForAttribute(TiXmlAttribute *att){
+        
+        
+        
+        double value;
+        int result=att->QueryDoubleValue(&value);
+        if (result==TIXML_SUCCESS)return value;
+        return LG_INVALID_DOUBLE;
+        
+        
+    }
+    
+    /**
+     
+     
+     A method that extracts the double value from an attribute. In case an invalid double is present, LG_INVALID_DOUBLE is returned.
+     
+     */
+    
+    static inline double positiveDoubleValueForAttribute(TiXmlAttribute *att){
+        
+        
+        
+        double value;
+        int result=att->QueryDoubleValue(&value);
+        if (result==TIXML_SUCCESS){
+        
+            if (value>0)return value;
+        }
+        return LG_INVALID_DOUBLE;
+        
+        
+    }
+
+    
+    /**
+     
+     A method that says wich of the allowed values is found in the attribute. If none is found then -1 is returned
+     
+     */
+    
+    
+    static inline int stringValue(TiXmlAttribute *att,char ** allowedValues,int nrAllowedValues){
+        
+        for (int i=0; i<nrAllowedValues; i++) {
+            
+            if (strcmp(att->Value(), allowedValues[i])==0){
+                return i;
+            }
+        }
+        
+        return -1;
+                
+        
+    
+    
+    }
+    
+    
+    
+    
+    
+    /**
+     
+     A method that tries to initialize a lightArray with the elements coming from an attribute.
+     In case some error occurs false is returned and the array is filled with the value LG_LightValue_Not_Set
+     */
+     
+    static inline bool lightArrayValue(TiXmlAttribute *att,LG_LightArray& lightArrayToFill){
+    
+        
+        
+        double dummy;
+        
+        int nrFound=sscanf(att->Value(),"%lf %lf %lf %lf %lf",&(lightArrayToFill[0]),&(lightArrayToFill[1]),&(lightArrayToFill[2]),&(lightArrayToFill[3]),&dummy);//try to match one more... if it's matched then some error happened....
+        
+        if (nrFound!=4){
+        
+            for(int i=0;i<LG_LightArray_Lenght;i++)
+                lightArrayToFill[i]=LG_LightValue_Not_Set;
+            return false;
+            
+        }
+        
+    
+        
+        
+        return true;
+        
+        
+        
+        
+    }
+    
+    /**
+     
+     A method that tries to initialize a LG_Point3D with the values coming from an attribute.
+     
+     In case some error occurs false is teturned and the array is filled with the value LG_INVALID_DOUBLE
+     
+     */
+    
+    static inline bool point3DValue(TiXmlAttribute *att,LG_Point3D & pointToFill){
+        
+        
+        double dummy;
+        
+        int nrFound=sscanf(att->Value(),"%lf %lf %lf  %lf",&(pointToFill[0]),&(pointToFill[1]),&(pointToFill[2]),&dummy);//try to match four... last one is supposed to never be filled in... if it is parsing didn't occur well, only 3D vectors allowed
+        
+        if (nrFound!=LG_Point3D_Length){
+            
+            for(int i=0;i<LG_Point3D_Length;i++)
+                pointToFill[i]=LG_INVALID_DOUBLE;
+
+            return false;
+            
+        }
+        
+        
+        
+        
+        return true;
+    
+    
+    }
+>>>>>>> origin/master
 
 
+    /**
+     
+     
+     Similar to point3DValue but last coordinate is set to zero, and a 2D point is expected.
+     
+     */
+    
+    static inline bool point3DValueFromPoint2D(TiXmlAttribute *att,LG_Point3D & pointToFill){
+    
+    
+        double dummy;
+        
+        int nrFound=sscanf(att->Value(),"%lf %lf %lf",&(pointToFill[0]),&(pointToFill[1]),&dummy);//try to match four... last one is supposed to never be filled in... if it is parsing didn't occur well, only 3D vectors allowed
+        
+        
+        pointToFill[2]=0.0;
+        
+        if(nrFound!=LG_Point2D_Length){
+            
+            for(int i=0;i<LG_Point3D_Length;i++)
+                pointToFill[i]=LG_INVALID_DOUBLE;
+            
+            return false;
+            
+        }
+        
+        
+        
+        
+        return true;
+
+    
+    }
+    
+    
+    
 };
 
 
@@ -218,7 +462,11 @@ public:
 };
 
 
+<<<<<<< HEAD
 class LG_Parse_Exception_Wrong_Attribute_Value : LG_Parse_Exception{
+=======
+class LG_Parse_Exception_Wrong_Attribute_Value:public LG_Parse_Exception{
+>>>>>>> origin/master
 
 private:
 	string* attribute;
@@ -251,7 +499,11 @@ public:
 };
 
 
+<<<<<<< HEAD
 class LG_Parse_Exception_Missing_Attribute : LG_Parse_Exception{
+=======
+class LG_Parse_Exception_Missing_Attribute:public LG_Parse_Exception{
+>>>>>>> origin/master
 private:
 	string* missingAttribute;
 
@@ -268,7 +520,11 @@ public:
 
 
 
+<<<<<<< HEAD
 class LG_Parse_Exception_Wrong_Element_Name : LG_Parse_Exception{
+=======
+class LG_Parse_Exception_Wrong_Element_Name:public LG_Parse_Exception{
+>>>>>>> origin/master
 
 public:
 	LG_Parse_Exception_Wrong_Element_Name(string * expectedElementName, string * actualElementName);
@@ -283,7 +539,11 @@ private:
 };
 
 
+<<<<<<< HEAD
 class LG_Parse_Exception_Missing_Element : LG_Parse_Exception{
+=======
+class LG_Parse_Exception_Missing_Element:public LG_Parse_Exception{
+>>>>>>> origin/master
 
 
 	LG_Parse_Exception_Missing_Element(string *elem);
