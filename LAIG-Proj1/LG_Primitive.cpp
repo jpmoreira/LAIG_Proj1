@@ -19,12 +19,13 @@ LG_Primitive::LG_Primitive(LG_Node_Map *map,string indentif):LG_Parsable_Node(ma
 }
 
 
+
 #pragma mark - Initializations
 
 
-void LG_Primitive::initializePoint(LG_Point &point){
+void LG_Primitive::initializePoint3D(LG_Point3D &point){
 
-    for (int i=0; i<LG_Point_Length; i++) {
+    for (int i=0; i<LG_Point3D_Length; i++) {
         point[i]=LG_INVALID_DOUBLE;
     }
     
@@ -33,10 +34,10 @@ void LG_Primitive::initializePoint(LG_Point &point){
 
 #pragma mark - Helper Methods
 
-bool LG_Primitive::equalPoints(LG_Point &pt1, LG_Point &pt2){
+bool LG_Primitive::equalPoints(LG_Point3D &pt1, LG_Point3D &pt2){
     
     
-    for (int i=0; i<LG_Point_Length; i++) {
+    for (int i=0; i<LG_Point3D_Length; i++) {
         if (abs(pt1[i]-pt2[i])>=LG_Point_Comparision_Gap)return false;
     }
             

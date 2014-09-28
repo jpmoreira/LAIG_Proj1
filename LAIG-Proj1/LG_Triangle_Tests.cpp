@@ -44,11 +44,11 @@ TEST_CASE("Triangle Nodes tests"){
         
         
 
-        LG_Point origin=LG_Origin_3D_Point;
+        LG_Point3D origin=LG_Origin_3D_Point;
     
-        for (int i=0; i<LG_Point_Length; i++) REQUIRE(rootTriangle->pt1[i]==LG_INVALID_DOUBLE);
-        for (int i=0; i<LG_Point_Length; i++) REQUIRE(rootTriangle->pt2[i]==LG_INVALID_DOUBLE);
-        for (int i=0; i<LG_Point_Length; i++) REQUIRE(rootTriangle->pt3[i]==LG_INVALID_DOUBLE);
+        for (int i=0; i<LG_Point3D_Length; i++) REQUIRE(rootTriangle->pt1[i]==LG_INVALID_DOUBLE);
+        for (int i=0; i<LG_Point3D_Length; i++) REQUIRE(rootTriangle->pt2[i]==LG_INVALID_DOUBLE);
+        for (int i=0; i<LG_Point3D_Length; i++) REQUIRE(rootTriangle->pt3[i]==LG_INVALID_DOUBLE);
         
         
         
@@ -58,19 +58,29 @@ TEST_CASE("Triangle Nodes tests"){
     
     SECTION("Test point assignment in constructor"){
     
-        LG_Point point1={1,2,4};
-        LG_Point point2={123,121,435};
-        LG_Point point3={231231,14444,1313};
+        LG_Point3D point1;
+        point1[0]=1;
+        point1[1]=2;
+        point1[2]=4;
+        
+        LG_Point3D point2;
+        point2[0]=123;
+        point2[1]=121;
+        point2[2]=435;
+        LG_Point3D point3;
+        point3[0]=231231;
+        point3[1]=14444;
+        point3[2]=1313;
         
         LG_Triangle *triangle=new LG_Triangle(map,"fantasticTriangle",point1,point2,point3);
         
-        for (int i=0; i<LG_Point_Length; i++){
+        for (int i=0; i<LG_Point3D_Length; i++){
             REQUIRE(triangle->pt1[i]==point1[i]);
         }
-        for (int i=0; i<LG_Point_Length; i++){
+        for (int i=0; i<LG_Point3D_Length; i++){
             REQUIRE(triangle->pt2[i]==point2[i]);
         }
-        for (int i=0; i<LG_Point_Length; i++){
+        for (int i=0; i<LG_Point3D_Length; i++){
             REQUIRE(triangle->pt3[i]==point3[i]);
         }
         
@@ -93,7 +103,6 @@ TEST_CASE("Testring triangle from file"){
     TiXmlElement *aBadTriangle=(TiXmlElement *)aGoodTriangle->NextSibling();
     TiXmlElement *anotherBadTriangle=(TiXmlElement *)aBadTriangle->NextSibling();
     TiXmlElement *lastBadTriangle=(TiXmlElement*)anotherBadTriangle->NextSibling();
-
     
     //Check they all exist
     REQUIRE(aGoodTriangle!=NULL);
@@ -102,14 +111,27 @@ TEST_CASE("Testring triangle from file"){
     REQUIRE(lastBadTriangle!=NULL);
     
     
+    
+    SECTION("Testing triangle IDS"){
+        
+        
+        LG_Triangle *t1=new LG_Triangle(map,aGoodTriangle);
+        LG_Triangle *t2=new LG_Triangle(map,aGoodTriangle);
+        
+        REQUIRE(str_eq(t1->identifier.c_str(), "_LG_Triangle_0"));
+        REQUIRE(str_eq(t2->identifier.c_str(), "_LG_Triangle_1"));
+        
+    }
+    
+    
     SECTION("Testing Good Triangle"){
         
         try {
             LG_Triangle *t=new LG_Triangle(map,aGoodTriangle);
             
-            LG_Point pt1={0,0,0};
-            LG_Point pt2={0,0,10};
-            LG_Point pt3={0,10,10};
+            LG_Point3D pt1={0,0,0};
+            LG_Point3D pt2={0,0,10};
+            LG_Point3D pt3={0,10,10};
             
             REQUIRE(LG_Primitive::equalPoints(t->pt1, pt1));
             REQUIRE(LG_Primitive::equalPoints(t->pt2, pt2));
@@ -157,8 +179,12 @@ TEST_CASE("Testring triangle from file"){
     }
     
     
+
+    
     
 
 
 }
+
+
 

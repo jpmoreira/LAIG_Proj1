@@ -39,6 +39,11 @@
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
+		<key>LG_Rectangle_Tests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>8</integer>
+		</dict>
 		<key>LG_Triangle_Tests.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -53,6 +58,11 @@
 			<true/>
 		</dict>
 		<key>5435E6E119D72CF9004169BD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5435E70419D86F96004169BD</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -27,7 +27,8 @@
 
 #define str_eq( value1 , value2 ) (strcmp(value1,value2)==0)
 
-#define LG_Point_Length 3
+#define LG_Point3D_Length 3
+#define LG_Point2D_Length 2
 #define LG_LightArray_Lenght 4
 
 
@@ -42,7 +43,8 @@ typedef map<string , LG_Node *> LG_Node_Map;
 typedef vector<string *> LG_ID_Vector;
 typedef std::pair<string , LG_Node *> LG_Node_Map_Pair;
 
-typedef GLdouble LG_Point[3];
+typedef GLdouble LG_Point3D[3];
+typedef GLdouble LG_Point2D[2];
 typedef GLdouble LG_LightArray[4];
 typedef GLdouble LG_Matrix[4][4];
 

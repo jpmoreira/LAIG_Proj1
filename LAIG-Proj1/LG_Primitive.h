@@ -18,11 +18,11 @@ class LG_Primitive: public LG_Parsable_Node{
 public:
 
     LG_Primitive(LG_Node_Map *map,string identifier);
-    static bool equalPoints(LG_Point& pt1,LG_Point& pt2);
+    static bool equalPoints(LG_Point3D& pt1,LG_Point3D& pt2);
 
 
 protected:
-    void initializePoint(LG_Point& point);
+    void initializePoint3D(LG_Point3D& point);
     
 };
 #endif /* defined(__LAIG_Proj1__LG_Primitive__) */

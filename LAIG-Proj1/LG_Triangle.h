@@ -23,9 +23,9 @@ class LG_Triangle : public LG_Primitive {
     
 private:
     
-    LG_Point pt1;
-    LG_Point pt2;
-    LG_Point pt3;
+    LG_Point3D pt1;
+    LG_Point3D pt2;
+    LG_Point3D pt3;
     
     /**
      
@@ -36,11 +36,11 @@ private:
     
     /**
      
-     Copies all the points to the object containers that are supposed to hold it
+     Copies all the points to the object data members that are supposed to hold them
      
      */
     
-    void copyPoints(LG_Point pt1,LG_Point pt2, LG_Point pt3);
+    void copyPoints(LG_Point3D pt1,LG_Point3D pt2, LG_Point3D pt3);
     
     
     /**
@@ -70,7 +70,7 @@ public:
      
      */
     
-    LG_Triangle(LG_Node_Map *map,string identif,LG_Point pt1,LG_Point pt2, LG_Point pt3);
+    LG_Triangle(LG_Node_Map *map,string identif,LG_Point3D pt1,LG_Point3D pt2, LG_Point3D pt3);
 
     
     /**

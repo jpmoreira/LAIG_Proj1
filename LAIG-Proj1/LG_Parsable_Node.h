@@ -191,22 +191,22 @@ public:
     
     /**
      
-     A method that tries to initialize a LG_Point with the values coming from an attribute.
+     A method that tries to initialize a LG_Point3D with the values coming from an attribute.
      
      In case some error occurs false is teturned and the array is filled with the value LG_INVALID_DOUBLE
      
      */
     
-    static inline bool pointArrayValue(TiXmlAttribute *att,LG_Point & pointToFill){
+    static inline bool point3DValue(TiXmlAttribute *att,LG_Point3D & pointToFill){
         
         
         double dummy;
         
         int nrFound=sscanf(att->Value(),"%lf %lf %lf  %lf",&(pointToFill[0]),&(pointToFill[1]),&(pointToFill[2]),&dummy);//try to match four... last one is supposed to never be filled in... if it is parsing didn't occur well, only 3D vectors allowed
         
-        if (nrFound!=LG_Point_Length){
+        if (nrFound!=LG_Point3D_Length){
             
-            for(int i=0;i<LG_Point_Length;i++)
+            for(int i=0;i<LG_Point3D_Length;i++)
                 pointToFill[i]=LG_INVALID_DOUBLE;
 
             return false;
@@ -222,6 +222,39 @@ public:
     }
 
 
+    /**
+     
+     
+     Similar to point3DValue but last coordinate is set to zero, and a 2D point is expected.
+     
+     */
+    
+    static inline bool point3DValueFromPoint2D(TiXmlAttribute *att,LG_Point3D & pointToFill){
+    
+    
+        double dummy;
+        
+        int nrFound=sscanf(att->Value(),"%lf %lf %lf",&(pointToFill[0]),&(pointToFill[1]),&dummy);//try to match four... last one is supposed to never be filled in... if it is parsing didn't occur well, only 3D vectors allowed
+        
+        
+        pointToFill[2]=0.0;
+        
+        if(nrFound!=LG_Point2D_Length){
+            
+            for(int i=0;i<LG_Point3D_Length;i++)
+                pointToFill[i]=LG_INVALID_DOUBLE;
+            
+            return false;
+            
+        }
+        
+        
+        
+        
+        return true;
+
+    
+    }
 };
 
 

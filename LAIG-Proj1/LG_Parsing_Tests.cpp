@@ -253,7 +253,7 @@ TEST_CASE("Testing correct LG_Point"){
     
     TiXmlAttribute *att =new TiXmlAttribute("att","20.3 30.0 5.0");
     
-    LG_Point pt;
+    LG_Point3D pt;
     
     bool correct=LG_Parsable_Node::pointArrayValue(att, pt);
     
@@ -265,12 +265,12 @@ TEST_CASE("Testing correct LG_Point"){
 
 }
 
-TEST_CASE("Testing incorrect LG_Point (too short)"){
+TEST_CASE("Testing incorrect LG_Point3D (too short)"){
     
     
     TiXmlAttribute *att =new TiXmlAttribute("att","20.3 30.0");
     
-    LG_Point pt;
+    LG_Point3D pt;
     
     bool correct=LG_Parsable_Node::pointArrayValue(att, pt);
     
@@ -286,12 +286,12 @@ TEST_CASE("Testing incorrect LG_Point (too short)"){
     
 }
 
-TEST_CASE("Testing incorrect LG_Point (too large)"){
+TEST_CASE("Testing incorrect LG_Point3D (too large)"){
     
     
     TiXmlAttribute *att =new TiXmlAttribute("att","20.3 30.0 50.7 44.9");
     
-    LG_Point pt;
+    LG_Point3D pt;
     
     bool correct=LG_Parsable_Node::pointArrayValue(att, pt);
     

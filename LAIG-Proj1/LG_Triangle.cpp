@@ -25,20 +25,20 @@ int LG_Triangle::triangleNr=0;
 LG_Triangle::LG_Triangle(LG_Node_Map *map,TiXmlElement *elem):LG_Primitive(map,triangleID(triangleNr++)){
 
 
-    initializePoint(pt1);
-    initializePoint(pt2);
-    initializePoint(pt3);
+    initializePoint3D(pt1);
+    initializePoint3D(pt2);
+    initializePoint3D(pt3);
     
         verifyElementName(elem);
     verifyElementAttributesAndValues(elem);
 
 }
 
-LG_Triangle::LG_Triangle(LG_Node_Map *map,string identifier,LG_Point point1,LG_Point point2, LG_Point point3):LG_Primitive(map,identifier){
+LG_Triangle::LG_Triangle(LG_Node_Map *map,string identifier,LG_Point3D point1,LG_Point3D point2, LG_Point3D point3):LG_Primitive(map,identifier){
     
-    initializePoint(pt1);
-    initializePoint(pt2);
-    initializePoint(pt3);
+    initializePoint3D(pt1);
+    initializePoint3D(pt2);
+    initializePoint3D(pt3);
     
     this->copyPoints(point1, point2, point3);
     
@@ -49,9 +49,9 @@ LG_Triangle::LG_Triangle(LG_Node_Map *map,string identifier,LG_Point point1,LG_P
 LG_Triangle::LG_Triangle(LG_Node_Map *map,string identifier):LG_Primitive(map,identifier){
 
 
-    initializePoint(pt1);
-    initializePoint(pt2);
-    initializePoint(pt3);
+    initializePoint3D(pt1);
+    initializePoint3D(pt2);
+    initializePoint3D(pt3);
 }
 
 #pragma mark - Inherited Methods
@@ -85,17 +85,17 @@ void LG_Triangle::verifyElementAttributesAndValues(TiXmlElement *element){
         
         if(str_eq(LG_Triangle_XML_Att1_Name, att->Name())){
             
-            LG_Parsable_Node::pointArrayValue(att, pt1);
+            LG_Parsable_Node::point3DValue(att, pt1);
         }
         
         else if(str_eq(LG_Triangle_XML_Att2_Name, att->Name())){
             
-            LG_Parsable_Node::pointArrayValue(att, pt2);
+            LG_Parsable_Node::point3DValue(att, pt2);
         }
         
         else if (str_eq(LG_Triangle_XML_Att3_Name, att->Name())){
             
-            LG_Parsable_Node::pointArrayValue(att, pt3);
+            LG_Parsable_Node::point3DValue(att, pt3);
         }
         
         
@@ -147,10 +147,10 @@ void LG_Triangle::verifyElementName(TiXmlElement *element){
 #pragma mark - Helper Methods
 
 
-void LG_Triangle::copyPoints(LG_Point point1,LG_Point point2, LG_Point point3){
+void LG_Triangle::copyPoints(LG_Point3D point1,LG_Point3D point2, LG_Point3D point3){
     
     
-    for (int i=0; i<LG_Point_Length; i++) {
+    for (int i=0; i<LG_Point3D_Length; i++) {
         
         pt1[i]=point1[i];
         pt2[i]=point2[i];
