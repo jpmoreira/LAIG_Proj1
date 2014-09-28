@@ -51,10 +51,12 @@ public:
     
     
     
-    LG_Culling(LG_Node_Map *map,TiXmlNode *node);
-    LG_Culling(LG_Node_Map *map,TiXmlNode *node,LG_Culling_Order order,LG_Culling_Face face);
+    LG_Culling(LG_Node_Map *map,TiXmlElement *element);
+	LG_Culling(LG_Node_Map *map, TiXmlElement *element, LG_Culling_Order order, LG_Culling_Face face);
     
-    
+	void verifyAttributesAndValues(TiXmlElement *element);
+	void verifyElementName(TiXmlElement *element);
+	void stringToAttr(string *att_name, char *string);
     
 };
 #endif /* defined(__LAIG_Proj1__LG_Culling__) */

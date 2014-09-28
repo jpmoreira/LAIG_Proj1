@@ -25,9 +25,9 @@ using std::exception;
 
 typedef enum{
 
-    LG_False,
-    LG_True,
-    LG_Invalid_Bool
+	LG_False,
+	LG_True,
+	LG_Invalid_Bool
 
 } LG_BOOL;
 
@@ -40,220 +40,253 @@ typedef enum{
 class LG_Parsable_Node : LG_Node{
 
 public:
-    /**
-     
-     
-     Simple Constructor, that simply calls the superclass constructor with the same parameters
-     
-     */
-    
-    LG_Parsable_Node(LG_Node_Map *map,string identif);
-    
+	/**
+
+
+	 Simple Constructor, that simply calls the superclass constructor with the same parameters
+
+	 */
+
+	LG_Parsable_Node(LG_Node_Map *map, string identif);
+
 protected:
-    
-    /**
-     
-     
-     A virtual method to be implemented by all subclasses. It's supposed to verify that this element is indeed the supposed one for the specified subclass.
-     This method is called in the LG_Parsable_Node constructor.
-     
-     */
-    virtual void verifyElementName(TiXmlElement *element)=0;
-    
-    /**
-     
-     
-     A virtual method to be implemented by all subclasses. It's supposed to verify that this element does indeed have the supposed properties with the allowed values.
-     This method is called in the LG_Parsable_Node constructor.
-     
-     */
-    virtual void verifyElementAttributesAndValues(TiXmlElement *element)=0;
-    
-    
-public:
-    
-    /**
-     
-     A method that extracts the int value from an attribute. If the value isn't an int than
-     
-     LG_INVALID_INT is returned.
-     
-     */
-    static inline int intValueForAttribute(TiXmlAttribute *att){
-        
-        int value;
-        int result=att->QueryIntValue(&value);
-        
-        if (result==TIXML_SUCCESS)return value;
-        
-        return LG_INVALID_INT;
-        
-        
-        
-        
-    }
 
-    
-    
-    /**
-     
-     A method that extracts the bool value from an attribute. If the bool is true LG_True is returned, if false LG_False is returned. In case an invalid bool is present LG_Invalid_Bool is returned.
-     */
-    
-    static inline LG_BOOL boolValueForAttribute(TiXmlAttribute *att){
-        
-        
-        const char * value=att->Value();
-        
-        int compareResult=strcmp(value, LG_BOOL_STRING_TRUE);
-        if (compareResult==0) return LG_True;
-        compareResult=strcmp(value, LG_BOOL_STRING_FALSE);
-        if (compareResult==0)return LG_False;
-        return LG_Invalid_Bool;
-        
-    }
-    
-    /**
-     
-     
-     A method that extracts the double value from an attribute. In case an invalid double is present, LG_INVALID_DOUBLE is returned.
-     
-     */
-    
-    static inline double doubleValueForAttribute(TiXmlAttribute *att){
-        
-        
-        
-        double value;
-        int result=att->QueryDoubleValue(&value);
-        if (result==TIXML_SUCCESS)return value;
-        return LG_INVALID_DOUBLE;
-        
-        
-    }
-    
-    /**
-     
-     A method that says wich of the allowed values is found in the attribute. If none is found then -1 is returned
-     
-     */
-    
-    
-    static inline int stringValue(TiXmlAttribute *att,char ** allowedValues,int nrAllowedValues){
-        
-        for (int i=0; i<nrAllowedValues; i++) {
-            
-            if (strcmp(att->Value(), allowedValues[i])==0){
-                return i;
-            }
-        }
-        
-        return -1;
-                
-        
-    
-    
-    }
-    
-    
-    static inline bool lightArrayValue(TiXmlAttribute *att,LG_LightArray& lightArrayToFill){
-    
-        
-        
-    
-        int nrFound=sscanf(att->Value(),"%lf %lf %lf %lf",&(lightArrayToFill[0]),&(lightArrayToFill[1]),&(lightArrayToFill[2]),&(lightArrayToFill[3]));
-        
-        if (nrFound!=4){
-        
-            for(int i=0;i<4;i++)
-                lightArrayToFill[i]=LG_LightValue_Not_Set;
-            return false;
-            
-        }
-        
-    
-        
-        
-        return true;
-        
-        
-        
-        
-    }
+	/**
+
+
+	 A virtual method to be implemented by all subclasses. It's supposed to verify that this element is indeed the supposed one for the specified subclass.
+	 This method is called in the LG_Parsable_Node constructor.
+
+	 */
+	virtual void verifyElementName(TiXmlElement *element) = 0;
+
+	/**
+
+
+	 A virtual method to be implemented by all subclasses. It's supposed to verify that this element does indeed have the supposed properties with the allowed values.
+	 This method is called in the LG_Parsable_Node constructor.
+
+	 */
+	virtual void verifyElementAttributesAndValues(TiXmlElement *element) = 0;
+
+
+public:
+
+	/**
+
+	 A method that extracts the int value from an attribute. If the value isn't an int than
+
+	 LG_INVALID_INT is returned.
+
+	 */
+	static inline int intValueForAttribute(TiXmlAttribute *att){
+
+		int value;
+		int result = att->QueryIntValue(&value);
+
+		if (result == TIXML_SUCCESS)return value;
+
+		return LG_INVALID_INT;
+
+
+
+
+	}
+
+
+
+	/**
+
+	 A method that extracts the bool value from an attribute. If the bool is true LG_True is returned, if false LG_False is returned. In case an invalid bool is present LG_Invalid_Bool is returned.
+	 */
+
+	static inline LG_BOOL boolValueForAttribute(TiXmlAttribute *att){
+
+
+		const char * value = att->Value();
+
+		int compareResult = strcmp(value, LG_BOOL_STRING_TRUE);
+		if (compareResult == 0) return LG_True;
+		compareResult = strcmp(value, LG_BOOL_STRING_FALSE);
+		if (compareResult == 0)return LG_False;
+		return LG_Invalid_Bool;
+
+	}
+
+	static inline LG_BOOL boolValueForAttribute(const char *value){
+
+
+		int compareResult = strcmp(value, LG_BOOL_STRING_TRUE);
+		if (compareResult == 0) return LG_True;
+		compareResult = strcmp(value, LG_BOOL_STRING_FALSE);
+		if (compareResult == 0)return LG_False;
+		return LG_Invalid_Bool;
+
+	}
+
+	/**
+
+
+	 A method that extracts the double value from an attribute. In case an invalid double is present, LG_INVALID_DOUBLE is returned.
+
+	 */
+
+	static inline double doubleValueForAttribute(TiXmlAttribute *att){
+
+
+
+		double value;
+		int result = att->QueryDoubleValue(&value);
+		if (result == TIXML_SUCCESS)return value;
+		return LG_INVALID_DOUBLE;
+
+
+	}
+
+	/**
+
+	 A method that says wich of the allowed values is found in the attribute. If none is found then -1 is returned
+
+	 */
+
+
+	static inline int stringValue(TiXmlAttribute *att, char ** allowedValues, int nrAllowedValues){
+
+		for (int i = 0; i < nrAllowedValues; i++) {
+
+			if (strcmp(att->Value(), allowedValues[i]) == 0){
+				return i;
+			}
+		}
+
+		return -1;
+
+
+
+
+	}
+
+
+	static inline bool lightArrayValue(TiXmlAttribute *att, LG_LightArray& lightArrayToFill){
+
+
+
+
+		int nrFound = sscanf(att->Value(), "%lf %lf %lf %lf", &(lightArrayToFill[0]), &(lightArrayToFill[1]), &(lightArrayToFill[2]), &(lightArrayToFill[3]));
+
+		if (nrFound != 4){
+
+			for (int i = 0; i < 4; i++)
+				lightArrayToFill[i] = LG_LightValue_Not_Set;
+			return false;
+
+		}
+		return true;
+	}
 
 
 };
 
 
+static inline bool lightArrayValue_(const char  *att, LG_LightArray& lightArrayToFill){
+
+	int nrFound = sscanf(att, "%lf %lf %lf %lf", &(lightArrayToFill[0]), &(lightArrayToFill[1]), &(lightArrayToFill[2]), &(lightArrayToFill[3]));
+
+	if (nrFound != 4){
+
+		for (int i = 0; i < 4; i++)
+			lightArrayToFill[i] = LG_LightValue_Not_Set;
+		return false;
+
+	}
+	return true;
+};
 
 
-class LG_Parse_Exception: exception{
-    
-    
+
+
+class LG_Parse_Exception : exception{
+
+
 protected:
-    string* element;
-    
+	string* element;
+
 public:
-    LG_Parse_Exception(string* elem);
-    virtual ~LG_Parse_Exception();
-    
+	LG_Parse_Exception(string* elem);
+	virtual ~LG_Parse_Exception();
+
 };
 
 
-class LG_Parse_Exception_Wrong_Attribute_Value: LG_Parse_Exception{
+class LG_Parse_Exception_Wrong_Attribute_Value : LG_Parse_Exception{
 
 private:
-    string* attribute;
-    string* actualValue;
-    vector<string> *expectedValues;
-    
-public:
-    
-    LG_Parse_Exception_Wrong_Attribute_Value(string *elem,string* attrib,string* value,vector<string> *expected);
-    ~LG_Parse_Exception_Wrong_Attribute_Value();
-    char* what();
+	string* attribute;
+	string* actualValue;
+	vector<string> *expectedValues;
 
-    
-    
+public:
+
+	LG_Parse_Exception_Wrong_Attribute_Value(string *elem, string* attrib, string* value, vector<string> *expected);
+	~LG_Parse_Exception_Wrong_Attribute_Value();
+	char* what();
+
+
+
 
 };
 
 
-class LG_Parse_Exception_Missing_Attribute: LG_Parse_Exception{
+class LG_Parse_Exception_Wrong_Elem_Type : LG_Parse_Exception{
 private:
-    string* missingAttribute;
-    
+	string *expected_type;
+
 public:
-    LG_Parse_Exception_Missing_Attribute(string *elementName,string * missingAtt);
-    
-    char * what();
-    
-    ~LG_Parse_Exception_Missing_Attribute();
+	LG_Parse_Exception_Wrong_Elem_Type(char *expected_type);
+	LG_Parse_Exception_Wrong_Elem_Type(string *expected_type);
+	
+	char * what();
+
+	~LG_Parse_Exception_Wrong_Elem_Type();
+};
+
+
+class LG_Parse_Exception_Missing_Attribute : LG_Parse_Exception{
+private:
+	string* missingAttribute;
+
+public:
+	LG_Parse_Exception_Missing_Attribute(string *elementName, string * missingAtt);
+	LG_Parse_Exception_Missing_Attribute(char *elementName, char * missingAtt);
+
+	char * what();
+
+	~LG_Parse_Exception_Missing_Attribute();
 
 
 };
 
 
 
-class LG_Parse_Exception_Wrong_Element_Name: LG_Parse_Exception{
+class LG_Parse_Exception_Wrong_Element_Name : LG_Parse_Exception{
 
 public:
-    LG_Parse_Exception_Wrong_Element_Name(string * expectedElementName, string * actualElementName);
-    
-    ~LG_Parse_Exception_Wrong_Element_Name();
-    
-    char * what();
+	LG_Parse_Exception_Wrong_Element_Name(string * expectedElementName, string * actualElementName);
+
+	~LG_Parse_Exception_Wrong_Element_Name();
+
+	char * what();
 
 private:
-    string *expectedElementName;
-    
+	string *expectedElementName;
+
 };
 
 
-class LG_Parse_Exception_Missing_Element: LG_Parse_Exception{
+class LG_Parse_Exception_Missing_Element : LG_Parse_Exception{
 
 
-    LG_Parse_Exception_Missing_Element(string *elem);
+	LG_Parse_Exception_Missing_Element(string *elem);
 
 };
 
