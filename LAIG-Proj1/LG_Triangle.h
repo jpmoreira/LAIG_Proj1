@@ -10,14 +10,14 @@
 #define __LAIG_Proj1__LG_Triangle__
 
 #include <stdio.h>
-#include "LG_Node.h"
+#include "LG_Primitive.h"
 
 #define LG_Origin_3D_Point {0,0,0}
 
 #endif /* defined(__LAIG_Proj1__LG_Triangle__) */
 
 
-class LG_Triangle : public LG_Node {
+class LG_Triangle : public LG_Primitive {
     
     
     
@@ -29,6 +29,13 @@ private:
     
     /**
      
+     The number of triangle created before this one. Used to computed the identifier for LG_Triangle objects
+     
+     */
+    static int triangleNr;
+    
+    /**
+     
      Copies all the points to the object containers that are supposed to hold it
      
      */
@@ -36,8 +43,24 @@ private:
     void copyPoints(LG_Point pt1,LG_Point pt2, LG_Point pt3);
     
     
+    /**
+     A method that returns the char * correspondant to the identifier of a triangle with a given id nr
+     
+     */
+    
+    static string triangleID(int nr);
+    
+    
 public:
     
+    
+    
+    /**
+     
+     Constructor that takes a TiXmlElement, validates it and attemps to create a LG_Triangle object, in case some error occurs the correct LG_Parse_Exception subclass object is thrown
+     
+     */
+    LG_Triangle(LG_Node_Map *map,TiXmlElement *elem);
     
     
    
@@ -57,8 +80,23 @@ public:
      */
     LG_Triangle(LG_Node_Map *map,string identif);
     
-     virtual void draw();
+    virtual void draw();
     
+    
+    /**
+     
+     See superclass.
+     
+     */
+    void verifyElementAttributesAndValues(TiXmlElement *element);
+
+    
+    /*
+     
+     See superclass.
+     
+     */
+    void verifyElementName(TiXmlElement *element);
     
     
     

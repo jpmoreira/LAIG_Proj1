@@ -12,12 +12,13 @@
 #include <stdio.h>
 #include <vector>
 #include <string>
+#include <cstring>
 #include <map>
 #include "LG_Node.h"
 #include <GL/glew.h>
 //#include "LG_Properties.h"
 
-#define LG_LightValue_Not_Set -1
+#define LG_LightValue_Not_Set LG_INVALID_DOUBLE
 
 #define LG_LightList_InitialValue {LG_LightValue_Not_Set,LG_LightValue_Not_Set,LG_LightValue_Not_Set,LG_LightValue_Not_Set}
 
@@ -26,7 +27,8 @@
 
 #define str_eq( value1 , value2 ) (strcmp(value1,value2)==0)
 
-
+#define LG_Point_Length 3
+#define LG_LightArray_Lenght 4
 
 
 using  std::vector;

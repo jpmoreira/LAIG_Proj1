@@ -37,7 +37,7 @@ typedef enum{
 #define LG_BOOL_STRING_FALSE "false"
 
 
-class LG_Parsable_Node : LG_Node{
+class LG_Parsable_Node : public LG_Node{
 
 public:
     /**
@@ -156,16 +156,24 @@ public:
     }
     
     
+    
+    /**
+     
+     A method that tries to initialize a lightArray with the elements coming from an attribute.
+     In case some error occurs false is returned and the array is filled with the value LG_LightValue_Not_Set
+     */
+     
     static inline bool lightArrayValue(TiXmlAttribute *att,LG_LightArray& lightArrayToFill){
     
         
         
-    
-        int nrFound=sscanf(att->Value(),"%lf %lf %lf %lf",&(lightArrayToFill[0]),&(lightArrayToFill[1]),&(lightArrayToFill[2]),&(lightArrayToFill[3]));
+        double dummy;
+        
+        int nrFound=sscanf(att->Value(),"%lf %lf %lf %lf %lf",&(lightArrayToFill[0]),&(lightArrayToFill[1]),&(lightArrayToFill[2]),&(lightArrayToFill[3]),&dummy);//try to match one more... if it's matched then some error happened....
         
         if (nrFound!=4){
         
-            for(int i=0;i<4;i++)
+            for(int i=0;i<LG_LightArray_Lenght;i++)
                 lightArrayToFill[i]=LG_LightValue_Not_Set;
             return false;
             
@@ -179,6 +187,38 @@ public:
         
         
         
+    }
+    
+    /**
+     
+     A method that tries to initialize a LG_Point with the values coming from an attribute.
+     
+     In case some error occurs false is teturned and the array is filled with the value LG_INVALID_DOUBLE
+     
+     */
+    
+    static inline bool pointArrayValue(TiXmlAttribute *att,LG_Point & pointToFill){
+        
+        
+        double dummy;
+        
+        int nrFound=sscanf(att->Value(),"%lf %lf %lf  %lf",&(pointToFill[0]),&(pointToFill[1]),&(pointToFill[2]),&dummy);//try to match four... last one is supposed to never be filled in... if it is parsing didn't occur well, only 3D vectors allowed
+        
+        if (nrFound!=LG_Point_Length){
+            
+            for(int i=0;i<LG_Point_Length;i++)
+                pointToFill[i]=LG_INVALID_DOUBLE;
+
+            return false;
+            
+        }
+        
+        
+        
+        
+        return true;
+    
+    
     }
 
 
@@ -200,7 +240,7 @@ public:
 };
 
 
-class LG_Parse_Exception_Wrong_Attribute_Value: LG_Parse_Exception{
+class LG_Parse_Exception_Wrong_Attribute_Value:public LG_Parse_Exception{
 
 private:
     string* attribute;
@@ -219,7 +259,7 @@ public:
 };
 
 
-class LG_Parse_Exception_Missing_Attribute: LG_Parse_Exception{
+class LG_Parse_Exception_Missing_Attribute:public LG_Parse_Exception{
 private:
     string* missingAttribute;
     
@@ -235,7 +275,7 @@ public:
 
 
 
-class LG_Parse_Exception_Wrong_Element_Name: LG_Parse_Exception{
+class LG_Parse_Exception_Wrong_Element_Name:public LG_Parse_Exception{
 
 public:
     LG_Parse_Exception_Wrong_Element_Name(string * expectedElementName, string * actualElementName);
@@ -250,7 +290,7 @@ private:
 };
 
 
-class LG_Parse_Exception_Missing_Element: LG_Parse_Exception{
+class LG_Parse_Exception_Missing_Element:public LG_Parse_Exception{
 
 
     LG_Parse_Exception_Missing_Element(string *elem);
