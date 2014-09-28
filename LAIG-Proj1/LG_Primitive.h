@@ -13,6 +13,16 @@
 #include "LG_Parsable_Node.h"
 
 
+/**
+ 
+ define that suposes the class using it implements a data member to hold the current instance called _LG_classIDNr and a char * with the name _LG_Primitive_Name that indicates the name of the class.
+ Then, this define generates the code to create an auto-increment unique identifier for that class
+ 
+ */
+
+#define autoIdentifier (string(_LG_Primitive_Name+std::to_string(_LG_classIDNr++)))
+
+
 class LG_Primitive: public LG_Parsable_Node{
 
 public:
@@ -23,6 +33,8 @@ public:
 
 protected:
     void initializePoint3D(LG_Point3D& point);
+    
+    
     
 };
 #endif /* defined(__LAIG_Proj1__LG_Primitive__) */

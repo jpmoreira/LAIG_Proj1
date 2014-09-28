@@ -13,6 +13,8 @@
 
 #define LG_Triangle_XML_Tag_Name "triangle"
 
+#define _LG_Primitive_Name LG_Triangle_ID
+
 #define LG_Triangle_XML_Att1_Name "xyz1"
 #define LG_Triangle_XML_Att2_Name "xyz2"
 #define LG_Triangle_XML_Att3_Name "xyz3"
@@ -20,9 +22,9 @@
 
 #pragma mark - Constructors
 
-int LG_Triangle::triangleNr=0;
+int LG_Triangle::_LG_classIDNr=0;
 
-LG_Triangle::LG_Triangle(LG_Node_Map *map,TiXmlElement *elem):LG_Primitive(map,triangleID(triangleNr++)){
+LG_Triangle::LG_Triangle(LG_Node_Map *map,TiXmlElement *elem):LG_Primitive(map,autoIdentifier){
 
 
     initializePoint3D(pt1);
@@ -158,13 +160,6 @@ void LG_Triangle::copyPoints(LG_Point3D point1,LG_Point3D point2, LG_Point3D poi
     }
     
 
-}
-
-
-
-string LG_Triangle::triangleID(int nr){
-
-    return string(LG_Triangle_ID+std::to_string(nr));
 }
 
 

@@ -51,25 +51,7 @@ public:
     
 protected:
     
-    /**
-     
-     
-     A virtual method to be implemented by all subclasses. It's supposed to verify that this element is indeed the supposed one for the specified subclass.
-     This method is called in the LG_Parsable_Node constructor.
-     
-     */
-    virtual void verifyElementName(TiXmlElement *element)=0;
-    
-    /**
-     
-     
-     A virtual method to be implemented by all subclasses. It's supposed to verify that this element does indeed have the supposed properties with the allowed values.
-     This method is called in the LG_Parsable_Node constructor.
-     
-     */
-    virtual void verifyElementAttributesAndValues(TiXmlElement *element)=0;
-    
-    
+        
 public:
     
     /**
@@ -85,6 +67,34 @@ public:
         int result=att->QueryIntValue(&value);
         
         if (result==TIXML_SUCCESS)return value;
+        
+        return LG_INVALID_INT;
+        
+        
+        
+        
+    }
+
+    
+    
+    /**
+     
+     A method that extracts the positive int value from an attribute. If the value isn't an int than
+     
+     LG_INVALID_INT is returned.
+     
+     */
+    
+    static inline unsigned int positiveIntValueForAttribute(TiXmlAttribute *att){
+        
+        int value;
+        int result=att->QueryIntValue(&value);
+        
+        if (result==TIXML_SUCCESS){
+        
+            if(value>0)return value;
+            
+        }
         
         return LG_INVALID_INT;
         
@@ -134,6 +144,29 @@ public:
     
     /**
      
+     
+     A method that extracts the double value from an attribute. In case an invalid double is present, LG_INVALID_DOUBLE is returned.
+     
+     */
+    
+    static inline double positiveDoubleValueForAttribute(TiXmlAttribute *att){
+        
+        
+        
+        double value;
+        int result=att->QueryDoubleValue(&value);
+        if (result==TIXML_SUCCESS){
+        
+            if (value>0)return value;
+        }
+        return LG_INVALID_DOUBLE;
+        
+        
+    }
+
+    
+    /**
+     
      A method that says wich of the allowed values is found in the attribute. If none is found then -1 is returned
      
      */
@@ -154,6 +187,8 @@ public:
     
     
     }
+    
+    
     
     
     
@@ -255,6 +290,9 @@ public:
 
     
     }
+    
+    
+    
 };
 
 

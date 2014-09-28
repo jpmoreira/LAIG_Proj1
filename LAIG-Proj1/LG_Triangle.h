@@ -28,11 +28,11 @@ private:
     LG_Point3D pt3;
     
     /**
-     
-     The number of triangle created before this one. Used to computed the identifier for LG_Triangle objects
+     Number that holds the current id for the newly created primitive instance. Used in the autoIdentifier macro
      
      */
-    static int triangleNr;
+    
+    static int _LG_classIDNr;
     
     /**
      
@@ -43,12 +43,6 @@ private:
     void copyPoints(LG_Point3D pt1,LG_Point3D pt2, LG_Point3D pt3);
     
     
-    /**
-     A method that returns the char * correspondant to the identifier of a triangle with a given id nr
-     
-     */
-    
-    static string triangleID(int nr);
     
     
 public:

@@ -23,7 +23,12 @@ private:
     LG_Point3D pt1;
     LG_Point3D pt2;
     
-    static int rectangleNr;
+    /**
+     Number that holds the current id for the newly created primitive instance. Used in the autoIdentifier macro
+     
+     */
+    
+    static int _LG_classIDNr;
     
     
     
@@ -56,7 +61,6 @@ public:
     LG_Rectangle(LG_Node_Map *map,LG_Point3D point1,LG_Point3D point2);
     LG_Rectangle(LG_Node_Map *map,TiXmlElement *elem);
     
-    static string rectangleID(int nr);
     
     
     
