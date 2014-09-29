@@ -79,12 +79,12 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		54174DC519D033CB0039E991 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			dstPath = usr/share/man/man1;
 			dstSubfolderSpec = 16;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5435E6E019D72CF9004169BD /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -1104,6 +1104,7 @@
 				5469677719D89585001DBA15 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5469678E19D8A95C001DBA15 /* Build configuration list for PBXNativeTarget "LG_Sphere_Tests" */ = {
 			isa = XCConfigurationList;
@@ -1112,6 +1113,7 @@
 				5469679019D8A95C001DBA15 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

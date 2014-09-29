@@ -201,7 +201,7 @@ public:
      
      */
     
-    static inline int stringValue_(char * att,char ** allowedValues,int nrAllowedValues){
+    static inline int stringValue_(const char * att,char ** allowedValues,int nrAllowedValues){
         
         for (int i=0; i<nrAllowedValues; i++) {
             
