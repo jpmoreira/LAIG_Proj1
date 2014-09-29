@@ -5,12 +5,6 @@
 
 #pragma mark - Constructors
 
-#define LG_LIGHTING_XML_TAG_NAME "lighting"
-#define LG_LIGHTING_XML_ATT_AMBIENT "ambient"
-#define LG_LIGHTING_XML_ATT_ENABLED "enabled"
-#define LG_LIGHTING_XML_ATT_DOUBLESIDED "doublesided"
-#define LG_LIGHTING_XML_ATT_LOCAL "local"
-
 
 LG_Lighting::LG_Lighting(LG_Node_Map *map, TiXmlElement *element) :LG_Parsable_Node(map, LG_Lighting_Node_ID), doublesided(false), local(true), enabled(true){
 
@@ -54,17 +48,17 @@ void LG_Lighting::verifyAttributesAndValues(TiXmlElement *lightingElement){
 	LG_BOOL tmp[3];
 
 	elem = (char *)lightingElement->Value();
-	tmp[0] = boolValueForAttribute_(lightingElement->Attribute(LG_LIGHTING_XML_ATT_DOUBLESIDED));
-	tmp[1] = boolValueForAttribute_(lightingElement->Attribute(LG_LIGHTING_XML_ATT_ENABLED));
-	tmp[2] = boolValueForAttribute_(lightingElement->Attribute(LG_LIGHTING_XML_ATT_LOCAL));
-	
+
+	char *doublesided_att = (char *)lightingElement->Attribute(LG_LIGHTING_XML_ATT_DOUBLESIDED);
+	char *enabled_att = (char *)lightingElement->Attribute(LG_LIGHTING_XML_ATT_ENABLED);
+	char *local_att = (char *)lightingElement->Attribute(LG_LIGHTING_XML_ATT_LOCAL);
 	char *tmp_ambient = (char *)lightingElement->Attribute(LG_LIGHTING_XML_ATT_AMBIENT);
 
 
 
 	//see how you prefer, double check if it missing or one check one at a time and prepare multiple throws
 	//constructor is setting default values, will never miss existence of any
-	if (!doublesided || !enabled || !local || !ambient)
+	if (!doublesided_att || !enabled_att || !local_att || !tmp_ambient)
 	{
 		if (!doublesided)
 			attr.append(LG_LIGHTING_XML_ATT_DOUBLESIDED);
@@ -79,9 +73,13 @@ void LG_Lighting::verifyAttributesAndValues(TiXmlElement *lightingElement){
 		throw  new LG_Parse_Exception_Missing_Attribute(&elem, &attr);
 	}
 
+	tmp[0] = boolValueForAttribute_(doublesided_att);
+	tmp[1] = boolValueForAttribute_(enabled_att);
+	tmp[2] = boolValueForAttribute_(local_att);
+
 	//see how you prefer, double check if it missing or one check one at a time and prepare multiple throws
 	//check if there's an invalid value given
-	if (doublesided == LG_Invalid_Bool || enabled == LG_Invalid_Bool || local == LG_Invalid_Bool)
+	if (tmp[0] == LG_Invalid_Bool || tmp[1] == LG_Invalid_Bool || tmp[2] == LG_Invalid_Bool)
 	{
 
 		expected[0].append(LG_BOOL_STRING_FALSE);
@@ -89,9 +87,9 @@ void LG_Lighting::verifyAttributesAndValues(TiXmlElement *lightingElement){
 
 
 
-		if (doublesided == LG_Invalid_Bool)
+		if (tmp[0] == LG_Invalid_Bool)
 			attr.append(LG_LIGHTING_XML_ATT_DOUBLESIDED);
-		else if (enabled == LG_Invalid_Bool)
+		else if (tmp[1] == LG_Invalid_Bool)
 			attr.append(LG_LIGHTING_XML_ATT_ENABLED);
 		else
 			attr.append(LG_LIGHTING_XML_ATT_LOCAL);

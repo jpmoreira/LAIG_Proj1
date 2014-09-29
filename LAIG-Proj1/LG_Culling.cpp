@@ -18,7 +18,7 @@ LG_Culling::LG_Culling(LG_Node_Map *map, TiXmlElement *element) :LG_Parsable_Nod
 	//verify type - think it's useless -
 	TiXmlNode::NodeType type = (TiXmlNode::NodeType)element->Type();
 	if (!(type == TiXmlNode::TINYXML_ELEMENT)) {
-		string expected; expected.append("culling");
+		string expected; expected.append(LG_CULLING_XML_TAG_NAME);
 		throw LG_Parse_Exception_Wrong_Elem_Type(&expected);
 		return;
 	}
@@ -37,7 +37,7 @@ void LG_Culling::verifyAttributesAndValues(TiXmlElement *element){
 	string elem, attr, value;
 	vector<string> expected;
 
-	string face_att_name("face"), order_att_name("order");
+	string face_att_name(LG_CULLING_XML_ATT_FACE), order_att_name(LG_CULLING_XML_ATT_ORDER);
 
 	elem = (char *)element->Value();
 
@@ -54,12 +54,12 @@ void LG_Culling::verifyAttributesAndValues(TiXmlElement *element){
 	}
 
 
-	if (strcmp(face_val, "none") != 0 && strcmp(face_val, "back") != 0
-		&& strcmp(face_val, "front") != 0 && strcmp(face_val, "both") != 0)
+	if (strcmp(face_val, LG_Culling_None_String) != 0 && strcmp(face_val, LG_Culling_Back_String) != 0
+		&& strcmp(face_val, LG_Culling_Front_String) != 0 && strcmp(face_val, LG_Culling_Both_String) != 0)
 	{
 		value.append(face_val);
-		expected[0] = "none"; expected[1] = "back";
-		expected[2] = "front"; expected[3] = "both";
+		expected[0] = LG_Culling_None_String; expected[1] = LG_Culling_Back_String;
+		expected[2] = LG_Culling_Front_String; expected[3] = LG_Culling_Both_String;
 		throw LG_Parse_Exception_Wrong_Attribute_Value(&elem, &face_att_name, &value, &expected);
 		return;
 	}
@@ -67,10 +67,10 @@ void LG_Culling::verifyAttributesAndValues(TiXmlElement *element){
 		stringToAttr(&face_att_name, face_val);
 
 
-	if (strcmp(order_val, "cw") != 0 && strcmp(order_val, "ccw") != 0)
+	if (strcmp(order_val, LG_Culling_CW_String) != 0 && strcmp(order_val, LG_Culling_CCW_String) != 0)
 	{
 		value.append(order_val);
-		expected[0] = "cw"; expected[1] = "ccw";
+		expected[0] = LG_Culling_CW_String; expected[1] = LG_Culling_CCW_String;
 		throw LG_Parse_Exception_Wrong_Attribute_Value(&elem, &order_att_name, &value, &expected);
 		return;
 	}
@@ -80,8 +80,8 @@ void LG_Culling::verifyAttributesAndValues(TiXmlElement *element){
 
 
 void LG_Culling::verifyElementName(TiXmlElement *element){
-	string lightingName = "culling";
-	if (!str_eq(element->Value(), "culling")){
+	string lightingName = LG_CULLING_XML_TAG_NAME;
+	if (!str_eq(element->Value(), LG_CULLING_XML_TAG_NAME)){
 		string name_received = (char *)element->Value();
 		throw LG_Parse_Exception_Wrong_Element_Name(&name_received, &lightingName);
 		return;
@@ -91,19 +91,19 @@ void LG_Culling::verifyElementName(TiXmlElement *element){
 
 void LG_Culling::stringToAttr(string *att_name, char *att){
 	
-	if (att_name->compare("face")==0){
-		if (strcmp(att, "none")== 0)
+	if (att_name->compare(LG_CULLING_XML_ATT_FACE) == 0){
+		if (strcmp(att, LG_Culling_None_String) == 0)
 			this->face = LG_None;
-		else if (strcmp(att, "back")== 0)
+		else if (strcmp(att, LG_Culling_Back_String) == 0)
 			this->face = LG_Back;
-		else if (strcmp(att, "front")==0)
+		else if (strcmp(att, LG_Culling_Front_String) == 0)
 			this->face = LG_Front;
 		else 
 			this->face = LG_Both;
 	}
 	else
-		if (att_name->compare("order") == 0)
-		if (strcmp(att, "cw"))
+		if (att_name->compare(LG_CULLING_XML_ATT_ORDER) == 0)
+		if (strcmp(att, LG_Culling_CW_String))
 			this->order = LG_Culling_Order_CW;
 		else
 			this->order = LG_Culling_Order_CCW;

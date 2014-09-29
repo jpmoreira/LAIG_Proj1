@@ -13,6 +13,11 @@
 #include "LG_Parsable_Node.h"
 
 #define LG_Lighting_Node_ID "_LG_Lighting"
+#define LG_LIGHTING_XML_TAG_NAME "lighting"
+#define LG_LIGHTING_XML_ATT_AMBIENT "ambient"
+#define LG_LIGHTING_XML_ATT_ENABLED "enabled"
+#define LG_LIGHTING_XML_ATT_DOUBLESIDED "doublesided"
+#define LG_LIGHTING_XML_ATT_LOCAL "local"
 
 
 class LG_Lighting : public LG_Parsable_Node{
