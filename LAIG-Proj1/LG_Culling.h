@@ -22,6 +22,15 @@
 #define LG_Culling_None_String "none"
 #define LG_Culling_Both_String "both"
 
+#define LG_Culling_CCW_String "ccw"
+#define LG_Culling_CW_String "cw"
+
+#define LG_CULLING_XML_TAG_NAME "culling"
+#define LG_CULLING_XML_ATT_FACE "face"
+#define LG_CULLING_XML_ATT_ORDER "order"
+
+
+
 typedef enum{
 
     LG_Back,

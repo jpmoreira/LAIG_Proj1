@@ -130,7 +130,7 @@ public:
         
         TiXmlAttribute attribute("dummy",att);
         
-        return positiveDoubleValueForAttribute(&attribute);
+        return positiveIntValueForAttribute(&attribute);
         
         
         
