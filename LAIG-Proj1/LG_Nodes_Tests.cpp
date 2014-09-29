@@ -1,6 +1,11 @@
+
+#ifndef LG_ALL_TESTS
 #define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
 #include "catch.h"
 #define private public//here for testing purposes basicaly disables incapsulation for the files included after
+#endif
+
+
 #include "LG_Node.h"
 
 

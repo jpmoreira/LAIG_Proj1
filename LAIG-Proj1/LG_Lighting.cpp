@@ -50,7 +50,7 @@ void LG_Lighting::verifyAttributesAndValues(TiXmlElement *lightingElement){
 
 
 	elem = (char *)lightingElement->Value();
-	doublesided = boolValueForAttribute(lightingElement->Attribute("doublesided"));
+	doublesided = boolValueForAttribute_(lightingElement->Attribute("doublesided"));
 	enabled = (char *)lightingElement->Attribute("enabled");
 	local = (char *)lightingElement->Attribute("local");
 	char *tmp_ambient = (char *)lightingElement->Attribute("ambient");

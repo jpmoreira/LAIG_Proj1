@@ -1,7 +1,8 @@
+#ifndef LG_ALL_TESTS
 #define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
 #include "catch.h"
 #define private public //disable encapsulation for following files, allowing testing to be done
-
+#endif
 #include "LG_Parsable_Node.h"
 
 TEST_CASE("Wrong attribute value Exception"){
@@ -73,6 +74,16 @@ TEST_CASE("Testing parsing a valid int"){
 
 }
 
+TEST_CASE("Testing parsing a valid int 2"){
+    
+    
+    int value=LG_Parsable_Node::intValueForAttribute_("123");
+    
+    REQUIRE(value==123);
+    
+    
+}
+
 
 
 TEST_CASE("Testing parsing an invalid int"){
@@ -81,6 +92,16 @@ TEST_CASE("Testing parsing an invalid int"){
     TiXmlAttribute *att=new TiXmlAttribute("att","adasd");
     
     int value=LG_Parsable_Node::intValueForAttribute(att);
+    
+    REQUIRE(value==LG_INVALID_INT);
+    
+    
+}
+TEST_CASE("Testing parsing an invalid int 2"){
+    
+
+    
+    int value=LG_Parsable_Node::intValueForAttribute_("xhdf");
     
     REQUIRE(value==LG_INVALID_INT);
     
@@ -102,6 +123,19 @@ TEST_CASE("Testing parsing a valid double"){
     
 }
 
+TEST_CASE("Testing parsing a valid double 2"){
+    
+    
+    
+    double value=LG_Parsable_Node::doubleValueForAttribute_("1.40890");
+    
+    double delta=abs(value-1.40890);
+    
+    REQUIRE(delta<=0.00001);
+    
+    
+}
+
 
 
 TEST_CASE("Testing parsing an invalid double"){
@@ -114,6 +148,19 @@ TEST_CASE("Testing parsing an invalid double"){
     
     
 }
+
+TEST_CASE("Testing parsing an invalid double 2"){
+    
+    double value=LG_Parsable_Node::doubleValueForAttribute_("blabla");
+    
+    REQUIRE(value==LG_INVALID_DOUBLE);
+    
+    
+}
+
+
+
+
 TEST_CASE("Testing parsing a valid bool"){
     
     
@@ -255,7 +302,7 @@ TEST_CASE("Testing correct LG_Point"){
     
     LG_Point3D pt;
     
-    bool correct=LG_Parsable_Node::pointArrayValue(att, pt);
+    bool correct=LG_Parsable_Node::point3DValue(att, pt);
     
     
     REQUIRE(correct);
@@ -272,7 +319,7 @@ TEST_CASE("Testing incorrect LG_Point3D (too short)"){
     
     LG_Point3D pt;
     
-    bool correct=LG_Parsable_Node::pointArrayValue(att, pt);
+    bool correct=LG_Parsable_Node::point3DValue(att, pt);
     
     
      REQUIRE(!correct);
@@ -293,7 +340,7 @@ TEST_CASE("Testing incorrect LG_Point3D (too large)"){
     
     LG_Point3D pt;
     
-    bool correct=LG_Parsable_Node::pointArrayValue(att, pt);
+    bool correct=LG_Parsable_Node::point3DValue(att, pt);
     
     
     REQUIRE(!correct);

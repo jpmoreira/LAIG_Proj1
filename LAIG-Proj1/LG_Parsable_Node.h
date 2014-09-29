@@ -51,22 +51,6 @@ public:
 
 
 public:
-
-	static inline LG_BOOL boolValueForAttribute(const char *value){
-
-
-		int compareResult = strcmp(value, LG_BOOL_STRING_TRUE);
-		if (compareResult == 0) return LG_True;
-		compareResult = strcmp(value, LG_BOOL_STRING_FALSE);
-		if (compareResult == 0)return LG_False;
-		return LG_Invalid_Bool;
-
-	}
-
-
-    
-        
-
     
     /**
      
@@ -83,6 +67,23 @@ public:
         if (result==TIXML_SUCCESS)return value;
         
         return LG_INVALID_INT;
+        
+        
+        
+        
+    }
+    
+    /**
+     
+     A method that extracts the int value from an attribute. If the value isn't an int than
+     
+     LG_INVALID_INT is returned.
+     
+     */
+    static inline int intValueForAttribute_(const char *att){
+        
+        TiXmlAttribute attribute("dummy",att);
+        return intValueForAttribute(&attribute);
         
         
         
@@ -116,6 +117,25 @@ public:
         
         
     }
+    
+    /**
+     
+     A method that extracts the positive int value from an attribute. If the value isn't an int than
+     
+     LG_INVALID_INT is returned.
+     
+     */
+    
+    static inline unsigned int positiveIntValueForAttribute_(const char *att){
+        
+        TiXmlAttribute attribute("dummy",att);
+        
+        return positiveDoubleValueForAttribute(&attribute);
+        
+        
+        
+        
+    }
 
     
     
@@ -127,7 +147,17 @@ public:
     static inline LG_BOOL boolValueForAttribute(TiXmlAttribute *att){
         
         
-        const char * value=att->Value();
+        return boolValueForAttribute_(att->Value());
+    }
+    
+    
+    /**
+     
+     A method that extracts the bool value from an attribute. If the bool is true LG_True is returned, if false LG_False is returned. In case an invalid bool is present LG_Invalid_Bool is returned.
+     */
+    
+    static inline LG_BOOL boolValueForAttribute_(const char *value){
+        
         
         int compareResult=strcmp(value, LG_BOOL_STRING_TRUE);
         if (compareResult==0) return LG_True;
@@ -136,6 +166,7 @@ public:
         return LG_Invalid_Bool;
         
     }
+
     
     /**
      
@@ -163,6 +194,23 @@ public:
      
      */
     
+    static inline double doubleValueForAttribute_(const char *att){
+        
+        
+        TiXmlAttribute attribute("dummy",att);
+        return doubleValueForAttribute(&attribute);
+        
+        
+    }
+
+    
+    /**
+     
+     
+     A method that extracts the double value from an attribute. In case an invalid double is present, LG_INVALID_DOUBLE is returned.
+     
+     */
+    
     static inline double positiveDoubleValueForAttribute(TiXmlAttribute *att){
         
         
@@ -177,6 +225,21 @@ public:
         
         
     }
+    
+    /**
+     
+     
+     A method that extracts the double value from an attribute. In case an invalid double is present, LG_INVALID_DOUBLE is returned.
+     
+     */
+    
+    static inline double positiveDoubleValueForAttribute_(const char *att){
+        
+        TiXmlAttribute attribute("dummy",att);
+        return positiveDoubleValueForAttribute(&attribute);
+        
+    }
+    
 
     
     /**
@@ -290,6 +353,25 @@ public:
     
     
     }
+    
+    /**
+     
+     A method that tries to initialize a LG_Point3D with the values coming from an attribute.
+     
+     In case some error occurs false is teturned and the array is filled with the value LG_INVALID_DOUBLE
+     
+     */
+    
+    
+    static inline bool point3DValue_(const char *att,LG_Point3D & pointToFill){
+        
+        
+        TiXmlAttribute attribute("dummy",att);
+        
+        return point3DValue(&attribute, pointToFill);
+        
+        
+    }
 
 
     /**
@@ -325,6 +407,23 @@ public:
 
     
     }
+    
+    /**
+     
+     
+     Similar to point3DValue but last coordinate is set to zero, and a 2D point is expected.
+     
+     */
+    
+    static inline bool point3DValueFromPoint2D_(const char *att,LG_Point3D & pointToFill){
+        
+        
+        TiXmlAttribute attribute("dummy",att);
+        
+        return point3DValueFromPoint2D(&attribute, pointToFill);
+        
+    }
+
     
     
     
