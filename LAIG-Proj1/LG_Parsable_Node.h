@@ -49,70 +49,8 @@ public:
 
 	LG_Parsable_Node(LG_Node_Map *map, string identif);
 
-protected:
-<<<<<<< HEAD
-
-	/**
-
-
-	 A virtual method to be implemented by all subclasses. It's supposed to verify that this element is indeed the supposed one for the specified subclass.
-	 This method is called in the LG_Parsable_Node constructor.
-
-	 */
-	virtual void verifyElementName(TiXmlElement *element) = 0;
-
-	/**
-
-
-	 A virtual method to be implemented by all subclasses. It's supposed to verify that this element does indeed have the supposed properties with the allowed values.
-	 This method is called in the LG_Parsable_Node constructor.
-
-	 */
-	virtual void verifyElementAttributesAndValues(TiXmlElement *element) = 0;
-
 
 public:
-
-	/**
-
-	 A method that extracts the int value from an attribute. If the value isn't an int than
-
-	 LG_INVALID_INT is returned.
-
-	 */
-	static inline int intValueForAttribute(TiXmlAttribute *att){
-
-		int value;
-		int result = att->QueryIntValue(&value);
-
-		if (result == TIXML_SUCCESS)return value;
-
-		return LG_INVALID_INT;
-
-
-
-
-	}
-
-
-
-	/**
-
-	 A method that extracts the bool value from an attribute. If the bool is true LG_True is returned, if false LG_False is returned. In case an invalid bool is present LG_Invalid_Bool is returned.
-	 */
-
-	static inline LG_BOOL boolValueForAttribute(TiXmlAttribute *att){
-
-
-		const char * value = att->Value();
-
-		int compareResult = strcmp(value, LG_BOOL_STRING_TRUE);
-		if (compareResult == 0) return LG_True;
-		compareResult = strcmp(value, LG_BOOL_STRING_FALSE);
-		if (compareResult == 0)return LG_False;
-		return LG_Invalid_Bool;
-
-	}
 
 	static inline LG_BOOL boolValueForAttribute(const char *value){
 
@@ -125,69 +63,10 @@ public:
 
 	}
 
-	/**
 
-
-	 A method that extracts the double value from an attribute. In case an invalid double is present, LG_INVALID_DOUBLE is returned.
-
-	 */
-
-	static inline double doubleValueForAttribute(TiXmlAttribute *att){
-
-
-
-		double value;
-		int result = att->QueryDoubleValue(&value);
-		if (result == TIXML_SUCCESS)return value;
-		return LG_INVALID_DOUBLE;
-
-
-	}
-
-	/**
-
-	 A method that says wich of the allowed values is found in the attribute. If none is found then -1 is returned
-
-	 */
-
-
-	static inline int stringValue(TiXmlAttribute *att, char ** allowedValues, int nrAllowedValues){
-
-		for (int i = 0; i < nrAllowedValues; i++) {
-
-			if (strcmp(att->Value(), allowedValues[i]) == 0){
-				return i;
-			}
-		}
-
-		return -1;
-
-
-
-
-	}
-
-
-	static inline bool lightArrayValue(TiXmlAttribute *att, LG_LightArray& lightArrayToFill){
-
-
-
-
-		int nrFound = sscanf(att->Value(), "%lf %lf %lf %lf", &(lightArrayToFill[0]), &(lightArrayToFill[1]), &(lightArrayToFill[2]), &(lightArrayToFill[3]));
-
-		if (nrFound != 4){
-
-			for (int i = 0; i < 4; i++)
-				lightArrayToFill[i] = LG_LightValue_Not_Set;
-			return false;
-
-		}
-		return true;
-	}
-=======
     
         
-public:
+
     
     /**
      
@@ -309,21 +188,35 @@ public:
     
     static inline int stringValue(TiXmlAttribute *att,char ** allowedValues,int nrAllowedValues){
         
-        for (int i=0; i<nrAllowedValues; i++) {
-            
-            if (strcmp(att->Value(), allowedValues[i])==0){
-                return i;
-            }
-        }
-        
-        return -1;
+        return stringValue_(att->Value(), allowedValues, nrAllowedValues);
                 
         
     
     
     }
     
+    /**
+     
+     A method that says wich of the allowed values is found in the attribute. If none is found then -1 is returned
+     
+     */
     
+    static inline int stringValue_(char * att,char ** allowedValues,int nrAllowedValues){
+        
+        for (int i=0; i<nrAllowedValues; i++) {
+            
+            if (strcmp(att, allowedValues[i])==0){
+                return i;
+            }
+        }
+        
+        return -1;
+        
+        
+        
+        
+    }
+
     
     
     
@@ -336,28 +229,35 @@ public:
     static inline bool lightArrayValue(TiXmlAttribute *att,LG_LightArray& lightArrayToFill){
     
         
+        return lightArrayValue_(att->Value(), lightArrayToFill);
+        
+        
+    }
+    
+    /**
+     
+     A method that tries to initialize a lightArray with the elements coming from an attribute.
+     In case some error occurs false is returned and the array is filled with the value LG_LightValue_Not_Set
+     */
+    
+    static inline bool lightArrayValue_(const char  *att, LG_LightArray& lightArrayToFill){
         
         double dummy;
         
-        int nrFound=sscanf(att->Value(),"%lf %lf %lf %lf %lf",&(lightArrayToFill[0]),&(lightArrayToFill[1]),&(lightArrayToFill[2]),&(lightArrayToFill[3]),&dummy);//try to match one more... if it's matched then some error happened....
+        int nrFound=sscanf(att,"%lf %lf %lf %lf %lf",&(lightArrayToFill[0]),&(lightArrayToFill[1]),&(lightArrayToFill[2]),&(lightArrayToFill[3]),&dummy);//try to match one more... if it's matched then some error happened....
         
         if (nrFound!=4){
-        
+            
             for(int i=0;i<LG_LightArray_Lenght;i++)
                 lightArrayToFill[i]=LG_LightValue_Not_Set;
             return false;
             
         }
         
-    
-        
-        
-        return true;
         
         
         
-        
-    }
+        return true;    };
     
     /**
      
@@ -390,7 +290,6 @@ public:
     
     
     }
->>>>>>> origin/master
 
 
     /**
@@ -432,19 +331,6 @@ public:
 };
 
 
-static inline bool lightArrayValue_(const char  *att, LG_LightArray& lightArrayToFill){
-
-	int nrFound = sscanf(att, "%lf %lf %lf %lf", &(lightArrayToFill[0]), &(lightArrayToFill[1]), &(lightArrayToFill[2]), &(lightArrayToFill[3]));
-
-	if (nrFound != 4){
-
-		for (int i = 0; i < 4; i++)
-			lightArrayToFill[i] = LG_LightValue_Not_Set;
-		return false;
-
-	}
-	return true;
-};
 
 
 
@@ -461,12 +347,7 @@ public:
 
 };
 
-
-<<<<<<< HEAD
-class LG_Parse_Exception_Wrong_Attribute_Value : LG_Parse_Exception{
-=======
 class LG_Parse_Exception_Wrong_Attribute_Value:public LG_Parse_Exception{
->>>>>>> origin/master
 
 private:
 	string* attribute;
@@ -499,11 +380,8 @@ public:
 };
 
 
-<<<<<<< HEAD
-class LG_Parse_Exception_Missing_Attribute : LG_Parse_Exception{
-=======
+
 class LG_Parse_Exception_Missing_Attribute:public LG_Parse_Exception{
->>>>>>> origin/master
 private:
 	string* missingAttribute;
 
@@ -520,11 +398,7 @@ public:
 
 
 
-<<<<<<< HEAD
-class LG_Parse_Exception_Wrong_Element_Name : LG_Parse_Exception{
-=======
 class LG_Parse_Exception_Wrong_Element_Name:public LG_Parse_Exception{
->>>>>>> origin/master
 
 public:
 	LG_Parse_Exception_Wrong_Element_Name(string * expectedElementName, string * actualElementName);
@@ -539,11 +413,8 @@ private:
 };
 
 
-<<<<<<< HEAD
-class LG_Parse_Exception_Missing_Element : LG_Parse_Exception{
-=======
 class LG_Parse_Exception_Missing_Element:public LG_Parse_Exception{
->>>>>>> origin/master
+
 
 
 	LG_Parse_Exception_Missing_Element(string *elem);
