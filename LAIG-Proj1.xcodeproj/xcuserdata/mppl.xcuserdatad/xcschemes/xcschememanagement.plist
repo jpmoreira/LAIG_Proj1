@@ -14,6 +14,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>LG_All_Tests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>11</integer>
+		</dict>
 		<key>LG_Cylinder_Tests.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -38,11 +43,6 @@
 		<dict>
 			<key>orderHint</key>
 			<integer>5</integer>
-		</dict>
-		<key>LG_Properties_Tests.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>3</integer>
 		</dict>
 		<key>LG_Rectangle_Tests.xcscheme</key>
 		<dict>
@@ -73,6 +73,16 @@
 			<true/>
 		</dict>
 		<key>5435E70419D86F96004169BD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>544FC9DF19D9479C00E2A008</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>544FCA0519D94A6D00E2A008</key>
 		<dict>
 			<key>primary</key>
 			<true/>
