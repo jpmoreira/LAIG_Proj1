@@ -13,7 +13,7 @@
 TEST_CASE("Testing Cylinder Parsing from XML file"){
     
     
-    TiXmlDocument *doc=new TiXmlDocument("./testFiles/TestCylinder.xml");
+    TiXmlDocument *doc=new TiXmlDocument("./testFiles/TestSphere.xml");
     
     
     REQUIRE(doc->LoadFile());
@@ -23,5 +23,36 @@ TEST_CASE("Testing Cylinder Parsing from XML file"){
     TiXmlElement *secondElement=firstElement->NextSiblingElement();
     TiXmlElement *thirdElement=secondElement->NextSiblingElement();
     TiXmlElement *fourthElement=thirdElement->NextSiblingElement();
+    
+    
+    SECTION("TEST Correct sphere"){
+    
+        try {
+            LG_Sphere *sphere=new LG_Sphere(map,firstElement);
+            
+            REQUIRE(sphere->stacks==20);
+            REQUIRE(sphere->slices==10);
+            REQUIRE(abs(sphere->radius-30.f)<=0.00001);
+        } catch (LG_Parse_Exception *ex) {
+            FAIL("Thrown exception while parsing correct Sphere");
+        }
+        
+        
+    
+    }
+    
+    
+    SECTION("Test Sphere with negative stack number"){
+    
+        try {
+            LG_Sphere *sphere=new LG_Sphere(map,secondElement);
+            FAIL("Accepted Sphere with negative number of stacks");
+        } catch (LG_Parse_Exception_Missing_Attribute *ex) {
+         
+            REQUIRE(str_eq(ex->missingAttribute->c_str(), "stacks"));
+        }
+
+    
+    }
 
 }

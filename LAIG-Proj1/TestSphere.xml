@@ -1,0 +1,4 @@
+<sphere radius="30.f" slices="10" stacks="20" />
+<sphere radius="30.f" slices="10" stacks="-20" />
+<sphere slices="10" stacks="20" />
+<sphere radius="30.  40." slices="10" stacks="20" />
