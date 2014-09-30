@@ -31,6 +31,32 @@ void LG_Perspective::verifyElementName(TiXmlElement *element){
 	}
 }
 
+//id="ss" near="ff" far="ff" angle="ff" pos="ff ff ff" target="ff ff ff"
 void LG_Perspective::verifyAttributesAndValues(TiXmlElement *element){
-	
+
+	LG_BOOL tmp[3];
+
+	/*
+	string id;
+	double near, far, angle, pos[3], target[3];
+	*/
+
+	isValidString(element, LG_PERSPECTIVE_XML_ATT_ID, id);
+
+
+	vector< double *> dbl_atts;
+	dbl_atts.push_back(&near);
+	dbl_atts.push_back(&far);
+	dbl_atts.push_back(&angle);
+
+	vector< const char *> dbl_att_nms;
+	dbl_att_nms.push_back(LG_PERSPECTIVE_XML_ATT_NEAR);
+	dbl_att_nms.push_back(LG_PERSPECTIVE_XML_ATT_FAR);
+	dbl_att_nms.push_back(LG_PERSPECTIVE_XML_ATT_ANGLE);
+
+	doubleValueForMandatoryAtts(element, dbl_att_nms, dbl_atts);
+	point3DMandatoryDblArray(element, LG_PERSPECTIVE_XML_ATT_POS, pos);
+	point3DMandatoryDblArray(element, LG_PERSPECTIVE_XML_ATT_TARGET, target);
+
+
 }
