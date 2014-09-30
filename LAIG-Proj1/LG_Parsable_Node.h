@@ -563,29 +563,6 @@ public:
 
 
 
-	static inline void doubleValueForMandatoryAtts(TiXmlElement *element, vector<const char *> &att_names, vector<double *> &atts){
-		string element_name(element->Value());
-		unsigned int size = att_names.size();
-		//TODO if size == 0 throw new Exception....
-		unsigned int i = 0;
-		int ti_xml_return;
-		for (; i < size; i++)
-			if ((ti_xml_return = element->QueryDoubleAttribute(att_names[i], atts[i])) != TIXML_SUCCESS)
-				break;
-
-		if (i != size){ //means not every att was set
-			string faulty_att(att_names[i]);
-			if (ti_xml_return == TIXML_NO_ATTRIBUTE)
-				throw new LG_Parse_Exception_Missing_Attribute(&element_name, &faulty_att);
-			else{
-				vector<string> expected;
-				expected.push_back("double");
-				string value("TIXML_WRONG_TYPE"); // see this too
-				throw new LG_Parse_Exception_Wrong_Attribute_Value(&element_name, &faulty_att, &value, &expected);
-			}
-		}
-	}
-
 
 
 	/**
