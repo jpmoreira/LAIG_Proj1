@@ -109,6 +109,7 @@
 		5469679519D8A975001DBA15 /* LG_Sphere.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5469678219D8A016001DBA15 /* LG_Sphere.cpp */; };
 		5469679619D8A97D001DBA15 /* libTinyXML.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4219D0AD7F00D4831A /* libTinyXML.a */; };
 		5469679919D8A9A4001DBA15 /* TestSphere.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5469679719D8A995001DBA15 /* TestSphere.xml */; };
+		54742DFA19DABD8400AB62EF /* LG_Perspective.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54742DF819DABD8400AB62EF /* LG_Perspective.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -291,6 +292,8 @@
 		5469678519D8A943001DBA15 /* LG_Sphere_Tests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Sphere_Tests.cpp; sourceTree = "<group>"; };
 		5469678A19D8A95C001DBA15 /* LG_Sphere_Tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LG_Sphere_Tests; sourceTree = BUILT_PRODUCTS_DIR; };
 		5469679719D8A995001DBA15 /* TestSphere.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestSphere.xml; sourceTree = "<group>"; };
+		54742DF819DABD8400AB62EF /* LG_Perspective.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Perspective.cpp; sourceTree = "<group>"; };
+		54742DF919DABD8400AB62EF /* LG_Perspective.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_Perspective.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -466,6 +469,8 @@
 		5458029D19D1EBE900C9DF32 /* LG_Node */ = {
 			isa = PBXGroup;
 			children = (
+				54742DF819DABD8400AB62EF /* LG_Perspective.cpp */,
+				54742DF919DABD8400AB62EF /* LG_Perspective.h */,
 				545802D419D3175500C9DF32 /* LG_Lighting.cpp */,
 				545802D519D3175500C9DF32 /* LG_Lighting.h */,
 				5458029A19D1DA5000C9DF32 /* LG_Node.cpp */,
@@ -801,6 +806,7 @@
 				5469678419D8A016001DBA15 /* LG_Sphere.cpp in Sources */,
 				5405EFC419D09E4F00BEED1E /* main.cpp in Sources */,
 				5435E6FC19D83982004169BD /* LG_Primitive.cpp in Sources */,
+				54742DFA19DABD8400AB62EF /* LG_Perspective.cpp in Sources */,
 				5469676C19D88BDB001DBA15 /* LG_Cylinder.cpp in Sources */,
 				5458030719D5803600C9DF32 /* LG_Culling.cpp in Sources */,
 			);
@@ -1240,6 +1246,7 @@
 				54118C5819D9B8770015D962 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		54174DC219D033CB0039E991 /* Build configuration list for PBXProject "LAIG-Proj1" */ = {
 			isa = XCConfigurationList;
