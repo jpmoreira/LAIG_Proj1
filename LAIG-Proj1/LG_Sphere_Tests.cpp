@@ -54,5 +54,31 @@ TEST_CASE("Testing Cylinder Parsing from XML file"){
 
     
     }
+    
+    SECTION("Test Sphere with missing radius number"){
+    
+        try {
+            LG_Sphere *sphere=new LG_Sphere(map,thirdElement);
+            FAIL("Accepted Sphere no radius");
+        } catch (LG_Parse_Exception_Missing_Attribute *ex) {
+            
+            REQUIRE(str_eq(ex->missingAttribute->c_str(), "radius"));
+        }
+    
+        
+    }
+    
+    SECTION("Test Sphere with invalid radius paramenter"){
+        
+        try {
+            LG_Sphere *sphere=new LG_Sphere(map,fourthElement);
+            FAIL("Accepted Sphere with invalid radius parameter : TO FIX LATER");
+        } catch (LG_Parse_Exception_Missing_Attribute *ex) {
+            
+            REQUIRE(str_eq(ex->missingAttribute->c_str(), "radius"));
+        }
+        
+        
+    }
 
 }

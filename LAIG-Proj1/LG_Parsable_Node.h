@@ -37,6 +37,97 @@ typedef enum{
 #define LG_BOOL_STRING_FALSE "false"
 
 
+
+
+class LG_Parse_Exception : exception{
+    
+    
+protected:
+    string* element;
+    
+public:
+    LG_Parse_Exception(string* elem);
+    virtual ~LG_Parse_Exception();
+    
+};
+
+class LG_Parse_Exception_Wrong_Attribute_Value:public LG_Parse_Exception{
+    
+private:
+    string* attribute;
+    string* actualValue;
+    vector<string> *expectedValues;
+    
+public:
+    
+    LG_Parse_Exception_Wrong_Attribute_Value(string *elem, string* attrib, string* value, vector<string> *expected);
+    LG_Parse_Exception_Wrong_Attribute_Value(string* elem, string* attrib, string* value);
+    ~LG_Parse_Exception_Wrong_Attribute_Value();
+    char* what();
+    
+    
+    
+    
+};
+
+
+class LG_Parse_Exception_Wrong_Elem_Type : LG_Parse_Exception{
+private:
+    string *expected_type;
+    
+public:
+    LG_Parse_Exception_Wrong_Elem_Type(char *expected_type);
+    LG_Parse_Exception_Wrong_Elem_Type(string *expected_type);
+    
+    char * what();
+    
+    ~LG_Parse_Exception_Wrong_Elem_Type();
+};
+
+
+
+class LG_Parse_Exception_Missing_Attribute:public LG_Parse_Exception{
+private:
+    string* missingAttribute;
+    
+public:
+    LG_Parse_Exception_Missing_Attribute(string *elementName, string * missingAtt);
+    LG_Parse_Exception_Missing_Attribute(char *elementName, char * missingAtt);
+    
+    char * what();
+    
+    ~LG_Parse_Exception_Missing_Attribute();
+    
+    
+};
+
+
+
+class LG_Parse_Exception_Wrong_Element_Name:public LG_Parse_Exception{
+    
+public:
+    LG_Parse_Exception_Wrong_Element_Name(string * expectedElementName, string * actualElementName);
+    
+    ~LG_Parse_Exception_Wrong_Element_Name();
+    
+    char * what();
+    
+private:
+    string *expectedElementName;
+    
+};
+
+
+class LG_Parse_Exception_Missing_Element:public LG_Parse_Exception{
+    
+    
+    
+    LG_Parse_Exception_Missing_Element(string *elem);
+    
+};
+
+
+
 class LG_Parsable_Node : public LG_Node{
 
 public:
@@ -51,6 +142,204 @@ public:
 
 
 public:
+    
+    
+    
+    
+    /**
+     
+     A method that tries to attribute a particular attribute to an int variable.
+     Throws the appropriate exception in case something wrong happens.
+     @param attName the name of the attribute to be set. To be used in the thrown exception.
+     @param elemName the name of the element to whom the parameter belong. To be used in the thrown exception.
+     @param parameter the variable to be set.
+     @param source the string that contains the value to be parsed
+     
+     
+     */
+    
+    void inline positiveInt_tryToAttributeVariable(const char * attName,const char *elemName,int&parameter,const char * source){
+    
+        if (source==NULL){
+            throw new LG_Parse_Exception_Missing_Attribute(new string(elemName),new string(attName));
+        }
+        
+        parameter=positiveIntValueForAttribute_(source);
+        
+        if (parameter==LG_INVALID_INT)
+            throw new LG_Parse_Exception_Wrong_Attribute_Value(new string(elemName),new string(attName),new string(source));
+        
+
+    }
+    
+    
+    
+    /**
+     
+     A method that tries to attribute a particular attribute to an int variable.
+     Throws the appropriate exception in case something wrong happens.
+     @param attName the name of the attribute to be set. To be used in the thrown exception.
+     @param elem the element whose variable is to be set
+     @param parameter the variable to be set.
+     
+     
+     
+     */
+    
+    void inline positiveInt_tryToAttributeVariable(const char * attName,TiXmlElement* elem, int&parameter){
+        
+        return positiveInt_tryToAttributeVariable(attName, elem->Value(), parameter, elem->Attribute(attName));
+    }
+    
+    
+    
+    /**
+     
+     A method that tries to attribute a particular attribute to a double variable.
+     Throws the appropriate exception in case something wrong happens.
+     @param attName the name of the attribute to be set. To be used in the thrown exception.
+     @param elemName the name of the element to whom the parameter belong. To be used in the thrown exception.
+     @param parameter the variable to be set.
+     @param source the string that contains the value to be parsed
+     
+     
+     */
+    
+    void inline positiveDouble_tryToAttributeVariable(const char * attName,const char *elemName,double&parameter,const char * source){
+        
+        if (source==NULL){
+            throw new LG_Parse_Exception_Missing_Attribute(new string(elemName),new string(attName));
+        }
+        
+        parameter=positiveDoubleValueForAttribute_(source);
+        
+        if (parameter==LG_INVALID_DOUBLE)
+            throw new LG_Parse_Exception_Wrong_Attribute_Value(new string(elemName),new string(attName),new string(source));
+        
+        
+    }
+    
+    
+    
+    /**
+     
+     A method that tries to attribute a particular attribute to a double variable.
+     Throws the appropriate exception in case something wrong happens.
+     @param attName the name of the attribute to be set. To be used in the thrown exception.
+     @param elem the element whose variable is to be set
+     @param parameter the variable to be set.
+     
+     
+     
+     */
+    
+    void inline positiveDouble_tryToAttributeVariable(const char * attName,TiXmlElement* elem, double&parameter){
+        
+        return positiveDouble_tryToAttributeVariable(attName, elem->Value(), parameter, elem->Attribute(attName));
+    }
+    
+    
+    
+    
+    /**
+     
+     A method that tries to attribute a particular attribute to a bool variable.
+     Throws the appropriate exception in case something wrong happens.
+     @param attName the name of the attribute to be set. To be used in the thrown exception.
+     @param elemName the name of the element to whom the parameter belong. To be used in the thrown exception.
+     @param parameter the variable to be set.
+     @param source the string that contains the value to be parsed
+     
+     
+     */
+    
+    void inline bool_tryToAttributeVariable(const char * attName,const char *elemName,bool&parameter,const char * source){
+        
+        LG_BOOL tmp;
+        if (source==NULL){
+            throw new LG_Parse_Exception_Missing_Attribute(new string(elemName),new string(attName));
+        }
+        
+        tmp=boolValueForAttribute_(source);
+        
+        if (tmp==LG_Invalid_Bool)
+            throw new LG_Parse_Exception_Wrong_Attribute_Value(new string(elemName),new string(attName),new string(source));
+        
+        
+        parameter=(bool)tmp;
+        
+        
+    }
+    
+    
+    
+    /**
+     
+     A method that tries to attribute a particular attribute to a bool variable.
+     Throws the appropriate exception in case something wrong happens.
+     @param attName the name of the attribute to be set. To be used in the thrown exception.
+     @param elem the element whose variable is to be set
+     @param parameter the variable to be set.
+     
+     
+     
+     */
+    
+    void inline bool_tryToAttributeVariable(const char * attName,TiXmlElement* elem, bool&parameter){
+        
+        return bool_tryToAttributeVariable(attName, elem->Value(), parameter, elem->Attribute(attName));
+    }
+    
+    
+    
+    
+    
+    /**
+     
+     A method that tries to attribute a particular attribute to a double variable.
+     Throws the appropriate exception in case something wrong happens.
+     @param attName the name of the attribute to be set. To be used in the thrown exception.
+     @param elemName the name of the element to whom the parameter belong. To be used in the thrown exception.
+     @param parameter the variable to be set.
+     @param source the string that contains the value to be parsed
+     
+     
+     */
+    
+    void inline point3D_tryToAttributeVariable(const char * attName,const char *elemName,double&parameter,const char * source){
+        
+        if (source==NULL){
+            throw new LG_Parse_Exception_Missing_Attribute(new string(elemName),new string(attName));
+        }
+        
+        parameter=positiveDoubleValueForAttribute_(source);
+        
+        if (parameter==LG_INVALID_DOUBLE)
+            throw new LG_Parse_Exception_Wrong_Attribute_Value(new string(elemName),new string(attName),new string(source));
+        
+        
+    }
+    
+    
+    
+    /**
+     
+     A method that tries to attribute a particular attribute to a double variable.
+     Throws the appropriate exception in case something wrong happens.
+     @param attName the name of the attribute to be set. To be used in the thrown exception.
+     @param elem the element whose variable is to be set
+     @param parameter the variable to be set.
+     
+     
+     
+     */
+    
+    void inline point3D_tryToAttributeVariable(const char * attName,TiXmlElement* elem, double&parameter){
+        
+        return point3D_tryToAttributeVariable(attName, elem->Value(), parameter, elem->Attribute(attName));
+    }
+    
+    
     
     /**
      
@@ -430,92 +719,5 @@ public:
 
 
 
-
-
-class LG_Parse_Exception : exception{
-
-
-protected:
-	string* element;
-
-public:
-	LG_Parse_Exception(string* elem);
-	virtual ~LG_Parse_Exception();
-
-};
-
-class LG_Parse_Exception_Wrong_Attribute_Value:public LG_Parse_Exception{
-
-private:
-	string* attribute;
-	string* actualValue;
-	vector<string> *expectedValues;
-
-public:
-
-	LG_Parse_Exception_Wrong_Attribute_Value(string *elem, string* attrib, string* value, vector<string> *expected);
-	~LG_Parse_Exception_Wrong_Attribute_Value();
-	char* what();
-
-
-
-
-};
-
-
-class LG_Parse_Exception_Wrong_Elem_Type : LG_Parse_Exception{
-private:
-	string *expected_type;
-
-public:
-	LG_Parse_Exception_Wrong_Elem_Type(char *expected_type);
-	LG_Parse_Exception_Wrong_Elem_Type(string *expected_type);
-	
-	char * what();
-
-	~LG_Parse_Exception_Wrong_Elem_Type();
-};
-
-
-
-class LG_Parse_Exception_Missing_Attribute:public LG_Parse_Exception{
-private:
-	string* missingAttribute;
-
-public:
-	LG_Parse_Exception_Missing_Attribute(string *elementName, string * missingAtt);
-	LG_Parse_Exception_Missing_Attribute(char *elementName, char * missingAtt);
-
-	char * what();
-
-	~LG_Parse_Exception_Missing_Attribute();
-
-
-};
-
-
-
-class LG_Parse_Exception_Wrong_Element_Name:public LG_Parse_Exception{
-
-public:
-	LG_Parse_Exception_Wrong_Element_Name(string * expectedElementName, string * actualElementName);
-
-	~LG_Parse_Exception_Wrong_Element_Name();
-
-	char * what();
-
-private:
-	string *expectedElementName;
-
-};
-
-
-class LG_Parse_Exception_Missing_Element:public LG_Parse_Exception{
-
-
-
-	LG_Parse_Exception_Missing_Element(string *elem);
-
-};
 
 #endif /* defined(__LAIG_Proj1__LG_Parsable_Node__) */

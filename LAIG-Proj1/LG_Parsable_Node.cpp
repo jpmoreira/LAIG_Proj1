@@ -37,14 +37,21 @@ LG_Parse_Exception::~LG_Parse_Exception(){
 char * LG_Parse_Exception_Wrong_Attribute_Value::what(){
 
 
-	string tempMessage = "Wrong Attribute Value on Element " + *element + ".\nValue: " + *actualValue + "\nExpected: [";
-
-	int i;
-	for (i = 0; i < expectedValues->size() - 1; i++) {
-		tempMessage += expectedValues->at(i) + " or ";//add each element but the last one, with the "or" after
-	}
-
-	tempMessage += expectedValues->at(i) + "].";//add last element and close brackets
+	string tempMessage = "Wrong Attribute Value on Element " + *element + ".\nValue: " + *actualValue + "\n";
+    
+    if (expectedValues!=NULL) {
+        
+        tempMessage=tempMessage.append("Expected: [");
+        int i;
+        for (i = 0; i < expectedValues->size() - 1; i++) {
+            tempMessage += expectedValues->at(i) + " or ";//add each element but the last one, with the "or" after
+        }
+        
+        tempMessage += expectedValues->at(i) + "].";//add last element and close brackets
+        
+        
+    }
+	
 
 
 	return strdup(tempMessage.c_str());//create copy on the heap and return
@@ -57,6 +64,13 @@ LG_Parse_Exception_Wrong_Attribute_Value::LG_Parse_Exception_Wrong_Attribute_Val
 
 
 
+}
+
+LG_Parse_Exception_Wrong_Attribute_Value::LG_Parse_Exception_Wrong_Attribute_Value(string* elem, string* attrib, string* value) :LG_Parse_Exception(elem), attribute(attrib), actualValue(value), expectedValues(NULL){
+    
+    
+    
+    
 }
 
 
