@@ -47,9 +47,9 @@ TEST_CASE("Testing Cylinder Parsing from XML file"){
         try {
             LG_Sphere *sphere=new LG_Sphere(map,secondElement);
             FAIL("Accepted Sphere with negative number of stacks");
-        } catch (LG_Parse_Exception_Missing_Attribute *ex) {
+        } catch (LG_Parse_Exception_Wrong_Attribute_Value *ex) {
          
-            REQUIRE(str_eq(ex->missingAttribute->c_str(), "stacks"));
+            REQUIRE(str_eq(ex->attribute->c_str(), "stacks"));
         }
 
     

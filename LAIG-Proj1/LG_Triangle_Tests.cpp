@@ -152,8 +152,8 @@ TEST_CASE("Testring triangle from file"){
         try {
             LG_Triangle *t=new LG_Triangle(map,aBadTriangle);
             FAIL("Didn't find out the fault but should have");
-        } catch (LG_Parse_Exception_Missing_Attribute *ex) {
-            REQUIRE(str_eq(ex->missingAttribute->c_str(), "xyz1"));
+        } catch (LG_Parse_Exception_Wrong_Attribute_Value *ex) {
+            REQUIRE(str_eq(ex->attribute->c_str(), "xyz1"));
         }
     
     }

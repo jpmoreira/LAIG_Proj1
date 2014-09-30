@@ -21,8 +21,16 @@ int LG_Sphere::_LG_classIDNr=0;
 LG_Sphere::LG_Sphere(LG_Node_Map *map,TiXmlElement *elem):LG_Primitive(map,autoIdentifier),radius(LG_INVALID_DOUBLE),slices(LG_INVALID_INT),stacks(LG_INVALID_INT){
     
     
-    verifyElementName(elem);
-    verifyElementAttributesAndValues(elem);
+    
+    if (!str_eq(LG_Sphere_XML_Tag_Name, elem->Value())) {
+        throw new LG_Parse_Exception_Wrong_Element_Name(new string(LG_Sphere_XML_Tag_Name),new string(elem->Value()));
+    }
+    
+    
+    positiveDouble_tryToAttributeVariable(LG_Sphere_XML_Radius_Att_Name, elem, radius);
+    
+    positiveInt_tryToAttributeVariable(LG_Sphere_XML_Slices_Att_Name, elem, slices);
+    positiveInt_tryToAttributeVariable(LG_Sphere_XML_Stacks_Att_Name, elem, stacks);
     
 }
 LG_Sphere::LG_Sphere(LG_Node_Map *map,double r,int st,int sl):LG_Primitive(map,autoIdentifier),radius(r),slices(sl),stacks(st){
@@ -33,57 +41,3 @@ LG_Sphere::LG_Sphere(LG_Node_Map *map,double r,int st,int sl):LG_Primitive(map,a
 
 #pragma mark - Inherited Methods
 
-void LG_Sphere::verifyElementName(TiXmlElement *element){
-    
-    if (!str_eq(LG_Sphere_XML_Tag_Name, element->Value())) {
-        throw new LG_Parse_Exception_Wrong_Element_Name(new string(LG_Sphere_XML_Tag_Name),new string(element->Value()));
-    }
-}
-
-
-void LG_Sphere::verifyElementAttributesAndValues(TiXmlElement *element){
-    
-    
-    TiXmlAttribute *att=element->FirstAttribute();
-    
-    while (att) {
-        
-        if (str_eq(LG_Sphere_XML_Slices_Att_Name, att->Name())) {
-            
-            slices=positiveIntValueForAttribute(att);
-        }
-        
-        else if(str_eq(LG_Sphere_XML_Stacks_Att_Name, att->Name())){
-            
-            stacks=positiveIntValueForAttribute(att);
-        }
-        
-        
-        else if(str_eq(LG_Sphere_XML_Radius_Att_Name, att->Name())){
-        
-        
-            radius=positiveDoubleValueForAttribute(att);
-            
-        }
-        
-        att=att->Next();
-    }
-    
-    
-    if (radius==LG_INVALID_DOUBLE) {
-        
-        throw new LG_Parse_Exception_Missing_Attribute(new string(LG_Sphere_XML_Tag_Name),new string(LG_Sphere_XML_Radius_Att_Name));
-    }
-    if (slices==LG_INVALID_INT) {
-        
-        throw new LG_Parse_Exception_Missing_Attribute(new string(LG_Sphere_XML_Tag_Name),new string(LG_Sphere_XML_Slices_Att_Name));
-    }
-    
-    if (stacks==LG_INVALID_INT) {
-        
-        throw new LG_Parse_Exception_Missing_Attribute(new string(LG_Sphere_XML_Tag_Name),new string(LG_Sphere_XML_Stacks_Att_Name));
-    }
-
-
-
-}

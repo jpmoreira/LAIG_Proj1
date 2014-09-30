@@ -144,20 +144,26 @@ public:
     
     
     
+    
+    
+    
     /**
      
      A method that tries to attribute a particular attribute to an int variable.
      Throws the appropriate exception in case something wrong happens.
      @param attName the name of the attribute to be set. To be used in the thrown exception.
-     @param elemName the name of the element to whom the parameter belong. To be used in the thrown exception.
+     @param elem the element whose attribute is to be used
      @param parameter the variable to be set.
-     @param source the string that contains the value to be parsed
+     
      
      
      */
     
-    void inline positiveInt_tryToAttributeVariable(const char * attName,const char *elemName,int&parameter,const char * source){
-    
+    static void inline positiveInt_tryToAttributeVariable(const char * attName,TiXmlElement* elem, int&parameter){
+        
+        const char *source=elem->Attribute(attName);
+        const char *elemName=elem->Value();
+        
         if (source==NULL){
             throw new LG_Parse_Exception_Missing_Attribute(new string(elemName),new string(attName));
         }
@@ -167,28 +173,7 @@ public:
         if (parameter==LG_INVALID_INT)
             throw new LG_Parse_Exception_Wrong_Attribute_Value(new string(elemName),new string(attName),new string(source));
         
-
     }
-    
-    
-    
-    /**
-     
-     A method that tries to attribute a particular attribute to an int variable.
-     Throws the appropriate exception in case something wrong happens.
-     @param attName the name of the attribute to be set. To be used in the thrown exception.
-     @param elem the element whose variable is to be set
-     @param parameter the variable to be set.
-     
-     
-     
-     */
-    
-    void inline positiveInt_tryToAttributeVariable(const char * attName,TiXmlElement* elem, int&parameter){
-        
-        return positiveInt_tryToAttributeVariable(attName, elem->Value(), parameter, elem->Attribute(attName));
-    }
-    
     
     
     /**
@@ -196,14 +181,18 @@ public:
      A method that tries to attribute a particular attribute to a double variable.
      Throws the appropriate exception in case something wrong happens.
      @param attName the name of the attribute to be set. To be used in the thrown exception.
-     @param elemName the name of the element to whom the parameter belong. To be used in the thrown exception.
+     @param elem the element whose whose attribute is to be used
      @param parameter the variable to be set.
-     @param source the string that contains the value to be parsed
+     
      
      
      */
     
-    void inline positiveDouble_tryToAttributeVariable(const char * attName,const char *elemName,double&parameter,const char * source){
+    static void inline positiveDouble_tryToAttributeVariable(const char * attName,TiXmlElement* elem, double&parameter){
+        
+        
+        const char * source=elem->Attribute(attName);
+        const char * elemName=elem->Value();
         
         if (source==NULL){
             throw new LG_Parse_Exception_Missing_Attribute(new string(elemName),new string(attName));
@@ -219,9 +208,10 @@ public:
     
     
     
+    
     /**
      
-     A method that tries to attribute a particular attribute to a double variable.
+     A method that tries to attribute a particular attribute to a bool variable.
      Throws the appropriate exception in case something wrong happens.
      @param attName the name of the attribute to be set. To be used in the thrown exception.
      @param elem the element whose variable is to be set
@@ -231,27 +221,11 @@ public:
      
      */
     
-    void inline positiveDouble_tryToAttributeVariable(const char * attName,TiXmlElement* elem, double&parameter){
+    static void inline bool_tryToAttributeVariable(const char * attName,TiXmlElement* elem, bool&parameter){
         
-        return positiveDouble_tryToAttributeVariable(attName, elem->Value(), parameter, elem->Attribute(attName));
-    }
-    
-    
-    
-    
-    /**
-     
-     A method that tries to attribute a particular attribute to a bool variable.
-     Throws the appropriate exception in case something wrong happens.
-     @param attName the name of the attribute to be set. To be used in the thrown exception.
-     @param elemName the name of the element to whom the parameter belong. To be used in the thrown exception.
-     @param parameter the variable to be set.
-     @param source the string that contains the value to be parsed
-     
-     
-     */
-    
-    void inline bool_tryToAttributeVariable(const char * attName,const char *elemName,bool&parameter,const char * source){
+        
+        const char * elemName=elem->Value();
+        const char * source=elem->Attribute(attName);
         
         LG_BOOL tmp;
         if (source==NULL){
@@ -266,76 +240,9 @@ public:
         
         parameter=(bool)tmp;
         
-        
+
     }
-    
-    
-    
-    /**
-     
-     A method that tries to attribute a particular attribute to a bool variable.
-     Throws the appropriate exception in case something wrong happens.
-     @param attName the name of the attribute to be set. To be used in the thrown exception.
-     @param elem the element whose variable is to be set
-     @param parameter the variable to be set.
-     
-     
-     
-     */
-    
-    void inline bool_tryToAttributeVariable(const char * attName,TiXmlElement* elem, bool&parameter){
-        
-        return bool_tryToAttributeVariable(attName, elem->Value(), parameter, elem->Attribute(attName));
-    }
-    
-    
-    
-    
-    
-    /**
-     
-     A method that tries to attribute a particular attribute to a double variable.
-     Throws the appropriate exception in case something wrong happens.
-     @param attName the name of the attribute to be set. To be used in the thrown exception.
-     @param elemName the name of the element to whom the parameter belong. To be used in the thrown exception.
-     @param parameter the variable to be set.
-     @param source the string that contains the value to be parsed
-     
-     
-     */
-    
-    void inline point3D_tryToAttributeVariable(const char * attName,const char *elemName,double&parameter,const char * source){
-        
-        if (source==NULL){
-            throw new LG_Parse_Exception_Missing_Attribute(new string(elemName),new string(attName));
-        }
-        
-        parameter=positiveDoubleValueForAttribute_(source);
-        
-        if (parameter==LG_INVALID_DOUBLE)
-            throw new LG_Parse_Exception_Wrong_Attribute_Value(new string(elemName),new string(attName),new string(source));
-        
-        
-    }
-    
-    
-    
-    /**
-     
-     A method that tries to attribute a particular attribute to a double variable.
-     Throws the appropriate exception in case something wrong happens.
-     @param attName the name of the attribute to be set. To be used in the thrown exception.
-     @param elem the element whose variable is to be set
-     @param parameter the variable to be set.
-     
-     
-     
-     */
-    
-    void inline point3D_tryToAttributeVariable(const char * attName,TiXmlElement* elem, double&parameter){
-        
-        return point3D_tryToAttributeVariable(attName, elem->Value(), parameter, elem->Attribute(attName));
-    }
+
     
     
     
@@ -708,7 +615,13 @@ public:
 		return true;
 
 	}
-
+    /**
+     
+     A method that tries to initialize a LG_Point3D with the values coming from an attribute.
+     
+     In case some error occurs false is teturned and the array is filled with the value LG_INVALID_DOUBLE
+     
+     */
 
 	static inline bool point3DValue(const char  *att, LG_Point3D & pointToFill){
 
@@ -729,7 +642,19 @@ public:
 	};
 
 
-	static inline void point3D_tryToAttributeVariable( char * att_name,TiXmlElement *element, LG_Point3D & values){
+    /**
+     
+     A method that tries to attribute a particular attribute to a LG_LightArray variable.
+     Throws the appropriate exception in case something wrong happens.
+     In case of an
+     @param att_name the name of the attribute to be set. To be used in the thrown exception.
+     @param element element to whom the attribute belongs to.
+     @param values the variable to be set.
+     
+     */
+    
+    
+	static inline void point3D_tryToAttributeVariable(const char * att_name,TiXmlElement *element, LG_Point3D & values){
 		
 
 		char *att_value = (char *)element->Attribute(att_name);
@@ -746,6 +671,45 @@ public:
 	
 	
 	}
+    /**
+     
+     A method that tries to attribute a particular attribute to a LG_point3D variable, when the attribute only defines a 2D point. The point is set to z=0
+     Throws the appropriate exception in case something wrong happens.
+     In case of an
+     @param att_name the name of the attribute to be set. To be used in the thrown exception.
+     @param element element to whom the attribute belongs to.
+     @param values the variable to be set.
+     
+     */
+    
+    static inline void point3DFrom2D_tryToAttributeVariable(const char * att_name,TiXmlElement *element, LG_Point3D & values){
+        
+        
+        char *att_value = (char *)element->Attribute(att_name);
+        
+        if (!att_value)
+            throw  new LG_Parse_Exception_Missing_Attribute(new string(element->Value()), new string(att_name));
+        
+        
+        bool ok=point3DValueFromPoint2D_(att_value, values);
+        
+        if (!ok){
+            throw new LG_Parse_Exception_Wrong_Attribute_Value(new string(element->Value()), new string(att_name), new string(att_value));
+        }
+        
+        
+    }
+    
+    /**
+     
+     A method that tries to attribute a particular attribute to a LG_LightArray variable.
+     Throws the appropriate exception in case something wrong happens.
+     In case of an
+     @param att_name the name of the attribute to be set. To be used in the thrown exception.
+     @param element element to whom the attribute belongs to.
+     @param values the variable to be set.
+     
+     */
     
     static inline void lightArray_tryToAttributeVariable( char * att_name,TiXmlElement *element, LG_LightArray & values){
         
@@ -764,7 +728,17 @@ public:
         
         
     }
-			
+
+    /**
+     
+     A method that tries to attribute a particular attribute to a string variable.
+     Throws the appropriate exception in case something wrong happens.
+     In case of an
+     @param att_name the name of the attribute to be set. To be used in the thrown exception.
+     @param element element to whom the attribute belongs to.
+     @param save the variable to be set.
+     
+     */
 
 	static inline void string_tryToAttributeVariable( char *att_name, TiXmlElement *element,string &save){
 		string att_str_name(att_name);
@@ -779,6 +753,54 @@ public:
 		save.empty();
 		save.append(att_val);
 	}
+    
+    /**
+     
+     A method that tries to attribute a particular attribute to a string variable.
+     Throws the appropriate exception in case something wrong happens.
+     In case of an
+     @param att_name the name of the attribute to be set. To be used in the thrown exception.
+     @param element element to whom the attribute belongs to.
+     @param save the variable to be set.
+     @param possibleValues all the possible values accepted as a valid value for the string
+     
+     */
+    static inline void string_expected_tryToAttribute( char *att_name,TiXmlElement *element, string &save, vector<string> *possibleValues){
+    
+    
+        string att_str_name(att_name);
+        
+        char *att_val = (char *)element->Attribute(att_name);
+        if (!att_val)
+            throw new LG_Parse_Exception_Missing_Attribute(new string(element->Value()), new string(att_name));
+        
+        if (strcmp(att_val, "") == 0){
+            throw new LG_Parse_Exception_Wrong_Attribute_Value(new string(element->Value()), new string(att_val), new string(att_val), possibleValues);
+        }
+        
+        
+        bool isEqualToOnePossibility=false;
+        
+        for (int i=0; i<possibleValues->size(); i++) {
+            
+            if(str_eq(att_val, possibleValues->at(i).c_str())){
+            
+                isEqualToOnePossibility=true;
+                break;
+            }
+            
+        }
+        
+        
+        if (!isEqualToOnePossibility)throw new LG_Parse_Exception_Wrong_Attribute_Value(new string(element->Value()), new string(att_val), new string(att_val), possibleValues);
+        
+        
+        save.empty();
+        save.append(att_val);
+    
+    }
+    
+    
 
 
 

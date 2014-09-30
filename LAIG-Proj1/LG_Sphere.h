@@ -24,24 +24,6 @@ private:
     
     static int _LG_classIDNr;
     
-    
-    /**
-     
-     
-     See LG_Parsable_Node for details
-     
-     */
-    void verifyElementName(TiXmlElement *element);
-    
-    
-    /**
-     
-     
-     See LG_Parsable_Node for details
-     
-     */
-    void verifyElementAttributesAndValues(TiXmlElement *element);
-    
 
     
 public:

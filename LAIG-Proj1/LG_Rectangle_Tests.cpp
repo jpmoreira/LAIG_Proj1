@@ -65,8 +65,8 @@ TEST_CASE("Testing parsing from XML"){
         try {
             LG_Rectangle *rect=new LG_Rectangle(map,secondElement);
             FAIL("Didn't throw exception for 3D point instead of 2D but should have done so!");
-        } catch (LG_Parse_Exception_Missing_Attribute *ex) {
-            REQUIRE(str_eq(ex->missingAttribute->c_str(), "xy2"));
+        } catch (LG_Parse_Exception_Wrong_Attribute_Value *ex) {
+            REQUIRE(str_eq(ex->attribute->c_str(), "xy2"));
         }
         
       

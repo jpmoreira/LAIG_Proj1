@@ -31,8 +31,15 @@ LG_Triangle::LG_Triangle(LG_Node_Map *map,TiXmlElement *elem):LG_Primitive(map,a
     initializePoint3D(pt2);
     initializePoint3D(pt3);
     
-        verifyElementName(elem);
-    verifyElementAttributesAndValues(elem);
+    if(!str_eq(LG_Triangle_XML_Tag_Name, elem->Value())){
+        
+        
+        throw new LG_Parse_Exception_Wrong_Element_Name(new string(LG_Triangle_XML_Tag_Name),new string(elem->Value()));
+    }
+    
+    point3D_tryToAttributeVariable(LG_Triangle_XML_Att1_Name, elem, pt1);
+    point3D_tryToAttributeVariable(LG_Triangle_XML_Att2_Name, elem, pt2);
+    point3D_tryToAttributeVariable(LG_Triangle_XML_Att3_Name, elem, pt3);
 
 }
 
@@ -77,72 +84,7 @@ void LG_Triangle::draw(){
 
 }
 
-void LG_Triangle::verifyElementAttributesAndValues(TiXmlElement *element){
-    
-    
-    TiXmlAttribute *att=element->FirstAttribute();
-    
-    while(att){
-        
-        
-        if(str_eq(LG_Triangle_XML_Att1_Name, att->Name())){
-            
-            LG_Parsable_Node::point3DValue(att, pt1);
-        }
-        
-        else if(str_eq(LG_Triangle_XML_Att2_Name, att->Name())){
-            
-            LG_Parsable_Node::point3DValue(att, pt2);
-        }
-        
-        else if (str_eq(LG_Triangle_XML_Att3_Name, att->Name())){
-            
-            LG_Parsable_Node::point3DValue(att, pt3);
-        }
-        
-        
-        att=att->Next();
-    }
-    
-    
-    if(pt1[0]==LG_INVALID_DOUBLE){//invalid pt1
-        
-        throw new LG_Parse_Exception_Missing_Attribute(new string(LG_Triangle_XML_Tag_Name),new string(LG_Triangle_XML_Att1_Name));
-        
-    }
-    
-    
-    if(pt2[0]==LG_INVALID_DOUBLE){//invalid pt1
-        
-        throw new LG_Parse_Exception_Missing_Attribute(new string(LG_Triangle_XML_Tag_Name),new string(LG_Triangle_XML_Att2_Name));
-        
-    }
-    
-    if(pt3[0]==LG_INVALID_DOUBLE){//invalid pt1
-        
-        throw new LG_Parse_Exception_Missing_Attribute(new string(LG_Triangle_XML_Tag_Name),new string(LG_Triangle_XML_Att3_Name));
-        
-    }
 
-    
-    
-
-}
-
-
-void LG_Triangle::verifyElementName(TiXmlElement *element){
-    
-    
-    if(!str_eq(LG_Triangle_XML_Tag_Name, element->Value())){
-        
-        
-        throw new LG_Parse_Exception_Wrong_Element_Name(new string(LG_Triangle_XML_Tag_Name),new string(element->Value()));
-    }
-
-    
-    
-
-}
 
 
 

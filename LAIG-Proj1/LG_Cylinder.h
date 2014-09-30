@@ -30,21 +30,7 @@ private:
      
     static int _LG_classIDNr;
     
-    /**
-     
-     See LG_Parsable_Node for details
-     
-     */
-    
-    virtual void verifyElementName(TiXmlElement *element);
-    
-    /**
-     
-     
-     See LG_Parsable_Node for details.
-     
-     */
-    virtual void verifyElementAttributesAndValues(TiXmlElement *element);
+
     
     
 public:

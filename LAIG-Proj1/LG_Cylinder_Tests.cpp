@@ -55,8 +55,8 @@ TEST_CASE("Testing Cylinder Parsing from XML file"){
         try {
             LG_Cylinder *cyl=new LG_Cylinder(map,secondElement);
             FAIL("Shouldn't accept cylinder with negative radius");
-        } catch (LG_Parse_Exception_Missing_Attribute *ex) {
-            REQUIRE(str_eq(ex->missingAttribute->c_str(), "base"));
+        } catch (LG_Parse_Exception_Wrong_Attribute_Value *ex) {
+            REQUIRE(str_eq(ex->attribute->c_str(), "base"));
         }
     
     }
@@ -67,8 +67,8 @@ TEST_CASE("Testing Cylinder Parsing from XML file"){
         try {
             LG_Cylinder *cyl=new LG_Cylinder(map,thirdElement);
             FAIL("Shouldn't accept cylinder with zero slices");
-        } catch (LG_Parse_Exception_Missing_Attribute *ex) {
-            REQUIRE(str_eq(ex->missingAttribute->c_str(), "slices"));
+        } catch (LG_Parse_Exception_Wrong_Attribute_Value *ex) {
+            REQUIRE(str_eq(ex->attribute->c_str(), "slices"));
         }
     
     }

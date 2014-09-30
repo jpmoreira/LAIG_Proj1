@@ -28,9 +28,17 @@ LG_Rectangle::LG_Rectangle(LG_Node_Map *map,TiXmlElement *elem):LG_Primitive(map
     initializePoint3D(pt1);
     initializePoint3D(pt2);
     
-    verifyElementName(elem);
-    verifyElementAttributesAndValues(elem);
-
+    
+    
+    if (!str_eq(elem->Value(), LG_Rectangle_Node_Name)) {
+        throw new LG_Parse_Exception_Wrong_Element_Name(new string(LG_Rectangle_Node_Name),new string(elem->Value()));
+    }
+    
+    
+    
+    point3DFrom2D_tryToAttributeVariable(LG_Rectangle_XML_Att1_Name, elem, pt1);
+    point3DFrom2D_tryToAttributeVariable(LG_Rectangle_XML_Att2_Name, elem, pt2);
+    
     
 
 }
@@ -49,41 +57,4 @@ void LG_Rectangle::copyPoints(LG_Point3D point1,LG_Point3D point2){
 }
 #pragma mark - Inherited Methods
 
-
-
-void LG_Rectangle::verifyElementName(TiXmlElement *element){
-    
-    if (!str_eq(element->Value(), LG_Rectangle_Node_Name)) {
-        throw new LG_Parse_Exception_Wrong_Element_Name(new string(LG_Rectangle_Node_Name),new string(element->Value()));
-    }
-                                                        
-
-}
-
-void LG_Rectangle::verifyElementAttributesAndValues(TiXmlElement *element){
-    
-    TiXmlAttribute *att=element->FirstAttribute();
-    
-    while(att){
-        
-        
-        if(str_eq(att->Name(),LG_Rectangle_XML_Att1_Name)){
-        
-            point3DValueFromPoint2D(att, pt1);
-        }
-        else if(str_eq(att->Name(),LG_Rectangle_XML_Att2_Name)){
-        
-            point3DValueFromPoint2D(att, pt2);
-        }
-        
-        att=att->Next();
-    }
-    
-    
-    if(pt1[0]==LG_INVALID_DOUBLE)
-        throw new LG_Parse_Exception_Missing_Attribute(new string(LG_Rectangle_Node_Name),new string(LG_Rectangle_XML_Att1_Name));
-    if(pt2[0]==LG_INVALID_DOUBLE)
-        throw new LG_Parse_Exception_Missing_Attribute(new string(LG_Rectangle_Node_Name),new string(LG_Rectangle_XML_Att2_Name));
-    
-}
 

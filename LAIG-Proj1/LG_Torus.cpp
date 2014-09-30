@@ -25,29 +25,11 @@ LG_Torus::LG_Torus(LG_Node_Map *map,TiXmlElement *elem):LG_Primitive(map,autoIde
         throw  new LG_Parse_Exception_Wrong_Element_Name(new string(LG_Torus_XML_Tag_Name),new string(elem->Value()));
     }
     
-    const char * tmp;
     
-    if ((tmp=elem->Attribute(LG_Torus_XML_Inner_Att_Name))) {
-     
-        innerRadius=positiveDoubleValueForAttribute_(tmp);
-    }
-    else{
-    
-        throw new LG_Parse_Exception_Missing_Attribute(new string(LG_Torus_XML_Tag_Name),new string(LG_Torus_XML_Inner_Att_Name));
-    
-    }
-    
-    
-    if ((tmp=elem->Attribute(LG_Torus_XML_Inner_Att_Name))) {
-        
-        innerRadius=positiveDoubleValueForAttribute_(tmp);
-    }
-    else{
-        
-        throw new LG_Parse_Exception_Missing_Attribute(new string(LG_Torus_XML_Tag_Name),new string(LG_Torus_XML_Inner_Att_Name));
-        
-    }
-
+    positiveDouble_tryToAttributeVariable(LG_Torus_XML_Inner_Att_Name, elem, innerRadius);
+    positiveDouble_tryToAttributeVariable(LG_Torus_XML_Outer_Att_Name, elem, outerRadius);
+    positiveInt_tryToAttributeVariable(LG_Torus_XML_Slices_Att_Name, elem, slices);
+    positiveInt_tryToAttributeVariable(LG_Torus_XML_Loops_Att_Name, elem, loops);
     
     
     

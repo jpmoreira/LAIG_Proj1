@@ -31,23 +31,6 @@ private:
     static int _LG_classIDNr;
     
     
-    
-    /**
-     
-     
-     See LG_Parsable_Node class for more info.
-     
-     */
-    void verifyElementName(TiXmlElement *element);
-    
-    /**
-     
-     
-     See LG_Parsable_Node class for more info
-     
-     */
-    void verifyElementAttributesAndValues(TiXmlElement *element);
-    
     /**
      
      Copies all the points to the object data members that are supposed to hold them

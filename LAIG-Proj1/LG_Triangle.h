@@ -77,21 +77,7 @@ public:
     virtual void draw();
     
     
-    /**
-     
-     See superclass.
-     
-     */
-    void verifyElementAttributesAndValues(TiXmlElement *element);
 
-    
-    /*
-     
-     See superclass.
-     
-     */
-    void verifyElementName(TiXmlElement *element);
-    
     
     
     
