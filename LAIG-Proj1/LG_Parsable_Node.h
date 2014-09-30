@@ -15,6 +15,7 @@
 #include <limits.h>
 #include <math.h>
 #include <cfloat>
+#include <vector>
 
 using std::exception;
 
