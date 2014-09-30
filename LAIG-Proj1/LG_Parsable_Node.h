@@ -765,7 +765,7 @@ public:
      @param possibleValues all the possible values accepted as a valid value for the string
      
      */
-    static inline void string_expected_tryToAttribute( char *att_name,TiXmlElement *element, string &save, vector<string> *possibleValues){
+    static inline void enum_tryToAttribute( char *att_name,TiXmlElement *element, int &save, vector<string> *possibleValues){
     
     
         string att_str_name(att_name);
@@ -785,6 +785,7 @@ public:
             
             if(str_eq(att_val, possibleValues->at(i).c_str())){
             
+                save=i;
                 isEqualToOnePossibility=true;
                 break;
             }
@@ -795,13 +796,10 @@ public:
         if (!isEqualToOnePossibility)throw new LG_Parse_Exception_Wrong_Attribute_Value(new string(element->Value()), new string(att_val), new string(att_val), possibleValues);
         
         
-        save.empty();
-        save.append(att_val);
     
     }
     
     
-
 
 
 

@@ -93,6 +93,7 @@
 		5458030419D49EA700C9DF32 /* TestGlobals.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5458030219D49E5B00C9DF32 /* TestGlobals.xml */; };
 		5458030719D5803600C9DF32 /* LG_Culling.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5458030519D5803600C9DF32 /* LG_Culling.cpp */; };
 		5458030A19D5804400C9DF32 /* LG_Drawing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5458030819D5804400C9DF32 /* LG_Drawing.cpp */; };
+		546184EC19DAFBFB005C6166 /* LG_Transform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 546184EA19DAFBFB005C6166 /* LG_Transform.cpp */; };
 		5469676C19D88BDB001DBA15 /* LG_Cylinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5469676A19D88BDB001DBA15 /* LG_Cylinder.cpp */; };
 		5469677A19D895CA001DBA15 /* TestCylinder.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5469677819D895A3001DBA15 /* TestCylinder.xml */; };
 		5469677B19D895D3001DBA15 /* libTinyXML.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4219D0AD7F00D4831A /* libTinyXML.a */; };
@@ -282,6 +283,8 @@
 		5458030619D5803600C9DF32 /* LG_Culling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_Culling.h; sourceTree = "<group>"; };
 		5458030819D5804400C9DF32 /* LG_Drawing.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Drawing.cpp; sourceTree = "<group>"; };
 		5458030919D5804400C9DF32 /* LG_Drawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_Drawing.h; sourceTree = "<group>"; };
+		546184EA19DAFBFB005C6166 /* LG_Transform.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Transform.cpp; sourceTree = "<group>"; };
+		546184EB19DAFBFB005C6166 /* LG_Transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_Transform.h; sourceTree = "<group>"; };
 		5469676A19D88BDB001DBA15 /* LG_Cylinder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Cylinder.cpp; sourceTree = "<group>"; };
 		5469676B19D88BDB001DBA15 /* LG_Cylinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_Cylinder.h; sourceTree = "<group>"; };
 		5469677119D89585001DBA15 /* LG_Cylinder_Tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LG_Cylinder_Tests; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -469,14 +472,14 @@
 		5458029D19D1EBE900C9DF32 /* LG_Node */ = {
 			isa = PBXGroup;
 			children = (
+				546184EE19DAFC34005C6166 /* Transforms */,
+				546184ED19DAFC03005C6166 /* Primitivas */,
 				54742DF819DABD8400AB62EF /* LG_Perspective.cpp */,
 				54742DF919DABD8400AB62EF /* LG_Perspective.h */,
 				545802D419D3175500C9DF32 /* LG_Lighting.cpp */,
 				545802D519D3175500C9DF32 /* LG_Lighting.h */,
 				5458029A19D1DA5000C9DF32 /* LG_Node.cpp */,
 				5458029B19D1DA5000C9DF32 /* LG_Node.h */,
-				5458029E19D1EC0500C9DF32 /* LG_Triangle.cpp */,
-				5458029F19D1EC0500C9DF32 /* LG_Triangle.h */,
 				545802D719D31C6700C9DF32 /* LG_Parsable_Node.cpp */,
 				545802D819D31C6700C9DF32 /* LG_Parsable_Node.h */,
 				5458030519D5803600C9DF32 /* LG_Culling.cpp */,
@@ -484,16 +487,6 @@
 				5458030819D5804400C9DF32 /* LG_Drawing.cpp */,
 				5435E6DA19D6D7CC004169BD /* READIT */,
 				5458030919D5804400C9DF32 /* LG_Drawing.h */,
-				5435E6FA19D83982004169BD /* LG_Primitive.cpp */,
-				5435E6FB19D83982004169BD /* LG_Primitive.h */,
-				5435E6FE19D842FB004169BD /* LG_Rectangle.cpp */,
-				5435E6FF19D842FB004169BD /* LG_Rectangle.h */,
-				5469676A19D88BDB001DBA15 /* LG_Cylinder.cpp */,
-				5469676B19D88BDB001DBA15 /* LG_Cylinder.h */,
-				5469678219D8A016001DBA15 /* LG_Sphere.cpp */,
-				5469678319D8A016001DBA15 /* LG_Sphere.h */,
-				54118C4A19D9B73D0015D962 /* LG_Torus.cpp */,
-				54118C4B19D9B73D0015D962 /* LG_Torus.h */,
 			);
 			name = LG_Node;
 			sourceTree = "<group>";
@@ -515,6 +508,34 @@
 				544FCA2619D94AC700E2A008 /* LG_All_Tests.cpp */,
 			);
 			name = Tests;
+			sourceTree = "<group>";
+		};
+		546184ED19DAFC03005C6166 /* Primitivas */ = {
+			isa = PBXGroup;
+			children = (
+				5458029E19D1EC0500C9DF32 /* LG_Triangle.cpp */,
+				5458029F19D1EC0500C9DF32 /* LG_Triangle.h */,
+				5435E6FA19D83982004169BD /* LG_Primitive.cpp */,
+				5435E6FB19D83982004169BD /* LG_Primitive.h */,
+				5435E6FE19D842FB004169BD /* LG_Rectangle.cpp */,
+				5435E6FF19D842FB004169BD /* LG_Rectangle.h */,
+				5469676A19D88BDB001DBA15 /* LG_Cylinder.cpp */,
+				5469676B19D88BDB001DBA15 /* LG_Cylinder.h */,
+				5469678219D8A016001DBA15 /* LG_Sphere.cpp */,
+				5469678319D8A016001DBA15 /* LG_Sphere.h */,
+				54118C4A19D9B73D0015D962 /* LG_Torus.cpp */,
+				54118C4B19D9B73D0015D962 /* LG_Torus.h */,
+			);
+			name = Primitivas;
+			sourceTree = "<group>";
+		};
+		546184EE19DAFC34005C6166 /* Transforms */ = {
+			isa = PBXGroup;
+			children = (
+				546184EA19DAFBFB005C6166 /* LG_Transform.cpp */,
+				546184EB19DAFBFB005C6166 /* LG_Transform.h */,
+			);
+			name = Transforms;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -800,6 +821,7 @@
 				545802D619D3175500C9DF32 /* LG_Lighting.cpp in Sources */,
 				545802A019D1EC0500C9DF32 /* LG_Triangle.cpp in Sources */,
 				5458029C19D1DA5000C9DF32 /* LG_Node.cpp in Sources */,
+				546184EC19DAFBFB005C6166 /* LG_Transform.cpp in Sources */,
 				5435E70019D842FB004169BD /* LG_Rectangle.cpp in Sources */,
 				5458030A19D5804400C9DF32 /* LG_Drawing.cpp in Sources */,
 				5405EFC519D09E4F00BEED1E /* XMLScene.cpp in Sources */,
