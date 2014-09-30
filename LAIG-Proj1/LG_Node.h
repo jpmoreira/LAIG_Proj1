@@ -30,6 +30,7 @@
 #define LG_Point3D_Length 3
 #define LG_Point2D_Length 2
 #define LG_LightArray_Lenght 4
+#define LG_Matrix_Dimention 4
 
 
 using  std::vector;

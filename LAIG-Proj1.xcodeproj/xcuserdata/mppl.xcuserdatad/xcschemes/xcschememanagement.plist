@@ -59,6 +59,11 @@
 			<key>orderHint</key>
 			<integer>11</integer>
 		</dict>
+		<key>LG_Transforms_Tests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>12</integer>
+		</dict>
 		<key>LG_Triangle_Tests.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -118,6 +123,11 @@
 			<true/>
 		</dict>
 		<key>545802F419D4994300C9DF32</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>546184F619DB1314005C6166</key>
 		<dict>
 			<key>primary</key>
 			<true/>
