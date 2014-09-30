@@ -62,8 +62,7 @@ public:
     
     
     LG_Lighting(LG_Node_Map *map,TiXmlElement *element);
-    
-    
+      
     void verifyElementName(TiXmlElement *element);
     
     void verifyAttributesAndValues(TiXmlElement* element);

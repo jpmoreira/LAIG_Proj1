@@ -750,8 +750,34 @@ public:
 		if (strcmp(att_val, "") == 0){
 			throw new LG_Parse_Exception_Wrong_Attribute_Value(new string(element->Value()), new string(att_val), new string(att_val));
 		}
-		save.empty();
+		save.clear();
 		save.append(att_val);
+	}
+
+
+
+	/**
+
+	A method that tries to attribute a particular attribute to a char variable.
+	Throws the appropriate exception in case something wrong happens.
+	In case of an
+	@param att_name the name of the attribute to be set. To be used in the thrown exception.
+	@param element element to whom the attribute belongs to.
+	@param save the variable to be set.
+
+	*/
+	static inline void char_tryToAttributeVariable(char *att_name, TiXmlElement *element, char &save){
+		
+		
+		double dummy;
+		char *att = (char *)element->Attribute(att_name);
+		if (!att)
+			throw new LG_Parse_Exception_Missing_Attribute(new string(element->Value()), new string(att_name));
+		int nrFound = sscanf(att, "%c %c", &save, &dummy);//try to match one more... if it's matched then some error happened....
+
+		if (nrFound != 1)
+			throw new LG_Parse_Exception_Wrong_Attribute_Value(new string(element->Value()), new string(att_name), new string(att));
+
 	}
     
     /**
