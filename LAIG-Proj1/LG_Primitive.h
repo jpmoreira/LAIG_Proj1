@@ -20,7 +20,6 @@
  
  */
 
-#define autoIdentifier (string(_LG_Primitive_Name+std::to_string(_LG_classIDNr++)))
 
 
 class LG_Primitive: public LG_Parsable_Node{

@@ -30,6 +30,7 @@
 #define LG_Point3D_Length 3
 #define LG_Point2D_Length 2
 #define LG_LightArray_Lenght 4
+#define LG_Matrix_Dimention 4
 
 
 using  std::vector;
@@ -40,7 +41,7 @@ class LG_Node;//forward declaration for typedef
 
 
 typedef map<string , LG_Node *> LG_Node_Map;
-typedef vector<string *> LG_ID_Vector;
+typedef vector<string> LG_ID_Vector;
 typedef std::pair<string , LG_Node *> LG_Node_Map_Pair;
 
 typedef GLdouble LG_Point3D[3];
@@ -136,6 +137,16 @@ public:
     
     
     void addChild(LG_Node *childToAdd);
+    
+    
+    /**
+     
+     
+     A method for adding a child identified by an identifier
+     
+     
+     */
+    void addChild(string & identifOfChildToAdd);
     
     
     

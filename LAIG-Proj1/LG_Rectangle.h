@@ -12,6 +12,8 @@
 #include <stdio.h>
 #include "LG_Primitive.h"
 
+#define LG_Rectangle_XML_Tag_Name "rectangle"
+
 
 
 class LG_Rectangle: public LG_Primitive{

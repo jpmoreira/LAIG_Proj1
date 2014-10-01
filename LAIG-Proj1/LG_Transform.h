@@ -9,6 +9,8 @@
 #ifndef __LAIG_Proj1__LG_Transform__
 #define __LAIG_Proj1__LG_Transform__
 
+
+#define LG_Transforms_XML_Tag_Name "transforms"
 #include "LG_Parsable_Node.h"
 
 
@@ -16,8 +18,40 @@
 class LG_Transform:public LG_Parsable_Node{
     
     
+private:
+    
+    LG_Matrix matrix;
+    
+    
+    static int _LG_classIDNr;
+    
+    
+    
+    /**
+     
+     A method that returns the matrix in a given transformation tag. Verifies tag names.
+     
+     */
+    static void applyMatrixForTransform(TiXmlElement *element);
+    static void applyRotation(TiXmlElement *element);
+    static void applyTranslation(TiXmlElement *element);
+    static void applyScaling(TiXmlElement *element);
+    
+    
+    
+    static bool isTranslation(TiXmlElement *elem);
+    static bool isRotation(TiXmlElement *elem);
+    static bool isScale(TiXmlElement *elem);
+    
+    
+    static void copyMatrix(LG_Matrix origin ,LG_Matrix destination);
+    
+public:
+    
+    LG_Transform(LG_Node_Map *map,TiXmlElement *elem);
+    LG_Transform(LG_Node_Map *map,LG_Matrix m);
 
-    static LG_Transform * transform(LG_Node_Map map,TiXmlElement elem);
+
     
 };
 

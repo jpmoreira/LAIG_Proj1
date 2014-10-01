@@ -40,9 +40,9 @@ LG_Node * LG_Node::child(int childNr){
     
     
     if (childNr>=childsIDs.size())return NULL;
-    string* childID=childsIDs[childNr];
+    string childID=childsIDs[childNr];
     
-    auto it=map->find(*childID);
+    auto it=map->find(childID);
     
     if (it==map->end()) return NULL;
     return it->second;
@@ -57,9 +57,15 @@ void LG_Node::addChild(LG_Node *nodeToAdd){
     
     
     
-    childsIDs.push_back(&nodeToAdd->identifier);
+    childsIDs.push_back(nodeToAdd->identifier);
 
 
+}
+
+void LG_Node::addChild(string & identifOfChildToAdd){
+    
+    childsIDs.push_back(identifOfChildToAdd);
+    
 }
 
 

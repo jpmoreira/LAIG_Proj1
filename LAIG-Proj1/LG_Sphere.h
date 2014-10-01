@@ -13,6 +13,8 @@
 
 #include "LG_Primitive.h"
 
+#define LG_Sphere_XML_Tag_Name "sphere"
+
 class LG_Sphere:public LG_Primitive{
     
 private:

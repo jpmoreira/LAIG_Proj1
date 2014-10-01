@@ -13,6 +13,8 @@
 
 #include "LG_Primitive.h"
 
+#define LG_Cylinder_XML_Tag_Name "cylinder"
+
 class LG_Cylinder:public LG_Primitive{
     
 private:

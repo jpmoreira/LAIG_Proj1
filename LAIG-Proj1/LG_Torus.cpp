@@ -9,7 +9,6 @@
 #include "LG_Torus.h"
 
 #define _LG_Primitive_Name "_LG_Torus_"
-#define LG_Torus_XML_Tag_Name "torus"
 #define LG_Torus_XML_Inner_Att_Name "inner"
 #define LG_Torus_XML_Outer_Att_Name "outer"
 #define LG_Torus_XML_Slices_Att_Name "slices"

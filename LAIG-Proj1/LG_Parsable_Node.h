@@ -20,6 +20,9 @@
 using std::exception;
 
 
+#define autoIdentifier (string(_LG_Primitive_Name+std::to_string(_LG_classIDNr++)))
+
+
 #define LG_INVALID_INT INT_MAX
 #define LG_INVALID_DOUBLE DBL_MAX //didn't use NaN because checking nan==nan always returns false
 
@@ -60,7 +63,23 @@ private:
 public:
 
 	LG_Parse_Exception_Wrong_Attribute_Value(string *elem, string* attrib, string* value, vector<string> *expected);
+    /**
+     
+     
+     This method expects the caller to manage char *.
+     
+     */
+    LG_Parse_Exception_Wrong_Attribute_Value(const char *elem,const char * att,const char *value,vector<string> *expected);
+    
+    
     LG_Parse_Exception_Wrong_Attribute_Value(string *elem, string* attrib, string* value);
+    /**
+     
+     
+     This method expects the caller to manage char *.
+     
+     */
+    LG_Parse_Exception_Wrong_Attribute_Value(const char *elem, const char* attrib, const char* value);
 	~LG_Parse_Exception_Wrong_Attribute_Value();
 	char* what();
 
@@ -106,6 +125,14 @@ class LG_Parse_Exception_Wrong_Element_Name :public LG_Parse_Exception{
 
 public:
 	LG_Parse_Exception_Wrong_Element_Name(string * expectedElementName, string * actualElementName);
+    
+    /**
+     
+     
+     This method expects the caller to manage char *.
+     
+     */
+    LG_Parse_Exception_Wrong_Element_Name(const char * expectedElementName, const char * actualElementName);
 
 	~LG_Parse_Exception_Wrong_Element_Name();
 
@@ -120,8 +147,15 @@ private:
 class LG_Parse_Exception_Missing_Element :public LG_Parse_Exception{
 
 
-
+public:
 	LG_Parse_Exception_Missing_Element(string *elem);
+    
+    /**
+     
+     Method not responsible for managing the recieved parameter memory
+     
+     */
+    LG_Parse_Exception_Missing_Element(const char *elem);
 
 };
 
@@ -199,6 +233,37 @@ public:
         }
         
         parameter=positiveDoubleValueForAttribute_(source);
+        
+        if (parameter==LG_INVALID_DOUBLE)
+            throw new LG_Parse_Exception_Wrong_Attribute_Value(new string(elemName),new string(attName),new string(source));
+        
+        
+    }
+    
+    
+    /**
+     
+     A method that tries to attribute a particular attribute to a double variable.
+     Throws the appropriate exception in case something wrong happens.
+     @param attName the name of the attribute to be set. To be used in the thrown exception.
+     @param elem the element whose whose attribute is to be used
+     @param parameter the variable to be set.
+     
+     
+     
+     */
+    
+    static void inline double_tryToAttributeVariable(const char * attName,TiXmlElement* elem, double&parameter){
+        
+        
+        const char * source=elem->Attribute(attName);
+        const char * elemName=elem->Value();
+        
+        if (source==NULL){
+            throw new LG_Parse_Exception_Missing_Attribute(new string(elemName),new string(attName));
+        }
+        
+        parameter=doubleValueForAttribute_(source);
         
         if (parameter==LG_INVALID_DOUBLE)
             throw new LG_Parse_Exception_Wrong_Attribute_Value(new string(elemName),new string(attName),new string(source));
@@ -764,7 +829,7 @@ public:
      
      */
 
-	static inline void string_tryToAttributeVariable( char *att_name, TiXmlElement *element,string &save){
+	static inline void string_tryToAttributeVariable(const char *att_name, TiXmlElement *element,string &save){
 		string att_str_name(att_name);
 
 		char *att_val = (char *)element->Attribute(att_name);
@@ -797,7 +862,7 @@ public:
 		char *att = (char *)element->Attribute(att_name);
 		if (!att)
 			throw new LG_Parse_Exception_Missing_Attribute(new string(element->Value()), new string(att_name));
-		int nrFound = sscanf(att, "%c %c", &save, &dummy);//try to match one more... if it's matched then some error happened....
+		int nrFound = sscanf(att, "%c %lf", &save, &dummy);//try to match one more... if it's matched then some error happened....
 
 		if (nrFound != 1)
 			throw new LG_Parse_Exception_Wrong_Attribute_Value(new string(element->Value()), new string(att_name), new string(att));
@@ -815,7 +880,7 @@ public:
      @param possibleValues all the possible values accepted as a valid value for the string
      
      */
-    static inline void enum_tryToAttribute( char *att_name,TiXmlElement *element, int &save, vector<string> *possibleValues){
+    static inline void enum_tryToAttribute( const char *att_name,TiXmlElement *element, int &save, vector<string> *possibleValues){
     
     
         string att_str_name(att_name);
