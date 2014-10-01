@@ -10,7 +10,7 @@
 
 #define LG_Rectangle_ID "_LG_Rectangle_"
 #define _LG_Primitive_Name LG_Rectangle_ID
-#define LG_Rectangle_Node_Name "rectangle"
+
 #define LG_Rectangle_XML_Att1_Name "xy1"
 #define LG_Rectangle_XML_Att2_Name "xy2"
 
@@ -30,8 +30,8 @@ LG_Rectangle::LG_Rectangle(LG_Node_Map *map,TiXmlElement *elem):LG_Primitive(map
     
     
     
-    if (!str_eq(elem->Value(), LG_Rectangle_Node_Name)) {
-        throw new LG_Parse_Exception_Wrong_Element_Name(new string(LG_Rectangle_Node_Name),new string(elem->Value()));
+    if (!str_eq(elem->Value(), LG_Rectangle_XML_Tag_Name)) {
+        throw new LG_Parse_Exception_Wrong_Element_Name(new string(LG_Rectangle_XML_Tag_Name),new string(elem->Value()));
     }
     
     

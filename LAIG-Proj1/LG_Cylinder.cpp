@@ -10,7 +10,6 @@
 
 
 #define _LG_Primitive_Name "_LG_Cylinder_"
-#define LG_Cylinder_XML_Tag_Name "cylinder"
 #define LG_Cylinder_XML_Top_Att_Name "top"
 #define LG_Cylinder_XML_Base_Att_Name "base"
 #define LG_Cylinder_XML_Stacks_Att_Name "stacks"

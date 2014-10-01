@@ -9,6 +9,8 @@
 #ifndef __LAIG_Proj1__LG_Transform__
 #define __LAIG_Proj1__LG_Transform__
 
+
+#define LG_Transforms_XML_Tag_Name "transforms"
 #include "LG_Parsable_Node.h"
 
 

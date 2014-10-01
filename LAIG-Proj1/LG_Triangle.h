@@ -12,6 +12,8 @@
 #include <stdio.h>
 #include "LG_Primitive.h"
 
+#define LG_Triangle_XML_Tag_Name "triangle"
+
 #define LG_Origin_3D_Point {0,0,0}
 
 #endif /* defined(__LAIG_Proj1__LG_Triangle__) */

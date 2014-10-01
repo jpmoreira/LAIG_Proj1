@@ -12,6 +12,8 @@
 #include <stdio.h>
 #include "LG_Primitive.h"
 
+#define LG_Torus_XML_Tag_Name "torus"
+
 class LG_Torus: public LG_Primitive{
 
     
@@ -30,6 +32,6 @@ public:
     LG_Torus(LG_Node_Map *map,TiXmlElement *elem);
     LG_Torus(LG_Node_Map *map,double inner,double outer,int sl,int loop);
 
-};
+}; 
 
 #endif /* defined(__LAIG_Proj1__LG_Torus__) */

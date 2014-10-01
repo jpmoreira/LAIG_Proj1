@@ -9,7 +9,7 @@
 #include "LG_Sphere.h"
 
 #define _LG_Primitive_Name "_LG_Sphere_"
-#define LG_Sphere_XML_Tag_Name "sphere"
+
 
 #define LG_Sphere_XML_Slices_Att_Name "slices"
 #define LG_Sphere_XML_Stacks_Att_Name "stacks"

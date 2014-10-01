@@ -13,3 +13,20 @@
     <!-- ex: bloco transforms pode ser R,S,T,S -->
     <transform type="translate" to="50 0 0" />
 </transforms>
+
+<transforms>
+    <!-- deve conter transformacoes explicitas usando as instrucoes seguintes sem limite nem ordem -->
+    <!-- ex: bloco transforms pode ficar sem conteudo -->
+    <!-- ex: bloco transforms pode ser R,T (nao tem S) -->
+    <!-- ex: bloco transforms pode ser R,S,T,S -->
+    <transform type="scale" to="50 30 40" />
+</transforms>
+
+<transforms>
+    <!-- deve conter transformacoes explicitas usando as instrucoes seguintes sem limite nem ordem -->
+    <!-- ex: bloco transforms pode ficar sem conteudo -->
+    <!-- ex: bloco transforms pode ser R,T (nao tem S) -->
+    <!-- ex: bloco transforms pode ser R,S,T,S -->
+    <transform type="translate" to="3 0 0" />
+    <transform type="scale" factor="50 30 40" />
+</transforms>

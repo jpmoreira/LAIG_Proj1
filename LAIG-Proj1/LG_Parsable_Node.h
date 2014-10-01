@@ -147,8 +147,15 @@ private:
 class LG_Parse_Exception_Missing_Element :public LG_Parse_Exception{
 
 
-
+public:
 	LG_Parse_Exception_Missing_Element(string *elem);
+    
+    /**
+     
+     Method not responsible for managing the recieved parameter memory
+     
+     */
+    LG_Parse_Exception_Missing_Element(const char *elem);
 
 };
 
@@ -798,7 +805,7 @@ public:
      
      */
 
-	static inline void string_tryToAttributeVariable( char *att_name, TiXmlElement *element,string &save){
+	static inline void string_tryToAttributeVariable(const char *att_name, TiXmlElement *element,string &save){
 		string att_str_name(att_name);
 
 		char *att_val = (char *)element->Attribute(att_name);
@@ -831,7 +838,7 @@ public:
 		char *att = (char *)element->Attribute(att_name);
 		if (!att)
 			throw new LG_Parse_Exception_Missing_Attribute(new string(element->Value()), new string(att_name));
-		int nrFound = sscanf(att, "%c %c", &save, &dummy);//try to match one more... if it's matched then some error happened....
+		int nrFound = sscanf(att, "%c %lf", &save, &dummy);//try to match one more... if it's matched then some error happened....
 
 		if (nrFound != 1)
 			throw new LG_Parse_Exception_Wrong_Attribute_Value(new string(element->Value()), new string(att_name), new string(att));

@@ -11,8 +11,6 @@
 
 
 
-#define LG_Triangle_XML_Tag_Name "triangle"
-
 #define _LG_Primitive_Name LG_Triangle_ID
 
 #define LG_Triangle_XML_Att1_Name "xyz1"

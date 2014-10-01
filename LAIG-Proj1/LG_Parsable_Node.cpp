@@ -151,6 +151,8 @@ LG_Parse_Exception_Missing_Element::LG_Parse_Exception_Missing_Element(string *e
 
 
 }
+LG_Parse_Exception_Missing_Element::LG_Parse_Exception_Missing_Element(const char *elem):LG_Parse_Exception_Missing_Element(new string(elem)){
+}
 
 
 #pragma mark - Wrong Element Type Exception

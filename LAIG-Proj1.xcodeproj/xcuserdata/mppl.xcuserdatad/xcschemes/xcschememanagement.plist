@@ -34,6 +34,11 @@
 			<key>orderHint</key>
 			<integer>5</integer>
 		</dict>
+		<key>LG_Graph_Node_Tests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>13</integer>
+		</dict>
 		<key>LG_Nodes_Tests.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -128,6 +133,11 @@
 			<true/>
 		</dict>
 		<key>546184F619DB1314005C6166</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5461851219DBC9C6005C6166</key>
 		<dict>
 			<key>primary</key>
 			<true/>
