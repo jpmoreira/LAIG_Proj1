@@ -562,9 +562,6 @@ public:
 	}
 
 
-
-
-
 	/**
 
 
@@ -764,6 +761,33 @@ public:
 	
 	
 	}
+
+
+
+
+	/**
+	A method that tries to attribute a particular attribute to a double variable.
+	Throws the appropriate exception in case something wrong happens.
+	In case of an
+	@param att_name the name of the attribute to be set. To be used in the thrown exception.
+	@param element element to whom the attribute belongs to.
+	@param save the variable to be set.
+*/
+	static inline void double_tryToAttributeVariable(const char *att_name, TiXmlElement *element, double &save){
+
+
+		if ((element->QueryDoubleAttribute(att_name, &save)) != TIXML_SUCCESS){
+			char *att_value = (char *)element->Attribute(att_name);
+
+			if (!att_value)
+				throw  new LG_Parse_Exception_Missing_Attribute(new string(element->Value()), new string(att_name));
+
+			else
+				throw new LG_Parse_Exception_Wrong_Attribute_Value(new string(element->Value()), new string(att_name), new string(att_value));
+
+		}
+	}
+
     /**
      
      A method that tries to attribute a particular attribute to a LG_point3D variable, when the attribute only defines a 2D point. The point is set to z=0
@@ -851,7 +875,7 @@ public:
 
 	/**
 
-	A method that tries to attribute a particular attribute to a char variable.
+	A method that tries to attribute a particular attribute to a string variable.
 	Throws the appropriate exception in case something wrong happens.
 	In case of an
 	@param att_name the name of the attribute to be set. To be used in the thrown exception.
