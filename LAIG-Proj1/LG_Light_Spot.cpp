@@ -4,6 +4,8 @@
 #define _LG_Primitive_Name LG_Light_Spot_ID
 #define LG_Light_Spot_ID "_LG_Light_Spot_"
 
+int LG_Light_Spot::_LG_classIDNr = 0;
+
 LG_Light_Spot::LG_Light_Spot(LG_Node_Map *map, TiXmlElement *element) :LG_Parsable_Node(map, autoIdentifier)
 {
 	string_tryToAttributeVariable(LG_SPOT_ATT_ID, element, id);
