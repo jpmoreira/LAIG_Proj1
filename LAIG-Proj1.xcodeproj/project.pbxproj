@@ -144,6 +144,10 @@
 		5461854F19DC5D8E005C6166 /* LG_Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5458029A19D1DA5000C9DF32 /* LG_Node.cpp */; };
 		5461855019DC5D8E005C6166 /* LG_Parsable_Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 545802D719D31C6700C9DF32 /* LG_Parsable_Node.cpp */; };
 		5461855319DC5DBB005C6166 /* LG_Appearance_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5461855119DC5DB4005C6166 /* LG_Appearance_Tests.cpp */; };
+		5461855C19DD3CDA005C6166 /* LG_Light_Omni.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5461855419DD3CDA005C6166 /* LG_Light_Omni.cpp */; };
+		5461855D19DD3CDA005C6166 /* LG_Light_Spot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5461855619DD3CDA005C6166 /* LG_Light_Spot.cpp */; };
+		5461855E19DD3CDA005C6166 /* LG_Lights.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5461855819DD3CDA005C6166 /* LG_Lights.cpp */; };
+		5461855F19DD3CDA005C6166 /* LG_Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5461855A19DD3CDA005C6166 /* LG_Texture.cpp */; };
 		5469676C19D88BDB001DBA15 /* LG_Cylinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5469676A19D88BDB001DBA15 /* LG_Cylinder.cpp */; };
 		5469677A19D895CA001DBA15 /* TestCylinder.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5469677819D895A3001DBA15 /* TestCylinder.xml */; };
 		5469677B19D895D3001DBA15 /* libTinyXML.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4219D0AD7F00D4831A /* libTinyXML.a */; };
@@ -160,7 +164,6 @@
 		5469679519D8A975001DBA15 /* LG_Sphere.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5469678219D8A016001DBA15 /* LG_Sphere.cpp */; };
 		5469679619D8A97D001DBA15 /* libTinyXML.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4219D0AD7F00D4831A /* libTinyXML.a */; };
 		5469679919D8A9A4001DBA15 /* TestSphere.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5469679719D8A995001DBA15 /* TestSphere.xml */; };
-		54742DFA19DABD8400AB62EF /* LG_Perspective.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54742DF819DABD8400AB62EF /* LG_Perspective.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -380,6 +383,14 @@
 		5461853C19DC5CE7005C6166 /* LG_Appearance_Tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LG_Appearance_Tests; sourceTree = BUILT_PRODUCTS_DIR; };
 		5461854B19DC5D04005C6166 /* TestAppearances.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TestAppearances.xml; sourceTree = "<group>"; };
 		5461855119DC5DB4005C6166 /* LG_Appearance_Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Appearance_Tests.cpp; sourceTree = "<group>"; };
+		5461855419DD3CDA005C6166 /* LG_Light_Omni.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Light_Omni.cpp; sourceTree = "<group>"; };
+		5461855519DD3CDA005C6166 /* LG_Light_Omni.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_Light_Omni.h; sourceTree = "<group>"; };
+		5461855619DD3CDA005C6166 /* LG_Light_Spot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Light_Spot.cpp; sourceTree = "<group>"; };
+		5461855719DD3CDA005C6166 /* LG_Light_Spot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_Light_Spot.h; sourceTree = "<group>"; };
+		5461855819DD3CDA005C6166 /* LG_Lights.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Lights.cpp; sourceTree = "<group>"; };
+		5461855919DD3CDA005C6166 /* LG_Lights.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_Lights.h; sourceTree = "<group>"; };
+		5461855A19DD3CDA005C6166 /* LG_Texture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Texture.cpp; sourceTree = "<group>"; };
+		5461855B19DD3CDA005C6166 /* LG_Texture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_Texture.h; sourceTree = "<group>"; };
 		5469676A19D88BDB001DBA15 /* LG_Cylinder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Cylinder.cpp; sourceTree = "<group>"; };
 		5469676B19D88BDB001DBA15 /* LG_Cylinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_Cylinder.h; sourceTree = "<group>"; };
 		5469677119D89585001DBA15 /* LG_Cylinder_Tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LG_Cylinder_Tests; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -390,8 +401,6 @@
 		5469678519D8A943001DBA15 /* LG_Sphere_Tests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Sphere_Tests.cpp; sourceTree = "<group>"; };
 		5469678A19D8A95C001DBA15 /* LG_Sphere_Tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LG_Sphere_Tests; sourceTree = BUILT_PRODUCTS_DIR; };
 		5469679719D8A995001DBA15 /* TestSphere.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestSphere.xml; sourceTree = "<group>"; };
-		54742DF819DABD8400AB62EF /* LG_Perspective.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Perspective.cpp; sourceTree = "<group>"; };
-		54742DF919DABD8400AB62EF /* LG_Perspective.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_Perspective.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -621,10 +630,16 @@
 				5461850E19DBC9AD005C6166 /* Graph */,
 				546184EE19DAFC34005C6166 /* Transforms */,
 				546184ED19DAFC03005C6166 /* Primitivas */,
+				5461855419DD3CDA005C6166 /* LG_Light_Omni.cpp */,
+				5461855519DD3CDA005C6166 /* LG_Light_Omni.h */,
+				5461855619DD3CDA005C6166 /* LG_Light_Spot.cpp */,
+				5461855719DD3CDA005C6166 /* LG_Light_Spot.h */,
+				5461855819DD3CDA005C6166 /* LG_Lights.cpp */,
+				5461855919DD3CDA005C6166 /* LG_Lights.h */,
+				5461855A19DD3CDA005C6166 /* LG_Texture.cpp */,
+				5461855B19DD3CDA005C6166 /* LG_Texture.h */,
 				5461853419DC59E7005C6166 /* LG_Appearance.cpp */,
 				5461853519DC59E7005C6166 /* LG_Appearance.h */,
-				54742DF819DABD8400AB62EF /* LG_Perspective.cpp */,
-				54742DF919DABD8400AB62EF /* LG_Perspective.h */,
 				545802D419D3175500C9DF32 /* LG_Lighting.cpp */,
 				545802D519D3175500C9DF32 /* LG_Lighting.h */,
 				5458029A19D1DA5000C9DF32 /* LG_Node.cpp */,
@@ -1042,9 +1057,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5461855F19DD3CDA005C6166 /* LG_Texture.cpp in Sources */,
 				545802D919D31C6700C9DF32 /* LG_Parsable_Node.cpp in Sources */,
+				5461855C19DD3CDA005C6166 /* LG_Light_Omni.cpp in Sources */,
 				54118C4C19D9B73D0015D962 /* LG_Torus.cpp in Sources */,
 				545802D619D3175500C9DF32 /* LG_Lighting.cpp in Sources */,
+				5461855E19DD3CDA005C6166 /* LG_Lights.cpp in Sources */,
 				545802A019D1EC0500C9DF32 /* LG_Triangle.cpp in Sources */,
 				5458029C19D1DA5000C9DF32 /* LG_Node.cpp in Sources */,
 				546184EC19DAFBFB005C6166 /* LG_Transform.cpp in Sources */,
@@ -1054,9 +1072,9 @@
 				5469678419D8A016001DBA15 /* LG_Sphere.cpp in Sources */,
 				5405EFC419D09E4F00BEED1E /* main.cpp in Sources */,
 				5461850D19DBC99C005C6166 /* LG_Graph_Node.cpp in Sources */,
+				5461855D19DD3CDA005C6166 /* LG_Light_Spot.cpp in Sources */,
 				5461853319DC4222005C6166 /* LG_Graph.cpp in Sources */,
 				5435E6FC19D83982004169BD /* LG_Primitive.cpp in Sources */,
-				54742DFA19DABD8400AB62EF /* LG_Perspective.cpp in Sources */,
 				5469676C19D88BDB001DBA15 /* LG_Cylinder.cpp in Sources */,
 				5461853619DC59E7005C6166 /* LG_Appearance.cpp in Sources */,
 				5458030719D5803600C9DF32 /* LG_Culling.cpp in Sources */,
