@@ -164,3 +164,29 @@ LG_Parse_Exception_Wrong_Elem_Type::LG_Parse_Exception_Wrong_Elem_Type(string *e
 
 LG_Parse_Exception_Wrong_Elem_Type::~LG_Parse_Exception_Wrong_Elem_Type(){
 }
+
+
+#pragma mark - Broken Reference Exception
+
+
+char * LG_Parse_Exception_Broken_Reference::what(){
+
+    string message= "Broken Reference to Element of Type "+*refered_Type+" with ID="+*reference+" while parsing element "+*element;
+    
+    return strdup(message.c_str());
+}
+LG_Parse_Exception_Broken_Reference::LG_Parse_Exception_Broken_Reference(string * elementWhereErrorOccured, string * reference,string *referedElementName):LG_Parse_Exception(elementWhereErrorOccured),reference(reference),refered_Type(referedElementName){
+
+}
+
+LG_Parse_Exception_Broken_Reference::LG_Parse_Exception_Broken_Reference(const char * elementWhereErrorOccured, const char * reference,const char *referedElementName):LG_Parse_Exception_Broken_Reference(new string(elementWhereErrorOccured),new string(reference),new string(referedElementName)){
+
+
+
+}
+LG_Parse_Exception_Broken_Reference::~LG_Parse_Exception_Broken_Reference(){
+
+    delete reference;
+    delete refered_Type;
+
+}

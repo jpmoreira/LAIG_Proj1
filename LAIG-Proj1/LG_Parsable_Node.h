@@ -160,6 +160,27 @@ public:
 };
 
 
+class LG_Parse_Exception_Broken_Reference :public LG_Parse_Exception{
+
+private:
+    string *reference;
+    string *refered_Type;
+
+    
+    
+    
+public:
+    
+    char * what();
+    LG_Parse_Exception_Broken_Reference(string * elementWhereErrorOccured, string * reference,string *referedElementName);
+    LG_Parse_Exception_Broken_Reference(const char * elementWhereErrorOccured, const char * reference,const char *referedElementName);
+    
+    ~LG_Parse_Exception_Broken_Reference();
+
+};
+
+
+
 class LG_Parsable_Node : public LG_Node{
 
 public:
@@ -180,6 +201,13 @@ public:
     
     
     
+    static void inline copyLightArrays(LG_LightArray source,LG_LightArray dest){
+    
+        for (int i=0; i<LG_LightArray_Lenght; i++) {
+            dest[i]=source[i];
+        }
+    
+    }
     
     /**
      
@@ -776,7 +804,7 @@ public:
      
      */
     
-    static inline void lightArray_tryToAttributeVariable( char * att_name,TiXmlElement *element, LG_LightArray & values){
+    static inline void lightArray_tryToAttributeVariable(const char * att_name,TiXmlElement *element, LG_LightArray & values){
         
         
         char *att_value = (char *)element->Attribute(att_name);

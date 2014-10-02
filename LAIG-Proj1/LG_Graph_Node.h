@@ -12,23 +12,37 @@
 #include "LG_Parsable_Node.h"
 #include "LG_Transform.h"
 #include "LG_Primitive.h"
+#include "LG_Appearance.h"
 
 class LG_Graph_Node:public LG_Parsable_Node{
     
     
 private:
     
+    LG_Transform *transform;
+    
+    LG_Appearance *appearance;
+    
+    
     static string identifierForGraphNode(TiXmlElement *elem);
     
-    void handleDescendants(LG_Node_Map *map,TiXmlElement *descendantsElement);
+    void handleDescendants(LG_Node_Map *node_map,TiXmlElement *descendantsElement);
+    
+    
     vector<LG_Primitive *> handlePrimitives(LG_Node_Map *map,TiXmlElement *primitivesElement);
     
-    LG_Transform *transform;
+    
+    void handleAppearance(LG_Node_Map *map,TiXmlElement *appearanceElement);
+    
+    
     
     
 public:
-    LG_Graph_Node(LG_Node_Map *map,TiXmlElement *elem);
-    LG_Graph_Node(LG_Node_Map *map,LG_Transform *transform,vector<LG_Primitive *> &primitives,string identifier);
+    LG_Graph_Node(LG_Node_Map *map,LG_Node_Map *appearances_map,TiXmlElement *elem);
+    LG_Graph_Node(LG_Node_Map *map,LG_Node_Map *appearances_map,LG_Transform *transform,vector<LG_Primitive *> &primitives,string identifier);
+    
+    
+    
 };
 
 #endif /* defined(__LAIG_Proj1__LG_Graph_Node__) */

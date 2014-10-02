@@ -13,6 +13,10 @@
 #define LG_Graph_Node_XML_Tag_Name "node"
 #define LG_Graph_Node_Descendants_Tag_Name "descendants"
 #define LG_Graph_Node_Primitives_Tag_Name "primitives"
+#define LG_Graph_Node_Appearances_Ref_XML_Tag_Name "appearanceref"
+
+
+#define LG_Appearance_Ref_Inherit_String "inherit"
 
 
 #include "LG_Graph_Node.h"
@@ -25,7 +29,7 @@
 
 
 #pragma mark - Constructors
-LG_Graph_Node::LG_Graph_Node(LG_Node_Map *map,TiXmlElement *elem)
+LG_Graph_Node::LG_Graph_Node(LG_Node_Map *map,LG_Node_Map *app_map, TiXmlElement *elem)
 :LG_Parsable_Node(map,identifierForGraphNode(elem))
 {
     
@@ -37,6 +41,8 @@ LG_Graph_Node::LG_Graph_Node(LG_Node_Map *map,TiXmlElement *elem)
     bool descendantsSet=false;
     bool transformsSet=false;
     bool primitivesSet=false;
+
+    //IMPLEMENT necessity of apperance
     
 
     TiXmlElement *childElement=elem->FirstChildElement();
@@ -63,6 +69,12 @@ LG_Graph_Node::LG_Graph_Node(LG_Node_Map *map,TiXmlElement *elem)
             }
         }
         
+        else if (str_eq(LG_Graph_Node_Appearances_Ref_XML_Tag_Name, childElement->Value())){
+        
+            handleAppearance(app_map, childElement);
+        }
+        
+        
         
         childElement=childElement->NextSiblingElement();
     }
@@ -81,7 +93,7 @@ LG_Graph_Node::LG_Graph_Node(LG_Node_Map *map,TiXmlElement *elem)
     
     
 }
-LG_Graph_Node::LG_Graph_Node(LG_Node_Map *map,LG_Transform *t,vector<LG_Primitive *> &primitives,string identifier)
+LG_Graph_Node::LG_Graph_Node(LG_Node_Map *map,LG_Node_Map *app_map, LG_Transform *t,vector<LG_Primitive *> &primitives,string identifier)
 :LG_Parsable_Node(map,identifier),transform(t)
 {
     
@@ -166,4 +178,26 @@ vector<LG_Primitive *> LG_Graph_Node::handlePrimitives(LG_Node_Map *map,TiXmlEle
     
     
     return primitives;
+}
+
+
+void LG_Graph_Node::handleAppearance(LG_Node_Map *map,TiXmlElement *appearanceElement){
+
+    string id;
+    string_tryToAttributeVariable(LG_Appearance_ID_XML_Att_Name, appearanceElement, id);
+    
+    if (str_eq(id.c_str(), LG_Appearance_Ref_Inherit_String))appearance=NULL;
+    
+    else{
+    
+         auto it=map->find(id);
+        
+        if (it==map->end()) {
+            throw new LG_Parse_Exception_Broken_Reference(LG_Graph_Node_XML_Tag_Name,id.c_str(),LG_Graph_Node_Appearances_Ref_XML_Tag_Name);
+        }
+        else appearance=(LG_Appearance *)it->second;
+    
+    }
+    
+
 }

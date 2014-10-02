@@ -5,13 +5,13 @@
 #define protected public
 #endif
 
-#include "LG_Graph_Node.h"
+#include "LG_Appearance.h"
 #include <CGFapplication.h>
 
 
 TEST_CASE("Test loading Graph Node from XML"){
-
-
+    
+    
     static bool called=false;
     
     
@@ -29,7 +29,7 @@ TEST_CASE("Test loading Graph Node from XML"){
     
     
     
-    TiXmlDocument *doc=new TiXmlDocument("./testFiles/TestGraphNodes.xml");
+    TiXmlDocument *doc=new TiXmlDocument("./testFiles/TestAppearances.xml");
     REQUIRE(doc->LoadFile());
     LG_Node_Map *map=new LG_Node_Map();
     
@@ -39,7 +39,7 @@ TEST_CASE("Test loading Graph Node from XML"){
     
     
     SECTION("Testing perfectly well formed Node"){
-    
+        
         
         
     }

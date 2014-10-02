@@ -39,7 +39,6 @@ using std::map;
 
 class LG_Node;//forward declaration for typedef
 
-
 typedef map<string , LG_Node *> LG_Node_Map;
 typedef vector<string> LG_ID_Vector;
 typedef std::pair<string , LG_Node *> LG_Node_Map_Pair;
