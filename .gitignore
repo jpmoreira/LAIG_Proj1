@@ -170,7 +170,7 @@ xcuserdata
 # UNKNOWN: recommended by others, but I can't discover what these files are
 #
 # ...none. Everything is now explained.
-
+*.xcodeproj
 *.xcodeproj/*
 *.pbxproj
 
@@ -344,3 +344,4 @@ LAIG-Proj1/XMLScene___.cpp
 LAIG-Proj1/XMLScene___.h
 *.filters
 *.vcxproj
+*Laig-*-Test*
