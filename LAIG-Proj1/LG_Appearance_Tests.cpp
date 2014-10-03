@@ -38,8 +38,32 @@ TEST_CASE("Test loading Graph Node from XML"){
     TiXmlElement *firstElement=doc->FirstChildElement();
     
     
-    SECTION("Testing perfectly well formed Node"){
+    SECTION("Testing perfectly well formed Appearance"){
         
+        
+        try {
+            LG_Appearance *app=new LG_Appearance(map,firstElement);
+            REQUIRE(str_eq(app->identifier.c_str(), "appear1"));
+            REQUIRE(abs(app->shininess-0.8)<=0.0001);
+            REQUIRE(abs(app->ambient[0]-0.7)<=0.0001);
+            REQUIRE(abs(app->ambient[1]-0.75)<=0.0001);
+            REQUIRE(abs(app->ambient[2]-0.7)<=0.0001);
+            REQUIRE(abs(app->ambient[3]-0.9)<=0.0001);
+            
+            REQUIRE(abs(app->diffuse[0]-0.9)<=0.0001);
+            REQUIRE(abs(app->diffuse[1]-0.7)<=0.0001);
+            REQUIRE(abs(app->diffuse[2]-0.7)<=0.0001);
+            REQUIRE(abs(app->diffuse[3]-0.9)<=0.0001);
+            
+            REQUIRE(abs(app->specular[0]-0.6)<=0.0001);
+            REQUIRE(abs(app->specular[1]-0.7)<=0.0001);
+            REQUIRE(abs(app->specular[2]-0.7)<=0.0001);
+            REQUIRE(abs(app->specular[3]-0.55)<=0.0001);
+            
+            
+        } catch (LG_Parse_Exception *ex) {
+            FAIL("Thrown exception while parsing perfectly good appearance");
+        }
         
         
     }
