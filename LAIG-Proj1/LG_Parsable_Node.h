@@ -49,6 +49,7 @@ protected:
 
 public:
 	LG_Parse_Exception(string* elem);
+	LG_Parse_Exception();
 	virtual ~LG_Parse_Exception();
 
 };
@@ -62,6 +63,8 @@ private:
 
 public:
 
+
+	//LG_Parse_Exception_Wrong_Attribute_Value(const char *elem,const char * att,const char *value,vector<string> *expected):LG_Parse_Exception_Wrong_Attribute_Value(new string(elem),new string(att),new string(value),expected){}
 	LG_Parse_Exception_Wrong_Attribute_Value(string *elem, string* attrib, string* value, vector<string> *expected);
     /**
      

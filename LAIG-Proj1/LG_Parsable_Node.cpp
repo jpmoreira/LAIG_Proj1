@@ -62,12 +62,14 @@ char * LG_Parse_Exception_Wrong_Attribute_Value::what(){
 LG_Parse_Exception_Wrong_Attribute_Value::LG_Parse_Exception_Wrong_Attribute_Value(string* elem, string* attrib, string* value, vector<string> *expected) :LG_Parse_Exception(elem), attribute(attrib), actualValue(value), expectedValues(expected){
 
 
-
-
 }
 
 
-LG_Parse_Exception_Wrong_Attribute_Value::LG_Parse_Exception_Wrong_Attribute_Value(const char *elem,const char * att,const char *value,vector<string> *expected):LG_Parse_Exception_Wrong_Attribute_Value(new string(elem),new string(att),new string(value),expected){}
+LG_Parse_Exception_Wrong_Attribute_Value::LG_Parse_Exception_Wrong_Attribute_Value(const char *elem,const char * att,const char *value,vector<string> *expected):LG_Parse_Exception(new string(elem)), attribute(new string(att))
+, actualValue(new string(value)), expectedValues(expected)
+{
+
+}
 
 LG_Parse_Exception_Wrong_Attribute_Value::LG_Parse_Exception_Wrong_Attribute_Value(string* elem, string* attrib, string* value) :LG_Parse_Exception(elem), attribute(attrib), actualValue(value), expectedValues(NULL){
     
@@ -76,7 +78,9 @@ LG_Parse_Exception_Wrong_Attribute_Value::LG_Parse_Exception_Wrong_Attribute_Val
     
 }
 
-LG_Parse_Exception_Wrong_Attribute_Value::LG_Parse_Exception_Wrong_Attribute_Value(const char *elem, const char* attrib, const char* value):LG_Parse_Exception_Wrong_Attribute_Value(new string(elem),new string(attrib),new string(value)){}
+LG_Parse_Exception_Wrong_Attribute_Value::LG_Parse_Exception_Wrong_Attribute_Value(const char *elem, const char* attrib, const char* value) :LG_Parse_Exception(new string(elem)), attribute(new string(attrib)), actualValue(new string(value)){
+
+}
 
 
 LG_Parse_Exception_Wrong_Attribute_Value::~LG_Parse_Exception_Wrong_Attribute_Value(){
@@ -99,7 +103,7 @@ LG_Parse_Exception_Wrong_Element_Name::LG_Parse_Exception_Wrong_Element_Name(str
 
 }
 
-LG_Parse_Exception_Wrong_Element_Name::LG_Parse_Exception_Wrong_Element_Name(const char * expectedElementName, const char * actualElementName):LG_Parse_Exception_Wrong_Element_Name(new string(expectedElementName),new string(actualElementName)){
+LG_Parse_Exception_Wrong_Element_Name::LG_Parse_Exception_Wrong_Element_Name(const char * expectedElementName, const char * actualElementName) :LG_Parse_Exception(new string(actualElementName)), expectedElementName(new string(expectedElementName)){
 
 
 }
@@ -151,7 +155,7 @@ LG_Parse_Exception_Missing_Element::LG_Parse_Exception_Missing_Element(string *e
 
 
 }
-LG_Parse_Exception_Missing_Element::LG_Parse_Exception_Missing_Element(const char *elem):LG_Parse_Exception_Missing_Element(new string(elem)){
+LG_Parse_Exception_Missing_Element::LG_Parse_Exception_Missing_Element(const char *elem) : LG_Parse_Exception(new string(elem)){
 }
 
 
@@ -179,11 +183,12 @@ LG_Parse_Exception_Broken_Reference::LG_Parse_Exception_Broken_Reference(string 
 
 }
 
-LG_Parse_Exception_Broken_Reference::LG_Parse_Exception_Broken_Reference(const char * elementWhereErrorOccured, const char * reference,const char *referedElementName):LG_Parse_Exception_Broken_Reference(new string(elementWhereErrorOccured),new string(reference),new string(referedElementName)){
-
-
-
-}
+//LG_Parse_Exception_Broken_Reference::LG_Parse_Exception_Broken_Reference(const char * elementWhereErrorOccured, const char * reference, const char *referedElementName): LG_Parse_Exception(new string(elementWhereErrorOccured))
+//, reference(new string(reference)), refered_Type(new string(referedElementName)){
+//
+//
+//
+//}
 LG_Parse_Exception_Broken_Reference::~LG_Parse_Exception_Broken_Reference(){
 
     delete reference;
