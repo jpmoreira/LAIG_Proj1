@@ -23,6 +23,7 @@
 
 LG_Appearance::LG_Appearance(LG_Node_Map *map,TiXmlElement *elem):LG_Parsable_Node(map,getIdentifier(elem)){
     
+    initializeComponents();
     if (!str_eq(LG_Appearance_XML_Tag_Name, elem->Value())) {
         throw new LG_Parse_Exception_Wrong_Element_Name(LG_Appearance_XML_Tag_Name,elem->Value());
     }
@@ -97,6 +98,19 @@ void LG_Appearance::handleComponent(TiXmlElement *component){
                                                            new string(LG_Apperance_Component_Type_XML_Att_Name),
                                                            new string(type),possibleValue);
         
+    }
+
+}
+
+
+void LG_Appearance::initializeComponents(){
+
+    shininess=LG_INVALID_DOUBLE;
+    for (int i=0; i<LG_LightArray_Lenght; i++) {
+        ambient[i]=LG_INVALID_DOUBLE;
+        diffuse[i]=LG_INVALID_DOUBLE;
+        specular[i]=LG_INVALID_DOUBLE;
+
     }
 
 }

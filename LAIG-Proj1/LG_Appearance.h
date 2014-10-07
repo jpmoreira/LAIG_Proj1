@@ -25,12 +25,16 @@ private:
      string getIdentifier(TiXmlElement *elem);
     
     void handleComponent(TiXmlElement *component);
+    void initializeComponents();
     
 public:
     
     LG_Appearance(LG_Node_Map *map,TiXmlElement *elem);
     
     LG_Appearance(LG_Node_Map *map,LG_LightArray amb,LG_LightArray diff,LG_LightArray spec,double s,string identif);
+    
+    
+    
     
     
    

@@ -177,7 +177,6 @@ public:
     char * what();
     LG_Parse_Exception_Broken_Reference(string * elementWhereErrorOccured, string * reference,string *referedElementName);
     LG_Parse_Exception_Broken_Reference(const char * elementWhereErrorOccured, const char * reference,const char *referedElementName);
-    
     ~LG_Parse_Exception_Broken_Reference();
 
 };

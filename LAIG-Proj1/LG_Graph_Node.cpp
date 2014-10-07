@@ -25,6 +25,7 @@
 #include "LG_Cylinder.h"
 #include "LG_Triangle.h"
 #include "LG_Rectangle.h"
+#include "LG_Transform.h"
 
 
 
@@ -191,9 +192,11 @@ void LG_Graph_Node::handleAppearance(LG_Node_Map *map,TiXmlElement *appearanceEl
     else{
     
          auto it=map->find(id);
+
+        
         
         if (it==map->end()) {
-            throw new LG_Parse_Exception_Broken_Reference(LG_Graph_Node_XML_Tag_Name,id.c_str(),LG_Graph_Node_Appearances_Ref_XML_Tag_Name);
+            throw new LG_Parse_Exception_Broken_Reference(LG_Graph_Node_XML_Tag_Name,id.c_str(),LG_Appearance_XML_Tag_Name);
         }
         else appearance=(LG_Appearance *)it->second;
     

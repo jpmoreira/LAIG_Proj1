@@ -36,6 +36,9 @@ TEST_CASE("Test loading Graph Node from XML"){
     
     
     TiXmlElement *firstElement=doc->FirstChildElement();
+    TiXmlElement *secondElement=firstElement->NextSiblingElement();
+    TiXmlElement *thirdElement=secondElement->NextSiblingElement();
+    
     
     
     SECTION("Testing perfectly well formed Appearance"){
@@ -67,5 +70,38 @@ TEST_CASE("Test loading Graph Node from XML"){
         
         
     }
+    
+    
+    SECTION("Testing appearance with no ambient component"){
+        
+        
+        try {
+            LG_Appearance *app=new LG_Appearance(map,secondElement);
+            
+            REQUIRE(app->ambient[0]==LG_INVALID_DOUBLE);
+            REQUIRE(app->ambient[1]==LG_INVALID_DOUBLE);
+            REQUIRE(app->ambient[2]==LG_INVALID_DOUBLE);
+            REQUIRE(app->ambient[3]==LG_INVALID_DOUBLE);
+
+        } catch (LG_Parse_Exception *ex) {
+            FAIL("Thrown exception while parsing exception that is only missing an optional ambient component");
+        }
+        
+    
+    
+    }
+    
+    
+    SECTION("Testing appearance with missing id"){
+    
+        try {
+            LG_Appearance *app=new LG_Appearance(map,thirdElement);
+            FAIL("Accepted appearance with missing ID attribute");
+        } catch (LG_Parse_Exception_Missing_Attribute *ex) {
+            REQUIRE(str_eq(ex->missingAttribute->c_str(), "id"));
+        }
+    
+    }
+    
     
 }

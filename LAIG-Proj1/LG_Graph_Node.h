@@ -9,10 +9,11 @@
 #ifndef __LAIG_Proj1__LG_Graph_Node__
 #define __LAIG_Proj1__LG_Graph_Node__
 
-#include "LG_Parsable_Node.h"
-#include "LG_Transform.h"
-#include "LG_Primitive.h"
 #include "LG_Appearance.h"
+
+class LG_Primitive;
+class LG_Transform;
+
 
 class LG_Graph_Node:public LG_Parsable_Node{
     

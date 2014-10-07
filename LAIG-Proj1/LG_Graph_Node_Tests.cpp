@@ -6,6 +6,9 @@
 #endif
 
 #include "LG_Graph_Node.h"
+#include "LG_Transform.h"
+#include "LG_Sphere.h"
+#include "LG_Torus.h"
 #include <CGFapplication.h>
 
 
@@ -33,15 +36,93 @@ TEST_CASE("Test loading Graph Node from XML"){
     REQUIRE(doc->LoadFile());
     LG_Node_Map *map=new LG_Node_Map();
     
+    LG_Node_Map *appMap=new LG_Node_Map();
     
+    LG_LightArray amb,diff,spec;
+    double s;
+    string identifier="appID";
+    LG_Appearance *app=new LG_Appearance(appMap, amb, diff, spec, s, identifier);
+    
+
     
     TiXmlElement *firstElement=doc->FirstChildElement();
+    TiXmlElement *secondElement=firstElement->NextSiblingElement();
+    TiXmlElement *thirElement=secondElement->NextSiblingElement();
+    TiXmlElement *fourthElement=thirElement->NextSiblingElement();
+    
     
     
     SECTION("Testing perfectly well formed Node"){
     
         
+        try {
+            LG_Graph_Node *node1=new LG_Graph_Node(map, appMap, firstElement);
+            
+            REQUIRE(node1->transform->matrix[0][0]==3);
+            REQUIRE(node1->transform->matrix[1][1]==4);
+            REQUIRE(node1->transform->matrix[2][2]==5);
+            
+            REQUIRE((dynamic_cast<LG_Sphere *>(node1->child(0))!=NULL));
+            REQUIRE((dynamic_cast<LG_Torus *>(node1->child(1))!=NULL));
+            
+            REQUIRE(str_eq(node1->identifier.c_str(),"myID"));
+        } catch (LG_Parse_Exception *ex) {
+            FAIL("Thrown Exception while parsing perfectly fine Graph Node");
+        }
+        
+        
+        
+        
         
     }
+    
+    SECTION("Testing node with reference to nonExisting appearance"){
+    
+    
+        
+        try {
+            LG_Graph_Node *node=new LG_Graph_Node(map,appMap,secondElement);
+            FAIL("Failed to find reference to nonExisting appearance");
+        } catch (LG_Parse_Exception_Broken_Reference *ex) {
+            
+            REQUIRE(str_eq(ex->refered_Type->c_str(),"appearance"));
+            REQUIRE(str_eq(ex->reference->c_str(),"blabla"));
+            REQUIRE(str_eq(ex->element->c_str(), "node"));
+            
+        }
+    }
+    
+    
+    SECTION("Testing decendants"){
+        
+        
+        try {
+            
+            LG_Graph_Node *child=new LG_Graph_Node(map, appMap, firstElement);
+            LG_Graph_Node *node=new LG_Graph_Node(map,appMap,thirElement);
+            
+            REQUIRE(node->child(2)==child);
+        } catch (LG_Parse_Exception *ex) {
+            FAIL("Thrown exception while parsing perfectly well formed node");
+        }
+    
+    
+    }
+    
+    
+    SECTION("Testing missing decendants block"){
+    
+    
+        try {
+            LG_Graph_Node *node=new LG_Graph_Node(map,appMap,fourthElement);
+            FAIL("Failed to notice missing descendants block");
+            
+        } catch (LG_Parse_Exception_Missing_Element *ex) {
+            REQUIRE(str_eq(ex->element->c_str(), "descendants"));
+        }
+    
+    }
+    
+    
     
 }

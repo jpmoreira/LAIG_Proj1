@@ -1,13 +1,13 @@
 <node id="myID">
     <!-- bloco "transforms" obrigatorio -->
     <transforms>
-        <transform type="scale" factor="3 3 3" />
+        <transform type="scale" factor="3 4 5" />
     </transforms>
     
     <!-- declaracao da aparencia a utilizar -->
     <!-- se id="inherit", o no' mantem (herda) a aparencia do "pai" -->
     
-    <appearanceref id="ss" />
+    <appearanceref id="appID" />
     
     
     <!-- conteudo do no; deve existir pelo menos um bloco "primitives" ou um "descendants" -->
@@ -23,4 +23,84 @@
     <descendants>
         <noderef id="ss" />
     </descendants>
+</node>
+
+
+<node id="myID2">
+    <!-- bloco "transforms" obrigatorio -->
+    <transforms>
+        <transform type="scale" factor="3 3 3" />
+    </transforms>
+    
+    <!-- declaracao da aparencia a utilizar -->
+    <!-- se id="inherit", o no' mantem (herda) a aparencia do "pai" -->
+    
+    <appearanceref id="blabla" />
+    
+    
+    <!-- conteudo do no; deve existir pelo menos um bloco "primitives" ou um "descendants" -->
+    <!-- podem existir ambos -->
+    
+    <!-- bloco "primitives" -->
+    <primitives>
+        <sphere radius="50" slices="3" stacks="4" />
+        <torus inner="30" outer="50" slices="4" loops="4" />
+    </primitives>
+    
+    <!-- bloco "descendants" -->
+    <descendants>
+        <noderef id="ss" />
+    </descendants>
+</node>
+
+
+<node id="myID2">
+    <!-- bloco "transforms" obrigatorio -->
+    <transforms>
+        <transform type="scale" factor="3 3 3" />
+    </transforms>
+    
+    <!-- declaracao da aparencia a utilizar -->
+    <!-- se id="inherit", o no' mantem (herda) a aparencia do "pai" -->
+    
+    <appearanceref id="appID" />
+    
+    
+    <!-- conteudo do no; deve existir pelo menos um bloco "primitives" ou um "descendants" -->
+    <!-- podem existir ambos -->
+    
+    <!-- bloco "primitives" -->
+    <primitives>
+        <sphere radius="50" slices="3" stacks="4" />
+        <torus inner="30" outer="50" slices="4" loops="4" />
+    </primitives>
+    
+    <!-- bloco "descendants" -->
+    <descendants>
+        <noderef id="myID" />
+    </descendants>
+</node>
+
+
+<node id="myID2">
+    <!-- bloco "transforms" obrigatorio -->
+    <transforms>
+        <transform type="scale" factor="3 3 3" />
+    </transforms>
+    
+    <!-- declaracao da aparencia a utilizar -->
+    <!-- se id="inherit", o no' mantem (herda) a aparencia do "pai" -->
+    
+    <appearanceref id="appID" />
+    
+    
+    <!-- conteudo do no; deve existir pelo menos um bloco "primitives" ou um "descendants" -->
+    <!-- podem existir ambos -->
+    
+    <!-- bloco "primitives" -->
+    <primitives>
+        <sphere radius="50" slices="3" stacks="4" />
+        <torus inner="30" outer="50" slices="4" loops="4" />
+    </primitives>
+
 </node>
