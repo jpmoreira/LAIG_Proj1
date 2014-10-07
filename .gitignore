@@ -173,8 +173,8 @@ xcuserdata
 *.xcodeproj
 *.xcodeproj/*
 *.pbxproj
-
 *.plist
+*LAIG-Proj1.xcodeproj/*
 
 
 ## Ignore Visual Studio temporary files, build results, and
