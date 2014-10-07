@@ -34,6 +34,16 @@ public:
 
 	void verifyAttributesAndValues(TiXmlElement *element);
 	void verifyElementName(TiXmlElement *element);
+
+
+	double getNear();
+	double getFar();
+	double getLeft();
+	double getRight();
+	double getTop();
+	double getBottom();
+	string getId();
+	LG_AXIS getDirection();
 private:
 	//<ortho id="ss" direction="ee" near="ff" far="ff" left="ff" right="ff" top="ff" bottom="ff" />
 	string id;

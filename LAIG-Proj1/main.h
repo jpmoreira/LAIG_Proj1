@@ -10,7 +10,6 @@
 #define __LAIG_Proj1__main__
 
 #include <stdio.h>
-#include "XMLScene.h"
 
 #endif /* defined(__LAIG_Proj1__main__) */
 
@@ -21,7 +20,6 @@ int main(){
     printf("Ola");
     
     char * filename="test.xml";
-    XMLScene *scene=new XMLScene(filename);
     
     
     

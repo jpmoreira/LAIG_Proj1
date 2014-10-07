@@ -66,10 +66,6 @@ LG_Parse_Exception_Wrong_Attribute_Value::LG_Parse_Exception_Wrong_Attribute_Val
 }
 
 
-
-
-
-
 LG_Parse_Exception_Wrong_Attribute_Value::LG_Parse_Exception_Wrong_Attribute_Value(const char *elem,const char * att,const char *value,vector<string> *expected):LG_Parse_Exception(new string(elem)), attribute(new string(att))
 , actualValue(new string(value)), expectedValues(expected)
 {
@@ -188,12 +184,12 @@ LG_Parse_Exception_Broken_Reference::LG_Parse_Exception_Broken_Reference(string 
 
 }
 
-
-LG_Parse_Exception_Broken_Reference::LG_Parse_Exception_Broken_Reference(const char * elementWhereErrorOccured, const char * reference,const char *referedElementName):LG_Parse_Exception(new string(elementWhereErrorOccured)),reference(new string(reference)),refered_Type(new string(referedElementName)){
-    
-    
-}
-
+//LG_Parse_Exception_Broken_Reference::LG_Parse_Exception_Broken_Reference(const char * elementWhereErrorOccured, const char * reference, const char *referedElementName): LG_Parse_Exception(new string(elementWhereErrorOccured))
+//, reference(new string(reference)), refered_Type(new string(referedElementName)){
+//
+//
+//
+//}
 LG_Parse_Exception_Broken_Reference::~LG_Parse_Exception_Broken_Reference(){
 
     delete reference;
