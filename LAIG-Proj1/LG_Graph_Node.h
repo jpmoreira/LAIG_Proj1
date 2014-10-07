@@ -9,8 +9,12 @@
 #ifndef __LAIG_Proj1__LG_Graph_Node__
 #define __LAIG_Proj1__LG_Graph_Node__
 
-#include "LG_Appearance.h"
 
+#include "LG_Parsable_Node.h"
+
+#define LG_Graph_Node_XML_Tag_Name "node"
+
+class LG_Appearance;
 class LG_Primitive;
 class LG_Transform;
 
@@ -43,6 +47,7 @@ public:
     LG_Graph_Node(LG_Node_Map *map,LG_Node_Map *appearances_map,LG_Transform *transform,vector<LG_Primitive *> &primitives,string identifier);
     
     
+    void draw();
     
 };
 

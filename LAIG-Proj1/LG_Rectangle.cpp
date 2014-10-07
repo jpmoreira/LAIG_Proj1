@@ -7,6 +7,7 @@
 //
 
 #include "LG_Rectangle.h"
+#include <GL/glut.h>
 
 #define LG_Rectangle_ID "_LG_Rectangle_"
 #define _LG_Primitive_Name LG_Rectangle_ID
@@ -57,4 +58,17 @@ void LG_Rectangle::copyPoints(LG_Point3D point1,LG_Point3D point2){
 }
 #pragma mark - Inherited Methods
 
+
+void LG_Rectangle::draw(){
+
+    glBegin(GL_QUADS);
+    
+    glVertex3d(pt1[0], pt1[1], pt1[2]);
+    glVertex3d(pt2[0], pt1[1], pt1[2]);
+    glVertex3d(pt2[0], pt2[1], pt1[2]);
+    glVertex3d(pt1[0], pt2[1], pt2[2]);
+    
+    glEnd();
+
+}
 

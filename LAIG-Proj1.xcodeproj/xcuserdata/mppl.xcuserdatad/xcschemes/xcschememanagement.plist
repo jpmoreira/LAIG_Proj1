@@ -29,6 +29,11 @@
 			<key>orderHint</key>
 			<integer>8</integer>
 		</dict>
+		<key>LG_Draw_Test_1.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>16</integer>
+		</dict>
 		<key>LG_Drawing_Tests.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -43,6 +48,11 @@
 		<dict>
 			<key>orderHint</key>
 			<integer>13</integer>
+		</dict>
+		<key>LG_Graph_Tests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>15</integer>
 		</dict>
 		<key>LG_Nodes_Tests.xcscheme</key>
 		<dict>
@@ -158,6 +168,16 @@
 			<true/>
 		</dict>
 		<key>5469678919D8A95C001DBA15</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>54831C8E19E3FC2C0090418B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>54831CB719E453570090418B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

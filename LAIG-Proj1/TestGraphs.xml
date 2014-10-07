@@ -1,0 +1,204 @@
+<graph rootid="node2">
+    
+    <node id="node1">
+
+        <transforms>
+
+        </transforms>
+        
+        <appearanceref id="uniqueExistingApp" />
+
+        <primitives>
+            <torus inner="20" outer="30" slices="10" loops="10" />
+        </primitives>
+
+        <descendants>
+            
+        </descendants>
+    
+    </node>
+    
+    
+    <node id="node2">
+        
+        <transforms>
+            
+        </transforms>
+        
+        <appearanceref id="uniqueExistingApp" />
+        
+        <primitives>
+        </primitives>
+        
+        <descendants>
+            <noderef id="node1" />
+        </descendants>
+        
+    </node>
+    
+</graph>
+
+
+<!-- Root does not exist-->
+<graph rootid="node27">
+    
+    <node id="node1">
+        
+        <transforms>
+            
+        </transforms>
+        
+        <appearanceref id="uniqueExistingApp" />
+        
+        <primitives>
+            <torus inner="20" outer="30" slices="10" loops="10" />
+        </primitives>
+        
+        <descendants>
+            
+        </descendants>
+        
+    </node>
+    
+    
+    <node id="node2">
+        
+        <transforms>
+            
+        </transforms>
+        
+        <appearanceref id="uniqueExistingApp" />
+        
+        <primitives>
+        </primitives>
+        
+        <descendants>
+            <noderef id="node1" />
+        </descendants>
+        
+    </node>
+    
+</graph>
+
+
+<!-- More complex child structure -->
+<graph rootid="node2">
+    
+    <node id="node1">
+        
+        <transforms>
+            
+        </transforms>
+        
+        <appearanceref id="uniqueExistingApp" />
+        
+        <primitives>
+            <torus inner="20" outer="30" slices="10" loops="10" />
+        </primitives>
+        
+        <descendants>
+            
+        </descendants>
+        
+    </node>
+    
+    
+    <node id="node2">
+        
+        <transforms>
+            
+        </transforms>
+        
+        <appearanceref id="uniqueExistingApp" />
+        
+        <primitives>
+        </primitives>
+        
+        <descendants>
+            <noderef id="node1" />
+            <noderef id="node3" />
+        </descendants>
+        
+    </node>
+    
+    <node id="node3">
+        
+        <transforms>
+            
+        </transforms>
+        
+        <appearanceref id="uniqueExistingApp" />
+        
+        <primitives>
+        </primitives>
+        
+        <descendants>
+            <noderef id="node1" />
+        </descendants>
+        
+    </node>
+    
+</graph>
+
+
+
+<!-- node3 refers node that doesn't exist -->
+<graph rootid="node2">
+    
+    <node id="node1">
+        
+        <transforms>
+            
+        </transforms>
+        
+        <appearanceref id="uniqueExistingApp" />
+        
+        <primitives>
+            <torus inner="20" outer="30" slices="10" loops="10" />
+        </primitives>
+        
+        <descendants>
+            
+        </descendants>
+        
+    </node>
+    
+    
+    <node id="node2">
+        
+        <transforms>
+            
+        </transforms>
+        
+        <appearanceref id="uniqueExistingApp" />
+        
+        <primitives>
+        </primitives>
+        
+        <descendants>
+            <noderef id="node1" />
+            <noderef id="node3" />
+        </descendants>
+        
+    </node>
+    
+    <node id="node3">
+        
+        <transforms>
+            
+        </transforms>
+        
+        <appearanceref id="uniqueExistingApp" />
+        
+        <primitives>
+        </primitives>
+        
+        <descendants>
+            <noderef id="node27" />
+        </descendants>
+        
+    </node>
+    
+</graph>
+
+

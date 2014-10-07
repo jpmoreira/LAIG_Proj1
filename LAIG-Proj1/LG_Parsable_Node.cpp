@@ -199,3 +199,14 @@ LG_Parse_Exception_Broken_Reference::~LG_Parse_Exception_Broken_Reference(){
     delete refered_Type;
 
 }
+
+
+
+#pragma mark - Redundant Reference Exception
+
+LG_Parse_Exception_Redundant_Reference::LG_Parse_Exception_Redundant_Reference(string *element):LG_Parse_Exception(element){
+}
+LG_Parse_Exception_Redundant_Reference::LG_Parse_Exception_Redundant_Reference(const char *element):LG_Parse_Exception(new string(element)){
+
+
+}

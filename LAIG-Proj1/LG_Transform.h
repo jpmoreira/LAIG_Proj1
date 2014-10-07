@@ -50,6 +50,8 @@ public:
     
     LG_Transform(LG_Node_Map *map,TiXmlElement *elem);
     LG_Transform(LG_Node_Map *map,LG_Matrix m);
+    
+    void draw();
 
 
     

@@ -212,3 +212,12 @@ void LG_Transform::copyMatrix(LG_Matrix origin,LG_Matrix destination){
 
 }
 
+
+#pragma mark - Drawing
+
+
+void LG_Transform::draw(){
+    
+    glMultMatrixd((GLdouble *)matrix);
+
+}

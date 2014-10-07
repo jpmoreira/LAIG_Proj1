@@ -10,7 +10,7 @@
 #define LG_Graph_Node_Ref_XML_Tag_Name "noderef"
 #define LG_Graph_Node_Ref_ID_XML_Att_Name "id"
 #define LG_Graph_Node_ID_XML_Att_Name "id"
-#define LG_Graph_Node_XML_Tag_Name "node"
+
 #define LG_Graph_Node_Descendants_Tag_Name "descendants"
 #define LG_Graph_Node_Primitives_Tag_Name "primitives"
 #define LG_Graph_Node_Appearances_Ref_XML_Tag_Name "appearanceref"
@@ -19,6 +19,8 @@
 #define LG_Appearance_Ref_Inherit_String "inherit"
 
 
+#include <GL/glu.h>
+
 #include "LG_Graph_Node.h"
 #include "LG_Sphere.h"
 #include "LG_Torus.h"
@@ -26,7 +28,7 @@
 #include "LG_Triangle.h"
 #include "LG_Rectangle.h"
 #include "LG_Transform.h"
-
+#include "LG_Appearance.h"
 
 
 #pragma mark - Constructors
@@ -133,15 +135,23 @@ void LG_Graph_Node::handleDescendants(LG_Node_Map *map,TiXmlElement *descendants
         }
         
         
+        
         string ident;
         
         string_tryToAttributeVariable(LG_Graph_Node_Ref_ID_XML_Att_Name,nodeRef,ident);
+        
+        if (str_eq(ident.c_str(), identifier.c_str())) {//if we refer ourselfs as our fathers
+            
+            throw new LG_Parse_Exception_Redundant_Reference(new string(identifier));
+            
+        }
         
 
         this->addChild(ident);
         
         
         nodeRef=nodeRef->NextSiblingElement();
+        
     }
     
 
@@ -202,5 +212,27 @@ void LG_Graph_Node::handleAppearance(LG_Node_Map *map,TiXmlElement *appearanceEl
     
     }
     
+
+}
+
+
+#pragma mark - Drawing
+
+
+void LG_Graph_Node::draw(){
+
+    
+    glPushMatrix();
+    
+    transform->draw();
+    
+    for (int i=0; i<childsIDs.size(); i++) {
+        
+        child(i)->draw();
+        
+    }
+    
+    glPopMatrix();
+
 
 }

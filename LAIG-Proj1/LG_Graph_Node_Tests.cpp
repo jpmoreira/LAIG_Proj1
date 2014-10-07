@@ -6,6 +6,7 @@
 #endif
 
 #include "LG_Graph_Node.h"
+#include "LG_Appearance.h"
 #include "LG_Transform.h"
 #include "LG_Sphere.h"
 #include "LG_Torus.h"
@@ -49,6 +50,9 @@ TEST_CASE("Test loading Graph Node from XML"){
     TiXmlElement *secondElement=firstElement->NextSiblingElement();
     TiXmlElement *thirElement=secondElement->NextSiblingElement();
     TiXmlElement *fourthElement=thirElement->NextSiblingElement();
+    TiXmlElement *fifthElement=fourthElement->NextSiblingElement();
+    TiXmlElement *sixthElement=fifthElement->NextSiblingElement();
+    
     
     
     
@@ -124,5 +128,30 @@ TEST_CASE("Test loading Graph Node from XML"){
     }
     
     
+    
+    SECTION("Testing setting oursef as our descendant"){
+    
+    
+        try {
+            LG_Graph_Node *node=new LG_Graph_Node(map,appMap,fifthElement);
+            FAIL("Failed to notice redundant reference to ourselfs as our childs");
+            
+        } catch (LG_Parse_Exception_Redundant_Reference *ex) {
+            REQUIRE(str_eq(ex->element->c_str(), "node1"));
+        }
+    }
+    
+    
+    SECTION("Testing inherit appearance"){
+        
+        
+        try {
+            LG_Graph_Node *node=new LG_Graph_Node(map,appMap,sixthElement);
+            REQUIRE(node->appearance==NULL);//should be set to null now cause of inherit
+            
+        } catch (LG_Parse_Exception *ex) {
+            FAIL("Thrown exception while parsing well formed node");
+        }
+    }
     
 }

@@ -47,7 +47,7 @@ public:
     LG_Rectangle(LG_Node_Map *map,TiXmlElement *elem);
     
     
-    
+    void draw();
     
     
     

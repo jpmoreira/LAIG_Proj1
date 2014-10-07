@@ -104,3 +104,44 @@
     </primitives>
 
 </node>
+
+<!-- cannot set itself as his descendant -->
+<node id="node1">
+    
+    <transforms>
+        
+    </transforms>
+    
+    <appearanceref id="appID" />
+    
+    <primitives>
+        <torus inner="20" outer="30" slices="10" loops="10" />
+    </primitives>
+    
+    <descendants>
+        <noderef id="node1" />
+    </descendants>
+    
+</node>
+
+
+<!-- node with inherit appearance -->
+
+
+<node id="node1">
+    
+    <transforms>
+        
+    </transforms>
+    
+    <appearanceref id="inherit" />
+    
+    <primitives>
+        <torus inner="20" outer="30" slices="10" loops="10" />
+    </primitives>
+    
+    
+    <descendants>
+    </descendants>
+    
+</node>

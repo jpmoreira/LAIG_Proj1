@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 #include "LG_Node.h"
-#include <tinyxml.h>
+
 #include <limits.h>
 #include <math.h>
 #include <cfloat>
@@ -181,7 +181,16 @@ public:
 
 };
 
+class LG_Parse_Exception_Redundant_Reference :public LG_Parse_Exception{
 
+
+public:
+    
+    LG_Parse_Exception_Redundant_Reference(string *element);
+    LG_Parse_Exception_Redundant_Reference(const char *element);
+
+
+};
 
 class LG_Parsable_Node : public LG_Node{
 

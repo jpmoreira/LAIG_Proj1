@@ -67,16 +67,14 @@ LG_Triangle::LG_Triangle(LG_Node_Map *map,string identifier):LG_Primitive(map,id
 
 void LG_Triangle::draw(){
     
-    glPushMatrix();
-    
-    //properties->multMatrix();
+    glBegin(GL_TRIANGLES);
     
     glVertex3d(pt1[0], pt1[1], pt1[2]);
     glVertex3d(pt2[0], pt2[1], pt2[2]);
     glVertex3d(pt3[0], pt3[1], pt3[2]);
     
+    glEnd();
     
-    glPopMatrix();
     
 
 

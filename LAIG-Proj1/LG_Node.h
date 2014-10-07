@@ -10,49 +10,19 @@
 #define __LAIG_Proj1__LG_Node__
 
 #include <stdio.h>
-#include <vector>
-#include <string>
 #include <cstring>
-#include <map>
-#include "LG_Node.h"
-#include <GL/glew.h>
-//#include "LG_Properties.h"
-
-#define LG_LightValue_Not_Set LG_INVALID_DOUBLE
-
-#define LG_LightList_InitialValue {LG_LightValue_Not_Set,LG_LightValue_Not_Set,LG_LightValue_Not_Set,LG_LightValue_Not_Set}
-
-#define LG_Matrix_InitialValue {LG_LightList_InitialValue,LG_LightList_InitialValue,LG_LightList_InitialValue,LG_LightList_InitialValue}
 
 
-#define str_eq( value1 , value2 ) (strcmp(value1,value2)==0)
 
-#define LG_Point3D_Length 3
-#define LG_Point2D_Length 2
-#define LG_LightArray_Lenght 4
-#define LG_Matrix_Dimention 4
+#include "LG_Essentials.h"
 
-
-using  std::vector;
-using std::string;
-using std::map;
-
-class LG_Node;//forward declaration for typedef
-
-typedef map<string , LG_Node *> LG_Node_Map;
-typedef vector<string> LG_ID_Vector;
-typedef std::pair<string , LG_Node *> LG_Node_Map_Pair;
-
-typedef GLdouble LG_Point3D[3];
-typedef GLdouble LG_Point2D[2];
-typedef GLdouble LG_LightArray[4];
-typedef GLdouble LG_Matrix[4][4];
 
 
 
 
 class LG_Node{
     
+    friend class LG_Graph;
     
 protected:
     
