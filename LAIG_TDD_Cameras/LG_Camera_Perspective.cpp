@@ -29,3 +29,19 @@ void LG_Camera_Perspective::verifyAttributesAndValues(TiXmlElement *element){
 	point3D_tryToAttributeVariable(LG_Camera_Perspective_XML_ATT_POS, element, pos);
 	point3D_tryToAttributeVariable(LG_Camera_Perspective_XML_ATT_TARGET, element, target);
 }
+
+
+double LG_Camera_Perspective::getAngle()
+{
+	return this->angle;
+}
+
+const LG_Point3D *LG_Camera_Perspective::getPos()
+{
+	return &this->pos;
+}
+
+const LG_Point3D *LG_Camera_Perspective::getTarget()
+{
+	return &this->target;
+}

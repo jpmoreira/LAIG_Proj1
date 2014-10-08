@@ -14,7 +14,7 @@
 
 #include <stdio.h>
 #include "LG_Node.h"
-#include <tinyxml.h>
+
 #include <limits.h>
 #include <math.h>
 #include <cfloat>
@@ -163,6 +163,8 @@ public:
      
      */
     LG_Parse_Exception_Missing_Element(const char *elem);
+    
+    const char * what();
 
 };
 
@@ -185,7 +187,19 @@ public:
 
 };
 
+class LG_Parse_Exception_Redundant_Reference :public LG_Parse_Exception{
 
+
+public:
+    
+    LG_Parse_Exception_Redundant_Reference(string *element);
+    LG_Parse_Exception_Redundant_Reference(const char *element);
+    
+    
+    const char * what ();
+
+
+};
 
 class LG_Parsable_Node : public LG_Node{
 
@@ -243,6 +257,39 @@ public:
         
     }
     
+    
+    
+    /**
+     
+     A method that tries to attribute a particular attribute to a double variable.
+     The double value must not be negative.
+     
+     
+     
+     
+     */
+    static void inline nonNegativeDouble_tryToAttributeVariable (const char * attName,TiXmlElement *elem,double &parameter){
+    
+    
+        const char * source=elem->Attribute(attName);
+        const char * elemName=elem->Value();
+        
+        if (source==NULL){
+            throw new LG_Parse_Exception_Missing_Attribute(new string(elemName),new string(attName));
+        }
+        
+        parameter=doubleValueForAttribute_(source);
+        
+        
+        if(parameter<0.0)parameter=LG_INVALID_DOUBLE;//dont allow negative values but allow zero
+        
+        if (parameter==LG_INVALID_DOUBLE)
+            throw new LG_Parse_Exception_Wrong_Attribute_Value(new string(elemName),new string(attName),new string(source));
+        
+
+        
+        
+    }
     
     /**
      

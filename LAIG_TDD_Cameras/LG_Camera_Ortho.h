@@ -33,8 +33,6 @@ public:
 	void verifyElementName(TiXmlElement *element);
 
 
-	double getNear();
-	double getFar();
 	double getLeft();
 	double getRight();
 	double getTop();

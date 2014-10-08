@@ -23,8 +23,8 @@ public:
 	void verifyAttributesAndValues(TiXmlElement* element);
 
 	double getAngle();
-	LG_Point3D *getPos();
-	LG_Point3D *getTarget();
+	const LG_Point3D *getPos();
+	const LG_Point3D *getTarget();
 
 private:
 	double angle;

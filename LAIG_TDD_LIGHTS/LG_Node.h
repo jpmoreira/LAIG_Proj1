@@ -15,7 +15,7 @@
 #include <cstring>
 #include <map>
 #include "LG_Node.h"
-#include <GL/glew.h>
+//#include <GL/glew.h>
 //#include "LG_Properties.h"
 
 #define LG_LightValue_Not_Set LG_INVALID_DOUBLE
@@ -146,6 +146,14 @@ public:
      
      */
     void addChild(string & identifOfChildToAdd);
+
+
+	/**
+	
+	A method that returns how many children it has
+	
+	*/
+	int getNrChilds();
     
     
     

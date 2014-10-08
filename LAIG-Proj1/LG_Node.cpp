@@ -74,3 +74,8 @@ string LG_Node::getIdentifier(){
 	return this->identifier;
 }
 
+
+int LG_Node::getNrChildren()
+{
+	return this->childsIDs.size();
+}

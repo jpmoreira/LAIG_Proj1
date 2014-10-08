@@ -1,15 +1,13 @@
 #include "LG_Camera_Ortho.h"
 
-#define _LG_Primitive_Name LG_Camera_Ortho_ID
-#define LG_Camera_Ortho_ID "_LG_Camera_Ortho_"
+//string LG_Camera_Ortho::getIdentifier(){
+//	return this->id;
+//}
 
-int LG_Camera_Ortho::_LG_classIDNr = 0;
-
-
-LG_Camera_Ortho::LG_Camera_Ortho(LG_Node_Map *map, TiXmlElement *element) :LG_Parsable_Node(map, autoIdentifier)
+LG_Camera_Ortho::LG_Camera_Ortho(LG_Node_Map *map, TiXmlElement *element) :LG_Camera(map, element, identifierForSuper(element))
 {
-	void verifyElementName(TiXmlElement *element);
-	void verifyAttributesAndValues(TiXmlElement *element);
+	verifyElementName(element);
+	verifyAttributesAndValues(element);
 }
 
 
@@ -24,10 +22,6 @@ void LG_Camera_Ortho::verifyElementName(TiXmlElement *element){
 
 void LG_Camera_Ortho::verifyAttributesAndValues(TiXmlElement *element){
 
-	string_tryToAttributeVariable(LG_Camera_Ortho_XML_ATT_ID, element, id);
-
-	positiveDouble_tryToAttributeVariable(LG_Camera_Ortho_XML_ATT_NEAR, element, near);
-	positiveDouble_tryToAttributeVariable(LG_Camera_Ortho_XML_ATT_FAR, element, far);
 	positiveDouble_tryToAttributeVariable(LG_Camera_Ortho_XML_ATT_TOP, element, top);
 	positiveDouble_tryToAttributeVariable(LG_Camera_Ortho_XML_ATT_BOTTOM, element, bottom);
 	positiveDouble_tryToAttributeVariable(LG_Camera_Ortho_XML_ATT_LEFT, element, left);
@@ -44,4 +38,30 @@ void LG_Camera_Ortho::verifyAttributesAndValues(TiXmlElement *element){
 
 	direction = (LG_AXIS) tmp;
 
+}
+
+
+double LG_Camera_Ortho::getLeft()
+{
+	return this->left;
+}
+
+double LG_Camera_Ortho::getRight()
+{
+	return this->right;
+}
+
+double LG_Camera_Ortho::getTop()
+{
+	return this->top;
+}
+
+double LG_Camera_Ortho::getBottom()
+{
+	return this->bottom;
+}
+
+LG_AXIS LG_Camera_Ortho::getDirection()
+{
+	return this->direction;
 }
