@@ -7,8 +7,7 @@
 
 #define DOUBLE_MARGIN 0.0001
 
-#include "LG_Light_Omni.h"
-#include "LG_Light_Spot.h"
+
 #include "LG_Lights_Container.h"
 
 #include <CGFapplication.h>
