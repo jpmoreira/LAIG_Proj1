@@ -35,7 +35,7 @@ LG_Parse_Exception::~LG_Parse_Exception(){
 #pragma mark - Wrong Attribute Value Exception
 
 
-char * LG_Parse_Exception_Wrong_Attribute_Value::what(){
+const char * LG_Parse_Exception_Wrong_Attribute_Value::what(){
 
 
 	string tempMessage = "Wrong Attribute Value on Element " + *element + ".\nValue: " + *actualValue + "\n";
@@ -120,7 +120,7 @@ LG_Parse_Exception_Wrong_Element_Name::~LG_Parse_Exception_Wrong_Element_Name(){
 }
 
 
-char * LG_Parse_Exception_Wrong_Element_Name::what(){
+const char * LG_Parse_Exception_Wrong_Element_Name::what(){
 
 
 	string tempMessage = "Wrong Element Name. Expected " + *expectedElementName + ".\nBut Got: " + *element + ".";
@@ -140,7 +140,7 @@ LG_Parse_Exception_Missing_Attribute::LG_Parse_Exception_Missing_Attribute(strin
 
 }
 
-char * LG_Parse_Exception_Missing_Attribute::what(){
+const char * LG_Parse_Exception_Missing_Attribute::what(){
 
 	string message = "Missing attribute " + *missingAttribute + " for element " + *element + ".";
 
@@ -178,7 +178,7 @@ LG_Parse_Exception_Wrong_Elem_Type::~LG_Parse_Exception_Wrong_Elem_Type(){
 #pragma mark - Broken Reference Exception
 
 
-char * LG_Parse_Exception_Broken_Reference::what(){
+const char * LG_Parse_Exception_Broken_Reference::what(){
 
     string message= "Broken Reference to Element of Type "+*refered_Type+" with ID="+*reference+" while parsing element "+*element;
     

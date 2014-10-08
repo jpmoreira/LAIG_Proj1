@@ -53,6 +53,7 @@ protected:
 public:
 	LG_Parse_Exception(string* elem);
 	LG_Parse_Exception();
+	virtual const char* what()=0;
 	virtual ~LG_Parse_Exception();
 
 };
@@ -87,7 +88,7 @@ public:
      */
     LG_Parse_Exception_Wrong_Attribute_Value(const char *elem, const char* attrib, const char* value);
 	~LG_Parse_Exception_Wrong_Attribute_Value();
-	char* what();
+	const char* what();
 
 
 
@@ -103,7 +104,7 @@ public:
 	LG_Parse_Exception_Wrong_Elem_Type(char *expected_type);
 	LG_Parse_Exception_Wrong_Elem_Type(string *expected_type);
 
-	char * what();
+	const char * what();
 
 	~LG_Parse_Exception_Wrong_Elem_Type();
 };
@@ -118,7 +119,7 @@ public:
 	LG_Parse_Exception_Missing_Attribute(string *elementName, string * missingAtt);
 	LG_Parse_Exception_Missing_Attribute(char *elementName, char * missingAtt);
 
-	char * what();
+	const char * what();
 
 	~LG_Parse_Exception_Missing_Attribute();
 
@@ -142,7 +143,7 @@ public:
 
 	~LG_Parse_Exception_Wrong_Element_Name();
 
-	char * what();
+	const char * what();
 
 private:
 	string *expectedElementName;
@@ -177,7 +178,7 @@ private:
     
 public:
     
-    char * what();
+	const char * what();
     LG_Parse_Exception_Broken_Reference(string * elementWhereErrorOccured, string * reference,string *referedElementName);
     LG_Parse_Exception_Broken_Reference(const char * elementWhereErrorOccured, const char * reference,const char *referedElementName);
     ~LG_Parse_Exception_Broken_Reference();
