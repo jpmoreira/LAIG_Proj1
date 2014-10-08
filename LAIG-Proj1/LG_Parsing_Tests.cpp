@@ -14,7 +14,7 @@ TEST_CASE("Wrong attribute value Exception"){
     vector<string> expected={"value1","value2","value3"};
     LG_Parse_Exception_Wrong_Attribute_Value *ex=new LG_Parse_Exception_Wrong_Attribute_Value(&elem,&attrib,&actualValue,&expected);
     
-    char * actual=ex->what();
+    const char * actual=ex->what();
     
     int compare=strcmp(actual, "Wrong Attribute Value on Element ElemX.\nValue: Actual\nExpected: [value1 or value2 or value3].");
     
@@ -33,7 +33,7 @@ TEST_CASE("Wrong ELement name Exception"){
     string actual="ActualName";
     LG_Parse_Exception_Wrong_Element_Name *ex=new LG_Parse_Exception_Wrong_Element_Name(&elem,&actual);
     
-    char * actualWhat=ex->what();
+    const char * actualWhat=ex->what();
     
     int compare=strcmp(actualWhat, "Wrong Element Name. Expected ExpectedName.\nBut Got: ActualName.");
 
@@ -53,7 +53,7 @@ TEST_CASE("Missing Attribute Exception"){
     LG_Parse_Exception_Missing_Attribute *ex=new LG_Parse_Exception_Missing_Attribute(&elemName,&attribute);
     
     
-    char * whatMessage=ex->what();
+    const char * whatMessage=ex->what();
     
     int compare=strcmp(whatMessage, "Missing attribute Attrib for element ELEMX.");
     

@@ -27,8 +27,8 @@ LG_Cylinder::LG_Cylinder(LG_Node_Map *map,TiXmlElement *elem):LG_Glu_Primitive(m
     
     
     
-    positiveDouble_tryToAttributeVariable(LG_Cylinder_XML_Top_Att_Name, elem, topRadius);
-    positiveDouble_tryToAttributeVariable(LG_Cylinder_XML_Base_Att_Name, elem, baseRadius);
+    nonNegativeDouble_tryToAttributeVariable(LG_Cylinder_XML_Top_Att_Name, elem, topRadius);
+    nonNegativeDouble_tryToAttributeVariable(LG_Cylinder_XML_Base_Att_Name, elem, baseRadius);
     positiveDouble_tryToAttributeVariable(LG_Cylinder_XML_Height_Att_Name, elem, height);
     positiveInt_tryToAttributeVariable(LG_Cylinder_XML_Slices_Att_Name, elem, slices);
     positiveInt_tryToAttributeVariable(LG_Cylinder_XML_Stacks_Att_Name, elem, stacks);
