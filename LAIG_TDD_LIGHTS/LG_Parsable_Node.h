@@ -14,7 +14,7 @@
 
 #include <stdio.h>
 #include "LG_Node.h"
-
+#include <tinyxml.h>
 #include <limits.h>
 #include <math.h>
 #include <cfloat>
@@ -180,20 +180,12 @@ public:
     char * what();
     LG_Parse_Exception_Broken_Reference(string * elementWhereErrorOccured, string * reference,string *referedElementName);
     LG_Parse_Exception_Broken_Reference(const char * elementWhereErrorOccured, const char * reference,const char *referedElementName);
+    
     ~LG_Parse_Exception_Broken_Reference();
 
 };
 
-class LG_Parse_Exception_Redundant_Reference :public LG_Parse_Exception{
 
-
-public:
-    
-    LG_Parse_Exception_Redundant_Reference(string *element);
-    LG_Parse_Exception_Redundant_Reference(const char *element);
-
-
-};
 
 class LG_Parsable_Node : public LG_Node{
 

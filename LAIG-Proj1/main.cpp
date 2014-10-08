@@ -7,14 +7,12 @@
 //
 
 
-#include "XMLScene.h"
 #include <stdio.h>
 int main(){
 
 
     char * filename="test.xml";
     
-    XMLScene *scene=new XMLScene(filename);
 	
 
 }

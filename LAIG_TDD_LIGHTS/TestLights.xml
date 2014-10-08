@@ -1,0 +1,19 @@
+<lights>
+  <!-- Deve existir pelo menos uma luz declarada -->
+  <!-- Atributo "marker" indica se deve ou nao desenhar-se uma esfera representativa -->
+  <light id="omni1" type="omni" enabled="true" marker="false" pos="5 5 5" >
+    <component type="ambient" value="0.4 0.7 0.8 1" />
+    <component type="diffuse" value="0.4 0.7 0.8 1" />
+    <component type="specular" value="0.4 0.7 0.8 1" />
+
+  </light>
+
+  <light id="spot1" type="spot" enabled="false" marker="true" pos="5 5 5" target="10 11 12"
+      angle="10" exponent="0.5" >
+
+    <component type="ambient" value="0.8 0.7 0.4 12" />
+    <component type="diffuse" value="0.4 0.7 0.8 15" />
+    <component type="specular" value="0.4 0.7 0.8 20" />
+
+  </light>
+</lights>
