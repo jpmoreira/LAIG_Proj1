@@ -38,6 +38,8 @@ LG_Triangle::LG_Triangle(LG_Node_Map *map,TiXmlElement *elem):LG_Primitive(map,a
     point3D_tryToAttributeVariable(LG_Triangle_XML_Att1_Name, elem, pt1);
     point3D_tryToAttributeVariable(LG_Triangle_XML_Att2_Name, elem, pt2);
     point3D_tryToAttributeVariable(LG_Triangle_XML_Att3_Name, elem, pt3);
+    
+    newells(pt1, pt2, pt3, normal);
 
 }
 
@@ -48,6 +50,7 @@ LG_Triangle::LG_Triangle(LG_Node_Map *map,string identifier,LG_Point3D point1,LG
     initializePoint3D(pt3);
     
     this->copyPoints(point1, point2, point3);
+    newells(pt1, pt2, pt3, normal);
     
     
 }
@@ -59,16 +62,18 @@ LG_Triangle::LG_Triangle(LG_Node_Map *map,string identifier):LG_Primitive(map,id
     initializePoint3D(pt1);
     initializePoint3D(pt2);
     initializePoint3D(pt3);
+    
+    newells(pt1, pt2, pt3, normal);
 }
 
 #pragma mark - Inherited Methods
-
 
 
 void LG_Triangle::draw(){
     
     glBegin(GL_TRIANGLES);
     
+    glNormal3d(normal[0], normal[1], normal[2]);
     glVertex3d(pt1[0], pt1[1], pt1[2]);
     glVertex3d(pt2[0], pt2[1], pt2[2]);
     glVertex3d(pt3[0], pt3[1], pt3[2]);

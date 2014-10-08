@@ -44,3 +44,30 @@ bool LG_Primitive::equalPoints(LG_Point3D &pt1, LG_Point3D &pt2){
     return true;
 
 }
+
+void LG_Primitive::newells(LG_Point3D p1,LG_Point3D p2,LG_Point3D p3, LG_Point3D normal){
+
+    
+    LG_Point3D u;
+    LG_Point3D v;
+    
+    u[0]=p2[0]-p1[0];
+    u[1]=p2[1]-p1[1];
+    u[2]=p2[2]-p1[2];
+    
+    v[0]=p3[0]-p1[0];
+    v[1]=p3[1]-p1[1];
+    v[2]=p3[2]-p1[2];
+    
+    normal[0]=u[1]*v[2]-u[2]*v[1];
+    normal[1]=u[2]*v[0]-u[0]*v[2];
+    normal[2]=u[0]*v[1]-u[1]*v[0];
+    
+    double dimention=sqrt(normal[0]*normal[0]+normal[1]*normal[1]+normal[2]*normal[2]);
+    
+    normal[0]/=dimention;
+    normal[1]/=dimention;
+    normal[2]/=dimention;
+    
+
+}

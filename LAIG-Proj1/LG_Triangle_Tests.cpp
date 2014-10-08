@@ -192,3 +192,84 @@ TEST_CASE("Testring triangle from file"){
 
 
 
+TEST_CASE("Testing newells method"){
+
+
+    
+    SECTION("Example 1"){
+    
+    
+        LG_Point3D normal,pt1,pt2,pt3;
+        
+        pt1[0]=0;
+        pt1[1]=0;
+        pt1[2]=0;
+        
+        pt2[0]=0;
+        pt2[1]=0;
+        pt2[2]=10;
+        
+        pt3[0]=0;
+        pt3[1]=10;
+        pt3[2]=10;
+        
+        LG_Primitive::newells(pt1, pt2, pt3, normal);
+        
+        REQUIRE(normal[0]==-1);
+        REQUIRE(normal[1]==0);
+        REQUIRE(normal[2]==0);
+    
+    }
+    
+    
+    SECTION("Example 2"){
+        
+        
+        LG_Point3D normal,pt1,pt2,pt3;
+        
+        pt1[0]=0;
+        pt1[1]=0;
+        pt1[2]=0;
+        
+        pt2[0]=0;
+        pt2[1]=5;
+        pt2[2]=0;
+        
+        pt3[0]=5.3;
+        pt3[1]=10;
+        pt3[2]=0;
+        
+        LG_Primitive::newells(pt1, pt2, pt3, normal);
+        
+        REQUIRE(normal[0]==0);
+        REQUIRE(normal[1]==0);
+        REQUIRE(normal[2]==-1);
+        
+    }
+    
+    SECTION("Example 3"){
+        
+        
+        LG_Point3D normal,pt1,pt2,pt3;
+        
+        pt1[0]=0;
+        pt1[1]=5;
+        pt1[2]=0;
+        
+        pt2[0]=0;
+        pt2[1]=0;
+        pt2[2]=5;
+        
+        pt3[0]=5;
+        pt3[1]=0;
+        pt3[2]=0;
+        
+        LG_Primitive::newells(pt1, pt2, pt3, normal);
+        
+        REQUIRE(abs(normal[0]-1./sqrt(3.0))<=0.0001);
+        REQUIRE(abs(normal[1]==1.0/sqrt(3.0))<=0.0001);
+        REQUIRE(abs(normal[2]==1.0/sqrt(3.0))<=0.0001);
+        
+    }
+
+}

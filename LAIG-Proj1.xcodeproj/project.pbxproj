@@ -771,10 +771,10 @@
 				5435E6F419D81B67004169BD /* TestFiles */,
 				545802A219D2BDC700C9DF32 /* Catch.h */,
 				545802A319D2BE4D00C9DF32 /* LG_Nodes_Tests.cpp */,
-				545802C119D30BE200C9DF32 /* LG_Triangle_Tests.cpp */,
 				545802DA19D3FAA000C9DF32 /* LG_Parsing_Tests.cpp */,
 				545802EF19D4992C00C9DF32 /* LG_Globals_Tests.cpp */,
 				5435E6DC19D72C41004169BD /* LG_Drawing_Tests.cpp */,
+				545802C119D30BE200C9DF32 /* LG_Triangle_Tests.cpp */,
 				5435E71019D872D9004169BD /* LG_Rectangle_Tests.cpp */,
 				5469678019D89671001DBA15 /* LG_Cylinder_Tests.cpp */,
 				5469678519D8A943001DBA15 /* LG_Sphere_Tests.cpp */,
@@ -2065,6 +2065,7 @@
 				54831C9419E3FC2C0090418B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		54831CBC19E453570090418B /* Build configuration list for PBXNativeTarget "LG_Draw_Test_1" */ = {
 			isa = XCConfigurationList;
@@ -2073,6 +2074,7 @@
 				54831CBE19E453570090418B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

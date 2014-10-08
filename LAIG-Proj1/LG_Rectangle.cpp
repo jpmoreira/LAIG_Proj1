@@ -62,7 +62,8 @@ void LG_Rectangle::copyPoints(LG_Point3D point1,LG_Point3D point2){
 void LG_Rectangle::draw(){
 
     glBegin(GL_QUADS);
-    
+
+    glNormal3d(0, 0, 1);
     glVertex3d(pt1[0], pt1[1], pt1[2]);
     glVertex3d(pt2[0], pt1[1], pt1[2]);
     glVertex3d(pt2[0], pt2[1], pt1[2]);

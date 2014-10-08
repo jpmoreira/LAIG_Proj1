@@ -33,6 +33,8 @@ public:
 protected:
     void initializePoint3D(LG_Point3D& point);
     
+    static void newells(LG_Point3D p1,LG_Point3D p2,LG_Point3D p3,LG_Point3D normal);
+    
     
     
 };

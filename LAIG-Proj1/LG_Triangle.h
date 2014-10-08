@@ -28,6 +28,7 @@ private:
     LG_Point3D pt1;
     LG_Point3D pt2;
     LG_Point3D pt3;
+    LG_Point3D normal;
     
     /**
      Number that holds the current id for the newly created primitive instance. Used in the autoIdentifier macro
