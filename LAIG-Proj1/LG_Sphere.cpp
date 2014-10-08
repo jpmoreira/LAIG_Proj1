@@ -18,7 +18,7 @@
 int LG_Sphere::_LG_classIDNr=0;
 
 #pragma mark - Constructors
-LG_Sphere::LG_Sphere(LG_Node_Map *map,TiXmlElement *elem):LG_Primitive(map,autoIdentifier),radius(LG_INVALID_DOUBLE),slices(LG_INVALID_INT),stacks(LG_INVALID_INT){
+LG_Sphere::LG_Sphere(LG_Node_Map *map,TiXmlElement *elem):LG_Glu_Primitive(map,autoIdentifier),radius(LG_INVALID_DOUBLE),slices(LG_INVALID_INT),stacks(LG_INVALID_INT){
     
     
     
@@ -33,11 +33,17 @@ LG_Sphere::LG_Sphere(LG_Node_Map *map,TiXmlElement *elem):LG_Primitive(map,autoI
     positiveInt_tryToAttributeVariable(LG_Sphere_XML_Stacks_Att_Name, elem, stacks);
     
 }
-LG_Sphere::LG_Sphere(LG_Node_Map *map,double r,int st,int sl):LG_Primitive(map,autoIdentifier),radius(r),slices(sl),stacks(st){
+LG_Sphere::LG_Sphere(LG_Node_Map *map,double r,int st,int sl):LG_Glu_Primitive(map,autoIdentifier),radius(r),slices(sl),stacks(st){
 
 
 }
 
 
 #pragma mark - Inherited Methods
+
+
+void LG_Sphere::draw() {
+    
+    gluSphere(quadric, radius, slices, stacks);
+}
 

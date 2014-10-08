@@ -11,11 +11,11 @@
 
 #include <stdio.h>
 
-#include "LG_Primitive.h"
+#include "LG_Glu_Primitive.h"
 
 #define LG_Sphere_XML_Tag_Name "sphere"
 
-class LG_Sphere:public LG_Primitive{
+class LG_Sphere:public LG_Glu_Primitive{
     
 private:
     
@@ -33,6 +33,15 @@ public:
     
     LG_Sphere(LG_Node_Map *map,TiXmlElement *elem);
     LG_Sphere(LG_Node_Map *map,double r,int st,int sl);
+    
+    /**
+     
+     Method for drawing this object
+     
+     
+     
+     */
+    void draw ();
     
     
 };

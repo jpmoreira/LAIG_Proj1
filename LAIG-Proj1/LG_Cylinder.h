@@ -11,11 +11,11 @@
 
 #include <stdio.h>
 
-#include "LG_Primitive.h"
-
+#include <GL/glu.h>
+#include "LG_Glu_Primitive.h"
 #define LG_Cylinder_XML_Tag_Name "cylinder"
 
-class LG_Cylinder:public LG_Primitive{
+class LG_Cylinder:public LG_Glu_Primitive{
     
 private:
     
@@ -31,7 +31,7 @@ private:
      */
      
     static int _LG_classIDNr;
-    
+
 
     
     
@@ -54,6 +54,15 @@ public:
     
     
     
+    
+    /**
+     
+     A function for drawing this object
+     
+     
+     
+     */
+    void draw ();
     
     
     

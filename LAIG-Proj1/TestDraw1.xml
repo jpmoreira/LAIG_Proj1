@@ -11,6 +11,7 @@
         <primitives>
             <triangle xyz3="0 0 0" xyz2="0 0 20" xyz1="0 10 10" />
             <rectangle xy1="0 0" xy2="10 10"/>
+            <sphere radius="3" slices="10" stacks="10" />
         </primitives>
         
         <descendants>
@@ -29,7 +30,8 @@
         <appearanceref id="inherit" />
         
         <primitives>
-            <triangle xyz3="0 0 0" xyz2="0 0 20" xyz1="0 10 10" />
+            <triangle xyz1="20 0 0" xyz2="20 0 20" xyz3="20 10 10" />
+            <cylinder base="1.5" top="0.0" height="5" slices="10" stacks="4" />
         </primitives>
         
         <descendants>

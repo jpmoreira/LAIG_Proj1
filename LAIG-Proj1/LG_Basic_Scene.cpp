@@ -65,13 +65,10 @@ void LG_Basic_Scene::init()
     TiXmlDocument *doc=new TiXmlDocument("./testFiles/TestDraw1.xml");
     
     
-    doc->LoadFile();
+    bool b=doc->LoadFile();
     
     LG_Node_Map *appMap=new LG_Node_Map();
-    LG_LightArray amb,diff,spec;
-    double s;
     string identifier="uniqueExistingApp";
-    LG_Appearance *app=new LG_Appearance(appMap, amb, diff, spec, s, identifier);
 
     
     graph=new LG_Graph(appMap,doc->FirstChildElement());
