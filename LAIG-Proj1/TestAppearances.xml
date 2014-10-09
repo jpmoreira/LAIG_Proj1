@@ -13,3 +13,10 @@
     <component type="diffuse" value="0.9 0.7 0.7 0.9" />
     <component type="specular" value="0.6 0.7 0.7 0.55" />
 </appearance>
+
+
+<appearance id="appearXPTO" shininess="0.8" textureref="stuff2" >
+    <component type="ambient" value="0.7 0.75 0.7 0.9" />
+    <component type="diffuse" value="0.9 0.7 0.7 0.9" />
+    <component type="specular" value="0.6 0.7 0.7 0.55" />
+</appearance>

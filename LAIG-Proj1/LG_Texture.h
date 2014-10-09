@@ -17,6 +17,7 @@ class LG_Texture :
 {
 public:
 	LG_Texture(LG_Node_Map *map, TiXmlElement *element);
+    LG_Texture(LG_Node_Map *map,string file,double s,double t,string identifier);
 	~LG_Texture();
 
 

@@ -34,10 +34,17 @@ TEST_CASE("Test loading Graph Node from XML"){
     LG_Node_Map *map=new LG_Node_Map();
     
     
+
+    LG_Node_Map *textureMap=new LG_Node_Map();
+    
+    LG_Texture *text=new LG_Texture(textureMap, "someFile.txt", 10, 20, "stuff");
+    
+    
     
     TiXmlElement *firstElement=doc->FirstChildElement();
     TiXmlElement *secondElement=firstElement->NextSiblingElement();
     TiXmlElement *thirdElement=secondElement->NextSiblingElement();
+    TiXmlElement *fourthElement=thirdElement->NextSiblingElement();
     
     
     
@@ -45,7 +52,7 @@ TEST_CASE("Test loading Graph Node from XML"){
         
         
         try {
-            LG_Appearance *app=new LG_Appearance(map,firstElement);
+            LG_Appearance *app=new LG_Appearance(map,firstElement,textureMap);
             REQUIRE(str_eq(app->identifier.c_str(), "appear1"));
             REQUIRE(abs(app->shininess-0.8)<=0.0001);
             REQUIRE(abs(app->ambient[0]-0.7)<=0.0001);
@@ -76,7 +83,7 @@ TEST_CASE("Test loading Graph Node from XML"){
         
         
         try {
-            LG_Appearance *app=new LG_Appearance(map,secondElement);
+            LG_Appearance *app=new LG_Appearance(map,secondElement,textureMap);
             
             REQUIRE(app->ambient[0]==LG_INVALID_DOUBLE);
             REQUIRE(app->ambient[1]==LG_INVALID_DOUBLE);
@@ -95,12 +102,25 @@ TEST_CASE("Test loading Graph Node from XML"){
     SECTION("Testing appearance with missing id"){
     
         try {
-            LG_Appearance *app=new LG_Appearance(map,thirdElement);
+            LG_Appearance *app=new LG_Appearance(map,thirdElement,textureMap);
             FAIL("Accepted appearance with missing ID attribute");
         } catch (LG_Parse_Exception_Missing_Attribute *ex) {
             REQUIRE(str_eq(ex->missingAttribute->c_str(), "id"));
         }
     
+    }
+    
+    SECTION("Testing appearance with non existing texture reference"){
+    
+    
+        try {
+            LG_Appearance *app=new LG_Appearance(map,fourthElement,textureMap);
+            FAIL("Failed to notice broken reference to a nonexisting texture");
+        } catch (LG_Parse_Exception_Broken_Reference *ex) {
+            REQUIRE(str_eq(ex->reference->c_str(), "stuff2"));
+            REQUIRE(str_eq(ex->refered_Type->c_str(), "texture"));
+            REQUIRE(str_eq(ex->element->c_str(), "appearXPTO"));
+        }
     }
     
     
