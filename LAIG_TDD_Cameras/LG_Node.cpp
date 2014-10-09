@@ -16,8 +16,9 @@ using std::vector;
 #pragma mark - Constructors
 LG_Node::LG_Node(LG_Node_Map *map,string theIdentifier):childsIDs(LG_ID_Vector()),identifier(theIdentifier),map(map){
     
-    
-    map->insert(LG_Node_Map_Pair(identifier,this));//add itself to the map automatically
+    if (map==NULL)return;
+    LG_Node_Map_Pair pair(identifier,this);
+    map->insert(pair);//add itself to the map automatically
     
     
     
@@ -26,9 +27,9 @@ LG_Node::LG_Node(LG_Node_Map *map,string theIdentifier):childsIDs(LG_ID_Vector()
 
 #pragma mark - Drawing
 
-
 void LG_Node::draw(){
 
+    
 }
 
 
@@ -73,3 +74,8 @@ string LG_Node::getIdentifier(){
 	return this->identifier;
 }
 
+
+int LG_Node::getNrChildren()
+{
+	return this->childsIDs.size();
+}

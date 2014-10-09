@@ -1,13 +1,9 @@
 #include "LG_Camera_Perspective.h"
 
-#define _LG_Primitive_Name LG_Camera_Perspective_ID
-#define LG_Camera_Perspective_ID "_LG_Camera_Perspective_"
-
-int LG_Camera_Perspective::_LG_classIDNr = 0;
 
 
 //passing LG_Camera_Perspective_Node_ID won't work, ID must be unique and there may be more than one perspective
-LG_Camera_Perspective::LG_Camera_Perspective(LG_Node_Map *map, TiXmlElement *element) :LG_Parsable_Node(map, autoIdentifier)
+LG_Camera_Perspective::LG_Camera_Perspective(LG_Node_Map *map, TiXmlElement *element) :LG_Camera(map, element, identifierForSuper(element))
 {
 	verifyElementName(element);
 	verifyAttributesAndValues(element);
@@ -29,10 +25,23 @@ void LG_Camera_Perspective::verifyElementName(TiXmlElement *element){
 
 void LG_Camera_Perspective::verifyAttributesAndValues(TiXmlElement *element){
 
-	string_tryToAttributeVariable(LG_Camera_Perspective_XML_ATT_ID, element, id);
-	positiveDouble_tryToAttributeVariable(LG_Camera_Perspective_XML_ATT_NEAR, element, near);
-	positiveDouble_tryToAttributeVariable(LG_Camera_Perspective_XML_ATT_FAR, element, far);
 	positiveDouble_tryToAttributeVariable(LG_Camera_Perspective_XML_ATT_ANGLE, element, angle);
 	point3D_tryToAttributeVariable(LG_Camera_Perspective_XML_ATT_POS, element, pos);
 	point3D_tryToAttributeVariable(LG_Camera_Perspective_XML_ATT_TARGET, element, target);
+}
+
+
+double LG_Camera_Perspective::getAngle()
+{
+	return this->angle;
+}
+
+const LG_Point3D *LG_Camera_Perspective::getPos()
+{
+	return &this->pos;
+}
+
+const LG_Point3D *LG_Camera_Perspective::getTarget()
+{
+	return &this->target;
 }

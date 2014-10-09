@@ -50,6 +50,11 @@ LG_Node * LG_Node::child(int childNr){
 
 }
 
+int LG_Node::getNrChilds()
+{
+	return childsIDs.size();
+}
+
 
 
 

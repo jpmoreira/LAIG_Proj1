@@ -164,6 +164,13 @@ LG_Parse_Exception_Missing_Element::LG_Parse_Exception_Missing_Element(const cha
 }
 
 
+const char * LG_Parse_Exception_Missing_Element::what() {
+    
+    string message = "Missing element " + *element+".";
+    return strdup(message.c_str());
+}
+
+
 #pragma mark - Wrong Element Type Exception
 
 LG_Parse_Exception_Wrong_Elem_Type::LG_Parse_Exception_Wrong_Elem_Type(string *expected_type) :LG_Parse_Exception(expected_type){
@@ -175,6 +182,12 @@ LG_Parse_Exception_Wrong_Elem_Type::~LG_Parse_Exception_Wrong_Elem_Type(){
 }
 
 
+const char *  LG_Parse_Exception_Wrong_Elem_Type::what() {
+    
+    string message = "Expected element of type " + *expected_type+" but got element of type: "+*element+".";
+    return strdup(message.c_str());
+    
+}
 #pragma mark - Broken Reference Exception
 
 
@@ -199,4 +212,23 @@ LG_Parse_Exception_Broken_Reference::~LG_Parse_Exception_Broken_Reference(){
     delete reference;
     delete refered_Type;
 
+}
+
+
+
+#pragma mark - Redundant Reference Exception
+
+LG_Parse_Exception_Redundant_Reference::LG_Parse_Exception_Redundant_Reference(string *element):LG_Parse_Exception(element){
+}
+LG_Parse_Exception_Redundant_Reference::LG_Parse_Exception_Redundant_Reference(const char *element):LG_Parse_Exception(new string(element)){
+
+
+}
+
+
+const char *  LG_Parse_Exception_Redundant_Reference::what() {
+    
+    string message= "Redundant Reference to Element with ID "+*element;
+    
+    return strdup(message.c_str());
 }

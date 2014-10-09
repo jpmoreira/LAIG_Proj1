@@ -116,6 +116,15 @@ public:
      
      */
     void addChild(string & identifOfChildToAdd);
+
+
+	/**
+	
+	A method that retuns how many children this element has
+	
+	*/
+
+	int getNrChildren();
     
     
     

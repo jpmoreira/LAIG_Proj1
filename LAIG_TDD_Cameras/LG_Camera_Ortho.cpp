@@ -6,8 +6,8 @@
 
 LG_Camera_Ortho::LG_Camera_Ortho(LG_Node_Map *map, TiXmlElement *element) :LG_Camera(map, element, identifierForSuper(element))
 {
-	void verifyElementName(TiXmlElement *element);
-	void verifyAttributesAndValues(TiXmlElement *element);
+	verifyElementName(element);
+	verifyAttributesAndValues(element);
 }
 
 
@@ -38,4 +38,30 @@ void LG_Camera_Ortho::verifyAttributesAndValues(TiXmlElement *element){
 
 	direction = (LG_AXIS) tmp;
 
+}
+
+
+double LG_Camera_Ortho::getLeft()
+{
+	return this->left;
+}
+
+double LG_Camera_Ortho::getRight()
+{
+	return this->right;
+}
+
+double LG_Camera_Ortho::getTop()
+{
+	return this->top;
+}
+
+double LG_Camera_Ortho::getBottom()
+{
+	return this->bottom;
+}
+
+LG_AXIS LG_Camera_Ortho::getDirection()
+{
+	return this->direction;
 }
