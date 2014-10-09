@@ -19,7 +19,7 @@
 TEST_CASE("Test loading Graph Node from XML"){
 
 
-#ifdef __WIN32
+#ifdef _WIN32
 	TiXmlDocument *doc = new TiXmlDocument("TestLights.xml");
 #else
     TiXmlDocument *doc = new TiXmlDocument("testFiles/TestLights.xml");
@@ -40,7 +40,7 @@ TEST_CASE("Test loading Graph Node from XML"){
 			lights_container = new LG_Lights_Container(map, firstElement);
 			nr_childs =(int) lights_container->childsIDs.size();
 		}
-		catch (LG_Parse_Exception e){
+		catch (LG_Parse_Exception *e){
 			FAIL("Cannot instantiate LG_Lights_Cointainer");
 		}
 

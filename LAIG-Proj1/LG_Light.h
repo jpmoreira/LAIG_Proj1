@@ -37,28 +37,15 @@ typedef enum{
 
 class LG_Light : public LG_Parsable_Node
 {
-    
-protected:
-    
-    /**
-     
-     A method for getting the identifier for the light.
-     
-     */
-    string identifierForSuper(TiXmlElement *element);
-    
 public:
+	LG_Light(LG_Node_Map *map, TiXmlElement *element);
 	LG_Light(LG_Node_Map *map, TiXmlElement *element, string identifier);
 	~LG_Light();
 	
 	LG_LIGHT_TYPE selectMyType(LG_Node_Map *map, TiXmlElement *element);
 	void constructMyLights(LG_Node_Map *map, TiXmlElement *element);
 
-	
+	static string identifierForSuper(TiXmlElement *element);
 	static LG_LIGHT_TYPE myLightType(TiXmlElement *element);
-    
-    
-
-
 
 };

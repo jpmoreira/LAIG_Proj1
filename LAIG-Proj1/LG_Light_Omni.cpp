@@ -5,7 +5,8 @@
 
 LG_Light_Omni::LG_Light_Omni(LG_Node_Map *map, TiXmlElement *element) : LG_Light(map, element, identifierForSuper(element))
 {	
-    bool_tryToAttributeVariable(LG_LIGHT_ATT_ENABLED, element, enabled);
+	string_tryToAttributeVariable(LG_LIGHT_ATT_ID, element, id);
+	bool_tryToAttributeVariable(LG_LIGHT_ATT_ENABLED, element, enabled);
 	bool_tryToAttributeVariable(LG_LIGHT_ATT_MARKER, element, marker);
 	point3D_tryToAttributeVariable(LG_LIGHT_ATT_POS, element, pos);
 	fillLightComponents(element);
@@ -53,6 +54,9 @@ void LG_Light_Omni::fillLightComponents(TiXmlElement *element){
 }
 
 
+string LG_Light_Omni::getId(){
+	return this->id;
+}
 
 bool LG_Light_Omni::getMarker(){
 	return this->marker;
