@@ -1,8 +1,10 @@
 #include "LG_Light.h"
 
 
-
-#pragma mark - Constructor
+LG_Light::LG_Light(LG_Node_Map *map, TiXmlElement *element) :LG_Parsable_Node(map, _LG_Light_NODE_ID){
+	if (!str_eq(LG_LIGHT_XML_TAG_NAME, element->Value()))
+		throw new LG_Parse_Exception_Wrong_Element_Name(new string(LG_LIGHT_XML_TAG_NAME), new string(element->Value()));
+}
 
 
 LG_Light::LG_Light(LG_Node_Map *map, TiXmlElement *element, string identifier) : LG_Parsable_Node(map, identifier)
@@ -11,15 +13,9 @@ LG_Light::LG_Light(LG_Node_Map *map, TiXmlElement *element, string identifier) :
 		throw new LG_Parse_Exception_Wrong_Element_Name(new string(LG_LIGHT_XML_TAG_NAME), new string(element->Value()));
 }
 
-
-#pragma mark - Destructors
 LG_Light::~LG_Light()
 {
 }
-
-
-
-#pragma mark - Helper methods
 
 string LG_Light::identifierForSuper(TiXmlElement *element)
 {
@@ -44,7 +40,3 @@ LG_LIGHT_TYPE LG_Light::myLightType(TiXmlElement *element)
 
 	throw new LG_Parse_Exception_Wrong_Attribute_Value(LG_LIGHT_XML_TAG_NAME, LG_LIGHT_ATT_TYPE, my_type.c_str());
 }
-
-
-
-

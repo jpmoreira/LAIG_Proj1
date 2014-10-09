@@ -17,6 +17,7 @@ public:
 
 
 
+	string getId();
 	bool getMarker();
 	bool getEnabled();
 	const LG_Point3D &getPos();
@@ -30,6 +31,7 @@ public:
 
 private:
 	void fillLightComponents(TiXmlElement *element);
+	string id;
 	bool enabled, marker;
 	LG_Point3D pos, target;
 	LG_LightArray components[3];

@@ -14,7 +14,7 @@
 
 #include <stdio.h>
 #include "LG_Node.h"
-#include <tinyxml.h>
+
 #include <limits.h>
 #include <math.h>
 #include <cfloat>
@@ -53,6 +53,7 @@ protected:
 public:
 	LG_Parse_Exception(string* elem);
 	LG_Parse_Exception();
+	virtual const char* what()=0;
 	virtual ~LG_Parse_Exception();
 
 };
@@ -87,7 +88,7 @@ public:
      */
     LG_Parse_Exception_Wrong_Attribute_Value(const char *elem, const char* attrib, const char* value);
 	~LG_Parse_Exception_Wrong_Attribute_Value();
-	char* what();
+	const char* what();
 
 
 
@@ -103,7 +104,7 @@ public:
 	LG_Parse_Exception_Wrong_Elem_Type(char *expected_type);
 	LG_Parse_Exception_Wrong_Elem_Type(string *expected_type);
 
-	char * what();
+	const char * what();
 
 	~LG_Parse_Exception_Wrong_Elem_Type();
 };
@@ -118,7 +119,7 @@ public:
 	LG_Parse_Exception_Missing_Attribute(string *elementName, string * missingAtt);
 	LG_Parse_Exception_Missing_Attribute(char *elementName, char * missingAtt);
 
-	char * what();
+	const char * what();
 
 	~LG_Parse_Exception_Missing_Attribute();
 
@@ -142,7 +143,7 @@ public:
 
 	~LG_Parse_Exception_Wrong_Element_Name();
 
-	char * what();
+	const char * what();
 
 private:
 	string *expectedElementName;
@@ -162,6 +163,8 @@ public:
      
      */
     LG_Parse_Exception_Missing_Element(const char *elem);
+    
+    const char * what();
 
 };
 
@@ -177,15 +180,26 @@ private:
     
 public:
     
-    char * what();
+	const char * what();
     LG_Parse_Exception_Broken_Reference(string * elementWhereErrorOccured, string * reference,string *referedElementName);
     LG_Parse_Exception_Broken_Reference(const char * elementWhereErrorOccured, const char * reference,const char *referedElementName);
-    
     ~LG_Parse_Exception_Broken_Reference();
 
 };
 
+class LG_Parse_Exception_Redundant_Reference :public LG_Parse_Exception{
 
+
+public:
+    
+    LG_Parse_Exception_Redundant_Reference(string *element);
+    LG_Parse_Exception_Redundant_Reference(const char *element);
+    
+    
+    const char * what ();
+
+
+};
 
 class LG_Parsable_Node : public LG_Node{
 
@@ -243,6 +257,39 @@ public:
         
     }
     
+    
+    
+    /**
+     
+     A method that tries to attribute a particular attribute to a double variable.
+     The double value must not be negative.
+     
+     
+     
+     
+     */
+    static void inline nonNegativeDouble_tryToAttributeVariable (const char * attName,TiXmlElement *elem,double &parameter){
+    
+    
+        const char * source=elem->Attribute(attName);
+        const char * elemName=elem->Value();
+        
+        if (source==NULL){
+            throw new LG_Parse_Exception_Missing_Attribute(new string(elemName),new string(attName));
+        }
+        
+        parameter=doubleValueForAttribute_(source);
+        
+        
+        if(parameter<0.0)parameter=LG_INVALID_DOUBLE;//dont allow negative values but allow zero
+        
+        if (parameter==LG_INVALID_DOUBLE)
+            throw new LG_Parse_Exception_Wrong_Attribute_Value(new string(elemName),new string(attName),new string(source));
+        
+
+        
+        
+    }
     
     /**
      
