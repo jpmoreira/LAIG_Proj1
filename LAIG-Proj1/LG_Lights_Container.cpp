@@ -16,21 +16,20 @@ LG_Lights_Container::LG_Lights_Container(LG_Node_Map *map, TiXmlElement *element
 	{
 
 		LG_LIGHT_TYPE my_type = LG_Light::myLightType(sub_elem);
-		LG_Light_Omni *my_light_omni;
-		LG_Light_Spot *my_light_spot;
+        LG_Light *light;
 
 		switch (my_type){
 		
 		case LG_LIGHT_OMNI:
-			my_light_omni = new LG_Light_Omni(map, sub_elem);
-			this->addChild(my_light_omni->getId());
+			light = new LG_Light_Omni(map, sub_elem);
 			break;
 
 		case LG_LIGHT_SPOT:
-			my_light_spot = new LG_Light_Spot(map, sub_elem);
-			this->addChild(my_light_spot->getId());
+			light = new LG_Light_Spot(map, sub_elem);
 			break;
 		}
+        
+        this->addChild(light);
 
 		sub_elem = sub_elem->NextSiblingElement(LG_LIGHT_XML_TAG_NAME);
 	}

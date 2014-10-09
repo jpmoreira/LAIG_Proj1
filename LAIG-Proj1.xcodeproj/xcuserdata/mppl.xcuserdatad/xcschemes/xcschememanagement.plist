@@ -54,6 +54,11 @@
 			<key>orderHint</key>
 			<integer>15</integer>
 		</dict>
+		<key>LG_Light_Tests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>17</integer>
+		</dict>
 		<key>LG_Nodes_Tests.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -73,6 +78,11 @@
 		<dict>
 			<key>orderHint</key>
 			<integer>9</integer>
+		</dict>
+		<key>LG_Textures_Tests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>18</integer>
 		</dict>
 		<key>LG_Torus_Tests.xcscheme</key>
 		<dict>
@@ -178,6 +188,16 @@
 			<true/>
 		</dict>
 		<key>54831CB719E453570090418B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>54D8611419E58A0C00B5695A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>54D8613119E58EE600B5695A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

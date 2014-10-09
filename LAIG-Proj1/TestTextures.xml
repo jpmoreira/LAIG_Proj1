@@ -1,0 +1,7 @@
+<texture id="texture1" file="tex1.png" texlength_s="3.1" texlength_t="2.1" />
+
+<texture id="texture2" texlength_s="2" texlength_t="3" />
+
+
+<!-- Notice typo in texture element name-->
+<textue id="texture1" file="tex1.png" texlength_s="3.1" texlength_t="2.1" />

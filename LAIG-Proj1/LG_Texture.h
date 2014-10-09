@@ -21,9 +21,16 @@ public:
 
 
 private:
-	string id, file;
+	string file;
 	double texlength_s, texlength_t;
-	static int _LG_classIDNr;
+    
+    /**
+     
+     A method for getting the identifier from the texture.
+     
+     
+     */
+    string getIdentifierFromElement (TiXmlElement *elem);
 
 };
 

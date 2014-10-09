@@ -9,7 +9,7 @@ public:
 	LG_Light_Omni(LG_Node_Map *map, string identifier);
 	~LG_Light_Omni();
 
-	string getId();
+
 	bool getMarker();
 	bool getEnabled();
 	const LG_Point3D &getPos();
@@ -17,11 +17,12 @@ public:
 
 private:
 	
-	string id;
 	bool enabled, marker;
 	LG_Point3D pos;
 	LG_LightArray components[3];
 
 	void fillLightComponents(TiXmlElement *element);
-
+    
+    
+    
 };
