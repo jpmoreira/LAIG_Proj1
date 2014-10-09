@@ -23,12 +23,12 @@ LG_Lights_Container::LG_Lights_Container(LG_Node_Map *map, TiXmlElement *element
 		
 		case LG_LIGHT_OMNI:
 			my_light_omni = new LG_Light_Omni(map, sub_elem);
-			this->addChild(my_light_omni->getId());
+			this->addChild(my_light_omni);
 			break;
 
 		case LG_LIGHT_SPOT:
 			my_light_spot = new LG_Light_Spot(map, sub_elem);
-			this->addChild(my_light_spot->getId());
+			this->addChild(my_light_spot);
 			break;
 		}
 
