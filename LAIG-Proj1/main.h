@@ -10,7 +10,6 @@
 #define __LAIG_Proj1__main__
 
 #include <stdio.h>
-
 #endif /* defined(__LAIG_Proj1__main__) */
 
 

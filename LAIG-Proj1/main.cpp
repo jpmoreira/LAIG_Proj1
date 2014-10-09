@@ -7,7 +7,7 @@
 //
 
 
-#include <stdio.h>
+#include <CGFapplication.h>
 int main(){
 
 

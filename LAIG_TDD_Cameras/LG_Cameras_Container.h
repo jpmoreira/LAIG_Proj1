@@ -17,7 +17,34 @@ public:
 	LG_Cameras_Container(LG_Node_Map *map, TiXmlElement *element);
 	~LG_Cameras_Container();
 
+	/**
+		returns the id of the initial camera
+	*/
 	string getInitial();
+
+	/**
+		Checks if this is the correct tag
+	*/
+	void verifyElementName(TiXmlElement *element);
+
+	/**
+		Checks if initial attribute is set. Calls setOrthoCams() and setPerspectiveCams()
+		Throws exception if initial cam was not set.
+	*/
+	void verifyAttributesAndValues(TiXmlElement *element);
+
+	/**
+		Sets the Ortho Cams.
+		@return true if initial camera is found and set, false otherwise
+	*/
+	bool setOrthoCams(TiXmlElement *element);
+
+	/**
+	Sets the Perspective Cams.
+	@return true if initial camera is found and set, false otherwise
+	*/
+	bool setPerspectiveCams(TiXmlElement *element);
+
 
 private:
 	string initial;

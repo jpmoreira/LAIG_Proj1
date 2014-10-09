@@ -6,6 +6,7 @@
 
 LG_Camera_Ortho::LG_Camera_Ortho(LG_Node_Map *map, TiXmlElement *element) :LG_Camera(map, element, identifierForSuper(element))
 {
+
 	verifyElementName(element);
 	verifyAttributesAndValues(element);
 }
