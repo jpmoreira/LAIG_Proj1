@@ -171,23 +171,6 @@ const char * LG_Parse_Exception_Missing_Element::what() {
 }
 
 
-#pragma mark - Wrong Element Type Exception
-
-LG_Parse_Exception_Wrong_Elem_Type::LG_Parse_Exception_Wrong_Elem_Type(string *expected_type) :LG_Parse_Exception(expected_type){
-	this->expected_type = expected_type;
-}
-
-
-LG_Parse_Exception_Wrong_Elem_Type::~LG_Parse_Exception_Wrong_Elem_Type(){
-}
-
-
-const char *  LG_Parse_Exception_Wrong_Elem_Type::what() {
-    
-    string message = "Expected element of type " + *expected_type+" but got element of type: "+*element+".";
-    return strdup(message.c_str());
-    
-}
 #pragma mark - Broken Reference Exception
 
 

@@ -30,6 +30,8 @@
 		542D82A319E5C688004DC691 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4619D0AD9E00D4831A /* OpenGL.framework */; };
 		542D82A419E5C688004DC691 /* libCGF.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4419D0AD9200D4831A /* libCGF.a */; };
 		542D82A519E5C688004DC691 /* libTinyXML.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4219D0AD7F00D4831A /* libTinyXML.a */; };
+		542D82A819E6EA24004DC691 /* LG_Texture_Container.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 542D82A619E6EA24004DC691 /* LG_Texture_Container.cpp */; };
+		542D82A919E6EA24004DC691 /* LG_Texture_Container.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 542D82A619E6EA24004DC691 /* LG_Texture_Container.cpp */; };
 		5435E6E919D72D05004169BD /* LG_Drawing_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5435E6DC19D72C41004169BD /* LG_Drawing_Tests.cpp */; };
 		5435E6EA19D72D2D004169BD /* LG_Drawing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5458030819D5804400C9DF32 /* LG_Drawing.cpp */; };
 		5435E6EB19D72D32004169BD /* LG_Parsable_Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 545802D719D31C6700C9DF32 /* LG_Parsable_Node.cpp */; };
@@ -444,6 +446,8 @@
 		54118C5A19D9B8D50015D962 /* TestTorus.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestTorus.xml; sourceTree = "<group>"; };
 		54174DC719D033CC0039E991 /* LAIG-Proj1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "LAIG-Proj1"; sourceTree = BUILT_PRODUCTS_DIR; };
 		542D829819E5C629004DC691 /* LG_Textures_Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Textures_Tests.cpp; sourceTree = "<group>"; };
+		542D82A619E6EA24004DC691 /* LG_Texture_Container.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Texture_Container.cpp; sourceTree = "<group>"; };
+		542D82A719E6EA24004DC691 /* LG_Texture_Container.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_Texture_Container.h; sourceTree = "<group>"; };
 		5435E6DA19D6D7CC004169BD /* READIT */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = READIT; sourceTree = "<group>"; };
 		5435E6DC19D72C41004169BD /* LG_Drawing_Tests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Drawing_Tests.cpp; sourceTree = "<group>"; };
 		5435E6E219D72CF9004169BD /* LG_Drawing_Tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LG_Drawing_Tests; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -904,6 +908,8 @@
 				54118C4B19D9B73D0015D962 /* LG_Torus.h */,
 				54DE089919E5560000E283B6 /* LG_Glu_Primitive.cpp */,
 				54DE089A19E5560000E283B6 /* LG_Glu_Primitive.h */,
+				542D82A619E6EA24004DC691 /* LG_Texture_Container.cpp */,
+				542D82A719E6EA24004DC691 /* LG_Texture_Container.h */,
 			);
 			name = Primitivas;
 			sourceTree = "<group>";
@@ -1387,6 +1393,7 @@
 				545802A019D1EC0500C9DF32 /* LG_Triangle.cpp in Sources */,
 				5458029C19D1DA5000C9DF32 /* LG_Node.cpp in Sources */,
 				546184EC19DAFBFB005C6166 /* LG_Transform.cpp in Sources */,
+				542D82A819E6EA24004DC691 /* LG_Texture_Container.cpp in Sources */,
 				54D8610F19E5894100B5695A /* LG_Lights_Container.cpp in Sources */,
 				5435E70019D842FB004169BD /* LG_Rectangle.cpp in Sources */,
 				5458030A19D5804400C9DF32 /* LG_Drawing.cpp in Sources */,
@@ -1627,6 +1634,7 @@
 				542D829A19E5C64E004DC691 /* LG_Texture.cpp in Sources */,
 				542D829B19E5C64E004DC691 /* LG_Node.cpp in Sources */,
 				542D829C19E5C64E004DC691 /* LG_Parsable_Node.cpp in Sources */,
+				542D82A919E6EA24004DC691 /* LG_Texture_Container.cpp in Sources */,
 				542D829919E5C629004DC691 /* LG_Textures_Tests.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

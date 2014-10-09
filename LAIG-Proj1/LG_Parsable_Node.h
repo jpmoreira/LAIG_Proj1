@@ -96,18 +96,7 @@ public:
 };
 
 
-class LG_Parse_Exception_Wrong_Elem_Type : LG_Parse_Exception{
-private:
-	string *expected_type;
 
-public:
-	LG_Parse_Exception_Wrong_Elem_Type(char *expected_type);
-	LG_Parse_Exception_Wrong_Elem_Type(string *expected_type);
-
-	const char * what();
-
-	~LG_Parse_Exception_Wrong_Elem_Type();
-};
 
 
 

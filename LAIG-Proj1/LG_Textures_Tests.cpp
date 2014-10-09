@@ -11,6 +11,7 @@
 
 #include <CGFapplication.h>
 #include "LG_Texture.h"
+#include "LG_Texture_Container.h"
 
 TEST_CASE("Testing texture parsing from XML"){
     
@@ -40,7 +41,8 @@ TEST_CASE("Testing texture parsing from XML"){
     TiXmlElement *firstElement=doc->FirstChildElement();
     TiXmlElement *secondElement=firstElement->NextSiblingElement();
     TiXmlElement *thirdElement=secondElement->NextSiblingElement();
-    
+    TiXmlElement *fourthElement=thirdElement->NextSiblingElement();
+    TiXmlElement *fifthElement=fourthElement->NextSiblingElement();
     
     SECTION("Testing perfectly well formed texture"){
         
@@ -84,6 +86,43 @@ TEST_CASE("Testing texture parsing from XML"){
         }
     }
     
+    
+    
+    SECTION("Perfectly well formed texture container"){
+        
+        
+        
+        try {
+            LG_Texture_Container *textureContainer=new LG_Texture_Container(&map,fourthElement);
+            
+            REQUIRE(textureContainer->childsIDs.size()==2);
+            REQUIRE(str_eq(textureContainer->child(0)->identifier.c_str(),"texture1"));
+            
+        } catch (LG_Parse_Exception *ex) {
+            FAIL("Thrown exception while parsing perfectly well formed texture container");
+        }
+        
+        
+        
+    }
+    
+    
+    SECTION("Texture Container with  typo"){
+        
+        
+        try{
+        
+            LG_Texture_Container *textContainer=new LG_Texture_Container(&map,fifthElement);
+            FAIL("Failed to recognize typo in texture container element");
+        
+        }catch(LG_Parse_Exception_Wrong_Element_Name *ex){
+        
+            REQUIRE(str_eq(ex->expectedElementName->c_str(), "textures"));
+            REQUIRE(str_eq(ex->element->c_str(), "textur"));//notice typo
+        }
+        
+    }
+
     
 
     
