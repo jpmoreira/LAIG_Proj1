@@ -41,7 +41,7 @@ bool LG_Cameras_Container::setPerspectiveCams(TiXmlElement *element)
 	while (sub_elem)
 	{
 		tmp_perspective = new LG_Camera_Perspective(map, sub_elem);
-		this->addChild(tmp_perspective->getId());
+		this->addChild(tmp_perspective);
 
 		if (str_eq(tmp_perspective->getId().c_str(), this->initial.c_str()))
 			is_set_initial = true;
@@ -64,7 +64,7 @@ bool LG_Cameras_Container::setOrthoCams(TiXmlElement *element)
 	{
 
 		tmp_ortho = new LG_Camera_Ortho(map, sub_elem);
-		this->addChild(tmp_ortho->getId());
+		this->addChild(tmp_ortho);
 
 		if (str_eq(tmp_ortho->getId().c_str(), this->initial.c_str()))
 			is_set_initial = true;

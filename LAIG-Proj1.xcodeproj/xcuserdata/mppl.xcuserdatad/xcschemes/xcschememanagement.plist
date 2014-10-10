@@ -24,6 +24,16 @@
 			<key>orderHint</key>
 			<integer>14</integer>
 		</dict>
+		<key>LG_Cameras_Tests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>20</integer>
+		</dict>
+		<key>LG_Config_Tests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>19</integer>
+		</dict>
 		<key>LG_Cylinder_Tests.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -108,6 +118,16 @@
 			<true/>
 		</dict>
 		<key>54174DC619D033CB0039E991</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>542D82B819E7C0CD004DC691</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>542D82C319E7C0E9004DC691</key>
 		<dict>
 			<key>primary</key>
 			<true/>

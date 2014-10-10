@@ -13,7 +13,12 @@
 TEST_CASE("Test loading Graph Node from XML"){
 
 
+#ifdef __WIN32
 	TiXmlDocument *doc = new TiXmlDocument("testCameras.xml");
+#else
+    TiXmlDocument *doc = new TiXmlDocument("testFiles/testCameras.xml");
+
+#endif
 	REQUIRE(doc->LoadFile());
 
 
