@@ -5,7 +5,7 @@
 #define protected public
 #endif
 
-#include "LG_Appearance.h"
+#include "LG_Appearance_Container.h"
 #include <CGFapplication.h>
 
 
@@ -38,13 +38,14 @@ TEST_CASE("Test loading Graph Node from XML"){
     LG_Node_Map *textureMap=new LG_Node_Map();
     
     LG_Texture *text=new LG_Texture(textureMap, "someFile.txt", 10, 20, "stuff");
-    
+    LG_Texture *text2=new LG_Texture(textureMap, "anotherFile.txt",20,20,"newStuff");
     
     
     TiXmlElement *firstElement=doc->FirstChildElement();
     TiXmlElement *secondElement=firstElement->NextSiblingElement();
     TiXmlElement *thirdElement=secondElement->NextSiblingElement();
     TiXmlElement *fourthElement=thirdElement->NextSiblingElement();
+    TiXmlElement *fifthElement=fourthElement->NextSiblingElement();
     
     
     
@@ -121,6 +122,32 @@ TEST_CASE("Test loading Graph Node from XML"){
             REQUIRE(str_eq(ex->refered_Type->c_str(), "texture"));
             REQUIRE(str_eq(ex->element->c_str(), "appearXPTO"));
         }
+    }
+    
+    
+    
+    SECTION("Testing correctly created appearances Container"){
+        
+        
+        try {
+            LG_Appearance_Container *container=new LG_Appearance_Container(map,fifthElement,textureMap);
+            
+            LG_Appearance *app1=(LG_Appearance *)container->child(0);
+            LG_Appearance *app2=(LG_Appearance *)container->child(1);
+            
+            REQUIRE(container->childsIDs.size()==2);
+            REQUIRE(str_eq(app1->identifier.c_str(), "appear1"));
+            REQUIRE(str_eq(app2->identifier.c_str(), "appear2"));
+            REQUIRE(str_eq(app1->texture->identifier.c_str(),"stuff"));
+            REQUIRE(str_eq(app2->texture->identifier.c_str(),"newStuff"));
+            REQUIRE(str_eq(app1->texture->file.c_str(), "someFile.txt"));
+        } catch (LG_Parse_Exception *ex) {
+            
+            FAIL("Thrown exception while parsing perfectly well formed Appearance container");
+        }
+        
+    
+    
     }
     
     

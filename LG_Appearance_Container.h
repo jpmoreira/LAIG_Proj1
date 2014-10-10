@@ -12,10 +12,15 @@
 #include <stdio.h>
 #include "LG_Appearance.h"
 
-class LG_Appearance_Container:public LG_Node {
-    
+class LG_Appearance_Container:public LG_Parsable_Node {
     
 public:
+    
+    
+    LG_Appearance_Container(LG_Node_Map *map,TiXmlElement *elem,LG_Node_Map *texturesMap);
+    
+    
+    
     
 };
 
