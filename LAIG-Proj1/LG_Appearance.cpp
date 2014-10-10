@@ -45,8 +45,11 @@ LG_Appearance::LG_Appearance(LG_Node_Map *map,TiXmlElement *elem,LG_Node_Map *te
         subElement=subElement->NextSiblingElement();
     }
     
-    handleTextureRef(texturesMap, elem);
-
+    
+    try {
+        handleTextureRef(texturesMap, elem);
+    } catch (LG_Parse_Exception_Missing_Attribute *ex) {}//this attribute is not required
+    
 }
 
 LG_Appearance::LG_Appearance(LG_Node_Map *map,LG_LightArray amb,LG_LightArray diff,LG_LightArray spec,double s,string identif,LG_Texture *texture):LG_Parsable_Node(map,identif),shininess(s){

@@ -80,7 +80,7 @@ TEST_CASE("Test loading Graph Node from XML"){
     }
     
     
-    SECTION("Testing appearance with no ambient component"){
+    SECTION("Testing appearance with no ambient component and no texture reference"){
         
         
         try {
