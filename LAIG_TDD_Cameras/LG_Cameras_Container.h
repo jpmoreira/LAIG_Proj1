@@ -20,7 +20,7 @@ public:
 	/**
 		returns the id of the initial camera
 	*/
-	string getInitial();
+	LG_Camera * getInitial();
 
 	/**
 		Checks if this is the correct tag

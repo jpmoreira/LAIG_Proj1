@@ -19,17 +19,29 @@ void LG_Cameras_Container::verifyElementName(TiXmlElement *element)
 
 void LG_Cameras_Container::verifyAttributesAndValues(TiXmlElement *element)
 {
-	string_tryToAttributeVariable(LG_CAMERAS_ATT_INITIAL, element, initial);
+    
+    string initialID;
+	string_tryToAttributeVariable(LG_CAMERAS_ATT_INITIAL, element, initialID);
 
-	bool initial_found_persp = setPerspectiveCams(element);
-	bool initial_found_ortho = setOrthoCams(element);
+	bool initial_found_persp = setPerspectiveCams(element,initialID);
+	bool initial_found_ortho = setOrthoCams(element,initialID);
 
-	if (!initial_found_ortho && !initial_found_persp)	//sets cameras
-		throw new LG_Parse_Exception_Missing_Element("Initial Camera not found!"); //if initial cam not found
+    if (!initial_found_ortho && !initial_found_persp){
+    
+         throw new LG_Parse_Exception_Broken_Reference(new string(LG_CAMERAS_XML_TAG_NAME), new string(initialID), new string(string(LG_Camera_Ortho_XML_TAG_NAME)+" or "+string(LG_Camera_Perspective_XML_TAG_NAME)));
+    }	//sets cameras
+    
+
+    for (int i=0; i<childsIDs.size(); i++) {
+        if (str_eq(childsIDs[i].c_str(),initialID.c_str())) {
+            initial=(LG_Camera *)child(i);
+            break;
+        }
+    }
 
 }
 
-bool LG_Cameras_Container::setPerspectiveCams(TiXmlElement *element)
+bool LG_Cameras_Container::setPerspectiveCams(TiXmlElement *element,string & initialID)
 {
 	bool is_set_initial = false;
 
@@ -43,7 +55,7 @@ bool LG_Cameras_Container::setPerspectiveCams(TiXmlElement *element)
 		tmp_perspective = new LG_Camera_Perspective(map, sub_elem);
 		this->addChild(tmp_perspective);
 
-		if (str_eq(tmp_perspective->getId().c_str(), this->initial.c_str()))
+		if (str_eq(tmp_perspective->identifier.c_str(), initialID.c_str()))
 			is_set_initial = true;
 
 		sub_elem = sub_elem->NextSiblingElement(LG_Camera_Perspective_XML_TAG_NAME);
@@ -53,7 +65,7 @@ bool LG_Cameras_Container::setPerspectiveCams(TiXmlElement *element)
 }
 
 
-bool LG_Cameras_Container::setOrthoCams(TiXmlElement *element)
+bool LG_Cameras_Container::setOrthoCams(TiXmlElement *element,string & initialID)
 {
 	bool is_set_initial = false;
 
@@ -66,7 +78,7 @@ bool LG_Cameras_Container::setOrthoCams(TiXmlElement *element)
 		tmp_ortho = new LG_Camera_Ortho(map, sub_elem);
 		this->addChild(tmp_ortho);
 
-		if (str_eq(tmp_ortho->getId().c_str(), this->initial.c_str()))
+		if (str_eq(tmp_ortho->identifier.c_str(), initialID.c_str()))
 			is_set_initial = true;
 
 		sub_elem = sub_elem->NextSiblingElement(LG_Camera_Ortho_XML_TAG_NAME);
@@ -75,9 +87,9 @@ bool LG_Cameras_Container::setOrthoCams(TiXmlElement *element)
 	return is_set_initial;
 }
 
-string LG_Cameras_Container::getInitial()
+LG_Camera* LG_Cameras_Container::getInitial()
 {
-	return this->initial;
+	return initial;
 }
 
 

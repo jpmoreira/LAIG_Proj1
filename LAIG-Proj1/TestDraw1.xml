@@ -11,7 +11,7 @@
         <primitives>
             <triangle xyz3="0 0 0" xyz2="0 0 20" xyz1="0 10 10" />
             <rectangle xy1="0 0" xy2="10 10"/>
-            <sphere radius="3" slices="10" stacks="10" />
+            <sphere radius="1" slices="10" stacks="10" />
         </primitives>
         
         <descendants>

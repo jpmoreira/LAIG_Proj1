@@ -20,7 +20,7 @@ public:
 	/**
 		returns the id of the initial camera
 	*/
-	string getInitial();
+	LG_Camera * getInitial();
 
 	/**
 		Checks if this is the correct tag
@@ -37,16 +37,16 @@ public:
 		Sets the Ortho Cams.
 		@return true if initial camera is found and set, false otherwise
 	*/
-	bool setOrthoCams(TiXmlElement *element);
+	bool setOrthoCams(TiXmlElement *element,string & initialID);
 
 	/**
 	Sets the Perspective Cams.
 	@return true if initial camera is found and set, false otherwise
 	*/
-	bool setPerspectiveCams(TiXmlElement *element);
+	bool setPerspectiveCams(TiXmlElement *element,string & initialID);
 
 
 private:
-	string initial;
+	LG_Camera * initial;
 };
 

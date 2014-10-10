@@ -9,6 +9,16 @@
 /* Begin PBXBuildFile section */
 		5405EFC419D09E4F00BEED1E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5405EFBF19D09E4F00BEED1E /* main.cpp */; };
 		5405EFC519D09E4F00BEED1E /* XMLScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5405EFC119D09E4F00BEED1E /* XMLScene.cpp */; };
+		5409399C19E7DBE000961C05 /* libGLEWmx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE5019D0ADFF00D4831A /* libGLEWmx.a */; };
+		5409399D19E7DBE000961C05 /* libGLEW.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4E19D0ADF500D4831A /* libGLEW.a */; };
+		5409399E19E7DBE000961C05 /* GLUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4C19D0ADC800D4831A /* GLUI.framework */; };
+		5409399F19E7DBE000961C05 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4A19D0ADAC00D4831A /* GLUT.framework */; };
+		540939A019E7DBE000961C05 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4819D0ADA400D4831A /* CoreServices.framework */; };
+		540939A119E7DBE000961C05 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4619D0AD9E00D4831A /* OpenGL.framework */; };
+		540939A219E7DBE000961C05 /* libCGF.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4419D0AD9200D4831A /* libCGF.a */; };
+		540939A319E7DBE000961C05 /* libTinyXML.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4219D0AD7F00D4831A /* libTinyXML.a */; };
+		540939A519E7DC0800961C05 /* LG_Config_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 540939A419E7DC0800961C05 /* LG_Config_Tests.cpp */; };
+		540939A819E7DC7500961C05 /* TestConfig.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 540939A619E7DC6800961C05 /* TestConfig.xml */; };
 		54118C4C19D9B73D0015D962 /* LG_Torus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54118C4A19D9B73D0015D962 /* LG_Torus.cpp */; };
 		54118C5919D9B8BA0015D962 /* libTinyXML.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4219D0AD7F00D4831A /* libTinyXML.a */; };
 		54118C5C19D9B8EA0015D962 /* TestTorus.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54118C5A19D9B8D50015D962 /* TestTorus.xml */; };
@@ -297,12 +307,13 @@
 		};
 		542D82B719E7C0CD004DC691 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			buildActionMask = 12;
+			dstPath = testFiles;
+			dstSubfolderSpec = 16;
 			files = (
+				540939A819E7DC7500961C05 /* TestConfig.xml in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 		542D82C219E7C0E9004DC691 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -483,6 +494,8 @@
 		5405EFBF19D09E4F00BEED1E /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		5405EFC119D09E4F00BEED1E /* XMLScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XMLScene.cpp; sourceTree = "<group>"; };
 		5405EFC219D09E4F00BEED1E /* XMLScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLScene.h; sourceTree = "<group>"; };
+		540939A419E7DC0800961C05 /* LG_Config_Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Config_Tests.cpp; sourceTree = "<group>"; };
+		540939A619E7DC6800961C05 /* TestConfig.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestConfig.xml; sourceTree = "<group>"; };
 		54118C4A19D9B73D0015D962 /* LG_Torus.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Torus.cpp; sourceTree = "<group>"; };
 		54118C4B19D9B73D0015D962 /* LG_Torus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_Torus.h; sourceTree = "<group>"; };
 		54118C4D19D9B8540015D962 /* LG_Torus_Tests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Torus_Tests.cpp; sourceTree = "<group>"; };
@@ -636,6 +649,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5409399C19E7DBE000961C05 /* libGLEWmx.a in Frameworks */,
+				5409399D19E7DBE000961C05 /* libGLEW.a in Frameworks */,
+				5409399E19E7DBE000961C05 /* GLUI.framework in Frameworks */,
+				5409399F19E7DBE000961C05 /* GLUT.framework in Frameworks */,
+				540939A019E7DBE000961C05 /* CoreServices.framework in Frameworks */,
+				540939A119E7DBE000961C05 /* OpenGL.framework in Frameworks */,
+				540939A219E7DBE000961C05 /* libCGF.a in Frameworks */,
+				540939A319E7DBE000961C05 /* libTinyXML.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -939,6 +960,7 @@
 				54831CD519E45C070090418B /* TestDraw1.xml */,
 				54D8611019E5896C00B5695A /* TestLights.xml */,
 				54D8612C19E58E2900B5695A /* TestTextures.xml */,
+				540939A619E7DC6800961C05 /* TestConfig.xml */,
 			);
 			name = TestFiles;
 			sourceTree = "<group>";
@@ -1011,6 +1033,7 @@
 				54D8610819E588FA00B5695A /* LG_Lights_Tests.cpp */,
 				542D829819E5C629004DC691 /* LG_Textures_Tests.cpp */,
 				542D82E719E7C194004DC691 /* LG_Cameras_Tests.cpp */,
+				540939A419E7DC0800961C05 /* LG_Config_Tests.cpp */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -1584,6 +1607,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				540939A519E7DC0800961C05 /* LG_Config_Tests.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1983,9 +2007,17 @@
 		542D82BE19E7C0CE004DC691 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/glew/1.10.0/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -1994,6 +2026,14 @@
 		542D82BF19E7C0CE004DC691 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/glew/1.10.0/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -2469,6 +2509,7 @@
 				542D82BF19E7C0CE004DC691 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		542D82C819E7C0E9004DC691 /* Build configuration list for PBXNativeTarget "LG_Cameras_Tests" */ = {
 			isa = XCConfigurationList;
@@ -2477,6 +2518,7 @@
 				542D82CA19E7C0E9004DC691 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5435E6E619D72CF9004169BD /* Build configuration list for PBXNativeTarget "LG_Drawing_Tests" */ = {
 			isa = XCConfigurationList;
