@@ -12,6 +12,8 @@
 #include <stdio.h>
 #include "LG_Appearance.h"
 
+#define LG_Apperance_Container_XML_Tag_Name "appearances"
+
 class LG_Appearance_Container:public LG_Parsable_Node {
     
 public:

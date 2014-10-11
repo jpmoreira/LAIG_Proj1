@@ -30,6 +30,6 @@ void LG_Lighting::verifyAttributesAndValues(TiXmlElement *element){
 	bool_tryToAttributeVariable(LG_LIGHTING_XML_ATT_DOUBLESIDED, element, doublesided);
 	bool_tryToAttributeVariable(LG_LIGHTING_XML_ATT_ENABLED, element, enabled);
 	bool_tryToAttributeVariable(LG_LIGHTING_XML_ATT_LOCAL, element, local);
-	lightArray_tryToAttributeVariable(LG_LIGHTING_XML_ATT_LOCAL, element, ambient);
+	lightArray_tryToAttributeVariable(LG_LIGHTING_XML_ATT_AMBIENT, element, ambient);
 
 }

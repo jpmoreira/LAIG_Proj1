@@ -38,7 +38,7 @@ LG_Parse_Exception::~LG_Parse_Exception(){
 const char * LG_Parse_Exception_Wrong_Attribute_Value::what(){
 
 
-	string tempMessage = "Wrong Attribute Value on Element " + *element + ".\nValue: " + *actualValue + "\n";
+    string tempMessage = "Wrong Attribute Value for attribute "+*attribute+" on Element " + *element + ".\nValue: " + *actualValue + "\n";
     
     if (expectedValues!=NULL) {
         

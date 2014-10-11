@@ -8,7 +8,7 @@
 
 #include "LG_Appearance_Container.h"
 #define LG_Appearance_Container_ID "_LG_Appearance_Container_ID"
-#define LG_Apperance_Container_XML_Tag_Name "appearances"
+
 
 
 #pragma mark - Constructor

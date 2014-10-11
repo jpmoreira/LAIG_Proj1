@@ -20,8 +20,9 @@
 #include "LG_Lighting.h"
 #include "LG_Culling.h"
 #include "LG_Drawing.h"
+#include "LG_Graph.h"
 
-class LG_Config: public LG_Parsable_Node {
+class LG_ANF {
     
 private:
     
@@ -35,11 +36,33 @@ private:
     LG_Texture_Container *textures;
     LG_Appearance_Container *apperances;
     
+    LG_Graph * graph;
+    
+    LG_Node_Map *map;
+    
+    
+    
+    /**
+     
+     A method for handling the globals sub element
+     
+     */
+    void handleGlobals(TiXmlElement *elem);
+    
+    
+    /**
+     
+     A method that checks if there is anything missing in the definition of the data members from the ANF file
+     
+     
+     
+     */
+    void verifyDataMembersValues();
     
 public:
     
     
-    LG_Config(TiXmlElement *elem);
+    LG_ANF(TiXmlElement *elem);
     
     
     

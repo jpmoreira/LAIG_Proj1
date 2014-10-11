@@ -12,6 +12,8 @@
 #include <stdio.h>
 #include "LG_Texture.h"
 
+#define LG_Texture_Container_XML_Tag_Name "textures"
+
 class LG_Texture_Container:public LG_Parsable_Node {
     
     

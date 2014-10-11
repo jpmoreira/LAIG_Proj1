@@ -12,7 +12,7 @@
 #define LG_Graph_Identifier "_LG_Graph_ID"
 
 #define LG_Graph_Root_XML_Att_Name "rootid"
-#define LG_Graph_XML_Tag_Name "graph"
+
 
 
 #pragma mark - Constructor

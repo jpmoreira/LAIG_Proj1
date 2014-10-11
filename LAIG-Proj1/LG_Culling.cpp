@@ -42,11 +42,11 @@ void LG_Culling::verifyAttributesAndValues(TiXmlElement *element){
 	enum_tryToAttribute(LG_CULLING_XML_ATT_FACE, element, tmp, &enums);
 	face =(LG_Culling_Face) tmp;
 
-	enums.clear();
+    enums=vector<string>();
 	enums.push_back(LG_Culling_CW_String);
 	enums.push_back(LG_Culling_CCW_String);
 
-	enum_tryToAttribute(LG_CULLING_XML_ATT_FACE, element, tmp, &enums);
+    enum_tryToAttribute(LG_CULLING_XML_ATT_ORDER, element, tmp, &enums);
 	order =(LG_Culling_Order) tmp;
 
 }

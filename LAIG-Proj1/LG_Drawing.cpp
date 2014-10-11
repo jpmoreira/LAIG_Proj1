@@ -12,17 +12,17 @@
 #define LG_Drawing_Line_String "line"
 #define LG_Drawing_Point_String "point"
 
-#define LG_Drawing_Mode_Att_Name "mode"
+#define LG_Drawing_Mode_XML_Att_Name "mode"
 
-#define LG_Shading_Mode_Att_Name "shading"
+#define LG_Shading_Mode_XML_Att_Name "shading"
 
-#define LG_Background_Att_Name "background"
+#define LG_Background_XML_Att_Name "background"
 
 
 #define LG_Shading_Flat_String "flat"
 #define LG_Shading_Gourad_String "gouraud"
 
-#define LG_Drawing_Node_Name "drawing"
+
 
 
 
@@ -51,10 +51,10 @@ LG_Drawing::LG_Drawing(LG_Node_Map *map,LG_Drawing_Mode md,LG_Shading_Mode shadi
 void LG_Drawing::verifyElementName(TiXmlElement *element){
     
     
-    if(strcmp(element->Value(), LG_Drawing_Node_Name)==0)return;
+    if(strcmp(element->Value(), LG_Drawing_XML_Tag_Name)==0)return;
     
     
-    string *expected=new string(LG_Drawing_Node_Name);
+    string *expected=new string(LG_Drawing_XML_Tag_Name);
     string *actual=new string(element->Value());
     throw new LG_Parse_Exception_Wrong_Element_Name(expected,actual);
     
@@ -68,7 +68,7 @@ void LG_Drawing::verifyElementAttributesAndValues(TiXmlElement *element){
     
     while (att) {//para cada atributo
         
-        if (str_eq(att->Name(), LG_Drawing_Mode_Att_Name)){//se o nome é o do atributo drawing
+        if (str_eq(att->Name(), LG_Drawing_Mode_XML_Att_Name)){//se o nome é o do atributo drawing
         
             
             char * values[3];//array com os possiveis valores
@@ -83,7 +83,7 @@ void LG_Drawing::verifyElementAttributesAndValues(TiXmlElement *element){
             
         }
         
-        else if (str_eq(att->Name(), LG_Shading_Mode_Att_Name)){
+        else if (str_eq(att->Name(), LG_Shading_Mode_XML_Att_Name)){
             
             char * values[2];
             
@@ -96,7 +96,7 @@ void LG_Drawing::verifyElementAttributesAndValues(TiXmlElement *element){
         
         }
         
-        else if(str_eq(att->Name(), LG_Background_Att_Name)){
+        else if(str_eq(att->Name(), LG_Background_XML_Att_Name)){
         
             
             LG_Parsable_Node::lightArrayValue(att, this->background);
@@ -107,19 +107,19 @@ void LG_Drawing::verifyElementAttributesAndValues(TiXmlElement *element){
     
     
     
-    string *node_name=new string(LG_Drawing_Node_Name);
+    string *node_name=new string(LG_Drawing_XML_Tag_Name);
     
     //verify if something is missing
     if (this->mode==LG_Drawing_Not_Set){
     
         
-        throw new LG_Parse_Exception_Missing_Attribute(node_name,new string(LG_Drawing_Mode_Att_Name));
+        throw new LG_Parse_Exception_Missing_Attribute(node_name,new string(LG_Drawing_Mode_XML_Att_Name));
     }
     
    
     else if(this->shading==LG_Shading_Not_Set){
     
-        throw new LG_Parse_Exception_Missing_Attribute(node_name,new string(LG_Shading_Mode_Att_Name));
+        throw new LG_Parse_Exception_Missing_Attribute(node_name,new string(LG_Shading_Mode_XML_Att_Name));
 
     }
     
@@ -128,7 +128,7 @@ void LG_Drawing::verifyElementAttributesAndValues(TiXmlElement *element){
     
     
         
-        throw new LG_Parse_Exception_Missing_Attribute(node_name,new string(LG_Background_Att_Name));
+        throw new LG_Parse_Exception_Missing_Attribute(node_name,new string(LG_Background_XML_Att_Name));
 
     }
     

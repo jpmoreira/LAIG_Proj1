@@ -9,7 +9,7 @@
 #include "LG_Texture_Container.h"
 
 #define LG_Texture_Containter_ID "_LG_Texture_Container"
-#define LG_Texture_Container_XML_Tag_Name "textures"
+
 
 
 #pragma mark - Constructor

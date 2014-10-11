@@ -954,7 +954,7 @@ public:
         }
         
         
-        if (!isEqualToOnePossibility)throw new LG_Parse_Exception_Wrong_Attribute_Value(new string(element->Value()), new string(att_val), new string(att_val), possibleValues);
+        if (!isEqualToOnePossibility)throw new LG_Parse_Exception_Wrong_Attribute_Value(new string(element->Value()), new string(att_str_name), new string(att_val), possibleValues);
         
         
     

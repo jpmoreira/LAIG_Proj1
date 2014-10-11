@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include "LG_Parsable_Node.h"
 
+#define LG_Drawing_XML_Tag_Name "drawing"
 
 #define _LG_Drawing_NodeID "_LG_Drawing"
 
