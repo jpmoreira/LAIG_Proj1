@@ -39,7 +39,7 @@ TEST_CASE("Testing Graphs parsing"){
     LG_LightArray amb,diff,spec;
     double s;
     string identifier="uniqueExistingApp";
-    LG_Appearance *app=new LG_Appearance(appMap, amb, diff, spec, s, identifier);
+    LG_Appearance *app=new LG_Appearance(appMap, amb, diff, spec, s, identifier, NULL);
     
     
     TiXmlElement *firstElement=doc->FirstChildElement();
@@ -53,8 +53,8 @@ TEST_CASE("Testing Graphs parsing"){
         
         try {
             LG_Graph *g=new LG_Graph(appMap,firstElement);
-            REQUIRE(g->root==g->mapForNodes->find("node2")->second);
-            REQUIRE(g->mapForNodes->size()==5);//1 torus 2 transforms and 2 nodes
+            REQUIRE(g->root==g->map->find("node2")->second);
+            REQUIRE(g->map->size()==5);//1 torus 2 transforms and 2 nodes
             REQUIRE(g->root->appearance==app);
             REQUIRE(str_eq(g->root->child(0)->identifier.c_str(),"node1"));//transformsare not childs
             REQUIRE(g->root->child(0)->childsIDs.size()==1);//node1 should have 1 child, his primitive
@@ -91,9 +91,9 @@ TEST_CASE("Testing Graphs parsing"){
             LG_Graph *g=new LG_Graph(appMap,thirdElement);
             
             
-            LG_Node *node1=g->mapForNodes->find("node1")->second;
-            LG_Node *node2=g->mapForNodes->find("node2")->second;
-            LG_Node *node3=g->mapForNodes->find("node3")->second;
+            LG_Node *node1=g->map->find("node1")->second;
+            LG_Node *node2=g->map->find("node2")->second;
+            LG_Node *node3=g->map->find("node3")->second;
             
             
             REQUIRE(g->root==node2);//node2 is root

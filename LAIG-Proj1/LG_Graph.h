@@ -24,8 +24,7 @@ public:
 private:
     
     
-    
-    LG_Node_Map *mapForNodes;
+
     LG_Node_Map *appearancesMap;
     
     LG_Graph_Node *root;

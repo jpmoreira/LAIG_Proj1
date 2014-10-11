@@ -48,11 +48,14 @@ TEST_CASE("Testing hole configuration parsing"){
             LG_ANF *anf=new LG_ANF(firstElement);
             
             REQUIRE(str_eq(anf->graph->root->appearance->identifier.c_str(),"appear1"));
-            REQUIRE(anf->graph->childsIDs.size()==2);
             REQUIRE(anf->apperances->childsIDs.size()==1);
             REQUIRE(anf->textures->childsIDs.size()==0);
             REQUIRE(anf->lights->childsIDs.size()==2);
             REQUIRE(anf->cameras->childsIDs.size()==2);
+        
+            std::cout<<anf->graph->child(0)->identifier<<std::endl;
+            REQUIRE(anf->graph->childsIDs.size()==1);
+        
         } catch (LG_Parse_Exception *ex) {
             
             std::cout<<string(ex->what())<<std::endl;
