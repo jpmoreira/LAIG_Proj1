@@ -33,18 +33,18 @@
   <lights>
     <!-- Deve existir pelo menos uma luz declarada -->
     <!-- Atributo "marker" indica se deve ou nao desenhar-se uma esfera representativa -->
-    <light id="omni1" type="omni" enabled="true" marker="false" pos="5 5 5" >
+    <!--<light id="omni1" type="omni" enabled="true" marker="true" pos="5 5 5" >
       <component type="ambient" value="0.4 0.7 0.8 1" />
       <component type="diffuse" value="0.4 0.7 0.8 1" />
       <component type="specular" value="0.4 0.7 0.8 1" />
 
-    </light>
-    <light id="spot1" type="spot" enabled="true" marker="true" pos="1 1 1" target="5 5 5"
-        angle="10" exponent="0" >
+    </light>-->
+    <light id="spot1" type="spot" enabled="true" marker="true" pos="11 10 5" target="11 6 5"
+        angle="50" exponent="1" >
 
-      <component type="ambient" value="0.8 0.8 0.8 10" />
-      <component type="diffuse" value="0.8 0.8 0.8 10" />
-      <component type="specular" value="0.8 0.8 0.8 10" />
+      <component type="ambient" value="0.8 0.8 0.8 1" />
+      <component type="diffuse" value="0.8 0.8 0.8 1" />
+      <component type="specular" value="0.8 0.8 0.8 1" />
 
     </light>
   </lights>

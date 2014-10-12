@@ -13,5 +13,6 @@ class LG_Lights_Container :
 public:
 	LG_Lights_Container(LG_Node_Map *map, TiXmlElement *element);
 	~LG_Lights_Container();
+	void draw();
 };
 

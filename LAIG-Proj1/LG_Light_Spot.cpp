@@ -19,17 +19,13 @@ LG_Light_Spot::LG_Light_Spot(LG_Node_Map *map, TiXmlElement *element) : LG_Light
 	my_light_id = LG_Light::getLightsCount();
 	LG_Light::increaseLightsCount();
 
-	my_light = new CGFlight(my_light_id, pos, target);
-	my_light->setAngle((float)angle);
+	my_light = new CGFlight(GL_LIGHT6, pos, target);
 	my_light->setAmbient(components[LG_LIGHT_COMPONENT_AMBIENT]);
 	my_light->setDiffuse(components[LG_LIGHT_COMPONENT_DIFFUSE]);
 	my_light->setSpecular(components[LG_LIGHT_COMPONENT_SPECULAR]);
-	
-	glLightf(my_light_id, GL_SPOT_EXPONENT, float(exponent));
-	if (marker)
-		my_light->draw();
 
-	
+	my_light->setAngle((float)angle);
+	glLightf(my_light_id, GL_SPOT_EXPONENT, float(exponent));
 }
 
 
@@ -107,6 +103,19 @@ double LG_Light_Spot::getExponent(){
 
 void LG_Light_Spot::draw()
 {
+
+	/*float posi[3];
+	posi[0] = 3;
+	posi[1] = 3;
+	posi[2] = 3;
+	CGFlight mylight2 = CGFlight(GL_LIGHT6, posi);*/ //testing purpose
+
+	if (marker)
+		my_light->draw();
 	if (enabled)
 		my_light->enable();
+	else
+		my_light->disable();
+
+	//my_light->disable();
 }

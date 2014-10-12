@@ -94,48 +94,48 @@ void LG_Scene::init() {
     // Declares and enables two lights, with null ambient component
     
     //light0 = new CGFlight(GL_LIGHT0, light0_pos);
-    light0 = new CGFlight(GL_LIGHT0, light0_pos);
-    light0->setAmbient(ambientNull);
-    //light0->setSpecular(yellow);
-    
-    
-    
+    //light0 = new CGFlight(GL_LIGHT0, light0_pos);
+    //light0->setAmbient(ambientNull);
+    ////light0->setSpecular(yellow);
+    //
+    //
+    //
+    ////light1 = new CGFlight(GL_LIGHT1, light1_pos);
     //light1 = new CGFlight(GL_LIGHT1, light1_pos);
-    light1 = new CGFlight(GL_LIGHT1, light1_pos);
-    light1->setAmbient(ambientNull);
-    
-    
-    light1->setKc(1);
-    light1->setKl(0);
-    light1->setKq(0);
-    
-    
-    //light2 = new CGFlight(GL_LIGHT2, light2_pos);
-    light2 = new CGFlight(GL_LIGHT2, light2_pos);;
-    light2->setAmbient(ambientNull);
-    
-    
-    
-    light2->setKc(1);
-    light2->setKl(0);
-    light2->setKq(0);
-    
-    
-    light3 = new CGFlight(GL_LIGHT3, light3_pos);
-    light3->setAmbient(ambientNull);
-    
-    
-    
-    
-    light3->setKc(0);
-    light3->setKl(0);
-    light3->setKq(0.2);
-    
-    
-    light0->enable();
-    light1->disable();
-    light2->disable();
-    light3->disable();
+    //light1->setAmbient(ambientNull);
+    //
+    //
+    //light1->setKc(1);
+    //light1->setKl(0);
+    //light1->setKq(0);
+    //
+    //
+    ////light2 = new CGFlight(GL_LIGHT2, light2_pos);
+    //light2 = new CGFlight(GL_LIGHT2, light2_pos);;
+    //light2->setAmbient(ambientNull);
+    //
+    //
+    //
+    //light2->setKc(1);
+    //light2->setKl(0);
+    //light2->setKq(0);
+    //
+    //
+    //light3 = new CGFlight(GL_LIGHT3, light3_pos);
+    //light3->setAmbient(ambientNull);
+    //
+    //
+    //
+    //
+    //light3->setKc(0);
+    //light3->setKl(0);
+    //light3->setKq(0.2);
+    //
+    //
+    //light0->enable();
+    //light1->disable();
+    //light2->disable();
+    //light3->disable();
     // Uncomment below to enable normalization of lighting normal vectors
     glEnable (GL_NORMALIZE);
     
@@ -162,11 +162,11 @@ void LG_Scene::display(){
     CGFscene::activeCamera->applyView();
     
     //light0->enable();
-    light0->draw();
+    /*light0->draw();
     light1->draw();
     light2->draw();
     light3->draw();
-    
+    */
     // Draw axis
     axis.draw();
     
