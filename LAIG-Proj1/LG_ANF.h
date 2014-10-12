@@ -60,14 +60,6 @@ private:
     void verifyDataMembersValues();
     
     
-    /**
-     
-     A method for configuring openGL with all defenitions previously loaded from the xml
-     
-     
-     
-     */
-    void config(CGFapplication *app);
     
     
 public:
@@ -77,6 +69,16 @@ public:
     
     
     void draw();
+    
+    
+    /**
+     
+     A method for configuring openGL with all defenitions previously loaded from the xml
+     
+     
+     
+     */
+    void config(CGFapplication *app);
     
     
     

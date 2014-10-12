@@ -161,7 +161,11 @@ void LG_ANF::verifyDataMembersValues() {
 #pragma mark - OpenGL configuration
 
 void LG_ANF::config(CGFapplication *app) {
+ 
     
+    
+    cullingConfig->draw();
+    drawingConfig->draw();
 }
 
 

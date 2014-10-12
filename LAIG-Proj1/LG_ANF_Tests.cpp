@@ -2,7 +2,7 @@
 
 
 #ifndef LG_ALL_TESTS
-#define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
+#define CATCH_CONFIG_RUNNER  // This tells Catch to provide a main() - only do this in one cpp file
 #include "catch.h"
 #define private public //disable encapsulation for following files, allowing testing to be done
 #define protected public
@@ -12,24 +12,9 @@
 #include <CGFapplication.h>
 #include <string>
 #include "LG_ANF.h"
+#include "LG_Scene.h"
 
 TEST_CASE("Testing hole configuration parsing"){
-    
-    
-    static bool called=false;
-    
-    
-    if (!called) {//dont init various times
-        
-        CGFapplication app;
-        
-        int zero=1;
-        const char * noParams[1]={"blabla"};
-        app.init(&zero, (char **)noParams);
-        
-        called=true;
-    }
-
     
     
     TiXmlDocument *doc=new TiXmlDocument("testFiles/testANF.xml");
@@ -67,4 +52,41 @@ TEST_CASE("Testing hole configuration parsing"){
     }
     
     
+}
+
+
+
+int main(int argc, char * argv[]){
+
+    
+    
+    
+    CGFapplication app = CGFapplication();
+    
+    int result=0;
+    
+    try {
+        app.init(&argc, argv);
+        
+        app.setScene(new LG_Scene());
+        app.setInterface(new CGFinterface());
+        //app.setInterface(new TPinterface());
+        
+        //result=Catch::Session().run(argc, argv);//run tests before starting app
+        
+        app.run();
+    }
+    catch(GLexception& ex) {
+        cout << "Erro: " << ex.what();
+        return -1;
+    }
+    catch(exception& ex) {
+        cout << "Erro inesperado: " << ex.what();
+        return -1;
+    }
+    
+    
+    
+    return result;
+
 }

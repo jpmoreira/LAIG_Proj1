@@ -11,7 +11,10 @@
 #include "LG_Parsable_Node.h"
 
 
+#include <GL/glut.h>
 
+
+#pragma mark - Constructor
 
 LG_Culling::LG_Culling(LG_Node_Map *map, TiXmlElement *element) :LG_Parsable_Node(map, _LG_Culling_NodeID), face(LG_Culling_Face_Not_Set), order(LG_Culling_Order_Not_Set){
 
@@ -25,6 +28,8 @@ LG_Culling::LG_Culling(LG_Node_Map *map, TiXmlElement *element, LG_Culling_Order
 
 }
 
+
+#pragma mark - Helper Methods
 void LG_Culling::verifyAttributesAndValues(TiXmlElement *element){
 
 	string elem, attr, value;
@@ -55,4 +60,26 @@ void LG_Culling::verifyAttributesAndValues(TiXmlElement *element){
 void LG_Culling::verifyElementName(TiXmlElement *element){
 	if (!str_eq(element->Value(), LG_CULLING_XML_TAG_NAME))
 		throw LG_Parse_Exception_Wrong_Element_Name(new string(LG_CULLING_XML_TAG_NAME), new string(element->Value()));
+}
+
+
+#pragma mark - Inherited Methods
+
+
+
+void LG_Culling::draw() {
+    
+    
+    
+    if (face==LG_Front)glCullFace(GL_FRONT);
+    else if(face==LG_Back)glCullFace(GL_BACK);
+    else if(face==LG_Both)glCullFace(GL_FRONT_AND_BACK);
+    
+    
+    if (order==LG_Culling_Order_CW) glFrontFace(GL_CW);
+    else if(order==LG_Culling_Order_CCW)glFrontFace(GL_CCW);
+
+    
+    
+    
 }

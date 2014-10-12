@@ -68,14 +68,16 @@ float yellow[4]={1,1,0,1};
 
 void LG_Scene::init() {
     
-    TiXmlDocument *doc=new TiXmlDocument("./testFiles/TestDraw1.xml");
+    TiXmlDocument *doc=new TiXmlDocument("./testFiles/TestANF.xml");
     
     
-    bool b=doc->LoadFile();
+    doc->LoadFile();
     
     
     
     anf=new LG_ANF(doc->FirstChildElement());
+    
+    anf->config(NULL);
     
     
     

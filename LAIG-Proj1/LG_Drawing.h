@@ -59,6 +59,7 @@ public:
     void verifyElementName(TiXmlElement *element);
     void verifyElementAttributesAndValues(TiXmlElement *element);
     
+    void draw();
 
     
     

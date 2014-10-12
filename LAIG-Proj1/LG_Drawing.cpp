@@ -8,6 +8,7 @@
 
 #include "LG_Drawing.h"
 
+#include <GL/glut.h>
 #define LG_Drawing_Fill_String "fill"
 #define LG_Drawing_Line_String "line"
 #define LG_Drawing_Point_String "point"
@@ -21,6 +22,8 @@
 
 #define LG_Shading_Flat_String "flat"
 #define LG_Shading_Gourad_String "gouraud"
+
+
 
 
 
@@ -48,6 +51,8 @@ LG_Drawing::LG_Drawing(LG_Node_Map *map,LG_Drawing_Mode md,LG_Shading_Mode shadi
 }
 
 
+
+#pragma mark - Helper Methods
 void LG_Drawing::verifyElementName(TiXmlElement *element){
     
     
@@ -136,5 +141,24 @@ void LG_Drawing::verifyElementAttributesAndValues(TiXmlElement *element){
 
 }
 
+
+#pragma mark - Inherited Methods
+
+void LG_Drawing::draw() {
+    
+    
+
+    if(mode==LG_Drawing_Line) glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    else if(mode==LG_Drawing_Point) glPolygonMode(GL_FRONT_AND_BACK, GL_POINT);
+    else if(mode==LG_Drawing_Fill) glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+    
+    
+    if (shading==LG_Flat) glShadeModel(GL_FLAT);
+    else if(shading==LG_Gouraud) glShadeModel(GL_SMOOTH);
+    
+    glClearColor(background[0], background[1], background[2], background[3]);
+    
+    
+}
 
 
