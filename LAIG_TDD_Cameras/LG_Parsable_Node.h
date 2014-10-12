@@ -707,6 +707,32 @@ public:
 
 
 	}
+    
+    
+    
+    /**
+     
+     A method that tries to initialize a lightArray with the elements coming from an attribute.
+     In case some error occurs false is returned and the array is filled with the value LG_LightValue_Not_Set
+     */
+    
+    static inline bool lightArrayValue_f_(const char  *att, LG_LightArray_f& lightArrayToFill){
+        
+        float dummy;
+        
+        int nrFound = sscanf(att, "%f %f %f %f %f", &(lightArrayToFill[0]), &(lightArrayToFill[1]), &(lightArrayToFill[2]), &(lightArrayToFill[3]), &dummy);//try to match one more... if it's matched then some error happened....
+        
+        if (nrFound != 4){
+            
+            for (int i = 0; i < LG_LightArray_Lenght; i++)
+                lightArrayToFill[i] = LG_LightValue_Not_Set;
+            return false;
+            
+        }
+        
+        
+        return true;
+    };
 
 	/**
 
@@ -731,6 +757,9 @@ public:
 
 		return true;
 	};
+    
+    
+
 
 	/**
 

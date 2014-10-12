@@ -54,7 +54,7 @@ private:
      To control the ambient light color. Tipically white or brown.
      
      */
-	LG_LightArray ambient;
+	LG_LightArray_f ambient;
     
     
     
@@ -66,6 +66,8 @@ public:
     void verifyElementName(TiXmlElement *element);
     
     void verifyAttributesAndValues(TiXmlElement* element);
+    
+    void draw();
     
     
 };

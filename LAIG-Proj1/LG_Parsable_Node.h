@@ -720,6 +720,31 @@ public:
 
 		return true;
 	};
+    
+    
+    /**
+     
+     A method that tries to initialize a lightArray with the elements coming from an attribute.
+     In case some error occurs false is returned and the array is filled with the value LG_LightValue_Not_Set
+     */
+    
+    static inline bool lightArrayValue_f_(const char  *att, LG_LightArray_f& lightArrayToFill){
+        
+        float dummy;
+        
+        int nrFound = sscanf(att, "%f %f %f %f %f", &(lightArrayToFill[0]), &(lightArrayToFill[1]), &(lightArrayToFill[2]), &(lightArrayToFill[3]), &dummy);//try to match one more... if it's matched then some error happened....
+        
+        if (nrFound != 4){
+            
+            for (int i = 0; i < LG_LightArray_Lenght; i++)
+                lightArrayToFill[i] = LG_LightValue_Not_Set;
+            return false;
+            
+        }
+        
+        
+        return true;
+    };
 
 	/**
 
@@ -856,6 +881,35 @@ public:
         
         
         bool ok=lightArrayValue_(att_value, values);
+        
+        if (!ok){
+            throw new LG_Parse_Exception_Wrong_Attribute_Value(new string(element->Value()), new string(att_name), new string(att_value));
+        }
+        
+        
+    }
+    
+    /**
+     
+     A method that tries to attribute a particular attribute to a LG_LightArray variable.
+     Throws the appropriate exception in case something wrong happens.
+     In case of an
+     @param att_name the name of the attribute to be set. To be used in the thrown exception.
+     @param element element to whom the attribute belongs to.
+     @param values the variable to be set.
+     
+     */
+    
+    static inline void lightArray_f_tryToAttributeVariable(const char * att_name,TiXmlElement *element, LG_LightArray_f & values){
+        
+        
+        char *att_value = (char *)element->Attribute(att_name);
+        
+        if (!att_value)
+            throw  new LG_Parse_Exception_Missing_Attribute(new string(element->Value()), new string(att_name));
+        
+        
+        bool ok=lightArrayValue_f_(att_value, values);
         
         if (!ok){
             throw new LG_Parse_Exception_Wrong_Attribute_Value(new string(element->Value()), new string(att_name), new string(att_value));

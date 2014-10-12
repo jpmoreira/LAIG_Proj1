@@ -1,4 +1,5 @@
 #include "LG_Lighting.h"
+#include <GL/glut.h>
 
 #define LG_Lighting_ElementName "lighting";
 
@@ -30,6 +31,29 @@ void LG_Lighting::verifyAttributesAndValues(TiXmlElement *element){
 	bool_tryToAttributeVariable(LG_LIGHTING_XML_ATT_DOUBLESIDED, element, doublesided);
 	bool_tryToAttributeVariable(LG_LIGHTING_XML_ATT_ENABLED, element, enabled);
 	bool_tryToAttributeVariable(LG_LIGHTING_XML_ATT_LOCAL, element, local);
-	lightArray_tryToAttributeVariable(LG_LIGHTING_XML_ATT_AMBIENT, element, ambient);
+	lightArray_f_tryToAttributeVariable(LG_LIGHTING_XML_ATT_AMBIENT, element, ambient);
 
+}
+
+
+#pragma mark - Inherited Methods
+
+
+void LG_Lighting::draw() {
+    
+    if (enabled)glEnable(GL_LIGHTING);
+    else glDisable(GL_LIGHTING);
+    
+    if (doublesided)glLightModeli(GL_LIGHT_MODEL_TWO_SIDE, GL_TRUE);
+    else glLightModelf(GL_LIGHT_MODEL_TWO_SIDE, GL_FALSE);
+    
+    
+    glLightModelfv(GL_LIGHT_MODEL_AMBIENT, (GLfloat *)ambient);
+    
+    
+    if (local) glLightModeli(GL_LIGHT_MODEL_LOCAL_VIEWER, GL_TRUE);
+    else glLightModeli(GL_LIGHT_MODEL_LOCAL_VIEWER, GL_FALSE);
+    
+    
+    
 }

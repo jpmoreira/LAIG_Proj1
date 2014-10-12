@@ -82,14 +82,11 @@ void LG_Scene::init() {
     
     
     
-    glEnable(GL_LIGHTING);
+    //glEnable(GL_LIGHTING);
     
-    // Sets up some lighting parameters
-    // Computes lighting only using the front face normals and materials
-    glLightModelf(GL_LIGHT_MODEL_TWO_SIDE, GL_FALSE);
     
     // Define ambient light (do not confuse with ambient component of individual lights)
-    glLightModelfv(GL_LIGHT_MODEL_AMBIENT, globalAmbientLight);
+    //glLightModelfv(GL_LIGHT_MODEL_AMBIENT, globalAmbientLight);
     
     
     // Declares and enables two lights, with null ambient component
@@ -132,6 +129,11 @@ void LG_Scene::init() {
     light3->setKl(0);
     light3->setKq(0.2);
     
+    
+    light0->enable();
+    light1->disable();
+    light2->disable();
+    light3->disable();
     // Uncomment below to enable normalization of lighting normal vectors
     glEnable (GL_NORMALIZE);
     
@@ -157,7 +159,7 @@ void LG_Scene::display(){
     // Apply transformations corresponding to the camera position relative to the origin
     CGFscene::activeCamera->applyView();
     
-    light0->enable();
+    //light0->enable();
     light0->draw();
     light1->draw();
     light2->draw();

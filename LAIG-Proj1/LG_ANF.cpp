@@ -166,6 +166,7 @@ void LG_ANF::config(CGFapplication *app) {
     
     cullingConfig->draw();
     drawingConfig->draw();
+    lightingConfig->draw();
 }
 
 

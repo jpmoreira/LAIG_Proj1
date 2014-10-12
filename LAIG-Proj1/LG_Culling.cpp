@@ -69,12 +69,12 @@ void LG_Culling::verifyElementName(TiXmlElement *element){
 
 void LG_Culling::draw() {
     
-    
+    glEnable(GL_CULL_FACE);
     
     if (face==LG_Front)glCullFace(GL_FRONT);
     else if(face==LG_Back)glCullFace(GL_BACK);
     else if(face==LG_Both)glCullFace(GL_FRONT_AND_BACK);
-    
+    else if(face==LG_None)glDisable(GL_CULL_FACE);
     
     if (order==LG_Culling_Order_CW) glFrontFace(GL_CW);
     else if(order==LG_Culling_Order_CCW)glFrontFace(GL_CCW);
