@@ -67,8 +67,7 @@
         
     </appearances>
     
-    <!-- bloco do grafo; "rootid" identifica o no de raiz -->
-    <graph rootid="bla">
+    <graph rootid="exercise_bench">
         
         <!--<node id="healthclub">
          <appearanceref id="inherit" />
@@ -84,17 +83,300 @@
          <noderef id="exercise_ball" />
          </descendents>
          </node>-->
-        <node id="bla">
+        <node id="putting_together">
             <appearanceref id="inherit" />
             <transforms></transforms>
             <descendants>
+                <noderef id="back_wall" />
+                <noderef id="side_wall" />
+                <noderef id="floor" />
+                <noderef id="weight" />
+                <!--<noderef id="pool" />
+                 <noderef id="bench" />
+                 <noderef id="exercise_ball" />-->
             </descendants>
+            <primitives></primitives>
+        </node>
+        <node id="back_wall">
+            <appearanceref id="inherit" />
+            <transforms>
+                <transform type="translate" to="10 2.5 0"/>
+                <transform type="scale" factor="20 5 0.5"/>
+            </transforms>
+            <descendants>
+                <noderef id="cuboid"/>
+            </descendants>
+            <primitives></primitives>
+        </node>
+        <node id="side_wall">
+            <appearanceref id="inherit" />
+            <transforms>
+                <transform type="translate" to="20 2.5 10"/>
+                <transform type="rotate" axis="y" angle="90"/>
+                <transform type="scale" factor="20 5 0.5"/>
+            </transforms>
+            <descendants>
+                <noderef id="cuboid"/>
+            </descendants>
+            <primitives></primitives>
+        </node>
+        <node id="floor">
+            <appearanceref id="inherit" />
+            <transforms>
+                <transform type="translate" to="10 0.25 10"/>
+                <transform type="scale" factor="20 0.5 20"/>
+            </transforms>
+            <descendants>
+                <noderef id="cuboid"/>
+            </descendants>
+            <primitives></primitives>
+        </node>
+        <node id="cuboid">
+            <appearanceref id="inherit"/>
+            <transforms></transforms>
+            <descendants>
+                <noderef id="cuboid_front"/>
+                <noderef id="cuboid_back"/>
+                <noderef id="cuboid_left"/>
+                <noderef id="cuboid_right"/>
+                <noderef id="cuboid_top"/>
+                <noderef id="cuboid_bottom"/>
+            </descendants>
+            <primitives></primitives>
+        </node>
+        <node id="cuboid_front">
+            <appearanceref id="inherit"/>
+            <transforms>
+                <transform type="translate" to="0 0 0.5"/>
+            </transforms>
+            <descendants></descendants>
             <primitives>
-                <rectangle xy1="0 0" xy2="20 20" />
+                <rectangle xy1=" -0.5 -0.5" xy2="0.5 0.5"/>
             </primitives>
         </node>
-      
+        <node id="cuboid_back">
+            <appearanceref id="inherit"/>
+            <transforms>
+                <transform type="translate" to="0 0 -0.5"/>
+                <transform type="rotate" axis="y" angle="180"/>
+            </transforms>
+            <descendants></descendants>
+            <primitives>
+                <rectangle xy1=" -0.5 -0.5" xy2="0.5 0.5"/>
+            </primitives>
+        </node>
+        <node id="cuboid_left">
+            <appearanceref id="inherit"/>
+            <transforms>
+                <transform type="translate" to="-0.5 0 0"/>
+                <transform type="rotate" axis="y" angle="-90"/>
+            </transforms>
+            <descendants></descendants>
+            <primitives>
+                <rectangle xy1=" -0.5 -0.5" xy2="0.5 0.5"/>
+            </primitives>
+        </node>
+        <node id="cuboid_right">
+            <appearanceref id="inherit"/>
+            <transforms>
+                <transform type="translate" to="0.5 0 0"/>
+                <transform type="rotate" axis="y" angle="90"/>
+            </transforms>
+            <descendants></descendants>
+            <primitives>
+                <rectangle xy1=" -0.5 -0.5" xy2="0.5 0.5"/>
+            </primitives>
+        </node>
+        <node id="cuboid_top">
+            <appearanceref id="inherit"/>
+            <transforms>
+                <transform type="translate" to="0 0.5 0"/>
+                <transform type="rotate" axis="x" angle="-90"/>
+            </transforms>
+            <descendants></descendants>
+            <primitives>
+                <rectangle xy1=" -0.5 -0.5" xy2="0.5 0.5"/>
+            </primitives>
+        </node>
+        <node id="cuboid_bottom">
+            <appearanceref id="inherit"/>
+            <transforms>
+                <transform type="translate" to="0 -0.5 0"/>
+                <transform type="rotate" axis="x" angle="90"/>
+            </transforms>
+            <descendants></descendants>
+            <primitives>
+                <rectangle xy1=" -0.5 -0.5" xy2="0.5 0.5"/>
+            </primitives>
+        </node>
+        <node id="weight">
+            <appearanceref id="inherit" />
+            <transforms>
+                <transform type="translate" to="2 1 2"/>
+            </transforms>
+            <descendants>
+                <noderef id="weights"/>
+                <noderef id="grab_thing"/>
+            </descendants>
+            <primitives></primitives>
+        </node>
+        <node id="weights">
+            <appearanceref id="inherit" />
+            <transforms>
+            </transforms>
+            <descendants>
+                <noderef id="left_weight"/>
+                <noderef id="right_weight"/>
+            </descendants>
+            <primitives></primitives>
+        </node>
+        <node id="left_weight">
+            <appearanceref id="inherit"/>
+            <transforms>
+                <transform type="rotate" axis="y" angle="90"/>
+                <transform type="scale" factor="0.5 0.5 0.1"/>
+            </transforms>
+            <descendants></descendants>
+            <primitives>
+                <cylinder base="1" top="1" height="1" slices="20" stacks="20"/>
+            </primitives>
+        </node>
+        <node id="right_weight">
+            <appearanceref id="inherit"/>
+            <transforms>
+                <transform type="translate" to="1 0 0"/>
+                <transform type="rotate" axis="y" angle="90"/>
+                <transform type="scale" factor="0.5 0.5 0.1"/>
+            </transforms>
+            <descendants></descendants>
+            <primitives>
+                <cylinder base="1" top="1" height="1" slices="20" stacks="20"/>
+            </primitives>
+        </node>
+        <node id="grab_thing">
+            <appearanceref id="inherit"/>
+            <transforms>
+                <transform type="rotate" axis="y" angle="90"/>
+                <transform type="scale" factor="0.1 0.1 1"/>
+            </transforms>
+            <descendants></descendants>
+            <primitives>
+                <cylinder base="1" top="1" height="1" slices="20" stacks="20"/>
+            </primitives>
+        </node>
+        <node id="exercise_ball">
+            <appearanceref id="inherit"/>
+            <transforms>
+            </transforms>
+            <descendants></descendants>
+            <primitives>
+                <sphere radius="1" slices="20" stacks="20"/>
+            </primitives>
+        </node>
+        <node id="exercise_bench">
+            <appearanceref id="inherit"/>
+            <transforms>
+            </transforms>
+            <descendants>
+                <noderef id="butt_support"/>
+                <noderef id="back_support"/>
+                <noderef id="structure_support"/>
+                <noderef id="butt_structure_to_cyl"/>
+                <noderef id="back_structure_to_cyl"/>
+                <noderef id="butt_cyl"/>
+                <noderef id="back_cyl"/>
+            </descendants>
+            <primitives>
+            </primitives>
+        </node>
+        <node id="structure_support">
+            <appearanceref id="inherit"/>
+            <transforms>
+                <transform type="translate" to="1.5 2 1.05"/>
+                <transform type="scale" factor="3 0.2 0.2"/>
+            </transforms>
+            <descendants>
+                <noderef id ="cuboid"/>
+            </descendants>
+            <primitives>
+            </primitives>
+        </node>
+        <node id="back_structure_to_cyl">
+            <appearanceref id="inherit"/>
+            <transforms>
+                <transform type="translate" to="0.395 1.01 1.05"/>
+                <transform type="rotate" axis="z" angle="70"/>
+                <transform type="scale" factor="2.02 0.2 0.2"/>
+            </transforms>
+            <descendants>
+                <noderef id ="cuboid"/>
+            </descendants>
+            <primitives>
+            </primitives>
+        </node>
+        <node id="butt_structure_to_cyl">
+            <appearanceref id="inherit"/>
+            <transforms>
+                <transform type="translate" to="2.723 1.01 1.05"/>
+                <transform type="rotate" axis="z" angle="-80"/>
+                <transform type="scale" factor="1.92 0.2 0.2"/>      
+            </transforms>
+            <descendants>
+                <noderef id ="cuboid"/>
+            </descendants>
+            <primitives>
+            </primitives>
+        </node>
+        <node id="back_support">
+            <appearanceref id="inherit"/>
+            <transforms>
+                <transform type="translate" to="1 2.25 1.05"/>
+                <transform type="scale" factor="2 0.3 1"/>      
+            </transforms>
+            <descendants>
+                <noderef id ="cuboid"/>
+            </descendants>
+            <primitives>
+            </primitives>
+        </node>
+        <node id="butt_support">
+            <appearanceref id="inherit"/>
+            <transforms>
+                <transform type="translate" to="2.55 2.25 1.05"/>
+                <transform type="scale" factor="0.9 0.3 1"/>      
+            </transforms>
+            <descendants>
+                <noderef id ="cuboid"/>
+            </descendants>
+            <primitives>
+            </primitives>
+        </node>
+        <node id="back_cyl">
+            <appearanceref id="inherit"/>
+            <transforms>
+                <transform type="translate" to="0 0 0.5"/>
+                <transform type="scale" factor="0.2 0.2 1"/>      
+            </transforms>
+            <descendants>
+            </descendants>
+            <primitives>
+                <cylinder base="1" top="1" height="1" slices="20" stacks="20"/>
+            </primitives>
+        </node>
+        <node id="butt_cyl">
+            <appearanceref id="inherit"/>
+            <transforms>
+                <transform type="translate" to="2.9 0 0.5"/>
+                <transform type="scale" factor="0.2 0.2 1"/>      
+            </transforms>
+            <descendants>
+            </descendants>
+            <primitives>
+                <cylinder base="1" top="1" height="1" slices="20" stacks="20"/>
+            </primitives>
+        </node>
     </graph>
+
 
 
 
