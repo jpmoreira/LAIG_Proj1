@@ -61,9 +61,11 @@ void LG_Basic_Scene::init()
 {
 
     
-    
+#ifdef _WIN32
+	TiXmlDocument *doc = new TiXmlDocument("TestDraw1.xml");
+#else
     TiXmlDocument *doc=new TiXmlDocument("./testFiles/TestDraw1.xml");
-    
+#endif
     
     bool b=doc->LoadFile();
     
