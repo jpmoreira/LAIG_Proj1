@@ -39,3 +39,8 @@ LG_Torus::LG_Torus(LG_Node_Map *map,double inner,double outer,int sl,int loop):L
 
 
 }
+
+void LG_Torus::draw()
+{
+	glutSolidTorus(this->innerRadius, this->outerRadius, this->slices, this->loops);
+}
