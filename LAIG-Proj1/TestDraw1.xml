@@ -1,45 +1,4 @@
-<graph rootid="node2">
-    
-    <node id="node2">
-        
-        <transforms>
-            
-        </transforms>
-        
-        <appearanceref id="inherit" />
-        
-        <primitives>
-            <triangle xyz3="0 0 0" xyz2="0 0 20" xyz1="0 10 10" />
-            <rectangle xy1="0 0" xy2="10 10"/>
-            <sphere radius="1" slices="10" stacks="10" />
-        </primitives>
-        
-        <descendants>
-            <noderef id="node1"/>
-        </descendants>
-        
-    </node>
-    
-    
-    <node id="node1">
-        
-        <transforms>
-             <transform type="translate" to="5 0 0" />
-        </transforms>
-        
-        <appearanceref id="inherit" />
-        
-        <primitives>
-            <triangle xyz1="20 0 0" xyz2="20 0 20" xyz3="20 10 10" />
-            <cylinder base="1.5" top="0.0" height="5" slices="10" stacks="4" />
-        </primitives>
-        
-        <descendants>
-            
-        </descendants>
-        
-    </node>
-    
+<graph rootid="exercise_bench">
 
   <!--<node id="healthclub">
     <appearanceref id="inherit" />
