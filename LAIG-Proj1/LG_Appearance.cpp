@@ -11,6 +11,9 @@
 #include "LG_Appearance.h"
 
 
+#include <GL/glut.h>
+
+
 #define LG_Appearance_Shininess_XML_Att_Name "shininess"
 #define LG_Apperance_Component_XML_Tag_Name "component"
 #define LG_Apperance_Component_Type_XML_Att_Name "type"
@@ -30,7 +33,7 @@ LG_Appearance::LG_Appearance(LG_Node_Map *map,TiXmlElement *elem,LG_Node_Map *te
         throw new LG_Parse_Exception_Wrong_Element_Name(LG_Appearance_XML_Tag_Name,elem->Value());
     }
     
-    positiveDouble_tryToAttributeVariable(LG_Appearance_Shininess_XML_Att_Name, elem, shininess);
+    positiveFloat_tryToAttributeVariable(LG_Appearance_Shininess_XML_Att_Name, elem, shininess);
     
     
     TiXmlElement *subElement=elem->FirstChildElement();
@@ -52,11 +55,11 @@ LG_Appearance::LG_Appearance(LG_Node_Map *map,TiXmlElement *elem,LG_Node_Map *te
     
 }
 
-LG_Appearance::LG_Appearance(LG_Node_Map *map,LG_LightArray amb,LG_LightArray diff,LG_LightArray spec,double s,string identif,LG_Texture *texture):LG_Parsable_Node(map,identif),shininess(s){
+LG_Appearance::LG_Appearance(LG_Node_Map *map,LG_LightArray_f amb,LG_LightArray_f diff,LG_LightArray_f spec,float s,string identif,LG_Texture *texture):LG_Parsable_Node(map,identif),shininess(s){
     
-    copyLightArrays(amb, ambient);
-    copyLightArrays(diff, diffuse);
-    copyLightArrays(spec, specular);
+    copyLightArrays_f(amb, ambient);
+    copyLightArrays_f(diff, diffuse);
+    copyLightArrays_f(spec, specular);
     this->texture=texture;
     
 
@@ -85,16 +88,16 @@ void LG_Appearance::handleComponent(TiXmlElement *component){
     
     if (str_eq(type.c_str(), LG_Apperance_Component_Type_Ambient_String)) {
         
-        lightArray_tryToAttributeVariable(LG_Apperance_Component_Value_XML_Att_Name, component, ambient);
+        lightArray_f_tryToAttributeVariable(LG_Apperance_Component_Value_XML_Att_Name, component, ambient);
     }
     
     else if (str_eq(type.c_str(), LG_Apperance_Component_Type_Diffuse_String)) {
         
-        lightArray_tryToAttributeVariable(LG_Apperance_Component_Value_XML_Att_Name, component, diffuse);
+        lightArray_f_tryToAttributeVariable(LG_Apperance_Component_Value_XML_Att_Name, component, diffuse);
     }
     else if (str_eq(type.c_str(), LG_Apperance_Component_Type_Specular_String)) {
         
-        lightArray_tryToAttributeVariable(LG_Apperance_Component_Value_XML_Att_Name, component, specular);
+        lightArray_f_tryToAttributeVariable(LG_Apperance_Component_Value_XML_Att_Name, component, specular);
     }
     else {
         vector<string> *possibleValue=new vector<string>();
@@ -146,3 +149,51 @@ void LG_Appearance::handleTextureRef(LG_Node_Map *texturesMap, TiXmlElement *ele
     
     
 }
+
+
+
+#pragma mark - Application
+
+
+
+
+void LG_Appearance::apply() {
+    
+    
+    glGetMaterialfv(GL_FRONT, GL_SHININESS, &_savedShininess);
+    glGetMaterialfv(GL_FRONT, GL_SPECULAR, (GLfloat *)&_savedSpecular);
+    glGetMaterialfv(GL_FRONT, GL_AMBIENT, (GLfloat *)&_savedAmbient);
+    glGetMaterialfv(GL_FRONT, GL_DIFFUSE, (GLfloat *)&_savedDiffuse);
+    
+    
+    if(shininess!=LG_INVALID_FLOAT)glMaterialf(GL_FRONT, GL_SHININESS, shininess);
+    if(specular[0]!=LG_INVALID_FLOAT)glMaterialfv(GL_FRONT, GL_SPECULAR, specular);
+    if(ambient[0]!=LG_INVALID_FLOAT)glMaterialfv(GL_FRONT, GL_AMBIENT, ambient);
+    if(diffuse[0]!=LG_INVALID_FLOAT)glMaterialfv(GL_FRONT, GL_DIFFUSE, diffuse);
+    
+    
+    
+    
+}
+
+
+void LG_Appearance::unapply(){
+    
+    
+    //restore old defaults
+    
+    if(shininess!=LG_INVALID_FLOAT)glMaterialf(GL_FRONT, GL_SHININESS, _savedShininess);
+    if(specular[0]!=LG_INVALID_FLOAT)glMaterialfv(GL_FRONT, GL_SPECULAR, _savedSpecular);
+    if(ambient[0]!=LG_INVALID_FLOAT)glMaterialfv(GL_FRONT, GL_AMBIENT, _savedAmbient);
+    if(diffuse[0]!=LG_INVALID_FLOAT)glMaterialfv(GL_FRONT, GL_DIFFUSE, _savedDiffuse);
+    
+    
+    
+    
+
+    
+
+}
+
+
+

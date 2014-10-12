@@ -28,6 +28,7 @@ using std::exception;
 
 #define LG_INVALID_INT INT_MAX
 #define LG_INVALID_DOUBLE DBL_MAX //didn't use NaN because checking nan==nan always returns false
+#define LG_INVALID_FLOAT FLT_MAX
 
 
 typedef enum{
@@ -218,6 +219,14 @@ public:
     
     }
     
+    static void inline copyLightArrays_f(LG_LightArray_f source,LG_LightArray_f dest){
+        
+        for (int i=0; i<LG_LightArray_Lenght; i++) {
+            dest[i]=source[i];
+        }
+        
+    }
+    
     /**
      
      A method that tries to attribute a particular attribute to an int variable.
@@ -310,6 +319,42 @@ public:
         
     }
     
+    
+    /**
+     
+     A method that tries to attribute a particular attribute to a double variable.
+     Throws the appropriate exception in case something wrong happens.
+     @param attName the name of the attribute to be set. To be used in the thrown exception.
+     @param elem the element whose whose attribute is to be used
+     @param parameter the variable to be set.
+     
+     
+     
+     */
+    
+    static void inline positiveFloat_tryToAttributeVariable(const char * attName,TiXmlElement* elem, float&parameter){
+        
+        
+        const char * source=elem->Attribute(attName);
+        const char * elemName=elem->Value();
+        
+        double temp;
+        
+        if (source==NULL){
+            throw new LG_Parse_Exception_Missing_Attribute(new string(elemName),new string(attName));
+        }
+        
+        temp=positiveDoubleValueForAttribute_(source);
+        parameter=(float)temp;
+        
+        if (temp==LG_INVALID_DOUBLE){
+            parameter=LG_INVALID_FLOAT;
+            throw new LG_Parse_Exception_Wrong_Attribute_Value(new string(elemName),new string(attName),new string(source));
+        }
+        
+        
+        
+    }
     
     /**
      
@@ -737,7 +782,7 @@ public:
         if (nrFound != 4){
             
             for (int i = 0; i < LG_LightArray_Lenght; i++)
-                lightArrayToFill[i] = LG_LightValue_Not_Set;
+                lightArrayToFill[i] = LG_LightValue_f_Not_Set;
             return false;
             
         }

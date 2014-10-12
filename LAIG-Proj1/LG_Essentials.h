@@ -18,6 +18,7 @@
 
 
 #define LG_LightValue_Not_Set LG_INVALID_DOUBLE
+#define LG_LightValue_f_Not_Set LG_INVALID_FLOAT
 
 #define LG_LightList_InitialValue {LG_LightValue_Not_Set,LG_LightValue_Not_Set,LG_LightValue_Not_Set,LG_LightValue_Not_Set}
 

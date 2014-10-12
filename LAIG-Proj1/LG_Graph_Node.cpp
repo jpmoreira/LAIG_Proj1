@@ -226,11 +226,17 @@ void LG_Graph_Node::draw(){
     
     transform->draw();
     
+    
+    if (appearance) appearance->apply();
+    
+    
     for (int i=0; i<childsIDs.size(); i++) {
         
         child(i)->draw();
         
     }
+    
+    if (appearance) appearance->unapply();
     
     glPopMatrix();
 
