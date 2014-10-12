@@ -34,7 +34,7 @@ void LG_Cameras_Container::verifyAttributesAndValues(TiXmlElement *element)
 
     for (int i=0; i<childsIDs.size(); i++) {
         if (str_eq(childsIDs[i].c_str(),initialID.c_str())) {
-            initial=(LG_Camera *)child(i);
+            current=(LG_Camera *)child(i);
             break;
         }
     }
@@ -87,14 +87,13 @@ bool LG_Cameras_Container::setOrthoCams(TiXmlElement *element,string & initialID
 	return is_set_initial;
 }
 
-LG_Camera* LG_Cameras_Container::getInitial()
+LG_Camera* LG_Cameras_Container::getCurrentCamera()
 {
-	return initial;
+	return current;
 }
 
 
 LG_Cameras_Container::~LG_Cameras_Container()
 {
 }
-
 

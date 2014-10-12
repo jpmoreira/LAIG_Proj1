@@ -25,6 +25,8 @@ public:
 	double getAngle();
 	const LG_Point3D *getPos();
 	const LG_Point3D *getTarget();
+    
+    void updateProjectionMatrix(int width, int height);
 
 private:
 	double angle;

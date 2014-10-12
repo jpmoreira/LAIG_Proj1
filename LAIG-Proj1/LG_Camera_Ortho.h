@@ -38,6 +38,10 @@ public:
 	double getTop();
 	double getBottom();
 	LG_AXIS getDirection();
+    
+    
+    
+    void updateProjectionMatrix(int width, int height);
 private:
 	//<ortho id="ss" direction="ee" near="ff" far="ff" left="ff" right="ff" top="ff" bottom="ff" />
 	LG_AXIS direction;

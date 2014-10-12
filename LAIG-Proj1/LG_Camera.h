@@ -1,5 +1,6 @@
 #pragma once
 #include "LG_Parsable_Node.h"
+#include <CGFcamera.h>
 
 #define LG_Camera_XML_ATT_ID "id"
 #define LG_Camera_XML_ATT_NEAR "near"
@@ -11,7 +12,7 @@
 class LG_Cameras_Container;
 
 class LG_Camera :
-	public LG_Parsable_Node
+	public LG_Parsable_Node,public CGFcamera
 {
     
     friend class LG_Cameras_Container;
@@ -21,8 +22,9 @@ public:
 	double getNear();
 	double getFar();
 	static string identifierForSuper(TiXmlElement *element);
+    
 
-private:
+protected:
 	//windows has defines for near and far, that's why we use _near and _far
 	double _near, _far;
 	

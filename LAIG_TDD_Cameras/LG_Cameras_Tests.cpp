@@ -50,7 +50,7 @@ TEST_CASE("Test loading Graph Node from XML"){
 			
 			//container tests
 			REQUIRE(cameras_container);	//object was set
-        LG_Camera *initial_camera=cameras_container->getInitial();
+        LG_Camera *initial_camera=cameras_container->getCurrentCamera();
 			REQUIRE(str_eq(initial_camera->identifier.c_str(), persp_id.c_str()));	//the initial cam was set to map
 			REQUIRE(cameras_container->getNrChildren() == 2);		//nr of cameras declared inside .xml
 

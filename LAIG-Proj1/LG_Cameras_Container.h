@@ -20,7 +20,7 @@ public:
 	/**
 		returns the id of the initial camera
 	*/
-	LG_Camera * getInitial();
+	LG_Camera * getCurrentCamera();
 
 	/**
 		Checks if this is the correct tag
@@ -46,7 +46,8 @@ public:
 	bool setPerspectiveCams(TiXmlElement *element,string & initialID);
 
 
+
 private:
-	LG_Camera * initial;
+	LG_Camera * current;
 };
 

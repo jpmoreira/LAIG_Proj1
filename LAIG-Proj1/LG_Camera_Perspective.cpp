@@ -1,6 +1,7 @@
 #include "LG_Camera_Perspective.h"
 
 
+#include <GL/glut.h>
 
 //passing LG_Camera_Perspective_Node_ID won't work, ID must be unique and there may be more than one perspective
 LG_Camera_Perspective::LG_Camera_Perspective(LG_Node_Map *map, TiXmlElement *element) :LG_Camera(map, element, identifierForSuper(element))
@@ -45,3 +46,19 @@ const LG_Point3D *LG_Camera_Perspective::getTarget()
 {
 	return &this->target;
 }
+
+
+#pragma mark - Inherited methods
+
+
+void LG_Camera_Perspective::updateProjectionMatrix(int width, int height){
+
+    
+    float aspect= (float)width / (float)height;
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    gluPerspective(angle, aspect, _near, _far);
+    
+}
+
+

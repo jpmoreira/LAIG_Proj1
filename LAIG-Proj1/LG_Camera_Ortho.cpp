@@ -1,5 +1,7 @@
 #include "LG_Camera_Ortho.h"
 
+#include <GL/glut.h>
+
 //string LG_Camera_Ortho::getIdentifier(){
 //	return this->id;
 //}
@@ -9,6 +11,30 @@ LG_Camera_Ortho::LG_Camera_Ortho(LG_Node_Map *map, TiXmlElement *element) :LG_Ca
 
 	verifyElementName(element);
 	verifyAttributesAndValues(element);
+    
+    
+    setX(0);
+    setY(0);
+    setZ(0);
+    
+    
+    if (direction==LG_AXIS_X) {
+        target[0]=1;
+        target[1]=0;
+        target[2]=0;
+    }
+    else if (direction==LG_AXIS_Y) {
+        target[0]=0;
+        target[1]=1;
+        target[2]=0;
+    }
+    else if(direction==LG_AXIS_Z){
+        target[0]=0;
+        target[1]=0;
+        target[2]=1;
+    }
+
+    
 }
 
 
@@ -65,4 +91,18 @@ double LG_Camera_Ortho::getBottom()
 LG_AXIS LG_Camera_Ortho::getDirection()
 {
 	return this->direction;
+}
+
+#pragma mark - Inherited Methods
+
+
+
+
+
+void LG_Camera_Ortho::updateProjectionMatrix(int width, int height)
+{
+    //float aspect= (float)width / (float)height;
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    glOrtho(left, right, bottom, top, _near, _far);
 }

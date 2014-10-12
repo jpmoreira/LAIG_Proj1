@@ -11,11 +11,12 @@
 #define LG_ANF_XML_TAG_NAME "anf"
 #define LG_ANF_GLOBALS_XML_TAG_NAME "globals"
 
+#define LG_ANF_ID "_LG_ANF_ID"
 
 
-
-LG_ANF::LG_ANF(TiXmlElement *elem):map(new LG_Node_Map()) {
+LG_ANF::LG_ANF(TiXmlElement *elem):LG_Node(NULL,LG_ANF_ID){
     
+    map=new LG_Node_Map();//we dont want to get added to the map so we initializ it later
     
     if (!str_eq(elem->Value(), LG_ANF_XML_TAG_NAME)) {
         
@@ -154,4 +155,25 @@ void LG_ANF::verifyDataMembersValues() {
     if (!graph) {
         throw new LG_Parse_Exception_Missing_Element(LG_Graph_XML_Tag_Name);
     }
+}
+
+
+#pragma mark - OpenGL configuration
+
+void LG_ANF::config(CGFapplication *app) {
+    
+}
+
+
+
+#pragma mark - Inherited Methods
+
+
+
+void LG_ANF::draw(){
+
+
+    graph->draw();
+
+
 }

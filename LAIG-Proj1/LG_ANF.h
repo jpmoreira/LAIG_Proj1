@@ -22,7 +22,9 @@
 #include "LG_Drawing.h"
 #include "LG_Graph.h"
 
-class LG_ANF {
+#include <CGFapplication.h>
+
+class LG_ANF: public LG_Node {
     
 private:
     
@@ -37,8 +39,6 @@ private:
     LG_Appearance_Container *apperances;
     
     LG_Graph * graph;
-    
-    LG_Node_Map *map;
     
     
     
@@ -59,10 +59,24 @@ private:
      */
     void verifyDataMembersValues();
     
+    
+    /**
+     
+     A method for configuring openGL with all defenitions previously loaded from the xml
+     
+     
+     
+     */
+    void config(CGFapplication *app);
+    
+    
 public:
     
     
     LG_ANF(TiXmlElement *elem);
+    
+    
+    void draw();
     
     
     
