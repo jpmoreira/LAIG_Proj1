@@ -1,5 +1,6 @@
 #pragma once
 #include "LG_Parsable_Node.h"
+#include <CGFlight.h>
 
 #define LG_LIGHT_XML_TAG_NAME "light"
 #define _LG_Light_NODE_ID "_LG_Light"
@@ -47,5 +48,10 @@ public:
 
 	static string identifierForSuper(TiXmlElement *element);
 	static LG_LIGHT_TYPE myLightType(TiXmlElement *element);
+	static int myGL_LIGHT();
+	static void increaseLightsCount();
+	static unsigned int getLightsCount();
 
+private:
+	static unsigned int lights_count;
 };

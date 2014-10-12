@@ -39,12 +39,12 @@
       <component type="specular" value="0.4 0.7 0.8 1" />
 
     </light>
-    <light id="spot1" type="spot" enabled="false" marker="true" pos="5 5 5" target="5 5 5"
-        angle="10" exponent="0.5" >
+    <light id="spot1" type="spot" enabled="true" marker="true" pos="1 1 1" target="5 5 5"
+        angle="10" exponent="0" >
 
-      <component type="ambient" value="0.8 0.8 0.8 1" />
-      <component type="diffuse" value="0.8 0.8 0.8 1" />
-      <component type="specular" value="0.8 0.8 0.8 1" />
+      <component type="ambient" value="0.8 0.8 0.8 10" />
+      <component type="diffuse" value="0.8 0.8 0.8 10" />
+      <component type="specular" value="0.8 0.8 0.8 10" />
 
     </light>
   </lights>
