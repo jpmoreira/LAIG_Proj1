@@ -36,7 +36,7 @@ typedef enum{
 	LG_LIGHT_INVALID
 } LG_LIGHT_TYPE;
 
-class LG_Light : public LG_Parsable_Node
+class LG_Light : public LG_Parsable_Node, public CGFlight
 {
 public:
 	LG_Light(LG_Node_Map *map, TiXmlElement *element);
@@ -48,10 +48,14 @@ public:
 
 	static string identifierForSuper(TiXmlElement *element);
 	static LG_LIGHT_TYPE myLightType(TiXmlElement *element);
-	static int myGL_LIGHT();
+	static unsigned int myGL_LIGHT();
 	static void increaseLightsCount();
 	static unsigned int getLightsCount();
+	virtual unsigned int getGL_ID() = 0;
+	virtual void draw() = 0;
 
-private:
+protected:
 	static unsigned int lights_count;
+	static float  initial[3];
+	unsigned int my_GL_Id;
 };

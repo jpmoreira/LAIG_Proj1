@@ -386,6 +386,26 @@ public:
         
     }
     
+
+
+
+	static void inline float_tryToAttributeVariable(const char * attName, TiXmlElement* elem, float&parameter){
+
+
+		const char * source = elem->Attribute(attName);
+		const char * elemName = elem->Value();
+
+		if (source == NULL){
+			throw new LG_Parse_Exception_Missing_Attribute(new string(elemName), new string(attName));
+		}
+
+		parameter = doubleValueForAttribute_(source);
+
+		if (parameter == LG_INVALID_DOUBLE)
+			throw new LG_Parse_Exception_Wrong_Attribute_Value(new string(elemName), new string(attName), new string(source));
+
+
+	}
     
     
     
