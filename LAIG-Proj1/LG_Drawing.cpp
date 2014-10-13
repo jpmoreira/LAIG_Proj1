@@ -76,13 +76,19 @@ void LG_Drawing::verifyElementAttributesAndValues(TiXmlElement *element){
         if (str_eq(att->Name(), LG_Drawing_Mode_XML_Att_Name)){//se o nome é o do atributo drawing
         
             
-            char * values[3];//array com os possiveis valores
             
-            values[0]=LG_Drawing_Fill_String;
-            values[1]=LG_Drawing_Line_String;
-            values[2]=LG_Drawing_Point_String;
             
-            int value=LG_Parsable_Node::stringValue(att, values, 3);//tenta ver que valor é o que está no atributo
+            vector<string> possible;
+            
+            possible.push_back(string(LG_Drawing_Fill_String));
+            possible.push_back(string(LG_Drawing_Line_String));
+            possible.push_back(string(LG_Drawing_Point_String));
+        
+            
+            int value;
+            enum_tryToAttribute(att->Name(), element, value, &possible);
+            
+            //LG_Parsable_Node::stringValue(att, values, 3);//tenta ver que valor é o que está no atributo
             if (value>=0) this->mode=(LG_Drawing_Mode)value;//caso o valor retornado seja >=0 então pode-se fazer logo cast para o tipo adequado e guardar o valor
            
             
@@ -95,7 +101,16 @@ void LG_Drawing::verifyElementAttributesAndValues(TiXmlElement *element){
             values[0]=LG_Shading_Flat_String;
             values[1]=LG_Shading_Gourad_String;
             
-            int value=LG_Parsable_Node::stringValue(att, values, 2);
+            
+            std::__1::vector<string> possible;
+            
+            possible.push_back(string(LG_Shading_Flat_String));
+            possible.push_back(string(LG_Shading_Gourad_String));
+            
+            
+            int value;
+            
+            enum_tryToAttribute(att->Name(), element, value, &possible);
             if (values>=0) this->shading=(LG_Shading_Mode)value;
 
         

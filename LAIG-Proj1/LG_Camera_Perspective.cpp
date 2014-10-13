@@ -10,9 +10,36 @@ LG_Camera_Perspective::LG_Camera_Perspective(LG_Node_Map *map, TiXmlElement *ele
 	verifyAttributesAndValues(element);
     
     
-    position[0]=0;
-    position[1]=0;
-    position[2]=0;
+    position[0]=-pos[0];
+    position[1]=-pos[1];
+    position[2]=-pos[2];
+    
+    
+    LG_Point3D pt;
+    
+    pt[0]=target[0]-pos[0];
+    pt[1]=target[1]-pos[1];
+    pt[2]=target[2]-pos[2];
+   
+    double angleY=atan(pt[0]/pt[2])*180./M_PI;
+    if (pt[2]==0 && pt[0]>0) {
+        angleY=-90;
+    }
+    else if(pt[2]==0){
+        angleY=90;
+    }
+    
+    double h=sqrt(pt[0]*pt[0]+pt[2]*pt[2]);
+    
+    double angleX=atan(pt[1]/h)*180./M_PI;
+    
+    
+    
+    
+    
+    rotation[1]=-angleY;
+    rotation[0]=-angleX;
+    rotation[2]=0;
     
     
     
@@ -72,52 +99,6 @@ void LG_Camera_Perspective::updateProjectionMatrix(int width, int height){
     
     gluPerspective(angle, aspect, _near, _far);
     
-}
-
-
-void LG_Camera_Perspective::applyView(){
-
-
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
-    
-
-    
-    glRotatef(rotation[0], 1.f, 0.f, 0.f);
-    glRotatef(rotation[1], 0.f, 1.f, 0.f);
-    glRotatef(rotation[2], 0.f, 0.f, 1.f);
-    
-    gluLookAt(pos[0], pos[1], pos[2], target[0], target[1], target[2], 0, 1, 0);
-
-    
-    
-    glTranslated(position[0], position[1], position[2]);
-}
-
-
-
-bool LG_Camera_Perspective::moveTo(int axis, float value, float increment)
-{
-    if (axis!=CG_CGFcamera_AXIS_X && axis!=CG_CGFcamera_AXIS_Y && axis!=CG_CGFcamera_AXIS_Z) return false;
-    
-    if(position[axis] < value)
-    {
-        position[axis] += increment;
-        //target[axis]+=increment;
-        return false;
-    }
-    return true;
-}
-
-bool LG_Camera_Perspective::translate(int axis, float value)
-{
-    if (axis!=CG_CGFcamera_AXIS_X && axis!=CG_CGFcamera_AXIS_Y && axis!=CG_CGFcamera_AXIS_Z) return false;
-    
-    position[axis] += value;
-    
-    
-    
-    return true;
 }
 
 

@@ -12,6 +12,54 @@ LG_Camera_Ortho::LG_Camera_Ortho(LG_Node_Map *map, TiXmlElement *element) :LG_Ca
 	verifyElementName(element);
 	verifyAttributesAndValues(element);
     
+    
+    
+    
+    position[0]=0;
+    position[1]=0;
+    position[2]=0;
+    
+    
+    LG_Point3D pt;
+    pt[0]=0;
+    pt[1]=0;
+    pt[2]=0;
+    
+    if (direction==LG_AXIS_X) pt[0]=1;
+    else if(direction==LG_AXIS_Y)pt[1]=1;
+    else if(direction==LG_AXIS_Z)pt[2]=1;
+    
+    
+    double angleY=atan(pt[0]/pt[2])*180./M_PI;
+    if (pt[2]==0 && pt[0]>0) {
+        angleY=-90;
+    }
+    else if(pt[2]==0 && pt[0]<0){
+        angleY=90;
+    }
+    
+    else if(pt[0]==0 && pt[2]>0){
+    
+        angleY=180;
+    }
+    
+    else if(pt[0]==0){
+    
+        angleY=0;
+    }
+    
+    double h=sqrt(pt[0]*pt[0]+pt[2]*pt[2]);
+    
+    double angleX=atan(pt[1]/h)*180./M_PI;
+    
+    
+    
+    
+    
+    rotation[1]=-angleY;
+    rotation[0]=-angleX;
+    rotation[2]=0;
+    
 
 
     

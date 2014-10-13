@@ -19,12 +19,12 @@
   </globals>
 
     <!-- bloco de camaras: o atributo "initial" identifica a camara/ponto de vista inicial, que tem de existir -->
-    <cameras initial="perspective1" >
+    <cameras initial="ortho1" >
       <!-- tem de existir, pelo menos uma camara dos tipos seguintes (perspective ou ortho) -->
       <!-- no caso da camara ortho, o atributo "direction" define o eixo segundo o qual se efetua a projecao -->
 
-      <perspective id="perspective1" near="1" far="200" angle="30" pos="20 20 20" target="0 0 0" />
-      <ortho id="ortho1" direction="z" near="0" far="20" left="15" right="15" top="15" bottom="15" />
+      <perspective id="perspective1" near="1" far="200" angle="30" pos="0 20 20" target="20 0 0" />
+      <ortho id="ortho1" direction="z" near="1" far="200" left="200" right="200" top="200" bottom="200" />
 
     </cameras>
 
@@ -49,6 +49,7 @@
       <component type="ambient" value="0.8 0.8 0.8 1" />
       <component type="diffuse" value="0.8 0.8 0.8 1" />
       <component type="specular" value="0.8 0.8 0.8 1" />
+
     </light>
   </lights>
 
@@ -110,6 +111,7 @@
     <node id="putting_together">
       <appearanceref id="inherit" />
       <transforms></transforms>
+      
       <descendants>
         <noderef id="back_wall" />
         <noderef id="side_wall" />
@@ -414,6 +416,7 @@
         <torus inner="0.3" outer="1" slices="20" loops="20"/>
       </primitives>
     </node>
+    
   </graph>
 
 
