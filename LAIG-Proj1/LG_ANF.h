@@ -40,6 +40,8 @@ private:
     
     LG_Graph * graph;
     
+    static LG_ANF * current_anf;
+    
     
     
     /**
@@ -59,13 +61,14 @@ private:
      */
     void verifyDataMembersValues();
     
+    LG_ANF(TiXmlElement *elem);
     
     
     
 public:
     
     
-    LG_ANF(TiXmlElement *elem);
+    
     
     
     void draw();
@@ -80,6 +83,23 @@ public:
      */
     void config(CGFapplication *app);
     
+    
+    /**
+     
+     A method for getting the current ANF object.
+     
+     */
+    static LG_ANF * currentANF();
+    
+    /**
+     
+     A method for parsing a TiXmlDocument
+     
+     */
+    
+    static LG_ANF *anfForXML(TiXmlDocument *xml);
+    
+    LG_Camera * currentCamera();
     
     
 };

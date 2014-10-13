@@ -27,7 +27,12 @@ public:
 	const LG_Point3D *getTarget();
     
     void updateProjectionMatrix(int width, int height);
-
+    virtual void applyView();
+    
+    bool moveTo(int axis, float value, float increment);
+    
+    
+    bool translate(int axis, float value);
 private:
 	double angle;
 	LG_Point3D pos, target;

@@ -75,12 +75,14 @@ void LG_Scene::init() {
     
     
     
-    anf=new LG_ANF(doc->FirstChildElement());
+    anf=LG_ANF::anfForXML(doc);
     
-    anf->config(NULL);
+    //anf=new LG_ANF(doc->FirstChildElement());
     
     
     
+    
+    CGFscene::activeCamera=anf->currentCamera();
     
     //glEnable(GL_LIGHTING);
     
@@ -137,7 +139,11 @@ void LG_Scene::init() {
     // Uncomment below to enable normalization of lighting normal vectors
     glEnable (GL_NORMALIZE);
     
-    setUpdatePeriod(100);    
+    setUpdatePeriod(100);
+    
+    
+    anf->config(NULL);
+
 
     
 }

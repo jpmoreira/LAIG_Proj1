@@ -14,6 +14,21 @@
 #define LG_ANF_ID "_LG_ANF_ID"
 
 
+#pragma mark - Static calling functions
+
+
+LG_ANF * LG_ANF::current_anf=NULL;
+
+void updatePrespectiveMatrix(int width,int height){
+
+    
+    LG_ANF::currentANF()->currentCamera()->updateProjectionMatrix(width, height);
+
+}
+
+
+#pragma mark - Constructor
+
 LG_ANF::LG_ANF(TiXmlElement *elem):LG_Node(NULL,LG_ANF_ID){
     
     map=new LG_Node_Map();//we dont want to get added to the map so we initializ it later
@@ -158,6 +173,15 @@ void LG_ANF::verifyDataMembersValues() {
 }
 
 
+LG_Camera * LG_ANF::currentCamera() {
+    
+    return cameras->getCurrentCamera();
+    
+}
+
+
+
+
 #pragma mark - OpenGL configuration
 
 void LG_ANF::config(CGFapplication *app) {
@@ -167,6 +191,7 @@ void LG_ANF::config(CGFapplication *app) {
     cullingConfig->draw();
     drawingConfig->draw();
     lightingConfig->draw();
+    
 }
 
 
@@ -182,3 +207,24 @@ void LG_ANF::draw(){
 
 
 }
+
+
+#pragma mark - Singleton Methods
+
+
+LG_ANF * LG_ANF::currentANF(){
+    
+    return LG_ANF::current_anf;
+}
+
+
+LG_ANF *LG_ANF::anfForXML(TiXmlDocument *xml){
+
+
+    LG_ANF::current_anf=new LG_ANF(xml->FirstChildElement());
+    
+    return LG_ANF::current_anf;
+
+}
+
+

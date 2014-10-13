@@ -12,27 +12,7 @@ LG_Camera_Ortho::LG_Camera_Ortho(LG_Node_Map *map, TiXmlElement *element) :LG_Ca
 	verifyElementName(element);
 	verifyAttributesAndValues(element);
     
-    
-    setX(0);
-    setY(0);
-    setZ(0);
-    
-    
-    if (direction==LG_AXIS_X) {
-        target[0]=1;
-        target[1]=0;
-        target[2]=0;
-    }
-    else if (direction==LG_AXIS_Y) {
-        target[0]=0;
-        target[1]=1;
-        target[2]=0;
-    }
-    else if(direction==LG_AXIS_Z){
-        target[0]=0;
-        target[1]=0;
-        target[2]=1;
-    }
+
 
     
 }

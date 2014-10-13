@@ -12,7 +12,7 @@
 class LG_Cameras_Container;
 
 class LG_Camera :
-	public LG_Parsable_Node,public CGFcamera
+	public LG_Parsable_Node, public CGFcamera
 {
     
     friend class LG_Cameras_Container;
@@ -23,6 +23,7 @@ public:
 	double getFar();
 	static string identifierForSuper(TiXmlElement *element);
     
+        
 
 protected:
 	//windows has defines for near and far, that's why we use _near and _far
