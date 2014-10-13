@@ -486,6 +486,17 @@ public:
     }
 
 
+	static inline bool point3D_FValue_(const char *att, LG_Point3D_F & pointToFill){
+
+
+		TiXmlAttribute attribute("dummy", att);
+
+		return point3D_FValue(&attribute, pointToFill);
+
+
+	}
+
+
     /**
      
      
@@ -817,6 +828,28 @@ public:
 		return true;
 
 	}
+
+
+
+
+	static inline bool point3D_FValue(TiXmlAttribute *att, LG_Point3D_F & pointToFill){
+
+
+		double dummy;
+
+		int nrFound = sscanf(att->Value(), "%f %f %f  %f", &(pointToFill[0]), &(pointToFill[1]), &(pointToFill[2]), &dummy);//try to match four... last one is supposed to never be filled in... if it is parsing didn't occur well, only 3D vectors allowed
+
+		if (nrFound != LG_Point3D_Length){
+
+			for (int i = 0; i < LG_Point3D_Length; i++)
+				pointToFill[i] = LG_INVALID_FLOAT;
+
+			return false;
+
+		}
+		return true;
+
+	}
     /**
      
      A method that tries to initialize a LG_Point3D with the values coming from an attribute.
@@ -872,6 +905,27 @@ public:
 		}
 	
 	
+	}
+
+
+
+
+	static inline void point3D_F_tryToAttributeVariable(const char * att_name, TiXmlElement *element, LG_Point3D_F & values){
+
+
+		char *att_value = (char *)element->Attribute(att_name);
+
+		if (!att_value)
+			throw  new LG_Parse_Exception_Missing_Attribute(new string(element->Value()), new string(att_name));
+
+
+		bool ok = point3D_FValue_(att_value, values);
+
+		if (!ok){
+			throw new LG_Parse_Exception_Wrong_Attribute_Value(new string(element->Value()), new string(att_name), new string(att_value));
+		}
+
+
 	}
 
 

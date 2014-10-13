@@ -40,3 +40,15 @@ LG_LIGHT_TYPE LG_Light::myLightType(TiXmlElement *element)
 
 	throw new LG_Parse_Exception_Wrong_Attribute_Value(LG_LIGHT_XML_TAG_NAME, LG_LIGHT_ATT_TYPE, my_type.c_str());
 }
+
+unsigned int LG_Light::lights_count = 0;
+
+void LG_Light::increaseLightsCount()
+{
+	lights_count++;
+}
+
+unsigned int LG_Light::getLightsCount()
+{
+	return lights_count;
+}

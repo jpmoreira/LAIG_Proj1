@@ -19,10 +19,10 @@ class LG_Scene:public CGFscene {
     
     LG_ANF *anf;
     
-    CGFlight* light0;
-    CGFlight* light1;
-    CGFlight* light2;
-    CGFlight* light3;
+    //CGFlight* light0;
+    //CGFlight* light1;
+    //CGFlight* light2;
+    //CGFlight* light3;
     
     
 public:

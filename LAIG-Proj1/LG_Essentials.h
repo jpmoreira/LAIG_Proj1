@@ -45,6 +45,7 @@ typedef std::pair<string , LG_Node *> LG_Node_Map_Pair;
 
 
 typedef double LG_Point3D[3];
+typedef float LG_Point3D_F[3];
 typedef double LG_Point2D[2];
 typedef double LG_LightArray[4];
 typedef double LG_Matrix[4][4];

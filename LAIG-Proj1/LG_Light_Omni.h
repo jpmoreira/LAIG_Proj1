@@ -12,15 +12,17 @@ public:
 	string getId();
 	bool getMarker();
 	bool getEnabled();
-	const LG_Point3D &getPos();
-	const LG_LightArray *getComponents();
+	const LG_Point3D_F &getPos();
+	const LG_LightArray_f *getComponents();
 
 private:
 	
 	string id;
 	bool enabled, marker;
-	LG_Point3D pos;
-	LG_LightArray components[3];
+	LG_Point3D_F pos;
+	LG_LightArray_f components[3];
+	CGFlight *my_light;
+	unsigned int my_light_id;
 
 	void fillLightComponents(TiXmlElement *element);
 

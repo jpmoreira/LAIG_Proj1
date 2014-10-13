@@ -204,7 +204,7 @@ void LG_ANF::draw(){
 
 
     graph->draw();
-
+	lights->draw();
 
 }
 

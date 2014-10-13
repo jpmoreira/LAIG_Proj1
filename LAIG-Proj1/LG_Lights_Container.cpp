@@ -43,3 +43,16 @@ LG_Lights_Container::LG_Lights_Container(LG_Node_Map *map, TiXmlElement *element
 LG_Lights_Container::~LG_Lights_Container()
 {
 }
+
+
+void LG_Lights_Container::draw(){
+	
+	for (int i = 0; i < this->childsIDs.size(); i++)
+	{
+		string spot_id("spot1");
+		auto it = map->find(spot_id);
+		LG_Light_Spot *myspot = (LG_Light_Spot *)(it->second);
+		myspot->draw();
+
+	}
+}

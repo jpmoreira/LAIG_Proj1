@@ -20,12 +20,12 @@ public:
 	string getId();
 	bool getMarker();
 	bool getEnabled();
-	const LG_Point3D &getPos();
-	const LG_Point3D &getTarget();
-	const LG_LightArray *getComponents();
+	const LG_Point3D_F &getPos();
+	const LG_Point3D_F &getTarget();
+	const LG_LightArray_f *getComponents();
 	double getAngle();
 	double getExponent();
-	
+	void draw();
 
 
 
@@ -33,7 +33,9 @@ private:
 	void fillLightComponents(TiXmlElement *element);
 	string id;
 	bool enabled, marker;
-	LG_Point3D pos, target;
-	LG_LightArray components[3];
+	float pos[3], target[3];
+	LG_LightArray_f components[3];
 	double angle, exponent;
+	CGFlight *my_light;
+	unsigned int my_light_id;
 };
