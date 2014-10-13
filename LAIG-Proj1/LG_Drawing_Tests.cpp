@@ -19,7 +19,8 @@ TEST_CASE("Case 1"){
     LG_Node_Map *map=new LG_Node_Map();
     
     TiXmlElement *correct=(TiXmlElement *)doc->FirstChild();
-    TiXmlElement *incorrect=(TiXmlElement *)doc->LastChild();
+    TiXmlElement *incorrect=(TiXmlElement *)correct->NextSiblingElement();
+    TiXmlElement *third=incorrect->NextSiblingElement();
     
     
     
@@ -56,6 +57,19 @@ TEST_CASE("Case 1"){
             sprintf(message,"Catched exception with message: %s", ex->what());
             
             SUCCEED(message);
+        }
+    
+    }
+    
+    SECTION("Incorrect attribution to shadint type"){
+    
+    
+        
+        try {
+            LG_Drawing *d=new LG_Drawing(map,third);
+            FAIL("Accepted wrong formed light");
+        } catch (LG_Parse_Exception_Wrong_Attribute_Value *ex) {
+            REQUIRE(str_eq(ex->attribute->c_str(),"shading"));
         }
     
     }
