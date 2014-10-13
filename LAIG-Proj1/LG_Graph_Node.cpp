@@ -83,9 +83,6 @@ LG_Graph_Node::LG_Graph_Node(LG_Node_Map *map,LG_Node_Map *app_map, TiXmlElement
     }
     
     
-    if (!descendantsSet) {
-        throw new LG_Parse_Exception_Missing_Element(LG_Graph_Node_Descendants_Tag_Name);
-    }
     if (!transformsSet) {
         throw new LG_Parse_Exception_Missing_Element(LG_Transforms_XML_Tag_Name);
     }
