@@ -140,6 +140,7 @@ void LG_Triangle::copyPoints(LG_Point3D point1,LG_Point3D point2, LG_Point3D poi
 void LG_Triangle::calculateTextureCoordinates() {
     
     
+
     if (!app || !app->getTexture())return;
     
     pt1_textCoord[0]=0;

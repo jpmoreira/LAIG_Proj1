@@ -57,7 +57,7 @@ LG_Appearance::LG_Appearance(LG_Node_Map *map,TiXmlElement *elem,LG_Node_Map *te
     
 }
 
-LG_Appearance::LG_Appearance(LG_Node_Map *map,LG_LightArray_f amb,LG_LightArray_f diff,LG_LightArray_f spec,float s,string identif,LG_Texture *texture):LG_Parsable_Node(map,identif),shininess(s){
+LG_Appearance::LG_Appearance(LG_Node_Map *map,LG_LightArray_f amb,LG_LightArray_f diff,LG_LightArray_f spec,float s,string identif,LG_Texture *texture):LG_Parsable_Node(map,identif),shininess(s),texture(NULL){
     
     copyLightArrays_f(amb, ambient);
     copyLightArrays_f(diff, diffuse);
