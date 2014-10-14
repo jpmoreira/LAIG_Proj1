@@ -141,7 +141,7 @@ void LG_Triangle::calculateTextureCoordinates() {
     
     
 
-    if (!app || !app->getTexture())return;
+    if (!LG_Appearance::currentTexture) return;
     
     pt1_textCoord[0]=0;
     pt1_textCoord[1]=0;
