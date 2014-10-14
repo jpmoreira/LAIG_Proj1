@@ -25,6 +25,11 @@ private:
     LG_Point3D pt1;
     LG_Point3D pt2;
     
+    LG_Point2D pt1_textCoords;
+    LG_Point2D pt1_2_textCoords;
+    LG_Point2D pt2_textCoords;
+    LG_Point2D pt2_2_textCoords;
+    
     /**
      Number that holds the current id for the newly created primitive instance. Used in the autoIdentifier macro
      
@@ -45,9 +50,12 @@ public:
     
     LG_Rectangle(LG_Node_Map *map,LG_Point3D point1,LG_Point3D point2);
     LG_Rectangle(LG_Node_Map *map,TiXmlElement *elem);
+    LG_Rectangle(LG_Node_Map *map,TiXmlElement *elem,LG_Appearance *app);
     
     
     void draw();
+    
+    void calculateTextureCoordinates();
     
     
     

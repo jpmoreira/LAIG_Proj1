@@ -45,6 +45,9 @@ public:
     
     LG_Cylinder(LG_Node_Map *map,TiXmlElement *elem);
     
+    
+    LG_Cylinder(LG_Node_Map *map,TiXmlElement *elem,LG_Appearance *app);
+    
     /**
      
      Constructor with explicit parameter initialization.
@@ -64,6 +67,9 @@ public:
      */
     void draw ();
     
+    
+    
+    void calculateTextureCoordinates();
     
     
 };

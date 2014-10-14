@@ -34,7 +34,7 @@
 #pragma mark - Constructors
 LG_Graph_Node::LG_Graph_Node(LG_Node_Map *map,LG_Node_Map *app_map, TiXmlElement *elem)
 :LG_Parsable_Node(map,identifierForGraphNode(elem))
-{
+{ 
     
     if (!str_eq(LG_Graph_Node_XML_Tag_Name, elem->Value())) {
         
@@ -89,6 +89,7 @@ LG_Graph_Node::LG_Graph_Node(LG_Node_Map *map,LG_Node_Map *app_map, TiXmlElement
     if (!primitivesSet) {
         throw new LG_Parse_Exception_Missing_Element(LG_Graph_Node_Primitives_Tag_Name);
     }
+    
     
     
     

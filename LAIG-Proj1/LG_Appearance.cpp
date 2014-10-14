@@ -26,7 +26,9 @@
 #pragma mark - Constructors
 
 
-LG_Appearance::LG_Appearance(LG_Node_Map *map,TiXmlElement *elem,LG_Node_Map *texturesMap):LG_Parsable_Node(map,getIdentifier(elem)){
+LG_Texture * LG_Appearance::currentTexture=NULL;
+
+LG_Appearance::LG_Appearance(LG_Node_Map *map,TiXmlElement *elem,LG_Node_Map *texturesMap):LG_Parsable_Node(map,getIdentifier(elem)),texture(NULL){
     
     initializeComponents();
     if (!str_eq(LG_Appearance_XML_Tag_Name, elem->Value())) {
@@ -160,10 +162,18 @@ void LG_Appearance::handleTextureRef(LG_Node_Map *texturesMap, TiXmlElement *ele
 void LG_Appearance::apply() {
     
     
+    
+    if(texture){
+        texture->apply();
+        currentTexture=texture;
+    }
     glGetMaterialfv(GL_FRONT, GL_SHININESS, &_savedShininess);
     glGetMaterialfv(GL_FRONT, GL_SPECULAR, (GLfloat *)&_savedSpecular);
     glGetMaterialfv(GL_FRONT, GL_AMBIENT, (GLfloat *)&_savedAmbient);
     glGetMaterialfv(GL_FRONT, GL_DIFFUSE, (GLfloat *)&_savedDiffuse);
+    
+    _savedCurrentTexture=currentTexture;
+    
     
     
     if(shininess!=LG_INVALID_FLOAT)glMaterialf(GL_FRONT, GL_SHININESS, shininess);
@@ -182,17 +192,31 @@ void LG_Appearance::unapply(){
     
     //restore old defaults
     
+    
+    if(texture)texture->unapply();
+    
     if(shininess!=LG_INVALID_FLOAT)glMaterialf(GL_FRONT, GL_SHININESS, _savedShininess);
     if(specular[0]!=LG_INVALID_FLOAT)glMaterialfv(GL_FRONT, GL_SPECULAR, _savedSpecular);
     if(ambient[0]!=LG_INVALID_FLOAT)glMaterialfv(GL_FRONT, GL_AMBIENT, _savedAmbient);
     if(diffuse[0]!=LG_INVALID_FLOAT)glMaterialfv(GL_FRONT, GL_DIFFUSE, _savedDiffuse);
     
     
+    currentTexture=_savedCurrentTexture;
+    
     
     
 
     
 
+}
+
+
+#pragma mark - Getters & Setters
+
+
+LG_Texture * LG_Appearance::getTexture() {
+    
+    return texture;
 }
 
 

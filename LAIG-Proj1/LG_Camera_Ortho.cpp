@@ -77,10 +77,10 @@ void LG_Camera_Ortho::verifyElementName(TiXmlElement *element){
 
 void LG_Camera_Ortho::verifyAttributesAndValues(TiXmlElement *element){
 
-	positiveDouble_tryToAttributeVariable(LG_Camera_Ortho_XML_ATT_TOP, element, top);
-	positiveDouble_tryToAttributeVariable(LG_Camera_Ortho_XML_ATT_BOTTOM, element, bottom);
-	positiveDouble_tryToAttributeVariable(LG_Camera_Ortho_XML_ATT_LEFT, element, left);
-	positiveDouble_tryToAttributeVariable(LG_Camera_Ortho_XML_ATT_RIGHT, element, right);
+	double_tryToAttributeVariable(LG_Camera_Ortho_XML_ATT_TOP, element, top);
+	double_tryToAttributeVariable(LG_Camera_Ortho_XML_ATT_BOTTOM, element, bottom);
+	double_tryToAttributeVariable(LG_Camera_Ortho_XML_ATT_LEFT, element, left);
+	double_tryToAttributeVariable(LG_Camera_Ortho_XML_ATT_RIGHT, element, right);
 
 
 	vector<string> options;

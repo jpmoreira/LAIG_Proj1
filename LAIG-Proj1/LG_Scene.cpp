@@ -84,7 +84,7 @@ void LG_Scene::init() {
     
     
     
-    CGFscene::activeCamera=anf->currentCamera();
+    //CGFscene::activeCamera=anf->currentCamera();
     
     //glEnable(GL_LIGHTING);
     

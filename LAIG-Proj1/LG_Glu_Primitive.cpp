@@ -16,6 +16,12 @@ LG_Glu_Primitive::LG_Glu_Primitive(LG_Node_Map *map,string identifier):LG_Primit
     configureQuadric();
 }
 
+
+LG_Glu_Primitive::LG_Glu_Primitive(LG_Node_Map *map,string identifier,LG_Appearance *app):LG_Primitive(map,identifier,app){
+
+    configureQuadric();
+}
+
 #pragma mark - Helper Methods
 
 void LG_Glu_Primitive::configureQuadric() {

@@ -18,6 +18,9 @@ LG_Primitive::LG_Primitive(LG_Node_Map *map,string indentif):LG_Parsable_Node(ma
 
 }
 
+LG_Primitive::LG_Primitive(LG_Node_Map *map,string identif,LG_Appearance *app):LG_Parsable_Node(map,identif),app(app){
+
+}
 
 
 #pragma mark - Initializations
@@ -69,5 +72,15 @@ void LG_Primitive::newells(LG_Point3D p1,LG_Point3D p2,LG_Point3D p3, LG_Point3D
     normal[1]/=dimention;
     normal[2]/=dimention;
     
+
+}
+
+
+#pragma mark - Inherited Methods
+
+
+void LG_Primitive::draw(){
+
+    calculateTextureCoordinates();
 
 }

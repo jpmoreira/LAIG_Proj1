@@ -29,6 +29,7 @@ private:
     LG_Point3D pt2;
     LG_Point3D pt3;
     LG_Point3D normal;
+    LG_Point2D pt1_textCoord,pt2_textCoord,pt3_textCoord;
     
     /**
      Number that holds the current id for the newly created primitive instance. Used in the autoIdentifier macro
@@ -46,7 +47,16 @@ private:
     void copyPoints(LG_Point3D pt1,LG_Point3D pt2, LG_Point3D pt3);
     
     
-    
+    /**
+     
+     A method for calculating the texture coordinates for this specific triangle
+     
+     
+     
+     
+     */
+    void calculateTextureCoordinates ();
+
     
 public:
     
@@ -60,6 +70,8 @@ public:
     LG_Triangle(LG_Node_Map *map,TiXmlElement *elem);
     
     
+    
+    LG_Triangle(LG_Node_Map *map,TiXmlElement *elem, LG_Appearance *app);
    
     /**
      

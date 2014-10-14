@@ -27,11 +27,15 @@ private:
     float shininess;
 
     
+   
+    
     
     float _savedShininess;
     LG_LightArray_f _savedAmbient;
     LG_LightArray_f _savedSpecular;
     LG_LightArray_f _savedDiffuse;
+    
+    LG_Texture * _savedCurrentTexture;
     
     
     
@@ -52,6 +56,8 @@ private:
 
     
 public:
+    
+     static LG_Texture *currentTexture;
     
     LG_Appearance(LG_Node_Map *map,TiXmlElement *elem,LG_Node_Map *texturesMap);
     
@@ -74,6 +80,9 @@ public:
      
      */
     void unapply();
+    
+    
+    LG_Texture * getTexture();
     
     
     

@@ -191,6 +191,7 @@ void LG_ANF::config(CGFapplication *app) {
     cullingConfig->draw();
     drawingConfig->draw();
     lightingConfig->draw();
+    glEnable(GL_TEXTURE_2D);
     
 }
 

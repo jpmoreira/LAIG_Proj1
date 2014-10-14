@@ -32,6 +32,7 @@ private:
     
 public:
     LG_Glu_Primitive(LG_Node_Map *map,string identifier);
+    LG_Glu_Primitive(LG_Node_Map *map,string identifier,LG_Appearance *app);
     
     
 

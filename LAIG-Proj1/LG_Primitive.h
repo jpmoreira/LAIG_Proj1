@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include "LG_Parsable_Node.h"
+#include "LG_Appearance.h"
 
 
 /**
@@ -21,19 +22,25 @@
  */
 
 
-
 class LG_Primitive: public LG_Parsable_Node{
 
+   
 public:
 
     LG_Primitive(LG_Node_Map *map,string identifier);
+    LG_Primitive(LG_Node_Map *map,string identifier,LG_Appearance *app);
     static bool equalPoints(LG_Point3D& pt1,LG_Point3D& pt2);
 
 
 protected:
+    LG_Appearance *app;
     void initializePoint3D(LG_Point3D& point);
     
     static void newells(LG_Point3D p1,LG_Point3D p2,LG_Point3D p3,LG_Point3D normal);
+    
+    virtual void calculateTextureCoordinates ()=0;
+    
+    virtual void draw();
     
     
     

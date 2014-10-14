@@ -65,6 +65,10 @@
 		540B932F19EBDD900034E113 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4819D0ADA400D4831A /* CoreServices.framework */; };
 		540B933019EBDD900034E113 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4619D0AD9E00D4831A /* OpenGL.framework */; };
 		540B933119EBDD900034E113 /* libCGF.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4419D0AD9200D4831A /* libCGF.a */; };
+		540B933419ED1D1B0034E113 /* chao.jpeg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 540B933319ED1CEE0034E113 /* chao.jpeg */; };
+		540B933519ED20620034E113 /* chao.jpeg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 540B933319ED1CEE0034E113 /* chao.jpeg */; };
+		540B933719ED61540034E113 /* rubber.jpeg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 540B933619ED61170034E113 /* rubber.jpeg */; };
+		540B933919ED61DD0034E113 /* leather.jpeg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 540B933819ED61CE0034E113 /* leather.jpeg */; };
 		54118C4C19D9B73D0015D962 /* LG_Torus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54118C4A19D9B73D0015D962 /* LG_Torus.cpp */; };
 		54118C5919D9B8BA0015D962 /* libTinyXML.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4219D0AD7F00D4831A /* libTinyXML.a */; };
 		54118C5C19D9B8EA0015D962 /* TestTorus.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54118C5A19D9B8D50015D962 /* TestTorus.xml */; };
@@ -357,6 +361,9 @@
 			dstPath = testFiles;
 			dstSubfolderSpec = 16;
 			files = (
+				540B933919ED61DD0034E113 /* leather.jpeg in CopyFiles */,
+				540B933719ED61540034E113 /* rubber.jpeg in CopyFiles */,
+				540B933519ED20620034E113 /* chao.jpeg in CopyFiles */,
 				540939C519E9251B00961C05 /* TestANF.xml in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,9 +381,10 @@
 		5435E6E019D72CF9004169BD /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
-			dstPath = testFIles;
+			dstPath = testFiles;
 			dstSubfolderSpec = 16;
 			files = (
+				540B933419ED1D1B0034E113 /* chao.jpeg in CopyFiles */,
 				5435E6F019D72ECE004169BD /* TestDrawing.xml in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -546,6 +554,9 @@
 		540939C719E9355000961C05 /* LG_Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_Scene.h; sourceTree = "<group>"; };
 		540B932019EB25890034E113 /* coordinateSystems.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = coordinateSystems.cpp; sourceTree = "<group>"; };
 		540B932119EB25890034E113 /* coordinateSystems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = coordinateSystems.h; sourceTree = "<group>"; };
+		540B933319ED1CEE0034E113 /* chao.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chao.jpeg; sourceTree = "<group>"; };
+		540B933619ED61170034E113 /* rubber.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rubber.jpeg; sourceTree = "<group>"; };
+		540B933819ED61CE0034E113 /* leather.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = leather.jpeg; sourceTree = "<group>"; };
 		54118C4A19D9B73D0015D962 /* LG_Torus.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Torus.cpp; sourceTree = "<group>"; };
 		54118C4B19D9B73D0015D962 /* LG_Torus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_Torus.h; sourceTree = "<group>"; };
 		54118C4D19D9B8540015D962 /* LG_Torus_Tests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Torus_Tests.cpp; sourceTree = "<group>"; };
@@ -920,6 +931,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		540B933219ED1CE00034E113 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				540B933819ED61CE0034E113 /* leather.jpeg */,
+				540B933619ED61170034E113 /* rubber.jpeg */,
+				540B933319ED1CEE0034E113 /* chao.jpeg */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		54174DBE19D033CB0039E991 = {
 			isa = PBXGroup;
 			children = (
@@ -959,6 +980,7 @@
 		54174DC919D033CC0039E991 /* LAIG-Proj1 */ = {
 			isa = PBXGroup;
 			children = (
+				540B933219ED1CE00034E113 /* Resources */,
 				540B932019EB25890034E113 /* coordinateSystems.cpp */,
 				540B932119EB25890034E113 /* coordinateSystems.h */,
 				545802A119D2BD4F00C9DF32 /* Tests */,

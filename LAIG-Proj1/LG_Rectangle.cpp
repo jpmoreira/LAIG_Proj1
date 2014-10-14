@@ -45,6 +45,26 @@ LG_Rectangle::LG_Rectangle(LG_Node_Map *map,TiXmlElement *elem):LG_Primitive(map
 }
 
 
+LG_Rectangle::LG_Rectangle(LG_Node_Map *map,TiXmlElement *elem,LG_Appearance *app):LG_Primitive(map,autoIdentifier,app){
+
+    
+    initializePoint3D(pt1);
+    initializePoint3D(pt2);
+    
+    
+    
+    if (!str_eq(elem->Value(), LG_Rectangle_XML_Tag_Name)) {
+        throw new LG_Parse_Exception_Wrong_Element_Name(new string(LG_Rectangle_XML_Tag_Name),new string(elem->Value()));
+    }
+    
+    
+    
+    point3DFrom2D_tryToAttributeVariable(LG_Rectangle_XML_Att1_Name, elem, pt1);
+    point3DFrom2D_tryToAttributeVariable(LG_Rectangle_XML_Att2_Name, elem, pt2);
+    
+
+}
+
 #pragma mark - Helper Methods
 
 
@@ -61,15 +81,45 @@ void LG_Rectangle::copyPoints(LG_Point3D point1,LG_Point3D point2){
 
 void LG_Rectangle::draw(){
 
+    
+    LG_Primitive::draw();
+    
     glBegin(GL_QUADS);
 
     glNormal3d(0, 0, 1);
+    
+    glTexCoord2d(pt1_textCoords[0], pt1_textCoords[1]);
     glVertex3d(pt1[0], pt1[1], pt1[2]);
+    glTexCoord2d(pt1_2_textCoords[0],pt1_2_textCoords[1]);
     glVertex3d(pt2[0], pt1[1], pt1[2]);
+    glTexCoord2d(pt2_textCoords[0], pt2_textCoords[1]);
     glVertex3d(pt2[0], pt2[1], pt1[2]);
+    glTexCoord2d(pt2_2_textCoords[0], pt2_2_textCoords[1]);
     glVertex3d(pt1[0], pt2[1], pt2[2]);
     
+    
     glEnd();
+
+}
+
+void LG_Rectangle::calculateTextureCoordinates(){
+
+    
+    if (!LG_Appearance::currentTexture) return;
+
+    pt1_textCoords[0]=0;
+    pt1_textCoords[1]=0;
+    
+    pt1_2_textCoords[0]=(pt2[0]-pt1[0])/LG_Appearance::currentTexture->getLength_s() ;
+    pt1_2_textCoords[1]=0;
+    
+    
+    pt2_textCoords[0]=(pt2[0]-pt1[0])/LG_Appearance::currentTexture->getLength_s();
+    pt2_textCoords[1]=(pt2[1]-pt1[1])/LG_Appearance::currentTexture->getLength_t();
+    
+    
+    pt2_2_textCoords[0]=0;
+    pt2_2_textCoords[1]=(pt2[0]-pt1[0])/LG_Appearance::currentTexture->getLength_t();
 
 }
 

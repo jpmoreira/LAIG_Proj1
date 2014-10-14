@@ -32,6 +32,7 @@ public:
     
     
     LG_Sphere(LG_Node_Map *map,TiXmlElement *elem);
+    LG_Sphere(LG_Node_Map *map,TiXmlElement *elem,LG_Appearance *app);
     LG_Sphere(LG_Node_Map *map,double r,int st,int sl);
     
     /**
@@ -42,6 +43,9 @@ public:
      
      */
     void draw ();
+    
+    
+    void calculateTextureCoordinates();
     
     
 };
