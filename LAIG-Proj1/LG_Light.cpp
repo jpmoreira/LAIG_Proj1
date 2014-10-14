@@ -90,3 +90,55 @@ unsigned int LG_Light::myGL_LIGHT()
 
 	return GL_MAX_LIGHTS;
 }
+
+
+void LG_Light::fillLightComponents(TiXmlElement *element, LG_LightArray_f components[3]){
+
+
+	TiXmlElement *sub_elem;
+
+	bool ambient_set, diffuse_set, specular_set;
+	ambient_set = diffuse_set = specular_set = false;
+
+	sub_elem = element->FirstChildElement(LG_LIGHT_COMPONENT_XML_TAG_NAME);
+
+	if (!sub_elem)
+		throw new LG_Parse_Exception_Missing_Element(new string(LG_LIGHT_COMPONENT_XML_TAG_NAME));
+
+	while (sub_elem)
+	{
+		char *comp_type = (char *)sub_elem->Attribute(LG_LIGHT_COMPONENT_ATT_TYPE);
+
+		if (comp_type)
+		{
+			if (str_eq(LG_LIGHT_COMPONENT_AMBIENT_STR, comp_type))
+			{
+				lightArray_f_tryToAttributeVariable(LG_LIGHT_COMPONENT_ATT_VALUE, sub_elem, components[LG_LIGHT_COMPONENT_AMBIENT]);
+				ambient_set = true;
+			}
+			else if (str_eq(LG_LIGHT_COMPONENT_DIFFUSE_STR, comp_type))
+			{
+				lightArray_f_tryToAttributeVariable(LG_LIGHT_COMPONENT_ATT_VALUE, sub_elem, components[LG_LIGHT_COMPONENT_DIFFUSE]);
+				diffuse_set = true;
+			}
+			else if (str_eq(LG_LIGHT_COMPONENT_SPECULAR_STR, comp_type))
+			{
+				lightArray_f_tryToAttributeVariable(LG_LIGHT_COMPONENT_ATT_VALUE, sub_elem, components[LG_LIGHT_COMPONENT_SPECULAR]);
+				specular_set = true;
+			}
+			else
+				throw new LG_Parse_Exception_Wrong_Attribute_Value(new string(LG_LIGHT_COMPONENT_ATT_VALUE), new string(LG_LIGHT_COMPONENT_ATT_VALUE), new string("WRONG DOUBLE"));
+		}
+
+		sub_elem = sub_elem->NextSiblingElement(LG_LIGHT_COMPONENT_XML_TAG_NAME);
+	}
+
+	if (!(ambient_set && diffuse_set && specular_set))
+		if (!ambient_set)
+			throw new LG_Parse_Exception_Missing_Element(new string(LG_LIGHT_COMPONENT_AMBIENT_STR));
+		else if (!diffuse_set)
+			throw new LG_Parse_Exception_Missing_Element(new string(LG_LIGHT_COMPONENT_DIFFUSE_STR));
+		else if (!specular_set)
+			throw new LG_Parse_Exception_Missing_Element(new string(LG_LIGHT_COMPONENT_SPECULAR_STR));
+
+}

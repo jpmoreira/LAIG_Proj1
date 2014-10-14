@@ -21,6 +21,5 @@ private:
 	
 	string id;
 	bool enabled, marker;
-	void fillLightComponents(TiXmlElement *element, LG_LightArray_f components[3]);
 
 };

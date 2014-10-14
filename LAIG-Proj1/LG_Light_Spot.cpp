@@ -13,7 +13,7 @@ LG_Light_Spot::LG_Light_Spot(LG_Node_Map *map, TiXmlElement *element) : LG_Light
 	bool_tryToAttributeVariable(LG_LIGHT_ATT_MARKER, element, marker);
 	point3D_F_tryToAttributeVariable(LG_LIGHT_ATT_POS, element, pos);
 	fillLightComponents(element, components);
-	
+
 	point3D_F_tryToAttributeVariable(LG_SPOT_ATT_TARGET, element, _target);
 	float_tryToAttributeVariable(LG_SPOT_ATT_ANGLE, element, tmp_angle);
 	float_tryToAttributeVariable(LG_SPOT_ATT_EXPONENT, element, exponent);
@@ -21,9 +21,9 @@ LG_Light_Spot::LG_Light_Spot(LG_Node_Map *map, TiXmlElement *element) : LG_Light
 	this->setAmbient(components[LG_LIGHT_COMPONENT_AMBIENT]);
 	this->setDiffuse(components[LG_LIGHT_COMPONENT_DIFFUSE]);
 	this->setSpecular(components[LG_LIGHT_COMPONENT_SPECULAR]);
-	
+
 	this->setAngle((float)tmp_angle);
-		
+
 	this->position[0] = pos[0];
 	this->position[1] = pos[1];
 	this->position[2] = pos[2];
@@ -36,48 +36,13 @@ LG_Light_Spot::LG_Light_Spot(LG_Node_Map *map, TiXmlElement *element) : LG_Light
 	if (enabled)
 		this->enable();
 	else
-	this->disable();
+		this->disable();
 }
 
 
 LG_Light_Spot::~LG_Light_Spot()
 {
 }
-
-
-
-void LG_Light_Spot::fillLightComponents(TiXmlElement *element, LG_LightArray_f components[3]){
-
-
-	TiXmlElement *sub_elem;
-
-	sub_elem = element->FirstChildElement(LG_LIGHT_COMPONENT_XML_TAG_NAME);
-
-	if (!sub_elem)
-	throw new LG_Parse_Exception_Missing_Element(new string(LG_LIGHT_COMPONENT_XML_TAG_NAME));
-
-	while (sub_elem)
-	{
-		char *comp_type = (char *)sub_elem->Attribute(LG_LIGHT_COMPONENT_ATT_TYPE);
-
-		if (comp_type)
-		{
-			if (str_eq(LG_LIGHT_COMPONENT_AMBIENT_STR, comp_type))
-				lightArray_f_tryToAttributeVariable(LG_LIGHT_COMPONENT_ATT_VALUE, sub_elem, components[LG_LIGHT_COMPONENT_AMBIENT]);
-
-			else if (str_eq(LG_LIGHT_COMPONENT_DIFFUSE_STR, comp_type))
-				lightArray_f_tryToAttributeVariable(LG_LIGHT_COMPONENT_ATT_VALUE, sub_elem, components[LG_LIGHT_COMPONENT_DIFFUSE]);
-
-			else if (str_eq(LG_LIGHT_COMPONENT_SPECULAR_STR, comp_type))
-				lightArray_f_tryToAttributeVariable(LG_LIGHT_COMPONENT_ATT_VALUE, sub_elem, components[LG_LIGHT_COMPONENT_SPECULAR]);
-			else 
-				throw new LG_Parse_Exception_Wrong_Attribute_Value(new string(LG_LIGHT_COMPONENT_ATT_VALUE), new string(LG_LIGHT_COMPONENT_ATT_VALUE), new string("WRONG DOUBLE"));
-		}
-
-		sub_elem = sub_elem->NextSiblingElement(LG_LIGHT_COMPONENT_XML_TAG_NAME);
-	}
-}
-
 
 
 string LG_Light_Spot::getId(){

@@ -51,6 +51,7 @@ public:
 	static unsigned int myGL_LIGHT();
 	static void increaseLightsCount();
 	static unsigned int getLightsCount();
+	static void fillLightComponents(TiXmlElement *element, LG_LightArray_f components[3]);
 	virtual unsigned int getGL_ID() = 0;
 	virtual void draw() = 0;
 

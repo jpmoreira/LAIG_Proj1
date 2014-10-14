@@ -25,7 +25,6 @@ public:
 	void draw();
 	void setMyGL_ID(unsigned int GL_ID);
 	unsigned int getGL_ID();
-	void fillLightComponents(TiXmlElement *element, LG_LightArray_f components[3]);
 
 
 private:
