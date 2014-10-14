@@ -71,7 +71,7 @@ int main(int argc, char * argv[]){
         
         LG_Scene *scene=new LG_Scene();
 #ifdef _WIN32
-        scene->setDocName("TestANF.xml");
+        scene->setDocName("LAIG_TP1_ANF_T01_G03_v2.anf");
 #else
         scene->setDocName("./testFiles/TestANF.xml");
 #endif
