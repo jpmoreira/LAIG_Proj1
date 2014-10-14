@@ -69,7 +69,15 @@ int main(int argc, char * argv[]){
     try {
         app.init(&argc, argv);
         
-        app.setScene(new LG_Scene());
+        LG_Scene *scene=new LG_Scene();
+#ifdef _WIN32
+        scene->setDocName("TestANF.xml");
+#else
+        scene->setDocName("./testFiles/TestANF.xml");
+#endif
+        
+        
+        app.setScene(scene);
         app.setInterface(new CGFinterface());
         //app.setInterface(new TPinterface());
         

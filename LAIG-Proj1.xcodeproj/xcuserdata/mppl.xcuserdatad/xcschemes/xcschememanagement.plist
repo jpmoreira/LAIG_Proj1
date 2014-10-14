@@ -74,6 +74,11 @@
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
+		<key>LG_Other_XML.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>21</integer>
+		</dict>
 		<key>LG_Parse_Exceptions_Tests.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -208,6 +213,11 @@
 			<true/>
 		</dict>
 		<key>54831CB719E453570090418B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>548CA5D719ED85BD008AD9F7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
