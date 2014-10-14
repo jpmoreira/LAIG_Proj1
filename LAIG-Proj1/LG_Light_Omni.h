@@ -14,16 +14,12 @@ public:
 	bool getEnabled();
 	const LG_Point3D_F &getPos();
 	const LG_LightArray_f *getComponents();
+	unsigned int getGL_ID();
+	void draw();
 
 private:
 	
 	string id;
 	bool enabled, marker;
-	LG_Point3D_F pos;
-	LG_LightArray_f components[3];
-	CGFlight *my_light;
-	unsigned int my_light_id;
-
-	void fillLightComponents(TiXmlElement *element);
 
 };

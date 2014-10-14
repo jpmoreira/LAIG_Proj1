@@ -6,6 +6,8 @@
 #define LG_SPOT_ATT_ANGLE "angle"
 #define LG_SPOT_ATT_EXPONENT "exponent"
 
+#define LG_IS_SPOT_LIGHT 1 //opengl defined value for spot lights type
+
 
 class LG_Light_Spot :
 	public LG_Light
@@ -20,22 +22,14 @@ public:
 	string getId();
 	bool getMarker();
 	bool getEnabled();
-	const LG_Point3D_F &getPos();
-	const LG_Point3D_F &getTarget();
-	const LG_LightArray_f *getComponents();
-	double getAngle();
-	double getExponent();
 	void draw();
-
+	void setMyGL_ID(unsigned int GL_ID);
+	unsigned int getGL_ID();
 
 
 private:
-	void fillLightComponents(TiXmlElement *element);
 	string id;
 	bool enabled, marker;
-	float pos[3], target[3];
-	LG_LightArray_f components[3];
-	double angle, exponent;
-	CGFlight *my_light;
-	unsigned int my_light_id;
+	float exponent; //Only values in the range [0, 128] are accepted
+	
 };

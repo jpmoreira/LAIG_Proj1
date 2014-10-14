@@ -49,9 +49,9 @@ void LG_Lights_Container::draw(){
 	
 	for (int i = 0; i < this->childsIDs.size(); i++)
 	{
-		string spot_id("spot1");
-		auto it = map->find(spot_id);
-		LG_Light_Spot *myspot = (LG_Light_Spot *)(it->second);
+		
+		auto it = map->find(childsIDs[i]);
+		LG_Light *myspot = (LG_Light_Spot *)(it->second);
 		myspot->draw();
 
 	}

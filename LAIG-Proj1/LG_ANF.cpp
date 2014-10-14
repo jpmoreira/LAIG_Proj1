@@ -203,7 +203,7 @@ void LG_ANF::config(CGFapplication *app) {
 
 void LG_ANF::draw(){
 
-
+	
     graph->draw();
 	lights->draw();
 
