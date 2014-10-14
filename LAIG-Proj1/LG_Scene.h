@@ -21,7 +21,7 @@ class LG_Scene:public CGFscene {
     string docName;
     
     //CGFlight* light0;
-    //CGFlight* light1;
+    CGFlight* light1;
     //CGFlight* light2;
     //CGFlight* light3;
     

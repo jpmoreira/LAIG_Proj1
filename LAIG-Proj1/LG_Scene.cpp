@@ -22,7 +22,7 @@ float deg2rad=pi/180.0;
 
 // Positions for two lights
 float light0_pos[4] = {3.25, 8.0, 3.25, 1.0};
-float light1_pos[4] = {9.75, 8.0, 3.25, 1.0};
+float light1_pos[4] = {0, 2, 0, 1.0};
 
 float light2_pos[4] = {3.25, 8.0, 9.75, 1.0};
 float light3_pos[4] = {9.75, 8.0, 9.75, 1.0};
@@ -98,21 +98,20 @@ void LG_Scene::init() {
     
     // Declares and enables two lights, with null ambient component
     
-    //light0 = new CGFlight(GL_LIGHT0, light0_pos);
-    //light0 = new CGFlight(GL_LIGHT0, light0_pos);
+     //light0 = new CGFlight(GL_LIGHT0, light0_pos);
     //light0->setAmbient(ambientNull);
-    ////light0->setSpecular(yellow);
+    //light0->setSpecular(yellow);
     //
     //
     //
     ////light1 = new CGFlight(GL_LIGHT1, light1_pos);
-    //light1 = new CGFlight(GL_LIGHT1, light1_pos);
-    //light1->setAmbient(ambientNull);
+    light1 = new CGFlight(GL_LIGHT1, light1_pos);
+    light1->setAmbient(ambientNull);
     //
     //
-    //light1->setKc(1);
-    //light1->setKl(0);
-    //light1->setKq(0);
+    light1->setKc(1);
+    light1->setKl(0);
+    light1->setKq(0);
     //
     //
     ////light2 = new CGFlight(GL_LIGHT2, light2_pos);
@@ -138,7 +137,7 @@ void LG_Scene::init() {
     //
     //
     //light0->enable();
-    //light1->disable();
+    light1->enable();
     //light2->disable();
     //light3->disable();
     // Uncomment below to enable normalization of lighting normal vectors
@@ -170,7 +169,7 @@ void LG_Scene::display(){
     // Apply transformations corresponding to the camera position relative to the origin
     CGFscene::activeCamera->applyView();
     
-    //light0->enable();
+    //light1->enable();
     /*light0->draw();
     light1->draw();
     light2->draw();
