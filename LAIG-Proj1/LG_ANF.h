@@ -26,6 +26,7 @@
 
 class LG_ANF: public LG_Node {
     
+	friend class SceneInterface;
 private:
     
     

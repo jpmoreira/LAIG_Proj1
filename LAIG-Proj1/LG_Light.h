@@ -55,6 +55,7 @@ public:
 	virtual unsigned int getGL_ID() = 0;
 	virtual void draw() = 0;
 
+
 protected:
 	static unsigned int lights_count;
 	static float  initial[3];
