@@ -18,6 +18,7 @@ class LG_Scene:public CGFscene {
     
     
     LG_ANF *anf;
+    string docName;
     
     //CGFlight* light0;
     //CGFlight* light1;
@@ -28,6 +29,7 @@ class LG_Scene:public CGFscene {
 public:
     void init();
     void display();
+    void setDocName(string name);
 };
 
 

@@ -55,9 +55,9 @@
   <!-- bloco de texturas. Este bloco tem de existir mas pode estar vazio, se nao forem usadas texturas -->
   <!--   ver topico 'Notas finais' no enunciado sobre os parametros texlength_... -->
   <textures>
-      <texture id="floorTexture" file="chao.jpeg" texlength_s="0.1" texlength_t="0.1" />
-      <texture id="rubberTexture" file="rubber.jpeg" texlength_s="0.1" texlength_t="0.1" />
-      <texture id="leatherTexture" file="leather.jpeg" texlength_s="1" texlength_t="1" />
+      <texture id="floorTexture" file="./testFiles/chao.jpeg" texlength_s="0.1" texlength_t="0.1" />
+      <texture id="rubberTexture" file="./testFiles/rubber.jpeg" texlength_s="0.1" texlength_t="0.1" />
+      <texture id="leatherTexture" file="./testFiles/leather.jpeg" texlength_s="1" texlength_t="1" />
       <texture id="metalTexture" file="./testFiles/metal.jpg" texlength_s="1" texlength_t="1" />
   </textures>
   <!-- bloco de materiais; -->

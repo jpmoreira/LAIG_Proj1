@@ -65,13 +65,16 @@ float yellow[4]={1,1,0,1};
 
 
 
+void LG_Scene::setDocName(string name){
+
+    docName=name;
+}
 
 void LG_Scene::init() {
-#ifdef _WIN32
-	TiXmlDocument *doc = new TiXmlDocument("TestANF.xml");
-#else
-    TiXmlDocument *doc=new TiXmlDocument("./testFiles/TestANF.xml");
-#endif
+    
+    TiXmlDocument *doc = new TiXmlDocument(docName.c_str());
+    
+
     
     doc->LoadFile();
     
