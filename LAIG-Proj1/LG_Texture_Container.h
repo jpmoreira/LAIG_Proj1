@@ -18,7 +18,7 @@ class LG_Texture_Container:public LG_Parsable_Node {
     
     
 public:
-    LG_Texture_Container(LG_Node_Map *map,TiXmlElement *element);
+    LG_Texture_Container(TiXmlElement *element);
     
 };
 

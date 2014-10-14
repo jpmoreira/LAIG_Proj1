@@ -1,9 +1,10 @@
 #include "LG_Cameras_Container.h"
 
 //nr of childs > 1, and initial cam must exist
-LG_Cameras_Container::LG_Cameras_Container(LG_Node_Map *map, TiXmlElement *element) : LG_Parsable_Node(map, LG_CAMERAS_TAG_ID)
+LG_Cameras_Container::LG_Cameras_Container( TiXmlElement *element) : LG_Parsable_Node(NULL, LG_CAMERAS_TAG_ID)
 {
 
+    map=new LG_Node_Map();
 	verifyElementName(element);
 	verifyAttributesAndValues(element);
 			

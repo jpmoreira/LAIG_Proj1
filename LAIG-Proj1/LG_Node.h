@@ -23,6 +23,7 @@
 class LG_Node{
     
     friend class LG_Graph;
+    friend class LG_ANF;
     
 protected:
     

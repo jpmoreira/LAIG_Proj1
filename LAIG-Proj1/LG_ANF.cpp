@@ -54,29 +54,29 @@ LG_ANF::LG_ANF(TiXmlElement *elem):LG_Node(NULL,LG_ANF_ID){
         
         else if(str_eq(subElement->Value(), LG_CAMERAS_XML_TAG_NAME)){
             
-            cameras=new LG_Cameras_Container(map,subElement);
+            cameras=new LG_Cameras_Container(subElement);
         }
         
         else if(str_eq(subElement->Value(), LG_LIGHTS_XML_TAG_NAME)){
             
-            lights=new LG_Lights_Container(map,subElement);
+            lights=new LG_Lights_Container(subElement);
         }
         
         else if(str_eq(subElement->Value(), LG_Texture_Container_XML_Tag_Name)){
             
-            textures=new LG_Texture_Container(map,subElement);
+            textures=new LG_Texture_Container(subElement);
 
         }
         
         else if(str_eq(subElement->Value(),LG_Apperance_Container_XML_Tag_Name)){
             
-            apperances=new LG_Appearance_Container(map,subElement,map);
+            apperances=new LG_Appearance_Container(subElement,textures->map);
         }
         
         
         else if(str_eq(subElement->Value(),LG_Graph_XML_Tag_Name)){
             
-            graph=new LG_Graph(map,subElement);
+            graph=new LG_Graph(apperances->map,subElement);
         }
         
         

@@ -10,8 +10,10 @@
 class LG_Lights_Container :
 	public LG_Parsable_Node
 {
+private:
+    LG_Node_Map *lightsMap;
 public:
-	LG_Lights_Container(LG_Node_Map *map, TiXmlElement *element);
+	LG_Lights_Container( TiXmlElement *element);
 	~LG_Lights_Container();
 	void draw();
 };

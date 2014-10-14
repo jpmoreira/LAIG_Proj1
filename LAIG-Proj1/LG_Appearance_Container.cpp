@@ -13,8 +13,11 @@
 
 #pragma mark - Constructor
 
-LG_Appearance_Container::LG_Appearance_Container(LG_Node_Map *map,TiXmlElement *elem,LG_Node_Map *texturesMap):
-LG_Parsable_Node(map,LG_Appearance_Container_ID){
+LG_Appearance_Container::LG_Appearance_Container(TiXmlElement *elem,LG_Node_Map *texturesMap):
+LG_Parsable_Node(NULL,LG_Appearance_Container_ID){
+    
+    
+    map=new LG_Node_Map();
     
     
     if (!str_eq(elem->Value(), LG_Apperance_Container_XML_Tag_Name)) {

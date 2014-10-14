@@ -105,13 +105,13 @@ void LG_Scene::init() {
     //
     //
     ////light1 = new CGFlight(GL_LIGHT1, light1_pos);
-    light1 = new CGFlight(GL_LIGHT1, light1_pos);
-    light1->setAmbient(ambientNull);
+    //light1 = new CGFlight(GL_LIGHT1, light1_pos);
+    //light1->setAmbient(ambientNull);
     //
     //
-    light1->setKc(1);
-    light1->setKl(0);
-    light1->setKq(0);
+    //light1->setKc(1);
+    //light1->setKl(0);
+    //light1->setKq(0);
     //
     //
     ////light2 = new CGFlight(GL_LIGHT2, light2_pos);
@@ -137,7 +137,7 @@ void LG_Scene::init() {
     //
     //
     //light0->enable();
-    light1->enable();
+    //light1->enable();
     //light2->disable();
     //light3->disable();
     // Uncomment below to enable normalization of lighting normal vectors

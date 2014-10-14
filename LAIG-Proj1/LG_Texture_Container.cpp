@@ -14,7 +14,9 @@
 
 #pragma mark - Constructor
 
-LG_Texture_Container::LG_Texture_Container(LG_Node_Map * map,TiXmlElement *elem):LG_Parsable_Node(map,LG_Texture_Containter_ID) {
+LG_Texture_Container::LG_Texture_Container(TiXmlElement *elem):LG_Parsable_Node(NULL,LG_Texture_Containter_ID) {
+    
+    map=new LG_Node_Map();
     
     if (!str_eq(elem->Value(), LG_Texture_Container_XML_Tag_Name)) {
         throw new LG_Parse_Exception_Wrong_Element_Name(LG_Texture_Container_XML_Tag_Name,elem->Value());

@@ -2,9 +2,10 @@
 
 
 
-LG_Lights_Container::LG_Lights_Container(LG_Node_Map *map, TiXmlElement *element) : LG_Parsable_Node(map, LG_LIGHTS_CONTAINER_ID)
+LG_Lights_Container::LG_Lights_Container( TiXmlElement *element) : LG_Parsable_Node(NULL, LG_LIGHTS_CONTAINER_ID)
 {
 
+    map=new LG_Node_Map();
 	if (element == NULL)
 		throw new LG_Parse_Exception_Missing_Element(LG_LIGHT_XML_TAG_NAME);
 
@@ -51,7 +52,7 @@ void LG_Lights_Container::draw(){
 	{
 		
 		auto it = map->find(childsIDs[i]);
-		LG_Light *myspot = (LG_Light_Spot *)(it->second);
+		LG_Light *myspot = (LG_Light *)(it->second);
 		myspot->draw();
 
 	}
