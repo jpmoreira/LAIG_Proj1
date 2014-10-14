@@ -6,63 +6,68 @@
 //	return this->id;
 //}
 
+#ifdef _WIN32
+//#define _USE_MATH_DEFINES // ->project settings-> c++ -> command line --> /D_USE_MATH_DEFINES 
+#include <math.h>
+#endif
+
 LG_Camera_Ortho::LG_Camera_Ortho(LG_Node_Map *map, TiXmlElement *element) :LG_Camera(map, element, identifierForSuper(element))
 {
 
 	verifyElementName(element);
 	verifyAttributesAndValues(element);
-    
-    
-    
-    
-    position[0]=0;
-    position[1]=0;
-    position[2]=0;
-    
-    
-    LG_Point3D pt;
-    pt[0]=0;
-    pt[1]=0;
-    pt[2]=0;
-    
-    if (direction==LG_AXIS_X) pt[0]=1;
-    else if(direction==LG_AXIS_Y)pt[1]=1;
-    else if(direction==LG_AXIS_Z)pt[2]=1;
-    
-    
-    double angleY=atan(pt[0]/pt[2])*180./M_PI;
-    if (pt[2]==0 && pt[0]>0) {
-        angleY=-90;
-    }
-    else if(pt[2]==0 && pt[0]<0){
-        angleY=90;
-    }
-    
-    else if(pt[0]==0 && pt[2]>0){
-    
-        angleY=180;
-    }
-    
-    else if(pt[0]==0){
-    
-        angleY=0;
-    }
-    
-    double h=sqrt(pt[0]*pt[0]+pt[2]*pt[2]);
-    
-    double angleX=atan(pt[1]/h)*180./M_PI;
-    
-    
-    
-    
-    
-    rotation[1]=-angleY;
-    rotation[0]=-angleX;
-    rotation[2]=0;
-    
 
 
-    
+
+
+	position[0] = 0;
+	position[1] = 0;
+	position[2] = 0;
+
+
+	LG_Point3D pt;
+	pt[0] = 0;
+	pt[1] = 0;
+	pt[2] = 0;
+
+	if (direction == LG_AXIS_X) pt[0] = 1;
+	else if (direction == LG_AXIS_Y)pt[1] = 1;
+	else if (direction == LG_AXIS_Z)pt[2] = 1;
+
+
+	double angleY = atan(pt[0] / pt[2])*180. / M_PI;
+	if (pt[2] == 0 && pt[0] > 0) {
+		angleY = -90;
+	}
+	else if (pt[2] == 0 && pt[0] < 0){
+		angleY = 90;
+	}
+
+	else if (pt[0] == 0 && pt[2] > 0){
+
+		angleY = 180;
+	}
+
+	else if (pt[0] == 0){
+
+		angleY = 0;
+	}
+
+	double h = sqrt(pt[0] * pt[0] + pt[2] * pt[2]);
+
+	double angleX = atan(pt[1] / h)*180. / M_PI;
+
+
+
+
+
+	rotation[1] = -angleY;
+	rotation[0] = -angleX;
+	rotation[2] = 0;
+
+
+
+
 }
 
 
@@ -91,7 +96,7 @@ void LG_Camera_Ortho::verifyAttributesAndValues(TiXmlElement *element){
 	int tmp;
 	enum_tryToAttribute(LG_Camera_Ortho_XML_ATT_DIRECTION, element, tmp, &options);
 
-	direction = (LG_AXIS) tmp;
+	direction = (LG_AXIS)tmp;
 
 }
 
@@ -129,8 +134,8 @@ LG_AXIS LG_Camera_Ortho::getDirection()
 
 void LG_Camera_Ortho::updateProjectionMatrix(int width, int height)
 {
-    //float aspect= (float)width / (float)height;
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-    glOrtho(left, right, bottom, top, _near, _far);
+	//float aspect= (float)width / (float)height;
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	glOrtho(left, right, bottom, top, _near, _far);
 }
