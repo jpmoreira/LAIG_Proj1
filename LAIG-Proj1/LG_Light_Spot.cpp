@@ -60,10 +60,12 @@ bool LG_Light_Spot::getEnabled(){
 
 void LG_Light_Spot::draw()
 {
-    this->update();
+	//glLightf(my_GL_Id, GL_SPOT_EXPONENT, exponent);
 	if (marker)
 		this->CGFlight::draw();
-	glLightf(my_GL_Id, GL_SPOT_EXPONENT, exponent);
+	else
+		this->update();
+
 }
 
 
