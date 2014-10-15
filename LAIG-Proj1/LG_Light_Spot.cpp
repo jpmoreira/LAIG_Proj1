@@ -1,6 +1,6 @@
 #include "LG_Light_Spot.h"
 
-
+#define MIN_DIRECTION_FLOAT 0.0001
 
 LG_Light_Spot::LG_Light_Spot(LG_Node_Map *map, TiXmlElement *element) : LG_Light(map, element, identifierForSuper(element))
 {
@@ -28,11 +28,15 @@ LG_Light_Spot::LG_Light_Spot(LG_Node_Map *map, TiXmlElement *element) : LG_Light
 	this->position[1] = pos[1];
 	this->position[2] = pos[2];
 	this->position[3] = LG_IS_SPOT_LIGHT;
-
+	
 	this->direction[0] = _target[0]; //-pos[0];
 	this->direction[1] = _target[1]; //-pos[1];
 	this->direction[2] = _target[2];// -pos[2];
 
+	if (_target[0] == 0 && _target[1] == 0 && _target[2] == 0)
+	{
+		direction[1] = MIN_DIRECTION_FLOAT;
+	}
 	if (enabled)
 		this->enable();
 	else
