@@ -7,6 +7,7 @@
 //
 
 #include "LG_Glu_Primitive.h"
+#include "LG_ANF.h"
 
 
 #pragma mark - Constructors
@@ -30,7 +31,20 @@ void LG_Glu_Primitive::configureQuadric() {
     
     gluQuadricNormals(quadric, GLU_SMOOTH);
     gluQuadricOrientation(quadric, GLU_OUTSIDE);
-    gluQuadricDrawStyle(quadric, GLU_FILL);
+    
+    
+    if (LG_ANF::currentDrawingMode()==LG_Drawing_Fill) {
+        gluQuadricDrawStyle(quadric, GLU_FILL);
+    }
+    else if(LG_ANF::currentDrawingMode()==LG_Drawing_Line){
+        gluQuadricDrawStyle(quadric, GLU_LINE);
+    }
+    
+    else if(LG_ANF::currentDrawingMode()==LG_Drawing_Point){
+        gluQuadricDrawStyle(quadric, GLU_POINT);
+    }
+
+    
     gluQuadricTexture(quadric, GL_TRUE);
     
     

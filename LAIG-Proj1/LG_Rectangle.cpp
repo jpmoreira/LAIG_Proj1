@@ -119,7 +119,7 @@ void LG_Rectangle::calculateTextureCoordinates(){
     
     
     pt2_2_textCoords[0]=0;
-    pt2_2_textCoords[1]=(pt2[0]-pt1[0])/LG_Appearance::currentTexture->getLength_t();
+    pt2_2_textCoords[1]=(pt2[1]-pt1[1])/LG_Appearance::currentTexture->getLength_t();
 
 }
 

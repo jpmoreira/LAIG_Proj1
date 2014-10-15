@@ -86,11 +86,14 @@ LG_Graph_Node::LG_Graph_Node(LG_Node_Map *map,LG_Node_Map *app_map, TiXmlElement
     if (!transformsSet) {
         throw new LG_Parse_Exception_Missing_Element(LG_Transforms_XML_Tag_Name);
     }
+    
+    
+    /*
     if (!primitivesSet) {
         throw new LG_Parse_Exception_Missing_Element(LG_Graph_Node_Primitives_Tag_Name);
     }
     
-    
+    */
     
     
 }
@@ -237,6 +240,28 @@ void LG_Graph_Node::draw(){
     if (appearance) appearance->unapply();
     
     glPopMatrix();
+
+
+}
+
+#pragma mark - Configuration
+
+
+void LG_Graph_Node::config(){
+    
+    
+    if (appearance) appearance->apply();
+    
+    
+    for (int i=0; i<childsIDs.size(); i++) {
+        
+        child(i)->config();
+        
+    }
+    
+    if (appearance) appearance->unapply();
+    
+
 
 
 }

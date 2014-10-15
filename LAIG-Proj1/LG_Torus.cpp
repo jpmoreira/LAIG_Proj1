@@ -146,12 +146,8 @@ void LG_Torus::draw()
 void LG_Torus::calculateTextureCoordinates(){
 
 
-    static bool ok=false;
-    
-    if (!ok) {
-        ok=true;
-        calculateCordinates();
-    }
+
+    calculateCordinates();
     
 }
 
@@ -172,8 +168,8 @@ void LG_Torus::calculateCordinates(){
     yy_normal=(double *)malloc(sizeof(double)*(loops+1)*(slices+1));
     zz_normal=(double *)malloc(sizeof(double)*(loops+1)*(slices+1));
     
-    ss_text=(double *)malloc(sizeof(double)*(loops+1)*(slices+1));
-    tt_text=(double *)malloc(sizeof(double)*(loops+1)*(slices+1));
+    ss_text=(double *)calloc((loops+1)*(slices+1),sizeof(double));
+    tt_text=(double *)calloc((loops+1)*(slices+1),sizeof(double));
     
     double alpha=0;//angle related to loops(around yy axis)
     double beta=0;//angle around each loop internal loop axis
@@ -185,8 +181,10 @@ void LG_Torus::calculateCordinates(){
     double r2=innerRadius;
     
     double loopPerimeter=2*M_PI*r2;
-    double torusPerimeter=2*M_PI*r1;
     
+    
+    
+    double torusExternalPerimeter=2*M_PI*(r1+r2);
     
     double s_lenght=0;
     double t_lenght=0;
@@ -197,16 +195,20 @@ void LG_Torus::calculateCordinates(){
     }
     
     
+    double nrRepetitionsAlongLoop=loopPerimeter/s_lenght;
+    
+    double nrRepsAlongWholeTorus=torusExternalPerimeter/t_lenght;
+    
     
 
     for (int l=0; l<=loops; l++) {
         
-        double t_distFromStartOfLoop=l/(float)loops*torusPerimeter;
+        
         
         beta=0;
         for (int s=0; s<=slices; s++) {
             
-            double s_distFromStartOfLoop=s/(float)slices*loopPerimeter;
+            
             
             
     
@@ -222,8 +224,8 @@ void LG_Torus::calculateCordinates(){
             zz_normal[l*(slices+1)+s]=sin(beta);
             
             if (LG_Appearance::currentTexture) {
-                ss_text[l*(slices+1)+s]=s_distFromStartOfLoop/s_lenght;
-                tt_text[l*(slices+1)+s]=t_distFromStartOfLoop/t_lenght;
+                tt_text[l*(slices+1)+s]=beta/(2.0*M_PI)*nrRepetitionsAlongLoop;
+                ss_text[l*(slices+1)+s]=alpha/(2.0*M_PI)*nrRepsAlongWholeTorus;
             }
             
             

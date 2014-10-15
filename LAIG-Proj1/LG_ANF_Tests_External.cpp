@@ -18,7 +18,7 @@ int main(int argc, char * argv[]){
         app.init(&argc, argv);
         
         LG_Scene *scene=new LG_Scene();
-        scene->setDocName("./textures/LAIG_TP1_ANF_T01_G03_v2.anf");
+        scene->setDocName("LAIG_TP1_ANF_T06_G01_v3.anf");
         
         
         app.setScene(scene);

@@ -75,15 +75,8 @@ public:
     
     void draw();
     
-    
-    /**
-     
-     A method for configuring openGL with all defenitions previously loaded from the xml
-     
-     
-     
-     */
-    void config(CGFapplication *app);
+
+    void config();
     
     
     /**
@@ -102,6 +95,16 @@ public:
     static LG_ANF *anfForXML(TiXmlDocument *xml);
     
     LG_Camera * currentCamera();
+    
+    
+    /**
+    
+     A method for returning the drawing mode currently applied
+     
+     */
+    static LG_Drawing_Mode currentDrawingMode();
+    
+
     
     
 };

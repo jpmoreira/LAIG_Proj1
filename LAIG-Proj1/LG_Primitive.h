@@ -42,6 +42,7 @@ protected:
     
     virtual void draw();
     
+    virtual void config();
     
     
 };

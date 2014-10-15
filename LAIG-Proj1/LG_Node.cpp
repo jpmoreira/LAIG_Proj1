@@ -32,7 +32,12 @@ void LG_Node::draw(){
     
 }
 
+#pragma mark - Configuration
 
+void LG_Node::config(){
+
+
+}
 
 #pragma mark - Managing Childs
 

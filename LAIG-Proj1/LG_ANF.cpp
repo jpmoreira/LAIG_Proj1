@@ -184,14 +184,15 @@ LG_Camera * LG_ANF::currentCamera() {
 
 #pragma mark - OpenGL configuration
 
-void LG_ANF::config(CGFapplication *app) {
+void LG_ANF::config() {
  
     
     
     cullingConfig->draw();
     drawingConfig->draw();
     lightingConfig->draw();
-    glEnable(GL_TEXTURE_2D);
+    
+    graph->config();
     
 }
 
@@ -226,6 +227,18 @@ LG_ANF *LG_ANF::anfForXML(TiXmlDocument *xml){
     
     return LG_ANF::current_anf;
 
+}
+
+
+#pragma mark - Getters & Setters
+
+
+LG_Drawing_Mode LG_ANF::currentDrawingMode() {
+    
+    
+    if (!current_anf || !current_anf->drawingConfig )return LG_Drawing_Not_Set;
+    
+    return current_anf->drawingConfig->mode;
 }
 
 

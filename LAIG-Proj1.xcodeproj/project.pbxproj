@@ -342,25 +342,20 @@
 		548CA60219ED8631008AD9F7 /* LG_Drawing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5458030819D5804400C9DF32 /* LG_Drawing.cpp */; };
 		548CA60319ED8631008AD9F7 /* LG_ANF.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 542D82B219E7BF86004DC691 /* LG_ANF.cpp */; };
 		548CA60519ED8658008AD9F7 /* LG_ANF_Tests_External.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 548CA60419ED8658008AD9F7 /* LG_ANF_Tests_External.cpp */; };
-		548CA67C19EDB7B1008AD9F7 /* alien_wallpaper.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 548CA62219ED8A70008AD9F7 /* alien_wallpaper.jpg */; };
-		548CA67D19EDB7B1008AD9F7 /* alien-pattern.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 548CA62319ED8A70008AD9F7 /* alien-pattern.jpg */; };
-		548CA67E19EDB7B1008AD9F7 /* alien1.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 548CA62419ED8A70008AD9F7 /* alien1.png */; };
-		548CA67F19EDB7B1008AD9F7 /* alien2.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 548CA62519ED8A70008AD9F7 /* alien2.png */; };
-		548CA68019EDB7B1008AD9F7 /* floor_wood.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 548CA62619ED8A70008AD9F7 /* floor_wood.jpg */; };
-		548CA68119EDB7B1008AD9F7 /* fractalTree.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 548CA62719ED8A70008AD9F7 /* fractalTree.jpg */; };
-		548CA68219EDB7B1008AD9F7 /* globe.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 548CA62819ED8A70008AD9F7 /* globe.jpg */; };
-		548CA68319EDB7B1008AD9F7 /* metal.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 548CA62919ED8A70008AD9F7 /* metal.jpg */; };
-		548CA68419EDB7B1008AD9F7 /* neon.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 548CA62A19ED8A70008AD9F7 /* neon.jpg */; };
-		548CA68519EDB7B1008AD9F7 /* squares.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 548CA62B19ED8A70008AD9F7 /* squares.jpg */; };
-		548CA68619EDB7B1008AD9F7 /* torus.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 548CA62C19ED8A70008AD9F7 /* torus.png */; };
-		548CA68719EDB7B1008AD9F7 /* wall_white.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 548CA62D19ED8A70008AD9F7 /* wall_white.jpg */; };
 		548CA68819EDC5E1008AD9F7 /* coordinateSystems.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 540B932019EB25890034E113 /* coordinateSystems.cpp */; };
-		548CA68919EE7E69008AD9F7 /* LAIG_TP1_ANF_T01_G03_v2.anf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 548CA62119ED8A68008AD9F7 /* LAIG_TP1_ANF_T01_G03_v2.anf */; };
 		548CA68A19EEBFE8008AD9F7 /* metal.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 548CA5D219ED80FD008AD9F7 /* metal.jpg */; };
 		548CA68B19EEBFE8008AD9F7 /* leather.jpeg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 540B933819ED61CE0034E113 /* leather.jpeg */; };
 		548CA68C19EEBFE8008AD9F7 /* rubber.jpeg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 540B933619ED61170034E113 /* rubber.jpeg */; };
 		548CA68D19EEBFE8008AD9F7 /* chao.jpeg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 540B933319ED1CEE0034E113 /* chao.jpeg */; };
 		548CA68E19EEBFE8008AD9F7 /* TestANF.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 540939A619E7DC6800961C05 /* TestANF.xml */; };
+		548CA69719EEE9AD008AD9F7 /* floor_party.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 548CA69019EEE93F008AD9F7 /* floor_party.jpg */; };
+		548CA69819EEE9AD008AD9F7 /* LAIG_TP1_ANF_T06_G01_v3.anf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 548CA69119EEE93F008AD9F7 /* LAIG_TP1_ANF_T06_G01_v3.anf */; };
+		548CA69919EEE9AD008AD9F7 /* party_2.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 548CA69219EEE93F008AD9F7 /* party_2.jpg */; };
+		548CA69A19EEE9AD008AD9F7 /* party.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 548CA69319EEE93F008AD9F7 /* party.png */; };
+		548CA69B19EEE9AD008AD9F7 /* table_wood.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 548CA69419EEE93F008AD9F7 /* table_wood.jpg */; };
+		548CA69C19EEE9AD008AD9F7 /* table.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 548CA69519EEE93F008AD9F7 /* table.jpg */; };
+		548CA69D19EEE9AD008AD9F7 /* window.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 548CA69619EEE93F008AD9F7 /* window.jpg */; };
+		548CA69F19EEECD0008AD9F7 /* party_hats.anf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 548CA69E19EEECA3008AD9F7 /* party_hats.anf */; };
 		54D8610C19E5893200B5695A /* LG_Light.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54D8610A19E5893200B5695A /* LG_Light.cpp */; };
 		54D8610F19E5894100B5695A /* LG_Lights_Container.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54D8610D19E5894100B5695A /* LG_Lights_Container.cpp */; };
 		54D8611C19E58A2200B5695A /* libGLEWmx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE5019D0ADFF00D4831A /* libGLEWmx.a */; };
@@ -579,22 +574,17 @@
 		548CA5D619ED85BD008AD9F7 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
-			dstPath = textures;
+			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
-				548CA68919EE7E69008AD9F7 /* LAIG_TP1_ANF_T01_G03_v2.anf in CopyFiles */,
-				548CA67C19EDB7B1008AD9F7 /* alien_wallpaper.jpg in CopyFiles */,
-				548CA67D19EDB7B1008AD9F7 /* alien-pattern.jpg in CopyFiles */,
-				548CA67E19EDB7B1008AD9F7 /* alien1.png in CopyFiles */,
-				548CA67F19EDB7B1008AD9F7 /* alien2.png in CopyFiles */,
-				548CA68019EDB7B1008AD9F7 /* floor_wood.jpg in CopyFiles */,
-				548CA68119EDB7B1008AD9F7 /* fractalTree.jpg in CopyFiles */,
-				548CA68219EDB7B1008AD9F7 /* globe.jpg in CopyFiles */,
-				548CA68319EDB7B1008AD9F7 /* metal.jpg in CopyFiles */,
-				548CA68419EDB7B1008AD9F7 /* neon.jpg in CopyFiles */,
-				548CA68519EDB7B1008AD9F7 /* squares.jpg in CopyFiles */,
-				548CA68619EDB7B1008AD9F7 /* torus.png in CopyFiles */,
-				548CA68719EDB7B1008AD9F7 /* wall_white.jpg in CopyFiles */,
+				548CA69F19EEECD0008AD9F7 /* party_hats.anf in CopyFiles */,
+				548CA69719EEE9AD008AD9F7 /* floor_party.jpg in CopyFiles */,
+				548CA69819EEE9AD008AD9F7 /* LAIG_TP1_ANF_T06_G01_v3.anf in CopyFiles */,
+				548CA69919EEE9AD008AD9F7 /* party_2.jpg in CopyFiles */,
+				548CA69A19EEE9AD008AD9F7 /* party.png in CopyFiles */,
+				548CA69B19EEE9AD008AD9F7 /* table_wood.jpg in CopyFiles */,
+				548CA69C19EEE9AD008AD9F7 /* table.jpg in CopyFiles */,
+				548CA69D19EEE9AD008AD9F7 /* window.jpg in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -767,6 +757,14 @@
 		548CA63F19ED8CDB008AD9F7 /* planet.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = planet.jpg; sourceTree = "<group>"; };
 		548CA64019ED8CDB008AD9F7 /* tire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tire.png; sourceTree = "<group>"; };
 		548CA64119ED8CDB008AD9F7 /* wall-e.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "wall-e.xml"; sourceTree = "<group>"; };
+		548CA69019EEE93F008AD9F7 /* floor_party.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = floor_party.jpg; sourceTree = "<group>"; };
+		548CA69119EEE93F008AD9F7 /* LAIG_TP1_ANF_T06_G01_v3.anf */ = {isa = PBXFileReference; lastKnownFileType = text; path = LAIG_TP1_ANF_T06_G01_v3.anf; sourceTree = "<group>"; };
+		548CA69219EEE93F008AD9F7 /* party_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = party_2.jpg; sourceTree = "<group>"; };
+		548CA69319EEE93F008AD9F7 /* party.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = party.png; sourceTree = "<group>"; };
+		548CA69419EEE93F008AD9F7 /* table_wood.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = table_wood.jpg; sourceTree = "<group>"; };
+		548CA69519EEE93F008AD9F7 /* table.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = table.jpg; sourceTree = "<group>"; };
+		548CA69619EEE93F008AD9F7 /* window.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = window.jpg; sourceTree = "<group>"; };
+		548CA69E19EEECA3008AD9F7 /* party_hats.anf */ = {isa = PBXFileReference; lastKnownFileType = text; path = party_hats.anf; sourceTree = "<group>"; };
 		54D8610819E588FA00B5695A /* LG_Lights_Tests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LG_Lights_Tests.cpp; path = LAIG_TDD_LIGHTS/LG_Lights_Tests.cpp; sourceTree = SOURCE_ROOT; };
 		54D8610A19E5893200B5695A /* LG_Light.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Light.cpp; sourceTree = "<group>"; };
 		54D8610B19E5893200B5695A /* LG_Light.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_Light.h; sourceTree = "<group>"; };
@@ -1298,6 +1296,7 @@
 		548CA60619ED8864008AD9F7 /* ExtenalFiles */ = {
 			isa = PBXGroup;
 			children = (
+				548CA68F19EEE917008AD9F7 /* T06_G01 */,
 				548CA63B19ED8C7A008AD9F7 /* T01_G09 */,
 				548CA60819ED88E6008AD9F7 /* T01_G03 */,
 			);
@@ -1344,6 +1343,21 @@
 				548CA64119ED8CDB008AD9F7 /* wall-e.xml */,
 			);
 			path = T01_G09;
+			sourceTree = "<group>";
+		};
+		548CA68F19EEE917008AD9F7 /* T06_G01 */ = {
+			isa = PBXGroup;
+			children = (
+				548CA69E19EEECA3008AD9F7 /* party_hats.anf */,
+				548CA69019EEE93F008AD9F7 /* floor_party.jpg */,
+				548CA69119EEE93F008AD9F7 /* LAIG_TP1_ANF_T06_G01_v3.anf */,
+				548CA69219EEE93F008AD9F7 /* party_2.jpg */,
+				548CA69319EEE93F008AD9F7 /* party.png */,
+				548CA69419EEE93F008AD9F7 /* table_wood.jpg */,
+				548CA69519EEE93F008AD9F7 /* table.jpg */,
+				548CA69619EEE93F008AD9F7 /* window.jpg */,
+			);
+			path = T06_G01;
 			sourceTree = "<group>";
 		};
 		54D8610919E5890500B5695A /* Lights */ = {
