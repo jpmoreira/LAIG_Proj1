@@ -162,6 +162,7 @@ void LG_Appearance::handleTextureRef(LG_Node_Map *texturesMap, TiXmlElement *ele
 void LG_Appearance::apply() {
     
     
+    _savedCurrentTexture=currentTexture;
     
     if(texture){
         texture->apply();
@@ -172,7 +173,7 @@ void LG_Appearance::apply() {
     glGetMaterialfv(GL_FRONT, GL_AMBIENT, (GLfloat *)&_savedAmbient);
     glGetMaterialfv(GL_FRONT, GL_DIFFUSE, (GLfloat *)&_savedDiffuse);
     
-    _savedCurrentTexture=currentTexture;
+    
     
     
     

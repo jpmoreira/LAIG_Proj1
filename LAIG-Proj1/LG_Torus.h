@@ -24,6 +24,10 @@ private:
     int slices;
     int loops;
     
+    double * xx, *yy, *zz;
+    double *xx_normal,*yy_normal,*zz_normal;
+    double *ss_text,*tt_text;
+    
     static int _LG_classIDNr;
     
 public:
@@ -37,6 +41,9 @@ public:
     
     
     void calculateTextureCoordinates();
+    
+    
+    void calculateCordinates();
 }; 
 
 #endif /* defined(__LAIG_Proj1__LG_Torus__) */
