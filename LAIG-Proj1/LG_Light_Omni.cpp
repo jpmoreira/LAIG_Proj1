@@ -57,7 +57,8 @@ unsigned int LG_Light_Omni::getGL_ID()
 
 void LG_Light_Omni::draw()
 {
-    this->update();
 	if (marker)
 		this->CGFlight::draw();
+	else
+		this->CGFlight::update();
 }
