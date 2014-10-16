@@ -94,16 +94,6 @@ public:
     static LG_ANF *anfForXML(TiXmlDocument *xml);
     
     LG_Camera * currentCamera();
-    
-    
-    /**
-    
-     A method for returning the drawing mode currently applied
-     
-     */
-    static LG_Drawing_Mode currentDrawingMode();
-    
-
 
 
 	/**
@@ -121,7 +111,21 @@ public:
 
 	*/
     
+<<<<<<< HEAD
 	LG_Cameras_Container *getCamerasContainer();
+=======
+    
+    /**
+    
+     A method for returning the drawing mode currently applied
+     
+     */
+    static LG_Drawing_Mode currentDrawingMode();
+    
+
+    
+    
+>>>>>>> origin/master
 };
 
 #endif /* defined(__LAIG_Proj1__LG_Config__) */

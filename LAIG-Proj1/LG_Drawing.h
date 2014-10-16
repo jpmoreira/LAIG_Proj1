@@ -40,6 +40,7 @@ typedef enum {
 class LG_Drawing : public LG_Parsable_Node{
 
 
+    friend class LG_ANF;
 private:
     LG_Drawing_Mode mode;
     

@@ -71,28 +71,24 @@ void LG_Torus::draw()
     LG_Primitive::draw();
     
     
-    /*
     
-    glTexGeni(GL_S, GL_TEXTURE_GEN_MODE, GL_EYE_LINEAR);
-    glTexGeni(GL_T, GL_TEXTURE_GEN_MODE, GL_EYE_LINEAR);
-    glEnable(GL_TEXTURE_GEN_S);
-    glEnable(GL_TEXTURE_GEN_T);
-	glutWireTorus(this->innerRadius, this->outerRadius, this->slices, this->loops);
     
-    glDisable(GL_TEXTURE_GEN_S);
-    glDisable(GL_TEXTURE_GEN_T);
-     
-     
+	//glutSolidTorus(this->innerRadius, this->outerRadius, this->slices, this->loops);
+    
+
+    
      
     
     
     
-    */
-    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    
+    //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    
     
     glBegin(GL_QUADS);
      
-     
+    
+    
     
     for (int i=0; i<loops; i++) {
         
@@ -100,10 +96,35 @@ void LG_Torus::draw()
         for (int f=0; f<slices; f++) {
             
             
-            glVertex3d(xx[i*(slices+1)+f], -zz[i*(slices+1)+f],yy[i*(slices+1)+f]);
-            glVertex3d(xx[(i+1)*(slices+1)+f], -zz[(i+1)*(slices+1)+f],yy[(i+1)*(slices+1)+f]);
-            glVertex3d(xx[(i+1)*(slices+1)+f+1], -zz[(i+1)*(slices+1)+f+1],yy[(i+1)*(slices+1)+f+1]);
-            glVertex3d(xx[i*(slices+1)+f+1], -zz[i*(slices+1)+f+1],yy[i*(slices+1)+f+1]);
+            
+            
+            
+            
+            glTexCoord2d(ss_text[i*(slices+1)+f+1], tt_text[i*(slices+1)+f+1]);
+            glNormal3d(xx_normal[i*(slices+1)+f+1], yy_normal[i*(slices+1)+f+1],zz_normal[i*(slices+1)+f+1]);
+            glVertex3d(xx[i*(slices+1)+f+1], yy[i*(slices+1)+f+1],zz[i*(slices+1)+f+1]);
+            
+            
+            glTexCoord2d(ss_text[(i+1)*(slices+1)+f+1], tt_text[(i+1)*(slices+1)+f+1]);
+            glNormal3d(xx_normal[(i+1)*(slices+1)+f+1], yy_normal[(i+1)*(slices+1)+f+1],zz_normal[(i+1)*(slices+1)+f+1]);
+            glVertex3d(xx[(i+1)*(slices+1)+f+1], yy[(i+1)*(slices+1)+f+1],zz[(i+1)*(slices+1)+f+1]);
+            
+            
+            glTexCoord2d(ss_text[(i+1)*(slices+1)+f], tt_text[(i+1)*(slices+1)+f]);
+            glNormal3d(xx_normal[(i+1)*(slices+1)+f], yy_normal[(i+1)*(slices+1)+f],zz_normal[(i+1)*(slices+1)+f]);
+            glVertex3d(xx[(i+1)*(slices+1)+f], yy[(i+1)*(slices+1)+f],zz[(i+1)*(slices+1)+f]);
+            
+
+            glTexCoord2d(ss_text[i*(slices+1)+f], tt_text[i*(slices+1)+f]);
+            glNormal3d(xx_normal[i*(slices+1)+f], yy_normal[i*(slices+1)+f],zz_normal[i*(slices+1)+f]);
+            glVertex3d(xx[i*(slices+1)+f], yy[i*(slices+1)+f],zz[i*(slices+1)+f]);
+            
+            
+            
+            
+            
+            
+           
             
             
             
@@ -116,6 +137,7 @@ void LG_Torus::draw()
      
     
     
+    
      
     
 }
@@ -124,12 +146,8 @@ void LG_Torus::draw()
 void LG_Torus::calculateTextureCoordinates(){
 
 
-    static bool ok=false;
-    
-    if (!ok) {
-        ok=true;
-        calculateCordinates();
-    }
+
+    calculateCordinates();
     
 }
 
@@ -150,8 +168,8 @@ void LG_Torus::calculateCordinates(){
     yy_normal=(double *)malloc(sizeof(double)*(loops+1)*(slices+1));
     zz_normal=(double *)malloc(sizeof(double)*(loops+1)*(slices+1));
     
-    ss_text=(double *)malloc(sizeof(double)*(loops+1)*(slices+1));
-    tt_text=(double *)malloc(sizeof(double)*(loops+1)*(slices+1));
+    ss_text=(double *)calloc((loops+1)*(slices+1),sizeof(double));
+    tt_text=(double *)calloc((loops+1)*(slices+1),sizeof(double));
     
     double alpha=0;//angle related to loops(around yy axis)
     double beta=0;//angle around each loop internal loop axis
@@ -165,6 +183,9 @@ void LG_Torus::calculateCordinates(){
     double loopPerimeter=2*M_PI*r2;
     
     
+    
+    double torusExternalPerimeter=2*M_PI*(r1+r2);
+    
     double s_lenght=0;
     double t_lenght=0;
     
@@ -174,31 +195,37 @@ void LG_Torus::calculateCordinates(){
     }
     
     
+    double nrRepetitionsAlongLoop=loopPerimeter/s_lenght;
+    
+    double nrRepsAlongWholeTorus=torusExternalPerimeter/t_lenght;
+    
     
 
     for (int l=0; l<=loops; l++) {
         
         
+        
         beta=0;
         for (int s=0; s<=slices; s++) {
             
-            double distFromStartOfLoop=s/slices*loopPerimeter;
+            
+            
             
     
             
             xx[l*(slices+1)+s]=r1*cos(alpha)+r2*cos(beta)*cos(alpha);
-            zz[l*(slices+1)+s]=r1*sin(alpha)+r2*cos(beta)*sin(alpha);
-            yy[l*(slices+1)+s]=r2*sin(beta);
+            yy[l*(slices+1)+s]=r1*sin(alpha)+r2*cos(beta)*sin(alpha);
+            zz[l*(slices+1)+s]=r2*sin(beta);
             
         
             
-            xx_normal[l*(slices+1)+s]=cos(alpha)/sqrt(1+sin(beta)*sin(beta));
-            zz_normal[l*(slices+1)+s]=sin(alpha)/sqrt(1+sin(beta)*sin(beta));
-            yy_normal[l*(slices+1)+s]=sin(beta)/sqrt(1+sin(beta)*sin(beta));
+            xx_normal[l*(slices+1)+s]=cos(beta)*cos(alpha);
+            yy_normal[l*(slices+1)+s]=cos(beta)*sin(alpha);
+            zz_normal[l*(slices+1)+s]=sin(beta);
             
             if (LG_Appearance::currentTexture) {
-                ss_text[l*(slices+1)+s]=distFromStartOfLoop/s_lenght;
-                tt_text[l*(slices+1)+s]=distFromStartOfLoop/t_lenght;
+                tt_text[l*(slices+1)+s]=beta/(2.0*M_PI)*nrRepetitionsAlongLoop;
+                ss_text[l*(slices+1)+s]=alpha/(2.0*M_PI)*nrRepsAlongWholeTorus;
             }
             
             
@@ -210,13 +237,14 @@ void LG_Torus::calculateCordinates(){
         alpha+=delta_apha;
     }
     
-    /*
+    
     
     for (int l=0; l<=loops; l++) {
         
         beta=0;
         for (int s=0; s<=slices; s++) {
-            printf("xx[%d]=%f\n",l*(slices+1)+s,xx[l*(slices+1)+s]);
+            
+            printf("texture[%d]=(%f,%f)\n",l*(slices+1)+s,ss_text[l*(slices+1)+s],tt_text[l*(slices+1)+s]);
             beta+=delta_beta;
         }
         alpha+=delta_apha;
@@ -225,27 +253,7 @@ void LG_Torus::calculateCordinates(){
     
     
     
-    for (int l=0; l<=loops; l++) {
-        
-        beta=0;
-        for (int s=0; s<=slices; s++) {
-            printf("yy[%d]=%f\n",l*(slices+1)+s,yy[l*(slices+1)+s]);
-            beta+=delta_beta;
-        }
-        alpha+=delta_apha;
-    }
+
     
-    
-    for (int l=0; l<=loops; l++) {
-        
-        beta=0;
-        for (int s=0; s<=slices; s++) {
-            printf("zz[%d]=%f\n",l*(slices+1)+s,zz[l*(slices+1)+s]);
-            beta+=delta_beta;
-        }
-        alpha+=delta_apha;
-    }
-     
-     */
 
 }

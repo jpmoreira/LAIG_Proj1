@@ -146,7 +146,7 @@ void LG_Scene::init() {
     setUpdatePeriod(100);
     
     
-    anf->config(NULL);
+    anf->config();
 
 
     
