@@ -4,6 +4,10 @@
 
 #define CHECKED 1
 #define UNCHECKED 0
+#define LIGHTS_COLUMN 3
+#define LIGHTS_PANEL 1
+#define CAMERA_LIST 2
+#define DRAWING_LIST 3
 
 class LG_SceneInterface :
 	public CGFinterface
@@ -26,5 +30,6 @@ private:
 	LG_Cameras_Container *cameras_container;
 	LG_Node_Map *cameras_map;
 	vector<int *> lights_intf;
+	int selected_cam;
 };
 
