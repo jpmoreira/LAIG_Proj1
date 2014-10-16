@@ -48,16 +48,21 @@ public:
 
 	static string identifierForSuper(TiXmlElement *element);
 	static LG_LIGHT_TYPE myLightType(TiXmlElement *element);
+	/*
+	returns the next GL_LIGHTid available
+	*/
 	static unsigned int myGL_LIGHT();
 	static void increaseLightsCount();
 	static unsigned int getLightsCount();
 	static void fillLightComponents(TiXmlElement *element, LG_LightArray_f components[3]);
-	virtual unsigned int getGL_ID() = 0;
 	virtual void draw() = 0;
-
+	string getName();
+	bool isEnabled();
+	unsigned int getGL_LIGHTID();
 
 protected:
+	string id_str;
 	static unsigned int lights_count;
 	static float  initial[3];
-	unsigned int my_GL_Id;
+	bool marker;
 };

@@ -8,7 +8,7 @@ LG_Light_Omni::LG_Light_Omni(LG_Node_Map *map, TiXmlElement *element) : LG_Light
 
 	LG_Point3D_F pos;
 	LG_LightArray_f components[3];
-	string_tryToAttributeVariable(LG_LIGHT_ATT_ID, element, id);
+	string_tryToAttributeVariable(LG_LIGHT_ATT_ID, element, id_str);
 	bool_tryToAttributeVariable(LG_LIGHT_ATT_ENABLED, element, enabled);
 	bool_tryToAttributeVariable(LG_LIGHT_ATT_MARKER, element, marker);
 	point3D_F_tryToAttributeVariable(LG_LIGHT_ATT_POS, element, pos);
@@ -36,11 +36,6 @@ LG_Light_Omni::~LG_Light_Omni()
 {
 }
 
-
-string LG_Light_Omni::getId(){
-	return this->id;
-}
-
 bool LG_Light_Omni::getMarker(){
 	return this->marker;
 }
@@ -49,11 +44,6 @@ bool LG_Light_Omni::getEnabled(){
 	return this->enabled;
 }
 
-
-unsigned int LG_Light_Omni::getGL_ID()
-{
-	return my_GL_Id;
-}
 
 void LG_Light_Omni::draw()
 {

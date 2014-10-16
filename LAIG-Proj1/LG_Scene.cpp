@@ -186,3 +186,8 @@ void LG_Scene::display(){
 
 
 }
+
+LG_ANF *LG_Scene::getAnf()
+{
+	return anf;
+}

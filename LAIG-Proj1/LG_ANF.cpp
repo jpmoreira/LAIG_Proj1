@@ -229,3 +229,12 @@ LG_ANF *LG_ANF::anfForXML(TiXmlDocument *xml){
 }
 
 
+LG_Lights_Container* LG_ANF::getLightsContainer()
+{
+	return this->lights;
+}
+
+LG_Cameras_Container* LG_ANF::getCamerasContainer()
+{
+	return this->cameras;
+}

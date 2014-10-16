@@ -26,7 +26,6 @@
 
 class LG_ANF: public LG_Node {
     
-	//friend class SceneInterface;
     
 private:
     
@@ -102,8 +101,24 @@ public:
     static LG_ANF *anfForXML(TiXmlDocument *xml);
     
     LG_Camera * currentCamera();
+
+
+	/**
+
+	A method that returns a pointer to its lights_container
+
+	*/
+
+	LG_Lights_Container *getLightsContainer();
+
+
+	/**
+
+	A method that returns a pointer to its cameras_container
+
+	*/
     
-    
+	LG_Cameras_Container *getCamerasContainer();
 };
 
 #endif /* defined(__LAIG_Proj1__LG_Config__) */
