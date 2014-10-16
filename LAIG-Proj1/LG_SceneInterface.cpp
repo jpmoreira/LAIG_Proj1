@@ -53,7 +53,7 @@ void LG_SceneInterface::initGUI()
 	glui_window->add_column(false);
 	GLUI_Panel *cameras_pan = addPanel("Cameras", 1);
 	GLUI_Listbox *cameras_list;
-	cameras_list = addListboxToPanel(cameras_pan, "Cameras", &selected_cam, CAMERA_LIST);
+	cameras_list = addListboxToPanel(cameras_pan, "Camera", &selected_cam, CAMERA_LIST);
 
 
 	LG_Camera *camera;
@@ -75,6 +75,18 @@ void LG_SceneInterface::initGUI()
 	cameras_list->set_int_val(selected_cam);
 	cameras_container->setCurrentCamera(selected_cam);
 
+	//Drawing
+	//--------------------------------------------------------------------------
+
+	addSeparator();
+
+	GLUI_Panel *drawing_pan = addPanel("Drawing", 1);
+	GLUI_Listbox *drawing_list;
+	drawing_list = addListboxToPanel(drawing_pan, "Mode", &selected_drawing, DRAWING_LIST);
+	drawing_list->add_item(LG_Drawing_Fill, DRAWING_FILL_STR);
+	drawing_list->add_item(LG_Drawing_Line, DRAWING_LINE_STR);
+	drawing_list->add_item(LG_Drawing_Point, DRAWING_POINT_STR);
+	selected_drawing = drawing->getMode();
 
 }
 void LG_SceneInterface::processGUI(GLUI_Control *ctrl)
@@ -100,12 +112,21 @@ void LG_SceneInterface::processGUI(GLUI_Control *ctrl)
 			}
 		}
 	}
-
-	if (ctrl->user_id == CAMERA_LIST)
+	else if (ctrl->user_id == CAMERA_LIST)
 	{
 		cameras_container->setCurrentCamera(selected_cam);
 	}
+	else if (ctrl->user_id == DRAWING_LIST)
+	{
+		drawing->setMode((LG_Drawing_Mode)selected_drawing);
+		drawing->draw();
+	}
 
+	/*
+	if (mode == LG_Drawing_Line) glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+	else if (mode == LG_Drawing_Point) glPolygonMode(GL_FRONT_AND_BACK, GL_POINT);
+	else if (mode == LG_Drawing_Fill)
+	*/
 }
 
 
@@ -124,4 +145,9 @@ void LG_SceneInterface::setLightsContainer(LG_Scene *scene)
 void LG_SceneInterface::setCamerasContainer(LG_Scene *scene)
 {
 	cameras_container = scene->getAnf()->getCamerasContainer();
+}
+
+void LG_SceneInterface::setDrawing(LG_Scene *scene)
+{
+	drawing = scene->getAnf()->getDrawing();
 }

@@ -62,7 +62,8 @@ public:
     
     void draw();
 
-    
+	LG_Drawing_Mode getMode();
+	void setMode(LG_Drawing_Mode mode);
     
 };
 
