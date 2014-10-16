@@ -46,6 +46,8 @@ public:
 	bool setPerspectiveCams(TiXmlElement *element,string & initialID);
 
 
+    
+    void setCurrentCamera(int cameraNr);
 
 private:
 	LG_Camera * current;

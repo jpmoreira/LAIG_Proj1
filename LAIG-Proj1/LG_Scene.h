@@ -17,6 +17,7 @@
 class LG_Scene:public CGFscene {
     
     
+    
     LG_ANF *anf;
     string docName;
     

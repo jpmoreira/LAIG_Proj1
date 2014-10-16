@@ -1,4 +1,5 @@
 #include "LG_Cameras_Container.h"
+#include <CGFscene.h>
 
 //nr of childs > 1, and initial cam must exist
 LG_Cameras_Container::LG_Cameras_Container( TiXmlElement *element) : LG_Parsable_Node(NULL, LG_CAMERAS_TAG_ID)
@@ -88,13 +89,27 @@ bool LG_Cameras_Container::setOrthoCams(TiXmlElement *element,string & initialID
 	return is_set_initial;
 }
 
-LG_Camera* LG_Cameras_Container::getCurrentCamera()
-{
-	return current;
-}
 
 
 LG_Cameras_Container::~LG_Cameras_Container()
 {
 }
+
+#pragma mark - Getters & Setters
+
+
+void LG_Cameras_Container::setCurrentCamera(int cameraNr){
+
+
+    if (cameraNr<0 && cameraNr>=this->childsIDs.size())return;
+    
+    current=(LG_Camera *)child(cameraNr);
+
+}
+
+LG_Camera* LG_Cameras_Container::getCurrentCamera()
+{
+    return current;
+}
+
 
