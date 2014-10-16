@@ -40,6 +40,8 @@ public:
 	LG_AXIS getDirection();
     
     
+    void applyView();
+    
     
     void updateProjectionMatrix(int width, int height);
 private:

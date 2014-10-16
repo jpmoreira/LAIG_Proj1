@@ -4,6 +4,7 @@
 #include <string>
 #include "LG_ANF.h"
 #include "LG_Scene.h"
+#include "LG_SceneInterface.h"
 
 int main(int argc, char * argv[]){
     
@@ -18,11 +19,16 @@ int main(int argc, char * argv[]){
         app.init(&argc, argv);
         
         LG_Scene *scene=new LG_Scene();
-        scene->setDocName("LAIG_TP1_ANF_T06_G01_v3.anf");
+        LG_SceneInterface *scene_interface = new LG_SceneInterface();
+
+        scene->setDocName("wall-e.xml");
         
         
         app.setScene(scene);
-        app.setInterface(new CGFinterface());
+        scene_interface->setLightsContainer(scene);
+        scene_interface->setCamerasContainer(scene);
+        app.setInterface(scene_interface);
+        
         //app.setInterface(new TPinterface());
         
         //result=Catch::Session().run(argc, argv);//run tests before starting app

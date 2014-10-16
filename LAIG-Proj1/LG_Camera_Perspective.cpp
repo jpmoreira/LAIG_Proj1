@@ -95,6 +95,13 @@ const LG_Point3D *LG_Camera_Perspective::getTarget()
 #pragma mark - Inherited methods
 
 
+void LG_Camera_Perspective::applyView(){
+
+
+    gluLookAt(pos[0], pos[1], pos[2], target[0], target[1], target[2], 0, 1, 0);
+
+}
+
 void LG_Camera_Perspective::updateProjectionMatrix(int width, int height){
 
 

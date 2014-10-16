@@ -29,7 +29,7 @@ public:
     void updateProjectionMatrix(int width, int height);
     
     
-    //virtual void applyView();
+    void applyView();
     
     /*
     bool moveTo(int axis, float value, float increment);

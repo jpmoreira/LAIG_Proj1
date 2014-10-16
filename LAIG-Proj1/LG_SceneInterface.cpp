@@ -1,5 +1,7 @@
 #include "LG_SceneInterface.h"
 
+#define _LightPanelName_ "Lights"
+
 //LG_SceneInterface::lights_intf = new vector < int > ;
 
 LG_SceneInterface::LG_SceneInterface()
@@ -17,7 +19,7 @@ LG_SceneInterface::~LG_SceneInterface()
 void LG_SceneInterface::initGUI()
 {
 	// Check CGFinterface.h and GLUI documentation for the types of controls available
-	GLUI_Panel *varPanel = addPanel("Lights", 1);
+	GLUI_Panel *varPanel = addPanel(_LightPanelName_, 1);
 	//addCheckboxToPanel(varPanel, "Light 0", &(((LightingScene*) scene)->enable_light0), LIGHT0);
 	for (unsigned int i = 0; i < lights_container->childsIDs.size(); i++)
 	{

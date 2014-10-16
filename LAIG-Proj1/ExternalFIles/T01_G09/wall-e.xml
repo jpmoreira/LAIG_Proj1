@@ -19,7 +19,7 @@
     </globals>
 
     <!-- bloco de camaras: o atributo "initial" identifica a camara/ponto de vista inicial, que tem de existir -->
-    <cameras initial="landscapez" >
+    <cameras initial="landscapex" >
         <!-- tem de existir, pelo menos uma camara dos tipos seguintes (perspective ou ortho) -->
         <!-- no caso da camara ortho, o atributo "direction" define o eixo segundo o qual se efetua a projecao -->
 

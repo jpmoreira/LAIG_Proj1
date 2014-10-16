@@ -129,7 +129,26 @@ LG_AXIS LG_Camera_Ortho::getDirection()
 #pragma mark - Inherited Methods
 
 
+void LG_Camera_Ortho::applyView(){
 
+    
+    glLoadIdentity();
+    
+    
+    if(direction == LG_AXIS_X)
+    {
+        gluLookAt(-20.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
+    }
+    else if(direction == LG_AXIS_Y)
+    {
+        gluLookAt(0.0, 0.0, 0.0, 0.0, -1.0, 0.0, 0.0, 0.0, 1.0);
+    }
+    else if(direction == LG_AXIS_Z)
+    {
+        gluLookAt(0.0, 0.0, 0.0, 0.0, 0.0, -1.0, 0.0, 1.0, 0.0);
+    }
+    
+}
 
 
 void LG_Camera_Ortho::updateProjectionMatrix(int width, int height)
