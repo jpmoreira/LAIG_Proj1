@@ -68,11 +68,12 @@ void LG_SceneInterface::initGUI()
 			strcpy(tmp, camera->getIdentifier().c_str());
 			cameras_list->add_item(i, tmp);
 
-			if (str_eq(tmp, camera->getIdentifier().c_str()))
+			if (str_eq(tmp, current_cam_id.c_str()))
 				selected_cam = i;
 		}
 	}
 	cameras_list->set_int_val(selected_cam);
+	cameras_container->setCurrentCamera(selected_cam);
 
 
 }
