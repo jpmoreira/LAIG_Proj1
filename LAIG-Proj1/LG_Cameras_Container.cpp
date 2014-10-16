@@ -107,6 +107,8 @@ void LG_Cameras_Container::setCurrentCamera(int cameraNr){
 
 }
 
+
+
 LG_Camera* LG_Cameras_Container::getCurrentCamera()
 {
     return current;
