@@ -2,6 +2,8 @@
 #include "CGFinterface.h"
 #include "LG_Scene.h"
 
+#define CHECKED 1
+#define UNCHECKED 0
 
 class LG_SceneInterface :
 	public CGFinterface
@@ -23,7 +25,6 @@ private:
 	LG_Node_Map *lights_map;
 	LG_Cameras_Container *cameras_container;
 	LG_Node_Map *cameras_map;
-	int lights_event;
-	int cameras_event;
+	vector<int *> lights_intf;
 };
 

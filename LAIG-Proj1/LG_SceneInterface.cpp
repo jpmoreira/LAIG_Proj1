@@ -1,10 +1,11 @@
 #include "LG_SceneInterface.h"
 
-int *k;
+//LG_SceneInterface::lights_intf = new vector < int > ;
+
 LG_SceneInterface::LG_SceneInterface()
 {
-	lights_event = 0;
-	cameras_event = 0;
+	/*for (unsigned int i = GL_LIGHT0; i <= GL_LIGHT7; i++)
+		lights_intf.push_back(0);*/
 }
 
 
@@ -24,18 +25,27 @@ void LG_SceneInterface::initGUI()
 		auto it = lights_container->map->find(lights_container->childsIDs[i]);
 		if (it != lights_container->map->end())
 		{
-
 			light = (LG_Light *)(it->second);
+			
 			char *tmp = new char[light->getName().length()];
 			strcpy(tmp, light->getName().c_str());
-			addCheckboxToPanel(varPanel, tmp, &lights_event, light->getGL_LIGHTID());
+			
+			
+			GLUI_Checkbox *checkbox;
+			int *tmp_int = new int(0);
+			lights_intf.push_back(tmp_int);
+			checkbox= addCheckboxToPanel(varPanel, tmp, tmp_int, light->getGL_LIGHTID());
+			if (light->isEnabled())
+				*tmp_int = 1;
+				
+			
 			//delete[] tmp;
 		}
 	}
 }
 void LG_SceneInterface::processGUI(GLUI_Control *ctrl)
 {
-	if (lights_event)
+	if (ctrl->user_id >= GL_LIGHT0 && ctrl->user_id <=GL_LIGHT7)
 	{
 		for (unsigned int i = 0; i < lights_container->childsIDs.size(); i++)
 		{
@@ -50,8 +60,6 @@ void LG_SceneInterface::processGUI(GLUI_Control *ctrl)
 						light->disable();
 					else
 						light->enable();
-
-					lights_event = 0;
 					break;
 				}
 

@@ -33,7 +33,7 @@
                <component type="specular" value="0.7 0.7 0.7 1.0" />
             </light>
 			
-			<light id="spotlight_02" type="spot" enabled="false" marker="false" pos="15.0 8.0 15.0" target="4.0 4.0 4.0"  
+			<light id="spotlight_02" type="spot" enabled="false" marker="true" pos="5.0 5.0 5.0" target="4.0 4.0 4.0"  
                 angle="90.0" exponent="1.0" >
 			   <component type="ambient" value="0.7 0.7 0.7 1.0" />
                <component type="diffuse" value="0.7 0.7 0.7 1.0" />
