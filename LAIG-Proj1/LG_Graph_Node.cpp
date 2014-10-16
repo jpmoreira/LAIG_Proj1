@@ -90,7 +90,7 @@ LG_Graph_Node::LG_Graph_Node(LG_Node_Map *map,LG_Node_Map *app_map, TiXmlElement
     //    throw new LG_Parse_Exception_Missing_Element(LG_Graph_Node_Primitives_Tag_Name);
     //}
     
-    */
+    
     
     
 }

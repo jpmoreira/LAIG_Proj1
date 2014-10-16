@@ -24,9 +24,12 @@ void LG_SceneInterface::initGUI()
 		auto it = lights_container->map->find(lights_container->childsIDs[i]);
 		if (it != lights_container->map->end())
 		{
+
 			light = (LG_Light *)(it->second);
-			char* tmp = &light->getName()[0];
+			char *tmp = new char[light->getName().length()];
+			strcpy(tmp, light->getName().c_str());
 			addCheckboxToPanel(varPanel, tmp, &lights_event, light->getGL_LIGHTID());
+			//delete[] tmp;
 		}
 	}
 }
