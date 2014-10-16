@@ -81,13 +81,11 @@ int main(int argc, char * argv[]){
         
         
         app.setScene(scene);
-        app.setInterface(new CGFinterface());
 		scene_interface->setLightsContainer(scene);
 		scene_interface->setCamerasContainer(scene);
 		scene_interface->setDrawing(scene);
         app.setInterface(scene_interface);
         
-        //result=Catch::Session().run(argc, argv);//run tests before starting app
         
         app.run();
     }

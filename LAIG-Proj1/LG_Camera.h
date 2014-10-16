@@ -23,7 +23,7 @@ public:
 	double getFar();
 	static string identifierForSuper(TiXmlElement *element);
     
-    void applyView();
+    //void applyView();
 protected:
 	//windows has defines for near and far, that's why we use _near and _far
 	double _near, _far;

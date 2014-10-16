@@ -36,10 +36,14 @@ string LG_Camera::identifierForSuper(TiXmlElement *element){
 	return identifier;
 }
 
+/*
+
 void LG_Camera::applyView(){
     
+    glLoadIdentity();
     
     gluLookAt(0, 0, 0, 0, 0, -1, 0, 1, 0);
+    
     
     
     
@@ -54,4 +58,8 @@ void LG_Camera::applyView(){
     //gluLookAt(0, 0, 0, 0, 0, 1, 0, 1, 0);
     //CGFcamera::applyView();
     
+ 
+ 
 }
+
+*/
