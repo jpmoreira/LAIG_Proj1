@@ -17,19 +17,9 @@ public:
 	LG_Light_Spot(LG_Node_Map *map, string element);
 	~LG_Light_Spot();
 
-
-
-	string getId();
-	bool getMarker();
-	bool getEnabled();
 	void draw();
-	void setMyGL_ID(unsigned int GL_ID);
-	unsigned int getGL_ID();
-
 
 private:
-	string id;
-	bool enabled, marker;
 	float exponent; //Only values in the range [0, 128] are accepted
 	
 };

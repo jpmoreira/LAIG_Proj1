@@ -230,6 +230,17 @@ LG_ANF *LG_ANF::anfForXML(TiXmlDocument *xml){
 }
 
 
+<<<<<<< HEAD
+LG_Lights_Container* LG_ANF::getLightsContainer()
+{
+	return this->lights;
+}
+
+LG_Cameras_Container* LG_ANF::getCamerasContainer()
+{
+	return this->cameras;
+}
+=======
 #pragma mark - Getters & Setters
 
 
@@ -242,12 +253,4 @@ LG_Drawing_Mode LG_ANF::currentDrawingMode() {
 }
 
 
-LG_Lights_Container* LG_ANF::getLightsContainer()
-{
-	return this->lights;
-}
-
-LG_Cameras_Container* LG_ANF::getCamerasContainer()
-{
-	return this->cameras;
-}
+>>>>>>> origin/master

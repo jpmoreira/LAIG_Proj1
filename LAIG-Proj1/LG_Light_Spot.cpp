@@ -1,6 +1,6 @@
 #include "LG_Light_Spot.h"
 
-#define MIN_DIRECTION_FLOAT 0.0001
+#define DEFAULT_Y_LIGHT_DIR -1
 
 LG_Light_Spot::LG_Light_Spot(LG_Node_Map *map, TiXmlElement *element) : LG_Light(map, element, identifierForSuper(element))
 {
@@ -8,7 +8,7 @@ LG_Light_Spot::LG_Light_Spot(LG_Node_Map *map, TiXmlElement *element) : LG_Light
 	LG_LightArray_f components[3];
 
 	float tmp_angle;
-	string_tryToAttributeVariable(LG_LIGHT_ATT_ID, element, id);
+	string_tryToAttributeVariable(LG_LIGHT_ATT_ID, element, id_str);
 	bool_tryToAttributeVariable(LG_LIGHT_ATT_ENABLED, element, enabled);
 	bool_tryToAttributeVariable(LG_LIGHT_ATT_MARKER, element, marker);
 	point3D_F_tryToAttributeVariable(LG_LIGHT_ATT_POS, element, pos);
@@ -35,7 +35,7 @@ LG_Light_Spot::LG_Light_Spot(LG_Node_Map *map, TiXmlElement *element) : LG_Light
 
 	if (_target[0] == 0 && _target[1] == 0 && _target[2] == 0)
 	{
-		direction[1] = MIN_DIRECTION_FLOAT;
+		direction[1] = DEFAULT_Y_LIGHT_DIR;
 	}
 	if (enabled)
 		this->enable();
@@ -48,20 +48,6 @@ LG_Light_Spot::~LG_Light_Spot()
 {
 }
 
-
-string LG_Light_Spot::getId(){
-	return this->id;
-}
-
-bool LG_Light_Spot::getMarker(){
-	return this->marker;
-}
-
-bool LG_Light_Spot::getEnabled(){
-	return this->enabled;
-}
-
-
 void LG_Light_Spot::draw()
 {
 	//glLightf(my_GL_Id, GL_SPOT_EXPONENT, exponent);
@@ -70,15 +56,4 @@ void LG_Light_Spot::draw()
 	else
 		this->update();
 
-}
-
-
-unsigned int LG_Light_Spot::getGL_ID()
-{
-	return my_GL_Id;
-}
-
-void LG_Light_Spot::setMyGL_ID(unsigned int GL_ID)
-{
-	my_GL_Id = GL_ID;
 }

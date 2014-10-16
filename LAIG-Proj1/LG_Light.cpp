@@ -5,7 +5,6 @@ unsigned int LG_Light::lights_count = 0;
 LG_Light::LG_Light(LG_Node_Map *map, TiXmlElement *element) :LG_Parsable_Node(map, _LG_Light_NODE_ID), CGFlight(myGL_LIGHT(), initial){
 	if (!str_eq(LG_LIGHT_XML_TAG_NAME, element->Value()))
 		throw new LG_Parse_Exception_Wrong_Element_Name(new string(LG_LIGHT_XML_TAG_NAME), new string(element->Value()));
-	my_GL_Id = myGL_LIGHT();
 	increaseLightsCount();
 }
 
@@ -14,7 +13,6 @@ LG_Light::LG_Light(LG_Node_Map *map, TiXmlElement *element, string identifier) :
 {
 	if (!str_eq(LG_LIGHT_XML_TAG_NAME, element->Value()))
 		throw new LG_Parse_Exception_Wrong_Element_Name(new string(LG_LIGHT_XML_TAG_NAME), new string(element->Value()));
-	my_GL_Id = myGL_LIGHT();
 	increaseLightsCount();
 }
 
@@ -141,4 +139,19 @@ void LG_Light::fillLightComponents(TiXmlElement *element, LG_LightArray_f compon
 		else if (!specular_set)
 			throw new LG_Parse_Exception_Missing_Element(new string(LG_LIGHT_COMPONENT_SPECULAR_STR));
 
+}
+
+string LG_Light::getName()
+{
+	return id_str;
+}
+
+unsigned int LG_Light::getGL_LIGHTID()
+{
+	return id;
+}
+
+bool LG_Light::isEnabled()
+{
+	return enabled;
 }

@@ -9,17 +9,12 @@ public:
 	LG_Light_Omni(LG_Node_Map *map, string identifier);
 	~LG_Light_Omni();
 
-	string getId();
 	bool getMarker();
 	bool getEnabled();
 	const LG_Point3D_F &getPos();
 	const LG_LightArray_f *getComponents();
-	unsigned int getGL_ID();
 	void draw();
 
 private:
 	
-	string id;
-	bool enabled, marker;
-
 };

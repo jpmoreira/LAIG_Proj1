@@ -10,6 +10,7 @@
 class LG_Lights_Container :
 	public LG_Parsable_Node
 {
+	friend class LG_SceneInterface;
 private:
     LG_Node_Map *lightsMap;
 public:

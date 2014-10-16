@@ -31,6 +31,7 @@ public:
     void init();
     void display();
     void setDocName(string name);
+	LG_ANF *getAnf();
 };
 
 

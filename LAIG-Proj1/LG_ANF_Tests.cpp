@@ -14,6 +14,7 @@
 #include <string>
 #include "LG_ANF.h"
 #include "LG_Scene.h"
+#include "LG_SceneInterface.h"
 //
 //TEST_CASE("Testing hole configuration parsing"){
 //    
@@ -61,7 +62,6 @@ int main(int argc, char * argv[]){
 
     
     
-    
     CGFapplication app = CGFapplication();
     
     int result=0;
@@ -70,8 +70,11 @@ int main(int argc, char * argv[]){
         app.init(&argc, argv);
         
         LG_Scene *scene=new LG_Scene();
+		LG_SceneInterface *scene_interface = new LG_SceneInterface();
+
+
 #ifdef _WIN32
-        scene->setDocName("LAIG_TP1_ANF_T01_G03_v2.anf");
+        scene->setDocName("snowman.anf");
 #else
         scene->setDocName("./testFiles/TestANF.xml");
 #endif
@@ -79,7 +82,9 @@ int main(int argc, char * argv[]){
         
         app.setScene(scene);
         app.setInterface(new CGFinterface());
-        //app.setInterface(new TPinterface());
+		scene_interface->setLightsContainer(scene);
+		scene_interface->setCamerasContainer(scene);
+        app.setInterface(scene_interface);
         
         //result=Catch::Session().run(argc, argv);//run tests before starting app
         
