@@ -176,4 +176,12 @@ void LG_Drawing::draw() {
 
 }
 
+LG_Drawing_Mode LG_Drawing::getMode()
+{
+	return mode;
+}
 
+void LG_Drawing::setMode(LG_Drawing_Mode mode)
+{
+	this->mode = mode;
+}

@@ -251,3 +251,8 @@ LG_Cameras_Container* LG_ANF::getCamerasContainer()
 {
 	return this->cameras;
 }
+
+LG_Drawing* LG_ANF::getDrawing()
+{
+	return drawingConfig;
+}

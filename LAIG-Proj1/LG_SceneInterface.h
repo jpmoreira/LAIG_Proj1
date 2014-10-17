@@ -9,6 +9,12 @@
 #define CAMERA_LIST 2
 #define DRAWING_LIST 3
 
+#define DRAWING_FILL_STR "Fill"
+#define DRAWING_LINE_STR "Line"
+#define DRAWING_POINT_STR "Point"
+
+
+
 class LG_SceneInterface :
 	public CGFinterface
 {
@@ -20,16 +26,21 @@ public:
 	virtual void processKeyboard(unsigned char key, int x, int y);
 	void setLightsContainer(LG_Scene *scene);
 	void setCamerasContainer(LG_Scene *scene);
+	void setDrawing(LG_Scene *scene);
 
 
 	~LG_SceneInterface();
 
 private:
 	LG_Lights_Container *lights_container;
-	LG_Node_Map *lights_map;
 	LG_Cameras_Container *cameras_container;
-	LG_Node_Map *cameras_map;
+	LG_Drawing *drawing;
 	vector<int *> lights_intf;
+	
+	
+	
 	int selected_cam;
+	int selected_drawing;
+
 };
 

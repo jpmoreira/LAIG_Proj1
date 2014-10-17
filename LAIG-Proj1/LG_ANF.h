@@ -124,6 +124,15 @@ public:
 	*/
     
 	LG_Cameras_Container *getCamerasContainer();
+
+
+	/**
+
+	A method that returns its Drawing element
+	
+	*/
+
+	LG_Drawing *getDrawing();
 };
 
 #endif /* defined(__LAIG_Proj1__LG_Config__) */
