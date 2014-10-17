@@ -156,7 +156,7 @@ void LG_Scene::init() {
 void LG_Scene::display(){
     
         
-     anf->config();
+     anf->selective_config();
     
     // ---- BEGIN Background, camera and axis setup
     

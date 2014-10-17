@@ -238,17 +238,6 @@ void LG_Torus::calculateCordinates(){
     }
     
     
-    
-    for (int l=0; l<=loops; l++) {
-        
-        beta=0;
-        for (int s=0; s<=slices; s++) {
-            
-            printf("texture[%d]=(%f,%f)\n",l*(slices+1)+s,ss_text[l*(slices+1)+s],tt_text[l*(slices+1)+s]);
-            beta+=delta_beta;
-        }
-        alpha+=delta_apha;
-    }
 
     
     

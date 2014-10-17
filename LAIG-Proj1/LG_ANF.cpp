@@ -197,6 +197,12 @@ void LG_ANF::config() {
 }
 
 
+void LG_ANF::selective_config(){
+
+
+    drawingConfig->draw();
+}
+
 
 #pragma mark - Inherited Methods
 

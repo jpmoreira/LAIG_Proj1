@@ -134,6 +134,8 @@ public:
 
 	LG_Drawing *getDrawing();
     
+    
+    void selective_config();
  
 };
 
