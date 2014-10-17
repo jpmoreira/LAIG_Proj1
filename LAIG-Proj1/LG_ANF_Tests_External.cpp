@@ -5,25 +5,7 @@
 #include "LG_ANF.h"
 #include "LG_Scene.h"
 #include "LG_SceneInterface.h"
-
-
-
-const char * getDocumentName(int argc,char * argv[]){
-
-
-    if (argc<2) {
-        std::cout<<"No file name provided."<<std::endl;
-        std::cout<<"Will assume file with name: scene.anf "<<std::endl;
-        
-        return "scene.anf";
-    }
-    
-    return argv[1];
-
-    
-
-
-}
+#include "LG_general.h"
 
 int main(int argc, char * argv[]){
     

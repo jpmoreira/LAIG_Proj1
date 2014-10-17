@@ -15,6 +15,7 @@
 #include "LG_ANF.h"
 #include "LG_Scene.h"
 #include "LG_SceneInterface.h"
+#include "LG_general.h"
 //
 //TEST_CASE("Testing hole configuration parsing"){
 //    
@@ -74,9 +75,9 @@ int main(int argc, char * argv[]){
 
 
 #ifdef _WIN32
-        scene->setDocName("snowman.anf");
+        scene->setDocName(getDocumentName(argc, argv));
 #else
-        scene->setDocName("./testFiles/TestANF.xml");
+        scene->setDocName(getDocumentName(argc, argv));
 #endif
         
         
