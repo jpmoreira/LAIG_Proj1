@@ -105,7 +105,7 @@ void LG_Cameras_Container::setCurrentCamera(int cameraNr){
     if (cameraNr<0 && cameraNr>=this->childsIDs.size())return;
     
     current=(LG_Camera *)child(cameraNr);
-    CGFapplication::activeApp->forceRefresh();
+
 
 }
 

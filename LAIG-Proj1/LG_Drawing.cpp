@@ -172,6 +172,17 @@ void LG_Drawing::draw() {
 	else if (shading == LG_Gouraud) glShadeModel(GL_SMOOTH);
 
 	glClearColor(background[0], background[1], background[2], background[3]);
+    
+    
+    GLint polygonMode;
+    glGetIntegerv(GL_POLYGON_MODE, &polygonMode);
+    
+    if ( polygonMode == GL_LINE )
+        printf("LINE NOW\n");
+    if ( polygonMode == GL_FILL )
+        printf("FILL NOW\n");
+    if ( polygonMode == GL_POINT )
+        printf("POINT NOW\n");
 
 
 }

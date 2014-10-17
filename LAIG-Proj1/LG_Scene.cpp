@@ -155,7 +155,8 @@ void LG_Scene::init() {
 
 void LG_Scene::display(){
     
-    
+        
+     anf->config();
     
     // ---- BEGIN Background, camera and axis setup
     
@@ -164,6 +165,8 @@ void LG_Scene::display(){
     
     // Initialize Model-View matrix as identity (no transformation
     glMatrixMode(GL_MODELVIEW);
+    
+   
     glLoadIdentity();
     
     // Apply transformations corresponding to the camera position relative to the origin
@@ -182,6 +185,8 @@ void LG_Scene::display(){
     anf->draw();
     //
     //// ---- END Background, camera and axis setup
+    
+    
     
     glutSwapBuffers();
 

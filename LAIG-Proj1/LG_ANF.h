@@ -133,6 +133,8 @@ public:
 	*/
 
 	LG_Drawing *getDrawing();
+    
+ 
 };
 
 #endif /* defined(__LAIG_Proj1__LG_Config__) */

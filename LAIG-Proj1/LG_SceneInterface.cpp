@@ -74,6 +74,7 @@ void LG_SceneInterface::initGUI()
     }
     cameras_list->set_int_val(selected_cam);
     cameras_container->setCurrentCamera(selected_cam);
+    CGFapplication::activeApp->forceRefresh();
     
 	//Drawing
 	//--------------------------------------------------------------------------
@@ -119,7 +120,8 @@ void LG_SceneInterface::processGUI(GLUI_Control *ctrl)
 	else if (ctrl->user_id == DRAWING_LIST)
 	{
 		drawing->setMode((LG_Drawing_Mode)selected_drawing);
-		drawing->draw();
+		//drawing->draw();
+        
 	}
     
 	/*
