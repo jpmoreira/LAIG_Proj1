@@ -1,5 +1,6 @@
 #include "LG_Cameras_Container.h"
 #include <CGFscene.h>
+#include <CGFapplication.h>
 
 //nr of childs > 1, and initial cam must exist
 LG_Cameras_Container::LG_Cameras_Container( TiXmlElement *element) : LG_Parsable_Node(NULL, LG_CAMERAS_TAG_ID)
@@ -104,6 +105,7 @@ void LG_Cameras_Container::setCurrentCamera(int cameraNr){
     if (cameraNr<0 && cameraNr>=this->childsIDs.size())return;
     
     current=(LG_Camera *)child(cameraNr);
+    CGFapplication::activeApp->forceRefresh();
 
 }
 

@@ -137,7 +137,7 @@ void LG_Camera_Ortho::applyView(){
     
     if(direction == LG_AXIS_X)
     {
-        gluLookAt(-20.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
+        gluLookAt(0.0, 0.0, 0.0, -1.0, 0.0, 0.0, 0.0, 1.0, 0.0);
     }
     else if(direction == LG_AXIS_Y)
     {
