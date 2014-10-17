@@ -6,6 +6,25 @@
 #include "LG_Scene.h"
 #include "LG_SceneInterface.h"
 
+
+
+const char * getDocumentName(int argc,char * argv[]){
+
+
+    if (argc<2) {
+        std::cout<<"No file name provided."<<std::endl;
+        std::cout<<"Will assume file with name: scene.anf "<<std::endl;
+        
+        return "scene.anf";
+    }
+    
+    return argv[1];
+
+    
+
+
+}
+
 int main(int argc, char * argv[]){
     
     
@@ -20,8 +39,11 @@ int main(int argc, char * argv[]){
         
         LG_Scene *scene=new LG_Scene();
         LG_SceneInterface *scene_interface = new LG_SceneInterface();
+        
+        
+        const char * fileName=getDocumentName(argc, argv);
 
-        scene->setDocName("wall-e.xml");
+        scene->setDocName(fileName);
         
         
         app.setScene(scene);

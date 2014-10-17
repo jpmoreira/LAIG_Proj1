@@ -11,6 +11,7 @@
 #include "CGFaxis.h"
 #include "CGFapplication.h"
 #include <math.h>
+#include <iostream>
 #include "LG_Appearance.h"
 
 float pi = acos(-1.0);
@@ -76,7 +77,13 @@ void LG_Scene::init() {
     
 
     
-    doc->LoadFile();
+    if(!doc->LoadFile()){
+    
+        std::cout<<"Unable to load file named "<<docName<<"."<<std::endl;
+        std::cout<<"Execution will be aborted"<<std::endl;
+        exit(EXIT_FAILURE);
+    
+    }
     
     
     
