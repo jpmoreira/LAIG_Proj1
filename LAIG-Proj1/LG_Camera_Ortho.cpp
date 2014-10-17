@@ -130,7 +130,7 @@ LG_AXIS LG_Camera_Ortho::getDirection()
 
 
 void LG_Camera_Ortho::applyView(){
-
+        
     
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();

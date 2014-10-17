@@ -27,6 +27,7 @@ int main(int argc, char * argv[]){
         app.setScene(scene);
         scene_interface->setLightsContainer(scene);
         scene_interface->setCamerasContainer(scene);
+        scene_interface->setDrawing(scene);
         app.setInterface(scene_interface);
         
         //app.setInterface(new TPinterface());

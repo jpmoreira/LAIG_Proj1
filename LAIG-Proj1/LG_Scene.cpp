@@ -171,6 +171,7 @@ void LG_Scene::display(){
     
     // Apply transformations corresponding to the camera position relative to the origin
     CGFscene::activeCamera=anf->currentCamera();
+    CGFapplication::activeApp->forceRefresh();
     CGFscene::activeCamera->applyView();
     
     //light1->enable();

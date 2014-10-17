@@ -218,7 +218,7 @@ void LG_Graph_Node::handleAppearance(LG_Node_Map *map,TiXmlElement *appearanceEl
 
 
 void LG_Graph_Node::draw(){
-
+    
     
     glPushMatrix();
     

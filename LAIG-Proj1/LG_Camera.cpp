@@ -46,7 +46,6 @@ void LG_Camera::applyView(){
     
     
     
-    
     // glTranslatef(0, 0, position[2]); // or this, if we ignore panning
     
     glRotatef(rotation[0], 1.f, 0.f, 0.f);
@@ -61,5 +60,6 @@ void LG_Camera::applyView(){
  
  
 }
+ 
+ */
 
-*/
