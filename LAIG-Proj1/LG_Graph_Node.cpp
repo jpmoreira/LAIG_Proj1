@@ -67,7 +67,7 @@ LG_Graph_Node::LG_Graph_Node(LG_Node_Map *map,LG_Node_Map *app_map, TiXmlElement
         else if(str_eq(LG_Graph_Node_Primitives_Tag_Name, childElement->Value())){
             primitivesSet=true;
             vector<LG_Primitive *> prims=handlePrimitives(map, childElement);
-            for (int i=0; i<prims.size(); i++) {
+            for (unsigned int i=0; i<prims.size(); i++) {
                 addChild(prims[i]);
             }
         }
@@ -98,7 +98,7 @@ LG_Graph_Node::LG_Graph_Node(LG_Node_Map *map,LG_Node_Map *app_map, LG_Transform
 :LG_Parsable_Node(map,identifier),transform(t)
 {
     
-    for (int i=0; i<primitives.size(); i++) {
+    for (unsigned int i=0; i<primitives.size(); i++) {
         LG_Primitive *p=primitives[i];
         this->addChild(p);
     }
@@ -228,7 +228,7 @@ void LG_Graph_Node::draw(){
     if (appearance) appearance->apply();
     
     
-    for (int i=0; i<childsIDs.size(); i++) {
+    for (unsigned int i=0; i<childsIDs.size(); i++) {
         
         child(i)->draw();
         
@@ -250,7 +250,7 @@ void LG_Graph_Node::config(){
     if (appearance) appearance->apply();
     
     
-    for (int i=0; i<childsIDs.size(); i++) {
+    for (unsigned int i=0; i<childsIDs.size(); i++) {
         
         child(i)->config();
         

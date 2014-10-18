@@ -35,7 +35,7 @@ void LG_Cameras_Container::verifyAttributesAndValues(TiXmlElement *element)
     }	//sets cameras
     
 
-    for (int i=0; i<childsIDs.size(); i++) {
+    for (unsigned int i=0; i<childsIDs.size(); i++) {
         if (str_eq(childsIDs[i].c_str(),initialID.c_str())) {
             current=(LG_Camera *)child(i);
             break;

@@ -88,7 +88,7 @@ void LG_Graph::verifyNodeReferences(TiXmlElement *graphElement){
         LG_Node *node=(LG_Node *)it->second;
         LG_ID_Vector &childsIDs=node->childsIDs;
         
-        for (int i=0; i<childsIDs.size(); i++) {//for each child in this node
+        for (unsigned int i=0; i<childsIDs.size(); i++) {//for each child in this node
             
             auto it2=map->find(childsIDs[i]);
             
