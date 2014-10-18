@@ -50,7 +50,7 @@ LG_Lights_Container::~LG_Lights_Container()
 
 void LG_Lights_Container::draw(){
 
-	for (int i = 0; i < this->childsIDs.size(); i++)
+	for (unsigned int i = 0; i < this->childsIDs.size(); i++)
 	{
 
 		auto it = map->find(childsIDs[i]);

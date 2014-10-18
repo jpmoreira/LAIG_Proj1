@@ -43,7 +43,7 @@ const char * LG_Parse_Exception_Wrong_Attribute_Value::what(){
     if (expectedValues!=NULL) {
         
         tempMessage=tempMessage.append("Expected: [");
-        int i;
+        unsigned int i;
         for (i = 0; i < expectedValues->size() - 1; i++) {
             tempMessage += expectedValues->at(i) + " or ";//add each element but the last one, with the "or" after
         }

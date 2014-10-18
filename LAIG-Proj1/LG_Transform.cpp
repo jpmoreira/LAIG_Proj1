@@ -205,7 +205,7 @@ void LG_Transform::copyMatrix(LG_Matrix origin,LG_Matrix destination){
 
     for (int i=0; i<LG_Matrix_Dimention; i++) {
         
-        for (int f; f<LG_Matrix_Dimention; f++) {
+        for (int f=0; f<LG_Matrix_Dimention; f++) {
             destination[i][f]=origin[i][f];
         }
     }
