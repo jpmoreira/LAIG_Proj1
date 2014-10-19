@@ -41,8 +41,17 @@ int main(int argc, char * argv[]){
         app.run();
     }
     catch(GLexception& ex) {
-        cout << "Erro: " << ex.what();
+        cout << "GL error: " << ex.what();
         return -1;
+    }
+    catch(LG_Parse_Exception *ex){
+        
+        cout<< "####### Parsing Error: #######"<<endl;
+    
+        cout<< ex->what()<<endl;
+        
+        cout<< "##############"<<endl;
+    
     }
     catch(exception& ex) {
         cout << "Erro inesperado: " << ex.what();

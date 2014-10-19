@@ -243,6 +243,12 @@
 		5461855C19DD3CDA005C6166 /* LG_Light_Omni.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5461855419DD3CDA005C6166 /* LG_Light_Omni.cpp */; };
 		5461855D19DD3CDA005C6166 /* LG_Light_Spot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5461855619DD3CDA005C6166 /* LG_Light_Spot.cpp */; };
 		5461855F19DD3CDA005C6166 /* LG_Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5461855A19DD3CDA005C6166 /* LG_Texture.cpp */; };
+		54688E9119F42F4B005FA1B3 /* cenoide.anf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54688E8A19F42F2D005FA1B3 /* cenoide.anf */; };
+		54688E9219F42F4B005FA1B3 /* caixa.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54688E8C19F42F2D005FA1B3 /* caixa.jpg */; };
+		54688E9319F42F4B005FA1B3 /* chao.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54688E8D19F42F2D005FA1B3 /* chao.png */; };
+		54688E9419F42F4B005FA1B3 /* donut.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54688E8E19F42F2D005FA1B3 /* donut.jpg */; };
+		54688E9519F42F4B005FA1B3 /* madeira.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54688E8F19F42F2D005FA1B3 /* madeira.png */; };
+		54688E9619F42F4B005FA1B3 /* vidro.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54688E9019F42F2D005FA1B3 /* vidro.jpg */; };
 		5469676C19D88BDB001DBA15 /* LG_Cylinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5469676A19D88BDB001DBA15 /* LG_Cylinder.cpp */; };
 		5469677A19D895CA001DBA15 /* TestCylinder.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5469677819D895A3001DBA15 /* TestCylinder.xml */; };
 		5469677B19D895D3001DBA15 /* libTinyXML.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4219D0AD7F00D4831A /* libTinyXML.a */; };
@@ -351,12 +357,6 @@
 		54B9EDE119F04CB1001F8C34 /* LG_SceneInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54B9EDDF19F04C9F001F8C34 /* LG_SceneInterface.cpp */; };
 		54B9EDE219F04CB2001F8C34 /* LG_SceneInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54B9EDDF19F04C9F001F8C34 /* LG_SceneInterface.cpp */; };
 		54B9EDE319F04F8D001F8C34 /* LG_Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 540939C619E9355000961C05 /* LG_Scene.cpp */; };
-		54B9EDE819F05295001F8C34 /* wall-e.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54B9EDE419F050CF001F8C34 /* wall-e.xml */; };
-		54B9EDE919F05295001F8C34 /* eye.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 548CA63C19ED8CDB008AD9F7 /* eye.jpg */; };
-		54B9EDEA19F05295001F8C34 /* metal.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 548CA63D19ED8CDB008AD9F7 /* metal.jpg */; };
-		54B9EDEB19F05295001F8C34 /* metaleyes.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 548CA63E19ED8CDB008AD9F7 /* metaleyes.jpg */; };
-		54B9EDEC19F05295001F8C34 /* planet.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 548CA63F19ED8CDB008AD9F7 /* planet.jpg */; };
-		54B9EDED19F05295001F8C34 /* tire.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 548CA64019ED8CDB008AD9F7 /* tire.png */; };
 		54C925E119F1B25F0007FB91 /* LG_general.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54C925DF19F1B25F0007FB91 /* LG_general.cpp */; };
 		54C925E219F1B30E0007FB91 /* LG_general.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54C925DF19F1B25F0007FB91 /* LG_general.cpp */; };
 		54C925E319F1B3140007FB91 /* LG_general.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54C925DF19F1B25F0007FB91 /* LG_general.cpp */; };
@@ -581,12 +581,12 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
-				54B9EDE819F05295001F8C34 /* wall-e.xml in CopyFiles */,
-				54B9EDE919F05295001F8C34 /* eye.jpg in CopyFiles */,
-				54B9EDEA19F05295001F8C34 /* metal.jpg in CopyFiles */,
-				54B9EDEB19F05295001F8C34 /* metaleyes.jpg in CopyFiles */,
-				54B9EDEC19F05295001F8C34 /* planet.jpg in CopyFiles */,
-				54B9EDED19F05295001F8C34 /* tire.png in CopyFiles */,
+				54688E9119F42F4B005FA1B3 /* cenoide.anf in CopyFiles */,
+				54688E9219F42F4B005FA1B3 /* caixa.jpg in CopyFiles */,
+				54688E9319F42F4B005FA1B3 /* chao.png in CopyFiles */,
+				54688E9419F42F4B005FA1B3 /* donut.jpg in CopyFiles */,
+				54688E9519F42F4B005FA1B3 /* madeira.png in CopyFiles */,
+				54688E9619F42F4B005FA1B3 /* vidro.jpg in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -718,6 +718,12 @@
 		5461855719DD3CDA005C6166 /* LG_Light_Spot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_Light_Spot.h; sourceTree = "<group>"; };
 		5461855A19DD3CDA005C6166 /* LG_Texture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Texture.cpp; sourceTree = "<group>"; };
 		5461855B19DD3CDA005C6166 /* LG_Texture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_Texture.h; sourceTree = "<group>"; };
+		54688E8A19F42F2D005FA1B3 /* cenoide.anf */ = {isa = PBXFileReference; lastKnownFileType = text; path = cenoide.anf; sourceTree = "<group>"; };
+		54688E8C19F42F2D005FA1B3 /* caixa.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = caixa.jpg; sourceTree = "<group>"; };
+		54688E8D19F42F2D005FA1B3 /* chao.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chao.png; sourceTree = "<group>"; };
+		54688E8E19F42F2D005FA1B3 /* donut.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = donut.jpg; sourceTree = "<group>"; };
+		54688E8F19F42F2D005FA1B3 /* madeira.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = madeira.png; sourceTree = "<group>"; };
+		54688E9019F42F2D005FA1B3 /* vidro.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = vidro.jpg; sourceTree = "<group>"; };
 		5469676A19D88BDB001DBA15 /* LG_Cylinder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Cylinder.cpp; sourceTree = "<group>"; };
 		5469676B19D88BDB001DBA15 /* LG_Cylinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_Cylinder.h; sourceTree = "<group>"; };
 		5469677119D89585001DBA15 /* LG_Cylinder_Tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LG_Cylinder_Tests; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1290,6 +1296,27 @@
 			name = Graph;
 			sourceTree = "<group>";
 		};
+		54688E8919F42F1E005FA1B3 /* T02_G06 */ = {
+			isa = PBXGroup;
+			children = (
+				54688E8A19F42F2D005FA1B3 /* cenoide.anf */,
+				54688E8B19F42F2D005FA1B3 /* textures */,
+			);
+			name = T02_G06;
+			sourceTree = "<group>";
+		};
+		54688E8B19F42F2D005FA1B3 /* textures */ = {
+			isa = PBXGroup;
+			children = (
+				54688E8C19F42F2D005FA1B3 /* caixa.jpg */,
+				54688E8D19F42F2D005FA1B3 /* chao.png */,
+				54688E8E19F42F2D005FA1B3 /* donut.jpg */,
+				54688E8F19F42F2D005FA1B3 /* madeira.png */,
+				54688E9019F42F2D005FA1B3 /* vidro.jpg */,
+			);
+			path = textures;
+			sourceTree = "<group>";
+		};
 		54831CB119E451C90090418B /* TestScenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -1306,6 +1333,7 @@
 		548CA60619ED8864008AD9F7 /* ExtenalFiles */ = {
 			isa = PBXGroup;
 			children = (
+				54688E8919F42F1E005FA1B3 /* T02_G06 */,
 				548CA68F19EEE917008AD9F7 /* T06_G01 */,
 				548CA63B19ED8C7A008AD9F7 /* T01_G09 */,
 				548CA60819ED88E6008AD9F7 /* T01_G03 */,

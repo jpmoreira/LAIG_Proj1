@@ -35,7 +35,7 @@ LG_Appearance::LG_Appearance(LG_Node_Map *map,TiXmlElement *elem,LG_Node_Map *te
         throw new LG_Parse_Exception_Wrong_Element_Name(LG_Appearance_XML_Tag_Name,elem->Value());
     }
     
-    positiveFloat_tryToAttributeVariable(LG_Appearance_Shininess_XML_Att_Name, elem, shininess);
+    float_tryToAttributeVariable(LG_Appearance_Shininess_XML_Att_Name, elem, shininess);
     
     
     TiXmlElement *subElement=elem->FirstChildElement();
