@@ -15,9 +15,9 @@ const char * getDocumentName(int argc,char * argv[]){
     
     if (argc<2) {
         std::cout<<"No file name provided."<<std::endl;
-        std::cout<<"Will assume file with name: scene.anf "<<std::endl;
-        
-        return "scene.anf";
+		std::cout << "Will assume file with name: LAIG1_T4_G05.anf " << std::endl;
+
+		return "LAIG1_T4_G05.anf";
     }
     
     return argv[1];
