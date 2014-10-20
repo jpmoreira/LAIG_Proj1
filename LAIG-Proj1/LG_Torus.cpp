@@ -133,7 +133,7 @@ void LG_Torus::draw()
     
     
     glEnd();
-    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+    //glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
      
     
     
