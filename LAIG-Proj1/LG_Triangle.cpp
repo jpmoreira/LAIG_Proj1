@@ -7,7 +7,6 @@
 //
 
 #include "LG_Triangle.h"
-#include <GL/glut.h>
 
 
 

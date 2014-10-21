@@ -1,6 +1,6 @@
 #include "LG_Camera_Ortho.h"
 
-#include <GL/glut.h>
+
 
 //string LG_Camera_Ortho::getIdentifier(){
 //	return this->id;

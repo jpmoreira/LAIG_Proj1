@@ -1,6 +1,5 @@
 #include "LG_Texture.h"
 
-#include <GL/glut.h>
 #define LG_TEXTURE_ID_ "_LG_TEXTURE_"
 
 

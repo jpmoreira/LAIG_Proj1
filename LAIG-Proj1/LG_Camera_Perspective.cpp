@@ -1,7 +1,7 @@
 #include "LG_Camera_Perspective.h"
 //#include "coordinateSystems.h"
 
-#include <GL/glut.h>
+
 
 #ifdef _WIN32
 //#define _USE_MATH_DEFINES // ->project settings-> c++ -> command line --> /D_USE_MATH_DEFINES 

@@ -1,7 +1,7 @@
 #include "LG_Camera.h"
 #include "LG_Cameras_Container.h"
 
-#include <GL/glut.h>
+
 
 LG_Camera::LG_Camera(LG_Node_Map *map, TiXmlElement *element, string identifier) : LG_Parsable_Node(map, identifier)
 {

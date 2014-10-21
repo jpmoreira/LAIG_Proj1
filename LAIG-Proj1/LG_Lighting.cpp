@@ -1,5 +1,4 @@
 #include "LG_Lighting.h"
-#include <GL/glut.h>
 
 #define LG_Lighting_ElementName "lighting";
 

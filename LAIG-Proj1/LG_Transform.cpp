@@ -7,7 +7,7 @@
 //
 
 #include "LG_Transform.h"
-#include <GL/glut.h>
+
 
 #define LG_Individual_Transform_XML_Tag_Name "transform"
 #define LG_Transform_Type_XML_Att_Name "type"

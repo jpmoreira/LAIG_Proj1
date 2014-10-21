@@ -9,7 +9,7 @@
 #ifndef __LAIG_Proj1__LG_Glu_Primitives__
 #define __LAIG_Proj1__LG_Glu_Primitives__
 
-#include <GL/glu.h>
+
 #include "LG_Primitive.h"
 
 class LG_Glu_Primitive: public LG_Primitive {

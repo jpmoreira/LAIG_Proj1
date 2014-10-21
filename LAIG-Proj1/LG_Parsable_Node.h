@@ -14,6 +14,7 @@
 
 #include <stdio.h>
 #include "LG_Node.h"
+#include <GL/glu.h>
 
 #include <limits.h>
 #include <math.h>

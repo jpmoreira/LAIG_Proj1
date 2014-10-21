@@ -178,11 +178,12 @@ void LG_Scene::display(){
     
     // Apply transformations corresponding to the camera position relative to the origin
    
-    
+    /*
     if (CGFscene::activeCamera!=anf->currentCamera()) {
         CGFscene::activeCamera=anf->currentCamera();
         CGFapplication::activeApp->forceRefresh();
     }
+     */
     
      
     CGFscene::activeCamera->applyView();

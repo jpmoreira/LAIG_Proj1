@@ -14,7 +14,7 @@
 #include <string>
 #include <vector>
 #include <tinyxml.h>
-//#include <GL/glew.h>
+
 
 
 #define LG_LightValue_Not_Set LG_INVALID_DOUBLE

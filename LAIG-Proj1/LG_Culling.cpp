@@ -11,7 +11,6 @@
 #include "LG_Parsable_Node.h"
 
 
-#include <GL/glut.h>
 
 
 #pragma mark - Constructor

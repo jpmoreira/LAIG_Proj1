@@ -7,7 +7,7 @@
 //
 
 #include "LG_Rectangle.h"
-#include <GL/glut.h>
+
 
 #define LG_Rectangle_ID "_LG_Rectangle_"
 #define _LG_Primitive_Name LG_Rectangle_ID
