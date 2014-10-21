@@ -92,15 +92,6 @@ public:
     
     /**
      
-     A method for configuring a node. This method is called for every node in the same conditions as the draw() method. But no drawing is actually done
-     
-     */
-    
-    virtual void config();
-    
-    
-    /**
-     
      A method for getting a particular child from this node. First child is child number zero.
      
      */

@@ -49,8 +49,6 @@ public:
     
     void draw();
     
-    void config();
-    
 };
 
 #endif /* defined(__LAIG_Proj1__LG_Graph_Node__) */

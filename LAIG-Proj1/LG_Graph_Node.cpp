@@ -242,23 +242,3 @@ void LG_Graph_Node::draw(){
 }
 
 #pragma mark - Configuration
-
-
-void LG_Graph_Node::config(){
-    
-    
-    if (appearance) appearance->apply();
-    
-    
-    for (unsigned int i=0; i<childsIDs.size(); i++) {
-        
-        child(i)->config();
-        
-    }
-    
-    if (appearance) appearance->unapply();
-    
-
-
-
-}

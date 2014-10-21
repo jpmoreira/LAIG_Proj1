@@ -32,7 +32,7 @@ LG_Torus::LG_Torus(LG_Node_Map *map,TiXmlElement *elem):LG_Primitive(map,autoIde
     
     
     
-    
+    calculateCordinates();
 
 }
 
@@ -73,16 +73,6 @@ void LG_Torus::draw()
     
     
     
-	//glutSolidTorus(this->innerRadius, this->outerRadius, this->slices, this->loops);
-    
-
-    
-     
-    
-    
-    
-    
-    //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     
     
     glBegin(GL_QUADS);
@@ -133,7 +123,6 @@ void LG_Torus::draw()
     
     
     glEnd();
-    //glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
      
     
     
@@ -146,8 +135,73 @@ void LG_Torus::draw()
 void LG_Torus::calculateTextureCoordinates(){
 
 
+    if (!ss_text) {
+        ss_text=(double *)calloc((loops+1)*(slices+1),sizeof(double));
+        tt_text=(double *)calloc((loops+1)*(slices+1),sizeof(double));
+    }
+    if (!LG_Appearance::currentTexture)return;
+    
+    
+    
+    
+    double alpha=0;//angle related to loops(around yy axis)
+    double beta=0;//angle around each loop internal loop axis
+    double delta_apha=-2.0*M_PI/loops;
+    double delta_beta=2.0*M_PI/slices;
+    
+    
+    double r1=outerRadius;
+    double r2=innerRadius;
+    
+    double loopPerimeter=2*M_PI*r2;
+    
+    
+    
+    double torusExternalPerimeter=2*M_PI*(r1+r2);
+    
+    double s_lenght=0;
+    double t_lenght=0;
+    
+    s_lenght=LG_Appearance::currentTexture->getLength_s();
+    t_lenght=LG_Appearance::currentTexture->getLength_t();
+    
+    
+    double nrRepetitionsAlongLoop=loopPerimeter/s_lenght;
+    
+    double nrRepsAlongWholeTorus=torusExternalPerimeter/t_lenght;
+    
+    
+    
+    for (int l=0; l<=loops; l++) {
+        
+        
+        
+        beta=0;
+        for (int s=0; s<=slices; s++) {
+            
+            
+        
+            tt_text[l*(slices+1)+s]=beta/(2.0*M_PI)*nrRepetitionsAlongLoop;
+            ss_text[l*(slices+1)+s]=alpha/(2.0*M_PI)*nrRepsAlongWholeTorus;
+            
+            
+            
+            beta+=delta_beta;
+        }
+        
+        
+        alpha+=delta_apha;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    calculateCordinates();
     
 }
 
@@ -168,8 +222,7 @@ void LG_Torus::calculateCordinates(){
     yy_normal=(double *)malloc(sizeof(double)*(loops+1)*(slices+1));
     zz_normal=(double *)malloc(sizeof(double)*(loops+1)*(slices+1));
     
-    ss_text=(double *)calloc((loops+1)*(slices+1),sizeof(double));
-    tt_text=(double *)calloc((loops+1)*(slices+1),sizeof(double));
+   
     
     double alpha=0;//angle related to loops(around yy axis)
     double beta=0;//angle around each loop internal loop axis
@@ -179,28 +232,8 @@ void LG_Torus::calculateCordinates(){
     
     double r1=outerRadius;
     double r2=innerRadius;
-    
-    double loopPerimeter=2*M_PI*r2;
-    
-    
-    
-    double torusExternalPerimeter=2*M_PI*(r1+r2);
-    
-    double s_lenght=0;
-    double t_lenght=0;
-    
-    if (LG_Appearance::currentTexture) {
-        s_lenght=LG_Appearance::currentTexture->getLength_s();
-        t_lenght=LG_Appearance::currentTexture->getLength_t();
-    }
-    
-    
-    double nrRepetitionsAlongLoop=loopPerimeter/s_lenght;
-    
-    double nrRepsAlongWholeTorus=torusExternalPerimeter/t_lenght;
-    
-    
 
+    
     for (int l=0; l<=loops; l++) {
         
         
@@ -223,10 +256,6 @@ void LG_Torus::calculateCordinates(){
             yy_normal[l*(slices+1)+s]=cos(beta)*sin(alpha);
             zz_normal[l*(slices+1)+s]=sin(beta);
             
-            if (LG_Appearance::currentTexture) {
-                tt_text[l*(slices+1)+s]=beta/(2.0*M_PI)*nrRepetitionsAlongLoop;
-                ss_text[l*(slices+1)+s]=alpha/(2.0*M_PI)*nrRepsAlongWholeTorus;
-            }
             
             
             

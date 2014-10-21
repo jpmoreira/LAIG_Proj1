@@ -192,7 +192,6 @@ void LG_ANF::config() {
     drawingConfig->draw();
     lightingConfig->draw();
     
-    graph->config();
     
 }
 

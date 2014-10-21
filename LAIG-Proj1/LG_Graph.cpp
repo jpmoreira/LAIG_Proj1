@@ -117,9 +117,3 @@ void LG_Graph::draw(){
 
 }
 
-
-void LG_Graph::config(){
-
-    root->config();
-
-}

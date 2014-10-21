@@ -82,6 +82,7 @@ void LG_Rectangle::copyPoints(LG_Point3D point1,LG_Point3D point2){
 void LG_Rectangle::draw(){
 
     
+    
     LG_Primitive::draw();
     
     glBegin(GL_QUADS);

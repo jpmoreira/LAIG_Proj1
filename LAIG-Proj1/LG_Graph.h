@@ -52,7 +52,6 @@ private:
     
 public:
     LG_Graph(LG_Node_Map *appearancesMap,TiXmlElement *elem);
-    void config();
     
     
     

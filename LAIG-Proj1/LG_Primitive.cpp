@@ -80,6 +80,8 @@ void LG_Primitive::newells(LG_Point3D p1,LG_Point3D p2,LG_Point3D p3, LG_Point3D
 
 
 void LG_Primitive::draw(){
+    
+    calculateTextureCoordinates();
 
 
 }

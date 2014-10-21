@@ -97,7 +97,7 @@
             <component type="diffuse" value="0.27 0.43 0.78 0.1" />
             <component type="specular" value="0.07 0.11 0.2 0.1" />
         </appearance>
-        <appearance id="float_" shininess="0.01" >
+        <appearance id="float_" shininess="0.01" textureref="leatherTexture">
             <component type="ambient" value="0.88 0.36 0.34 0.1" />
             <component type="diffuse" value="0.44 0.18 0.17 0.1" />
             <component type="specular" value="0.22 0.09 0.085 0.1" />
