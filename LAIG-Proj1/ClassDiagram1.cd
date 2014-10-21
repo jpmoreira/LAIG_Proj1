@@ -1,0 +1,438 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="LG_ANF" Collapsed="true">
+    <Position X="2.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>kAgCAAAAAEAAAIgAAAIQQAAACQIAAAEAAARAAxoAAAA=</HashCode>
+      <FileName>LG_ANF.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LG_Appearance" Collapsed="true">
+    <Position X="6.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>wAABEEAQAAAAAgIAAAAAAApAAABAAkAQAwCAAABAAAA=</HashCode>
+      <FileName>LG_Appearance.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LG_Appearance_Container" Collapsed="true">
+    <Position X="9" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LG_Appearance_Container.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LG_Camera" Collapsed="true">
+    <Position X="30.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAEAEAAAAQAAAAAAAAAAAAKAAAAgAAA=</HashCode>
+      <FileName>LG_Camera.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LG_Cameras_Container" Collapsed="true">
+    <Position X="38.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAUAAQIAAgAAAAAAAAAgAgAAAABA=</HashCode>
+      <FileName>LG_Cameras_Container.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LG_Camera_Ortho" Collapsed="true">
+    <Position X="31.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAgAgAAAIBAAABCAAAgADIAIAAAAAAgEgAAAgAA=</HashCode>
+      <FileName>LG_Camera_Ortho.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LG_Camera_Perspective" Collapsed="true">
+    <Position X="29.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAGCAAAAAAAAAIAAAAIBAAAAIAAAAAAgEgABAAAA=</HashCode>
+      <FileName>LG_Camera_Perspective.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LG_Culling" Collapsed="true">
+    <Position X="42.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAADAAAAAAAAAAIAAAAAAAQAAAAAAAgAgAAAAAA=</HashCode>
+      <FileName>LG_Culling.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LG_Cylinder" Collapsed="true">
+    <Position X="22.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAEAAAAUAAAIAAAAAAAABAIAAAIABAAAAAAA=</HashCode>
+      <FileName>LG_Cylinder.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LG_Drawing" Collapsed="true">
+    <Position X="33.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAACCAAAIAAAAAAAAAAAAQAAAAgAACIAA=</HashCode>
+      <FileName>LG_Drawing.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LG_Glu_Primitive" Collapsed="true">
+    <Position X="23.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAACAACAAAAAAA=</HashCode>
+      <FileName>LG_Glu_Primitive.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LG_Graph" Collapsed="true">
+    <Position X="49.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAAIgAAAAQIAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>LG_Graph.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LG_Graph_Node" Collapsed="true">
+    <Position X="45" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgEBAAAAAAAAgAMAAAAAAAAEAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>LG_Graph_Node.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LG_Light" Collapsed="true">
+    <Position X="12.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAEIABAQgAABAQEDAAoAAQAAAAAEAAAEAACEAAAAAAA=</HashCode>
+      <FileName>LG_Light.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LG_Lighting" Collapsed="true">
+    <Position X="36" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAKACAAQAAAAAAAAQAgAgAAAAAA=</HashCode>
+      <FileName>LG_Lighting.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LG_Lights_Container" Collapsed="true">
+    <Position X="40.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAIAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>LG_Lights_Container.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LG_Light_Omni" Collapsed="true">
+    <Position X="11.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAgIAAIAAAAAAAAIAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>LG_Light_Omni.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LG_Light_Spot" Collapsed="true">
+    <Position X="13.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAIACAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LG_Light_Spot.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LG_Node" Collapsed="true">
+    <Position X="26" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAgAAAAAEBKAAABAAAAIAABAAAAAAAAAAAA=</HashCode>
+      <FileName>LG_Node.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LG_Parse_Exception" Collapsed="true">
+    <Position X="6" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAACAAAAAAAAAAAAIAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LG_Parsable_Node.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LG_Parse_Exception_Wrong_Attribute_Value" Collapsed="true">
+    <Position X="2.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAICABAAAGgAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LG_Parsable_Node.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LG_Parse_Exception_Missing_Attribute" Collapsed="true">
+    <Position X="5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACGAAAAAAAAAAAAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LG_Parsable_Node.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LG_Parse_Exception_Wrong_Element_Name" Collapsed="true">
+    <Position X="7.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAACAAAAAAEAAAAAAAAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LG_Parsable_Node.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LG_Parse_Exception_Missing_Element" Collapsed="true">
+    <Position X="9.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LG_Parsable_Node.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LG_Parse_Exception_Broken_Reference" Collapsed="true">
+    <Position X="11.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAACAgAAAAAAAAAAAAAABAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>LG_Parsable_Node.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LG_Parse_Exception_Redundant_Reference" Collapsed="true">
+    <Position X="0.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LG_Parsable_Node.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LG_Parsable_Node" Collapsed="true">
+    <Position X="26" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQIEARUAgAAAAAwCAAqEAgAIgABAAEEBKAiBAgBBCA=</HashCode>
+      <FileName>LG_Parsable_Node.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LG_Primitive" Collapsed="true">
+    <Position X="20.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACEAAAAEAAAAAAAQIAAQAAAACAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>LG_Primitive.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LG_Rectangle" Collapsed="true">
+    <Position X="18" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QACAAAAAAEAAAgAAQAIAAAAAAAAAAEAAAAABAAAAAAA=</HashCode>
+      <FileName>LG_Rectangle.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LG_Scene" Collapsed="true">
+    <Position X="52" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAACAAAAAAAAAAAAAAAAAAAIEAAAIAAAAAgAAAAAA=</HashCode>
+      <FileName>LG_Scene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LG_SceneInterface" Collapsed="true">
+    <Position X="53.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAIggAAACAQAAAACCAAAABYAAAAAAAgAABAAAAAAA=</HashCode>
+      <FileName>LG_SceneInterface.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LG_Sphere" Collapsed="true">
+    <Position X="24.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACEAAAAAAAAIAAAAAAAACAIAAAIABAAAAAAA=</HashCode>
+      <FileName>LG_Sphere.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LG_Texture" Collapsed="true">
+    <Position X="47.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABQEACAAAABAABQAIAAAAAAAAAAAAAABQAABAAAAAA=</HashCode>
+      <FileName>LG_Texture.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LG_Texture_Container" Collapsed="true">
+    <Position X="4.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LG_Texture_Container.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LG_Torus" Collapsed="true">
+    <Position X="15.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAABAAAGAACAAhAAIAEACAAAIABAAAAIgBRAAAAAA=</HashCode>
+      <FileName>LG_Torus.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LG_Transform" Collapsed="true">
+    <Position X="27" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAGAAAAAAAAgAMAABIACCAAAAAAAAAAAAABIAAAAAA=</HashCode>
+      <FileName>LG_Transform.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LG_Triangle" Collapsed="true">
+    <Position X="20.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAgAAAAIAAAiAgAAAAEAAAAABAAAAAAA=</HashCode>
+      <FileName>LG_Triangle.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Typedef Name="LG_AXIS" Collapsed="true">
+    <Position X="13" Y="17.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LG_Camera_Ortho.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="LG_Culling_Face" Collapsed="true">
+    <Position X="9" Y="17.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LG_Culling.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="LG_Culling_Order" Collapsed="true">
+    <Position X="5" Y="17.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LG_Culling.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="LG_Drawing_Mode" Collapsed="true">
+    <Position X="1" Y="17.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LG_Drawing.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="LG_Shading_Mode" Collapsed="true">
+    <Position X="13" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LG_Drawing.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="LG_Node_Map" Collapsed="true">
+    <Position X="53.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LG_Essentials.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="LG_ID_Vector" Collapsed="true">
+    <Position X="52" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LG_Essentials.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="LG_Node_Map_Pair" Collapsed="true">
+    <Position X="55.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LG_Essentials.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="LG_Point3D" Collapsed="true">
+    <Position X="53.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LG_Essentials.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="LG_Point3D_F" Collapsed="true">
+    <Position X="55.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LG_Essentials.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="LG_Point2D" Collapsed="true">
+    <Position X="52" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LG_Essentials.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="LG_LightArray" Collapsed="true">
+    <Position X="53.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LG_Essentials.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="LG_Matrix" Collapsed="true">
+    <Position X="52" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LG_Essentials.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="LG_LightArray_f" Collapsed="true">
+    <Position X="55.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LG_Essentials.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="LG_LIGHT_TYPE" Collapsed="true">
+    <Position X="9" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LG_Light.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="LG_BOOL" Collapsed="true">
+    <Position X="5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LG_Parsable_Node.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="LG_Transform_Axis" Collapsed="true">
+    <Position X="1" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LG_Transform.cpp</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Enum Name="__unnamed_enum_000b_1" Collapsed="true">
+    <Position X="13" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LG_Camera_Ortho.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="__unnamed_enum_0011_1" Collapsed="true">
+    <Position X="9" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABCAAAAAAAIAAAAgAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LG_Culling.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="__unnamed_enum_0011_2" Collapsed="true">
+    <Position X="5" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>LG_Culling.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="__unnamed_enum_0015_1" Collapsed="true">
+    <Position X="1" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAEAAAAAAAABAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>LG_Drawing.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="__unnamed_enum_0015_2" Collapsed="true">
+    <Position X="13" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAEAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>LG_Drawing.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="__unnamed_enum_001e_1" Collapsed="true">
+    <Position X="9" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAEAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>LG_Light.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="__unnamed_enum_002a_1" Collapsed="true">
+    <Position X="5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAABAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LG_Parsable_Node.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="__unnamed_enum_0039_1" Collapsed="true">
+    <Position X="1" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACIAAAAAAAAACAAAAAQAAA=</HashCode>
+      <FileName>LG_Transform.cpp</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
