@@ -15,7 +15,7 @@
 
 int LG_Torus::_LG_classIDNr=0;
 
-LG_Torus::LG_Torus(LG_Node_Map *map,TiXmlElement *elem):LG_Primitive(map,autoIdentifier){
+LG_Torus::LG_Torus(LG_Node_Map *map,TiXmlElement *elem):LG_Primitive(map,autoIdentifier),ss_text(NULL),tt_text(NULL){
     
     
     
