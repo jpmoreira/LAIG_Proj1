@@ -18,7 +18,7 @@
 int LG_Cylinder::_LG_classIDNr=0;
 
 #pragma mark - Constructors
-LG_Cylinder::LG_Cylinder(LG_Node_Map *map,TiXmlElement *elem):LG_Glu_Primitive(map,autoIdentifier),baseRadius(LG_INVALID_DOUBLE),topRadius(LG_INVALID_DOUBLE),stacks(LG_INVALID_INT),slices(LG_INVALID_INT),height(LG_INVALID_DOUBLE){
+LG_Cylinder::LG_Cylinder(LG_Node_Map *map,TiXmlElement *elem):LG_Glu_Primitive(map,autoIdentifier(_LG_Primitive_Name,_LG_classIDNr)),baseRadius(LG_INVALID_DOUBLE),topRadius(LG_INVALID_DOUBLE),stacks(LG_INVALID_INT),slices(LG_INVALID_INT),height(LG_INVALID_DOUBLE){
     
     
     if (!str_eq(LG_Cylinder_XML_Tag_Name, elem->Value())) {
@@ -37,7 +37,7 @@ LG_Cylinder::LG_Cylinder(LG_Node_Map *map,TiXmlElement *elem):LG_Glu_Primitive(m
 
 }
 
-LG_Cylinder::LG_Cylinder(LG_Node_Map *map,TiXmlElement *elem,LG_Appearance *app):LG_Glu_Primitive(map,autoIdentifier,app),baseRadius(LG_INVALID_DOUBLE),topRadius(LG_INVALID_DOUBLE),stacks(LG_INVALID_INT),slices(LG_INVALID_INT),height(LG_INVALID_DOUBLE){
+LG_Cylinder::LG_Cylinder(LG_Node_Map *map,TiXmlElement *elem,LG_Appearance *app):LG_Glu_Primitive(map,autoIdentifier(_LG_Primitive_Name,_LG_classIDNr),app),baseRadius(LG_INVALID_DOUBLE),topRadius(LG_INVALID_DOUBLE),stacks(LG_INVALID_INT),slices(LG_INVALID_INT),height(LG_INVALID_DOUBLE){
     
     
     if (!str_eq(LG_Cylinder_XML_Tag_Name, elem->Value())) {
@@ -57,7 +57,7 @@ LG_Cylinder::LG_Cylinder(LG_Node_Map *map,TiXmlElement *elem,LG_Appearance *app)
 }
 
 
-LG_Cylinder::LG_Cylinder(LG_Node_Map *map,double base,double top,double h,int st,int sl):LG_Glu_Primitive(map,autoIdentifier),baseRadius(base),topRadius(top),height(h),stacks(st),slices(sl){
+LG_Cylinder::LG_Cylinder(LG_Node_Map *map,double base,double top,double h,int st,int sl):LG_Glu_Primitive(map,autoIdentifier(_LG_Primitive_Name,_LG_classIDNr)),baseRadius(base),topRadius(top),height(h),stacks(st),slices(sl){
 
 
 }

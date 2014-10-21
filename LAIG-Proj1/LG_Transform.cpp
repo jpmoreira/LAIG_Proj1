@@ -45,7 +45,7 @@ int LG_Transform::_LG_classIDNr=0;
 
 #pragma mark - Constructors
 
-LG_Transform::LG_Transform(LG_Node_Map *map,TiXmlElement *elem):LG_Parsable_Node(map,autoIdentifier){
+LG_Transform::LG_Transform(LG_Node_Map *map,TiXmlElement *elem):LG_Parsable_Node(map,autoIdentifier(_LG_Primitive_Name,_LG_classIDNr)){
     
     
     if (!str_eq(LG_Transforms_XML_Tag_Name, elem->Value())) {
@@ -82,7 +82,7 @@ LG_Transform::LG_Transform(LG_Node_Map *map,TiXmlElement *elem):LG_Parsable_Node
     
 }
 
-LG_Transform::LG_Transform(LG_Node_Map *map,LG_Matrix m):LG_Parsable_Node(map,autoIdentifier){
+LG_Transform::LG_Transform(LG_Node_Map *map,LG_Matrix m):LG_Parsable_Node(map,autoIdentifier(_LG_Primitive_Name,_LG_classIDNr)){
     
     
     copyMatrix(m, matrix);

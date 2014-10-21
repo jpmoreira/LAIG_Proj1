@@ -21,7 +21,7 @@
 
 int LG_Triangle::_LG_classIDNr=0;
 
-LG_Triangle::LG_Triangle(LG_Node_Map *map,TiXmlElement *elem):LG_Primitive(map,autoIdentifier){
+LG_Triangle::LG_Triangle(LG_Node_Map *map,TiXmlElement *elem):LG_Primitive(map,autoIdentifier(_LG_Primitive_Name,_LG_classIDNr)){
 
 
     initializePoint3D(pt1);
@@ -45,7 +45,7 @@ LG_Triangle::LG_Triangle(LG_Node_Map *map,TiXmlElement *elem):LG_Primitive(map,a
 
 }
 
-LG_Triangle::LG_Triangle(LG_Node_Map *map,TiXmlElement *elem,LG_Appearance *app):LG_Primitive(map,autoIdentifier,app){
+LG_Triangle::LG_Triangle(LG_Node_Map *map,TiXmlElement *elem,LG_Appearance *app):LG_Primitive(map,autoIdentifier(_LG_Primitive_Name,_LG_classIDNr),app){
 
 
     

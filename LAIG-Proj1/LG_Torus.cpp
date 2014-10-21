@@ -15,7 +15,7 @@
 
 int LG_Torus::_LG_classIDNr=0;
 
-LG_Torus::LG_Torus(LG_Node_Map *map,TiXmlElement *elem):LG_Primitive(map,autoIdentifier),ss_text(NULL),tt_text(NULL){
+LG_Torus::LG_Torus(LG_Node_Map *map,TiXmlElement *elem):LG_Primitive(map,autoIdentifier(_LG_Primitive_Name,_LG_classIDNr)),ss_text(NULL),tt_text(NULL){
     
     
     
@@ -36,7 +36,7 @@ LG_Torus::LG_Torus(LG_Node_Map *map,TiXmlElement *elem):LG_Primitive(map,autoIde
 
 }
 
-LG_Torus::LG_Torus(LG_Node_Map *map,TiXmlElement *elem,LG_Appearance *app):LG_Primitive(map,autoIdentifier,app){
+LG_Torus::LG_Torus(LG_Node_Map *map,TiXmlElement *elem,LG_Appearance *app):LG_Primitive(map,autoIdentifier(_LG_Primitive_Name,_LG_classIDNr),app){
     
     
     //verify element name
@@ -58,7 +58,7 @@ LG_Torus::LG_Torus(LG_Node_Map *map,TiXmlElement *elem,LG_Appearance *app):LG_Pr
 
 
 
-LG_Torus::LG_Torus(LG_Node_Map *map,double inner,double outer,int sl,int loop):LG_Primitive(map,autoIdentifier){
+LG_Torus::LG_Torus(LG_Node_Map *map,double inner,double outer,int sl,int loop):LG_Primitive(map,autoIdentifier(_LG_Primitive_Name,_LG_classIDNr)){
 
 
 }

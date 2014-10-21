@@ -18,12 +18,12 @@
 
 int LG_Rectangle::_LG_classIDNr=0;
 
-LG_Rectangle::LG_Rectangle(LG_Node_Map *map,LG_Point3D point1,LG_Point3D point2):LG_Primitive(map,autoIdentifier){
+LG_Rectangle::LG_Rectangle(LG_Node_Map *map,LG_Point3D point1,LG_Point3D point2):LG_Primitive(map,autoIdentifier(_LG_Primitive_Name,_LG_classIDNr)){
     
     copyPoints(point1, point2);
 
 }
-LG_Rectangle::LG_Rectangle(LG_Node_Map *map,TiXmlElement *elem):LG_Primitive(map,autoIdentifier){
+LG_Rectangle::LG_Rectangle(LG_Node_Map *map,TiXmlElement *elem):LG_Primitive(map,autoIdentifier(_LG_Primitive_Name,_LG_classIDNr)){
     
     
     initializePoint3D(pt1);
@@ -45,7 +45,7 @@ LG_Rectangle::LG_Rectangle(LG_Node_Map *map,TiXmlElement *elem):LG_Primitive(map
 }
 
 
-LG_Rectangle::LG_Rectangle(LG_Node_Map *map,TiXmlElement *elem,LG_Appearance *app):LG_Primitive(map,autoIdentifier,app){
+LG_Rectangle::LG_Rectangle(LG_Node_Map *map,TiXmlElement *elem,LG_Appearance *app):LG_Primitive(map,autoIdentifier(_LG_Primitive_Name,_LG_classIDNr),app){
 
     
     initializePoint3D(pt1);
