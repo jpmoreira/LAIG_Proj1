@@ -346,3 +346,5 @@ LAIG-Proj1/XMLScene___.h
 *.vcxproj
 *Laig-*-Test*
 LAIG-Proj1.xcodeproj
+
+LAIG-Proj1/ClassDiagram2.cd
