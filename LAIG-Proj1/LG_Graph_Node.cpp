@@ -19,7 +19,7 @@
 #define LG_Appearance_Ref_Inherit_String "inherit"
 
 
-
+#include <GL/glu.h>
 
 #include "LG_Graph_Node.h"
 #include "LG_Sphere.h"
@@ -29,8 +29,6 @@
 #include "LG_Rectangle.h"
 #include "LG_Transform.h"
 #include "LG_Appearance.h"
-
-
 
 
 #pragma mark - Constructors

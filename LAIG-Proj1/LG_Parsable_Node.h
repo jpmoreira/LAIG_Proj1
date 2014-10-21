@@ -43,8 +43,8 @@ typedef enum{
 
 
 static string autoIdentifier(string primitiveName,int classIDNr){
-
-    return string(primitiveName+std::to_string(classIDNr));
+	
+    return string(primitiveName.c_str()+classIDNr++);
 }
 
 #define LG_BOOL_STRING_TRUE "true"
