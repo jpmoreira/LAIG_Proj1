@@ -265,6 +265,7 @@
 		5469679519D8A975001DBA15 /* LG_Sphere.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5469678219D8A016001DBA15 /* LG_Sphere.cpp */; };
 		5469679619D8A97D001DBA15 /* libTinyXML.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4219D0AD7F00D4831A /* libTinyXML.a */; };
 		5469679919D8A9A4001DBA15 /* TestSphere.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5469679719D8A995001DBA15 /* TestSphere.xml */; };
+		547DE8B619F6AFEB00328518 /* cgra_robot in CopyFiles */ = {isa = PBXBuildFile; fileRef = 547DE8B519F6AFDF00328518 /* cgra_robot */; };
 		54831C9719E3FC920090418B /* LG_Graph_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54831C9619E3FC920090418B /* LG_Graph_Tests.cpp */; };
 		54831C9A19E3FD190090418B /* TestGraphs.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54831C9819E3FCFB0090418B /* TestGraphs.xml */; };
 		54831C9B19E3FD9E0090418B /* LG_Graph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5461853119DC4222005C6166 /* LG_Graph.cpp */; };
@@ -413,6 +414,7 @@
 			dstPath = testFiles;
 			dstSubfolderSpec = 16;
 			files = (
+				547DE8B619F6AFEB00328518 /* cgra_robot in CopyFiles */,
 				548CA68A19EEBFE8008AD9F7 /* metal.jpg in CopyFiles */,
 				548CA68B19EEBFE8008AD9F7 /* leather.jpeg in CopyFiles */,
 				548CA68C19EEBFE8008AD9F7 /* rubber.jpeg in CopyFiles */,
@@ -734,6 +736,7 @@
 		5469678519D8A943001DBA15 /* LG_Sphere_Tests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Sphere_Tests.cpp; sourceTree = "<group>"; };
 		5469678A19D8A95C001DBA15 /* LG_Sphere_Tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LG_Sphere_Tests; sourceTree = BUILT_PRODUCTS_DIR; };
 		5469679719D8A995001DBA15 /* TestSphere.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestSphere.xml; sourceTree = "<group>"; };
+		547DE8B519F6AFDF00328518 /* cgra_robot */ = {isa = PBXFileReference; lastKnownFileType = file; path = cgra_robot; sourceTree = "<group>"; };
 		54831C8F19E3FC2C0090418B /* LG_Graph_Tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LG_Graph_Tests; sourceTree = BUILT_PRODUCTS_DIR; };
 		54831C9619E3FC920090418B /* LG_Graph_Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Graph_Tests.cpp; sourceTree = "<group>"; };
 		54831C9819E3FCFB0090418B /* TestGraphs.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestGraphs.xml; sourceTree = "<group>"; };
@@ -1057,6 +1060,7 @@
 		540B933219ED1CE00034E113 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				547DE8B519F6AFDF00328518 /* cgra_robot */,
 				548CA5D219ED80FD008AD9F7 /* metal.jpg */,
 				540B933819ED61CE0034E113 /* leather.jpeg */,
 				540B933619ED61170034E113 /* rubber.jpeg */,
