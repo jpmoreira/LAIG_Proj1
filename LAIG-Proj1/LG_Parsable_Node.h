@@ -42,7 +42,7 @@ typedef enum{
 
 
 
-static string autoIdentifier(string primitiveName,int classIDNr){
+static string autoIdentifier(string primitiveName,int &classIDNr){
 	
     return string(primitiveName.c_str()+classIDNr++);
 }
