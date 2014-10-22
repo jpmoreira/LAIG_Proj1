@@ -97,6 +97,35 @@ vector<double *> LG_Primitive::newells(vector<double *> &points){
 }
 
 
+double * LG_Primitive::newells(vector<double *> &points){
+    
+    
+    double * normal =(double *) calloc(3,sizeof(double));
+    
+    for (int i = 0; i < points.size(); i++) {
+        
+        
+        double * current = (double *)points[i];// { 0... m }
+        double * next = (double *)points[(i+1) % points.size()]; // { 1 ... m,1 }
+        
+        
+        
+        normal[0] += ((current[1]- next[1]) * (current[2] + next[2]));
+        normal[1] += ((current[2] - next[2]) * (current[0] + next[0]));
+        normal[2] += ((current[0] - next[0]) * (current[1] + next[1]));
+        
+   
+    }
+    
+    double modulus=sqrt(normal[0]*normal[0]+normal[1]*normal[1]+normal[2]*normal[2]);
+    
+    normal[0]/=modulus;
+    normal[1]/=modulus;
+    normal[2]/=modulus;
+    
+    return normal;
+}
+
 #pragma mark - Inherited Methods
 
 
