@@ -8,7 +8,7 @@
 
 #include "LG_Drawing.h"
 
-#include <GL/glut.h>
+
 #define LG_Drawing_Fill_String "fill"
 #define LG_Drawing_Line_String "line"
 #define LG_Drawing_Point_String "point"

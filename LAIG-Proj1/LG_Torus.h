@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 #include "LG_Primitive.h"
-#include <GL/glut.h> 
+
 #define LG_Torus_XML_Tag_Name "torus"
 
 class LG_Torus: public LG_Primitive{

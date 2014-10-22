@@ -18,7 +18,7 @@
 int LG_Sphere::_LG_classIDNr=0;
 
 #pragma mark - Constructors
-LG_Sphere::LG_Sphere(LG_Node_Map *map,TiXmlElement *elem):LG_Glu_Primitive(map,autoIdentifier),radius(LG_INVALID_DOUBLE),slices(LG_INVALID_INT),stacks(LG_INVALID_INT){
+LG_Sphere::LG_Sphere(LG_Node_Map *map,TiXmlElement *elem):LG_Glu_Primitive(map,autoIdentifier(_LG_Primitive_Name,_LG_classIDNr)),radius(LG_INVALID_DOUBLE),slices(LG_INVALID_INT),stacks(LG_INVALID_INT){
     
     
     
@@ -35,7 +35,7 @@ LG_Sphere::LG_Sphere(LG_Node_Map *map,TiXmlElement *elem):LG_Glu_Primitive(map,a
 }
 
 
-LG_Sphere::LG_Sphere(LG_Node_Map *map,TiXmlElement *elem,LG_Appearance *app):LG_Glu_Primitive(map,autoIdentifier,app),radius(LG_INVALID_DOUBLE),slices(LG_INVALID_INT),stacks(LG_INVALID_INT){
+LG_Sphere::LG_Sphere(LG_Node_Map *map,TiXmlElement *elem,LG_Appearance *app):LG_Glu_Primitive(map,autoIdentifier(_LG_Primitive_Name,_LG_classIDNr),app),radius(LG_INVALID_DOUBLE),slices(LG_INVALID_INT),stacks(LG_INVALID_INT){
 
     if (!str_eq(LG_Sphere_XML_Tag_Name, elem->Value())) {
         throw new LG_Parse_Exception_Wrong_Element_Name(new string(LG_Sphere_XML_Tag_Name),new string(elem->Value()));
@@ -49,7 +49,7 @@ LG_Sphere::LG_Sphere(LG_Node_Map *map,TiXmlElement *elem,LG_Appearance *app):LG_
 
 
 }
-LG_Sphere::LG_Sphere(LG_Node_Map *map,double r,int st,int sl):LG_Glu_Primitive(map,autoIdentifier),radius(r),slices(sl),stacks(st){
+LG_Sphere::LG_Sphere(LG_Node_Map *map,double r,int st,int sl):LG_Glu_Primitive(map,autoIdentifier(_LG_Primitive_Name,_LG_classIDNr)),radius(r),slices(sl),stacks(st){
 
 
 }

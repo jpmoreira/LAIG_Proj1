@@ -9,12 +9,15 @@
 #ifndef LAIG_Proj1_LG_Essentials_h
 #define LAIG_Proj1_LG_Essentials_h
 
+#ifdef _WIN32
+#include <Windows.h>
+#endif
 
 #include <map>
 #include <string>
 #include <vector>
 #include <tinyxml.h>
-//#include <GL/glew.h>
+
 
 
 #define LG_LightValue_Not_Set LG_INVALID_DOUBLE

@@ -11,8 +11,6 @@
 #include "LG_Appearance.h"
 
 
-#include <GL/glut.h>
-
 
 #define LG_Appearance_Shininess_XML_Att_Name "shininess"
 #define LG_Apperance_Component_XML_Tag_Name "component"

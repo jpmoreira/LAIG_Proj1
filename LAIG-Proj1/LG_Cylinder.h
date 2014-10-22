@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 
-#include <GL/glu.h>
+
 #include "LG_Glu_Primitive.h"
 #define LG_Cylinder_XML_Tag_Name "cylinder"
 

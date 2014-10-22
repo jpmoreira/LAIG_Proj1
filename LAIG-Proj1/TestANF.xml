@@ -49,7 +49,7 @@
     <!-- bloco de texturas. Este bloco tem de existir mas pode estar vazio, se nao forem usadas texturas -->
     <!--   ver topico 'Notas finais' no enunciado sobre os parametros texlength_... -->
     <textures>
-        <texture id="floorTexture" file="./testFiles/chao.jpeg" texlength_s="0.1" texlength_t="0.1" />
+        <texture id="floorTexture" file="./testFiles/chao.jpeg" texlength_s="0.2" texlength_t="0.2" />
         <texture id="rubberTexture" file="./testFiles/rubber.jpeg" texlength_s="0.1" texlength_t="0.1" />
         <texture id="leatherTexture" file="./testFiles/leather.jpeg" texlength_s="1" texlength_t="1" />
         <texture id="cgra_robotTexture" file="./testFiles/cgra_robot" texlength_s="2" texlength_t="2"/>
@@ -297,12 +297,13 @@
             <appearanceref id="inherit"/>
             <transforms>
                 <transform type="translate" to="14 0.7 4"/>
+                <transform type="rotate" axis="y" angle="90" />
             </transforms>
             <descendants>
+                <noderef id="butt_structure_to_cyl"/>
                 <noderef id="butt_support"/>
                 <noderef id="back_support"/>
                 <noderef id="structure_support"/>
-                <noderef id="butt_structure_to_cyl"/>
                 <noderef id="back_structure_to_cyl"/>
                 <noderef id="butt_cyl"/>
                 <noderef id="back_cyl"/>
@@ -361,7 +362,7 @@
             </primitives>
         </node>
         <node id="butt_support">
-            <appearanceref id="cyl_base"/>
+            <appearanceref id="metallic_supports"/>
             <transforms>
                 <transform type="translate" to="2.55 2.25 1.05"/>
                 <transform type="scale" factor="0.9 0.3 1"/>

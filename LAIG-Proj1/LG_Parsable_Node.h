@@ -14,6 +14,7 @@
 
 #include <stdio.h>
 #include "LG_Node.h"
+#include <GL/glu.h>
 
 #include <limits.h>
 #include <math.h>
@@ -22,9 +23,9 @@
 
 using std::exception;
 
-
+/*
 #define autoIdentifier (string(_LG_Primitive_Name+std::to_string(_LG_classIDNr++)))
-
+*/
 
 #define LG_INVALID_INT INT_MAX
 #define LG_INVALID_DOUBLE DBL_MAX //didn't use NaN because checking nan==nan always returns false
@@ -41,6 +42,11 @@ typedef enum{
 
 
 
+static string autoIdentifier(string primitiveName,int classIDNr){
+
+    return string(primitiveName+std::to_string(classIDNr));
+}
+
 #define LG_BOOL_STRING_TRUE "true"
 #define LG_BOOL_STRING_FALSE "false"
 
@@ -56,6 +62,9 @@ public:
 	LG_Parse_Exception();
 	virtual const char* what() = 0;
 	virtual ~LG_Parse_Exception();
+    
+    
+
 
 };
 
