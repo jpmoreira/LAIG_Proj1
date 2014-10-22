@@ -73,6 +73,36 @@
 		54118C5F19D9B90A0015D962 /* LG_Primitive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5435E6FA19D83982004169BD /* LG_Primitive.cpp */; };
 		54118C6019D9B90A0015D962 /* LG_Torus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54118C4A19D9B73D0015D962 /* LG_Torus.cpp */; };
 		54118C6119D9B9170015D962 /* LG_Torus_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54118C4D19D9B8540015D962 /* LG_Torus_Tests.cpp */; };
+		541FBAAF19F7C30D00EA9CA8 /* libGLEWmx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE5019D0ADFF00D4831A /* libGLEWmx.a */; };
+		541FBAB019F7C30D00EA9CA8 /* libGLEW.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4E19D0ADF500D4831A /* libGLEW.a */; };
+		541FBAB119F7C30D00EA9CA8 /* GLUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4C19D0ADC800D4831A /* GLUI.framework */; };
+		541FBAB219F7C30D00EA9CA8 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4A19D0ADAC00D4831A /* GLUT.framework */; };
+		541FBAB319F7C30D00EA9CA8 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4819D0ADA400D4831A /* CoreServices.framework */; };
+		541FBAB419F7C30D00EA9CA8 /* libCGF.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4419D0AD9200D4831A /* libCGF.a */; };
+		541FBAB519F7C33800EA9CA8 /* LG_Camera_Ortho.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 542D82D519E7C151004DC691 /* LG_Camera_Ortho.cpp */; };
+		541FBAB619F7C33800EA9CA8 /* LG_Camera_Perspective.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 542D82D719E7C151004DC691 /* LG_Camera_Perspective.cpp */; };
+		541FBAB719F7C33800EA9CA8 /* LG_Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 542D82D919E7C151004DC691 /* LG_Camera.cpp */; };
+		541FBAB819F7C33800EA9CA8 /* LG_Cameras_Container.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 542D82DB19E7C151004DC691 /* LG_Cameras_Container.cpp */; };
+		541FBAB919F7C33800EA9CA8 /* LG_Graph_Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5461850B19DBC99C005C6166 /* LG_Graph_Node.cpp */; };
+		541FBABA19F7C33800EA9CA8 /* LG_Graph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5461853119DC4222005C6166 /* LG_Graph.cpp */; };
+		541FBABB19F7C33800EA9CA8 /* LG_Transform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 546184EA19DAFBFB005C6166 /* LG_Transform.cpp */; };
+		541FBABC19F7C33800EA9CA8 /* LG_Lights_Container.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54D8610D19E5894100B5695A /* LG_Lights_Container.cpp */; };
+		541FBABD19F7C33800EA9CA8 /* LG_Light.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54D8610A19E5893200B5695A /* LG_Light.cpp */; };
+		541FBABE19F7C33800EA9CA8 /* LG_Light_Omni.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5461855419DD3CDA005C6166 /* LG_Light_Omni.cpp */; };
+		541FBABF19F7C33800EA9CA8 /* LG_Light_Spot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5461855619DD3CDA005C6166 /* LG_Light_Spot.cpp */; };
+		541FBAC019F7C33800EA9CA8 /* LG_Rectangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5435E6FE19D842FB004169BD /* LG_Rectangle.cpp */; };
+		541FBAC119F7C33800EA9CA8 /* LG_Cylinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5469676A19D88BDB001DBA15 /* LG_Cylinder.cpp */; };
+		541FBAC219F7C33800EA9CA8 /* LG_Sphere.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5469678219D8A016001DBA15 /* LG_Sphere.cpp */; };
+		541FBAC319F7C33800EA9CA8 /* LG_Torus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54118C4A19D9B73D0015D962 /* LG_Torus.cpp */; };
+		541FBAC419F7C33800EA9CA8 /* LG_Glu_Primitive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54DE089919E5560000E283B6 /* LG_Glu_Primitive.cpp */; };
+		541FBAC519F7C33800EA9CA8 /* LG_Appearance_Container.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 542D82AB19E6FB05004DC691 /* LG_Appearance_Container.cpp */; };
+		541FBAC619F7C33800EA9CA8 /* LG_Appearance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5461853419DC59E7005C6166 /* LG_Appearance.cpp */; };
+		541FBAC719F7C33800EA9CA8 /* LG_Lighting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 545802D419D3175500C9DF32 /* LG_Lighting.cpp */; };
+		541FBAC819F7C33800EA9CA8 /* LG_Culling.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5458030519D5803600C9DF32 /* LG_Culling.cpp */; };
+		541FBAC919F7C33800EA9CA8 /* LG_Drawing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5458030819D5804400C9DF32 /* LG_Drawing.cpp */; };
+		541FBACA19F7C33800EA9CA8 /* LG_ANF.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 542D82B219E7BF86004DC691 /* LG_ANF.cpp */; };
+		541FBACB19F7C36300EA9CA8 /* LG_Texture_Container.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 542D82A619E6EA24004DC691 /* LG_Texture_Container.cpp */; };
+		541FBACC19F7C36300EA9CA8 /* LG_Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5461855A19DD3CDA005C6166 /* LG_Texture.cpp */; };
 		542D829919E5C629004DC691 /* LG_Textures_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 542D829819E5C629004DC691 /* LG_Textures_Tests.cpp */; };
 		542D829A19E5C64E004DC691 /* LG_Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5461855A19DD3CDA005C6166 /* LG_Texture.cpp */; };
 		542D829B19E5C64E004DC691 /* LG_Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5458029A19D1DA5000C9DF32 /* LG_Node.cpp */; };
@@ -890,8 +920,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5435E6F819D83882004169BD /* libTinyXML.a in Frameworks */,
+				541FBAAF19F7C30D00EA9CA8 /* libGLEWmx.a in Frameworks */,
+				541FBAB019F7C30D00EA9CA8 /* libGLEW.a in Frameworks */,
+				541FBAB119F7C30D00EA9CA8 /* GLUI.framework in Frameworks */,
+				541FBAB219F7C30D00EA9CA8 /* GLUT.framework in Frameworks */,
+				541FBAB319F7C30D00EA9CA8 /* CoreServices.framework in Frameworks */,
 				545802D319D3142800C9DF32 /* OpenGL.framework in Frameworks */,
+				541FBAB419F7C30D00EA9CA8 /* libCGF.a in Frameworks */,
+				5435E6F819D83882004169BD /* libTinyXML.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2058,6 +2094,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				541FBACB19F7C36300EA9CA8 /* LG_Texture_Container.cpp in Sources */,
+				541FBACC19F7C36300EA9CA8 /* LG_Texture.cpp in Sources */,
+				541FBAB519F7C33800EA9CA8 /* LG_Camera_Ortho.cpp in Sources */,
+				541FBAB619F7C33800EA9CA8 /* LG_Camera_Perspective.cpp in Sources */,
+				541FBAB719F7C33800EA9CA8 /* LG_Camera.cpp in Sources */,
+				541FBAB819F7C33800EA9CA8 /* LG_Cameras_Container.cpp in Sources */,
+				541FBAB919F7C33800EA9CA8 /* LG_Graph_Node.cpp in Sources */,
+				541FBABA19F7C33800EA9CA8 /* LG_Graph.cpp in Sources */,
+				541FBABB19F7C33800EA9CA8 /* LG_Transform.cpp in Sources */,
+				541FBABC19F7C33800EA9CA8 /* LG_Lights_Container.cpp in Sources */,
+				541FBABD19F7C33800EA9CA8 /* LG_Light.cpp in Sources */,
+				541FBABE19F7C33800EA9CA8 /* LG_Light_Omni.cpp in Sources */,
+				541FBABF19F7C33800EA9CA8 /* LG_Light_Spot.cpp in Sources */,
+				541FBAC019F7C33800EA9CA8 /* LG_Rectangle.cpp in Sources */,
+				541FBAC119F7C33800EA9CA8 /* LG_Cylinder.cpp in Sources */,
+				541FBAC219F7C33800EA9CA8 /* LG_Sphere.cpp in Sources */,
+				541FBAC319F7C33800EA9CA8 /* LG_Torus.cpp in Sources */,
+				541FBAC419F7C33800EA9CA8 /* LG_Glu_Primitive.cpp in Sources */,
+				541FBAC519F7C33800EA9CA8 /* LG_Appearance_Container.cpp in Sources */,
+				541FBAC619F7C33800EA9CA8 /* LG_Appearance.cpp in Sources */,
+				541FBAC719F7C33800EA9CA8 /* LG_Lighting.cpp in Sources */,
+				541FBAC819F7C33800EA9CA8 /* LG_Culling.cpp in Sources */,
+				541FBAC919F7C33800EA9CA8 /* LG_Drawing.cpp in Sources */,
+				541FBACA19F7C33800EA9CA8 /* LG_ANF.cpp in Sources */,
 				5435E6F919D83897004169BD /* LG_Parsable_Node.cpp in Sources */,
 				545802CF19D30FB400C9DF32 /* LG_Triangle_Tests.cpp in Sources */,
 				545802D019D30FB400C9DF32 /* LG_Node.cpp in Sources */,
@@ -2574,9 +2634,17 @@
 		545802CD19D30F7400C9DF32 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/glew/1.10.0/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -2585,6 +2653,14 @@
 		545802CE19D30F7400C9DF32 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/glew/1.10.0/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

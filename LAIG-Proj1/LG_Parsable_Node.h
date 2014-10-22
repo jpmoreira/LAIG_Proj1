@@ -44,7 +44,11 @@ typedef enum{
 
 static string autoIdentifier(string primitiveName,int &classIDNr){
 	
-    return string(primitiveName.c_str()+classIDNr++);
+    
+    char temp[100];
+    sprintf(temp,"%s%d",primitiveName.c_str(),classIDNr++);
+    
+    return string(temp);
 }
 
 #define LG_BOOL_STRING_TRUE "true"
