@@ -28,6 +28,8 @@ private:
     
     LG_Appearance *appearance;
     
+    bool isDisplayList;
+    
     
     static string identifierForGraphNode(TiXmlElement *elem);
     
@@ -38,6 +40,7 @@ private:
     
     
     void handleAppearance(LG_Node_Map *map,TiXmlElement *appearanceElement);
+    
     
     
     

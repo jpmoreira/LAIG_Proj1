@@ -39,12 +39,10 @@ TEST_CASE("Test loading Graph Node from XML"){
     
     LG_Node_Map *appMap=new LG_Node_Map();
     
-    LG_LightArray amb,diff,spec;
-    double s;
+    LG_LightArray_f amb,diff,spec;
+    float s;
     string identifier="appID";
-    LG_Appearance *app=new LG_Appearance(appMap, amb, diff, spec, s, identifier);
-    
-
+    LG_Appearance *app=new LG_Appearance(appMap, amb, diff, spec, s, identifier,NULL);
     
     TiXmlElement *firstElement=doc->FirstChildElement();
     TiXmlElement *secondElement=firstElement->NextSiblingElement();
@@ -119,12 +117,12 @@ TEST_CASE("Test loading Graph Node from XML"){
     
         try {
             LG_Graph_Node *node=new LG_Graph_Node(map,appMap,fourthElement);
-            FAIL("Failed to notice missing descendants block");
+            REQUIRE(node->childsIDs.size()==2);//all the childs are the primitives
+            REQUIRE(dynamic_cast<LG_Primitive *>(node->child(0)));
+            REQUIRE(dynamic_cast<LG_Primitive *>(node->child(1)));
             
         } catch (LG_Parse_Exception_Missing_Element *ex) {
-            REQUIRE(str_eq(ex->element->c_str(), "descendants"));
-        }
-    
+            FAIL("Didnt allow node witout descendants block");        }
     }
     
     

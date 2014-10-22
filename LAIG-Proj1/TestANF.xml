@@ -52,7 +52,7 @@
         <texture id="floorTexture" file="./testFiles/chao.jpeg" texlength_s="0.2" texlength_t="0.2" />
         <texture id="rubberTexture" file="./testFiles/rubber.jpeg" texlength_s="0.1" texlength_t="0.1" />
         <texture id="leatherTexture" file="./testFiles/leather.jpeg" texlength_s="1" texlength_t="1" />
-        <texture id="cgra_robotTexture" file="./testFiles/cgra_robot" texlength_s="2" texlength_t="2"/>
+        <texture id="cgra_robotTexture" file="./testFiles/cgra_robot" texlength_s="2" texlength_t="1"/>
     </textures>
     <!-- bloco de materiais; -->
     <appearances>

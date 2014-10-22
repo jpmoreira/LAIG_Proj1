@@ -10,6 +10,7 @@
 #define LG_Graph_Node_Ref_XML_Tag_Name "noderef"
 #define LG_Graph_Node_Ref_ID_XML_Att_Name "id"
 #define LG_Graph_Node_ID_XML_Att_Name "id"
+#define LG_Graph_Node_DisplayList_Att_Name "displayList"
 
 #define LG_Graph_Node_Descendants_Tag_Name "descendants"
 #define LG_Graph_Node_Primitives_Tag_Name "primitives"
@@ -30,9 +31,7 @@
 #include "LG_Transform.h"
 #include "LG_Appearance.h"
 
-
-
-
+#include <iostream>
 #pragma mark - Constructors
 LG_Graph_Node::LG_Graph_Node(LG_Node_Map *map,LG_Node_Map *app_map, TiXmlElement *elem)
 :LG_Parsable_Node(map,identifierForGraphNode(elem))
@@ -43,11 +42,25 @@ LG_Graph_Node::LG_Graph_Node(LG_Node_Map *map,LG_Node_Map *app_map, TiXmlElement
         throw new LG_Parse_Exception_Wrong_Element_Name(LG_Graph_Node_XML_Tag_Name,elem->Value());
     }
     
+    try {
+        bool_tryToAttributeVariable(LG_Graph_Node_DisplayList_Att_Name, elem, isDisplayList);
+    } catch (LG_Parse_Exception_Missing_Attribute *ex) {
+        isDisplayList=false;
+    }
+    catch(LG_Parse_Exception_Wrong_Attribute_Value *ex){
+        
+        std::cout<<"Parsing Error Found: "<<std::endl;
+        std::cout<<ex->what()<<std::endl;
+        std::cout<<"Error was Ignored. False value assumed."<<std::endl;
+        
+        
+    }
+    
+    
     bool descendantsSet=false;
     bool transformsSet=false;
     bool primitivesSet=false;
 
-    //IMPLEMENT necessity of apperance
     
 
     TiXmlElement *childElement=elem->FirstChildElement();
@@ -78,6 +91,7 @@ LG_Graph_Node::LG_Graph_Node(LG_Node_Map *map,LG_Node_Map *app_map, TiXmlElement
         
             handleAppearance(app_map, childElement);
         }
+        
         
         
         
