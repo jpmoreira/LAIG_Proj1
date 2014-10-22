@@ -182,6 +182,29 @@ TEST_CASE("Testring triangle from file"){
         
     }
     
+    SECTION("Testing new newells function"){
+    
+        LG_Triangle *t=new LG_Triangle(map,aGoodTriangle);
+        
+        vector<double *>points;
+
+        points.push_back(t->pt1);
+        points.push_back(t->pt2);
+        points.push_back(t->pt3);
+        
+
+        double * normal=t->newells(points);
+        
+        t->newells(t->pt1, t->pt2, t->pt3, normal);
+        
+        REQUIRE(normal[0]==t->normal[0]);
+        REQUIRE(normal[1]==t->normal[1]);
+        REQUIRE(normal[2]==t->normal[2]);
+        
+    
+        
+    }
+    
     
 
     
@@ -189,7 +212,6 @@ TEST_CASE("Testring triangle from file"){
 
 
 }
-
 
 
 TEST_CASE("Testing newells method"){
@@ -215,10 +237,17 @@ TEST_CASE("Testing newells method"){
         
         LG_Primitive::newells(pt1, pt2, pt3, normal);
         
+        vector<double *>points;
+        points.push_back(pt1);
+        points.push_back(pt2);
+        points.push_back(pt3);
+        double *normal2=LG_Primitive::newells(points);
+        
         REQUIRE(normal[0]==-1);
         REQUIRE(normal[1]==0);
         REQUIRE(normal[2]==0);
-    
+        
+        
     }
     
     
@@ -241,9 +270,22 @@ TEST_CASE("Testing newells method"){
         
         LG_Primitive::newells(pt1, pt2, pt3, normal);
         
+        vector<double *>points;
+        points.push_back(pt1);
+        points.push_back(pt2);
+        points.push_back(pt3);
+        double *normal2=LG_Primitive::newells(points);
+
+        
+        REQUIRE(normal[0]==normal2[0]);
+        REQUIRE(normal[1]==normal2[1]);
+        REQUIRE(normal[2]==normal2[2]);
+        
         REQUIRE(normal[0]==0);
         REQUIRE(normal[1]==0);
         REQUIRE(normal[2]==-1);
+ 
+
         
     }
     
@@ -265,6 +307,17 @@ TEST_CASE("Testing newells method"){
         pt3[2]=0;
         
         LG_Primitive::newells(pt1, pt2, pt3, normal);
+        
+        vector<double *>points;
+        points.push_back(pt1);
+        points.push_back(pt2);
+        points.push_back(pt3);
+        double *normal2=LG_Primitive::newells(points);
+        
+        
+        REQUIRE(normal[0]==normal2[0]);
+        REQUIRE(normal[1]==normal2[1]);
+        REQUIRE(normal[2]==normal2[2]);
         
         REQUIRE(abs(normal[0]-1./sqrt(3.0))<=0.0001);
         REQUIRE(abs(normal[1]==1.0/sqrt(3.0))<=0.0001);
