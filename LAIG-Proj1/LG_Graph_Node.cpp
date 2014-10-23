@@ -29,6 +29,7 @@
 #include "LG_Rectangle.h"
 #include "LG_Transform.h"
 #include "LG_Appearance.h"
+#include "LG_Plane.h"
 
 
 #pragma mark - Constructors
@@ -179,6 +180,10 @@ vector<LG_Primitive *> LG_Graph_Node::handlePrimitives(LG_Node_Map *map,TiXmlEle
         }
         else if (str_eq(LG_Rectangle_XML_Tag_Name, potentialPrimitive->Value())) {
             primitives.push_back(new LG_Rectangle(map,potentialPrimitive));
+        }
+        else if (str_eq(LG_Plane_XML_Tag_Name, potentialPrimitive->Value())){
+        
+            primitives.push_back(new LG_Plane(map,potentialPrimitive));
         }
         
         
