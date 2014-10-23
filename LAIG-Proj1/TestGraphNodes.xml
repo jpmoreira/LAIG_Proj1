@@ -145,3 +145,40 @@
     </descendants>
     
 </node>
+
+
+<node id="nodexpto"  displaylist="true" >
+    
+    <transforms>
+        
+    </transforms>
+    
+    <appearanceref id="inherit" />
+    
+    <primitives>
+        <torus inner="20" outer="30" slices="10" loops="10" />
+    </primitives>
+    
+    
+    <descendants>
+    </descendants>
+    
+</node>
+
+<node id="nodexpto"  displaylist="false" >
+    
+    <transforms>
+        
+    </transforms>
+    
+    <appearanceref id="inherit" />
+    
+    <primitives>
+        <torus inner="20" outer="30" slices="10" loops="10" />
+    </primitives>
+    
+    
+    <descendants>
+    </descendants>
+    
+</node>

@@ -28,6 +28,8 @@ private:
     
     LG_Appearance *appearance;
     
+    GLint displayListID;
+    
     bool isDisplayList;
     
     
@@ -51,6 +53,9 @@ public:
     
     
     void draw();
+    
+    
+    virtual void config();
     
 };
 

@@ -131,6 +131,8 @@ public:
     
 	string getIdentifier();
     
+    virtual void config();
+    
     
     
 };

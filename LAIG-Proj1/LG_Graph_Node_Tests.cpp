@@ -50,6 +50,8 @@ TEST_CASE("Test loading Graph Node from XML"){
     TiXmlElement *fourthElement=thirElement->NextSiblingElement();
     TiXmlElement *fifthElement=fourthElement->NextSiblingElement();
     TiXmlElement *sixthElement=fifthElement->NextSiblingElement();
+    TiXmlElement *seventhElement=sixthElement->NextSiblingElement();
+    TiXmlElement *eightElement=seventhElement->NextSiblingElement();
     
     
     
@@ -147,9 +149,40 @@ TEST_CASE("Test loading Graph Node from XML"){
             LG_Graph_Node *node=new LG_Graph_Node(map,appMap,sixthElement);
             REQUIRE(node->appearance==NULL);//should be set to null now cause of inherit
             
+            REQUIRE(!node->isDisplayList);
+            
         } catch (LG_Parse_Exception *ex) {
             FAIL("Thrown exception while parsing well formed node");
         }
+    }
+    
+    
+    SECTION("Texting displaylist parameter to true"){
+    
+        
+        try {
+            LG_Graph_Node *node=new LG_Graph_Node(map,appMap,seventhElement);
+            REQUIRE(node->appearance==NULL);//should be set to null now cause of inherit
+            REQUIRE(node->isDisplayList);
+            
+        } catch (LG_Parse_Exception *ex) {
+            FAIL("Thrown exception while parsing well formed node");
+        }
+    
+    }
+    
+    SECTION("Texting displaylist parameter to false"){
+        
+        
+        try {
+            LG_Graph_Node *node=new LG_Graph_Node(map,appMap,eightElement);
+            REQUIRE(node->appearance==NULL);//should be set to null now cause of inherit
+            REQUIRE(!node->isDisplayList);
+            
+        } catch (LG_Parse_Exception *ex) {
+            FAIL("Thrown exception while parsing well formed node");
+        }
+        
     }
     
 }

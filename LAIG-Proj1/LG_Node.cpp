@@ -78,3 +78,12 @@ int LG_Node::getNrChildren()
 {
 	return (int) this->childsIDs.size();
 }
+
+
+#pragma mark - Configuring
+
+
+void LG_Node::config(){
+
+
+}
