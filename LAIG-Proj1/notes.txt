@@ -1,1 +1,0 @@
-D:Porquê usar os *tipo*ValueForAttribute()? Usar o FirstElement obriga a correr toda a tag, atributo a atributo e verificar cada um dos que se esperam. Alterei alguns métodos para receberem *char do attr, que dá o valor directamente do pretendido. Mas deixei ficar o que tinhas também, qualquer coisa altera-se.

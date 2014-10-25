@@ -1,4 +1,0 @@
-<cylinder base="30.005" top="40.5" height="50.0" slices="3" stacks="4" />
-<cylinder base="-30.005" top="40.5" height="50.0" slices="3" stacks="4" />
-<cylinder base="30.005" top="40.5" height="50.0" slices="0" stacks="4" />
-<cylinder base="30.005" height="50.0" slices="3" stacks="4" />
