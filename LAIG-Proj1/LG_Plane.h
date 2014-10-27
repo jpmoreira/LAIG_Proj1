@@ -26,6 +26,8 @@ private:
 public:
 
     
+    LG_Point3D points[4];
+    
     
     LG_Plane(LG_Node_Map *map,TiXmlElement *elem);
     void draw();

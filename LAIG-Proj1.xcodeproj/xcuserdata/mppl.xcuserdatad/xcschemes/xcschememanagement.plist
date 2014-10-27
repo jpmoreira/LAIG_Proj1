@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Evals_Tests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>24</integer>
+		</dict>
+		<key>Evaluators_Drawing.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>23</integer>
+		</dict>
 		<key>LAIG-Proj1 2.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -223,6 +233,11 @@
 			<true/>
 		</dict>
 		<key>54858DD919F987BB000DC238</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>54858E0C19F99123000DC238</key>
 		<dict>
 			<key>primary</key>
 			<true/>
