@@ -38,6 +38,8 @@ void LG_Node::draw(){
 LG_Node * LG_Node::child(int childNr){
 
     
+    if (!map)return NULL;
+    
     
     if (childNr>=childsIDs.size())return NULL;
     string childID=childsIDs[childNr];
