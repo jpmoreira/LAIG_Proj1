@@ -1,8 +1,8 @@
 <anf>
   <globals>
-    <drawing mode="fill" shading="gouraud" background="0.2 0.2 0.2 0" />
+    <drawing mode="fill" shading="gouraud" background="0 0 0 1" />
     <culling face="back" order="ccw" />
-    <lighting doublesided="false" local="true" enabled="true" ambient="0.6 0.6 0.6 1" />
+    <lighting doublesided="false" local="true" enabled="true" ambient="0.1 0.1 0.1 1" />
   </globals>
 
   <cameras initial="perspective1" >
@@ -32,8 +32,8 @@
       <component type="diffuse" value="0.2 0.2 0.8 1" />
       <component type="specular" value="0.2 0.2 0.8 1" />
     </light>
-    <light id="spotWhite" type="spot" enabled="true" marker="false" pos="12 8 5" target="0 -1 0"
-        angle="60" exponent="1" >
+    <light id="spotWhite" type="spot" enabled="true" marker="false" pos="1 5 1" target="0 -1 0"
+        angle="70" exponent="1" >
       <component type="ambient" value="0.8 0.8 0.8 1" />
       <component type="diffuse" value="0.8 0.8 0.8 1" />
       <component type="specular" value="0.8 0.8 0.8 1" />
@@ -108,23 +108,23 @@
       <descendants>
       </descendants>
       <primitives>
-        <patch order="3" partsU="5" partsV="5" compute="fill">
-          <controlpoint x="1" y="1" z="0"/>
-          <controlpoint x="2" y="0" z="0"/>
-          <controlpoint x="3" y="1" z="0"/>
-          <controlpoint x="4" y="0" z="0"/>
-          <controlpoint x="1" y="1" z="1"/>
-          <controlpoint x="2" y="0" z="1"/>
-          <controlpoint x="3" y="1" z="1"/>
-          <controlpoint x="4" y="0" z="1"/>
-          <controlpoint x="1" y="1" z="2"/>
-          <controlpoint x="2" y="0" z="2"/>
-          <controlpoint x="3" y="1" z="2"/>
-          <controlpoint x="4" y="0" z="2"/>
-          <controlpoint x="1" y="1" z="3"/>
-          <controlpoint x="2" y="0" z="3"/>
-          <controlpoint x="3" y="1" z="3"/>
-          <controlpoint x="4" y="0" z="3"/>
+        <patch order="3" partsU="20" partsV="20" compute="fill">
+          <controlpoint x="0" y="1" z="0"/>
+          <controlpoint x="1" y="0" z="0"/>
+          <controlpoint x="2" y="1" z="0"/>
+          <controlpoint x="3" y="0" z="0"/>
+          <controlpoint x="0" y="1" z="1"/>
+          <controlpoint x="1" y="0" z="1"/>
+          <controlpoint x="2" y="1" z="1"/>
+          <controlpoint x="3" y="0" z="1"/>
+          <controlpoint x="0" y="1" z="2"/>
+          <controlpoint x="1" y="0" z="2"/>
+          <controlpoint x="2" y="1" z="2"/>
+          <controlpoint x="3" y="0" z="2"/>
+          <controlpoint x="0" y="1" z="3"/>
+          <controlpoint x="1" y="0" z="3"/>
+          <controlpoint x="2" y="1" z="3"/>
+          <controlpoint x="3" y="0" z="3"/>
         </patch>
       </primitives>
     </node>

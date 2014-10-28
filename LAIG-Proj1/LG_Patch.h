@@ -39,8 +39,9 @@ private:
 	static int classIDNr;
 	int order, partsU, partsV;
 	LG_Point3D_F points[16];
+	float **matrix;
 	int control_point_nr;
-	GLint drawMode;
+	GLenum drawMode;
 	void fillControlpoint(TiXmlElement *elem, unsigned int &index);
 };
 

@@ -186,9 +186,9 @@ vector<LG_Primitive *> LG_Graph_Node::handlePrimitives(LG_Node_Map *map, TiXmlEl
 
 			primitives.push_back(new LG_Plane(map, potentialPrimitive));
 		}
-		else if (str_eq(LG_Plane_XML_Tag_Name, potentialPrimitive->Value()))
+		else if (str_eq(LG_Patch_XML_Tag_Name, potentialPrimitive->Value())){
 			primitives.push_back(new LG_Patch(map, potentialPrimitive));
-
+		}
 
 		potentialPrimitive = potentialPrimitive->NextSiblingElement();
 	}
