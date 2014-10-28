@@ -100,8 +100,17 @@
         
     </appearances>
     
-    <graph rootid="putting_together">
-        
+    <graph rootid="plane">
+         <node id="plane">
+            <appearanceref id="float_"/>
+            <transforms>            
+            </transforms>
+            <descendants>
+            </descendants>
+            <primitives>
+                <plane parts="5"/>
+            </primitives>
+        </node>
         <node id="putting_together">
             <appearanceref id="inherit" />
             <transforms></transforms>

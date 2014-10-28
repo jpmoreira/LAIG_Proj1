@@ -79,12 +79,12 @@ void LG_Plane::draw(){
     
     glMapGrid2d(parts,0,1,parts,0,1);
     
-    GLint drawMode;
+    GLint drawMode[2];
     glGetIntegerv(GL_POLYGON_MODE,
-                       &drawMode);
+                       drawMode);
 
     
-    glEvalMesh2(drawMode, 0, parts, 0, parts);
+    glEvalMesh2(drawMode[0], 0, parts, 0, parts);
     
 }
 
