@@ -105,6 +105,7 @@ double * LG_Primitive::newells(vector<double *> &points){
     return normal;
 }
 
+
 #pragma mark - Inherited Methods
 
 

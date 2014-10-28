@@ -10,6 +10,7 @@
 #define LG_Graph_Node_Ref_XML_Tag_Name "noderef"
 #define LG_Graph_Node_Ref_ID_XML_Att_Name "id"
 #define LG_Graph_Node_ID_XML_Att_Name "id"
+#define LG_Graph_Node_DisplayList_Att_Name "displaylist"
 
 #define LG_Graph_Node_Descendants_Tag_Name "descendants"
 #define LG_Graph_Node_Primitives_Tag_Name "primitives"
@@ -29,6 +30,9 @@
 #include "LG_Rectangle.h"
 #include "LG_Transform.h"
 #include "LG_Appearance.h"
+#include "LG_Plane.h"
+
+#include <iostream>
 
 
 #pragma mark - Constructors
@@ -41,11 +45,25 @@ LG_Graph_Node::LG_Graph_Node(LG_Node_Map *map,LG_Node_Map *app_map, TiXmlElement
         throw new LG_Parse_Exception_Wrong_Element_Name(LG_Graph_Node_XML_Tag_Name,elem->Value());
     }
     
+    try {
+        bool_tryToAttributeVariable(LG_Graph_Node_DisplayList_Att_Name, elem, isDisplayList);
+    } catch (LG_Parse_Exception_Missing_Attribute *ex) {
+        isDisplayList=false;
+    }
+    catch(LG_Parse_Exception_Wrong_Attribute_Value *ex){
+        
+        std::cout<<"Parsing Error Found: "<<std::endl;
+        std::cout<<ex->what()<<std::endl;
+        std::cout<<"Error was Ignored. False value assumed."<<std::endl;
+        
+        
+    }
+    
+    
     bool descendantsSet=false;
     bool transformsSet=false;
     bool primitivesSet=false;
 
-    //IMPLEMENT necessity of apperance
     
 
     TiXmlElement *childElement=elem->FirstChildElement();
@@ -76,6 +94,7 @@ LG_Graph_Node::LG_Graph_Node(LG_Node_Map *map,LG_Node_Map *app_map, TiXmlElement
         
             handleAppearance(app_map, childElement);
         }
+        
         
         
         
@@ -180,6 +199,10 @@ vector<LG_Primitive *> LG_Graph_Node::handlePrimitives(LG_Node_Map *map,TiXmlEle
         else if (str_eq(LG_Rectangle_XML_Tag_Name, potentialPrimitive->Value())) {
             primitives.push_back(new LG_Rectangle(map,potentialPrimitive));
         }
+        else if (str_eq(LG_Plane_XML_Tag_Name, potentialPrimitive->Value())){
+        
+            primitives.push_back(new LG_Plane(map,potentialPrimitive));
+        }
         
         
         potentialPrimitive=potentialPrimitive->NextSiblingElement();
@@ -220,25 +243,66 @@ void LG_Graph_Node::handleAppearance(LG_Node_Map *map,TiXmlElement *appearanceEl
 void LG_Graph_Node::draw(){
     
     
-    glPushMatrix();
     
-    transform->draw();
-    
-    
-    if (appearance) appearance->apply();
-    
-    
-    for (unsigned int i=0; i<childsIDs.size(); i++) {
+    if (isDisplayList){
         
-        child(i)->draw();
+        glCallList(displayListID);
+    
+    }
+    
+    
+    else{
+    
+        glPushMatrix();
+        
+        transform->draw();
+        
+        
+        if (appearance) appearance->apply();
+        
+        
+        for (unsigned int i=0; i<childsIDs.size(); i++) {
+            
+            child(i)->draw();
+            
+        }
+        
+        if (appearance) appearance->unapply();
+        
+        glPopMatrix();
         
     }
     
-    if (appearance) appearance->unapply();
     
-    glPopMatrix();
-
 
 }
 
 #pragma mark - Configuration
+
+
+void LG_Graph_Node::config(){
+
+    if (isDisplayList) {
+        
+        displayListID=glGenLists(1);
+        
+        glNewList(displayListID, GL_COMPILE);
+        
+        isDisplayList=false;//force displaylist to be false so draw is performed
+        
+        draw();
+        
+        isDisplayList=true;//displaylist value back to correct one
+        
+        glEndList();
+        
+    }
+    
+    
+    for (int i=0; i<childsIDs.size(); i++) {
+        
+        child(i)->config();
+    }
+
+
+}

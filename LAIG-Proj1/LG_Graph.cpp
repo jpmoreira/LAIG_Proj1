@@ -117,3 +117,12 @@ void LG_Graph::draw(){
 
 }
 
+
+#pragma mark - Configuration
+
+
+void LG_Graph::config(){
+
+    root->config();
+
+}

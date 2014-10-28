@@ -197,7 +197,7 @@ void LG_Scene::display(){
     // Draw axis
     axis.draw();
     
-   // anf->draw();
+   anf->draw();
     //
     //// ---- END Background, camera and axis setup
     

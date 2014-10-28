@@ -39,12 +39,10 @@ TEST_CASE("Test loading Graph Node from XML"){
     
     LG_Node_Map *appMap=new LG_Node_Map();
     
-    LG_LightArray amb,diff,spec;
-    double s;
+    LG_LightArray_f amb,diff,spec;
+    float s;
     string identifier="appID";
-    LG_Appearance *app=new LG_Appearance(appMap, amb, diff, spec, s, identifier);
-    
-
+    LG_Appearance *app=new LG_Appearance(appMap, amb, diff, spec, s, identifier,NULL);
     
     TiXmlElement *firstElement=doc->FirstChildElement();
     TiXmlElement *secondElement=firstElement->NextSiblingElement();
@@ -52,6 +50,8 @@ TEST_CASE("Test loading Graph Node from XML"){
     TiXmlElement *fourthElement=thirElement->NextSiblingElement();
     TiXmlElement *fifthElement=fourthElement->NextSiblingElement();
     TiXmlElement *sixthElement=fifthElement->NextSiblingElement();
+    TiXmlElement *seventhElement=sixthElement->NextSiblingElement();
+    TiXmlElement *eightElement=seventhElement->NextSiblingElement();
     
     
     
@@ -119,12 +119,12 @@ TEST_CASE("Test loading Graph Node from XML"){
     
         try {
             LG_Graph_Node *node=new LG_Graph_Node(map,appMap,fourthElement);
-            FAIL("Failed to notice missing descendants block");
+            REQUIRE(node->childsIDs.size()==2);//all the childs are the primitives
+            REQUIRE(dynamic_cast<LG_Primitive *>(node->child(0)));
+            REQUIRE(dynamic_cast<LG_Primitive *>(node->child(1)));
             
         } catch (LG_Parse_Exception_Missing_Element *ex) {
-            REQUIRE(str_eq(ex->element->c_str(), "descendants"));
-        }
-    
+            FAIL("Didnt allow node witout descendants block");        }
     }
     
     
@@ -149,9 +149,40 @@ TEST_CASE("Test loading Graph Node from XML"){
             LG_Graph_Node *node=new LG_Graph_Node(map,appMap,sixthElement);
             REQUIRE(node->appearance==NULL);//should be set to null now cause of inherit
             
+            REQUIRE(!node->isDisplayList);
+            
         } catch (LG_Parse_Exception *ex) {
             FAIL("Thrown exception while parsing well formed node");
         }
+    }
+    
+    
+    SECTION("Texting displaylist parameter to true"){
+    
+        
+        try {
+            LG_Graph_Node *node=new LG_Graph_Node(map,appMap,seventhElement);
+            REQUIRE(node->appearance==NULL);//should be set to null now cause of inherit
+            REQUIRE(node->isDisplayList);
+            
+        } catch (LG_Parse_Exception *ex) {
+            FAIL("Thrown exception while parsing well formed node");
+        }
+    
+    }
+    
+    SECTION("Texting displaylist parameter to false"){
+        
+        
+        try {
+            LG_Graph_Node *node=new LG_Graph_Node(map,appMap,eightElement);
+            REQUIRE(node->appearance==NULL);//should be set to null now cause of inherit
+            REQUIRE(!node->isDisplayList);
+            
+        } catch (LG_Parse_Exception *ex) {
+            FAIL("Thrown exception while parsing well formed node");
+        }
+        
     }
     
 }

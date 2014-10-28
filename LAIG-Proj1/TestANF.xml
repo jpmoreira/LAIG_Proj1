@@ -293,7 +293,7 @@
                 <sphere radius="1" slices="20" stacks="20"/>
             </primitives>
         </node>
-        <node id="exercise_bench">
+        <node id="exercise_bench" displaylist="true" >
             <appearanceref id="inherit"/>
             <transforms>
                 <transform type="translate" to="14 0.7 4"/>
@@ -362,7 +362,7 @@
             </primitives>
         </node>
         <node id="butt_support">
-            <appearanceref id="metallic_supports"/>
+            <appearanceref id="cyl_base"/>
             <transforms>
                 <transform type="translate" to="2.55 2.25 1.05"/>
                 <transform type="scale" factor="0.9 0.3 1"/>

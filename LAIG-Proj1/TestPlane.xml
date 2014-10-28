@@ -1,0 +1,17 @@
+<plane parts="20"/>
+<plane part="30"/>
+<plane parts="xpto"/>
+
+<node id="anID">
+    
+    <appearancesref id="inherit"/>
+
+    <transforms>
+    </transforms>
+    <primitives>
+        <plane parts="10"/>
+        <torus inner="20" outer="30" slices="10" loops="10" />
+    </primitives>
+    
+</node>
+

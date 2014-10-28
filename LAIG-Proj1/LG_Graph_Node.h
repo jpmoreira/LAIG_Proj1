@@ -46,12 +46,16 @@ private:
     
     
     
+    
 public:
     LG_Graph_Node(LG_Node_Map *map,LG_Node_Map *appearances_map,TiXmlElement *elem);
     LG_Graph_Node(LG_Node_Map *map,LG_Node_Map *appearances_map,LG_Transform *transform,vector<LG_Primitive *> &primitives,string identifier);
     
     
     void draw();
+    
+    
+    virtual void config();
     
 };
 

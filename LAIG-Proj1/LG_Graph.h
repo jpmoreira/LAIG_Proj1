@@ -20,7 +20,9 @@ class LG_Graph: public LG_Node{
     
 public:
     
-     void draw();
+    void draw();
+    void config();
+    
 private:
     
     
