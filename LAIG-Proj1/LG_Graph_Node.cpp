@@ -33,7 +33,7 @@
 
 #pragma mark - Constructors
 LG_Graph_Node::LG_Graph_Node(LG_Node_Map *map,LG_Node_Map *app_map, TiXmlElement *elem)
-:LG_Parsable_Node(map,identifierForGraphNode(elem))
+:LG_Parsable_Node(map,identifierForGraphNode(elem)),animation(NULL)
 { 
     
     if (!str_eq(LG_Graph_Node_XML_Tag_Name, elem->Value())) {

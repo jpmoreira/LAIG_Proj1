@@ -12,6 +12,8 @@
 
 #include "LG_Parsable_Node.h"
 
+#include "LG_Animation.h"
+
 #define LG_Graph_Node_XML_Tag_Name "node"
 
 class LG_Appearance;
@@ -27,6 +29,8 @@ private:
     LG_Transform *transform;
     
     LG_Appearance *appearance;
+    
+    LG_Animation *animation;
     
     
     static string identifierForGraphNode(TiXmlElement *elem);
