@@ -13,15 +13,33 @@
 
 #include "LG_Parsable_Node.h"
 
+#define LG_Animation_XML_Tag_Name "animation"
+
 class LG_Animation: public LG_Parsable_Node {
     
+    
+    
+    
+private:
+    
+
+    string extractIDForSuper(TiXmlElement *elem);
+    
+
     
 public:
     
     
-    virtual void apply()=0;
+    virtual void apply(long int timeElapsed)=0;
     
-    LG_Animation(LG_Node_Map *map,string identifier);
+    LG_Animation(LG_Node_Map *map,string identifier,double duration);
+    LG_Animation(LG_Node_Map *map,TiXmlElement *elem);
+    
+    static LG_Animation * animationForElement(LG_Node_Map *map,TiXmlElement *elem);
+    
+    
+protected:
+    double span;
     
     
 };

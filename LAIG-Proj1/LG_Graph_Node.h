@@ -31,6 +31,9 @@ private:
     LG_Appearance *appearance;
     
     LG_Animation *animation;
+    GLint displayListID;
+    
+    bool isDisplayList;
     
     
     static string identifierForGraphNode(TiXmlElement *elem);

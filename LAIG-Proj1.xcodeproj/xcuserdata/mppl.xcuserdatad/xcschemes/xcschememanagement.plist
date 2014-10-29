@@ -29,6 +29,11 @@
 			<key>orderHint</key>
 			<integer>10</integer>
 		</dict>
+		<key>LG_Animation_Tests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>25</integer>
+		</dict>
 		<key>LG_Appearance_Tests.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -218,6 +223,11 @@
 			<true/>
 		</dict>
 		<key>5469678919D8A95C001DBA15</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>546C50171A00182F00AE1A22</key>
 		<dict>
 			<key>primary</key>
 			<true/>
