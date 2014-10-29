@@ -52,7 +52,7 @@
     <texture id="floorTexture" file="chao.jpeg" texlength_s="0.1" texlength_t="0.1" />
     <texture id="rubberTexture" file="rubber.jpeg" texlength_s="0.1" texlength_t="0.1" />
     <texture id="leatherTexture" file="leather.jpeg" texlength_s="1" texlength_t="1" />
-    <texture id="cgra_robotTexture" file="cgra_robot" texlength_s="2" texlength_t="2"/>
+    <texture id="cgra_robotTexture" file="cgra_robot" texlength_s="1" texlength_t="1"/>
   </textures>
   <!-- bloco de materiais; -->
   <appearances>
@@ -100,13 +100,21 @@
 
   </appearances>
 
-  <graph rootid="patch">
-    <node id="patch">
+  <graph rootid="testpatchs">
+    <node id="testpatchs">
       <appearanceref id="float_"/>
-      <transforms>
-      </transforms>
+      <transforms></transforms>
       <descendants>
+        <noderef id="patch1"/>
+        <noderef id="patch2"/>
+        <noderef id="patch3"/>
       </descendants>
+      <primitives></primitives>
+    </node>
+    <node id="patch1">
+      <appearanceref id="inherit"/>
+      <transforms></transforms>
+      <descendants></descendants>
       <primitives>
         <patch order="3" partsU="20" partsV="20" compute="fill">
           <controlpoint x="0" y="1" z="0"/>
@@ -128,12 +136,41 @@
         </patch>
       </primitives>
     </node>
+    <node id="patch2">
+      <appearanceref id="inherit"/>
+      <transforms></transforms>
+      <descendants></descendants>
+      <primitives>
+        <patch order="2" partsU="12" partsV="12" compute="fill">
+          <controlpoint x="5" y="4" z="3"/>
+          <controlpoint x="6" y="0" z="3"/>
+          <controlpoint x="7" y="1" z="3"/>
+          <controlpoint x="5" y="4" z="4"/>
+          <controlpoint x="6" y="1" z="4"/>
+          <controlpoint x="7" y="0" z="4"/>
+          <controlpoint x="5" y="1" z="5"/>
+          <controlpoint x="6" y="0" z="5"/>
+          <controlpoint x="7" y="4" z="5"/>
+        </patch>
+      </primitives>
+    </node>
+    <node id="patch3">
+      <appearanceref id="inherit"/>
+      <transforms></transforms>
+      <descendants></descendants>
+      <primitives>
+        <patch order="1" partsU="5" partsV="5" compute="fill">
+          <controlpoint x="5" y="0" z="5"/>
+          <controlpoint x="6" y="0" z="5"/>
+          <controlpoint x="5" y="0" z="6"/>
+          <controlpoint x="6" y="0" z="6"/>
+        </patch>
+      </primitives>
+    </node>
     <node id="plane">
       <appearanceref id="float_"/>
-      <transforms>
-      </transforms>
-      <descendants>
-      </descendants>
+      <transforms></transforms>
+      <descendants></descendants>
       <primitives>
         <plane parts="5"/>
       </primitives>
@@ -143,7 +180,6 @@
       <transforms></transforms>
       <descendants>
         <noderef id="back_wall" />
-        <!--<noderef id="side_wall" /> -->
         <noderef id="floor" />
         <noderef id="weight" />
         <noderef id="float_thing" />
@@ -277,8 +313,7 @@
     </node>
     <node id="weights">
       <appearanceref id="cyl_base" />
-      <transforms>
-      </transforms>
+      <transforms></transforms>
       <descendants>
         <noderef id="left_weight"/>
         <noderef id="right_weight"/>
@@ -343,8 +378,7 @@
         <noderef id="butt_cyl"/>
         <noderef id="back_cyl"/>
       </descendants>
-      <primitives>
-      </primitives>
+      <primitives></primitives>
     </node>
     <node id="structure_support">
       <appearanceref id="metallic_supports"/>
@@ -355,8 +389,7 @@
       <descendants>
         <noderef id ="cuboid"/>
       </descendants>
-      <primitives>
-      </primitives>
+      <primitives></primitives>
     </node>
     <node id="back_structure_to_cyl">
       <appearanceref id="metallic_supports"/>
@@ -368,8 +401,7 @@
       <descendants>
         <noderef id ="cuboid"/>
       </descendants>
-      <primitives>
-      </primitives>
+      <primitives></primitives>
     </node>
     <node id="butt_structure_to_cyl">
       <appearanceref id="metallic_supports"/>
@@ -381,8 +413,7 @@
       <descendants>
         <noderef id ="cuboid"/>
       </descendants>
-      <primitives>
-      </primitives>
+      <primitives></primitives>
     </node>
     <node id="back_support">
       <appearanceref id="cyl_base"/>
@@ -393,8 +424,7 @@
       <descendants>
         <noderef id ="cuboid"/>
       </descendants>
-      <primitives>
-      </primitives>
+      <primitives></primitives>
     </node>
     <node id="butt_support">
       <appearanceref id="cyl_base"/>
@@ -405,8 +435,7 @@
       <descendants>
         <noderef id ="cuboid"/>
       </descendants>
-      <primitives>
-      </primitives>
+      <primitives></primitives>
     </node>
     <node id="back_cyl">
       <appearanceref id="cyl_base"/>
@@ -414,8 +443,7 @@
         <transform type="translate" to="0 0 0.5"/>
         <transform type="scale" factor="0.2 0.2 1"/>
       </transforms>
-      <descendants>
-      </descendants>
+      <descendants></descendants>
       <primitives>
         <cylinder base="1" top="1" height="1" slices="20" stacks="20"/>
       </primitives>
@@ -426,8 +454,7 @@
         <transform type="translate" to="2.9 0 0.5"/>
         <transform type="scale" factor="0.2 0.2 1"/>
       </transforms>
-      <descendants>
-      </descendants>
+      <descendants></descendants>
       <primitives>
         <cylinder base="1" top="1" height="1" slices="20" stacks="20"/>
       </primitives>
@@ -439,15 +466,11 @@
         <transform type="rotate" axis="y" angle="90"/>
         <transform type="rotate" axis="x" angle="20"/>
       </transforms>
-      <descendants>
-      </descendants>
+      <descendants></descendants>
       <primitives>
         <torus inner="0.3" outer="1" slices="20" loops="20"/>
       </primitives>
     </node>
   </graph>
-
-
-
 
 </anf>
