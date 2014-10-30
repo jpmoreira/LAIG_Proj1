@@ -71,7 +71,11 @@ partsU(LG_INVALID_INT), partsV(LG_INVALID_INT), control_point_nr(0)
 	if (index != control_point_nr)
 		throw new LG_Parse_Exception_Wrong_Attribute_Value(new string(LG_Patch_Elem_Controlpoint), new string("Control Point"), new string("Not enough control points"));
 
-
+	if (order == 3)
+		vstride = ORDER3_VSTRIDE;
+	else if (order == 2)
+		vstride = ORDER2_VSTRIDE;
+	else vstride = ORDER1_VSTRIDE;
 }
 
 
@@ -110,15 +114,6 @@ void LG_Patch::config(){
 
 void LG_Patch::draw(){
 
-	int vstride;
-	if (order == 3)
-		vstride = ORDER3_VSTRIDE;
-	else if (order == 2)
-		vstride = ORDER2_VSTRIDE;
-	else vstride = ORDER1_VSTRIDE;
-
-
-
 	glMap2f(GL_MAP2_VERTEX_3,
 		0.0,//u start
 		1.0,//u finish
@@ -150,6 +145,7 @@ void LG_Patch::draw(){
 	glMapGrid2f(partsU, 0, 1, partsV, 0, 1);
 	glEvalMesh2(drawMode, 0, partsU, 0, partsV);
 
+	glDisable(GL_MAP2_TEXTURE_COORD_2);
 	glDisable(GL_MAP2_VERTEX_3);
 	glDisable(GL_AUTO_NORMAL);
 }

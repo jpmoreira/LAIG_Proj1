@@ -190,7 +190,7 @@
       </primitives>
     </node>
     <node id="patch2">
-      <appearanceref id="inherit"/>
+      <appearanceref id="float_"/>
       <transforms></transforms>
       <descendants></descendants>
       <primitives>

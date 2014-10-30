@@ -40,7 +40,7 @@ private:
 	int order, partsU, partsV;
 	float *points;
 	float *textCoords;
-	int control_point_nr;
+	int control_point_nr, vstride;
 	GLenum drawMode;
 	void fillControlpoint(TiXmlElement *elem, unsigned int &index);
 };
