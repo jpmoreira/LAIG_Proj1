@@ -38,8 +38,8 @@ public:
 private:
 	static int classIDNr;
 	int order, partsU, partsV;
-	LG_Point3D_F points[16];
-	float **matrix;
+	float *points;
+	float *textCoords;
 	int control_point_nr;
 	GLenum drawMode;
 	void fillControlpoint(TiXmlElement *elem, unsigned int &index);

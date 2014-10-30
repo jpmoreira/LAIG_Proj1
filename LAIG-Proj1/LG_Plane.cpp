@@ -58,24 +58,6 @@ void LG_Plane::config(){
 
 void LG_Plane::draw(){
     
-
-	/*points[0][0] = 0;
-	points[0][1] = 0;
-	points[0][2] = 0;
-
-	points[1][0] = 1;
-	points[1][1] = 0;
-	points[1][2] = 0;
-
-	points[2][0] = 0;
-	points[2][1] = 0;
-	points[2][2] = 1;
-
-	points[3][0] = 1;
-	points[3][1] = 0;
-	points[3][2] = 1;
-    */
-    
     
     glMap2d(	GL_MAP2_VERTEX_3,
                  0,//u start
@@ -90,7 +72,7 @@ void LG_Plane::draw(){
 
     glEnable(GL_MAP2_VERTEX_3);
     
-    
+	glEnable(GL_AUTO_NORMAL);
     glMapGrid2d(parts,0,1,parts,0,1);
     
     GLint drawMode[2];

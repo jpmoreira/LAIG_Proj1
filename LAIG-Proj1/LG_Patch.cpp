@@ -38,15 +38,25 @@ partsU(LG_INVALID_INT), partsV(LG_INVALID_INT), control_point_nr(0)
 	control_point_nr = order + 1;
 
 	//experimental
-	/*matrix = (float **)malloc(control_point_nr * sizeof(float *));
-
-	for (int i = 0; i < control_point_nr; i++)
-		matrix[i] = (float *)malloc(control_point_nr * sizeof(float));*/
-
+	/*
+	matrix = (float *)malloc(control_point_nr * sizeof(LG_Point3D_F));
+	*/
 	control_point_nr *= control_point_nr;
+	points = new float[control_point_nr*LG_Point3D_Length];
+	textCoords = new float[8];
 
+		textCoords[0] = 0;
+		textCoords[1] = 0;
 
+		textCoords[2] = 1;
+		textCoords[3] = 0;
 
+		textCoords[4] = 0;
+		textCoords[5] = 1;
+
+		textCoords[6] = 1;
+		textCoords[7] = 1;
+	
 	TiXmlElement *sub_elem;
 	sub_elem = elem->FirstChildElement(LG_Patch_Elem_Controlpoint);
 
@@ -79,10 +89,9 @@ void LG_Patch::fillControlpoint(TiXmlElement *elem, unsigned int &index){
 	float_tryToAttributeVariable(LG_Controlpoint_Att_Y, elem, y);
 	float_tryToAttributeVariable(LG_Controlpoint_Att_Z, elem, z);
 
-	points[index][X_INDEX] = x;
-	points[index][Y_INDEX] = y;
-	points[index][Z_INDEX] = z;
-
+	points[index*LG_Point3D_Length + X_INDEX] = x;
+	points[index*LG_Point3D_Length + Y_INDEX] = y;
+	points[index*LG_Point3D_Length + Z_INDEX] = z;
 
 	index++;
 }
@@ -114,19 +123,35 @@ void LG_Patch::draw(){
 		0.0,//u start
 		1.0,//u finish
 		3,//ustride
-		order+1,
+		order + 1,
 		0.0,//v start
 		1.0,//v end
 		vstride,//vstride
-		order+1,//
+		order + 1,//
 		(GLfloat *)points);
+
+	if (LG_Appearance::currentTexture)
+		glMap2f(GL_MAP2_TEXTURE_COORD_2,
+			0.0,//u start
+			LG_Appearance::currentTexture->getLength_s(),//u finish
+			4,//ustride
+			2, //texture order
+			0.0,//v start
+			LG_Appearance::currentTexture->getLength_t(),//v end
+			2,//vstride
+			2,//texture order
+			(GLfloat *)textCoords);
 
 	glEnable(GL_MAP2_VERTEX_3);
 
-	glMapGrid2f(partsU, 0, 1, partsV, 0, 1);
+	glEnable(GL_AUTO_NORMAL);
+	glEnable(GL_MAP2_TEXTURE_COORD_2);
 
+	glMapGrid2f(partsU, 0, 1, partsV, 0, 1);
 	glEvalMesh2(drawMode, 0, partsU, 0, partsV);
 
+	glDisable(GL_MAP2_VERTEX_3);
+	glDisable(GL_AUTO_NORMAL);
 }
 
 void LG_Patch::calculateTextureCoordinates(){
