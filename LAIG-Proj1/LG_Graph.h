@@ -28,6 +28,7 @@ private:
     
 
     LG_Node_Map *appearancesMap;
+    LG_Node_Map *animationsMap;
     
     LG_Graph_Node *root;
     
@@ -53,7 +54,7 @@ private:
    
     
 public:
-    LG_Graph(LG_Node_Map *appearancesMap,TiXmlElement *elem);
+    LG_Graph(LG_Node_Map *appearancesMap,LG_Node_Map *animationMap,TiXmlElement *elem);
     
     
     

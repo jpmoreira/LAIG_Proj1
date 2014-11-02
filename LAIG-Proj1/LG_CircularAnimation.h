@@ -22,7 +22,8 @@ public:
     LG_CircularAnimation(LG_Node_Map *map,TiXmlElement *elem);
     
     
-    void apply(long int elapsedTime);
+    void apply();
+    void update(long int timeNow);
     
 };
 

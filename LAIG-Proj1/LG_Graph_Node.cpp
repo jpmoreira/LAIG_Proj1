@@ -15,6 +15,7 @@
 #define LG_Graph_Node_Descendants_Tag_Name "descendants"
 #define LG_Graph_Node_Primitives_Tag_Name "primitives"
 #define LG_Graph_Node_Appearances_Ref_XML_Tag_Name "appearanceref"
+#define LG_Graph_Node_Animation_Ref_XML_Tag_Name "animationref"
 
 
 #define LG_Appearance_Ref_Inherit_String "inherit"
@@ -36,7 +37,7 @@
 
 
 #pragma mark - Constructors
-LG_Graph_Node::LG_Graph_Node(LG_Node_Map *map,LG_Node_Map *app_map, TiXmlElement *elem)
+LG_Graph_Node::LG_Graph_Node(LG_Node_Map *map,LG_Node_Map *app_map,LG_Node_Map *anim_map, TiXmlElement *elem)
 :LG_Parsable_Node(map,identifierForGraphNode(elem)),animation(NULL)
 { 
     
@@ -91,8 +92,11 @@ LG_Graph_Node::LG_Graph_Node(LG_Node_Map *map,LG_Node_Map *app_map, TiXmlElement
         }
         
         else if (str_eq(LG_Graph_Node_Appearances_Ref_XML_Tag_Name, childElement->Value())){
-        
             handleAppearance(app_map, childElement);
+        }
+        
+        else if(str_eq(LG_Graph_Node_Animation_Ref_XML_Tag_Name, childElement->Value())){
+            handleAnimation(anim_map, childElement);
         }
         
         
@@ -113,7 +117,7 @@ LG_Graph_Node::LG_Graph_Node(LG_Node_Map *map,LG_Node_Map *app_map, TiXmlElement
     
     
 }
-LG_Graph_Node::LG_Graph_Node(LG_Node_Map *map,LG_Node_Map *app_map, LG_Transform *t,vector<LG_Primitive *> &primitives,string identifier)
+LG_Graph_Node::LG_Graph_Node(LG_Node_Map *map,LG_Node_Map *app_map,LG_Node_Map *anim_map, LG_Transform *t,vector<LG_Primitive *> &primitives,string identifier)
 :LG_Parsable_Node(map,identifier),transform(t)
 {
     
@@ -236,6 +240,19 @@ void LG_Graph_Node::handleAppearance(LG_Node_Map *map,TiXmlElement *appearanceEl
 
 }
 
+void LG_Graph_Node::handleAnimation(LG_Node_Map *map, TiXmlElement *animationElement){
+
+    string id;
+    
+    string_tryToAttributeVariable(LG_Animation_ID_XML_Att_Name, animationElement, id);
+    
+    auto it=map->find(id);
+    
+    if (it==map->end()) {
+        throw new LG_Parse_Exception_Broken_Reference(LG_Graph_Node_XML_Tag_Name,id.c_str(),LG_Animation_XML_Tag_Name);
+    }
+    else animation=(LG_Animation *)it->second;
+}
 
 #pragma mark - Drawing
 

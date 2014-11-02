@@ -27,6 +27,7 @@ using std::exception;
 #define autoIdentifier (string(_LG_Primitive_Name+std::to_string(_LG_classIDNr++)))
 */
 
+
 #define LG_INVALID_INT INT_MAX
 #define LG_INVALID_DOUBLE DBL_MAX //didn't use NaN because checking nan==nan always returns false
 #define LG_INVALID_FLOAT FLT_MAX

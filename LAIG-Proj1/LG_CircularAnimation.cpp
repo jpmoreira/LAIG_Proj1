@@ -14,6 +14,11 @@ LG_CircularAnimation::LG_CircularAnimation(LG_Node_Map *map,TiXmlElement *elem):
     
 }
 
-void LG_CircularAnimation::apply(long elapsedTime){
+void LG_CircularAnimation::apply(){
+
+}
+
+void LG_CircularAnimation::update(long timeNow){
+
 
 }

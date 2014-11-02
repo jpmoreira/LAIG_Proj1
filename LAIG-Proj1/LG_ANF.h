@@ -21,13 +21,13 @@
 #include "LG_Culling.h"
 #include "LG_Drawing.h"
 #include "LG_Graph.h"
+#include "LG_Animations_Container.h"
 
 #include <CGFapplication.h>
 
 class LG_ANF: public LG_Node {
     
-	//friend class SceneInterface;
-    friend class LG_Scene;
+	    friend class LG_Scene;
     
 private:
     
@@ -40,6 +40,7 @@ private:
     LG_Lights_Container *lights;
     LG_Texture_Container *textures;
     LG_Appearance_Container *apperances;
+    LG_Animation_Container *animations;
     
     LG_Graph * graph;
     

@@ -17,6 +17,7 @@
 #include <string>
 #include <vector>
 #include <tinyxml.h>
+#include <math.h>
 
 
 
@@ -34,6 +35,9 @@
 #define LG_Point2D_Length 2
 #define LG_LightArray_Lenght 4
 #define LG_Matrix_Dimention 4
+#define X_ 0
+#define Y_ 1
+#define Z_ 2
 
 using  std::vector;
 using std::string;
@@ -96,6 +100,204 @@ inline bool str_eq(const char * str1,const string * str2){
     return strcmp(str2->c_str(), str1)==0;
     
 }
+
+
+
+
+#pragma mark - Geometry stuff
+
+
+
+/**
+ 
+ 
+ A method thar returns the lenght of a vector
+ 
+ */
+
+
+inline double vectorLenght(LG_Point3D vect){
+
+    return sqrt(vect[X_]*vect[X_]+vect[Y_]*vect[Y_]+vect[Z_]*vect[Z_]);
+
+}
+
+/**
+ 
+ 
+ A method thar returns the lenght of a vector
+ 
+ */
+
+inline double vectorLenght(const vector<double>& vect){
+
+    return sqrt(vect[X_]*vect[X_]+vect[Y_]*vect[Y_]+vect[Z_]*vect[Z_]);
+
+}
+
+/**
+ 
+ A method that normalizes a vector
+ 
+ 
+ */
+inline void normalize(vector<double> & vector){
+
+    
+    
+    double vectDimention=vectorLenght(vector);
+    
+    
+    
+    vector[X_]/=vectDimention;
+    vector[Y_]/=vectDimention;
+    vector[Z_]/=vectDimention;
+    
+}
+
+
+/**
+ 
+ A method that normalizes a vector
+ 
+ 
+ */
+
+inline void normalize(LG_Point3D vector){
+    
+    
+    
+    double vectDimention=vectorLenght(vector);
+    
+    
+    vector[X_]/=vectDimention;
+    vector[Y_]/=vectDimention;
+    vector[Z_]/=vectDimention;
+    
+}
+
+
+/**
+ 
+ 
+ A method that returns the dot product between two vectors
+ 
+ */
+inline double dotProduct(LG_Point3D vec1,LG_Point3D vec2){
+
+    
+    return vec1[X_]*vec2[X_]+vec1[Y_]*vec2[Y_]+vec1[Z_]*vec2[Z_];
+    
+}
+
+/**
+ 
+ 
+ A method that returns the dot product between two vectors
+ 
+ */
+inline double dotProduct(vector<double> vec1,vector<double> vec2){
+    
+    
+    return vec1[X_]*vec2[X_]+vec1[Y_]*vec2[Y_]+vec1[Z_]*vec2[Z_];
+    
+}
+
+
+/**
+ 
+ 
+ A method that returns the angle between two vectors
+ 
+ 
+ */
+
+inline double angleBetween(LG_Point3D vec1,LG_Point3D vec2){
+
+    
+    
+    normalize(vec1);
+    normalize(vec2);
+    
+    
+    double cos_Alpha=dotProduct(vec1,vec2);
+    
+    return acos(cos_Alpha);
+    
+}
+
+/**
+ 
+ 
+ A method that returns the angle between two vectors
+ 
+ 
+ */
+
+inline double angleBetween(vector<double> vec1,vector<double> vec2){
+    
+    
+    
+    normalize(vec1);
+    normalize(vec2);
+    
+    
+    double cos_Alpha=dotProduct(vec1,vec2);
+    
+    return acos(cos_Alpha);
+    
+}
+
+
+/**
+ 
+ A method that returns a vector representing the cross product between two other vectors
+ 
+ 
+ @return The cross product between two vectors
+ 
+ */
+inline vector<double> crossProduct (vector<double> vec1,vector<double> vec2){
+
+    
+    vector<double> crossProd(3);
+    
+    
+    crossProd[X_]=vec1[Y_]*vec2[Z_]-vec1[Z_]*vec2[Y_];
+    crossProd[Y_]=vec1[Z_]*vec2[X_]-vec1[X_]*vec2[Z_];
+    crossProd[Z_]=vec1[X_]*vec2[Y_]-vec1[Y_]*vec2[X_];
+    
+    
+    return crossProd;
+    
+
+}
+
+
+/**
+ 
+ A method that returns a vector representing the cross product between two other vectors
+ 
+ 
+ @return The cross product between two vectors
+ 
+ */
+inline vector<double> crossProduct (LG_Point3D vec1,LG_Point3D vec2){
+    
+    
+    vector<double> crossProd(3);
+    
+    
+    crossProd[X_]=vec1[Y_]*vec2[Z_]-vec1[Z_]*vec2[Y_];
+    crossProd[Y_]=vec1[Z_]*vec2[X_]-vec1[X_]*vec2[Z_];
+    crossProd[Z_]=vec1[X_]*vec2[Y_]-vec1[Y_]*vec2[X_];
+    
+    
+    return crossProd;
+    
+    
+}
+
 
 
 

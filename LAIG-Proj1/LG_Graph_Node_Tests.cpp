@@ -11,6 +11,7 @@
 #include "LG_Sphere.h"
 #include "LG_Torus.h"
 #include <CGFapplication.h>
+#include "LG_LinearAnimation.h"
 
 
 TEST_CASE("Test loading Graph Node from XML"){
@@ -38,6 +39,13 @@ TEST_CASE("Test loading Graph Node from XML"){
     LG_Node_Map *map=new LG_Node_Map();
     
     LG_Node_Map *appMap=new LG_Node_Map();
+    LG_Node_Map *animMap=new LG_Node_Map();
+    vector<double *> points;
+    double pt1[3];
+    double pt2[3];
+    points.push_back(pt1);
+    points.push_back(pt2);
+    LG_LinearAnimation(animMap, "animID", points, 10);
     
     LG_LightArray_f amb,diff,spec;
     float s;
@@ -60,7 +68,7 @@ TEST_CASE("Test loading Graph Node from XML"){
     
         
         try {
-            LG_Graph_Node *node1=new LG_Graph_Node(map, appMap, firstElement);
+            LG_Graph_Node *node1=new LG_Graph_Node(map, appMap,animMap, firstElement);
             
             REQUIRE(node1->transform->matrix[0][0]==3);
             REQUIRE(node1->transform->matrix[1][1]==4);
@@ -70,6 +78,7 @@ TEST_CASE("Test loading Graph Node from XML"){
             REQUIRE((dynamic_cast<LG_Torus *>(node1->child(1))!=NULL));
             
             REQUIRE(str_eq(node1->identifier.c_str(),"myID"));
+            REQUIRE(str_eq(node1->animation->identifier,"animID"));
         } catch (LG_Parse_Exception *ex) {
             FAIL("Thrown Exception while parsing perfectly fine Graph Node");
         }
@@ -85,7 +94,7 @@ TEST_CASE("Test loading Graph Node from XML"){
     
         
         try {
-            LG_Graph_Node *node=new LG_Graph_Node(map,appMap,secondElement);
+            LG_Graph_Node *node=new LG_Graph_Node(map,appMap,animMap,secondElement);
             FAIL("Failed to find reference to nonExisting appearance");
         } catch (LG_Parse_Exception_Broken_Reference *ex) {
             
@@ -102,8 +111,8 @@ TEST_CASE("Test loading Graph Node from XML"){
         
         try {
             
-            LG_Graph_Node *child=new LG_Graph_Node(map, appMap, firstElement);
-            LG_Graph_Node *node=new LG_Graph_Node(map,appMap,thirElement);
+            LG_Graph_Node *child=new LG_Graph_Node(map, appMap,animMap,firstElement);
+            LG_Graph_Node *node=new LG_Graph_Node(map,appMap,animMap,thirElement);
             
             REQUIRE(node->child(2)==child);
         } catch (LG_Parse_Exception *ex) {
@@ -118,7 +127,7 @@ TEST_CASE("Test loading Graph Node from XML"){
     
     
         try {
-            LG_Graph_Node *node=new LG_Graph_Node(map,appMap,fourthElement);
+            LG_Graph_Node *node=new LG_Graph_Node(map,appMap,animMap,fourthElement);
             REQUIRE(node->childsIDs.size()==2);//all the childs are the primitives
             REQUIRE(dynamic_cast<LG_Primitive *>(node->child(0)));
             REQUIRE(dynamic_cast<LG_Primitive *>(node->child(1)));
@@ -133,7 +142,7 @@ TEST_CASE("Test loading Graph Node from XML"){
     
     
         try {
-            LG_Graph_Node *node=new LG_Graph_Node(map,appMap,fifthElement);
+            LG_Graph_Node *node=new LG_Graph_Node(map,appMap,animMap,fifthElement);
             FAIL("Failed to notice redundant reference to ourselfs as our childs");
             
         } catch (LG_Parse_Exception_Redundant_Reference *ex) {
@@ -146,7 +155,7 @@ TEST_CASE("Test loading Graph Node from XML"){
         
         
         try {
-            LG_Graph_Node *node=new LG_Graph_Node(map,appMap,sixthElement);
+            LG_Graph_Node *node=new LG_Graph_Node(map,appMap,animMap,sixthElement);
             REQUIRE(node->appearance==NULL);//should be set to null now cause of inherit
             
             REQUIRE(!node->isDisplayList);
@@ -161,7 +170,7 @@ TEST_CASE("Test loading Graph Node from XML"){
     
         
         try {
-            LG_Graph_Node *node=new LG_Graph_Node(map,appMap,seventhElement);
+            LG_Graph_Node *node=new LG_Graph_Node(map,appMap,animMap,seventhElement);
             REQUIRE(node->appearance==NULL);//should be set to null now cause of inherit
             REQUIRE(node->isDisplayList);
             
@@ -175,7 +184,7 @@ TEST_CASE("Test loading Graph Node from XML"){
         
         
         try {
-            LG_Graph_Node *node=new LG_Graph_Node(map,appMap,eightElement);
+            LG_Graph_Node *node=new LG_Graph_Node(map,appMap,animMap,eightElement);
             REQUIRE(node->appearance==NULL);//should be set to null now cause of inherit
             REQUIRE(!node->isDisplayList);
             

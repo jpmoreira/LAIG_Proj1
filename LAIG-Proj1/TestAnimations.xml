@@ -17,3 +17,16 @@
 <animation id="theID" span="2.5" type="linear">
     <controlpoint xx="1" yy="3.5" zz="4.5" />
 </animation>
+
+
+
+<animations>
+    <animation id="firstAnim" span="2.5" type="linear">
+        <controlpoint xx="1" yy="3.5" zz="4.5" />
+        <controlpoint xx="5.5" yy="0.5" zz="0.45" />
+    </animation>
+    <animation id="secondAnim" span="2.5" type="linear">
+        <controlpoint xx="1" yy="3.5" zz="4.5" />
+        <controlpoint xx="5.5" yy="0.5" zz="0.45" />
+    </animation>
+</animations>

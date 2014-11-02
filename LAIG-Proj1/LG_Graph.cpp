@@ -16,7 +16,7 @@
 
 
 #pragma mark - Constructor
-LG_Graph::LG_Graph(LG_Node_Map *appearancesMap,TiXmlElement *elem):LG_Node(NULL,LG_Graph_Identifier),appearancesMap(appearancesMap){
+LG_Graph::LG_Graph(LG_Node_Map *appearancesMap,LG_Node_Map *animationsMap,TiXmlElement *elem):LG_Node(NULL,LG_Graph_Identifier),appearancesMap(appearancesMap),animationsMap(animationsMap){
     
     map=new LG_Node_Map();//initialized after not in super constructor so that we dont get added to the map
     
@@ -31,7 +31,7 @@ LG_Graph::LG_Graph(LG_Node_Map *appearancesMap,TiXmlElement *elem):LG_Node(NULL,
         
        
     
-        new LG_Graph_Node(map,appearancesMap,childElement);//create node and add it to mapForNodes
+        new LG_Graph_Node(map,appearancesMap,animationsMap,childElement);//create node and add it to mapForNodes
         
         
         childElement=childElement->NextSiblingElement();

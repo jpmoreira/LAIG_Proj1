@@ -18,9 +18,10 @@
 
 
 #include <CGFapplication.h>
+#include "LG_Animations_Container.h"
 #include "LG_LinearAnimation.h"
 
-TEST_CASE("Basic Animation Tests"){
+TEST_CASE("Basic Animation Parsing Tests"){
     
     
     static bool called=false;
@@ -97,7 +98,7 @@ TEST_CASE("Basic Animation Tests"){
 
 
 
-TEST_CASE("Linear Animation Tests"){
+TEST_CASE("Linear Animation Parsing Tests"){
     
     
     static bool called=false;
@@ -150,7 +151,7 @@ TEST_CASE("Linear Animation Tests"){
         
     }
     
-    SECTION("Bad Formed Animation, missing id"){
+    SECTION("Only one control point in linear animation"){
         
         
         try{
@@ -168,5 +169,260 @@ TEST_CASE("Linear Animation Tests"){
     }
     
     
+    
+    
+    
 }
 
+
+TEST_CASE("Testing Animation Contaniner Parsing"){
+
+
+    static bool called=false;
+    
+    
+    if (!called) {//dont init various times
+        
+        CGFapplication app;
+        
+        int zero=1;
+        const char * noParams[1]={"blabla"};
+        app.init(&zero, (char **)noParams);
+        
+        called=true;
+    }
+    
+    
+    
+    
+    TiXmlDocument *doc=new TiXmlDocument("./testFiles/TestAnimations.xml");
+    REQUIRE(doc->LoadFile());
+    LG_Node_Map map;
+    
+    TiXmlElement *container=(TiXmlElement *)doc->LastChild();
+    
+    
+    
+    SECTION("Formed Container with two animations"){
+        
+        try {
+            LG_Animation_Container *containerNode=new LG_Animation_Container(container);
+            REQUIRE(containerNode->childsIDs.size()==2);
+            REQUIRE(str_eq(containerNode->child(0)->identifier,"firstAnim"));
+            REQUIRE(str_eq(containerNode->child(1)->identifier,"secondAnim"));
+        } catch (LG_Parse_Exception *ex) {
+            FAIL("Thrown exception while parsing well formed linear animation");
+        }
+        
+    }
+
+    
+    
+}
+
+
+
+TEST_CASE("Testing Linear Animation Processing"){
+
+    
+    TiXmlDocument *doc=new TiXmlDocument("./testFiles/TestAnimations2.xml");
+    REQUIRE(doc->LoadFile());
+    LG_Node_Map map;
+    
+    TiXmlElement *linear1=doc->FirstChildElement();
+    
+    
+    double identity[4][4];
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+    glGetDoublev(GL_MODELVIEW, (GLdouble *)identity);
+    double translate1InX[4][4];
+    glTranslated(1, 0, 0);
+    glGetDoublev(GL_MODELVIEW, (GLdouble *)translate1InX);
+    glLoadIdentity();
+    double translateToPlaceAfter3Units[4][4];
+    glLoadIdentity();
+    glTranslated(1+1./5.*3., 0, 0);
+    glGetDoublev(GL_MODELVIEW, (GLdouble *)translateToPlaceAfter3Units);
+    double rotateInZ90[4][4];
+    glLoadIdentity();
+    glRotated(90, 0, 0, 1);
+    glGetDoublev(GL_MODELVIEW, (GLdouble *)rotateInZ90);
+    
+    double translateToPlaceAfter6TimeUnits[4][4];
+    glLoadIdentity();
+    glTranslated(2, 1./5, 0);
+    glGetDoublev(GL_MODELVIEW, (GLdouble *)translateToPlaceAfter6TimeUnits);
+    
+    double translateToEnd[4][4];
+    glLoadIdentity();
+    glTranslated(2, 1, 0);
+    glGetDoublev(GL_MODELVIEW, (GLdouble *)translateToEnd);
+    
+    
+    LG_LinearAnimation *anim;
+    try {
+        anim=(LG_LinearAnimation *)LG_Animation::animationForElement(&map, linear1);
+        
+        
+        
+        
+    } catch (LG_Parse_Exception *ex) {
+        FAIL("Failed while parsing perfectly well formed linear animation");
+    }
+
+    
+    
+    SECTION("Testing start conditions"){
+        
+        REQUIRE(fabs(anim->velocity-1./5.)<=0.000);
+        REQUIRE(fabs(anim->timeToSwitchSegment-5.)<=0.0001);
+        REQUIRE(fabs(anim->totalDistance-2.)<=0.0001);
+        REQUIRE(anim->currentSegment==0);
+        REQUIRE(fabs(anim->directionVector[X_]-1.0)<=0.0001);
+        REQUIRE(fabs(anim->directionVector[Y_]-0.0)<=0.00001);
+        REQUIRE(fabs(anim->directionVector[Z_]-0.0)<=0.00001);
+        REQUIRE(fabs(anim->controlPointHitTime[0]-0.000)<=0.00001);
+        REQUIRE(fabs(anim->controlPointHitTime[1]-5.000)<=0.00001);
+        REQUIRE(fabs(anim->controlPointHitTime[2]-anim->span)<=0.00001);
+        
+        
+        
+        
+        for (int i=0; i<4; i++) {
+            for (int f=0; f<4; f++) {
+                REQUIRE(fabs(identity[i][f]-anim->rotation_matrix[i][f])<=0.0001);
+            }
+        }
+        
+        
+        for (int i=0; i<4; i++) {
+            for (int f=0; f<4; f++) {
+                REQUIRE(fabs(translate1InX[i][f]-anim->translation_matrix[i][f])<=0.0001);
+            }
+        }
+        
+    
+    
+    }
+
+    
+    
+    SECTION("Testing conditions after initialization"){
+    
+    
+        
+        anim->update(10);
+        
+        REQUIRE(fabs(anim->startTime-10.0)<=0.0001);
+        double *directionVect=anim->directionVector;
+        
+        REQUIRE(fabs(directionVect[X_]-1.00)<=0.0001);
+        REQUIRE(fabs(directionVect[Y_]-0.00)<=0.0001);
+        REQUIRE(fabs(directionVect[Z_]-0.00)<=0.0001);
+        
+        
+        //matrixes should not be altered at this point since is first update!!!
+        
+        for (int i=0; i<4; i++) {
+            for (int f=0; f<4; f++) {
+                REQUIRE(fabs(anim->rotation_matrix[i][f]-identity[i][f])<=0.0001);
+            }
+        }
+        
+        for (int i=0; i<4; i++) {
+            for (int f=0; f<4; f++) {
+                REQUIRE(fabs(anim->translation_matrix[i][f]-translate1InX[i][f])<=0.0001);
+            }
+        }
+        
+        
+    
+        
+    
+    }
+    
+    
+    SECTION("Verfications before second control point"){
+    
+    
+        anim->update(10);//start
+        
+        anim->update(13);//3 time units after
+        
+        REQUIRE(anim->currentSegment==0);
+        
+        for(int i=0;i<4;i++){
+            for (int f=0; f<4; f++) {
+                REQUIRE(fabs(anim->rotation_matrix[i][f]-identity[i][f])<=0.00001);
+            }
+        }
+        
+        for(int i=0;i<4;i++){
+            for (int f=0; f<4; f++) {
+                REQUIRE(fabs(anim->translation_matrix[i][f]-translateToPlaceAfter3Units[i][f])<=0.00001);
+                
+            }
+        }
+        
+        
+    
+    }
+    
+    SECTION("Verifications After second control point"){
+    
+    
+        anim->update(10);
+        anim->update(16);
+        
+        REQUIRE(anim->currentSegment==1);
+        
+        
+        for(int i=0;i<4;i++){
+            for (int f=0; f<4; f++) {
+                REQUIRE(fabs(anim->rotation_matrix[i][f]-rotateInZ90[i][f])<=0.00001);
+                
+            }
+        }
+        
+        for(int i=0;i<4;i++){
+            for (int f=0; f<4; f++) {
+                REQUIRE(fabs(anim->translation_matrix[i][f]-translateToPlaceAfter6TimeUnits[i][f])<=0.00001);
+                
+            }
+        }
+        
+        
+        
+        
+    
+    
+    }
+    
+    SECTION("Verification After animation end"){
+    
+        anim->update(10);
+        anim->update(50);//way after animation end
+        
+        REQUIRE(anim->currentSegment==1);
+        
+        
+        for(int i=0;i<4;i++){
+            for (int f=0; f<4; f++) {
+                REQUIRE(fabs(anim->rotation_matrix[i][f]-rotateInZ90[i][f])<=0.00001);
+                
+            }
+        }
+        
+        for(int i=0;i<4;i++){
+            for (int f=0; f<4; f++) {
+                REQUIRE(fabs(anim->translation_matrix[i][f]-translateToEnd[i][f])<=0.00001);
+                
+            }
+        }
+
+    
+    
+    }
+
+}

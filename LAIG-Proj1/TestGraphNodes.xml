@@ -8,6 +8,7 @@
     <!-- se id="inherit", o no' mantem (herda) a aparencia do "pai" -->
     
     <appearanceref id="appID" />
+    <animationref id="animID" />
     
     
     <!-- conteudo do no; deve existir pelo menos um bloco "primitives" ou um "descendants" -->

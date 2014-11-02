@@ -134,6 +134,11 @@
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
+		<key>TestGeometryFunctions.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>26</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -143,6 +148,11 @@
 			<true/>
 		</dict>
 		<key>54174DC619D033CB0039E991</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>542D37141A0267EF00908D63</key>
 		<dict>
 			<key>primary</key>
 			<true/>
