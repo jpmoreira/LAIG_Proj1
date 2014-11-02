@@ -22,7 +22,7 @@ class LG_Animation_Container: public LG_Parsable_Node {
 public:
     
     LG_Animation_Container(TiXmlElement *elem);
-    
+    LG_Animation_Container();
 };
 
 #endif /* defined(__LAIG_Proj1__LG_AnimationsContainer__) */

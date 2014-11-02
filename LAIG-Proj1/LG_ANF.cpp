@@ -39,7 +39,7 @@ LG_ANF::LG_ANF(TiXmlElement *elem):LG_Node(NULL,LG_ANF_ID){
         
     }
     
-    
+    animations=NULL;
     
     TiXmlElement *subElement=elem->FirstChildElement();
     
@@ -80,7 +80,12 @@ LG_ANF::LG_ANF(TiXmlElement *elem):LG_Node(NULL,LG_ANF_ID){
         }
         
         else if(str_eq(subElement->Value(),LG_Graph_XML_Tag_Name)){
+
+            if (!animations) {
+                animations=new LG_Animation_Container();
+            }
             
+
             graph=new LG_Graph(apperances->map,animations->map,subElement);
         }
         

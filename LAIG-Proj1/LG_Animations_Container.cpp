@@ -38,3 +38,14 @@ LG_Animation_Container::LG_Animation_Container(TiXmlElement *elem):LG_Parsable_N
     
     
 }
+
+LG_Animation_Container::LG_Animation_Container():LG_Parsable_Node(NULL,LG_Animations_Container_ID){
+    
+    
+    map=new LG_Node_Map;
+    
+
+    
+    
+    
+}
