@@ -50,6 +50,7 @@
   <!--   ver topico 'Notas finais' no enunciado sobre os parametros texlength_... -->
   <textures>
     <texture id="floorTexture" file="chao.jpeg" texlength_s="0.1" texlength_t="0.1" />
+    <texture id="floorTexture2" file="chao.jpeg" texlength_s="2" texlength_t="2" />
     <texture id="rubberTexture" file="rubber.jpeg" texlength_s="0.1" texlength_t="0.1" />
     <texture id="leatherTexture" file="leather.jpeg" texlength_s="1" texlength_t="1" />
     <texture id="cgra_robotTexture" file="cgra_robot" texlength_s="1" texlength_t="1"/>
@@ -74,15 +75,18 @@
       <component type="diffuse" value="0.24 0.24 0.24 1" />
       <component type="specular" value="0.71 0.71 0.71 0.1" />
     </appearance>
-    <appearance id="cyl_base" shininess="0.1" textureref="leatherTexture">
-
-    </appearance>
+    <appearance id="cyl_base" shininess="0.1" textureref="leatherTexture"></appearance>
     <appearance id="wall" shininess="0.8" >
       <component type="ambient" value="0.76 0.69 0.54 0.9" />
       <component type="diffuse" value="0.76 0.69 0.54 0.9" />
       <component type="specular" value="0.76 0.69 0.54 0.9" />
     </appearance>
     <appearance id="floor" shininess="0.01" textureref="floorTexture">
+      <component type="ambient" value="0.49 0.31 0.19 0.1" />
+      <component type="diffuse" value="0.49 0.31 0.19 0.1" />
+      <component type="specular" value="0.49 0.31 0.19 0.1" />
+    </appearance>
+    <appearance id="floor2" shininess="0.01" textureref="floorTexture2">
       <component type="ambient" value="0.49 0.31 0.19 0.1" />
       <component type="diffuse" value="0.49 0.31 0.19 0.1" />
       <component type="specular" value="0.49 0.31 0.19 0.1" />
@@ -102,12 +106,13 @@
 
   <graph rootid="testpatchs">
     <node id="testpatchs">
-      <appearanceref id="float_"/>
+      <appearanceref id="floor"/>
       <transforms></transforms>
       <descendants>
         <noderef id="patch1"/>
         <noderef id="patch2"/>
         <noderef id="patch3"/>
+        <noderef id="patch4"/>
       </descendants>
       <primitives></primitives>
     </node>
@@ -208,7 +213,7 @@
       </primitives>
     </node>
     <node id="patch3">
-      <appearanceref id="inherit"/>
+      <appearanceref id="floor2"/>
       <transforms></transforms>
       <descendants></descendants>
       <primitives>
@@ -217,6 +222,19 @@
           <controlpoint x="6" y="0" z="5"/>
           <controlpoint x="5" y="0" z="6"/>
           <controlpoint x="6" y="0" z="6"/>
+        </patch>
+      </primitives>
+    </node>
+    <node id="patch4">
+      <appearanceref id="floor2"/>
+      <transforms></transforms>
+      <descendants></descendants>
+      <primitives>
+        <patch order="1" partsU="10" partsV="10" compute="fill">
+          <controlpoint x="7" y="0" z="5"/>
+          <controlpoint x="9" y="0" z="5"/>
+          <controlpoint x="7" y="0" z="7"/>
+          <controlpoint x="9" y="0" z="7"/>
         </patch>
       </primitives>
     </node>

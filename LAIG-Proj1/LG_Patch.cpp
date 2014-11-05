@@ -69,7 +69,8 @@ partsU(LG_INVALID_INT), partsV(LG_INVALID_INT), control_point_nr(0)
 	}
 
 	if (index != control_point_nr)
-		throw new LG_Parse_Exception_Wrong_Attribute_Value(new string(LG_Patch_Elem_Controlpoint), new string("Control Point"), new string("Not enough control points"));
+		throw new LG_Parse_Exception_Wrong_Attribute_Value(new string(LG_Patch_Elem_Controlpoint), new string("Control Point"), 
+		new string("Not enough control points"));
 
 	if (order == 3)
 		vstride = ORDER3_VSTRIDE;
