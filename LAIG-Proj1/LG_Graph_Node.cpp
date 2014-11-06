@@ -29,7 +29,7 @@
 #include "LG_Rectangle.h"
 #include "LG_Transform.h"
 #include "LG_Appearance.h"
-#include "LG_Plane.h"
+#include "LG_Flag.h"
 #include "LG_Patch.h"
 
 
@@ -189,7 +189,9 @@ vector<LG_Primitive *> LG_Graph_Node::handlePrimitives(LG_Node_Map *map, TiXmlEl
 		else if (str_eq(LG_Patch_XML_Tag_Name, potentialPrimitive->Value())){
 			primitives.push_back(new LG_Patch(map, potentialPrimitive));
 		}
-
+		else if (str_eq(LG_Flag_XML_Tag_Name, potentialPrimitive->Value())){
+			primitives.push_back(new LG_Flag(map, potentialPrimitive));
+		}
 		potentialPrimitive = potentialPrimitive->NextSiblingElement();
 	}
 

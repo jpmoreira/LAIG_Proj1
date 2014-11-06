@@ -104,7 +104,7 @@
 
   </appearances>
 
-  <graph rootid="testpatchs">
+  <graph rootid="flag">
     <node id="testpatchs">
       <appearanceref id="floor"/>
       <transforms></transforms>
@@ -244,6 +244,14 @@
       <descendants></descendants>
       <primitives>
         <plane parts="5"/>
+      </primitives>
+    </node>
+    <node id="flag">
+      <appearanceref id="float_"/>
+      <transforms></transforms>
+      <descendants></descendants>
+      <primitives>
+        <flag/>
       </primitives>
     </node>
     <node id="putting_together">

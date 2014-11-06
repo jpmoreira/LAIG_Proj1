@@ -5,6 +5,12 @@
 
 
 int LG_Patch::classIDNr = 0;
+
+LG_Patch::LG_Patch(LG_Node_Map *map, string LG_Primitive_Identifier) : LG_Primitive(map, LG_Primitive_Identifier){
+
+}
+
+
 LG_Patch::LG_Patch(LG_Node_Map *map, TiXmlElement *elem) : LG_Primitive(map, autoIdentifier(LG_Patch_ID_Prefix, classIDNr)),
 partsU(LG_INVALID_INT), partsV(LG_INVALID_INT), control_point_nr(0)
 {

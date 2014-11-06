@@ -9,10 +9,31 @@
 #include "LG_Plane.h"
 #include "LG_ANF.h"
 
-#define LG_Plane_parts_XML_Att_Name "parts"
+
 #define LG_Plane_ID_Prefix "_LG_Plane"
 
 int LG_Plane::classIDNr=0;
+
+LG_Plane::LG_Plane(LG_Node_Map *map, string LG_Primitive_Identifier) : LG_Primitive(map, LG_Primitive_Identifier){
+
+
+	points[0][0] = 0;
+	points[0][1] = 0;
+	points[0][2] = 0;
+
+	points[1][0] = 1;
+	points[1][1] = 0;
+	points[1][2] = 0;
+
+	points[2][0] = 0;
+	points[2][1] = 0;
+	points[2][2] = 1;
+
+	points[3][0] = 1;
+	points[3][1] = 0;
+	points[3][2] = 1;
+}
+
 
 LG_Plane::LG_Plane(LG_Node_Map *map,TiXmlElement *elem):LG_Primitive(map,autoIdentifier(LG_Plane_ID_Prefix, classIDNr)),parts(LG_INVALID_INT){
 
@@ -59,7 +80,7 @@ void LG_Plane::config(){
 void LG_Plane::draw(){
     
     
-    glMap2d(	GL_MAP2_VERTEX_3,
+    glMap2f(	GL_MAP2_VERTEX_3,
                  0,//u start
                  1.0,//u finish
                  3,//ustride
@@ -68,12 +89,12 @@ void LG_Plane::draw(){
                  1.0,//v end
                  6,//vstride
                  2,//1st degree curve
-                (GLdouble *) points);
+                (GLfloat *) points);
 
     glEnable(GL_MAP2_VERTEX_3);
     
 	glEnable(GL_AUTO_NORMAL);
-    glMapGrid2d(parts,0,1,parts,0,1);
+    glMapGrid2f(parts,0,1,parts,0,1);
     
     GLint drawMode[2];
     glGetIntegerv(GL_POLYGON_MODE,

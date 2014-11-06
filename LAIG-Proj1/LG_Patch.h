@@ -30,6 +30,7 @@ class LG_Patch :
 {
 public:
 	LG_Patch(LG_Node_Map *map, TiXmlElement *elem);
+	LG_Patch(LG_Node_Map * map, string LG__Primitive_Identifier);
 	~LG_Patch();
 	void draw();
 	void config();

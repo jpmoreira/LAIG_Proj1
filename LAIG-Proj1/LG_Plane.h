@@ -15,6 +15,7 @@
 
 
 #define LG_Plane_XML_Tag_Name "plane"
+#define LG_Plane_parts_XML_Att_Name "parts"
 
 class LG_Plane: public LG_Primitive {
     
@@ -26,10 +27,11 @@ private:
 public:
 
     
-    LG_Point3D points[4];
+    LG_Point3D_F points[4];
     
     
     LG_Plane(LG_Node_Map *map,TiXmlElement *elem);
+	LG_Plane(LG_Node_Map *map, string LG_Primitive_Identifier);
     void draw();
     void config();
     void calculateTextureCoordinates();
