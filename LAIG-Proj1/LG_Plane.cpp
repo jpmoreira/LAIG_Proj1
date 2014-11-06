@@ -11,65 +11,36 @@
 
 
 #define LG_Plane_ID_Prefix "_LG_Plane"
+#define LG_Plane_NR_Points 4
 
-int LG_Plane::classIDNr=0;
+int LG_Plane::classIDNr = 0;
 
-LG_Plane::LG_Plane(LG_Node_Map *map, string LG_Primitive_Identifier) : LG_Primitive(map, LG_Primitive_Identifier){
-
-
-	points[0][0] = 0;
-	points[0][1] = 0;
-	points[0][2] = 0;
-
-	points[1][0] = 1;
-	points[1][1] = 0;
-	points[1][2] = 0;
-
-	points[2][0] = 0;
-	points[2][1] = 0;
-	points[2][2] = 1;
-
-	points[3][0] = 1;
-	points[3][1] = 0;
-	points[3][2] = 1;
+LG_Plane::LG_Plane(LG_Node_Map *map, string LG_Primitive_Identifier) : LG_Patch(map, LG_Primitive_Identifier){
+	setPatch();
 }
 
 
-LG_Plane::LG_Plane(LG_Node_Map *map,TiXmlElement *elem):LG_Primitive(map,autoIdentifier(LG_Plane_ID_Prefix, classIDNr)),parts(LG_INVALID_INT){
+LG_Plane::LG_Plane(LG_Node_Map *map, TiXmlElement *elem) : LG_Patch(map, autoIdentifier(LG_Plane_ID_Prefix, classIDNr)), parts(LG_INVALID_INT){
 
 
-    
-    if (!str_eq(elem->Value(), LG_Plane_XML_Tag_Name)) {
-        
-        throw LG_Parse_Exception_Wrong_Element_Name(LG_Plane_XML_Tag_Name, elem->Value());
-    }
-    
-    positiveInt_tryToAttributeVariable(LG_Plane_parts_XML_Att_Name, elem, parts);
-    
 
-    points[0][0]=0;
-    points[0][1]=0;
-    points[0][2]=0;
-    
-    points[1][0]=1;
-    points[1][1]=0;
-    points[1][2]=0;
-    
-    points[2][0]=0;
-    points[2][1]=0;
-    points[2][2]=1;
-    
-    points[3][0]=1;
-    points[3][1]=0;
-    points[3][2]=1;
-    
+	if (!str_eq(elem->Value(), LG_Plane_XML_Tag_Name)) {
+
+		throw LG_Parse_Exception_Wrong_Element_Name(LG_Plane_XML_Tag_Name, elem->Value());
+	}
+
+	positiveInt_tryToAttributeVariable(LG_Plane_parts_XML_Att_Name, elem, parts);
+
+	LG_Patch::partsU = LG_Patch::partsV = parts;
+	setPatch();
+
 }
 
 
 #pragma mark - Configuration
 void LG_Plane::config(){
-    
-    
+
+
 
 }
 
@@ -78,34 +49,42 @@ void LG_Plane::config(){
 
 
 void LG_Plane::draw(){
-    
-    
-    glMap2f(	GL_MAP2_VERTEX_3,
-                 0,//u start
-                 1.0,//u finish
-                 3,//ustride
-                 2,//1st degree curve
-                 0,//v start
-                 1.0,//v end
-                 6,//vstride
-                 2,//1st degree curve
-                (GLfloat *) points);
 
-    glEnable(GL_MAP2_VERTEX_3);
-    
-	glEnable(GL_AUTO_NORMAL);
-    glMapGrid2f(parts,0,1,parts,0,1);
-    
-    GLint drawMode[2];
-    glGetIntegerv(GL_POLYGON_MODE,
-                       drawMode);
-
-    
-    glEvalMesh2(drawMode[0], 0, parts, 0, parts);
-    
+	LG_Patch::draw();
 }
 
 void LG_Plane::calculateTextureCoordinates(){
 
 
+}
+
+
+void LG_Plane::setPatch(){
+
+	LG_Patch::points = new float[LG_Plane_NR_Points*LG_Point3D_Length];
+	float *tmp = LG_Patch::points;
+
+	LG_Patch::points[0] = 0;
+	LG_Patch::points[1] = 0;
+	LG_Patch::points[2] = 0;
+
+	LG_Patch::points[3] = 1;
+	LG_Patch::points[4] = 0;
+	LG_Patch::points[5] = 0;
+
+	LG_Patch::points[6] = 0;
+	LG_Patch::points[7] = 0;
+	LG_Patch::points[8] = 1;
+
+	LG_Patch::points[9] = 1;
+	LG_Patch::points[10] = 0;
+	LG_Patch::points[11] = 1;
+
+	LG_Patch::order = 1;
+	LG_Patch::vstride = ORDER1_VSTRIDE;
+	
+	GLint drawMode[2];
+	glGetIntegerv(GL_POLYGON_MODE, drawMode);
+	
+	LG_Patch::drawMode = drawMode[0];
 }

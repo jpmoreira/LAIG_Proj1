@@ -6,8 +6,9 @@
 
 int LG_Patch::classIDNr = 0;
 
+//Used by subclasses to get through unnecessary validations
 LG_Patch::LG_Patch(LG_Node_Map *map, string LG_Primitive_Identifier) : LG_Primitive(map, LG_Primitive_Identifier){
-
+	setTextCoords();
 }
 
 
@@ -23,7 +24,7 @@ partsU(LG_INVALID_INT), partsV(LG_INVALID_INT), control_point_nr(0)
 
 	positiveInt_tryToAttributeVariable(LG_Patch_Att_Order, elem, order);
 
-	if (order <= 0 || order > 3)
+	if (order < ORDER1_CURVE || order > ORDER3_CURVE)
 		throw new LG_Parse_Exception_Wrong_Attribute_Value(elem->Value(), LG_Patch_Att_Order, "Invalid number");
 
 
@@ -42,26 +43,8 @@ partsU(LG_INVALID_INT), partsV(LG_INVALID_INT), control_point_nr(0)
 		throw new LG_Parse_Exception_Wrong_Attribute_Value(elem->Value(), LG_Patch_Att_Compute, compute.c_str());
 
 	control_point_nr = order + 1;
-
-	//experimental
-	/*
-	matrix = (float *)malloc(control_point_nr * sizeof(LG_Point3D_F));
-	*/
 	control_point_nr *= control_point_nr;
 	points = new float[control_point_nr*LG_Point3D_Length];
-	textCoords = new float[8];
-
-		textCoords[0] = 0;
-		textCoords[1] = 0;
-
-		textCoords[2] = 1;
-		textCoords[3] = 0;
-
-		textCoords[4] = 0;
-		textCoords[5] = 1;
-
-		textCoords[6] = 1;
-		textCoords[7] = 1;
 	
 	TiXmlElement *sub_elem;
 	sub_elem = elem->FirstChildElement(LG_Patch_Elem_Controlpoint);
@@ -78,11 +61,13 @@ partsU(LG_INVALID_INT), partsV(LG_INVALID_INT), control_point_nr(0)
 		throw new LG_Parse_Exception_Wrong_Attribute_Value(new string(LG_Patch_Elem_Controlpoint), new string("Control Point"), 
 		new string("Not enough control points"));
 
-	if (order == 3)
+	if (order == ORDER3_CURVE)
 		vstride = ORDER3_VSTRIDE;
 	else if (order == 2)
 		vstride = ORDER2_VSTRIDE;
 	else vstride = ORDER1_VSTRIDE;
+
+	setTextCoords();
 }
 
 
@@ -121,6 +106,11 @@ void LG_Patch::config(){
 
 void LG_Patch::draw(){
 
+
+	glEnable(GL_MAP2_VERTEX_3);
+	glEnable(GL_AUTO_NORMAL);
+
+
 	glMap2f(GL_MAP2_VERTEX_3,
 		0.0,//u start
 		1.0,//u finish
@@ -133,6 +123,7 @@ void LG_Patch::draw(){
 		(GLfloat *)points);
 
 	if (LG_Appearance::currentTexture)
+	{
 		glMap2f(GL_MAP2_TEXTURE_COORD_2,
 			0.0,//u start
 			LG_Appearance::currentTexture->getLength_s(),//u finish
@@ -143,11 +134,9 @@ void LG_Patch::draw(){
 			2,//vstride
 			2,//texture order
 			(GLfloat *)textCoords);
-
-	glEnable(GL_MAP2_VERTEX_3);
-
-	glEnable(GL_AUTO_NORMAL);
-	glEnable(GL_MAP2_TEXTURE_COORD_2);
+	
+		glEnable(GL_MAP2_TEXTURE_COORD_2);
+	}
 
 	glMapGrid2f(partsU, 0, 1, partsV, 0, 1);
 	glEvalMesh2(drawMode, 0, partsU, 0, partsV);
@@ -160,4 +149,21 @@ void LG_Patch::draw(){
 void LG_Patch::calculateTextureCoordinates(){
 
 
+}
+
+
+void LG_Patch::setTextCoords(){
+	textCoords = new float[8];
+
+	textCoords[0] = 0;
+	textCoords[1] = 0;
+
+	textCoords[2] = 1;
+	textCoords[3] = 0;
+
+	textCoords[4] = 0;
+	textCoords[5] = 1;
+
+	textCoords[6] = 1;
+	textCoords[7] = 1;
 }

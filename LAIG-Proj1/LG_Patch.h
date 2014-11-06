@@ -25,6 +25,10 @@
 #define ORDER2_VSTRIDE 9
 #define ORDER1_VSTRIDE 6
 
+#define ORDER1_CURVE 1
+#define ORDER2_CURVE 2
+#define ORDER3_CURVE 3
+
 class LG_Patch :
 	public LG_Primitive
 {
@@ -35,8 +39,9 @@ public:
 	void draw();
 	void config();
 	void calculateTextureCoordinates();
+	void setTextCoords();
 
-private:
+protected:
 	static int classIDNr;
 	int order, partsU, partsV;
 	float *points;

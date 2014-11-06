@@ -11,23 +11,23 @@
 
 #include <stdio.h>
 
-#include "LG_Primitive.h"
+#include "LG_Patch.h"
 
 
 #define LG_Plane_XML_Tag_Name "plane"
 #define LG_Plane_parts_XML_Att_Name "parts"
 
-class LG_Plane: public LG_Primitive {
+class LG_Plane: public LG_Patch {
     
-private:
+protected:
     int parts;
-    
+private:    
     static int classIDNr;
     
 public:
 
     
-    LG_Point3D_F points[4];
+   // LG_Point3D_F points[4];
     
     
     LG_Plane(LG_Node_Map *map,TiXmlElement *elem);
@@ -35,6 +35,7 @@ public:
     void draw();
     void config();
     void calculateTextureCoordinates();
+	void setPatch();
 };
 
 #endif /* defined(__LAIG_Proj1__LG_Plane__) */

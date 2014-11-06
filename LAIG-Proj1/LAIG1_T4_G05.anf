@@ -104,7 +104,7 @@
 
   </appearances>
 
-  <graph rootid="flag">
+  <graph rootid="testpatchs">
     <node id="testpatchs">
       <appearanceref id="floor"/>
       <transforms></transforms>
@@ -113,6 +113,8 @@
         <noderef id="patch2"/>
         <noderef id="patch3"/>
         <noderef id="patch4"/>
+        <noderef id="plane"/>
+        <noderef id="flag"/>
       </descendants>
       <primitives></primitives>
     </node>
@@ -151,17 +153,17 @@
           <controlpoint x="-0.5" y="-1.5" z="2.0"/>
           <controlpoint x="0.5" y="-1.5" z="-1.0"/>
           <controlpoint x="1.5" y="-1.5" z="2.0"/>
-          
+
           <controlpoint x="-1.5" y="-0.5" z="1.0"/>
           <controlpoint x="-0.5" y="-0.5" z="3.0"/>
           <controlpoint x="0.5" y="-0.5" z="0.0"/>
           <controlpoint x="1.5" y="-0.5" z="-1.0"/>
-          
+
           <controlpoint x="-1.5" y="0.5" z="4.0"/>
           <controlpoint x="-0.5" y="0.5" z="0.0"/>
           <controlpoint x="0.5" y="0.5" z="3.0"/>
           <controlpoint x="1.5" y="0.5" z="4.0"/>
-          
+
           <controlpoint x="-1.5" y="1.5" z="-2.0"/>
           <controlpoint x="-0.5" y="1.5" z="-2.0"/>
           <controlpoint x="0.5" y="1.5" z="0.0"/>
@@ -169,6 +171,7 @@
         </patch>
       </primitives>
     </node>
+
     <node id="patch1">
       <appearanceref id="floor"/>
       <transforms></transforms>
@@ -194,6 +197,7 @@
         </patch>
       </primitives>
     </node>
+
     <node id="patch2">
       <appearanceref id="float_"/>
       <transforms></transforms>
@@ -212,6 +216,7 @@
         </patch>
       </primitives>
     </node>
+
     <node id="patch3">
       <appearanceref id="floor2"/>
       <transforms></transforms>
@@ -225,6 +230,7 @@
         </patch>
       </primitives>
     </node>
+
     <node id="patch4">
       <appearanceref id="floor2"/>
       <transforms></transforms>
@@ -240,7 +246,9 @@
     </node>
     <node id="plane">
       <appearanceref id="float_"/>
-      <transforms></transforms>
+      <transforms>
+        <transform type="translate" to="0 0 4"/>
+      </transforms>
       <descendants></descendants>
       <primitives>
         <plane parts="5"/>
@@ -248,7 +256,9 @@
     </node>
     <node id="flag">
       <appearanceref id="float_"/>
-      <transforms></transforms>
+      <transforms>
+        <transform type="translate" to="0 0 6"/>
+      </transforms>
       <descendants></descendants>
       <primitives>
         <flag/>
