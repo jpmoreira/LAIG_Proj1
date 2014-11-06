@@ -9,13 +9,13 @@ LG_Flag::LG_Flag(LG_Node_Map *map, TiXmlElement *elem) : LG_Plane(map, autoIdent
 {
 
 	try{
-		positiveInt_tryToAttributeVariable(LG_Plane_parts_XML_Att_Name, elem, LG_Plane::parts);
+		positiveInt_tryToAttributeVariable(LG_Plane_parts_XML_Att_Name, elem, LG_Patch::partsV);
 	}
 	catch (LG_Parse_Exception *e){
-		LG_Plane::parts = LG_Plane_Parts_Default;
+		LG_Patch::partsV = LG_Plane_Parts_Default;
 	}
 
-	LG_Patch::partsU = LG_Patch::partsV = LG_Plane::parts;
+	LG_Patch::partsU = LG_Patch::partsV;
 
 	if (!str_eq(elem->Value(), LG_Flag_XML_Tag_Name)) {
 

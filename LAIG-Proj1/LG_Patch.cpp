@@ -6,7 +6,7 @@
 
 int LG_Patch::classIDNr = 0;
 
-//Used by subclasses to get through unnecessary validations
+//Used by subclasses to get through unnecessary validations and attributes
 LG_Patch::LG_Patch(LG_Node_Map *map, string LG_Primitive_Identifier) : LG_Primitive(map, LG_Primitive_Identifier){
 	setTextCoords();
 }

@@ -14,8 +14,5 @@ public:
 	void calculateTextureCoordinates();
 private: 
 	static int classIDNr;
-	LG_Point3D_F points[4];
-	int parts;
-	float *textCoords;
 };
 

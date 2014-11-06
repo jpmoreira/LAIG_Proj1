@@ -15,12 +15,13 @@
 
 int LG_Plane::classIDNr = 0;
 
+//Used by subclasses to get through unnecessary validations and attributes
 LG_Plane::LG_Plane(LG_Node_Map *map, string LG_Primitive_Identifier) : LG_Patch(map, LG_Primitive_Identifier){
 	setPatch();
 }
 
 
-LG_Plane::LG_Plane(LG_Node_Map *map, TiXmlElement *elem) : LG_Patch(map, autoIdentifier(LG_Plane_ID_Prefix, classIDNr)), parts(LG_INVALID_INT){
+LG_Plane::LG_Plane(LG_Node_Map *map, TiXmlElement *elem) : LG_Patch(map, autoIdentifier(LG_Plane_ID_Prefix, classIDNr)){
 
 
 
@@ -29,9 +30,9 @@ LG_Plane::LG_Plane(LG_Node_Map *map, TiXmlElement *elem) : LG_Patch(map, autoIde
 		throw LG_Parse_Exception_Wrong_Element_Name(LG_Plane_XML_Tag_Name, elem->Value());
 	}
 
-	positiveInt_tryToAttributeVariable(LG_Plane_parts_XML_Att_Name, elem, parts);
+	positiveInt_tryToAttributeVariable(LG_Plane_parts_XML_Att_Name, elem, LG_Patch::partsV);
 
-	LG_Patch::partsU = LG_Patch::partsV = parts;
+	LG_Patch::partsU = LG_Patch::partsV;
 	setPatch();
 
 }
@@ -62,7 +63,6 @@ void LG_Plane::calculateTextureCoordinates(){
 void LG_Plane::setPatch(){
 
 	LG_Patch::points = new float[LG_Plane_NR_Points*LG_Point3D_Length];
-	float *tmp = LG_Patch::points;
 
 	LG_Patch::points[0] = 0;
 	LG_Patch::points[1] = 0;
@@ -84,7 +84,7 @@ void LG_Plane::setPatch(){
 	LG_Patch::vstride = ORDER1_VSTRIDE;
 	
 	GLint drawMode[2];
-	glGetIntegerv(GL_POLYGON_MODE, drawMode);
+	glGetIntegerv(GL_POLYGON_MODE, drawMode); //get current polygon mode and store it in drawMode[0]
 	
 	LG_Patch::drawMode = drawMode[0];
 }

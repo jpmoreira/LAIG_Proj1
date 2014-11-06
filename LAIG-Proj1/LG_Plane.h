@@ -19,17 +19,10 @@
 
 class LG_Plane: public LG_Patch {
     
-protected:
-    int parts;
 private:    
     static int classIDNr;
     
 public:
-
-    
-   // LG_Point3D_F points[4];
-    
-    
     LG_Plane(LG_Node_Map *map,TiXmlElement *elem);
 	LG_Plane(LG_Node_Map *map, string LG_Primitive_Identifier);
     void draw();
