@@ -13,6 +13,7 @@
 #include <Windows.h>
 #endif
 
+
 #include <map>
 #include <string>
 #include <vector>
@@ -28,7 +29,7 @@
 #define LG_Matrix_InitialValue {LG_LightList_InitialValue,LG_LightList_InitialValue,LG_LightList_InitialValue,LG_LightList_InitialValue}
 
 
-#define str_eq( value1 , value2 ) (strcmp(value1,value2)==0)
+//#define str_eq( value1 , value2 ) (strcmp(value1,value2)==0)
 
 #define LG_Point3D_Length 3
 #define LG_Point2D_Length 2
@@ -53,6 +54,51 @@ typedef double LG_Point2D[2];
 typedef double LG_LightArray[4];
 typedef double LG_Matrix[4][4];
 typedef float LG_LightArray_f[4];
+
+
+inline bool str_eq(const string & str1,const string & str2){
+
+    return strcmp(str1.c_str(), str2.c_str())==0;
+
+}
+
+inline bool str_eq(const string * str1,const string * str2){
+    
+    return strcmp(str1->c_str(), str2->c_str())==0;
+    
+}
+
+
+inline bool str_eq(const char * str1,const char * str2){
+    
+    return strcmp(str1, str2)==0;
+    
+}
+
+inline bool str_eq(const string & str1,const char * str2){
+    
+    return strcmp(str1.c_str(), str2)==0;
+    
+}
+inline bool str_eq(const string * str1,const char * str2){
+    
+    return strcmp(str1->c_str(), str2)==0;
+    
+}
+
+inline bool str_eq(const char * str1,const string & str2){
+    
+    return strcmp(str2.c_str(), str1)==0;
+    
+}
+
+inline bool str_eq(const char * str1,const string * str2){
+    
+    return strcmp(str2->c_str(), str1)==0;
+    
+}
+
+
 
 
 #endif
