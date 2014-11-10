@@ -34,77 +34,95 @@
 
 
 #pragma mark - Constructors
-LG_Graph_Node::LG_Graph_Node(LG_Node_Map *map, LG_Node_Map *app_map, TiXmlElement *elem)
-	:LG_Parsable_Node(map, identifierForGraphNode(elem))
+LG_Graph_Node::LG_Graph_Node(LG_Node_Map *map,LG_Node_Map *app_map,LG_Node_Map *anim_map, TiXmlElement *elem)
+:LG_Parsable_Node(map,identifierForGraphNode(elem)),animation(NULL)
 {
-
-	if (!str_eq(LG_Graph_Node_XML_Tag_Name, elem->Value())) {
-
-		throw new LG_Parse_Exception_Wrong_Element_Name(LG_Graph_Node_XML_Tag_Name, elem->Value());
-	}
-
-	bool descendantsSet = false;
-	bool transformsSet = false;
-	bool primitivesSet = false;
-
-	//IMPLEMENT necessity of apperance
-
-
-	TiXmlElement *childElement = elem->FirstChildElement();
-
-
-	while (childElement) {
-
-		if (str_eq(LG_Graph_Node_Descendants_Tag_Name, childElement->Value())) {
-			descendantsSet = true;
-			handleDescendants(map, childElement);
-		}
-
-		else if (str_eq(LG_Transforms_XML_Tag_Name, childElement->Value())){
-
-			transformsSet = true;
-			transform = new LG_Transform(map, childElement);
-
-		}
-		else if (str_eq(LG_Graph_Node_Primitives_Tag_Name, childElement->Value())){
-			primitivesSet = true;
-			vector<LG_Primitive *> prims = handlePrimitives(map, childElement);
-			for (unsigned int i = 0; i < prims.size(); i++) {
-				addChild(prims[i]);
-			}
-		}
-
-		else if (str_eq(LG_Graph_Node_Appearances_Ref_XML_Tag_Name, childElement->Value())){
-
-			handleAppearance(app_map, childElement);
-		}
-
-
-
-		childElement = childElement->NextSiblingElement();
-	}
-
-
-	if (!transformsSet) {
-		throw new LG_Parse_Exception_Missing_Element(LG_Transforms_XML_Tag_Name);
-	}
-	//if (!primitivesSet) {
-	//    throw new LG_Parse_Exception_Missing_Element(LG_Graph_Node_Primitives_Tag_Name);
-	//}
-
-
-
-
+    
+    if (!str_eq(LG_Graph_Node_XML_Tag_Name, elem->Value())) {
+        
+        throw new LG_Parse_Exception_Wrong_Element_Name(LG_Graph_Node_XML_Tag_Name,elem->Value());
+    }
+    
+    try {
+        bool_tryToAttributeVariable(LG_Graph_Node_DisplayList_Att_Name, elem, isDisplayList);
+    } catch (LG_Parse_Exception_Missing_Attribute *ex) {
+        isDisplayList=false;
+    }
+    catch(LG_Parse_Exception_Wrong_Attribute_Value *ex){
+        
+        std::cout<<"Parsing Error Found: "<<std::endl;
+        std::cout<<ex->what()<<std::endl;
+        std::cout<<"Error was Ignored. False value assumed."<<std::endl;
+        
+        
+    }
+    
+    
+    bool descendantsSet=false;
+    bool transformsSet=false;
+    bool primitivesSet=false;
+    
+    
+    
+    TiXmlElement *childElement=elem->FirstChildElement();
+    
+    
+    while (childElement) {
+        
+        if (str_eq(LG_Graph_Node_Descendants_Tag_Name, childElement->Value())) {
+            descendantsSet=true;
+            handleDescendants(map, childElement);
+        }
+        
+        else if (str_eq(LG_Transforms_XML_Tag_Name, childElement->Value())){
+            
+            transformsSet=true;
+            transform=new LG_Transform(map,childElement);
+            
+        }
+        else if(str_eq(LG_Graph_Node_Primitives_Tag_Name, childElement->Value())){
+            primitivesSet=true;
+            vector<LG_Primitive *> prims=handlePrimitives(map, childElement);
+            for (unsigned int i=0; i<prims.size(); i++) {
+                addChild(prims[i]);
+            }
+        }
+        
+        else if (str_eq(LG_Graph_Node_Appearances_Ref_XML_Tag_Name, childElement->Value())){
+            handleAppearance(app_map, childElement);
+        }
+        
+        else if(str_eq(LG_Graph_Node_Animation_Ref_XML_Tag_Name, childElement->Value())){
+            handleAnimation(anim_map, childElement);
+        }
+        
+        
+        
+        
+        childElement=childElement->NextSiblingElement();
+    }
+    
+    
+    if (!transformsSet) {
+        throw new LG_Parse_Exception_Missing_Element(LG_Transforms_XML_Tag_Name);
+    }
+    //if (!primitivesSet) {
+    //    throw new LG_Parse_Exception_Missing_Element(LG_Graph_Node_Primitives_Tag_Name);
+    //}
+    
+    
+    
+    
 }
-LG_Graph_Node::LG_Graph_Node(LG_Node_Map *map, LG_Node_Map *app_map, LG_Transform *t, vector<LG_Primitive *> &primitives, string identifier)
-	:LG_Parsable_Node(map, identifier), transform(t)
+LG_Graph_Node::LG_Graph_Node(LG_Node_Map *map,LG_Node_Map *app_map,LG_Node_Map *anim_map, LG_Transform *t,vector<LG_Primitive *> &primitives,string identifier)
+:LG_Parsable_Node(map,identifier),transform(t)
 {
-
-	for (unsigned int i = 0; i < primitives.size(); i++) {
-		LG_Primitive *p = primitives[i];
-		this->addChild(p);
-	}
-
+    
+    for (unsigned int i=0; i<primitives.size(); i++) {
+        LG_Primitive *p=primitives[i];
+        this->addChild(p);
+    }
+    
 }
 
 
