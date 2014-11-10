@@ -15,7 +15,7 @@
 #define LG_Graph_Node_Descendants_Tag_Name "descendants"
 #define LG_Graph_Node_Primitives_Tag_Name "primitives"
 #define LG_Graph_Node_Appearances_Ref_XML_Tag_Name "appearanceref"
-
+#define LG_Graph_Node_Animation_Ref_XML_Tag_Name "animationref"
 
 #define LG_Appearance_Ref_Inherit_String "inherit"
 
