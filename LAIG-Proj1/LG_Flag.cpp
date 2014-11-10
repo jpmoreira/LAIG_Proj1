@@ -48,14 +48,24 @@ LG_Flag::LG_Flag(LG_Node_Map *map, TiXmlElement *elem) : LG_Plane(map, autoIdent
 		string_tryToAttributeVariable(LG_Flag_Att_VertexShader, elem, vsfile_path);
 	}
 	catch (LG_Parse_Exception *e){
+#ifdef _WIN32
 		vsfile_path = "../data/textureDemo2.vs";
+#else
+        vsfile_path= "testFiles/textureDemo2.vs";
+#endif
 	}
 
 	try{
 		string_tryToAttributeVariable(LG_Flag_Att_FragmentShader, elem, fsfile_path);
 	}
 	catch (LG_Parse_Exception *e){
-		fsfile_path = "../data/textureDemo2.fs";
+        
+		
+#ifdef _WIN32
+        fsfile_path = "../data/textureDemo2.fs";
+#else
+        fsfile_path = "testFiles/textureDemo2.fs";
+#endif
 	}
 
 	verified = false;
@@ -64,7 +74,14 @@ LG_Flag::LG_Flag(LG_Node_Map *map, TiXmlElement *elem) : LG_Plane(map, autoIdent
 	/************************************************************
 	The shader things
 	************************************************************/
+    
+    
+#ifdef _WIN32
 	init("../data/textureDemo2.vrs", "../data/textureDemo2.frs");
+#else
+    init("testFiles/textureDemo2.vrs", "testFiles/textureDemo2.frs");
+#endif
+    
 	//init("../data/textureDemo2.vert", "../data/textureDemo2.frag");
 
 	CGFshader::bind();
@@ -75,9 +92,13 @@ LG_Flag::LG_Flag(LG_Node_Map *map, TiXmlElement *elem) : LG_Plane(map, autoIdent
 	// Store Id for the uniform "normScale", new value will be stored on bind()
 	scaleLoc = glGetUniformLocation(id(), "normScale");
 
+#ifdef _WIN32
 	baseTexture = new CGFtexture("../data/terrainmap2.jpg");
 	secTexture = new CGFtexture("../data/feup.jpg");
-
+#else
+    baseTexture = new CGFtexture("testFiles/terrainmap2.jpg");
+    secTexture = new CGFtexture("testFiles/feup.jpg");
+#endif
 	// get the uniform location for the sampler
 	baseImageLoc = glGetUniformLocation(id(), "baseImage");
 

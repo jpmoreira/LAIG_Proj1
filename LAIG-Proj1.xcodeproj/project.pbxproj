@@ -250,6 +250,15 @@
 		5458030A19D5804400C9DF32 /* LG_Drawing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5458030819D5804400C9DF32 /* LG_Drawing.cpp */; };
 		545E74FD1A111ED700B83CC9 /* LG_Flag.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 545E74F91A111ED700B83CC9 /* LG_Flag.cpp */; };
 		545E74FE1A111ED700B83CC9 /* LG_Patch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 545E74FB1A111ED700B83CC9 /* LG_Patch.cpp */; };
+		545E750A1A112AB600B83CC9 /* appValues.vert in CopyFiles */ = {isa = PBXBuildFile; fileRef = 545E75001A111FD400B83CC9 /* appValues.vert */; };
+		545E750B1A112AB600B83CC9 /* dualVaryingColor.frag in CopyFiles */ = {isa = PBXBuildFile; fileRef = 545E75011A111FD400B83CC9 /* dualVaryingColor.frag */; };
+		545E750C1A112AB600B83CC9 /* evaltext.bmp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 545E75021A111FD400B83CC9 /* evaltext.bmp */; };
+		545E750D1A112AB600B83CC9 /* evaltext.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 545E75031A111FD400B83CC9 /* evaltext.jpg */; };
+		545E750E1A112AB600B83CC9 /* FEUP.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 545E75041A111FD400B83CC9 /* FEUP.jpg */; };
+		545E750F1A112AB600B83CC9 /* terrainmap2.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 545E75051A111FD400B83CC9 /* terrainmap2.jpg */; };
+		545E75111A112AB600B83CC9 /* textureDemo2.frs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 545E75071A111FD400B83CC9 /* textureDemo2.frs */; };
+		545E75131A112AB600B83CC9 /* textureDemo2.vrs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 545E75091A111FD400B83CC9 /* textureDemo2.vrs */; };
+		545E75171A11420300B83CC9 /* CGFshader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 545E75161A11420300B83CC9 /* CGFshader.cpp */; };
 		546184EC19DAFBFB005C6166 /* LG_Transform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 546184EA19DAFBFB005C6166 /* LG_Transform.cpp */; };
 		546184FE19DB133C005C6166 /* LG_Transform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 546184EA19DAFBFB005C6166 /* LG_Transform.cpp */; };
 		546184FF19DB133C005C6166 /* LG_Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5458029A19D1DA5000C9DF32 /* LG_Node.cpp */; };
@@ -571,6 +580,14 @@
 			dstPath = testFiles;
 			dstSubfolderSpec = 16;
 			files = (
+				545E750A1A112AB600B83CC9 /* appValues.vert in CopyFiles */,
+				545E750B1A112AB600B83CC9 /* dualVaryingColor.frag in CopyFiles */,
+				545E750C1A112AB600B83CC9 /* evaltext.bmp in CopyFiles */,
+				545E750D1A112AB600B83CC9 /* evaltext.jpg in CopyFiles */,
+				545E750E1A112AB600B83CC9 /* FEUP.jpg in CopyFiles */,
+				545E750F1A112AB600B83CC9 /* terrainmap2.jpg in CopyFiles */,
+				545E75111A112AB600B83CC9 /* textureDemo2.frs in CopyFiles */,
+				545E75131A112AB600B83CC9 /* textureDemo2.vrs in CopyFiles */,
 				54858E5219F99246000DC238 /* TestEvaluators.xml in CopyFiles */,
 				547DE8B819F6B53500328518 /* cgra_robot in CopyFiles */,
 				548CA68A19EEBFE8008AD9F7 /* metal.jpg in CopyFiles */,
@@ -897,6 +914,8 @@
 		545E75071A111FD400B83CC9 /* textureDemo2.frs */ = {isa = PBXFileReference; lastKnownFileType = text; path = textureDemo2.frs; sourceTree = "<group>"; };
 		545E75081A111FD400B83CC9 /* textureDemo2.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = textureDemo2.vert; sourceTree = "<group>"; };
 		545E75091A111FD400B83CC9 /* textureDemo2.vrs */ = {isa = PBXFileReference; lastKnownFileType = text; path = textureDemo2.vrs; sourceTree = "<group>"; };
+		545E75151A1141F600B83CC9 /* CGFshader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGFshader.h; sourceTree = "<group>"; };
+		545E75161A11420300B83CC9 /* CGFshader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CGFshader.cpp; sourceTree = "<group>"; };
 		546184EA19DAFBFB005C6166 /* LG_Transform.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Transform.cpp; sourceTree = "<group>"; };
 		546184EB19DAFBFB005C6166 /* LG_Transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_Transform.h; sourceTree = "<group>"; };
 		546184EF19DB12D9005C6166 /* TestTransforms.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TestTransforms.xml; sourceTree = "<group>"; };
@@ -1326,6 +1345,7 @@
 		54174DBE19D033CB0039E991 = {
 			isa = PBXGroup;
 			children = (
+				545E75141A1141E100B83CC9 /* CGF */,
 				545E74FF1A111FD400B83CC9 /* data */,
 				54174DC919D033CC0039E991 /* LAIG-Proj1 */,
 				5436BE5219D0AE6500D4831A /* Frameworks */,
@@ -1544,6 +1564,15 @@
 				545E75091A111FD400B83CC9 /* textureDemo2.vrs */,
 			);
 			path = data;
+			sourceTree = "<group>";
+		};
+		545E75141A1141E100B83CC9 /* CGF */ = {
+			isa = PBXGroup;
+			children = (
+				545E75161A11420300B83CC9 /* CGFshader.cpp */,
+				545E75151A1141F600B83CC9 /* CGFshader.h */,
+			);
+			name = CGF;
 			sourceTree = "<group>";
 		};
 		546184ED19DAFC03005C6166 /* Primitivas */ = {
@@ -2345,6 +2374,7 @@
 				540939B419E860C400961C05 /* LG_Triangle.cpp in Sources */,
 				540939B519E860C400961C05 /* LG_Primitive.cpp in Sources */,
 				540939B619E860C400961C05 /* LG_Rectangle.cpp in Sources */,
+				545E75171A11420300B83CC9 /* CGFshader.cpp in Sources */,
 				540939B719E860C400961C05 /* LG_Cylinder.cpp in Sources */,
 				540939B819E860C400961C05 /* LG_Sphere.cpp in Sources */,
 				540939B919E860C400961C05 /* LG_Torus.cpp in Sources */,
