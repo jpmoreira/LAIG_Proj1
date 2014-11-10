@@ -887,6 +887,16 @@
 		545E74FA1A111ED700B83CC9 /* LG_Flag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_Flag.h; sourceTree = "<group>"; };
 		545E74FB1A111ED700B83CC9 /* LG_Patch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Patch.cpp; sourceTree = "<group>"; };
 		545E74FC1A111ED700B83CC9 /* LG_Patch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_Patch.h; sourceTree = "<group>"; };
+		545E75001A111FD400B83CC9 /* appValues.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = appValues.vert; sourceTree = "<group>"; };
+		545E75011A111FD400B83CC9 /* dualVaryingColor.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = dualVaryingColor.frag; sourceTree = "<group>"; };
+		545E75021A111FD400B83CC9 /* evaltext.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = evaltext.bmp; sourceTree = "<group>"; };
+		545E75031A111FD400B83CC9 /* evaltext.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = evaltext.jpg; sourceTree = "<group>"; };
+		545E75041A111FD400B83CC9 /* FEUP.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = FEUP.jpg; sourceTree = "<group>"; };
+		545E75051A111FD400B83CC9 /* terrainmap2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = terrainmap2.jpg; sourceTree = "<group>"; };
+		545E75061A111FD400B83CC9 /* textureDemo2.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = textureDemo2.frag; sourceTree = "<group>"; };
+		545E75071A111FD400B83CC9 /* textureDemo2.frs */ = {isa = PBXFileReference; lastKnownFileType = text; path = textureDemo2.frs; sourceTree = "<group>"; };
+		545E75081A111FD400B83CC9 /* textureDemo2.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = textureDemo2.vert; sourceTree = "<group>"; };
+		545E75091A111FD400B83CC9 /* textureDemo2.vrs */ = {isa = PBXFileReference; lastKnownFileType = text; path = textureDemo2.vrs; sourceTree = "<group>"; };
 		546184EA19DAFBFB005C6166 /* LG_Transform.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Transform.cpp; sourceTree = "<group>"; };
 		546184EB19DAFBFB005C6166 /* LG_Transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_Transform.h; sourceTree = "<group>"; };
 		546184EF19DB12D9005C6166 /* TestTransforms.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TestTransforms.xml; sourceTree = "<group>"; };
@@ -1316,6 +1326,7 @@
 		54174DBE19D033CB0039E991 = {
 			isa = PBXGroup;
 			children = (
+				545E74FF1A111FD400B83CC9 /* data */,
 				54174DC919D033CC0039E991 /* LAIG-Proj1 */,
 				5436BE5219D0AE6500D4831A /* Frameworks */,
 				54174DC819D033CC0039E991 /* Products */,
@@ -1516,6 +1527,23 @@
 				542D371D1A02684200908D63 /* LG_Test_GeometryFunctions.cpp */,
 			);
 			name = Tests;
+			sourceTree = "<group>";
+		};
+		545E74FF1A111FD400B83CC9 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				545E75001A111FD400B83CC9 /* appValues.vert */,
+				545E75011A111FD400B83CC9 /* dualVaryingColor.frag */,
+				545E75021A111FD400B83CC9 /* evaltext.bmp */,
+				545E75031A111FD400B83CC9 /* evaltext.jpg */,
+				545E75041A111FD400B83CC9 /* FEUP.jpg */,
+				545E75051A111FD400B83CC9 /* terrainmap2.jpg */,
+				545E75061A111FD400B83CC9 /* textureDemo2.frag */,
+				545E75071A111FD400B83CC9 /* textureDemo2.frs */,
+				545E75081A111FD400B83CC9 /* textureDemo2.vert */,
+				545E75091A111FD400B83CC9 /* textureDemo2.vrs */,
+			);
+			path = data;
 			sourceTree = "<group>";
 		};
 		546184ED19DAFC03005C6166 /* Primitivas */ = {

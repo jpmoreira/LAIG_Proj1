@@ -67,7 +67,7 @@ float yellow[4]={1,1,0,1};
 
 
 void LG_Scene::setDocName(string name){
-
+    
     docName=name;
 }
 
@@ -75,14 +75,14 @@ void LG_Scene::init() {
     
     TiXmlDocument *doc = new TiXmlDocument(docName.c_str());
     
-
+    
     
     if(!doc->LoadFile()){
-    
+        
         std::cout<<"Unable to load file named "<<docName<<"."<<std::endl;
         std::cout<<"Execution will be aborted"<<std::endl;
         exit(EXIT_FAILURE);
-    
+        
     }
     
     
@@ -105,7 +105,7 @@ void LG_Scene::init() {
     
     // Declares and enables two lights, with null ambient component
     
-     //light0 = new CGFlight(GL_LIGHT0, light0_pos);
+    //light0 = new CGFlight(GL_LIGHT0, light0_pos);
     //light0->setAmbient(ambientNull);
     //light0->setSpecular(yellow);
     //
@@ -154,16 +154,16 @@ void LG_Scene::init() {
     
     
     anf->config();
-
-
+    
+    
     
 }
 
 
 void LG_Scene::display(){
     
-        
-     anf->selective_config();
+    
+    anf->selective_config();
     
     // ---- BEGIN Background, camera and axis setup
     
@@ -173,27 +173,27 @@ void LG_Scene::display(){
     // Initialize Model-View matrix as identity (no transformation
     glMatrixMode(GL_MODELVIEW);
     
-   
+    
     glLoadIdentity();
     
     // Apply transformations corresponding to the camera position relative to the origin
-   
+    
     /*
-    if (CGFscene::activeCamera!=anf->currentCamera()) {
-        CGFscene::activeCamera=anf->currentCamera();
-        CGFapplication::activeApp->forceRefresh();
-    }
+     if (CGFscene::activeCamera!=anf->currentCamera()) {
+     CGFscene::activeCamera=anf->currentCamera();
+     CGFapplication::activeApp->forceRefresh();
+     }
      */
     
-     
+    
     CGFscene::activeCamera->applyView();
     
     //light1->enable();
     /*light0->draw();
-    light1->draw();
-    light2->draw();
-    light3->draw();
-    */
+     light1->draw();
+     light2->draw();
+     light3->draw();
+     */
     // Draw axis
     axis.draw();
     
@@ -202,13 +202,18 @@ void LG_Scene::display(){
     //// ---- END Background, camera and axis setup
     
     
-    
+    setUpdatePeriod(20);
     glutSwapBuffers();
+    
+    
+}
 
-
+void LG_Scene::update(unsigned long millis){
+    
+    anf->getAnimations()->update(millis);
 }
 
 LG_ANF *LG_Scene::getAnf()
 {
-	return anf;
+    return anf;
 }

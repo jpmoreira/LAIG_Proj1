@@ -114,6 +114,7 @@
     
     <graph rootid="exercise_bench">
         
+        
         <node id="putting_together">
             <appearanceref id="inherit" />
             <transforms></transforms>
@@ -314,15 +315,17 @@
                 <transform type="rotate" axis="y" angle="90" />-->
             </transforms>
             <descendants>
-                <noderef id="butt_structure_to_cyl"/>
+                <!--<noderef id="butt_structure_to_cyl"/>
                 <noderef id="butt_support"/>
                 <noderef id="back_support"/>
                 <noderef id="structure_support"/>
                 <noderef id="back_structure_to_cyl"/>
                 <noderef id="butt_cyl"/>
-                <noderef id="back_cyl"/>
+                <noderef id="back_cyl"/>-->
             </descendants>
+            
             <primitives>
+                 <flag/>
             </primitives>
         </node>
         <node id="structure_support">
