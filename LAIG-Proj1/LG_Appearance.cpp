@@ -167,9 +167,9 @@ void LG_Appearance::apply() {
         currentTexture=texture;
     }
     glGetMaterialfv(GL_FRONT, GL_SHININESS, &_savedShininess);
-    glGetMaterialfv(GL_FRONT, GL_SPECULAR, (GLfloat *)&_savedSpecular);
-    glGetMaterialfv(GL_FRONT, GL_AMBIENT, (GLfloat *)&_savedAmbient);
-    glGetMaterialfv(GL_FRONT, GL_DIFFUSE, (GLfloat *)&_savedDiffuse);
+    glGetMaterialfv(GL_FRONT, GL_SPECULAR, _savedSpecular);
+    glGetMaterialfv(GL_FRONT, GL_AMBIENT, _savedAmbient);
+    glGetMaterialfv(GL_FRONT, GL_DIFFUSE, _savedDiffuse);
     
     
     
