@@ -36,6 +36,8 @@ private:
     double rotation_matrix[4][4];
     double translation_matrix[4][4];
     
+    double transform_matrix[4][4];
+    
     
     void handleControlPoints(TiXmlElement *animationElement);
     
@@ -81,7 +83,7 @@ public:
     
     LG_LinearAnimation(LG_Node_Map *map,TiXmlElement *elem);
     void apply();
-    void update(long int timeNow);
+    void update(unsigned long timeNow);
     
 };
 

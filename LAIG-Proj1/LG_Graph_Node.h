@@ -59,6 +59,8 @@ public:
     
     void draw();
     
+    void draw(bool forDisplayListPreparation);
+    
     
     virtual void config();
     

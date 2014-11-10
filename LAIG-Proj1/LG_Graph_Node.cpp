@@ -272,7 +272,13 @@ void LG_Graph_Node::draw(){
     
         glPushMatrix();
         
+
+        
         transform->draw();
+        
+        if(animation){
+            animation->apply();
+        }
         
         
         if (appearance) appearance->apply();

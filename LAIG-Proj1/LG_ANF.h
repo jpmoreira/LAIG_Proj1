@@ -136,6 +136,15 @@ public:
 	LG_Drawing *getDrawing();
     
     
+    /*
+     
+     A method that returns its AnimationsContainer element
+     
+     */
+    
+    LG_Animation_Container *getAnimations();
+    
+    
     void selective_config();
  
 };

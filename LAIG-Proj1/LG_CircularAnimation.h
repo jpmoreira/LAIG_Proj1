@@ -20,10 +20,15 @@ public:
     
 
     LG_CircularAnimation(LG_Node_Map *map,TiXmlElement *elem);
-    
+
+    LG_Point3D center;
+    double radius;
+    double rotation_angle;
+    double currentAngle;
+    double initial_angle;
     
     void apply();
-    void update(long int timeNow);
+    void update(unsigned long timeNow);
     
 };
 

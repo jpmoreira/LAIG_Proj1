@@ -273,3 +273,8 @@ LG_Drawing* LG_ANF::getDrawing()
 {
 	return drawingConfig;
 }
+
+LG_Animation_Container * LG_ANF::getAnimations(){
+
+    return animations;
+}

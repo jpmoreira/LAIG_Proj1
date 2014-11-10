@@ -108,6 +108,18 @@ inline bool str_eq(const char * str1,const string * str2){
 
 
 
+
+inline vector<double> vectorBetweenPoints(LG_Point3D start,LG_Point3D end){
+
+    vector<double> v(3);
+    
+    v[0]=end[0]-start[0];
+    v[1]=end[1]-start[1];
+    v[2]=end[2]-start[2];
+    
+    return v;
+}
+
 /**
  
  

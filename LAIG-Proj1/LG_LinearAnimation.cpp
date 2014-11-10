@@ -51,15 +51,16 @@ LG_LinearAnimation::LG_LinearAnimation(LG_Node_Map *map,TiXmlElement *element):L
 void LG_LinearAnimation::apply(){
     
     
-    glMultMatrixd((GLdouble *)rotation_matrix);
     glMultMatrixd((GLdouble *)translation_matrix);
+    glMultMatrixd((GLdouble *)rotation_matrix);
+    
 
     
 
 }
 
 
-void LG_LinearAnimation::update(long timeNow){
+void LG_LinearAnimation::update(unsigned long timeNow){
     
     
     
@@ -67,7 +68,8 @@ void LG_LinearAnimation::update(long timeNow){
     
     
     
-    if (startTime<0) {
+    if (!started) {
+        started=true;
         startTime=timeNow;
         return;
     }
@@ -79,11 +81,11 @@ void LG_LinearAnimation::update(long timeNow){
         
         vector<double> segmentWeAreIn=directionVectorForSegment(controlPoints[currentSegment], controlPoints[currentSegment+1]);
         
-        vector<double> segmentWeAreGoingTo=directionVectorForSegment(controlPoints[currentSegment], controlPoints[currentSegment+1]);
+        vector<double> segmentWeAreGoingTo=directionVectorForSegment(controlPoints[currentSegment+1], controlPoints[currentSegment+2]);
         
         configureRotation(controlPoints[currentSegment], controlPoints[currentSegment+1], controlPoints[currentSegment+2]);
         
-        timeToSwitchSegment+=vectorLenght(segmentWeAreGoingTo)/velocity;
+        timeToSwitchSegment+=distanceBetweenPoints(controlPoints[currentSegment+1], controlPoints[currentSegment+2])/velocity;
         
         currentSegment++;//we are no longer in the same segment
         
@@ -187,7 +189,7 @@ void LG_LinearAnimation::configureDirectionForCurrentSegment(){
     
     if (currentSegment+1>=controlPoints.size()) return;
     
-    vector<double> vect=directionVectorForSegment(controlPoints[currentSegment], controlPoints[currentSegment+1]);
+    vector<double> vect=vectorBetweenPoints(controlPoints[currentSegment], controlPoints[currentSegment+1]);
 
     normalize(vect);
     directionVector[X_]=vect[X_];
@@ -219,6 +221,11 @@ void LG_LinearAnimation::configureRotation(LG_Point3D previousSegmentStart,LG_Po
     
     vector<double> dir1=directionVectorForSegment(previousSegmentStart, borderPoint);
     vector<double> dir2=directionVectorForSegment(borderPoint, nextSegmentFinish);
+    
+    dir1[Y_]=0;
+    dir2[Y_]=0;
+    normalize(dir1);
+    normalize(dir2);
     
     double angle=angleBetween(dir1, dir2)/M_PI*180.;
     
@@ -253,7 +260,13 @@ void LG_LinearAnimation::configureTranslation(double timeSinceAnimationStart){
     configureDirectionForCurrentSegment();
     
     
-    glTranslated(lastPassedControlPoint[X_]+directionVector[X_]*timeSincePassedControlPoint*velocity, lastPassedControlPoint[Y_]+directionVector[Y_]*timeSincePassedControlPoint*velocity, lastPassedControlPoint[Z_]+directionVector[Z_]*timeSincePassedControlPoint*velocity);
+    vector<double> velocityVector(3);
+    velocityVector[X_]=directionVector[X_]*velocity;
+    velocityVector[Y_]=directionVector[Y_]*velocity;
+    velocityVector[Z_]=directionVector[Z_]*velocity;
+    
+    
+    glTranslated(lastPassedControlPoint[X_]+timeSincePassedControlPoint*velocityVector[X_], lastPassedControlPoint[Y_]+timeSincePassedControlPoint*velocityVector[Y_], lastPassedControlPoint[Z_]+timeSincePassedControlPoint*velocityVector[Z_]);
     
     glGetDoublev(GL_MODELVIEW_MATRIX, (GLdouble *)translation_matrix);
     

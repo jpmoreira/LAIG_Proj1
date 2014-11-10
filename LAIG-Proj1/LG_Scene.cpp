@@ -202,10 +202,15 @@ void LG_Scene::display(){
     //// ---- END Background, camera and axis setup
     
     
-    
+    setUpdatePeriod(20);
     glutSwapBuffers();
 
 
+}
+
+void LG_Scene::update(unsigned long millis){
+
+    anf->getAnimations()->update(millis);
 }
 
 LG_ANF *LG_Scene::getAnf()

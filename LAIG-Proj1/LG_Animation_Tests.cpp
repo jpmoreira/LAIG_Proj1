@@ -58,7 +58,7 @@ TEST_CASE("Basic Animation Parsing Tests"){
             
             REQUIRE(str_eq(anim->identifier, "theID"));
             REQUIRE(dynamic_cast<LG_LinearAnimation *>(anim));
-            REQUIRE(fabs(anim->span-2.5)<=0.0001);
+            REQUIRE(fabs(anim->span-2500)<=0.0001);
         } catch (LG_Parse_Exception *ex) {
             FAIL("Thrown exception while parsing well formed linear animation");
         }
@@ -275,15 +275,15 @@ TEST_CASE("Testing Linear Animation Processing"){
     
     SECTION("Testing start conditions"){
         
-        REQUIRE(fabs(anim->velocity-1./5.)<=0.000);
-        REQUIRE(fabs(anim->timeToSwitchSegment-5.)<=0.0001);
+        REQUIRE(fabs(anim->velocity-1./5000)<=0.0000001);
+        REQUIRE(fabs(anim->timeToSwitchSegment-5000)<=0.0001);
         REQUIRE(fabs(anim->totalDistance-2.)<=0.0001);
         REQUIRE(anim->currentSegment==0);
         REQUIRE(fabs(anim->directionVector[X_]-1.0)<=0.0001);
         REQUIRE(fabs(anim->directionVector[Y_]-0.0)<=0.00001);
         REQUIRE(fabs(anim->directionVector[Z_]-0.0)<=0.00001);
         REQUIRE(fabs(anim->controlPointHitTime[0]-0.000)<=0.00001);
-        REQUIRE(fabs(anim->controlPointHitTime[1]-5.000)<=0.00001);
+        REQUIRE(fabs(anim->controlPointHitTime[1]-5000)<=0.00001);
         REQUIRE(fabs(anim->controlPointHitTime[2]-anim->span)<=0.00001);
         
         
@@ -346,9 +346,9 @@ TEST_CASE("Testing Linear Animation Processing"){
     SECTION("Verfications before second control point"){
     
     
-        anim->update(10);//start
+        anim->update(10000);//start
         
-        anim->update(13);//3 time units after
+        anim->update(13000);//3 time units after
         
         REQUIRE(anim->currentSegment==0);
         
@@ -372,8 +372,8 @@ TEST_CASE("Testing Linear Animation Processing"){
     SECTION("Verifications After second control point"){
     
     
-        anim->update(10);
-        anim->update(16);
+        anim->update(10000);
+        anim->update(16000);
         
         REQUIRE(anim->currentSegment==1);
         
@@ -401,8 +401,8 @@ TEST_CASE("Testing Linear Animation Processing"){
     
     SECTION("Verification After animation end"){
     
-        anim->update(10);
-        anim->update(50);//way after animation end
+        anim->update(10000);
+        anim->update(50000);//way after animation end
         
         REQUIRE(anim->currentSegment==1);
         

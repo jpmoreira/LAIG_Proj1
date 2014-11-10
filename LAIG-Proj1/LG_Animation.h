@@ -32,7 +32,7 @@ public:
     
     
     virtual void apply()=0;
-    virtual void update(long int timeNow)=0;
+    virtual void update(unsigned long timeNow)=0;
     
     LG_Animation(LG_Node_Map *map,string identifier,double duration);
     LG_Animation(LG_Node_Map *map,TiXmlElement *elem);
@@ -45,7 +45,8 @@ public:
 protected:
     double span;
     
-    long int startTime;
+    unsigned long startTime;
+    bool started;
     
     
 };

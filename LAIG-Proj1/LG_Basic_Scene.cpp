@@ -70,10 +70,12 @@ void LG_Basic_Scene::init()
     bool b=doc->LoadFile();
     
     LG_Node_Map *appMap=new LG_Node_Map();
+    LG_Node_Map *animMap=new LG_Node_Map();
     string identifier="uniqueExistingApp";
 
+    graph=new LG_Graph(LG_Graph(appMap, animMap, doc->FirstChildElement());
     
-    graph=new LG_Graph(appMap,doc->FirstChildElement());
+    //graph=new LG_Graph(appMap,doc->FirstChildElement());
     
     
 
@@ -165,6 +167,12 @@ void LG_Basic_Scene::display()
 	glutSwapBuffers();
 
 
+}
+
+
+void update(unsigned long millis){
+
+    
 }
 
 LG_Basic_Scene::~LG_Basic_Scene() 
