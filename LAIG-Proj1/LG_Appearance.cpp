@@ -222,4 +222,8 @@ LG_Texture * LG_Appearance::getTexture() {
 }
 
 
+LG_Texture * LG_Appearance::getCurrentText(){
+	return currentTexture;
+}
+
 

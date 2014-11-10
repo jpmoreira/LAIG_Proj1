@@ -126,11 +126,11 @@ void LG_Patch::draw(){
 	{
 		glMap2f(GL_MAP2_TEXTURE_COORD_2,
 			0.0,//u start
-			LG_Appearance::currentTexture->getLength_s(),//u finish
+			1.0,//u finish
 			4,//ustride
 			2, //texture order
 			0.0,//v start
-			LG_Appearance::currentTexture->getLength_t(),//v end
+			1.0,//v end
 			2,//vstride
 			2,//texture order
 			(GLfloat *)textCoords);

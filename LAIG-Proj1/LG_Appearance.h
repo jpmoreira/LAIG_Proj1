@@ -84,7 +84,7 @@ public:
     
     LG_Texture * getTexture();
     
-    
+	static LG_Texture * getCurrentText();
     
 };
 #endif /* defined(__LAIG_Proj1__LG_Appearance__) */
