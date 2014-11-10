@@ -47,6 +47,6 @@ protected:
 
 private:
 	static int classIDNr;
-	double phase;
+	int my_timeloc;
 };
 

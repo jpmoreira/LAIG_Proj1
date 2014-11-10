@@ -4,6 +4,7 @@
 #include <GL/gl.h>
 #include <GL/glut.h>
 #include "LG_Flag.h"
+#include "CGFapplication.h"
 #include <chrono>
 #define LG_Flag_ID_Prefix "_LG_Flag_"
 #define LG_Plane_Parts_Default 50
@@ -66,6 +67,8 @@ LG_Flag::LG_Flag(LG_Node_Map *map, TiXmlElement *elem) : LG_Plane(map, autoIdent
 	************************************************************/
 	init("../data/textureDemo2.vrs", "../data/textureDemo2.frs");
 	//init("../data/textureDemo2.vert", "../data/textureDemo2.frag");
+
+	
 
 	CGFshader::bind();
 
@@ -186,15 +189,13 @@ void LG_Flag::calculateTextureCoordinates(){
 
 void LG_Flag::bind()
 {
-
+	std::cout << "Ticks" << CGFapplication::getTime() << endl;
 	CGFshader::bind();
-
 	// update uniforms
 	glUniform1f(scaleLoc, normScale);
-
 	// make sure the correct texture unit is active
 	glActiveTexture(GL_TEXTURE0);
-
+	CGFshader::update();
 	// apply/activate the texture you want, so that it is bound to GL_TEXTURE0
 	baseTexture->apply();
 
