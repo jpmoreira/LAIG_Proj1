@@ -109,10 +109,10 @@
         </animation>
         
         
-        <animation id="simpleRotation" span="2" type="circular" center="5 0 0" radius="5" startang="0" rotang="360" />
+        <animation id="simpleRotation" span="2" type="circular" center="0 0 0" radius="5" startang="90" rotang="360" />
     </animations>
     
-    <graph rootid="exercise_ball">
+    <graph rootid="exercise_bench">
         
         <node id="putting_together">
             <appearanceref id="inherit" />
@@ -308,10 +308,10 @@
         </node>
         <node id="exercise_bench" displaylist="false" >
             <appearanceref id="inherit"/>
-            
+            <animationref id="simpleRotation"/>
             <transforms>
-                <transform type="translate" to="14 0.7 4"/>
-                <transform type="rotate" axis="y" angle="90" />
+                <!--<transform type="translate" to="14 0.7 4"/>
+                <transform type="rotate" axis="y" angle="90" />-->
             </transforms>
             <descendants>
                 <noderef id="butt_structure_to_cyl"/>
