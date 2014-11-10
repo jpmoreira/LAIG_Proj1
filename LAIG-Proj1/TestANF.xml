@@ -100,7 +100,19 @@
         
     </appearances>
     
-    <graph rootid="putting_together">
+    
+    <animations>
+        <animation id="simpleAnimation" type="linear" span="10" >
+            <controlpoint xx="0" yy="0" zz="0" />
+            <controlpoint xx="0" yy="0" zz="10" />
+            <controlpoint xx="0" yy="10" zz="10" />
+        </animation>
+        
+        
+        <animation id="simpleRotation" span="2" type="circular" center="0 0 0" radius="5" startang="90" rotang="360" />
+    </animations>
+    
+    <graph rootid="exercise_bench">
         
         <node id="putting_together">
             <appearanceref id="inherit" />
@@ -285,19 +297,21 @@
         </node>
         <node id="exercise_ball">
             <appearanceref id="ball"/>
+            <animationref id="simpleRotation" />
             <transforms>
-                <transform type="translate" to="12 1.5 8"/>
+               <!-- <transform type="translate" to="12 1.5 8"/> -->
             </transforms>
             <descendants></descendants>
             <primitives>
                 <sphere radius="1" slices="20" stacks="20"/>
             </primitives>
         </node>
-        <node id="exercise_bench">
+        <node id="exercise_bench" displaylist="false" >
             <appearanceref id="inherit"/>
+            <animationref id="simpleRotation"/>
             <transforms>
-                <transform type="translate" to="14 0.7 4"/>
-                <transform type="rotate" axis="y" angle="90" />
+                <!--<transform type="translate" to="14 0.7 4"/>
+                <transform type="rotate" axis="y" angle="90" />-->
             </transforms>
             <descendants>
                 <noderef id="butt_structure_to_cyl"/>

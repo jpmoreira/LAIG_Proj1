@@ -27,6 +27,7 @@ using std::exception;
 #define autoIdentifier (string(_LG_Primitive_Name+std::to_string(_LG_classIDNr++)))
 */
 
+
 #define LG_INVALID_INT INT_MAX
 #define LG_INVALID_DOUBLE DBL_MAX //didn't use NaN because checking nan==nan always returns false
 #define LG_INVALID_FLOAT FLT_MAX
@@ -1142,7 +1143,14 @@ public:
 		}
 
 
-		if (!isEqualToOnePossibility)throw new LG_Parse_Exception_Wrong_Attribute_Value(new string(element->Value()), new string(att_str_name), new string(att_val), possibleValues);
+        if (!isEqualToOnePossibility){
+        
+            vector<string> *vectorCopy=new vector<string>(*possibleValues);
+            
+            throw new LG_Parse_Exception_Wrong_Attribute_Value(new string(element->Value()), new string(att_str_name), new string(att_val), vectorCopy);
+            
+            
+        }
 
 
 
@@ -1150,6 +1158,14 @@ public:
 
 
 
+    static inline void evalElemName(const char * expected,const char * actual){
+    
+        if(!str_eq(expected, actual)){
+        
+            throw new LG_Parse_Exception_Wrong_Element_Name(expected,actual);
+        }
+    
+    }
 
 
 };

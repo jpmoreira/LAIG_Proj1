@@ -39,7 +39,7 @@ LG_ANF::LG_ANF(TiXmlElement *elem):LG_Node(NULL,LG_ANF_ID){
         
     }
     
-    
+    animations=NULL;
     
     TiXmlElement *subElement=elem->FirstChildElement();
     
@@ -73,10 +73,20 @@ LG_ANF::LG_ANF(TiXmlElement *elem):LG_Node(NULL,LG_ANF_ID){
             apperances=new LG_Appearance_Container(subElement,textures->map);
         }
         
+        else if(str_eq(subElement->Value(),LG_Animations_Container_XML_Tag_Name)){
+        
+            animations=new LG_Animation_Container(subElement);
+            
+        }
         
         else if(str_eq(subElement->Value(),LG_Graph_XML_Tag_Name)){
+
+            if (!animations) {
+                animations=new LG_Animation_Container();
+            }
             
-            graph=new LG_Graph(apperances->map,subElement);
+
+            graph=new LG_Graph(apperances->map,animations->map,subElement);
         }
         
         
@@ -125,7 +135,7 @@ void LG_ANF::handleGlobals(TiXmlElement *elem) {
 }
 
 
-void LG_ANF::verifyDataMembersValues() {
+void LG_ANF::verifyDataMembersValues() { 
 
     
     if (!lightingConfig && !cullingConfig && !drawingConfig) {
@@ -191,6 +201,8 @@ void LG_ANF::config() {
     cullingConfig->draw();
     drawingConfig->draw();
     lightingConfig->draw();
+    
+    graph->config();
     
     
 }
@@ -260,4 +272,9 @@ LG_Cameras_Container* LG_ANF::getCamerasContainer()
 LG_Drawing* LG_ANF::getDrawing()
 {
 	return drawingConfig;
+}
+
+LG_Animation_Container * LG_ANF::getAnimations(){
+
+    return animations;
 }

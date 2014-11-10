@@ -30,6 +30,7 @@ class LG_Scene:public CGFscene {
 public:
     void init();
     void display();
+    void update(unsigned long millis);
     void setDocName(string name);
 	LG_ANF *getAnf();
 };

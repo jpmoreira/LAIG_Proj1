@@ -48,6 +48,8 @@ int LG_Transform::_LG_classIDNr=0;
 LG_Transform::LG_Transform(LG_Node_Map *map,TiXmlElement *elem):LG_Parsable_Node(map,autoIdentifier(_LG_Primitive_Name,_LG_classIDNr)){
     
     
+    glMatrixMode(GL_MODELVIEW);
+    
     if (!str_eq(LG_Transforms_XML_Tag_Name, elem->Value())) {
         
         throw new LG_Parse_Exception_Wrong_Element_Name(LG_Transforms_XML_Tag_Name,elem->Value());
