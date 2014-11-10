@@ -10,6 +10,7 @@
 #define LG_Graph_Node_Ref_XML_Tag_Name "noderef"
 #define LG_Graph_Node_Ref_ID_XML_Att_Name "id"
 #define LG_Graph_Node_ID_XML_Att_Name "id"
+#define LG_Graph_Node_DisplayList_Att_Name "displaylist"
 
 #define LG_Graph_Node_Descendants_Tag_Name "descendants"
 #define LG_Graph_Node_Primitives_Tag_Name "primitives"
