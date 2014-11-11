@@ -210,7 +210,7 @@ void LG_Flag::calculateTextureCoordinates(){
 
 void LG_Flag::bind()
 {
-	std::cout << "Ticks" << CGFapplication::getTime() << endl;
+	//std::cout << "Ticks" << CGFapplication::getTime() << endl;
 	CGFshader::bind();
 	// update uniforms
 	glUniform1f(scaleLoc, normScale);
