@@ -54,6 +54,6 @@ void LG_Light_Spot::draw()
 	if (marker)
 		this->CGFlight::draw();
 	else
-		this->update();
+        this->CGFlight::update();
 
 }

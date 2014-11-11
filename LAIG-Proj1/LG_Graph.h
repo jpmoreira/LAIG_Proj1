@@ -23,6 +23,8 @@ public:
     void draw();
     void config();
     
+    void update(unsigned long);
+    
 private:
     
     
@@ -51,7 +53,7 @@ private:
     
     
     
-    void update(unsigned long);
+    
     
 public:
     LG_Graph(LG_Node_Map *appearancesMap,LG_Node_Map *animationMap,TiXmlElement *elem);

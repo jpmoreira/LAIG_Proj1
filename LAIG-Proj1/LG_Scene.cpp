@@ -211,6 +211,8 @@ void LG_Scene::display(){
 void LG_Scene::update(unsigned long millis){
     
     anf->getAnimations()->update(millis);
+    
+    anf->graph->update(millis);
 }
 
 LG_ANF *LG_Scene::getAnf()
