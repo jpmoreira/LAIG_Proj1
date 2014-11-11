@@ -259,6 +259,8 @@
 		545E75111A112AB600B83CC9 /* textureDemo2.frs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 545E75071A111FD400B83CC9 /* textureDemo2.frs */; };
 		545E75131A112AB600B83CC9 /* textureDemo2.vrs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 545E75091A111FD400B83CC9 /* textureDemo2.vrs */; };
 		545E75171A11420300B83CC9 /* CGFshader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 545E75161A11420300B83CC9 /* CGFshader.cpp */; };
+		545E751A1A12069B00B83CC9 /* fragmentshader.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 545E75191A12069000B83CC9 /* fragmentshader.fs */; };
+		545E751B1A12069B00B83CC9 /* vertexshader.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 545E75181A12068400B83CC9 /* vertexshader.vs */; };
 		546184EC19DAFBFB005C6166 /* LG_Transform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 546184EA19DAFBFB005C6166 /* LG_Transform.cpp */; };
 		546184FE19DB133C005C6166 /* LG_Transform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 546184EA19DAFBFB005C6166 /* LG_Transform.cpp */; };
 		546184FF19DB133C005C6166 /* LG_Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5458029A19D1DA5000C9DF32 /* LG_Node.cpp */; };
@@ -580,6 +582,8 @@
 			dstPath = testFiles;
 			dstSubfolderSpec = 16;
 			files = (
+				545E751A1A12069B00B83CC9 /* fragmentshader.fs in CopyFiles */,
+				545E751B1A12069B00B83CC9 /* vertexshader.vs in CopyFiles */,
 				545E750A1A112AB600B83CC9 /* appValues.vert in CopyFiles */,
 				545E750B1A112AB600B83CC9 /* dualVaryingColor.frag in CopyFiles */,
 				545E750C1A112AB600B83CC9 /* evaltext.bmp in CopyFiles */,
@@ -916,6 +920,8 @@
 		545E75091A111FD400B83CC9 /* textureDemo2.vrs */ = {isa = PBXFileReference; lastKnownFileType = text; path = textureDemo2.vrs; sourceTree = "<group>"; };
 		545E75151A1141F600B83CC9 /* CGFshader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGFshader.h; sourceTree = "<group>"; };
 		545E75161A11420300B83CC9 /* CGFshader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CGFshader.cpp; sourceTree = "<group>"; };
+		545E75181A12068400B83CC9 /* vertexshader.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = vertexshader.vs; sourceTree = "<group>"; };
+		545E75191A12069000B83CC9 /* fragmentshader.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = fragmentshader.fs; sourceTree = "<group>"; };
 		546184EA19DAFBFB005C6166 /* LG_Transform.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Transform.cpp; sourceTree = "<group>"; };
 		546184EB19DAFBFB005C6166 /* LG_Transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_Transform.h; sourceTree = "<group>"; };
 		546184EF19DB12D9005C6166 /* TestTransforms.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TestTransforms.xml; sourceTree = "<group>"; };
@@ -1552,6 +1558,8 @@
 		545E74FF1A111FD400B83CC9 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				545E75191A12069000B83CC9 /* fragmentshader.fs */,
+				545E75181A12068400B83CC9 /* vertexshader.vs */,
 				545E75001A111FD400B83CC9 /* appValues.vert */,
 				545E75011A111FD400B83CC9 /* dualVaryingColor.frag */,
 				545E75021A111FD400B83CC9 /* evaltext.bmp */,

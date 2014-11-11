@@ -6,10 +6,10 @@
 
 #ifndef CGF_NO_SHADERS
 #include <GL/glew.h>
-#include <GL/gl.h>
-#include <GL/glut.h>
+//#include <GL/gl.h>
+//#include <GL/glut.h>
 
-#include "CGFapplication.h"
+#include <CGF/CGFapplication.h>
 
 
 using namespace std;

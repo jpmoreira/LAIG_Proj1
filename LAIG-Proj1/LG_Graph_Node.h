@@ -59,7 +59,7 @@ public:
     
     void draw();
     
-    void draw(bool forDisplayListPreparation);
+    void update(unsigned long);
     
     
     virtual void config();

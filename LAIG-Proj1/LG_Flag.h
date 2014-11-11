@@ -36,6 +36,8 @@ public:
 
 	GLint scaleLoc;
 
+    
+    void update(unsigned long time);
 
 
 

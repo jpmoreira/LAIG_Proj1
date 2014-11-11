@@ -335,4 +335,14 @@ void LG_Graph_Node::config(){
 }
 
 
+void LG_Graph_Node::update(unsigned long time){
+
+    for (int i=0; i<childsIDs.size(); i++) {
+        
+        child(i)->update(time);
+    }
+    
+}
+
+
 

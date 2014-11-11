@@ -89,3 +89,7 @@ void LG_Node::config(){
 
 
 }
+
+void LG_Node::update(unsigned long){
+
+}

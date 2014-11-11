@@ -92,6 +92,16 @@ public:
     
     /**
      
+     A method to update the graph
+     
+     */
+    
+    
+    virtual void update(unsigned long);
+    
+    
+    /**
+     
      A method for getting a particular child from this node. First child is child number zero.
      
      */

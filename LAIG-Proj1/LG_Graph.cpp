@@ -126,3 +126,8 @@ void LG_Graph::config(){
     root->config();
 
 }
+
+void LG_Graph::update(unsigned long time){
+    
+    root->update(time);
+}

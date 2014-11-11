@@ -80,6 +80,8 @@ LG_Flag::LG_Flag(LG_Node_Map *map, TiXmlElement *elem) : LG_Plane(map, autoIdent
 #ifdef _WIN32
 	init("../data/textureDemo2.vrs", "../data/textureDemo2.frs");
 #else
+    printf("Initialize glew with status: %s\n",glewGetErrorString(glewInit()));
+    //if (!GLEW_VERSION_2_1) printf("Version not supported");
     init("testFiles/textureDemo2.vrs", "testFiles/textureDemo2.frs");
 #endif
     
@@ -233,4 +235,12 @@ void LG_Flag::unbind(){
 	CGFshader::unbind();
 	if (LG_Appearance::currentTexture)
 		LG_Appearance::currentTexture->apply();
+}
+
+
+void LG_Flag::update(unsigned long time){
+
+    
+    CGFshader::update((float)(time/1000));
+    
 }
