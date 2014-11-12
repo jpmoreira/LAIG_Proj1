@@ -470,6 +470,8 @@
 		54858E0719F9894D000DC238 /* LG_Glu_Primitive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54DE089919E5560000E283B6 /* LG_Glu_Primitive.cpp */; };
 		54858E5219F99246000DC238 /* TestEvaluators.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54858E1419F99162000DC238 /* TestEvaluators.xml */; };
 		54858E5319FA320D000DC238 /* LG_Plane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 541FBADD19F9740D00EA9CA8 /* LG_Plane.cpp */; };
+		548BA54E1A137C0F00AFF8DB /* us_.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 548BA54D1A137C0C00AFF8DB /* us_.png */; };
+		548BA5541A13845E00AFF8DB /* wing.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 548BA5531A13845700AFF8DB /* wing.png */; };
 		548CA5DF19ED85C7008AD9F7 /* libGLEWmx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE5019D0ADFF00D4831A /* libGLEWmx.a */; };
 		548CA5E019ED85C7008AD9F7 /* libGLEW.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4E19D0ADF500D4831A /* libGLEW.a */; };
 		548CA5E119ED85C7008AD9F7 /* GLUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4C19D0ADC800D4831A /* GLUI.framework */; };
@@ -582,6 +584,8 @@
 			dstPath = testFiles;
 			dstSubfolderSpec = 16;
 			files = (
+				548BA5541A13845E00AFF8DB /* wing.png in CopyFiles */,
+				548BA54E1A137C0F00AFF8DB /* us_.png in CopyFiles */,
 				545E751A1A12069B00B83CC9 /* fragmentshader.fs in CopyFiles */,
 				545E751B1A12069B00B83CC9 /* vertexshader.vs in CopyFiles */,
 				545E750A1A112AB600B83CC9 /* appValues.vert in CopyFiles */,
@@ -982,6 +986,9 @@
 		54831CD519E45C070090418B /* TestDraw1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestDraw1.xml; sourceTree = "<group>"; };
 		54858DDA19F987BB000DC238 /* LG_PlaneTests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LG_PlaneTests; sourceTree = BUILT_PRODUCTS_DIR; };
 		54858E1419F99162000DC238 /* TestEvaluators.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TestEvaluators.xml; sourceTree = "<group>"; };
+		548BA5411A13721800AFF8DB /* chess__.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chess__.jpg; sourceTree = "<group>"; };
+		548BA54D1A137C0C00AFF8DB /* us_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = us_.png; sourceTree = "<group>"; };
+		548BA5531A13845700AFF8DB /* wing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wing.png; sourceTree = "<group>"; };
 		548CA5D219ED80FD008AD9F7 /* metal.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = metal.jpg; sourceTree = "<group>"; };
 		548CA5D819ED85BD008AD9F7 /* LG_Other_XML */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LG_Other_XML; sourceTree = BUILT_PRODUCTS_DIR; };
 		548CA60419ED8658008AD9F7 /* LG_ANF_Tests_External.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_ANF_Tests_External.cpp; sourceTree = "<group>"; };
@@ -1558,6 +1565,9 @@
 		545E74FF1A111FD400B83CC9 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				548BA5531A13845700AFF8DB /* wing.png */,
+				548BA54D1A137C0C00AFF8DB /* us_.png */,
+				548BA5411A13721800AFF8DB /* chess__.jpg */,
 				545E75191A12069000B83CC9 /* fragmentshader.fs */,
 				545E75181A12068400B83CC9 /* vertexshader.vs */,
 				545E75001A111FD400B83CC9 /* appValues.vert */,

@@ -38,7 +38,7 @@
 
 #pragma mark - Constructors
 LG_Graph_Node::LG_Graph_Node(LG_Node_Map *map,LG_Node_Map *app_map,LG_Node_Map *anim_map, TiXmlElement *elem)
-:LG_Parsable_Node(map,identifierForGraphNode(elem)),animation(NULL)
+:LG_Parsable_Node(map,identifierForGraphNode(elem)),animation(NULL),appearance(NULL)
 {
     
     if (!str_eq(LG_Graph_Node_XML_Tag_Name, elem->Value())) {
@@ -118,7 +118,7 @@ LG_Graph_Node::LG_Graph_Node(LG_Node_Map *map,LG_Node_Map *app_map,LG_Node_Map *
     
 }
 LG_Graph_Node::LG_Graph_Node(LG_Node_Map *map,LG_Node_Map *app_map,LG_Node_Map *anim_map, LG_Transform *t,vector<LG_Primitive *> &primitives,string identifier)
-:LG_Parsable_Node(map,identifier),transform(t)
+:LG_Parsable_Node(map,identifier),transform(t),animation(NULL),appearance(NULL)
 {
     
     for (unsigned int i=0; i<primitives.size(); i++) {

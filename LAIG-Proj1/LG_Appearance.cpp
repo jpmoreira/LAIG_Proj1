@@ -159,8 +159,9 @@ void LG_Appearance::handleTextureRef(LG_Node_Map *texturesMap, TiXmlElement *ele
 
 void LG_Appearance::apply() {
     
-    
+   
     _savedCurrentTexture=currentTexture;
+    
     
     if(texture){
         texture->apply();
