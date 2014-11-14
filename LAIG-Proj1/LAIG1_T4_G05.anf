@@ -62,14 +62,56 @@
       <component type="specular" value="0.5 0.5 0.5 1" />
     </appearance>
   </appearances>
-  <graph rootid="flag">
-    <node id="flag">
-      <appearanceref id="float_"/>
+  <graph rootid="container">
+
+    <node id="container">
+      <appearanceref id="inherit"/>
       <transforms></transforms>
+      <descendants>
+        <noderef id="patch1"/>
+        <noderef id="flag"/>
+        <!--<noderef id="patch1"/>-->
+      </descendants>
+      <primitives></primitives>
+    </node>
+    
+    <node id="flag">
+      <appearanceref id="inherit"/>
+      <transforms>
+        <transform type="translate" to="5 0 5"/>
+      </transforms>
       <descendants></descendants>
       <primitives>
         <flag/>
       </primitives>
     </node>
+
+    <node id="patch1">
+      <appearanceref id="float_"/>
+      <transforms></transforms>
+      <descendants></descendants>
+      <primitives>
+        <patch order="3" partsU="20" partsV="20" compute="fill">
+          <controlpoint x="0" y="1" z="0"/>
+          <controlpoint x="1" y="0" z="0"/>
+          <controlpoint x="2" y="5" z="0"/>
+          <controlpoint x="3" y="3" z="0"/>
+          <controlpoint x="0" y="1" z="1"/>
+          <controlpoint x="1" y="0" z="1"/>
+          <controlpoint x="2" y="5" z="1"/>
+          <controlpoint x="3" y="3" z="1"/>
+          <controlpoint x="0" y="1" z="2"/>
+          <controlpoint x="1" y="0" z="2"/>
+          <controlpoint x="2" y="5" z="2"/>
+          <controlpoint x="3" y="3" z="2"/>
+          <controlpoint x="0" y="1" z="3"/>
+          <controlpoint x="1" y="0" z="3"/>
+          <controlpoint x="2" y="5" z="3"/>
+          <controlpoint x="3" y="3" z="3"/>
+        </patch>
+      </primitives>
+    </node>
+
+
   </graph>
 </anf>

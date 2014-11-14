@@ -122,8 +122,7 @@ void LG_Patch::draw(){
 		order + 1,//
 		(GLfloat *)points);
 
-	if (LG_Appearance::currentTexture)
-	{
+	
 		glMap2f(GL_MAP2_TEXTURE_COORD_2,
 			0.0,//u start
 			1.0,//u finish
@@ -136,7 +135,7 @@ void LG_Patch::draw(){
 			(GLfloat *)textCoords);
 	
 		glEnable(GL_MAP2_TEXTURE_COORD_2);
-	}
+	
 
 	glMapGrid2f(partsU, 0, 1, partsV, 0, 1);
 	glEvalMesh2(drawMode, 0, partsU, 0, partsV);

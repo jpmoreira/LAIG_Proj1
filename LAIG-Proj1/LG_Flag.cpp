@@ -121,6 +121,7 @@ LG_Flag::LG_Flag(LG_Node_Map *map, TiXmlElement *elem) : LG_Plane(map, autoIdent
 	windLoc = glGetUniformLocation(id(), "wind");
 	glUniform1i(windLoc, wind);
 
+	CGFshader::unbind();
 }
 
 
@@ -164,7 +165,6 @@ void LG_Flag::bind()
 	CGFshader::update(my_time);
 
 	glUniform1i(windLoc, wind);
-
 
 	glUniform1f(scaleLoc, normScale);
 	// make sure the correct texture unit is active

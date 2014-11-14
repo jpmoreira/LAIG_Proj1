@@ -35,9 +35,8 @@ public:
 
 	GLint baseImageLoc;
 	GLint secImageLoc;
-	GLint scaleLoc;
+	GLint scaleLoc; //normalScale
 	GLint windLoc;
-	GLint freqLoc;
 
     void update(unsigned long time);
 
