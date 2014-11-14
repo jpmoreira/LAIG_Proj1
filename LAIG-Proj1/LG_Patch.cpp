@@ -154,15 +154,15 @@ void LG_Patch::calculateTextureCoordinates(){
 void LG_Patch::setTextCoords(){
 	textCoords = new float[8];
 
-	textCoords[0] = 0;
+	textCoords[0] = 1;
 	textCoords[1] = 0;
 
 	textCoords[2] = 1;
-	textCoords[3] = 0;
+	textCoords[3] = 1;
 
 	textCoords[4] = 0;
-	textCoords[5] = 1;
+	textCoords[5] = 0;
 
-	textCoords[6] = 1;
+	textCoords[6] = 0;
 	textCoords[7] = 1;
 }

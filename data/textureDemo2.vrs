@@ -25,7 +25,7 @@ void main()
 	{
 	float tmp_wind = float(wind);
 	float freq = tmp_wind * freqWindRatio;
-	sin_result = sin(gl_MultiTexCoord0.t*2.0*PI*freq + time*tmp_wind*windAttenuation);
+	sin_result = sin(gl_MultiTexCoord0.s*2.0*PI*freq + time*tmp_wind*windAttenuation);
 	offset.y = float(offset.y + sin_result*height);
 	}
 
