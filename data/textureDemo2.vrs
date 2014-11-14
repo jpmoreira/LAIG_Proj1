@@ -13,23 +13,25 @@ void main()
 {
 
 	vec4 offset=vec4(0.0,0.0,0.0,0.0);
+	float sin_result = float(0);
 	
 	if (texture2D(secondImage, vec2(1.0,1.0)-gl_MultiTexCoord0.st).b > 0.5)
 		offset.xyz=gl_Normal*normScale*0.1;
 
 	gl_TexCoord[0] = gl_MultiTexCoord0;
 
-	
 
 	if(wind > 0)
 	{
 	float tmp_wind = float(wind);
 	float freq = tmp_wind * freqWindRatio;
-	offset.y = float(offset.y + sin(gl_MultiTexCoord0.t*2.0*PI*freq + time*tmp_wind*windAttenuation)*height);
+	sin_result = sin(gl_MultiTexCoord0.t*2.0*PI*freq + time*tmp_wind*windAttenuation);
+	offset.y = float(offset.y + sin_result*height);
 	}
 
 	color2 = gl_Vertex.xyz+offset.rgb;
-	colorByNormal = vec4(normalize(vec3(offset.y/height, offset.y/height, offset.y/height)), 1.0);
+	//colorByNormal = vec4(normalize(vec3(offset.y/height, offset.y/height, offset.y/height)), 1.0);
+	colorByNormal = vec4(sin_result, sin_result, sin_result, 1.0);
 
 	gl_Position = gl_ModelViewProjectionMatrix * (vec4(color2, 1.0));
 	//colorByNormal = gl_Position;
