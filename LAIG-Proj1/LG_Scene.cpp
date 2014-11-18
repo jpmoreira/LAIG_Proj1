@@ -200,8 +200,6 @@ void LG_Scene::display(){
     anf->draw();
     //
     //// ---- END Background, camera and axis setup
-    
-    
     setUpdatePeriod(20);
     glutSwapBuffers();
     

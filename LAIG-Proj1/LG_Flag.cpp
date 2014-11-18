@@ -141,11 +141,14 @@ void LG_Flag::config(){
 
 
 void LG_Flag::draw(){
+	
+	
 	bind();
 
 	LG_Patch::draw();
 
 	unbind();
+	
 	if (LG_Appearance::currentTexture)
 	{
 		LG_Appearance::currentTexture->apply();

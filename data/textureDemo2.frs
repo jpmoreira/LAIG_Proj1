@@ -1,7 +1,7 @@
 uniform sampler2D baseImage;		//front texture
 uniform sampler2D secondImage;		//background texture
-varying vec3 color2;				//use gl_FragColor with this(comes from vertex shader) and get a color interpolation
-varying vec4 colorByNormal;			//
+varying vec4 colorByHeight;			//
+varying vec2 textcoord;
 
 
 
@@ -12,13 +12,14 @@ void main()
 	vec4 color=texture2D(baseImage, gl_TexCoord[0].st);
 
 	// notice the coordinate conversion to flip the image horizontally and vertically
-	vec4 filter=texture2D(secondImage, vec2(1.0,1.0)- gl_TexCoord[0].st);
+	vec4 filter=texture2D(secondImage, gl_TexCoord[0].st);
 
 	if (filter.b > 0.5)
 		color=vec4(0.52,0.18,0.11,1.0);
 	
+	gl_FragColor = color * 0.8 +colorByHeight * 0.2;
 
 
-	//gl_FragColor = vec4(color2, 1.0)*0.5 + color*0.5; 
-	gl_FragColor = color * 0.8 +colorByNormal * 0.2;
+	//vec4 textcolor = texture2D(secondImage, gl_TexCoord[0].st);
+	//gl_FragColor = textcolor * 0.8 + 0.2*colorByHeight;
 }

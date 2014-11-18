@@ -68,17 +68,18 @@ void LG_Plane::setPatch(){
 	LG_Patch::points[1] = 0;
 	LG_Patch::points[2] = -0.5;
 
-	LG_Patch::points[3] = 0.5;
+	LG_Patch::points[3] = -0.5;
 	LG_Patch::points[4] = 0;
-	LG_Patch::points[5] = -0.5;
+	LG_Patch::points[5] = 0.5;
 
-	LG_Patch::points[6] = -0.5;
+	LG_Patch::points[6] = 0.5;
 	LG_Patch::points[7] = 0;
-	LG_Patch::points[8] = 0.5;
+	LG_Patch::points[8] = -0.5;
 
-	LG_Patch::points[9] = 0.5;
+	LG_Patch::points[9]  = 0.5;
 	LG_Patch::points[10] = 0;
 	LG_Patch::points[11] = 0.5;
+
 
 	LG_Patch::order = 1;
 	LG_Patch::vstride = ORDER1_VSTRIDE;
