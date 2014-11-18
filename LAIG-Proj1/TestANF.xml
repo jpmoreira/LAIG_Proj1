@@ -97,9 +97,9 @@
     <graph rootid="scene">
         
         <node id="scene">
-            <animationref id="simpleAnimation" />
+            <!--<animationref id="simpleAnimation" />
            <animationref id="simpleRotation" />
-           <animationref id="simpleAnimation" />
+           <animationref id="simpleAnimation" />-->
             <transforms>
             </transforms>
             <primitives>
@@ -146,6 +146,45 @@
                 <noderef id="wing1"/>
                 <noderef id="wing3"/>
                 <noderef id="wing2"/>
+                <noderef id="flag" />
+            </descendants>
+        </node>
+        
+        <node id="flag">
+            <transforms>
+                <transform type="translate" to="0 20 0"/>
+                <transform type="rotate" axis="x" angle="90" />
+                
+                
+            </transforms>
+            <primitives>
+                
+            </primitives>
+            <descendants>
+                <noderef id="flagSupport" />
+                <noderef id="flagMain" />
+            </descendants>
+        </node>
+        
+        <node id="flagSupport">
+            <transforms>
+                <transform type="translate" to="0 0 -3"/>
+            </transforms>
+            <primitives>
+                <cylinder base="0.05" top="0.05" height="3" slices="10" stacks="10" />
+                <sphere radius="0.10" slices="10" stacks="10" />
+            </primitives>
+            <descendants>
+            </descendants>
+        </node>
+        <node id="flagMain">
+            <transforms>
+                <transform type="translate" to="0.55 0 -2.4"/>
+            </transforms>
+            <primitives>
+                <flag />
+            </primitives>
+            <descendants>
             </descendants>
         </node>
         
@@ -159,6 +198,7 @@
             </primitives>
             <descendants>
                 <noderef id="vehicle_round_part"/>
+                
             </descendants>
         </node>
         
@@ -167,16 +207,17 @@
             <transforms>
             </transforms>
             <primitives>
-                <patch order="2" partsU="20" partsV="20" compute="fill">
+                <patch order="2" partsU="30" partsV="30" compute="fill">
                     <controlpoint x="0" y="0" z="-1" />
-                    <controlpoint x="0.914213" y="0" z="-0.914213" />
-                    <controlpoint x="1" y="0" z="0" />
                     <controlpoint x="-0.914213" y="0" z="-0.914213" />
-                    <controlpoint x="0" y="10" z="0" />
-                    <controlpoint x="0.914213" y="0" z="0.914213" />
                     <controlpoint x="-1" y="0" z="0" />
+                    <controlpoint x="0.914213" y="0" z="-0.914213" />
+                    <controlpoint x="0" y="10" z="0" />
                     <controlpoint x="-0.914213" y="0" z="0.914213" />
+                    <controlpoint x="1" y="0" z="0" />
+                    <controlpoint x="0.914213" y="0" z="0.914213" />
                     <controlpoint x="0" y="0" z="1" />
+                   
                 </patch>
                 
             </primitives>
