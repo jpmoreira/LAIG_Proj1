@@ -1,31 +1,36 @@
-uniform float normScale;
-uniform sampler2D secondImage;
-uniform float time;
-varying vec3 color2;
-const float PI = 3.14159265;
-const float height = 0.2;
-const float milliInSecond = 10000.0;
-
+uniform float normScale;			
+uniform sampler2D secondImage;		
+uniform float time;					//well...
+uniform int wind;					//user input that messes with the flag
+varying vec4 colorByHeight;			//
+const float PI = 3.14159265;		//
+const float height = 0.1;			//the max y coordinate offset
+const float freqWindRatio = 0.3;	//like the example, for wind=10 it has 3 waves
+const float windAttenuation = 0.5;	//10 looks too fast
+varying vec2 textcoord;
 void main() 
 {
+
+
 	vec4 offset=vec4(0.0,0.0,0.0,0.0);
+	float sin_result = float(0);
 	
-	// change vertex offset based on texture information
 	if (texture2D(secondImage, vec2(1.0,1.0)-gl_MultiTexCoord0.st).b > 0.5)
 		offset.xyz=gl_Normal*normScale*0.1;
 
-	
-	// pass texture coordinates from VS to FS.
-	// "gl_MultiTexCoord0" has the texture coordinates assigned to this vertex in the first set of coordinates.
-	// This index has to do with the set of texture COORDINATES, it is NOT RELATED to the texture UNIT.
-	// "gl_TexCoord[0]" is a built-in varying that will be interpolated in the FS.
 	gl_TexCoord[0] = gl_MultiTexCoord0;
 
-	color2 = vec3(gl_Vertex);
+	textcoord = gl_MultiTexCoord1.xy;
 
+	if(wind > 0)
+	{
+	float tmp_wind = float(wind);
+	float freq = tmp_wind * freqWindRatio;
+	sin_result = sin(gl_MultiTexCoord0.s*2.0*PI*freq + time*tmp_wind*windAttenuation);
+	offset.y = float(offset.y + sin_result*height);
+	}
 
-	offset.y = float(offset.y + sin(gl_Vertex.x * 2.0 * PI + time/milliInSecond * PI/2.0)*height);
-	// Set the position of the current vertex 
-	gl_Position = gl_ModelViewProjectionMatrix * (gl_Vertex+offset);
+	colorByHeight = vec4(sin_result, sin_result, sin_result, 1.0);
 
+	gl_Position = gl_ModelViewProjectionMatrix * (vec4(gl_Vertex.xyz+offset.rgb, 1.0));
 }

@@ -8,6 +8,8 @@
 #include <chrono>
 #define LG_Flag_ID_Prefix "_LG_Flag_"
 #define LG_Plane_Parts_Default 50
+#define LG_Flag_Frequency_default 1
+
 
 
 /*
@@ -25,6 +27,8 @@ Then, to link multiple shader objects into a shader program, you’ll:
 
 
 int LG_Flag::classIDNr = 0;
+int LG_Flag::wind = 1;
+
 
 
 LG_Flag::LG_Flag(LG_Node_Map *map, TiXmlElement *elem) : LG_Plane(map, autoIdentifier(LG_Flag_ID_Prefix, classIDNr))
@@ -69,8 +73,7 @@ LG_Flag::LG_Flag(LG_Node_Map *map, TiXmlElement *elem) : LG_Plane(map, autoIdent
 #endif
 	}
 
-	verified = false;
-
+	//todo shader is still expecting wind as float, get him that
 
 	/************************************************************
 	The shader things
@@ -115,7 +118,10 @@ LG_Flag::LG_Flag(LG_Node_Map *map, TiXmlElement *elem) : LG_Plane(map, autoIdent
 	secImageLoc = glGetUniformLocation(id(), "secondImage");
 	glUniform1i(secImageLoc, 1);
 
+	windLoc = glGetUniformLocation(id(), "wind");
+	glUniform1i(windLoc, wind);
 
+	CGFshader::unbind();
 }
 
 
@@ -135,70 +141,14 @@ void LG_Flag::config(){
 
 
 void LG_Flag::draw(){
+	
+	
 	bind();
 
 	LG_Patch::draw();
 
-	/********************************************************************
-	Hardcoded test
-	*********************************************************************/
-
-	//float hardcodedpoints[16 * 3];
-	//hardcodedpoints[0] = 0;		hardcodedpoints[1] = 0;		hardcodedpoints[2] = 0;
-	//hardcodedpoints[3] = 1;		hardcodedpoints[4] = 0;		hardcodedpoints[5] = 0;
-	//hardcodedpoints[6] = 2;		hardcodedpoints[7] = 0;		hardcodedpoints[8] = 0;
-	//hardcodedpoints[9] = 3;		hardcodedpoints[10] = 0;	hardcodedpoints[11] = 0;
-	//hardcodedpoints[12] = 0;	hardcodedpoints[13] = 0;	hardcodedpoints[14] = 1;
-	//hardcodedpoints[15] = 1;	hardcodedpoints[16] = 0;	hardcodedpoints[17] = 1;
-	//hardcodedpoints[18] = 2;	hardcodedpoints[19] = 0;	hardcodedpoints[20] = 1;
-	//hardcodedpoints[21] = 3;	hardcodedpoints[22] = 0;	hardcodedpoints[23] = 1;
-	//hardcodedpoints[24] = 0;	hardcodedpoints[25] = 0;	hardcodedpoints[26] = 2;
-	//hardcodedpoints[27] = 1;	hardcodedpoints[28] = 0;	hardcodedpoints[29] = 2;
-	//hardcodedpoints[30] = 2;	hardcodedpoints[31] = 0;	hardcodedpoints[32] = 2;
-	//hardcodedpoints[33] = 3;	hardcodedpoints[34] = 0;	hardcodedpoints[35] = 2;
-	//hardcodedpoints[36] = 0;	hardcodedpoints[37] = 0;	hardcodedpoints[38] = 3;
-	//hardcodedpoints[39] = 1;	hardcodedpoints[40] = 0;	hardcodedpoints[41] = 3;
-	//hardcodedpoints[42] = 2;	hardcodedpoints[43] = 0;	hardcodedpoints[44] = 3;
-	//hardcodedpoints[45] = 3;	hardcodedpoints[46] = 0;	hardcodedpoints[47] = 3;
-
-	//glEnable(GL_MAP2_VERTEX_3);
-	//glEnable(GL_AUTO_NORMAL);
-
-
-	//glMap2f(GL_MAP2_VERTEX_3,
-	//	0.0,//u start
-	//	1.0,//u finish
-	//	3,//ustride
-	//	ORDER3_CURVE + 1,
-	//	0.0,//v start
-	//	1.0,//v end
-	//	ORDER3_VSTRIDE,//vstride
-	//	ORDER3_CURVE + 1,//
-	//	(GLfloat *)hardcodedpoints);
-
-	//if (LG_Appearance::currentTexture)
-	//{
-	//	glMap2f(GL_MAP2_TEXTURE_COORD_2,
-	//		0.0,//u start
-	//		1.0,//u finish
-	//		4,//ustride
-	//		2, //texture order
-	//		0.0,//v start
-	//		1.0,//v end
-	//		2,//vstride
-	//		2,//texture order
-	//		(GLfloat *)textCoords);
-
-	//	glEnable(GL_MAP2_TEXTURE_COORD_2);
-	//}
-
-	//glMapGrid2f(partsU, 0, 1, partsV, 0, 1);
-	//glEvalMesh2(drawMode, 0, partsU, 0, partsV);
-
-	/********************************************************************
-	End of hardcoded test
-	*********************************************************************/
 	unbind();
+	
 	if (LG_Appearance::currentTexture)
 	{
 		LG_Appearance::currentTexture->apply();
@@ -215,10 +165,13 @@ void LG_Flag::bind()
 	//std::cout << "Ticks" << CGFapplication::getTime() << endl;
 	CGFshader::bind();
 	// update uniforms
+	CGFshader::update(my_time);
+
+	glUniform1i(windLoc, wind);
+
 	glUniform1f(scaleLoc, normScale);
 	// make sure the correct texture unit is active
 	glActiveTexture(GL_TEXTURE0);
-	CGFshader::update();
 	// apply/activate the texture you want, so that it is bound to GL_TEXTURE0
 	baseTexture->apply();
 
@@ -240,7 +193,11 @@ void LG_Flag::unbind(){
 
 void LG_Flag::update(unsigned long time){
 
-    
-    CGFshader::update((float)(time/1000));
-    
+	static unsigned long start = time;
+	my_time = (float)((time - start)/1000.0);
+	//std::cout << d_time << std::endl;
+}
+
+int * LG_Flag::getWind(){
+	return &wind;
 }

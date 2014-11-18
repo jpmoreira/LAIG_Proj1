@@ -27,6 +27,8 @@ public:
 	void setLightsContainer(LG_Scene *scene);
 	void setCamerasContainer(LG_Scene *scene);
 	void setDrawing(LG_Scene *scene);
+	void setWind_var(int *flag_windvar);
+	//float afloat;
 
 
 	~LG_SceneInterface();
@@ -41,6 +43,8 @@ private:
 	
 	int selected_cam;
 	int selected_drawing;
+	int *wind_var;
+
 
 };
 

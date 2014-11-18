@@ -106,7 +106,12 @@ void LG_Patch::config(){
 
 void LG_Patch::draw(){
 
+	//glGet
 
+	GLint frontface;
+	glGetIntegerv(GL_FRONT_FACE, &frontface);
+
+	glFrontFace(GL_CW);
 	glEnable(GL_MAP2_VERTEX_3);
 	glEnable(GL_AUTO_NORMAL);
 
@@ -122,21 +127,20 @@ void LG_Patch::draw(){
 		order + 1,//
 		(GLfloat *)points);
 
-	if (LG_Appearance::currentTexture)
-	{
+	
 		glMap2f(GL_MAP2_TEXTURE_COORD_2,
 			0.0,//u start
 			1.0,//u finish
-			4,//ustride
+			2,//ustride
 			2, //texture order
 			0.0,//v start
 			1.0,//v end
-			2,//vstride
+			4,//vstride
 			2,//texture order
 			(GLfloat *)textCoords);
 	
 		glEnable(GL_MAP2_TEXTURE_COORD_2);
-	}
+	
 
 	glMapGrid2f(partsU, 0, 1, partsV, 0, 1);
 	glEvalMesh2(drawMode, 0, partsU, 0, partsV);
@@ -144,6 +148,7 @@ void LG_Patch::draw(){
 	glDisable(GL_MAP2_TEXTURE_COORD_2);
 	glDisable(GL_MAP2_VERTEX_3);
 	glDisable(GL_AUTO_NORMAL);
+	glFrontFace(frontface);
 }
 
 void LG_Patch::calculateTextureCoordinates(){
@@ -155,15 +160,21 @@ void LG_Patch::calculateTextureCoordinates(){
 void LG_Patch::setTextCoords(){
 	textCoords = new float[8];
 
-	textCoords[0] = 0;
-	textCoords[1] = 0;
+	//ustride 2 x coord
+	//vstride 4 z coord
+	textCoords[0] = 0;//1
+	textCoords[1] = 1;//0
 
-	textCoords[2] = 1;
-	textCoords[3] = 0;
+	textCoords[2] = 0;//1
+	textCoords[3] = 0;//1
 
-	textCoords[4] = 0;
-	textCoords[5] = 1;
+	textCoords[4] = 1;//0
+	textCoords[5] = 1;//0
 
-	textCoords[6] = 1;
-	textCoords[7] = 1;
+	textCoords[6] = 1;//0
+	textCoords[7] = 0;//1
+	//1,0
+	//1,1
+	//0,0
+	//0,1
 }

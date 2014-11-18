@@ -25,6 +25,8 @@ public:
 	virtual void bind(void);
 	virtual void unbind(void);
 	void setScale(float s);
+	static int * getWind();
+
 	float normScale;
 
 	/*exemplo*/
@@ -33,22 +35,21 @@ public:
 
 	GLint baseImageLoc;
 	GLint secImageLoc;
+	GLint scaleLoc; //normalScale
+	GLint windLoc;
 
-	GLint scaleLoc;
-
-    
     void update(unsigned long time);
 
 
 
 protected: 
 	string vsfile_path, fsfile_path;
-	bool verified;
+
 
 
 
 private:
-	static int classIDNr;
-	int my_timeloc;
+	static int classIDNr, wind;
+	float my_time;
 };
 
