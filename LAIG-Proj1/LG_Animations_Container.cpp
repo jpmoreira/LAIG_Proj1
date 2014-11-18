@@ -49,13 +49,3 @@ LG_Animation_Container::LG_Animation_Container():LG_Parsable_Node(NULL,LG_Animat
     
     
 }
-
-void LG_Animation_Container::update(unsigned long timeNow){
-
-    for (int i=0; i<childsIDs.size(); i++) {
-        LG_Animation *anim=(LG_Animation *)child(i);
-        anim->update(timeNow);
-        
-    }
-
-}

@@ -8,6 +8,8 @@
 
 #include "LG_LinearAnimation.h"
 
+#include "LG_AnimationState.h"
+
 
 #define LG_ControlPoint_XML_Tag_Name "controlpoint"
 #define LG_ControlPoint_XX_XML_Att_Name "xx"
@@ -17,28 +19,13 @@
 #pragma mark - Constructors
 
 LG_LinearAnimation::LG_LinearAnimation(LG_Node_Map *map,string identifier,vector<double *> points,double duration):LG_Animation(map,identifier,duration),controlPoints(points),currentSegment(0){
-    
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
-    glGetDoublev(GL_MODELVIEW_MATRIX, (GLdouble *)rotation_matrix);
-    glTranslated(controlPoints[0][0], controlPoints[0][1], controlPoints[0][2]);//place at the start control point
-    glGetDoublev(GL_MODELVIEW_MATRIX, (GLdouble *)translation_matrix);
-    
-    configureInitialParameters();
+
 }
 
 LG_LinearAnimation::LG_LinearAnimation(LG_Node_Map *map,TiXmlElement *element):LG_Animation(map,element),controlPoints(vector<double *>()),currentSegment(0){
 
 
     handleControlPoints(element);
-
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
-    glGetDoublev(GL_MODELVIEW_MATRIX, (GLdouble *)rotation_matrix);//rotation matrix always starts as identity
-    glTranslated(controlPoints[0][0], controlPoints[0][1], controlPoints[0][2]);//place at the start control point
-    glGetDoublev(GL_MODELVIEW_MATRIX, (GLdouble *)translation_matrix);
-    
-    configureInitialParameters();
     
     
     
@@ -48,44 +35,25 @@ LG_LinearAnimation::LG_LinearAnimation(LG_Node_Map *map,TiXmlElement *element):L
 #pragma mark - Animation Application
 
 
-void LG_LinearAnimation::apply(){
-    
-    
-    glMultMatrixd((GLdouble *)translation_matrix);
-    glMultMatrixd((GLdouble *)rotation_matrix);
-    
-
-    
-
-}
-
-
-void LG_LinearAnimation::update(unsigned long timeNow){
-    
+void LG_LinearAnimation::update(unsigned long timeNow,LG_AnimationState *state){
     
     
 
     
-    
-    
-    if (!started) {
-        started=true;
-        startTime=timeNow;
-        return;
-    }
-    else if (timeNow>startTime+span) timeNow=startTime+span;
-    
-    double timeSinceStart=timeNow-startTime;
+    double timeSinceStart=state->timePassed(timeNow);
 
     if (timeToSwitchSegment<timeSinceStart) {//if time to switch segments has passed
         
-        vector<double> segmentWeAreIn=directionVectorForSegment(controlPoints[currentSegment], controlPoints[currentSegment+1]);
         
-        vector<double> segmentWeAreGoingTo=directionVectorForSegment(controlPoints[currentSegment+1], controlPoints[currentSegment+2]);
         
-        configureRotation(controlPoints[currentSegment], controlPoints[currentSegment+1], controlPoints[currentSegment+2]);
-        
+        vector<double> startDirVect=directionVectorForSegment(controlPoints[0],controlPoints[1]);
+        vector<double> currentDirVect=directionVectorForSegment(controlPoints[currentSegment+1], controlPoints[currentSegment+2]);
+                                                                
+        configureRotation(startDirVect, currentDirVect, state);
+            
         timeToSwitchSegment+=distanceBetweenPoints(controlPoints[currentSegment+1], controlPoints[currentSegment+2])/velocity;
+
+
         
         currentSegment++;//we are no longer in the same segment
         
@@ -93,7 +61,7 @@ void LG_LinearAnimation::update(unsigned long timeNow){
     
     
     
-    configureTranslation(timeSinceStart);
+    configureTranslation(timeSinceStart,state);
     
     
 
@@ -150,9 +118,13 @@ double LG_LinearAnimation::distanceBetweenPoints(LG_Point3D pt1,LG_Point3D pt2){
 }
 
 
-void LG_LinearAnimation::configureInitialParameters(){
+void LG_LinearAnimation::configureInitialParameters(LG_AnimationState *state){
 
 
+    
+    state->translate(controlPoints[0][0], controlPoints[0][1], controlPoints[0][2]);
+    
+    
     controlPointHitTime=vector<double>(controlPoints.size());
     controlPointHitTime[0]=0;
     currentSegment=0;
@@ -215,44 +187,43 @@ vector<double> LG_LinearAnimation::directionVectorForSegment(LG_Point3D pt1,LG_P
 
 }
 
-void LG_LinearAnimation::configureRotation(LG_Point3D previousSegmentStart,LG_Point3D borderPoint,LG_Point3D nextSegmentFinish){
-    
-    
-    
-    vector<double> dir1=directionVectorForSegment(previousSegmentStart, borderPoint);
-    vector<double> dir2=directionVectorForSegment(borderPoint, nextSegmentFinish);
-    
-    dir1[Y_]=0;
-    dir2[Y_]=0;
-    normalize(dir1);
-    normalize(dir2);
-    
-    double angle=angleBetween(dir1, dir2)/M_PI*180.;
-    
-    vector<double> rotationAxis=crossProduct(dir1, dir2);
-    
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
-    
-    glRotated(angle, rotationAxis[X_], rotationAxis[Y_], rotationAxis[Z_]);
-    glMultMatrixd((GLdouble *)rotation_matrix);
-    
-    glGetDoublev(GL_MODELVIEW_MATRIX, (GLdouble *)rotation_matrix);
-    
-    
-    
-    
 
 
+void LG_LinearAnimation::configureRotation(const vector<double> &dir1,const vector<double> &dir2,LG_AnimationState *state){
+    
+    
+    
+    vector<double> dir1_(dir1);
+    vector<double> dir2_(dir2);
+    
+    dir2_[Y_]=0;
+    dir1_[Y_]=0;
+    
+    double len1=vectorLenght(dir1_);
+    double len2=vectorLenght(dir2_);
+    
+    
+    if (vectorLenght(dir1_)==0 || vectorLenght(dir2_)==0) return;//dont rotate if one vector is with zero dimention
+    normalize(dir1_);
+    normalize(dir2_);
+    
+    double angle=angleBetween(dir1_, dir2_)/M_PI*180.;
+    
+    vector<double> rotationAxis=crossProduct(dir1_, dir2_);
+    
+    
+    state->rotate(angle, rotationAxis[X_], rotationAxis[Y_], rotationAxis[Z_]);
+    
+    
+    
+    
+    
+    
 }
 
 
-void LG_LinearAnimation::configureTranslation(double timeSinceAnimationStart){
+void LG_LinearAnimation::configureTranslation(double timeSinceAnimationStart,LG_AnimationState *state){
 
-
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
-    
     
     double * lastPassedControlPoint=controlPoints[currentSegment];
     
@@ -266,9 +237,11 @@ void LG_LinearAnimation::configureTranslation(double timeSinceAnimationStart){
     velocityVector[Z_]=directionVector[Z_]*velocity;
     
     
-    glTranslated(lastPassedControlPoint[X_]+timeSincePassedControlPoint*velocityVector[X_], lastPassedControlPoint[Y_]+timeSincePassedControlPoint*velocityVector[Y_], lastPassedControlPoint[Z_]+timeSincePassedControlPoint*velocityVector[Z_]);
+    state->translate(lastPassedControlPoint[X_]+timeSincePassedControlPoint*velocityVector[X_], lastPassedControlPoint[Y_]+timeSincePassedControlPoint*velocityVector[Y_], lastPassedControlPoint[Z_]+timeSincePassedControlPoint*velocityVector[Z_]);
     
-    glGetDoublev(GL_MODELVIEW_MATRIX, (GLdouble *)translation_matrix);
+    
+
+    
     
     
     

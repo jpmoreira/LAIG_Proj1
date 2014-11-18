@@ -12,7 +12,7 @@
 
 #include "LG_Parsable_Node.h"
 
-#include "LG_Animation.h"
+#include "LG_AnimationState.h"
 
 #define LG_Graph_Node_XML_Tag_Name "node"
 
@@ -29,8 +29,8 @@ private:
     LG_Transform *transform;
     
     LG_Appearance *appearance;
-    
-    LG_Animation *animation;
+    vector<LG_AnimationState *>animations;
+    int currentAnimation;
     GLint displayListID;
     
     bool isDisplayList;
@@ -47,6 +47,7 @@ private:
     void handleAppearance(LG_Node_Map *map,TiXmlElement *appearanceElement);
     
     void handleAnimation(LG_Node_Map *map,TiXmlElement * animationElement);
+    
     
     
     

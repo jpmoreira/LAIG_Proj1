@@ -13,12 +13,16 @@
 
 #include "LG_Parsable_Node.h"
 
+
 #define LG_Animation_XML_Tag_Name "animation"
 #define LG_Animation_ID_XML_Att_Name "id"
+
+class LG_AnimationState;
 
 class LG_Animation: public LG_Parsable_Node {
     
     
+    friend class LG_AnimationState;
     
     
 private:
@@ -31,22 +35,26 @@ private:
 public:
     
     
-    virtual void apply()=0;
-    virtual void update(unsigned long timeNow)=0;
+    virtual void update(unsigned long timeNow,LG_AnimationState *state)=0;
     
     LG_Animation(LG_Node_Map *map,string identifier,double duration);
     LG_Animation(LG_Node_Map *map,TiXmlElement *elem);
     
     static LG_Animation * animationForElement(LG_Node_Map *map,TiXmlElement *elem);
     
+    /**
+     
+     Configures the parameters for the animation based on the control points
+     
+     */
+    virtual void configureInitialParameters(LG_AnimationState *state)=0;
+    
     
     
     
 protected:
     double span;
-    
-    unsigned long startTime;
-    bool started;
+
     
     
 };

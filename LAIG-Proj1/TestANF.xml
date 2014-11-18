@@ -84,25 +84,40 @@
     
     
     <animations>
-        <animation id="simpleAnimation" type="linear" span="10" >
+        
+        <animation id="simpleAnimation" type="linear" span="5" >
             <controlpoint xx="0" yy="0" zz="0" />
-            <controlpoint xx="0" yy="0" zz="10" />
-            <controlpoint xx="0" yy="10" zz="10" />
+            <controlpoint xx="5" yy="0" zz="0" />
         </animation>
         
         
-        <animation id="simpleRotation" span="2" type="circular" center="0 0 0" radius="5" startang="90" rotang="360" />
+        <animation id="simpleRotation" span="63" type="circular" center="0 0 -5" radius="5" startang="0" rotang="720" />
     </animations>
     
-    <graph rootid="position_vehicle">
+    <graph rootid="scene">
+        
+        <node id="scene">
+            <animationref id="simpleAnimation" />
+           <animationref id="simpleRotation" />
+           <animationref id="simpleAnimation" />
+            <transforms>
+            </transforms>
+            <primitives>
+            </primitives>
+            <descendants>
+                <noderef id="position_vehicle"/>
+            </descendants>
+        </node>
         
         <node id="position_vehicle">
             <transforms>
                 
-                <<transform type="translate" to="1 1 1"/>
                 <transform type="scale" factor="0.3 0.3 0.3" />
+                <transform type="rotate" axis="z" angle="-90" />
+               
+               <!--<transform type="translate" to="1 1 1"/>
                 <transform type="rotate" axis="y" angle="-45" />
-                <transform type="rotate" axis="z" angle="-60" />
+                <transform type="rotate" axis="z" angle="-60" />-->
                 
                 
                 
@@ -118,8 +133,9 @@
         
         
         <node id="vehicle">
+            
             <transforms>
-                
+                <transform type="translate" to="0 -9 0"/>
 
             </transforms>
             <primitives>

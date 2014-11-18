@@ -38,7 +38,7 @@
 
 #pragma mark - Constructors
 LG_Graph_Node::LG_Graph_Node(LG_Node_Map *map,LG_Node_Map *app_map,LG_Node_Map *anim_map, TiXmlElement *elem)
-:LG_Parsable_Node(map,identifierForGraphNode(elem)),animation(NULL),appearance(NULL)
+:LG_Parsable_Node(map,identifierForGraphNode(elem)),animations(vector<LG_AnimationState *>()),appearance(NULL),currentAnimation(0)
 {
     
     if (!str_eq(LG_Graph_Node_XML_Tag_Name, elem->Value())) {
@@ -118,7 +118,7 @@ LG_Graph_Node::LG_Graph_Node(LG_Node_Map *map,LG_Node_Map *app_map,LG_Node_Map *
     
 }
 LG_Graph_Node::LG_Graph_Node(LG_Node_Map *map,LG_Node_Map *app_map,LG_Node_Map *anim_map, LG_Transform *t,vector<LG_Primitive *> &primitives,string identifier)
-:LG_Parsable_Node(map,identifier),transform(t),animation(NULL),appearance(NULL)
+:LG_Parsable_Node(map,identifier),transform(t),animations(vector<LG_AnimationState *>()),appearance(NULL),currentAnimation(0)
 {
     
     for (unsigned int i=0; i<primitives.size(); i++) {
@@ -255,7 +255,7 @@ void LG_Graph_Node::handleAnimation(LG_Node_Map *map, TiXmlElement *animationEle
     if (it==map->end()) {
         throw new LG_Parse_Exception_Broken_Reference(LG_Graph_Node_XML_Tag_Name,id.c_str(),LG_Animation_XML_Tag_Name);
     }
-    else animation=(LG_Animation *)it->second;
+    else animations.push_back(new LG_AnimationState(this->map,(LG_Animation *)it->second));
 }
 
 #pragma mark - Drawing
@@ -280,8 +280,15 @@ void LG_Graph_Node::draw(){
         
         transform->draw();
         
-        if(animation){
-            animation->apply();
+        if(animations.size()>0){
+            
+            for (int i=0; i<=currentAnimation; i++) {
+                
+                if(currentAnimation==1){
+                    printf("1\n");
+                }
+                animations.at(i)->apply();
+            }
         }
         
         
@@ -337,6 +344,19 @@ void LG_Graph_Node::config(){
 
 void LG_Graph_Node::update(unsigned long time){
 
+    
+    if (animations.size()>0) {
+        LG_AnimationState *currentAnimationState=animations.at(currentAnimation);
+        
+        if (currentAnimationState->finished(time) && currentAnimation+1<animations.size()) {//change to next animation if this one has finished (and if there is one)
+            currentAnimation++;
+        }
+        
+        animations.at(currentAnimation)->update(time);
+        
+
+    }
+    
     for (int i=0; i<childsIDs.size(); i++) {
         
         child(i)->update(time);

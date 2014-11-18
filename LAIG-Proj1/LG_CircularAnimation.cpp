@@ -7,6 +7,7 @@
 //
 
 #include "LG_CircularAnimation.h"
+#include "LG_AnimationState.h"
 
 #define LG_CircularAnimation_Center_XML_Att_Name "center"
 #define LG_CircularAnimation_Radius_XML_Att_Name "radius"
@@ -26,33 +27,33 @@ LG_CircularAnimation::LG_CircularAnimation(LG_Node_Map *map,TiXmlElement *elem):
     
 }
 
-void LG_CircularAnimation::apply(){
-    
-    glTranslated(center[X_], center[Y_], center[Z_]);
-    glRotated(currentAngle, 0, 1, 0);
-    glTranslated(radius,0,0);
+void LG_CircularAnimation::update(unsigned long timeNow,LG_AnimationState *state){
     
     
+    
+    unsigned long timePassed=state->timePassed(timeNow);
+        
+    double angularVel=(rotation_angle-initial_angle)/span;
+        
+    currentAngle=initial_angle+angularVel*timePassed;
+    
+    state->translate(-center[X_],-center[Y_],-center[Z_]);
+    state->rotate(currentAngle,0,1,0);
+    state->translate_afterRotation(center[X_],center[Y_],center[Z_]);
+    
+    
+    
+
 
 }
 
-void LG_CircularAnimation::update(unsigned long timeNow){
-    
-    
-    if (!started){
-        startTime=timeNow;
-        started=true;
-    }
-    
-    else if(timeNow-startTime<span){
-    
-        unsigned long timePassed=timeNow-startTime;
-        
-        double angularVel=rotation_angle/span;
-        
-        currentAngle=initial_angle+angularVel*timePassed;
-    
-    }
+
+/**
+ 
+ Configures the parameters for the animation based on the control points
+ 
+ */
+void LG_CircularAnimation::configureInitialParameters(LG_AnimationState *state){
 
 
 }
