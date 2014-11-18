@@ -547,6 +547,8 @@
 		54DE08A119E5560000E283B6 /* LG_Glu_Primitive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54DE089919E5560000E283B6 /* LG_Glu_Primitive.cpp */; };
 		54F94B3B1A1A0AE600A4B250 /* LG_AnimationState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54F94B391A1A0AE600A4B250 /* LG_AnimationState.cpp */; };
 		54F94B3C1A1B360900A4B250 /* LG_CircularAnimation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 546C504B1A001E4D00AE1A22 /* LG_CircularAnimation.cpp */; };
+		54F94B3E1A1BCFE300A4B250 /* earth.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54F94B3D1A1BCFD600A4B250 /* earth.jpg */; };
+		54F94B401A1BD89F00A4B250 /* sun.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54F94B3F1A1BD89600A4B250 /* sun.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -584,6 +586,8 @@
 			dstPath = testFiles;
 			dstSubfolderSpec = 16;
 			files = (
+				54F94B401A1BD89F00A4B250 /* sun.jpg in CopyFiles */,
+				54F94B3E1A1BCFE300A4B250 /* earth.jpg in CopyFiles */,
 				548BA5541A13845E00AFF8DB /* wing.png in CopyFiles */,
 				548BA54E1A137C0F00AFF8DB /* us_.png in CopyFiles */,
 				545E751A1A12069B00B83CC9 /* fragmentshader.fs in CopyFiles */,
@@ -1036,6 +1040,8 @@
 		54DE089A19E5560000E283B6 /* LG_Glu_Primitive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_Glu_Primitive.h; sourceTree = "<group>"; };
 		54F94B391A1A0AE600A4B250 /* LG_AnimationState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_AnimationState.cpp; sourceTree = "<group>"; };
 		54F94B3A1A1A0AE600A4B250 /* LG_AnimationState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_AnimationState.h; sourceTree = "<group>"; };
+		54F94B3D1A1BCFD600A4B250 /* earth.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = earth.jpg; sourceTree = "<group>"; };
+		54F94B3F1A1BD89600A4B250 /* sun.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sun.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1568,6 +1574,8 @@
 		545E74FF1A111FD400B83CC9 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				54F94B3F1A1BD89600A4B250 /* sun.jpg */,
+				54F94B3D1A1BCFD600A4B250 /* earth.jpg */,
 				548BA5531A13845700AFF8DB /* wing.png */,
 				548BA54D1A137C0C00AFF8DB /* us_.png */,
 				548BA5411A13721800AFF8DB /* chess__.jpg */,
