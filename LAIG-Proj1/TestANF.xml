@@ -449,7 +449,7 @@
                 
             </transforms>
             <primitives>
-                <sphere radius="6" slices="30" stacks="30" />
+                <sphere radius="5" slices="100" stacks="100" />
             </primitives>
             <descendants>
             </descendants>
