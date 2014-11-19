@@ -1,0 +1,18 @@
+uniform sampler2D baseImage;		//front texture
+uniform sampler2D secondImage;		//background texture
+varying vec4 colorByHeight;			
+const float colorByHeightPercent = 0.1;
+
+
+
+
+
+void main()
+{
+	
+	vec4 color=texture2D(baseImage, gl_TexCoord[0].st);
+	vec4 textcolor = texture2D(secondImage, gl_TexCoord[0].st);
+
+	color.a=0.5;
+	gl_FragColor = textcolor * (1.0-colorByHeightPercent)/2.0 + color*(1.0-colorByHeightPercent)/2.0 + colorByHeight* colorByHeightPercent;
+}
