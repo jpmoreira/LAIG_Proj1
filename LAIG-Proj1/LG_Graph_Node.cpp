@@ -277,19 +277,18 @@ void LG_Graph_Node::draw(){
         glPushMatrix();
         
         
-        
         transform->draw();
+        
         
         if(animations.size()>0){
             
-            for (int i=0; i<=currentAnimation; i++) {
+            for (int i=currentAnimation; i>=0; i--) {
                 
-               /* if(currentAnimation==1){
-                    printf("1\n");
-                }*/
                 animations.at(i)->apply();
+                
             }
         }
+        
         
         
         if (appearance) appearance->apply();
