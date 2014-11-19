@@ -284,9 +284,9 @@ void LG_Graph_Node::draw(){
             
             for (int i=0; i<=currentAnimation; i++) {
                 
-                if(currentAnimation==1){
+               /* if(currentAnimation==1){
                     printf("1\n");
-                }
+                }*/
                 animations.at(i)->apply();
             }
         }

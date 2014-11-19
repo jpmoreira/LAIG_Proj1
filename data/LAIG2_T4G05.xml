@@ -2,7 +2,7 @@
     <globals>
         <drawing mode="fill" shading="gouraud" background="0.2 0.2 0.2 0" />
         <culling face="back" order="ccw" />
-        <lighting doublesided="false" local="true" enabled="true" ambient="0.6 0.6 0.6 1" />
+        <lighting doublesided="false" local="true" enabled="true" ambient="0.3 0.3 0.3 1" />
     </globals>
     
     <cameras initial="perspective1" >
@@ -11,12 +11,12 @@
     </cameras>
     
     <lights>
-        <light id="omniGrey" type="omni" enabled="false" marker="false" pos="0 10 0" >
+        <light id="omniGrey" type="omni" enabled="true" marker="false" pos="0 10 0" >
             <component type="ambient" value="0.4 0.4 0.4 1" />
             <component type="diffuse" value="0.4 0.4 0.4 1" />
             <component type="specular" value="0.4 0.4 0.4 1" />
         </light>
-        <light id="spotWhite" type="spot" enabled="true" marker="false" pos="0 3 0" target="1 0 1"
+        <light id="spotWhite" type="spot" enabled="false" marker="false" pos="0 3 0" target="1 0 1"
             angle="80" exponent="1" >
             <component type="ambient" value="0.8 0.8 0.8 1" />
             <component type="diffuse" value="0.8 0.8 0.8 1" />
@@ -91,11 +91,17 @@
             <controlpoint xx="0" yy="0" zz="0" />
         </animation>
         
-        <animation id="vehicleMovement" type="linear" span="20">
-            <controlpoint xx="0" yy="25" zz="0" />
-            <controlpoint xx="15" yy="15" zz="15" />
-            <controlpoint xx="15" yy="10" zz="50" />
+        <animation id="vehicleWeirdMovement" type="linear" span="20">
+            <controlpoint xx="0" yy="0" zz="0" />
+            <controlpoint xx="0" yy="0" zz="10" />
+            <controlpoint xx="-5" yy="0" zz="15" />
         </animation>
+
+      <animation id="vehicleMovement" type="linear" span="20">
+        <controlpoint xx="0" yy="0" zz="0" />
+        <controlpoint xx="0" yy="0" zz="10" />
+        <controlpoint xx="0" yy="0" zz="-10" />
+      </animation>
             
         <animation id="vehicleRotation" span="35" type="circular" center="0 0 -3" radius="3" startang="0" rotang="3500" />      
         <animation id="earthRotation" span="30" type="circular" center="-15 0 0" radius="15" startang="0" rotang="3000" />
@@ -110,7 +116,7 @@
             <primitives></primitives>
             <descendants>
                 <noderef id="earth_n_sun"/>
-                <noderef id="space_planes"/>
+                <!--<noderef id="space_planes"/> -->
                 <noderef id="flag_extra"/>
             </descendants>
         </node>
@@ -129,94 +135,8 @@
       </primitives>
     </node>
         
-        <node id="space_planes">
-            <transforms></transforms>
-            <primitives></primitives>
-            <descendants>
-                <noderef id="space_plane_left"/>
-                <noderef id="space_plane_bottom"/>
-                <noderef id="space_plane_right"/>
-                <noderef id="space_plane_back"/>
-            </descendants>
-        </node>
-        
-        <node id="space_plane_left">
-            <transforms>
-                <transform type="translate" to="-25 15 5"/>
-                <transform type="rotate" axis="z" angle="-90"/>
-            </transforms>
-            <primitives></primitives>
-            <descendants>
-                <noderef id="stars_plane"/>
-            </descendants>
-        </node>
-        
-        <node id="space_plane_bottom">
-            <transforms>
-                <transform type="translate" to="0 -10 5"/>
-            </transforms>
-            <primitives></primitives>
-            <descendants>
-                <noderef id="stars_plane"/>
-            </descendants>
-        </node>
-        
-        <node id="space_plane_right">
-            <transforms>
-                <transform type="translate" to="25 15 5" />
-                <transform type="rotate" axis="z" angle="90"/>
-            </transforms>
-            <primitives></primitives>
-            <descendants>
-                <noderef id="stars_plane"/>
-            </descendants>
-        </node>
-        
-        <node id="space_plane_back">
-            <transforms>
-                <transform type="translate" to="0 15 -20" />
-                <transform type="rotate" axis="x" angle="90"/>
-            </transforms>
-            <primitives></primitives>
-            <descendants>
-                <noderef id="stars_plane"/>
-            </descendants>
-        </node>
-        
-        <node id="stars_plane">
-      <appearanceref id="starsApp"/>
-      <transforms>
-        <transform type="scale" factor="50 1 50"/>
-      </transforms>
-      <descendants></descendants>
-      <primitives>
-        <plane parts="30"/>
-      </primitives>
-    </node>
-                
-        <node id="vehicle_animations" >
-            <animationref id="vehicleRotation" />
-            <animationref id="vehicleMovement" />
-            <transforms></transforms>
-            <primitives></primitives>
-            <descendants>
-                <noderef id="position_vehicle"/>
-            </descendants>
-        </node>
-        
-        <node id="position_vehicle">
-            <transforms>
-                <transform type="rotate" angle="-90" axis="z"/>
-                <transform type="scale" factor="0.1 0.1 0.1"/>
-            </transforms>
-            <primitives></primitives>
-            <descendants>
-                <noderef id="vehicle"/>
-            </descendants>
-        </node>
-
-        <node id="earth_n_sun">
-            <animationref id="simpleAnimation" />
+          <node id="earth_n_sun">
+            <!--<animationref id="simpleAnimation" />-->
             <transforms></transforms>
             <primitives></primitives>
             <descendants>
@@ -225,8 +145,18 @@
             </descendants>
         </node>
         
+        <node id="sun">
+            <!--<animationref id="sunRotation" />-->
+            <appearanceref id="sunApp" />
+            <transforms></transforms>
+            <primitives>
+                <sphere radius="6" slices="30" stacks="30" />
+            </primitives>
+            <descendants></descendants>
+        </node>
+        
         <node id="earth_anim">
-            <animationref id="earthRotation"/>
+            <!--<animationref id="earthRotation"/>-->
             <transforms>
                 <transform type="translate" to="15 0 0"/>
             </transforms>
@@ -247,8 +177,41 @@
             </descendants>
         </node>
         
-        <node id="vehicle">
-            <animationref id="vehicleRotation" />
+        <node id="earth">
+            <appearanceref id="earthApp" />
+            <transforms>
+                <transform type="translate" to="0 0 -3" />
+                <transform type="rotate" axis="x" angle="-90" />            
+            </transforms>
+            <primitives>
+                <sphere radius="2" slices="30" stacks="30" />
+            </primitives>
+            <descendants></descendants>         
+        </node>
+        
+        <node id="vehicle_animations" >
+            <animationref id="vehicleMovement" />
+            <!--<animationref id="vehicleRotation" />-->
+            <transforms></transforms>
+            <primitives></primitives>
+            <descendants>
+                <noderef id="position_vehicle"/>
+            </descendants>
+        </node>
+        
+        <node id="position_vehicle">
+            <transforms>
+                <transform type="rotate" angle="-90" axis="z"/>
+                <transform type="scale" factor="0.1 0.1 0.1"/>
+            </transforms>
+            <primitives></primitives>
+            <descendants>
+                <noderef id="vehicle"/>
+            </descendants>
+        </node>
+        
+         <node id="vehicle">
+            <!--<animationref id="vehicleRotation" />-->
             <transforms>
                 <transform type="translate" to="0 -9 0"/>
             </transforms>
@@ -262,7 +225,7 @@
                 <noderef id="flag" />
             </descendants>
         </node>
-        
+                  
         <node id="flag">
             <transforms>
                 <transform type="translate" to="0 20 0"/>
@@ -294,7 +257,7 @@
             </primitives>
             <descendants></descendants>
         </node>
-        
+               
         <node id="vehicle_nose">
             <transforms>
                 <transform type="translate" to="0 15 0"/>
@@ -420,26 +383,73 @@
             </descendants>
         </node>
         
-        <node id="earth">
-            <appearanceref id="earthApp" />
-            <transforms>
-                <transform type="translate" to="0 0 -3" />
-                <transform type="rotate" axis="x" angle="-90" />            
-            </transforms>
-            <primitives>
-                <sphere radius="2" slices="30" stacks="30" />
-            </primitives>
-            <descendants></descendants>         
+         <!-- ******** BOX ********-->
+        <node id="space_planes">
+            <transforms></transforms>
+            <primitives></primitives>
+            <descendants>
+                <noderef id="space_plane_left"/>
+                <noderef id="space_plane_bottom"/>
+                <noderef id="space_plane_right"/>
+                <noderef id="space_plane_back"/>
+            </descendants>
         </node>
         
-        <node id="sun">
-            <animationref id="sunRotation" />
-            <appearanceref id="sunApp" />
-            <transforms></transforms>
-            <primitives>
-                <sphere radius="6" slices="30" stacks="30" />
-            </primitives>
-            <descendants></descendants>
+        <node id="space_plane_left">
+            <transforms>
+                <transform type="translate" to="-25 15 5"/>
+                <transform type="rotate" axis="z" angle="-90"/>
+            </transforms>
+            <primitives></primitives>
+            <descendants>
+                <noderef id="stars_plane"/>
+            </descendants>
         </node>
+        
+        <node id="space_plane_bottom">
+            <transforms>
+                <transform type="translate" to="0 -10 5"/>
+            </transforms>
+            <primitives></primitives>
+            <descendants>
+                <noderef id="stars_plane"/>
+            </descendants>
+        </node>
+        
+        <node id="space_plane_right">
+            <transforms>
+                <transform type="translate" to="25 15 5" />
+                <transform type="rotate" axis="z" angle="90"/>
+            </transforms>
+            <primitives></primitives>
+            <descendants>
+                <noderef id="stars_plane"/>
+            </descendants>
+        </node>
+        
+        <node id="space_plane_back">
+            <transforms>
+                <transform type="translate" to="0 15 -20" />
+                <transform type="rotate" axis="x" angle="90"/>
+            </transforms>
+            <primitives></primitives>
+            <descendants>
+                <noderef id="stars_plane"/>
+            </descendants>
+        </node>
+        
+        <node id="stars_plane">
+      <appearanceref id="starsApp"/>
+      <transforms>
+        <transform type="scale" factor="50 1 50"/>
+      </transforms>
+      <descendants></descendants>
+      <primitives>
+        <plane parts="30"/>
+      </primitives>
+    </node>
+                
+ <!--**************************************************-->
+        
           </graph>    
 </anf>
