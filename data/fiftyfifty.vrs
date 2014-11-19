@@ -6,7 +6,7 @@ varying vec4 colorByHeight;			//
 const float PI = 3.14159265;		//
 const float height = 0.1;			//the max y coordinate offset
 const float freqWindRatio = 0.3;	//like the example, for wind=10 it has 3 waves
-const float windAttenuation = 0.5;	//10 looks too fast
+const float windAttenuation = 1;	//values between 0.0 and 1.0
 varying vec2 textcoord;
 void main() 
 {
@@ -26,7 +26,7 @@ void main()
 	{
 	float tmp_wind = float(wind);
 	float freq = tmp_wind * freqWindRatio;
-	sin_result = sin(gl_MultiTexCoord0.s*2.0*PI*freq + time*tmp_wind*windAttenuation);
+	sin_result = sin(gl_MultiTexCoord0.s*2.0*PI*freq - time*tmp_wind*windAttenuation);
 	offset.y = float(offset.y + sin_result*height);
 	}
 

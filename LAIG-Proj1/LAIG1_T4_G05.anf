@@ -86,8 +86,10 @@
       <descendants>
         <!--<noderef id="patch1"/>-->
         <noderef id="flag"/>
+        <noderef id="flag2"/>
+        <noderef id="flag3"/>
         <!--<noderef id="position_vehicle"/>-->
-        <noderef id="patch5"/>
+        <!--<noderef id="patch5"/>-->
       </descendants>
       <primitives></primitives>
     </node>
@@ -96,12 +98,39 @@
     <node id="flag">
       <appearanceref id="inherit"/>
       <transforms>
-        <transform type="translate" to="5 0 5"/>
+        <transform type="translate" to="5 3 5"/>
         <!--<transform type="rotate" axis="x" angle="90"/>-->
+        <!--<transform type="scale" factor="5.5 1 5"/>-->
       </transforms>
       <descendants></descendants>
       <primitives>
-        <flag/>
+        <flag texture="../data/evaltext.jpg" parts="30"/>
+      </primitives>
+    </node>
+
+    <node id="flag2">
+      <appearanceref id="inherit"/>
+      <transforms>
+        <transform type="translate" to="2.5 0 3"/>
+        <!--<transform type="rotate" axis="x" angle="90"/>-->
+        <transform type="scale" factor="5 1 5"/>
+      </transforms>
+      <descendants></descendants>
+      <primitives>
+        <flag texture="../data/terrainmap2.jpg" texture2="../data/FEUP.jpg" vsfile="../data/spaceflag.vrs" fsfile="../data/spaceflag.frs"/>
+      </primitives>
+    </node>
+
+    <node id="flag3">
+      <appearanceref id="inherit"/>
+      <transforms>
+        <transform type="translate" to="2.5 2.5 0"/>
+        <transform type="rotate" axis="x" angle="90"/>
+        <transform type="scale" factor="5 1 5"/>
+      </transforms>
+      <descendants></descendants>
+      <primitives>
+        <flag texture="../data/paper.jpg" texture2="../data/opengl.png"/>
       </primitives>
     </node>
 

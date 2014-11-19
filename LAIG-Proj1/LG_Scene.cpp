@@ -188,18 +188,11 @@ void LG_Scene::display(){
     
     CGFscene::activeCamera->applyView();
     
-    //light1->enable();
-    /*light0->draw();
-     light1->draw();
-     light2->draw();
-     light3->draw();
-     */
     // Draw axis
     axis.draw();
     
     anf->draw();
-    //
-    //// ---- END Background, camera and axis setup
+
     setUpdatePeriod(20);
     glutSwapBuffers();
     

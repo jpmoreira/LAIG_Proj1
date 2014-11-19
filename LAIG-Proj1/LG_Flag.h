@@ -8,6 +8,8 @@
 #define LG_Flag_XML_Tag_Name "flag"
 #define LG_Flag_Att_VertexShader "vsfile"
 #define LG_Flag_Att_FragmentShader "fsfile"
+#define LG_Flag_Att_Texture "texture"
+#define LG_Flag_Att_Texture2 "texture2"
 
 using namespace std;
 
@@ -29,7 +31,7 @@ public:
 
 	float normScale;
 
-	/*exemplo*/
+
 	CGFtexture * baseTexture;
 	CGFtexture * secTexture;
 
@@ -51,5 +53,6 @@ protected:
 private:
 	static int classIDNr, wind;
 	float my_time;
+	bool has_sec_text;
 };
 
