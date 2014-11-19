@@ -33,10 +33,6 @@ private:
     
     LG_Point3D directionVector;
     
-    double rotation_matrix[4][4];
-    double translation_matrix[4][4];
-    
-    double transform_matrix[4][4];
     
     
     void handleControlPoints(TiXmlElement *animationElement);
@@ -44,13 +40,13 @@ private:
     
     static double distanceBetweenPoints(LG_Point3D pt1,LG_Point3D pt2);
     
-    
     /**
      
      Configures the parameters for the animation based on the control points
      
      */
-    void configureInitialParameters();
+    void configureInitialParameters(LG_AnimationState *state);
+
     
     /**
      
@@ -72,10 +68,10 @@ private:
      
      Configures the current matrix to include a rotation to the new segment.
      */
-    void configureRotation(LG_Point3D previousSegmentStart,LG_Point3D borderPoint,LG_Point3D nextSegmentFinish);
+    void configureRotation(const vector<double> &dir1,const vector<double> &dir2,LG_AnimationState *state);
     
     
-    void configureTranslation(double  timeSinceAnimationStart);
+    void configureTranslation(double  timeSinceAnimationStart,LG_AnimationState *state);
     
 public:
     
@@ -83,7 +79,8 @@ public:
     
     LG_LinearAnimation(LG_Node_Map *map,TiXmlElement *elem);
     void apply();
-    void update(unsigned long timeNow);
+    void update(unsigned long timeNow,LG_AnimationState *state);
+    
     
 };
 

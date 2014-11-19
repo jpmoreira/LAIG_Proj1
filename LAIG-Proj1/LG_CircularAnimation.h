@@ -27,9 +27,15 @@ public:
     double currentAngle;
     double initial_angle;
     
-    void apply();
-    void update(unsigned long timeNow);
+
+    void update(unsigned long timeNow,LG_AnimationState *state);
     
+    /**
+     
+     Configures the parameters for the animation based on the control points
+     
+     */
+    void configureInitialParameters(LG_AnimationState *state);
 };
 
 #endif /* defined(__LAIG_Proj1__LG_CircularAnimation__) */

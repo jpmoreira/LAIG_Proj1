@@ -7,8 +7,10 @@
 //
 
 #include "LG_Animation.h"
-#include "LG_LinearAnimation.h"
 #include "LG_CircularAnimation.h"
+#include "LG_LinearAnimation.h"
+
+#include "LG_AnimationState.h"
 
 
 #define LG_Animation_Span_XML_Att_Name "span"
@@ -30,13 +32,13 @@ typedef enum{
 
 #pragma mark - Constructors
 
-LG_Animation::LG_Animation(LG_Node_Map *map,string identifier,double dur):LG_Parsable_Node(map,identifier),span(dur),started(false){
+LG_Animation::LG_Animation(LG_Node_Map *map,string identifier,double dur):LG_Parsable_Node(map,identifier),span(dur){
 
     
 }
 
 
-LG_Animation::LG_Animation(LG_Node_Map *map,TiXmlElement *elem):LG_Parsable_Node(map,extractIDForSuper(elem)),span(LG_INVALID_DOUBLE),started(false){
+LG_Animation::LG_Animation(LG_Node_Map *map,TiXmlElement *elem):LG_Parsable_Node(map,extractIDForSuper(elem)),span(LG_INVALID_DOUBLE){
 
     
     evalElemName(LG_Animation_XML_Tag_Name, elem->Value());
@@ -66,9 +68,8 @@ LG_Animation * LG_Animation::animationForElement(LG_Node_Map *map,TiXmlElement *
     }
     
     else if(type==LG_Animation_Type_Circular){
-    
-        return new LG_CircularAnimation(map,elem);
-    
+        
+        return new LG_CircularAnimation(map, elem);
     }
     
     

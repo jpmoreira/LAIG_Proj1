@@ -24,8 +24,6 @@ public:
     LG_Animation_Container(TiXmlElement *elem);
     LG_Animation_Container();
     
-    
-    void update(unsigned long timeNow);
 };
 
 #endif /* defined(__LAIG_Proj1__LG_AnimationsContainer__) */
