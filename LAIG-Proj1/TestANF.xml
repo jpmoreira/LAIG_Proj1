@@ -52,7 +52,7 @@
         <texture id="floorTexture" file="./testFiles/chao.jpeg" texlength_s="0.2" texlength_t="0.2" />
         <texture id="rubberTexture" file="./testFiles/rubber.jpeg" texlength_s="0.1" texlength_t="0.1" />
         <texture id="leatherTexture" file="./testFiles/leather.jpeg" texlength_s="1" texlength_t="1" />
-        <texture id="cgra_robotTexture" file="./testFiles/cgra_robot.jpg" texlength_s="2" texlength_t="1"/>
+        <texture id="cgra_robotTexture" file="./testFiles/cgra_robot" texlength_s="2" texlength_t="1"/>
         <texture id="vehicleBodyText" file="./testFiles/us_.png" texlength_s="2" texlength_t="2" />
         <texture id="wingText" file="./testFiles/wing.png" texlength_s="2" texlength_t="2" />
         <texture id="earthText" file="./testFiles/earth.jpg" texlength_s="1" texlength_t="1" />
@@ -68,7 +68,6 @@
             <component type="diffuse" value="0.8 0.8 0.8 1" />
             <component type="specular" value="0.5 0.5 0.5 1" />
         </appearance>
-        
         <appearance id="bench_rests" shininess="0.8" textureref="wingText">
             <component type="ambient" value="0.7 0.7 0.7 1" />
             <component type="diffuse" value="0.8 0.8 0.8 1" />
@@ -92,28 +91,26 @@
             <component type="diffuse" value="0.8 0.8 0.8 1" />
             <component type="specular" value="0.5 0.5 0.5 1" />
         </appearance>
-    
+
+
     </appearances>
     
     
-    <animations>        
+    <animations>
         
-        <animation id="simpleAnimation" type="linear" span="5" >
-            <controlpoint xx="0" yy="0" zz="0" />
-            <controlpoint xx="5" yy="0" zz="0" />
-        </animation>
+
         
         
-        <animation id="vehicleRotation" span="20" type="circular" center="0 0 0" radius="4" startang="0" rotang="1710" />
+        <animation id="vehicleRotation" span="56,52" type="circular" center="0 0 0" radius="4" startang="0" rotang="810" />
         <animation id="earthRotation" span="1000" type="circular" center="-15 0 0" radius="15" startang="0" rotang="10000" />
-        <animation id="vehicleApproaching" span="5" type="linear" >
+        <animation id="vehicleApproaching" span="7" type="linear" >
             
             <controlpoint xx="0" yy="0" zz="0" />
             <controlpoint xx="7" yy="0" zz="0" />
         
         </animation>
         
-        <animation id="vehicleGoingAway" span="5" type="linear" >
+        <animation id="vehicleGoingAway" span="7" type="linear" >
             
             <controlpoint xx="0" yy="0" zz="0" />
             <controlpoint xx="0" yy="0" zz="7" />
@@ -124,15 +121,18 @@
     <graph rootid="earth_n_sun">
         
         <node id="scene">
-            <transforms></transforms>
-            <primitives></primitives>
+            <transforms>
+            </transforms>
+            <primitives>
+            </primitives>
             <descendants>
                 <noderef id="vehicle_animations"/>
                 <noderef id="earth"/>
                 <noderef id="sun"/>
             </descendants>
         </node>
-                
+        
+        
         <node id="vehicle_animations" >
             
             <animationref id="vehicleApproaching" />
@@ -148,24 +148,33 @@
         </node>
         
         <node id="position_vehicle">
+            
             <transforms>
                 <transform type="translate" to="-7 0 4" />
                 <transform type="rotate" angle="-90" axis="z"/>
                 <transform type="scale" factor="0.1 0.1 0.1"/>
+                
+                
             </transforms>
-            <primitives></primitives>
+            <primitives>
+            </primitives>
             <descendants>
                 <noderef id="vehicle"/>
             </descendants>
         </node>
 
+
+
         <node id="earth_n_sun">
-            <transforms></transforms>
-            <primitives></primitives>
+            <transforms>
+            </transforms>
+            <primitives>
+            </primitives>
             <descendants>
                 <noderef id="earth_anim"/>
                 <noderef id="sun" />
             </descendants>
+
         </node>
         
         <node id="earth_anim">
@@ -173,28 +182,40 @@
             <transforms>
                 <transform type="translate" to="15 0 0"/>
             </transforms>
-            <primitives></primitives>
+            <primitives>
+            </primitives>
             <descendants>
                 <noderef id="vehicle_n_earth"/>
             </descendants>
+            
         </node>
+        
+        
         
         <node id="vehicle_n_earth">
             
             <transforms>
             </transforms>
-            <primitives></primitives>
+            <primitives>
+            </primitives>
             <descendants>
                 <noderef id="earth"/>
                 <noderef id="vehicle_animations"/>
+
             </descendants>
+            
         </node>
         
+        
         <node id="vehicle">
+            
             <transforms>
                 <transform type="translate" to="0 -9 0"/>
+                
+
             </transforms>
-            <primitives></primitives>
+            <primitives>
+            </primitives>
             <descendants>
                 <noderef id="vehicle_nose"/>
                 <noderef id="vehicle_main_body"/>
@@ -209,8 +230,12 @@
             <transforms>
                 <transform type="translate" to="0 20 0"/>
                 <transform type="rotate" axis="x" angle="90" />
+                
+                
             </transforms>
-            <primitives></primitives>
+            <primitives>
+                
+            </primitives>
             <descendants>
                 <noderef id="flagSupport" />
                 <noderef id="flagMain" />
@@ -225,7 +250,8 @@
                 <cylinder base="0.05" top="0.05" height="3" slices="10" stacks="10" />
                 <sphere radius="0.10" slices="10" stacks="10" />
             </primitives>
-            <descendants></descendants>
+            <descendants>
+            </descendants>
         </node>
         <node id="flagMain">
             <transforms>
@@ -234,22 +260,28 @@
             <primitives>
                 <flag />
             </primitives>
-            <descendants></descendants>
+            <descendants>
+            </descendants>
         </node>
+        
         
         <node id="vehicle_nose">
             <transforms>
                 <transform type="translate" to="0 15 0"/>
                 <transform type="scale" factor="1 2 1" />
             </transforms>
-            <primitives></primitives>
+            <primitives>
+            </primitives>
             <descendants>
                 <noderef id="vehicle_round_part"/>
+                
             </descendants>
         </node>
-                
+        
+        
         <node id="vehicle_round_part">
-            <transforms></transforms>
+            <transforms>
+            </transforms>
             <primitives>
                 <patch order="2" partsU="30" partsV="30" compute="fill">
                     <controlpoint x="0" y="0" z="-1" />
@@ -260,24 +292,36 @@
                     <controlpoint x="-0.914213" y="0" z="0.914213" />
                     <controlpoint x="1" y="0" z="0" />
                     <controlpoint x="0.914213" y="0" z="0.914213" />
-                    <controlpoint x="0" y="0" z="1" />                   
+                    <controlpoint x="0" y="0" z="1" />
+                   
                 </patch>
+                
             </primitives>
         </node>
-                
+        
+        
+        
+
+        
         <node id="vehicle_main_body">
+            
             <appearanceref id="vehicleBodyApp"/>"
             <transforms>
                 <transform type="rotate" axis="x" angle="-90" />
+                
             </transforms>
             <primitives>
                 <cylinder base="1" top="1" height="15" slices="50" stacks="50" />
             </primitives>
         </node>
         
+        
+        
         <node id="wing_front_face">
-            <transforms></transforms>
-            <primitives></primitives>
+            <transforms>
+            </transforms>
+            <primitives>
+            </primitives>
             <descendants>
                 <noderef id="wing_square_front"/>
                 <noderef id="wing_triangle_front"/>
@@ -285,22 +329,26 @@
         </node>
         
         <node id="wing_square_front">
-            <transforms></transforms>
+            <transforms>
+            </transforms>
             <primitives>
                 <rectangle xy1="0 0" xy2="1 1.8" />
             </primitives>
         </node>
-        
         <node id="wing_triangle_front">
-            <transforms></transforms>
+            <transforms>
+            </transforms>
             <primitives>
                 <triangle xyz1="0 1.8 0" xyz2="1 1.8 0" xyz3="0 3.7 0" />
             </primitives>
         </node>
         
+        
         <node id="wing_back_face">
             <transforms>
+                
                 <transform type="rotate" axis="y" angle="180" />
+                
             </transforms>
             <primitives>
             </primitives>
@@ -311,34 +359,42 @@
         </node>
         
         <node id="wing_square_back">
-            <transforms></transforms>
+            <transforms>
+            </transforms>
             <primitives>
                 <rectangle xy1="0 1.8" xy2="-1 0" />
             </primitives>
         </node>
-        
         <node id="wing_triangle_back">
-            <transforms></transforms>
+            <transforms>
+            </transforms>
             <primitives>
                 <triangle xyz1="0 1.8 0"  xyz2="0 3.7 0" xyz3="-1 1.8 0"/>
             </primitives>
         </node>
+        
         
         <node id="wing">
             <appearanceref id="wing_app"/>
             <transforms>
                 <transform type="translate" to="1 0 0"/>
             </transforms>
-            <primitives></primitives>
+            <primitives>
+            </primitives>
             <descendants>
                 <noderef id="wing_front_face"/>
                 <noderef id="wing_back_face"/>
             </descendants>
         </node>
         
+        
         <node id="wing1">
-            <transforms></transforms>
-            <primitives></primitives>
+            <transforms>
+                
+                
+            </transforms>
+            <primitives>
+            </primitives>
             <descendants>
                 <noderef id="wing"/>
             </descendants>
@@ -348,21 +404,29 @@
             <transforms>
                 <transform type="rotate" axis="y" angle="120" />
             </transforms>
-            <primitives></primitives>
+            <primitives>
+            </primitives>
             <descendants>
                 <noderef id="wing"/>
             </descendants>
         </node>
         
         <node id="wing3">
-            <transforms></transforms>
-            <primitives></primitives>
+            <transforms>
+                
+            </transforms>
+            <primitives>
+            </primitives>
             <descendants>
                 <noderef id="wing"/>
             </descendants>
         </node>
         
+        
+        
+        
         <node id="earth">
+            
             <appearanceref id="earthApp" />
             <transforms>
                 <transform type="rotate" axis="x" angle="-90" />
@@ -371,16 +435,31 @@
             <primitives>
                 <sphere radius="2" slices="30" stacks="30" />
             </primitives>
-            <descendants></descendants>         
+            <descendants>
+            </descendants>
+            
         </node>
         
-        <node id="sun">          
+        
+        <node id="sun">
+            
             <appearanceref id="sunApp" />
-            <transforms></transforms>
+            <transforms>
+    
+                
+            </transforms>
             <primitives>
                 <sphere radius="6" slices="30" stacks="30" />
             </primitives>
-            <descendants></descendants>
+            <descendants>
+            </descendants>
+            
         </node>
-          </graph>    
+
+
+          </graph>
+    
+    
+    
+    
 </anf>

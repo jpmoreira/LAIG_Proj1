@@ -248,14 +248,10 @@
 		5458030A19D5804400C9DF32 /* LG_Drawing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5458030819D5804400C9DF32 /* LG_Drawing.cpp */; };
 		545E74FD1A111ED700B83CC9 /* LG_Flag.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 545E74F91A111ED700B83CC9 /* LG_Flag.cpp */; };
 		545E74FE1A111ED700B83CC9 /* LG_Patch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 545E74FB1A111ED700B83CC9 /* LG_Patch.cpp */; };
-		545E750A1A112AB600B83CC9 /* appValues.vert in CopyFiles */ = {isa = PBXBuildFile; fileRef = 545E75001A111FD400B83CC9 /* appValues.vert */; };
-		545E750B1A112AB600B83CC9 /* dualVaryingColor.frag in CopyFiles */ = {isa = PBXBuildFile; fileRef = 545E75011A111FD400B83CC9 /* dualVaryingColor.frag */; };
 		545E750C1A112AB600B83CC9 /* evaltext.bmp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 545E75021A111FD400B83CC9 /* evaltext.bmp */; };
 		545E750D1A112AB600B83CC9 /* evaltext.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 545E75031A111FD400B83CC9 /* evaltext.jpg */; };
 		545E750E1A112AB600B83CC9 /* FEUP.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 545E75041A111FD400B83CC9 /* FEUP.jpg */; };
 		545E750F1A112AB600B83CC9 /* terrainmap2.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 545E75051A111FD400B83CC9 /* terrainmap2.jpg */; };
-		545E75111A112AB600B83CC9 /* textureDemo2.frs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 545E75071A111FD400B83CC9 /* textureDemo2.frs */; };
-		545E75131A112AB600B83CC9 /* textureDemo2.vrs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 545E75091A111FD400B83CC9 /* textureDemo2.vrs */; };
 		545E75171A11420300B83CC9 /* CGFshader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 545E75161A11420300B83CC9 /* CGFshader.cpp */; };
 		545E751A1A12069B00B83CC9 /* fragmentshader.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 545E75191A12069000B83CC9 /* fragmentshader.fs */; };
 		545E751B1A12069B00B83CC9 /* vertexshader.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 545E75181A12068400B83CC9 /* vertexshader.vs */; };
@@ -592,14 +588,10 @@
 				548BA54E1A137C0F00AFF8DB /* us_.png in CopyFiles */,
 				545E751A1A12069B00B83CC9 /* fragmentshader.fs in CopyFiles */,
 				545E751B1A12069B00B83CC9 /* vertexshader.vs in CopyFiles */,
-				545E750A1A112AB600B83CC9 /* appValues.vert in CopyFiles */,
-				545E750B1A112AB600B83CC9 /* dualVaryingColor.frag in CopyFiles */,
 				545E750C1A112AB600B83CC9 /* evaltext.bmp in CopyFiles */,
 				545E750D1A112AB600B83CC9 /* evaltext.jpg in CopyFiles */,
 				545E750E1A112AB600B83CC9 /* FEUP.jpg in CopyFiles */,
 				545E750F1A112AB600B83CC9 /* terrainmap2.jpg in CopyFiles */,
-				545E75111A112AB600B83CC9 /* textureDemo2.frs in CopyFiles */,
-				545E75131A112AB600B83CC9 /* textureDemo2.vrs in CopyFiles */,
 				54858E5219F99246000DC238 /* TestEvaluators.xml in CopyFiles */,
 				547DE8B819F6B53500328518 /* cgra_robot in CopyFiles */,
 				548CA68A19EEBFE8008AD9F7 /* metal.jpg in CopyFiles */,
@@ -916,20 +908,14 @@
 		545E74FA1A111ED700B83CC9 /* LG_Flag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_Flag.h; sourceTree = "<group>"; };
 		545E74FB1A111ED700B83CC9 /* LG_Patch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Patch.cpp; sourceTree = "<group>"; };
 		545E74FC1A111ED700B83CC9 /* LG_Patch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_Patch.h; sourceTree = "<group>"; };
-		545E75001A111FD400B83CC9 /* appValues.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = appValues.vert; sourceTree = "<group>"; };
-		545E75011A111FD400B83CC9 /* dualVaryingColor.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = dualVaryingColor.frag; sourceTree = "<group>"; };
 		545E75021A111FD400B83CC9 /* evaltext.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = evaltext.bmp; sourceTree = "<group>"; };
 		545E75031A111FD400B83CC9 /* evaltext.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = evaltext.jpg; sourceTree = "<group>"; };
 		545E75041A111FD400B83CC9 /* FEUP.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = FEUP.jpg; sourceTree = "<group>"; };
 		545E75051A111FD400B83CC9 /* terrainmap2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = terrainmap2.jpg; sourceTree = "<group>"; };
-		545E75061A111FD400B83CC9 /* textureDemo2.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = textureDemo2.frag; sourceTree = "<group>"; };
-		545E75071A111FD400B83CC9 /* textureDemo2.frs */ = {isa = PBXFileReference; lastKnownFileType = text; path = textureDemo2.frs; sourceTree = "<group>"; };
-		545E75081A111FD400B83CC9 /* textureDemo2.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = textureDemo2.vert; sourceTree = "<group>"; };
-		545E75091A111FD400B83CC9 /* textureDemo2.vrs */ = {isa = PBXFileReference; lastKnownFileType = text; path = textureDemo2.vrs; sourceTree = "<group>"; };
 		545E75151A1141F600B83CC9 /* CGFshader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGFshader.h; sourceTree = "<group>"; };
 		545E75161A11420300B83CC9 /* CGFshader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CGFshader.cpp; sourceTree = "<group>"; };
-		545E75181A12068400B83CC9 /* vertexshader.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = vertexshader.vs; sourceTree = "<group>"; };
-		545E75191A12069000B83CC9 /* fragmentshader.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = fragmentshader.fs; sourceTree = "<group>"; };
+		545E75181A12068400B83CC9 /* vertexshader.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = vertexshader.vs; path = "../LAIG-Proj1/vertexshader.vs"; sourceTree = "<group>"; };
+		545E75191A12069000B83CC9 /* fragmentshader.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = fragmentshader.fs; path = "../LAIG-Proj1/fragmentshader.fs"; sourceTree = "<group>"; };
 		546184EA19DAFBFB005C6166 /* LG_Transform.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Transform.cpp; sourceTree = "<group>"; };
 		546184EB19DAFBFB005C6166 /* LG_Transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_Transform.h; sourceTree = "<group>"; };
 		546184EF19DB12D9005C6166 /* TestTransforms.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TestTransforms.xml; sourceTree = "<group>"; };
@@ -1038,8 +1024,8 @@
 		54D8613219E58EE600B5695A /* LG_Textures_Tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LG_Textures_Tests; sourceTree = BUILT_PRODUCTS_DIR; };
 		54DE089919E5560000E283B6 /* LG_Glu_Primitive.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Glu_Primitive.cpp; sourceTree = "<group>"; };
 		54DE089A19E5560000E283B6 /* LG_Glu_Primitive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_Glu_Primitive.h; sourceTree = "<group>"; };
-		54F94B391A1A0AE600A4B250 /* LG_AnimationState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_AnimationState.cpp; sourceTree = "<group>"; };
-		54F94B3A1A1A0AE600A4B250 /* LG_AnimationState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_AnimationState.h; sourceTree = "<group>"; };
+		54F94B391A1A0AE600A4B250 /* LG_AnimationState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LG_AnimationState.cpp; path = "LAIG-Proj1/LG_AnimationState.cpp"; sourceTree = "<group>"; };
+		54F94B3A1A1A0AE600A4B250 /* LG_AnimationState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LG_AnimationState.h; path = "LAIG-Proj1/LG_AnimationState.h"; sourceTree = "<group>"; };
 		54F94B3D1A1BCFD600A4B250 /* earth.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = earth.jpg; sourceTree = "<group>"; };
 		54F94B3F1A1BD89600A4B250 /* sun.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sun.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1581,16 +1567,10 @@
 				548BA5411A13721800AFF8DB /* chess__.jpg */,
 				545E75191A12069000B83CC9 /* fragmentshader.fs */,
 				545E75181A12068400B83CC9 /* vertexshader.vs */,
-				545E75001A111FD400B83CC9 /* appValues.vert */,
-				545E75011A111FD400B83CC9 /* dualVaryingColor.frag */,
 				545E75021A111FD400B83CC9 /* evaltext.bmp */,
 				545E75031A111FD400B83CC9 /* evaltext.jpg */,
 				545E75041A111FD400B83CC9 /* FEUP.jpg */,
 				545E75051A111FD400B83CC9 /* terrainmap2.jpg */,
-				545E75061A111FD400B83CC9 /* textureDemo2.frag */,
-				545E75071A111FD400B83CC9 /* textureDemo2.frs */,
-				545E75081A111FD400B83CC9 /* textureDemo2.vert */,
-				545E75091A111FD400B83CC9 /* textureDemo2.vrs */,
 			);
 			path = data;
 			sourceTree = "<group>";
