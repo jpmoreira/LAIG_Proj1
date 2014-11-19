@@ -1,7 +1,7 @@
 uniform sampler2D baseImage;		//front texture
 uniform sampler2D secondImage;		//background texture
 varying vec4 colorByHeight;			//
-varying vec2 textcoord;
+const float colorByHeightPercent = 0.2;
 
 
 
@@ -10,16 +10,11 @@ varying vec2 textcoord;
 void main()
 {
 	vec4 color=texture2D(baseImage, gl_TexCoord[0].st);
-
-	// notice the coordinate conversion to flip the image horizontally and vertically
 	vec4 filter=texture2D(secondImage, gl_TexCoord[0].st);
 
+	//when the blue color of secondImage is > .5, set color as orange
 	if (filter.b > 0.5)
 		color=vec4(0.52,0.18,0.11,1.0);
 	
-	gl_FragColor = color * 0.8 +colorByHeight * 0.2;
-
-
-	//vec4 textcolor = texture2D(secondImage, gl_TexCoord[0].st);
-	//gl_FragColor = textcolor * 0.8 + 0.2*colorByHeight;
+	gl_FragColor = color * (1.0-colorByHeightPercent) +colorByHeight * colorByHeightPercent;
 }

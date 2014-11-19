@@ -12,20 +12,6 @@
 
 
 
-/*
-1. Create a shader object.
-2. Compile your shader source into the object.
-3. Verify that your shader successfully compiled.
-
-Then, to link multiple shader objects into a shader program, you’ll:
-1. Create a shader program.
-2. Attach the appropriate shader objects to the shader program.
-3. Link the shader program.
-4. Verify that the shader link phase completed successfully.
-5. Use the shader for vertex or fragment processing.
-*/
-
-
 int LG_Flag::classIDNr = 0;
 int LG_Flag::wind = 1;
 
@@ -34,12 +20,17 @@ int LG_Flag::wind = 1;
 LG_Flag::LG_Flag(LG_Node_Map *map, TiXmlElement *elem) : LG_Plane(map, autoIdentifier(LG_Flag_ID_Prefix, classIDNr))
 {
 
+	has_sec_text = false;			//used to sign if there are more than 1texture assigned
+	string texture1_path, texture2_path;	//textures path
+
 	if (!str_eq(elem->Value(), LG_Flag_XML_Tag_Name)) {
 
 		throw LG_Parse_Exception_Wrong_Element_Name(LG_Flag_XML_Tag_Name, elem->Value());
 	}
 
+	//------------------------------------- Set Parts --------------------------------//
 	try{
+		//extra attribute
 		positiveInt_tryToAttributeVariable(LG_Plane_parts_XML_Att_Name, elem, LG_Patch::partsV);
 	}
 	catch (LG_Parse_Exception *e){
@@ -48,49 +39,82 @@ LG_Flag::LG_Flag(LG_Node_Map *map, TiXmlElement *elem) : LG_Plane(map, autoIdent
 
 	LG_Patch::partsU = LG_Patch::partsV;
 
+	//------------------------------------- Set texture(s) --------------------------------//
 
+	//base texture
+	try{
+		string_tryToAttributeVariable(LG_Flag_Att_Texture, elem, texture1_path);
+	}
+	catch (LG_Parse_Exception *e){
+		texture1_path = "../data/terrainmap2.jpg";	//default texture if missing
+	}
+
+	//extra texture
+	try{
+		string_tryToAttributeVariable(LG_Flag_Att_Texture2, elem, texture2_path);
+		has_sec_text = true;
+	}
+	catch (LG_Parse_Exception *e){}
+
+	baseTexture = new CGFtexture(texture1_path.c_str());
+	
+	if (has_sec_text)
+		secTexture = new CGFtexture(texture2_path.c_str());
+
+	//------------------------------------ set shader files ------------------------------//
+
+	//vertex shader file
 	try{
 		string_tryToAttributeVariable(LG_Flag_Att_VertexShader, elem, vsfile_path);
 	}
 	catch (LG_Parse_Exception *e){
+		if (has_sec_text)
+		{	//has a second texture
 #ifdef _WIN32
-		vsfile_path = "../data/textureDemo2.vs";
+			vsfile_path = "../data/fiftyfifty.vrs";
 #else
-        vsfile_path= "testFiles/textureDemo2.vs";
-#endif
+			vsfile_path = "testFiles/fiftyfifty.vrs";
+#endif 
+		}
+		else{//only one texture
+#ifdef _WIN32
+			vsfile_path = "../data/one_text.vrs";
+#else
+			vsfile_path = "testFiles/one_text.vrs";
+#endif 
+		}
 	}
 
+
+
+	//fragment shader file
 	try{
 		string_tryToAttributeVariable(LG_Flag_Att_FragmentShader, elem, fsfile_path);
 	}
 	catch (LG_Parse_Exception *e){
-        
-		
+		if (has_sec_text)
+		{
+			//has a second texture
 #ifdef _WIN32
-        fsfile_path = "../data/textureDemo2.fs";
+			fsfile_path = "../data/fiftyfifty.frs";
 #else
-        fsfile_path = "testFiles/textureDemo2.fs";
-#endif
+			fsfile_path = "testFiles/fiftyfifty.frs";
+#endif 
+		}
+		else{
+			//only has 1 texture
+#ifdef _WIN32
+			fsfile_path = "../data/one_text.frs";
+#else
+			fsfile_path = "testFiles/one_text.frs";
+#endif 
+		}
 	}
 
-	//todo shader is still expecting wind as float, get him that
 
-	/************************************************************
-	The shader things
-	************************************************************/
-    
-    
-#ifdef _WIN32
-	init("../data/textureDemo2.vrs", "../data/textureDemo2.frs");
-#else
-    printf("Initialize glew with status: %s\n",glewGetErrorString(glewInit()));
-    //if (!GLEW_VERSION_2_1) printf("Version not supported");
-    init("testFiles/textureDemo2.vrs", "testFiles/textureDemo2.frs");
-#endif
-    
-	//init("../data/textureDemo2.vert", "../data/textureDemo2.frag");
+	//------------------------------------ initialize shader ------------------------------//
+	init(vsfile_path.c_str(), fsfile_path.c_str());
 
-	
 
 	CGFshader::bind();
 
@@ -100,13 +124,9 @@ LG_Flag::LG_Flag(LG_Node_Map *map, TiXmlElement *elem) : LG_Plane(map, autoIdent
 	// Store Id for the uniform "normScale", new value will be stored on bind()
 	scaleLoc = glGetUniformLocation(id(), "normScale");
 
-#ifdef _WIN32
-	baseTexture = new CGFtexture("../data/terrainmap2.jpg");
-	secTexture = new CGFtexture("../data/feup.jpg");
-#else
-    baseTexture = new CGFtexture("testFiles/terrainmap2.jpg");
-    secTexture = new CGFtexture("testFiles/feup.jpg");
-#endif
+	/*baseTexture = new CGFtexture("../data/terrainmap2.jpg");
+	secTexture = new CGFtexture("../data/feup.jpg");*/
+
 	// get the uniform location for the sampler
 	baseImageLoc = glGetUniformLocation(id(), "baseImage");
 
@@ -114,9 +134,14 @@ LG_Flag::LG_Flag(LG_Node_Map *map, TiXmlElement *elem) : LG_Plane(map, autoIdent
 	// will use later e.g. if using GL_TEXTURE0, set the uniform to 0
 	glUniform1i(baseImageLoc, 0);
 
-	// repeat if you use more textures in your shader(s)
-	secImageLoc = glGetUniformLocation(id(), "secondImage");
-	glUniform1i(secImageLoc, 1);
+	if (has_sec_text)
+	{
+
+		// repeat if you use more textures in your shader(s)
+		secImageLoc = glGetUniformLocation(id(), "secondImage");
+		glUniform1i(secImageLoc, 1);
+
+	}
 
 	windLoc = glGetUniformLocation(id(), "wind");
 	glUniform1i(windLoc, wind);
@@ -141,14 +166,14 @@ void LG_Flag::config(){
 
 
 void LG_Flag::draw(){
-	
-	
+
+
 	bind();
 
 	LG_Patch::draw();
 
 	unbind();
-	
+
 	if (LG_Appearance::currentTexture)
 	{
 		LG_Appearance::currentTexture->apply();
@@ -176,11 +201,14 @@ void LG_Flag::bind()
 	baseTexture->apply();
 
 	// do the same for other textures
-	glActiveTexture(GL_TEXTURE1);
+	if (has_sec_text)
+	{
+		glActiveTexture(GL_TEXTURE1);
 
-	secTexture->apply();
+		secTexture->apply();
 
-	glActiveTexture(GL_TEXTURE0);
+		glActiveTexture(GL_TEXTURE0);
+	}
 
 }
 
@@ -194,7 +222,7 @@ void LG_Flag::unbind(){
 void LG_Flag::update(unsigned long time){
 
 	static unsigned long start = time;
-	my_time = (float)((time - start)/1000.0);
+	my_time = (float)((time - start) / 1000.0);
 	//std::cout << d_time << std::endl;
 }
 

@@ -1,0 +1,13 @@
+uniform sampler2D baseImage;		//texture
+varying vec4 colorByHeight;			//the higher, the brighter
+const float colorByHeightPercent = 0.2;
+
+
+
+
+
+void main()
+{
+	vec4 color=texture2D(baseImage, gl_TexCoord[0].st);	
+	gl_FragColor = color * (1.0-colorByHeightPercent) + colorByHeight * colorByHeightPercent;
+}
