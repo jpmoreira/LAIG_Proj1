@@ -1,129 +1,146 @@
 <anf>
-    <globals>
-        <drawing mode="fill" shading="gouraud" background="0.2 0.2 0.2 0" />
-        <culling face="back" order="ccw" />
-        <lighting doublesided="false" local="true" enabled="true" ambient="0.3 0.3 0.3 1" />
-    </globals>
-    
-    <cameras initial="perspective1" >
-        <perspective id="perspective1" near="1" far="200" angle="30" pos="0 20 20" target="20 0 0" />
-        <ortho id="ortho1" direction="x" near="20" far="-20" left="-10" right="5" top="20" bottom="0" />
-    </cameras>
-    
-    <lights>
-        <light id="omniGrey" type="omni" enabled="true" marker="false" pos="0 10 0" >
-            <component type="ambient" value="0.4 0.4 0.4 1" />
-            <component type="diffuse" value="0.4 0.4 0.4 1" />
-            <component type="specular" value="0.4 0.4 0.4 1" />
-        </light>
-        <light id="spotWhite" type="spot" enabled="false" marker="false" pos="0 3 0" target="1 0 1"
-            angle="80" exponent="1" >
-            <component type="ambient" value="0.8 0.8 0.8 1" />
-            <component type="diffuse" value="0.8 0.8 0.8 1" />
-            <component type="specular" value="0.8 0.8 0.8 1" />
-        </light>
-    </lights>
-    
-    <!-- bloco de texturas. Este bloco tem de existir mas pode estar vazio, se nao forem usadas texturas -->
-    <!--   ver topico 'Notas finais' no enunciado sobre os parametros texlength_... -->
-    <textures>
-        <!--
-        <texture id="floorTexture" file="./testFiles/chao.jpeg" texlength_s="0.2" texlength_t="0.2" />
-        <texture id="rubberTexture" file="./testFiles/rubber.jpeg" texlength_s="0.1" texlength_t="0.1" />
-        <texture id="leatherTexture" file="./testFiles/leather.jpeg" texlength_s="1" texlength_t="1" />
-        <texture id="cgra_robotTexture" file="./testFiles/cgra_robot.jpg" texlength_s="2" texlength_t="1"/>
-        -->
+  <globals>
+    <drawing mode="fill" shading="gouraud" background="0.2 0.2 0.2 0" />
+    <culling face="back" order="ccw" />
+    <lighting doublesided="false" local="true" enabled="true" ambient="0.6 0.6 0.6 1" />
+  </globals>
 
-        <texture id="vehicleBodyText" file="./testFiles/us_.png" texlength_s="2" texlength_t="2" />
-        <texture id="wingText" file="./testFiles/wing.png" texlength_s="2" texlength_t="2" />
-        <texture id="earthText" file="./testFiles/earth.jpg" texlength_s="1" texlength_t="1" />
-        <texture id="sunText" file="./testFiles/sun.jpg" texlength_s="1" texlength_t="1" />
-        <texture id="starsText" file="./testFiles/stars.jpg" texlength_s="1" texlength_t="1" />
-        
-           </textures>
-    <!-- bloco de materiais; -->
-    <appearances>
-        <!-- deve existir um ou mais blocos "appearance" -->
-        <!-- IMPORTANTE: -->
-        <!--   textureref e opcional, a utilizar caso haja textura associada a esta aparencia -->
-        <appearance id="starsApp" shininess="0.8" textureref="starsText">
-            <component type="ambient" value="0.7 0.7 0.7 1" />
-            <component type="diffuse" value="0.8 0.8 0.8 1" />
-            <component type="specular" value="0.5 0.5 0.5 1" />
-        </appearance>
-        
-        <appearance id="vehicleBodyApp" shininess="0.8" textureref="vehicleBodyText">
-            <component type="ambient" value="0.7 0.7 0.7 1" />
-            <component type="diffuse" value="0.8 0.8 0.8 1" />
-            <component type="specular" value="0.5 0.5 0.5 1" />
-        </appearance>
-        
-        <appearance id="bench_rests" shininess="0.8" textureref="wingText">
-            <component type="ambient" value="0.7 0.7 0.7 1" />
-            <component type="diffuse" value="0.8 0.8 0.8 1" />
-            <component type="specular" value="0.5 0.5 0.5 1" />
-        </appearance>
-        
-        <appearance id="wing_app" shininess="0.4" textureref="wingText">
-            <component type="ambient" value="0.2 0.2 0.2 1" />
-            <component type="diffuse" value="0.8 0.8 0.8 1" />
-            <component type="specular" value="0.6 0.6 0.6 1" />
-        </appearance>
-        
-        <appearance id="earthApp" shininess="0.8" textureref="earthText">
-            <component type="ambient" value="0.7 0.7 0.7 1" />
-            <component type="diffuse" value="0.8 0.8 0.8 1" />
-            <component type="specular" value="0.5 0.5 0.5 1" />
-        </appearance>
-        
-        <appearance id="sunApp" shininess="0.8" textureref="sunText">
-            <component type="ambient" value="0.7 0.7 0.7 1" />
-            <component type="diffuse" value="0.8 0.8 0.8 1" />
-            <component type="specular" value="0.5 0.5 0.5 1" />
-        </appearance>
-    
-    </appearances>
-    
-    
-    <animations>        
-        
-        <animation id="simpleAnimation" type="linear" span="25" >
-            <controlpoint xx="0" yy="0" zz="0" />
-            <controlpoint xx="0" yy="10" zz="0" />
-            <controlpoint xx="0" yy="0" zz="0" />
-        </animation>
-        
-        <animation id="vehicleWeirdMovement" type="linear" span="20">
-            <controlpoint xx="0" yy="0" zz="0" />
-            <controlpoint xx="0" yy="0" zz="10" />
-            <controlpoint xx="-5" yy="0" zz="15" />
-        </animation>
+  <cameras initial="perspective1" >
+    <perspective id="perspective1" near="1" far="200" angle="30" pos="0 20 20" target="20 0 0" />
+    <ortho id="ortho1" direction="x" near="20" far="-20" left="-10" right="5" top="20" bottom="0" />
+  </cameras>
 
-      <animation id="vehicleMovement" type="linear" span="20">
-        <controlpoint xx="0" yy="0" zz="0" />
-        <controlpoint xx="0" yy="0" zz="10" />
-        <controlpoint xx="0" yy="0" zz="-10" />
-      </animation>
-            
-        <animation id="vehicleRotation" span="35" type="circular" center="0 0 -3" radius="3" startang="0" rotang="3500" />      
-        <animation id="earthRotation" span="30" type="circular" center="-15 0 0" radius="15" startang="0" rotang="3000" />
-        <animation id="sunRotation" span="30" type="circular" center="0 0 0" radius="1" startang="0" rotang="2000" />
-    
-    </animations>
-    
-    <graph rootid="scene">
-        
-        <node id="scene">
-            <transforms></transforms>
-            <primitives></primitives>
-            <descendants>
-                <noderef id="earth_n_sun"/>
-                <!--<noderef id="space_planes"/> -->
-                <noderef id="flag_extra"/>
-            </descendants>
-        </node>
-        
-        <node id="flag_extra">
+  <lights>
+    <light id="omniYellow" type="omni" enabled="false" marker="true" pos="5 5 5" >
+      <component type="ambient" value="0.4 0.4 0.1 0.5" />
+      <component type="diffuse" value="0.4 0.4 0.1 0.5" />
+      <component type="specular" value="0.4 0.4 0.1 0.5" />
+    </light>
+    <light id="omniGreen" type="omni" enabled="false" marker="false" pos="20 10 20" >
+      <component type="ambient" value="0.1 0.4 0.1 0.5" />
+      <component type="diffuse" value="0.1 0.4 0.1 0.5" />
+      <component type="specular" value="0.1 0.4 0.1 0.5" />
+    </light>
+    <light id="omniGrey" type="omni" enabled="false" marker="false" pos="10 5 10" >
+      <component type="ambient" value="0.2 0.2 0.2 0.1" />
+      <component type="diffuse" value="0.2 0.2 0.2 0.1" />
+      <component type="specular" value="0.2 0.2 0.2 0.1" />
+    </light>
+    <light id="spotBlue" type="spot" enabled="true" marker="true" pos="12 8 5" target="0 -1 0"
+        angle="30" exponent="1" >
+      <component type="ambient" value="0.2 0.2 0.8 1" />
+      <component type="diffuse" value="0.2 0.2 0.8 1" />
+      <component type="specular" value="0.2 0.2 0.8 1" />
+    </light>
+    <light id="spotWhite" type="spot" enabled="true" marker="false" pos="12 8 5" target="0 -1 0"
+        angle="60" exponent="1" >
+      <component type="ambient" value="0.8 0.8 0.8 1" />
+      <component type="diffuse" value="0.8 0.8 0.8 1" />
+      <component type="specular" value="0.8 0.8 0.8 1" />
+    </light>
+    <light id="spotRed" type="spot" enabled="true" marker="false" pos="12 8 5" target="0 -1 0"
+        angle="30" exponent="20" >
+      <component type="ambient" value="0.8 0.2 0.2 1" />
+      <component type="diffuse" value="0.8 0.2 0.2 1" />
+      <component type="specular" value="0.8 0.2 0.2 1" />
+    </light>
+  </lights>
+
+  <!-- bloco de texturas. Este bloco tem de existir mas pode estar vazio, se nao forem usadas texturas -->
+  <!--   ver topico 'Notas finais' no enunciado sobre os parametros texlength_... -->
+  <textures>
+    <!--<texture id="floorTexture" file="../data/chao.jpeg" texlength_s="0.2" texlength_t="0.2" />-->
+    <texture id="rubberTexture" file="../data/rubber.jpeg" texlength_s="0.1" texlength_t="0.1" />
+    <texture id="leatherTexture" file="../data/leather.jpeg" texlength_s="1" texlength_t="1" />
+    <texture id="cgra_robotTexture" file="../data/cgra_robot.jpg" texlength_s="2" texlength_t="1"/>
+    <texture id="vehicleBodyText" file="../data/us_.png" texlength_s="2" texlength_t="2" />
+    <texture id="wingText" file="../data/wing.png" texlength_s="2" texlength_t="2" />
+    <texture id="earthText" file="../data/earth.jpg" texlength_s="1" texlength_t="1" />
+    <texture id="sunText" file="../data/sun.jpg" texlength_s="1" texlength_t="1" />
+    <texture id="starsText" file="../data/stars.jpg" texlength_s="1" texlength_t="1" />
+    <!--<texture id="starsText" file="../data/stars.jpg" textlength_s="1" textlength_t="1"/>-->
+  </textures>
+  <!-- bloco de materiais; -->
+  <appearances>
+    <!-- deve existir um ou mais blocos "appearance" -->
+    <!-- IMPORTANTE: -->
+    <!--   textureref e opcional, a utilizar caso haja textura associada a esta aparencia -->
+    <appearance id="vehicleBodyApp" shininess="0.8" textureref="vehicleBodyText">
+      <component type="ambient" value="0.7 0.7 0.7 1" />
+      <component type="diffuse" value="0.8 0.8 0.8 1" />
+      <component type="specular" value="0.5 0.5 0.5 1" />
+    </appearance>
+    <appearance id="bench_rests" shininess="0.8" textureref="wingText">
+      <component type="ambient" value="0.7 0.7 0.7 1" />
+      <component type="diffuse" value="0.8 0.8 0.8 1" />
+      <component type="specular" value="0.5 0.5 0.5 1" />
+    </appearance>
+
+    <appearance id="wing_app" shininess="0.4" textureref="wingText">
+      <component type="ambient" value="0.2 0.2 0.2 1" />
+      <component type="diffuse" value="0.8 0.8 0.8 1" />
+      <component type="specular" value="0.6 0.6 0.6 1" />
+    </appearance>
+
+    <appearance id="earthApp" shininess="0.8" textureref="earthText">
+      <component type="ambient" value="0.7 0.7 0.7 1" />
+      <component type="diffuse" value="0.8 0.8 0.8 1" />
+      <component type="specular" value="0.5 0.5 0.5 1" />
+    </appearance>
+
+    <appearance id="sunApp" shininess="0.8" textureref="sunText">
+      <component type="ambient" value="0.7 0.7 0.7 1" />
+      <component type="diffuse" value="0.8 0.8 0.8 1" />
+      <component type="specular" value="0.5 0.5 0.5 1" />
+    </appearance>
+
+    <appearance id="starsApp" shininess="0.2" textureref="starsText">
+      <component type="ambient" value="0.4 0.4 0.4 1" />
+      <component type="diffuse" value="0.5 0.5 0.5 1" />
+      <component type="specular" value="0.6 0.7 0.7 1" />
+    </appearance>
+
+  </appearances>
+
+
+  <animations>
+
+
+
+
+    <animation id="vehicleRotation" span="56,52" type="circular" center="0 0 0" radius="4" startang="0" rotang="810" />
+    <animation id="earthRotation" span="1000" type="circular" center="-15 0 0" radius="15" startang="0" rotang="10000" />
+    <animation id="vehicleApproaching" span="7" type="linear" >
+
+      <controlpoint xx="0" yy="0" zz="0" />
+      <controlpoint xx="7" yy="0" zz="0" />
+
+    </animation>
+
+    <animation id="vehicleGoingAway" span="7" type="linear" >
+
+      <controlpoint xx="0" yy="0" zz="0" />
+      <controlpoint xx="0" yy="0" zz="7" />
+
+    </animation>
+  </animations>
+
+  <graph rootid="earth_n_sun">
+
+    <node id="scene">
+      <transforms>
+      </transforms>
+      <primitives>
+      </primitives>
+      <descendants>
+        <noderef id="vehicle_animations"/>
+        <noderef id="earth"/>
+        <noderef id="sun"/>
+      </descendants>
+    </node>
+
+
+    <node id="flag_extra">
       <appearanceref id="inherit"/>
       <transforms>
         <transform type="translate" to="0 15 41"/>
@@ -136,311 +153,66 @@
         <flag texture="../data/paper.jpg" texture2="../data/opengl.png"/>
       </primitives>
     </node>
-        
-          <node id="earth_n_sun">
-            <!--<animationref id="simpleAnimation" />-->
-            <transforms></transforms>
-            <primitives></primitives>
-            <descendants>
-                <noderef id="earth_anim"/>
-                <noderef id="sun" />
-            </descendants>
-        </node>
-        
-        <node id="sun">
-            <!--<animationref id="sunRotation" />-->
-            <appearanceref id="sunApp" />
-            <transforms></transforms>
-            <primitives>
-                <sphere radius="6" slices="30" stacks="30" />
-            </primitives>
-            <descendants></descendants>
-        </node>
-        
-        <node id="earth_anim">
-            <!--<animationref id="earthRotation"/>-->
-            <transforms>
-                <transform type="translate" to="15 0 0"/>
-            </transforms>
-            <primitives></primitives>
-            <descendants>
-                <noderef id="vehicle_n_earth"/>
-            </descendants>
-        </node>
-        
-        <node id="vehicle_n_earth">   
-            <transforms>
-                <transform type="translate" to="0 0 3" />
-            </transforms>
-            <primitives></primitives>
-            <descendants>
-                <noderef id="earth"/>
-                <noderef id="vehicle_animations"/>
-            </descendants>
-        </node>
-        
-        <node id="earth">
-            <appearanceref id="earthApp" />
-            <transforms>
-                <transform type="translate" to="0 0 -3" />
-                <transform type="rotate" axis="x" angle="-90" />            
-            </transforms>
-            <primitives>
-                <sphere radius="2" slices="30" stacks="30" />
-            </primitives>
-            <descendants></descendants>         
-        </node>
-        
-        <node id="vehicle_animations" >
-            <animationref id="vehicleMovement" />
-            <!--<animationref id="vehicleRotation" />-->
-            <transforms></transforms>
-            <primitives></primitives>
-            <descendants>
-                <noderef id="position_vehicle"/>
-            </descendants>
-        </node>
-        
-        <node id="position_vehicle">
-            <transforms>
-                <transform type="rotate" angle="-90" axis="z"/>
-                <transform type="scale" factor="0.1 0.1 0.1"/>
-            </transforms>
-            <primitives></primitives>
-            <descendants>
-                <noderef id="vehicle"/>
-            </descendants>
-        </node>
-        
-         <node id="vehicle">
-            <!--<animationref id="vehicleRotation" />-->
-            <transforms>
-                <transform type="translate" to="0 -9 0"/>
-            </transforms>
-            <primitives></primitives>
-            <descendants>
-                <noderef id="vehicle_nose"/>
-                <noderef id="vehicle_main_body"/>
-                <noderef id="wing1"/>
-                <noderef id="wing3"/>
-                <noderef id="wing2"/>
-                <noderef id="flag" />
-            </descendants>
-        </node>
-                  
-        <node id="flag">
-            <transforms>
-                <transform type="translate" to="0 20 0"/>
-                <transform type="rotate" axis="x" angle="90" />
-            </transforms>
-            <primitives></primitives>
-            <descendants>
-                <noderef id="flagSupport" />
-                <noderef id="flagMain" />
-            </descendants>
-        </node>
-        
-        <node id="flagSupport">
-            <transforms>
-                <transform type="translate" to="0 0 -3"/>
-            </transforms>
-            <primitives>
-                <cylinder base="0.05" top="0.05" height="3" slices="10" stacks="10" />
-                <sphere radius="0.10" slices="10" stacks="10" />
-            </primitives>
-            <descendants></descendants>
-        </node>
-        <node id="flagMain">
-            <transforms>
-                <transform type="translate" to="0.55 0 -2.4"/>
-            </transforms>
-            <primitives>
-                <flag texture="FEUP.jpg"/>
-            </primitives>
-            <descendants></descendants>
-        </node>
-               
-        <node id="vehicle_nose">
-            <transforms>
-                <transform type="translate" to="0 15 0"/>
-                <transform type="scale" factor="1 2 1" />
-            </transforms>
-            <primitives></primitives>
-            <descendants>
-                <noderef id="vehicle_round_part"/>
-            </descendants>
-        </node>
-                
-        <node id="vehicle_round_part">
-            <transforms></transforms>
-            <primitives>
-                <patch order="2" partsU="30" partsV="30" compute="fill">
-                    <controlpoint x="0" y="0" z="-1" />
-                    <controlpoint x="-0.914213" y="0" z="-0.914213" />
-                    <controlpoint x="-1" y="0" z="0" />
-                    <controlpoint x="0.914213" y="0" z="-0.914213" />
-                    <controlpoint x="0" y="10" z="0" />
-                    <controlpoint x="-0.914213" y="0" z="0.914213" />
-                    <controlpoint x="1" y="0" z="0" />
-                    <controlpoint x="0.914213" y="0" z="0.914213" />
-                    <controlpoint x="0" y="0" z="1" />                   
-                </patch>
-            </primitives>
-        </node>
-                
-        <node id="vehicle_main_body">
-            <appearanceref id="vehicleBodyApp"/>
-            <transforms>
-                <transform type="rotate" axis="x" angle="-90" />
-            </transforms>
-            <primitives>
-                <cylinder base="1" top="1" height="15" slices="50" stacks="50" />
-            </primitives>
-        </node>
-        
-        <node id="wing_front_face">
-            <transforms></transforms>
-            <primitives></primitives>
-            <descendants>
-                <noderef id="wing_square_front"/>
-                <noderef id="wing_triangle_front"/>
-            </descendants>
-        </node>
-        
-        <node id="wing_square_front">
-            <transforms></transforms>
-            <primitives>
-                <rectangle xy1="0 0" xy2="1 1.8" />
-            </primitives>
-        </node>
-        
-        <node id="wing_triangle_front">
-            <transforms></transforms>
-            <primitives>
-                <triangle xyz1="0 1.8 0" xyz2="1 1.8 0" xyz3="0 3.7 0" />
-            </primitives>
-        </node>
-        
-        <node id="wing_back_face">
-            <transforms>
-                <transform type="rotate" axis="y" angle="180" />
-            </transforms>
-            <primitives>
-            </primitives>
-            <descendants>
-                <noderef id="wing_triangle_back"/>
-                <noderef id="wing_square_back"/>
-            </descendants>
-        </node>
-        
-        <node id="wing_square_back">
-            <transforms></transforms>
-            <primitives>
-                <rectangle xy1="0 1.8" xy2="-1 0" />
-            </primitives>
-        </node>
-        
-        <node id="wing_triangle_back">
-            <transforms></transforms>
-            <primitives>
-                <triangle xyz1="0 1.8 0"  xyz2="0 3.7 0" xyz3="-1 1.8 0"/>
-            </primitives>
-        </node>
-        
-        <node id="wing">
-            <appearanceref id="wing_app"/>
-            <transforms>
-                <transform type="translate" to="1 0 0"/>
-            </transforms>
-            <primitives></primitives>
-            <descendants>
-                <noderef id="wing_front_face"/>
-                <noderef id="wing_back_face"/>
-            </descendants>
-        </node>
-        
-        <node id="wing1">
-            <transforms></transforms>
-            <primitives></primitives>
-            <descendants>
-                <noderef id="wing"/>
-            </descendants>
-        </node>
-        
-        <node id="wing2">
-            <transforms>
-                <transform type="rotate" axis="y" angle="120" />
-            </transforms>
-            <primitives></primitives>
-            <descendants>
-                <noderef id="wing"/>
-            </descendants>
-        </node>
-        
-        <node id="wing3">
-            <transforms></transforms>
-            <primitives></primitives>
-            <descendants>
-                <noderef id="wing"/>
-            </descendants>
-        </node>
-        
-         <!-- ******** BOX ********-->
-        <node id="space_planes">
-            <transforms></transforms>
-            <primitives></primitives>
-            <descendants>
-                <noderef id="space_plane_left"/>
-                <noderef id="space_plane_bottom"/>
-                <noderef id="space_plane_right"/>
-                <noderef id="space_plane_back"/>
-            </descendants>
-        </node>
-        
-        <node id="space_plane_left">
-            <transforms>
-                <transform type="translate" to="-25 15 5"/>
-                <transform type="rotate" axis="z" angle="-90"/>
-            </transforms>
-            <primitives></primitives>
-            <descendants>
-                <noderef id="stars_plane"/>
-            </descendants>
-        </node>
-        
-        <node id="space_plane_bottom">
-            <transforms>
-                <transform type="translate" to="0 -10 5"/>
-            </transforms>
-            <primitives></primitives>
-            <descendants>
-                <noderef id="stars_plane"/>
-            </descendants>
-        </node>
-        
-        <node id="space_plane_right">
-            <transforms>
-                <transform type="translate" to="25 15 5" />
-                <transform type="rotate" axis="z" angle="90"/>
-            </transforms>
-            <primitives></primitives>
-            <descendants>
-                <noderef id="stars_plane"/>
-            </descendants>
-        </node>
-        
-        <node id="space_plane_back">
-            <transforms>
-                <transform type="translate" to="0 15 -20" />
-                <transform type="rotate" axis="x" angle="90"/>
-            </transforms>
-            <primitives></primitives>
-            <descendants>
-                <noderef id="stars_plane"/>
-            </descendants>
-        </node>
-        
-        <node id="stars_plane">
+    
+    <node id="space_planes">
+      <transforms>
+        <transform type="translate" to="-10 -10 -20" />
+      </transforms>
+      <primitives></primitives>
+      <descendants>
+        <noderef id="space_plane_left"/>
+        <noderef id="space_flag_bottom"/>
+        <noderef id="space_plane_back"/>
+      </descendants>
+    </node>
+
+    <node id="space_plane_left">
+      <transforms>
+        <transform type="translate" to="-25 15 5"/>
+        <transform type="rotate" axis="z" angle="-90"/>
+      </transforms>
+      <primitives></primitives>
+      <descendants>
+        <noderef id="stars_plane"/>
+      </descendants>
+    </node>
+
+    <node id="space_flag_bottom">
+      <transforms>
+        <transform type="translate" to="0 -10 5"/>
+        <transform type="scale" factor="50 1 50"/>
+      </transforms>
+      <primitives>
+        <flag texture="../data/paper.jpg" texture2="../data/opengl.png"/>
+      </primitives>
+      <descendants>
+        <!--<noderef id="stars_plane"/>-->
+      </descendants>
+    </node>
+
+    <node id="space_plane_right">
+      <transforms>
+        <transform type="translate" to="25 15 5" />
+        <transform type="rotate" axis="z" angle="90"/>
+      </transforms>
+      <primitives></primitives>
+      <descendants>
+        <noderef id="stars_plane"/>
+      </descendants>
+    </node>
+
+    <node id="space_plane_back">
+      <transforms>
+        <transform type="translate" to="0 15 -20" />
+        <transform type="rotate" axis="x" angle="90"/>
+      </transforms>
+      <primitives></primitives>
+      <descendants>
+        <noderef id="stars_plane"/>
+      </descendants>
+    </node>
+
+    <node id="stars_plane">
       <appearanceref id="starsApp"/>
       <transforms>
         <transform type="scale" factor="50 1 50"/>
@@ -450,8 +222,335 @@
         <plane parts="30"/>
       </primitives>
     </node>
-                
- <!--**************************************************-->
-        
-          </graph>    
+    
+
+    <node id="vehicle_animations" >
+
+      <animationref id="vehicleApproaching" />
+      <animationref id="vehicleRotation" />
+      <animationref id="vehicleGoingAway" />
+      <transforms>
+      </transforms>
+      <primitives>
+      </primitives>
+      <descendants>
+        <noderef id="position_vehicle"/>
+      </descendants>
+    </node>
+
+    <node id="position_vehicle">
+
+      <transforms>
+        <transform type="translate" to="-7 0 4" />
+        <transform type="rotate" angle="-90" axis="z"/>
+        <transform type="scale" factor="0.1 0.1 0.1"/>
+
+
+      </transforms>
+      <primitives>
+      </primitives>
+      <descendants>
+        <noderef id="vehicle"/>
+      </descendants>
+    </node>
+
+
+
+    <node id="earth_n_sun">
+      <transforms>
+      </transforms>
+      <primitives>
+      </primitives>
+      <descendants>
+        <noderef id="earth_anim"/>
+        <noderef id="sun" />
+        <noderef id="space_planes"/>
+      </descendants>
+    </node>
+
+    <node id="earth_anim">
+      <animationref id="earthRotation"/>
+      <transforms>
+        <transform type="translate" to="15 0 0"/>
+      </transforms>
+      <primitives>
+      </primitives>
+      <descendants>
+        <noderef id="vehicle_n_earth"/>
+      </descendants>
+
+    </node>
+
+
+
+    <node id="vehicle_n_earth">
+
+      <transforms>
+      </transforms>
+      <primitives>
+      </primitives>
+      <descendants>
+        <noderef id="earth"/>
+        <noderef id="vehicle_animations"/>
+
+      </descendants>
+
+    </node>
+
+
+    <node id="vehicle">
+
+      <transforms>
+        <transform type="translate" to="0 -9 0"/>
+
+
+      </transforms>
+      <primitives>
+      </primitives>
+      <descendants>
+        <noderef id="vehicle_nose"/>
+        <noderef id="vehicle_main_body"/>
+        <noderef id="wing1"/>
+        <noderef id="wing3"/>
+        <noderef id="wing2"/>
+        <noderef id="flag" />
+      </descendants>
+    </node>
+
+    <node id="flag">
+      <transforms>
+        <transform type="translate" to="0 20 0"/>
+        <transform type="rotate" axis="x" angle="90" />
+
+
+      </transforms>
+      <primitives>
+
+      </primitives>
+      <descendants>
+        <noderef id="flagSupport" />
+        <noderef id="flagMain" />
+      </descendants>
+    </node>
+
+    <node id="flagSupport">
+      <transforms>
+        <transform type="translate" to="0 0 -3"/>
+      </transforms>
+      <primitives>
+        <cylinder base="0.05" top="0.05" height="3" slices="10" stacks="10" />
+        <sphere radius="0.10" slices="10" stacks="10" />
+      </primitives>
+      <descendants>
+      </descendants>
+    </node>
+    <node id="flagMain">
+      <transforms>
+        <transform type="translate" to="0.55 0 -2.4"/>
+      </transforms>
+      <primitives>
+        <flag />
+      </primitives>
+      <descendants>
+      </descendants>
+    </node>
+
+
+    <node id="vehicle_nose">
+      <transforms>
+        <transform type="translate" to="0 15 0"/>
+        <transform type="scale" factor="1 2 1" />
+      </transforms>
+      <primitives>
+      </primitives>
+      <descendants>
+        <noderef id="vehicle_round_part"/>
+
+      </descendants>
+    </node>
+
+
+    <node id="vehicle_round_part">
+      <transforms>
+      </transforms>
+      <primitives>
+        <patch order="2" partsU="30" partsV="30" compute="fill">
+          <controlpoint x="0" y="0" z="-1" />
+          <controlpoint x="-0.914213" y="0" z="-0.914213" />
+          <controlpoint x="-1" y="0" z="0" />
+          <controlpoint x="0.914213" y="0" z="-0.914213" />
+          <controlpoint x="0" y="10" z="0" />
+          <controlpoint x="-0.914213" y="0" z="0.914213" />
+          <controlpoint x="1" y="0" z="0" />
+          <controlpoint x="0.914213" y="0" z="0.914213" />
+          <controlpoint x="0" y="0" z="1" />
+
+        </patch>
+
+      </primitives>
+    </node>
+
+
+
+
+
+    <node id="vehicle_main_body">
+
+      <appearanceref id="vehicleBodyApp"/>"
+      <transforms>
+        <transform type="rotate" axis="x" angle="-90" />
+
+      </transforms>
+      <primitives>
+        <cylinder base="1" top="1" height="15" slices="50" stacks="50" />
+      </primitives>
+    </node>
+
+
+
+    <node id="wing_front_face">
+      <transforms>
+      </transforms>
+      <primitives>
+      </primitives>
+      <descendants>
+        <noderef id="wing_square_front"/>
+        <noderef id="wing_triangle_front"/>
+      </descendants>
+    </node>
+
+    <node id="wing_square_front">
+      <transforms>
+      </transforms>
+      <primitives>
+        <rectangle xy1="0 0" xy2="1 1.8" />
+      </primitives>
+    </node>
+    <node id="wing_triangle_front">
+      <transforms>
+      </transforms>
+      <primitives>
+        <triangle xyz1="0 1.8 0" xyz2="1 1.8 0" xyz3="0 3.7 0" />
+      </primitives>
+    </node>
+
+
+    <node id="wing_back_face">
+      <transforms>
+
+        <transform type="rotate" axis="y" angle="180" />
+
+      </transforms>
+      <primitives>
+      </primitives>
+      <descendants>
+        <noderef id="wing_triangle_back"/>
+        <noderef id="wing_square_back"/>
+      </descendants>
+    </node>
+
+    <node id="wing_square_back">
+      <transforms>
+      </transforms>
+      <primitives>
+        <rectangle xy1="0 1.8" xy2="-1 0" />
+      </primitives>
+    </node>
+    <node id="wing_triangle_back">
+      <transforms>
+      </transforms>
+      <primitives>
+        <triangle xyz1="0 1.8 0"  xyz2="0 3.7 0" xyz3="-1 1.8 0"/>
+      </primitives>
+    </node>
+
+
+    <node id="wing">
+      <appearanceref id="wing_app"/>
+      <transforms>
+        <transform type="translate" to="1 0 0"/>
+      </transforms>
+      <primitives>
+      </primitives>
+      <descendants>
+        <noderef id="wing_front_face"/>
+        <noderef id="wing_back_face"/>
+      </descendants>
+    </node>
+
+
+    <node id="wing1">
+      <transforms>
+
+
+      </transforms>
+      <primitives>
+      </primitives>
+      <descendants>
+        <noderef id="wing"/>
+      </descendants>
+    </node>
+
+    <node id="wing2">
+      <transforms>
+        <transform type="rotate" axis="y" angle="120" />
+      </transforms>
+      <primitives>
+      </primitives>
+      <descendants>
+        <noderef id="wing"/>
+      </descendants>
+    </node>
+
+    <node id="wing3">
+      <transforms>
+
+      </transforms>
+      <primitives>
+      </primitives>
+      <descendants>
+        <noderef id="wing"/>
+      </descendants>
+    </node>
+
+
+
+
+    <node id="earth">
+
+      <appearanceref id="earthApp" />
+      <transforms>
+        <transform type="rotate" axis="x" angle="-90" />
+
+      </transforms>
+      <primitives>
+        <sphere radius="2" slices="30" stacks="30" />
+      </primitives>
+      <descendants>
+      </descendants>
+
+    </node>
+
+
+    <node id="sun">
+
+      <appearanceref id="sunApp" />
+      <transforms>
+
+
+      </transforms>
+      <primitives>
+        <sphere radius="5" slices="100" stacks="100" />
+      </primitives>
+      <descendants>
+      </descendants>
+
+    </node>
+
+
+  </graph>
+
+
+
+
 </anf>
