@@ -1,4 +1,4 @@
-uniform float normScale;			
+uniform float normScale;			//ignore this, to much trouble changing cpp now
 uniform float time;					//well...
 uniform int wind;					//user input that messes with the flag
 varying vec4 colorByHeight;			//
@@ -11,7 +11,7 @@ void main()
 
 
 	vec4 offset=vec4(0.0,0.0,0.0,1.0);
-	float sin_result = float(0);
+	float sin_result = float(0); //if wind is 0 we still need a value for sin_result to give to colorByHeight
 
 
 	gl_TexCoord[0] = gl_MultiTexCoord0;

@@ -144,13 +144,11 @@
       <appearanceref id="inherit"/>
       <transforms>
         <transform type="translate" to="0 15 41"/>
-        <transform type="rotate" axis="y" angle="180"/>
-        <transform type="rotate" axis="x" angle="90"/>
         <transform type="scale" factor="50 1 50"/>
       </transforms>
       <descendants></descendants>
       <primitives>
-        <flag texture="../data/paper.jpg" texture2="../data/opengl.png"/>
+        <flag texture2="../data/FEUP.jpg" texture="../data/terrainmap2.jpg" vsfile="../data/spaceflag.vrs" fsfile="../data/spaceflag.frs"/>
       </primitives>
     </node>
     
@@ -265,6 +263,7 @@
         <noderef id="earth_anim"/>
         <noderef id="sun" />
         <noderef id="space_planes"/>
+        <noderef id="flag_extra"/>
       </descendants>
     </node>
 

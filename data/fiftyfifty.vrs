@@ -1,5 +1,4 @@
-uniform float normScale;			
-uniform sampler2D secondImage;		
+uniform float normScale;				
 uniform float time;					//well...
 uniform int wind;					//user input that messes with the flag
 varying vec4 colorByHeight;			//
@@ -13,12 +12,9 @@ void main()
 
 	vec4 offset=vec4(0.0,0.0,0.0,0.0);
 	float sin_result = float(0);
-	
-	if (texture2D(secondImage, vec2(1.0,1.0)-gl_MultiTexCoord0.st).b > 0.5)
-		offset.xyz=gl_Normal*normScale*0.1;
+
 
 	gl_TexCoord[0] = gl_MultiTexCoord0;
-
 
 	if(wind > 0)
 	{
