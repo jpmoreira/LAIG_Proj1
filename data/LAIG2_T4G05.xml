@@ -33,12 +33,14 @@
         <texture id="leatherTexture" file="./testFiles/leather.jpeg" texlength_s="1" texlength_t="1" />
         <texture id="cgra_robotTexture" file="./testFiles/cgra_robot.jpg" texlength_s="2" texlength_t="1"/>
         -->
-        <texture id="vehicleBodyText" file="../data/us_.png" texlength_s="2" texlength_t="2" />
-        <texture id="wingText" file="../data/wing.png" texlength_s="2" texlength_t="2" />
-        <texture id="earthText" file="../data/earth.jpg" texlength_s="1" texlength_t="1" />
-        <texture id="sunText" file="../data/sun.jpg" texlength_s="1" texlength_t="1" />
-        <texture id="starsText" file="../data/stars.jpg" texlength_s="1" texlength_t="1" />
-    </textures>
+
+        <texture id="vehicleBodyText" file="./testFiles/us_.png" texlength_s="2" texlength_t="2" />
+        <texture id="wingText" file="./testFiles/wing.png" texlength_s="2" texlength_t="2" />
+        <texture id="earthText" file="./testFiles/earth.jpg" texlength_s="1" texlength_t="1" />
+        <texture id="sunText" file="./testFiles/sun.jpg" texlength_s="1" texlength_t="1" />
+        <texture id="starsText" file="./testFiles/stars.jpg" texlength_s="1" texlength_t="1" />
+        
+           </textures>
     <!-- bloco de materiais; -->
     <appearances>
         <!-- deve existir um ou mais blocos "appearance" -->

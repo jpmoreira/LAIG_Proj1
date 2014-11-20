@@ -545,6 +545,7 @@
 		54F94B3C1A1B360900A4B250 /* LG_CircularAnimation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 546C504B1A001E4D00AE1A22 /* LG_CircularAnimation.cpp */; };
 		54F94B3E1A1BCFE300A4B250 /* earth.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54F94B3D1A1BCFD600A4B250 /* earth.jpg */; };
 		54F94B401A1BD89F00A4B250 /* sun.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54F94B3F1A1BD89600A4B250 /* sun.jpg */; };
+		54F94B421A1D175000A4B250 /* stars.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54F94B411A1D174600A4B250 /* stars.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -582,6 +583,7 @@
 			dstPath = testFiles;
 			dstSubfolderSpec = 16;
 			files = (
+				54F94B421A1D175000A4B250 /* stars.jpg in CopyFiles */,
 				54F94B401A1BD89F00A4B250 /* sun.jpg in CopyFiles */,
 				54F94B3E1A1BCFE300A4B250 /* earth.jpg in CopyFiles */,
 				548BA5541A13845E00AFF8DB /* wing.png in CopyFiles */,
@@ -1028,6 +1030,7 @@
 		54F94B3A1A1A0AE600A4B250 /* LG_AnimationState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LG_AnimationState.h; path = "LAIG-Proj1/LG_AnimationState.h"; sourceTree = "<group>"; };
 		54F94B3D1A1BCFD600A4B250 /* earth.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = earth.jpg; sourceTree = "<group>"; };
 		54F94B3F1A1BD89600A4B250 /* sun.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sun.jpg; sourceTree = "<group>"; };
+		54F94B411A1D174600A4B250 /* stars.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = stars.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1569,6 +1572,7 @@
 				545E75181A12068400B83CC9 /* vertexshader.vs */,
 				545E75021A111FD400B83CC9 /* evaltext.bmp */,
 				545E75031A111FD400B83CC9 /* evaltext.jpg */,
+				54F94B411A1D174600A4B250 /* stars.jpg */,
 				545E75041A111FD400B83CC9 /* FEUP.jpg */,
 				545E75051A111FD400B83CC9 /* terrainmap2.jpg */,
 			);

@@ -277,7 +277,7 @@ void LG_Graph_Node::draw(){
         glPushMatrix();
         
         
-        transform->draw();
+       
         
         
         if(animations.size()>0){
@@ -289,6 +289,8 @@ void LG_Graph_Node::draw(){
             }
         }
         
+        
+         transform->draw();
         
         
         if (appearance) appearance->apply();
