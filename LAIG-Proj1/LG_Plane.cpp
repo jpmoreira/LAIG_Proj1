@@ -81,7 +81,8 @@ void LG_Plane::setPatch(){
 	LG_Patch::points[11] = 0.5;
 
 
-	LG_Patch::order = 1;
+	LG_Patch::orderU = 1;
+    LG_Patch::orderV= 1;
 	LG_Patch::vstride = ORDER1_VSTRIDE;
 	
 	GLint drawMode[2];

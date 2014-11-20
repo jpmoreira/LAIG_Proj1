@@ -6,6 +6,8 @@
 #define LG_Patch_Att_PartsU "partsU"
 #define LG_Patch_Att_PartsV "partsV"
 #define LG_Patch_Att_Order "order"
+#define LG_Patch_Att_OrderU "orderU"
+#define LG_Patch_Att_OrderV "orderV"
 #define LG_Patch_Att_Compute "compute"
 #define LG_Patch_Elem_Controlpoint "controlpoint"
 #define LG_Controlpoint_Att_X "x"
@@ -43,7 +45,7 @@ public:
 
 protected:
 	static int classIDNr;
-	int order, partsU, partsV;
+	int orderU,orderV, partsU, partsV;
 	float *points;
 	float *textCoords;
 	int control_point_nr, vstride;
