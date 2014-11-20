@@ -1,3 +1,6 @@
+#ifdef _WIN32
+#include <Windows.h>
+#endif
 //
 //  LG_Culling.cpp
 //  LAIG-Proj1

@@ -5,7 +5,9 @@
 //  Created by José Pedro Moreira on 01/10/14.
 //  Copyright (c) 2014 José Pedro Moreira. All rights reserved.
 //
-
+#ifdef _WIN32
+#include <Windows.h>	//Using WINDOWS sdk tools to compile the project, Windows.h must be included before any #include <GL/*****>
+#endif
 
 #define LG_Graph_Node_Ref_XML_Tag_Name "noderef"
 #define LG_Graph_Node_Ref_ID_XML_Att_Name "id"

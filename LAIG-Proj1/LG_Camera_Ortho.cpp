@@ -1,4 +1,9 @@
+#ifdef _WIN32
+#include <Windows.h>
+#endif
+
 #include "LG_Camera_Ortho.h"
+
 
 
 

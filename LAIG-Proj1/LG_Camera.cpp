@@ -1,3 +1,7 @@
+#ifdef _WIN32
+#include <Windows.h>
+#endif
+
 #include "LG_Camera.h"
 #include "LG_Cameras_Container.h"
 

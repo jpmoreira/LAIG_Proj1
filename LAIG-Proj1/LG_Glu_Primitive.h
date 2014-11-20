@@ -9,6 +9,9 @@
 #ifndef __LAIG_Proj1__LG_Glu_Primitives__
 #define __LAIG_Proj1__LG_Glu_Primitives__
 
+#ifdef _WIN32
+#include <Windows.h>
+#endif
 
 #include "LG_Primitive.h"
 

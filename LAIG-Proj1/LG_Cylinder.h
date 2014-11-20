@@ -9,6 +9,10 @@
 #ifndef __LAIG_Proj1__LG_Cylinder__
 #define __LAIG_Proj1__LG_Cylinder__
 
+#ifdef _WIN32
+#include <Windows.h>
+#endif
+
 #include <stdio.h>
 
 

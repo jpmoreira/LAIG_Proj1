@@ -1,11 +1,16 @@
 
 #include <stdlib.h>
+
+#ifdef _WIN32
+#include <windows.h>
+#endif
+
 #include <GL/glew.h>
 #include <GL/gl.h>
 #include <GL/glut.h>
 #include "LG_Flag.h"
 #include "CGFapplication.h"
-#include <chrono>
+
 #define LG_Flag_ID_Prefix "_LG_Flag_"
 #define LG_Plane_Parts_Default 50
 #define LG_Flag_Frequency_default 1
@@ -124,8 +129,6 @@ LG_Flag::LG_Flag(LG_Node_Map *map, TiXmlElement *elem) : LG_Plane(map, autoIdent
 	// Store Id for the uniform "normScale", new value will be stored on bind()
 	scaleLoc = glGetUniformLocation(id(), "normScale");
 
-	/*baseTexture = new CGFtexture("../data/terrainmap2.jpg");
-	secTexture = new CGFtexture("../data/feup.jpg");*/
 
 	// get the uniform location for the sampler
 	baseImageLoc = glGetUniformLocation(id(), "baseImage");

@@ -7,7 +7,9 @@
 //
 
 #include "LG_Drawing.h"
-
+#ifdef _WIN32
+#include <Windows.h>
+#endif
 
 #define LG_Drawing_Fill_String "fill"
 #define LG_Drawing_Line_String "line"

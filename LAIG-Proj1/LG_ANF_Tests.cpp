@@ -1,3 +1,7 @@
+#ifdef _WIN32
+#include <Windows.h>
+#endif
+
 #include <CGFapplication.h>
 #include <iostream>
 #include <string>

@@ -5,6 +5,9 @@
 //  Created by José Pedro Moreira on 01/10/14.
 //  Copyright (c) 2014 José Pedro Moreira. All rights reserved.
 //
+#ifdef _WIN32
+#include <Windows.h>
+#endif
 
 
 #include "LG_Parsable_Node.h"
