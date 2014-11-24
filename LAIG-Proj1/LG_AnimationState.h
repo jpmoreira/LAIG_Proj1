@@ -22,6 +22,7 @@ class LG_AnimationState {
     double translation_matrix[4][4];
     double post_rotation_translation_matrix[4][4];
     LG_Animation *animation;
+    int currentSegment;
     bool started;
     
     
@@ -34,6 +35,9 @@ public:
     void update(unsigned long timeNow);
     void apply();
     
+    int getCurrentSegment();
+
+    void incrementCurrentSegment();
     
     void rotate(double angle,double x,double y,double z);
     void translate(double x,double y,double z);

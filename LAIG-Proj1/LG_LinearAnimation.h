@@ -28,11 +28,7 @@ private:
     double velocity;
     double timeToSwitchSegment;
     double totalDistance;
-    int currentSegment;
     double totalRotation;
-    
-    
-    LG_Point3D directionVector;
     
     
     
@@ -48,14 +44,7 @@ private:
      */
     void configureInitialParameters(LG_AnimationState *state);
     
-    
-    /**
-     
-     Configures the direction vector to hold the direction that the animation should currently have
-     
-     */
-    void configureDirectionForCurrentSegment();
-    
+
     /**
      
      Returns an array with the direction vector for a given vector.
