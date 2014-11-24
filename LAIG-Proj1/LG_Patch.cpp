@@ -17,17 +17,24 @@ partsU(LG_INVALID_INT), partsV(LG_INVALID_INT), control_point_nr(0)
 {
 
 	string compute;
+    
+    
+    evalElemName(LG_Patch_XML_Tag_Name, elem->Value());
+    
+    
+    try {
+        positiveInt_tryToAttributeVariable(LG_Patch_Att_Order, elem, orderU);
+        orderV=orderU;
+        
+    } catch (LG_Parse_Exception_Missing_Attribute *ex) {
+        
+        positiveInt_tryToAttributeVariable(LG_Patch_Att_OrderU, elem, orderU);
+        positiveInt_tryToAttributeVariable(LG_Patch_Att_OrderV, elem, orderV);
+        
+        
+    }
 
-	if (!str_eq(elem->Value(), LG_Patch_XML_Tag_Name))
-		throw new LG_Parse_Exception_Wrong_Element_Name(LG_Patch_XML_Tag_Name, elem->Value());
-
-
-	positiveInt_tryToAttributeVariable(LG_Patch_Att_Order, elem, order);
-
-	if (order < ORDER1_CURVE || order > ORDER3_CURVE)
-		throw new LG_Parse_Exception_Wrong_Attribute_Value(elem->Value(), LG_Patch_Att_Order, "Invalid number");
-
-
+	
 	positiveInt_tryToAttributeVariable(LG_Patch_Att_PartsU, elem, partsU);
 	positiveInt_tryToAttributeVariable(LG_Patch_Att_PartsV, elem, partsV);
 
@@ -42,8 +49,7 @@ partsU(LG_INVALID_INT), partsV(LG_INVALID_INT), control_point_nr(0)
 	else
 		throw new LG_Parse_Exception_Wrong_Attribute_Value(elem->Value(), LG_Patch_Att_Compute, compute.c_str());
 
-	control_point_nr = order + 1;
-	control_point_nr *= control_point_nr;
+	control_point_nr = (orderU + 1)*(orderV+1);
 	points = new float[control_point_nr*LG_Point3D_Length];
 	
 	TiXmlElement *sub_elem;
@@ -61,12 +67,9 @@ partsU(LG_INVALID_INT), partsV(LG_INVALID_INT), control_point_nr(0)
 		throw new LG_Parse_Exception_Wrong_Attribute_Value(new string(LG_Patch_Elem_Controlpoint), new string("Control Point"), 
 		new string("Not enough control points"));
 
-	if (order == ORDER3_CURVE)
-		vstride = ORDER3_VSTRIDE;
-	else if (order == 2)
-		vstride = ORDER2_VSTRIDE;
-	else vstride = ORDER1_VSTRIDE;
-
+    vstride=3*(orderU+1);
+    
+    
 	setTextCoords();
 }
 
@@ -120,26 +123,26 @@ void LG_Patch::draw(){
 		0.0,//u start
 		1.0,//u finish
 		3,//ustride
-		order + 1,
+		orderU + 1,
 		0.0,//v start
 		1.0,//v end
 		vstride,//vstride
-		order + 1,//
+		orderV + 1,//
 		(GLfloat *)points);
 
 	
-		glMap2f(GL_MAP2_TEXTURE_COORD_2,
-			0.0,//u start
-			1.0,//u finish
-			2,//ustride
-			2, //texture order
-			0.0,//v start
-			1.0,//v end
-			4,//vstride
-			2,//texture order
-			(GLfloat *)textCoords);
+    glMap2f(GL_MAP2_TEXTURE_COORD_2,
+		0.0,//u start
+		1.0,//u finish
+		2,//ustride
+		2, //texture order
+		0.0,//v start
+		1.0,//v end
+		4,//vstride
+		2,//texture order
+		(GLfloat *)textCoords);
 	
-		glEnable(GL_MAP2_TEXTURE_COORD_2);
+    glEnable(GL_MAP2_TEXTURE_COORD_2);
 	
 
 	glMapGrid2f(partsU, 0, 1, partsV, 0, 1);

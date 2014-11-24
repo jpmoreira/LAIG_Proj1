@@ -24,11 +24,12 @@ private:
      */
     vector<double> controlPointHitTime;
     
-
+    
     double velocity;
     double timeToSwitchSegment;
     double totalDistance;
     int currentSegment;
+    double totalRotation;
     
     
     LG_Point3D directionVector;
@@ -46,7 +47,7 @@ private:
      
      */
     void configureInitialParameters(LG_AnimationState *state);
-
+    
     
     /**
      
@@ -80,6 +81,10 @@ public:
     LG_LinearAnimation(LG_Node_Map *map,TiXmlElement *elem);
     void apply();
     void update(unsigned long timeNow,LG_AnimationState *state);
+    
+    
+    //LAIGPROB2
+    void applyRotByAnfParam(unsigned long timePassed, LG_AnimationState *state);
     
     
 };
