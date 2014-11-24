@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5405EFC419D09E4F00BEED1E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5405EFBF19D09E4F00BEED1E /* main.cpp */; };
+		5407E3511A1E8BE2007CBE41 /* LG_Waterline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5407E34F1A1E8BE2007CBE41 /* LG_Waterline.cpp */; };
+		5407E3521A1E8BE2007CBE41 /* LG_Waterline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5407E34F1A1E8BE2007CBE41 /* LG_Waterline.cpp */; };
 		5409399D19E7DBE000961C05 /* libGLEW.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4E19D0ADF500D4831A /* libGLEW.a */; };
 		5409399E19E7DBE000961C05 /* GLUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4C19D0ADC800D4831A /* GLUI.framework */; };
 		5409399F19E7DBE000961C05 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4A19D0ADAC00D4831A /* GLUT.framework */; };
@@ -818,6 +820,14 @@
 
 /* Begin PBXFileReference section */
 		5405EFBF19D09E4F00BEED1E /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		5407E34B1A1E89DF007CBE41 /* fiftyfifty.vrs */ = {isa = PBXFileReference; lastKnownFileType = text; path = fiftyfifty.vrs; sourceTree = "<group>"; };
+		5407E34C1A1E89DF007CBE41 /* one_text.vrs */ = {isa = PBXFileReference; lastKnownFileType = text; path = one_text.vrs; sourceTree = "<group>"; };
+		5407E34D1A1E8A32007CBE41 /* spaceflag.frs */ = {isa = PBXFileReference; lastKnownFileType = text; path = spaceflag.frs; sourceTree = "<group>"; };
+		5407E34E1A1E8A32007CBE41 /* spaceflag.vrs */ = {isa = PBXFileReference; lastKnownFileType = text; path = spaceflag.vrs; sourceTree = "<group>"; };
+		5407E34F1A1E8BE2007CBE41 /* LG_Waterline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LG_Waterline.cpp; path = ../data/LG_Waterline.cpp; sourceTree = "<group>"; };
+		5407E3501A1E8BE2007CBE41 /* LG_Waterline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LG_Waterline.h; path = ../data/LG_Waterline.h; sourceTree = "<group>"; };
+		5407E3531A1EA0E2007CBE41 /* waterLineShader.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = waterLineShader.vs; sourceTree = "<group>"; };
+		5407E3541A1EA0EC007CBE41 /* waterLineShader.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = waterLineShader.fs; sourceTree = "<group>"; };
 		540939A419E7DC0800961C05 /* LG_ANF_Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_ANF_Tests.cpp; sourceTree = "<group>"; };
 		540939A619E7DC6800961C05 /* TestANF.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestANF.xml; sourceTree = "<group>"; };
 		540939C619E9355000961C05 /* LG_Scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Scene.cpp; sourceTree = "<group>"; };
@@ -1502,6 +1512,8 @@
 				546184ED19DAFC03005C6166 /* Primitivas */,
 				542D82B019E6FB1C004DC691 /* Appearances */,
 				542D82AF19E6FB10004DC691 /* Textures */,
+				5407E34F1A1E8BE2007CBE41 /* LG_Waterline.cpp */,
+				5407E3501A1E8BE2007CBE41 /* LG_Waterline.h */,
 				545802D419D3175500C9DF32 /* LG_Lighting.cpp */,
 				545802D519D3175500C9DF32 /* LG_Lighting.h */,
 				5458029A19D1DA5000C9DF32 /* LG_Node.cpp */,
@@ -1575,6 +1587,12 @@
 				54F94B411A1D174600A4B250 /* stars.jpg */,
 				545E75041A111FD400B83CC9 /* FEUP.jpg */,
 				545E75051A111FD400B83CC9 /* terrainmap2.jpg */,
+				5407E34B1A1E89DF007CBE41 /* fiftyfifty.vrs */,
+				5407E34C1A1E89DF007CBE41 /* one_text.vrs */,
+				5407E34D1A1E8A32007CBE41 /* spaceflag.frs */,
+				5407E34E1A1E8A32007CBE41 /* spaceflag.vrs */,
+				5407E3531A1EA0E2007CBE41 /* waterLineShader.vs */,
+				5407E3541A1EA0EC007CBE41 /* waterLineShader.fs */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -2339,6 +2357,7 @@
 				5405EFC419D09E4F00BEED1E /* main.cpp in Sources */,
 				542D82B419E7BF86004DC691 /* LG_ANF.cpp in Sources */,
 				542D82AD19E6FB05004DC691 /* LG_Appearance_Container.cpp in Sources */,
+				5407E3511A1E8BE2007CBE41 /* LG_Waterline.cpp in Sources */,
 				54B9EDE019F04C9F001F8C34 /* LG_SceneInterface.cpp in Sources */,
 				5461850D19DBC99C005C6166 /* LG_Graph_Node.cpp in Sources */,
 				5461855D19DD3CDA005C6166 /* LG_Light_Spot.cpp in Sources */,
@@ -2393,6 +2412,7 @@
 				540939B919E860C400961C05 /* LG_Torus.cpp in Sources */,
 				54F94B3B1A1A0AE600A4B250 /* LG_AnimationState.cpp in Sources */,
 				540939BA19E860C400961C05 /* LG_Glu_Primitive.cpp in Sources */,
+				5407E3521A1E8BE2007CBE41 /* LG_Waterline.cpp in Sources */,
 				540939BB19E860C400961C05 /* LG_Appearance_Container.cpp in Sources */,
 				540939BC19E860C400961C05 /* LG_Appearance.cpp in Sources */,
 				540939BD19E860C400961C05 /* LG_Texture_Container.cpp in Sources */,

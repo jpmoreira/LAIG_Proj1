@@ -23,13 +23,12 @@ LG_Flag::LG_Flag(LG_Node_Map *map, TiXmlElement *elem) : LG_Plane(map, autoIdent
 	has_sec_text = false;			//used to sign if there are more than 1texture assigned
 	string texture1_path, texture2_path;	//textures path
 
-	if (!str_eq(elem->Value(), LG_Flag_XML_Tag_Name)) {
-
-		throw LG_Parse_Exception_Wrong_Element_Name(LG_Flag_XML_Tag_Name, elem->Value());
-	}
-
+    
+    
+    evalElemName(LG_Flag_XML_Tag_Name, elem->Value());
 	//------------------------------------- Set Parts --------------------------------//
-	try{
+	
+    try{
 		//extra attribute
 		positiveInt_tryToAttributeVariable(LG_Plane_parts_XML_Att_Name, elem, LG_Patch::partsV);
 	}

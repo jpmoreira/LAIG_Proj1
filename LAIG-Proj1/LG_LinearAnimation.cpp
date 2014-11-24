@@ -15,17 +15,28 @@
 #define LG_ControlPoint_XX_XML_Att_Name "xx"
 #define LG_ControlPoint_YY_XML_Att_Name "yy"
 #define LG_ControlPoint_ZZ_XML_Att_Name "zz"
+#define LG_Linear_Animation_Rotation_XML_Att_Name "rotation"
 
 #pragma mark - Constructors
 
 LG_LinearAnimation::LG_LinearAnimation(LG_Node_Map *map,string identifier,vector<double *> points,double duration):LG_Animation(map,identifier,duration),controlPoints(points),currentSegment(0){
-
+    
 }
 
 LG_LinearAnimation::LG_LinearAnimation(LG_Node_Map *map,TiXmlElement *element):LG_Animation(map,element),controlPoints(vector<double *>()),currentSegment(0){
-
-
+    
+    
     handleControlPoints(element);
+    
+    try{
+        double_tryToAttributeVariable(LG_Linear_Animation_Rotation_XML_Att_Name, element, totalRotation);
+    }
+    catch (LG_Parse_Exception_Missing_Attribute *ex){
+        
+        totalRotation = 0;
+    }
+    
+    
     
     
     
@@ -38,22 +49,28 @@ LG_LinearAnimation::LG_LinearAnimation(LG_Node_Map *map,TiXmlElement *element):L
 void LG_LinearAnimation::update(unsigned long timeNow,LG_AnimationState *state){
     
     
-
+    
     
     double timeSinceStart=state->timePassed(timeNow);
-
-    if (timeToSwitchSegment<timeSinceStart) {//if time to switch segments has passed
+    
+    
+    if (totalRotation != 0.0){
+        
+        applyRotByAnfParam(timeSinceStart, state);
+    }
+    
+    if (timeToSwitchSegment<timeSinceStart && currentSegment+2<controlPoints.size()) {//if time to switch segments has passed and we have enought control points
         
         
         
         vector<double> startDirVect=directionVectorForSegment(controlPoints[0],controlPoints[1]);
         vector<double> currentDirVect=directionVectorForSegment(controlPoints[currentSegment+1], controlPoints[currentSegment+2]);
-                                                                
+        
         configureRotation(startDirVect, currentDirVect, state);
-            
+        
         timeToSwitchSegment+=distanceBetweenPoints(controlPoints[currentSegment+1], controlPoints[currentSegment+2])/velocity;
-
-
+        
+        
         
         currentSegment++;//we are no longer in the same segment
         
@@ -64,18 +81,18 @@ void LG_LinearAnimation::update(unsigned long timeNow,LG_AnimationState *state){
     configureTranslation(timeSinceStart,state);
     
     
-
-
     
-
+    
+    
+    
 }
 
 
 #pragma mark - Helper Methods
 
 void LG_LinearAnimation::handleControlPoints(TiXmlElement *animationElement){
-
-
+    
+    
     TiXmlElement *possibleControlPoint=animationElement->FirstChildElement();
     
     
@@ -92,7 +109,7 @@ void LG_LinearAnimation::handleControlPoints(TiXmlElement *animationElement){
         double_tryToAttributeVariable(LG_ControlPoint_ZZ_XML_Att_Name, possibleControlPoint, point[2]);
         
         controlPoints.push_back(point);
-    
+        
         
         
         possibleControlPoint=possibleControlPoint->NextSiblingElement();
@@ -102,12 +119,12 @@ void LG_LinearAnimation::handleControlPoints(TiXmlElement *animationElement){
         throw new LG_Parse_Exception_Missing_Element(LG_ControlPoint_XML_Tag_Name);
     }
     
-
+    
 }
 
 
 double LG_LinearAnimation::distanceBetweenPoints(LG_Point3D pt1,LG_Point3D pt2){
-
+    
     double dx=pt1[0]-pt2[0];
     double dy=pt1[1]-pt2[1];
     double dz=pt1[2]-pt2[2];
@@ -119,8 +136,8 @@ double LG_LinearAnimation::distanceBetweenPoints(LG_Point3D pt1,LG_Point3D pt2){
 
 
 void LG_LinearAnimation::configureInitialParameters(LG_AnimationState *state){
-
-
+    
+    
     
     state->translate(controlPoints[0][0], controlPoints[0][1], controlPoints[0][2]);
     
@@ -150,30 +167,30 @@ void LG_LinearAnimation::configureInitialParameters(LG_AnimationState *state){
     }
     
     configureDirectionForCurrentSegment();
-
-
+    
+    
 }
 
 
 
 void LG_LinearAnimation::configureDirectionForCurrentSegment(){
-
+    
     
     if (currentSegment+1>=controlPoints.size()) return;
     
     vector<double> vect=vectorBetweenPoints(controlPoints[currentSegment], controlPoints[currentSegment+1]);
-
+    
     normalize(vect);
     directionVector[X_]=vect[X_];
     directionVector[Y_]=vect[Y_];
     directionVector[Z_]=vect[Z_];
     
-
-
+    
+    
 }
 
 vector<double> LG_LinearAnimation::directionVectorForSegment(LG_Point3D pt1,LG_Point3D pt2){
-
+    
     vector<double> vect(3);
     
     vect[X_]=pt2[X_]-pt1[X_];
@@ -183,8 +200,8 @@ vector<double> LG_LinearAnimation::directionVectorForSegment(LG_Point3D pt1,LG_P
     normalize(vect);
     
     return vect;
-
-
+    
+    
 }
 
 
@@ -192,6 +209,8 @@ vector<double> LG_LinearAnimation::directionVectorForSegment(LG_Point3D pt1,LG_P
 void LG_LinearAnimation::configureRotation(const vector<double> &dir1,const vector<double> &dir2,LG_AnimationState *state){
     
     
+    
+    if (totalRotation != 0)return;
     
     vector<double> dir1_(dir1);
     vector<double> dir2_(dir2);
@@ -207,7 +226,9 @@ void LG_LinearAnimation::configureRotation(const vector<double> &dir1,const vect
     normalize(dir1_);
     normalize(dir2_);
     
-    double angle=angleBetween(dir1_, dir2_)/M_PI*180.;
+    
+    double angle=angleBetween(dir1_, dir2_) / M_PI*180.;//otherwise just rotate like we used to!
+    
     
     vector<double> rotationAxis=crossProduct(dir1_, dir2_);
     
@@ -219,11 +240,22 @@ void LG_LinearAnimation::configureRotation(const vector<double> &dir1,const vect
     
     
     
+    
+}
+
+
+//LAIGPROB2
+void LG_LinearAnimation::applyRotByAnfParam(unsigned long timePassed, LG_AnimationState *state){
+    
+    
+    double angle = (timePassed / (float)span)*totalRotation;
+    state->rotate(angle, 0, 1, 0);
+    
 }
 
 
 void LG_LinearAnimation::configureTranslation(double timeSinceAnimationStart,LG_AnimationState *state){
-
+    
     
     double * lastPassedControlPoint=controlPoints[currentSegment];
     
@@ -237,14 +269,17 @@ void LG_LinearAnimation::configureTranslation(double timeSinceAnimationStart,LG_
     velocityVector[Z_]=directionVector[Z_]*velocity;
     
     
-    state->translate(lastPassedControlPoint[X_]+timeSincePassedControlPoint*velocityVector[X_], lastPassedControlPoint[Y_]+timeSincePassedControlPoint*velocityVector[Y_], lastPassedControlPoint[Z_]+timeSincePassedControlPoint*velocityVector[Z_]);
     
-    
-
-    
+    state->translate_afterRotation(lastPassedControlPoint[X_] + timeSincePassedControlPoint*velocityVector[X_], lastPassedControlPoint[Y_] + timeSincePassedControlPoint*velocityVector[Y_], lastPassedControlPoint[Z_] + timeSincePassedControlPoint*velocityVector[Z_]);
     
     
     
-
-
+    
+    
+    
+    
+    
+    
+    
+    
 }
