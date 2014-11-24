@@ -50,8 +50,12 @@ LG_Flag::LG_Flag(LG_Node_Map *map, TiXmlElement *elem) : LG_Plane(map, autoIdent
 		string_tryToAttributeVariable(LG_Flag_Att_Texture, elem, texture1_path);
 	}
 	catch (LG_Parse_Exception *e){
+#ifdef WIN32
 		texture1_path = "../data/terrainmap2.jpg";	//default texture if missing
-	}
+#else
+        texture1_path = "./testFiles/terrainmap2.jpg";	//default texture if missing
+#endif
+    }
 
 	//extra texture
 	try{

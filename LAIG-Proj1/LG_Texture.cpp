@@ -46,7 +46,12 @@ string LG_Texture::getIdentifierFromElement(TiXmlElement *elem) {
 
 void LG_Texture::configTexture() {
     
-    loadTexture(file);
+    try {
+        loadTexture(file);
+    } catch (exception *x) {
+        printf("Unable to load texture from file %s\n",file.c_str());
+    }
+    
     
 }
 

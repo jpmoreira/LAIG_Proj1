@@ -82,6 +82,7 @@
 		54118C5F19D9B90A0015D962 /* LG_Primitive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5435E6FA19D83982004169BD /* LG_Primitive.cpp */; };
 		54118C6019D9B90A0015D962 /* LG_Torus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54118C4A19D9B73D0015D962 /* LG_Torus.cpp */; };
 		54118C6119D9B9170015D962 /* LG_Torus_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54118C4D19D9B8540015D962 /* LG_Torus_Tests.cpp */; };
+		541D72A41A23795A002183CB /* CGFtexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 541D72A31A23795A002183CB /* CGFtexture.cpp */; };
 		541FBAAF19F7C30D00EA9CA8 /* libGLEWmx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE5019D0ADFF00D4831A /* libGLEWmx.a */; };
 		541FBAB019F7C30D00EA9CA8 /* libGLEW.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4E19D0ADF500D4831A /* libGLEW.a */; };
 		541FBAB119F7C30D00EA9CA8 /* GLUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4C19D0ADC800D4831A /* GLUI.framework */; };
@@ -585,6 +586,7 @@
 			dstPath = testFiles;
 			dstSubfolderSpec = 16;
 			files = (
+				545E750F1A112AB600B83CC9 /* terrainmap2.jpg in CopyFiles */,
 				54F94B421A1D175000A4B250 /* stars.jpg in CopyFiles */,
 				54F94B401A1BD89F00A4B250 /* sun.jpg in CopyFiles */,
 				54F94B3E1A1BCFE300A4B250 /* earth.jpg in CopyFiles */,
@@ -595,7 +597,6 @@
 				545E750C1A112AB600B83CC9 /* evaltext.bmp in CopyFiles */,
 				545E750D1A112AB600B83CC9 /* evaltext.jpg in CopyFiles */,
 				545E750E1A112AB600B83CC9 /* FEUP.jpg in CopyFiles */,
-				545E750F1A112AB600B83CC9 /* terrainmap2.jpg in CopyFiles */,
 				54858E5219F99246000DC238 /* TestEvaluators.xml in CopyFiles */,
 				547DE8B819F6B53500328518 /* cgra_robot in CopyFiles */,
 				548CA68A19EEBFE8008AD9F7 /* metal.jpg in CopyFiles */,
@@ -844,6 +845,8 @@
 		54118C5219D9B8770015D962 /* LG_Torus_Tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LG_Torus_Tests; sourceTree = BUILT_PRODUCTS_DIR; };
 		54118C5A19D9B8D50015D962 /* TestTorus.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestTorus.xml; sourceTree = "<group>"; };
 		54174DC719D033CC0039E991 /* LAIG-Proj1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "LAIG-Proj1"; sourceTree = BUILT_PRODUCTS_DIR; };
+		541D72A31A23795A002183CB /* CGFtexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CGFtexture.cpp; sourceTree = "<group>"; };
+		541D72A51A23799A002183CB /* terrainmap2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = terrainmap2.jpg; sourceTree = "<group>"; };
 		541FBADD19F9740D00EA9CA8 /* LG_Plane.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Plane.cpp; sourceTree = "<group>"; };
 		541FBADE19F9740D00EA9CA8 /* LG_Plane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_Plane.h; sourceTree = "<group>"; };
 		541FBAE119F9863700EA9CA8 /* TestPlane.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestPlane.xml; sourceTree = "<group>"; };
@@ -1575,6 +1578,7 @@
 		545E74FF1A111FD400B83CC9 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				541D72A51A23799A002183CB /* terrainmap2.jpg */,
 				54F94B3F1A1BD89600A4B250 /* sun.jpg */,
 				54F94B3D1A1BCFD600A4B250 /* earth.jpg */,
 				548BA5531A13845700AFF8DB /* wing.png */,
@@ -1600,6 +1604,7 @@
 		545E75141A1141E100B83CC9 /* CGF */ = {
 			isa = PBXGroup;
 			children = (
+				541D72A31A23795A002183CB /* CGFtexture.cpp */,
 				545E75161A11420300B83CC9 /* CGFshader.cpp */,
 				545E75151A1141F600B83CC9 /* CGFshader.h */,
 			);
@@ -2391,6 +2396,7 @@
 				54C925E319F1B3140007FB91 /* LG_general.cpp in Sources */,
 				540939A919E860C400961C05 /* LG_Camera_Ortho.cpp in Sources */,
 				540939AA19E860C400961C05 /* LG_Camera_Perspective.cpp in Sources */,
+				541D72A41A23795A002183CB /* CGFtexture.cpp in Sources */,
 				545E74FD1A111ED700B83CC9 /* LG_Flag.cpp in Sources */,
 				540B932319EB25890034E113 /* coordinateSystems.cpp in Sources */,
 				540939AB19E860C400961C05 /* LG_Camera.cpp in Sources */,
