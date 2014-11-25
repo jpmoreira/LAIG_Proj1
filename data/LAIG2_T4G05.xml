@@ -298,10 +298,18 @@
             <transforms>
                 <transform type="scale" factor="0.1 0.1 0.1"/>
                 <transform type="rotate" axis="z" angle="-90" />
-                <transform type="translate" to="0 -9 0"/>
-                
-                
-                
+                <transform type="translate" to="0 -9 0"/>           
+            </transforms>
+            <primitives>
+            </primitives>
+            <descendants>
+                <noderef id="_vehicle"/>
+            </descendants>
+        </node>
+      
+      <node id="_vehicle" displaylist="true">            
+            <transforms>
+                       
             </transforms>
             <primitives>
             </primitives>
@@ -314,6 +322,7 @@
                 <noderef id="flag" />
             </descendants>
         </node>
+    
         
         <node id="flag">
             <transforms>
