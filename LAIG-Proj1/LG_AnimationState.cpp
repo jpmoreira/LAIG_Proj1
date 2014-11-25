@@ -10,7 +10,7 @@
 
 
 
-LG_AnimationState::LG_AnimationState(LG_Node_Map *map,TiXmlElement *elem):animation(LG_Animation::animationForElement(map, elem)),started(false),currentSegment(0){
+LG_AnimationState::LG_AnimationState(LG_Node_Map *map,TiXmlElement *elem):animation(LG_Animation::animationForElement(map, elem)),started(false),currentSegment(0),startTime(0){
     
     rotate(0, 1, 0, 0);
     translate(0,0,0);
@@ -22,7 +22,7 @@ LG_AnimationState::LG_AnimationState(LG_Node_Map *map,TiXmlElement *elem):animat
 
 
 
-LG_AnimationState::LG_AnimationState(LG_Node_Map *map,LG_Animation *anim):animation(anim),started(false),currentSegment(0){
+LG_AnimationState::LG_AnimationState(LG_Node_Map *map,LG_Animation *anim):animation(anim),started(false),currentSegment(0),startTime(0){
 
     
     rotate(0, 1, 0, 0);

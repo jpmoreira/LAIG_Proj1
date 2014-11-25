@@ -348,9 +348,15 @@ void LG_Graph_Node::config(){
 void LG_Graph_Node::update(unsigned long time){
 
     
+    if(str_eq(this->identifier, "vehicle")){
+        printf("%lu animations current %d\n",animations.size(),currentAnimation);
+    }
+    
+    
     if (animations.size()>0) {
         LG_AnimationState *currentAnimationState=animations.at(currentAnimation);
         
+        if(str_eq(this->identifier, "vehicle"))printf("finished %d\n",currentAnimationState->finished(time));
         if (currentAnimationState->finished(time) && currentAnimation+1<animations.size()) {//change to next animation if this one has finished (and if there is one)
             currentAnimation++;
         }

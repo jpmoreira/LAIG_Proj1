@@ -516,6 +516,19 @@
 		54B9EDE119F04CB1001F8C34 /* LG_SceneInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54B9EDDF19F04C9F001F8C34 /* LG_SceneInterface.cpp */; };
 		54B9EDE219F04CB2001F8C34 /* LG_SceneInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54B9EDDF19F04C9F001F8C34 /* LG_SceneInterface.cpp */; };
 		54B9EDE319F04F8D001F8C34 /* LG_Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 540939C619E9355000961C05 /* LG_Scene.cpp */; };
+		54BEFD701A24A88300C68412 /* spaceflag.frs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5407E34D1A1E8A32007CBE41 /* spaceflag.frs */; };
+		54BEFD711A24A88300C68412 /* spaceflag.vrs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5407E34E1A1E8A32007CBE41 /* spaceflag.vrs */; };
+		54BEFD731A24A8B800C68412 /* paper.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54BEFD721A24A8AF00C68412 /* paper.jpg */; };
+		54BEFD751A24A9A500C68412 /* opengl.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54BEFD741A24A99A00C68412 /* opengl.png */; };
+		54BEFD7A1A24A9DC00C68412 /* fiftyfifty.vrs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54BEFD761A24A9D100C68412 /* fiftyfifty.vrs */; };
+		54BEFD7B1A24A9DC00C68412 /* one_text.vrs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54BEFD771A24A9D100C68412 /* one_text.vrs */; };
+		54BEFD7C1A24A9DC00C68412 /* fiftyfifty.frs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54BEFD781A24A9D100C68412 /* fiftyfifty.frs */; };
+		54BEFD7D1A24A9DC00C68412 /* one_text.frs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54BEFD791A24A9D100C68412 /* one_text.frs */; };
+		54BEFD7E1A24A9DC00C68412 /* chess__.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 548BA5411A13721800AFF8DB /* chess__.jpg */; };
+		54BEFD7F1A24A9DC00C68412 /* fiftyfifty.vrs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5407E34B1A1E89DF007CBE41 /* fiftyfifty.vrs */; };
+		54BEFD801A24A9DC00C68412 /* one_text.vrs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5407E34C1A1E89DF007CBE41 /* one_text.vrs */; };
+		54BEFD811A24A9DC00C68412 /* waterLineShader.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5407E3531A1EA0E2007CBE41 /* waterLineShader.vs */; };
+		54BEFD821A24A9DC00C68412 /* waterLineShader.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5407E3541A1EA0EC007CBE41 /* waterLineShader.fs */; };
 		54C925E119F1B25F0007FB91 /* LG_general.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54C925DF19F1B25F0007FB91 /* LG_general.cpp */; };
 		54C925E219F1B30E0007FB91 /* LG_general.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54C925DF19F1B25F0007FB91 /* LG_general.cpp */; };
 		54C925E319F1B3140007FB91 /* LG_general.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54C925DF19F1B25F0007FB91 /* LG_general.cpp */; };
@@ -586,7 +599,20 @@
 			dstPath = testFiles;
 			dstSubfolderSpec = 16;
 			files = (
+				54BEFD7A1A24A9DC00C68412 /* fiftyfifty.vrs in CopyFiles */,
+				54BEFD7B1A24A9DC00C68412 /* one_text.vrs in CopyFiles */,
+				54BEFD7C1A24A9DC00C68412 /* fiftyfifty.frs in CopyFiles */,
+				54BEFD7D1A24A9DC00C68412 /* one_text.frs in CopyFiles */,
 				545E750F1A112AB600B83CC9 /* terrainmap2.jpg in CopyFiles */,
+				54BEFD7E1A24A9DC00C68412 /* chess__.jpg in CopyFiles */,
+				54BEFD7F1A24A9DC00C68412 /* fiftyfifty.vrs in CopyFiles */,
+				54BEFD801A24A9DC00C68412 /* one_text.vrs in CopyFiles */,
+				54BEFD811A24A9DC00C68412 /* waterLineShader.vs in CopyFiles */,
+				54BEFD821A24A9DC00C68412 /* waterLineShader.fs in CopyFiles */,
+				54BEFD751A24A9A500C68412 /* opengl.png in CopyFiles */,
+				54BEFD731A24A8B800C68412 /* paper.jpg in CopyFiles */,
+				54BEFD701A24A88300C68412 /* spaceflag.frs in CopyFiles */,
+				54BEFD711A24A88300C68412 /* spaceflag.vrs in CopyFiles */,
 				54F94B421A1D175000A4B250 /* stars.jpg in CopyFiles */,
 				54F94B401A1BD89F00A4B250 /* sun.jpg in CopyFiles */,
 				54F94B3E1A1BCFE300A4B250 /* earth.jpg in CopyFiles */,
@@ -1026,6 +1052,12 @@
 		54B9EDE419F050CF001F8C34 /* wall-e.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "wall-e.xml"; sourceTree = "<group>"; };
 		54B9EDE519F05113001F8C34 /* LAIG_TP1_ANF_T06_G01_v3.anf */ = {isa = PBXFileReference; lastKnownFileType = text; path = LAIG_TP1_ANF_T06_G01_v3.anf; sourceTree = "<group>"; };
 		54B9EDE619F0513A001F8C34 /* LAIG_TP1_ANF_T01_G03_v2.anf */ = {isa = PBXFileReference; lastKnownFileType = text; path = LAIG_TP1_ANF_T01_G03_v2.anf; sourceTree = "<group>"; };
+		54BEFD721A24A8AF00C68412 /* paper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = paper.jpg; sourceTree = "<group>"; };
+		54BEFD741A24A99A00C68412 /* opengl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = opengl.png; sourceTree = "<group>"; };
+		54BEFD761A24A9D100C68412 /* fiftyfifty.vrs */ = {isa = PBXFileReference; lastKnownFileType = text; path = fiftyfifty.vrs; sourceTree = "<group>"; };
+		54BEFD771A24A9D100C68412 /* one_text.vrs */ = {isa = PBXFileReference; lastKnownFileType = text; path = one_text.vrs; sourceTree = "<group>"; };
+		54BEFD781A24A9D100C68412 /* fiftyfifty.frs */ = {isa = PBXFileReference; lastKnownFileType = text; path = fiftyfifty.frs; sourceTree = "<group>"; };
+		54BEFD791A24A9D100C68412 /* one_text.frs */ = {isa = PBXFileReference; lastKnownFileType = text; path = one_text.frs; sourceTree = "<group>"; };
 		54C925DF19F1B25F0007FB91 /* LG_general.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_general.cpp; sourceTree = "<group>"; };
 		54C925E019F1B25F0007FB91 /* LG_general.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_general.h; sourceTree = "<group>"; };
 		54D8610819E588FA00B5695A /* LG_Lights_Tests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LG_Lights_Tests.cpp; path = LAIG_TDD_LIGHTS/LG_Lights_Tests.cpp; sourceTree = SOURCE_ROOT; };
@@ -1578,7 +1610,13 @@
 		545E74FF1A111FD400B83CC9 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				54BEFD761A24A9D100C68412 /* fiftyfifty.vrs */,
+				54BEFD771A24A9D100C68412 /* one_text.vrs */,
+				54BEFD781A24A9D100C68412 /* fiftyfifty.frs */,
+				54BEFD791A24A9D100C68412 /* one_text.frs */,
+				54BEFD741A24A99A00C68412 /* opengl.png */,
 				541D72A51A23799A002183CB /* terrainmap2.jpg */,
+				54BEFD721A24A8AF00C68412 /* paper.jpg */,
 				54F94B3F1A1BD89600A4B250 /* sun.jpg */,
 				54F94B3D1A1BCFD600A4B250 /* earth.jpg */,
 				548BA5531A13845700AFF8DB /* wing.png */,

@@ -57,6 +57,7 @@
         <texture id="wingText" file="./testFiles/wing.png" texlength_s="2" texlength_t="2" />
         <texture id="earthText" file="./testFiles/earth.jpg" texlength_s="1" texlength_t="1" />
         <texture id="sunText" file="./testFiles/sun.jpg" texlength_s="1" texlength_t="1" />
+        <texture id="starsText" file="./testFiles/stars.jpg" texlength_s="1" texlength_t="1" />
     </textures>
     <!-- bloco de materiais; -->
     <appearances>
@@ -92,6 +93,11 @@
             <component type="specular" value="0.5 0.5 0.5 1" />
         </appearance>
         
+        <appearance id="starsApp" shininess="0.2" textureref="starsText">
+            <component type="ambient" value="0.4 0.4 0.4 1" />
+            <component type="diffuse" value="0.5 0.5 0.5 1" />
+            <component type="specular" value="0.6 0.7 0.7 1" />
+        </appearance>
         
     </appearances>
     
@@ -99,9 +105,9 @@
     <animations>
         
         
+ 
         
-        
-        <animation id="vehicleRotation" span="56,52" type="circular" center="7 0 -4" radius="4" startang="0" rotang="810" />
+        <animation id="vehicleRotation" span="56.52 " type="circular" center="7 0 -4" radius="4" startang="0" rotang="810" />
         <animation id="earthRotation" span="1000" type="circular" center="-15 0 0" radius="15" startang="0" rotang="10000" />
         <animation id="vehicleApproaching" span="7" type="linear" >
             
@@ -113,23 +119,96 @@
         <animation id="vehicleGoingAway" span="7" type="linear" >
             
             <controlpoint xx="0" yy="0" zz="0" />
-            <controlpoint xx="0" yy="0" zz="7" />
+            <controlpoint xx="0" yy="0" zz="-7" />
             
         </animation>
     </animations>
     
-    <graph rootid="earth_n_sun">
+    
+    
+    <graph rootid="vehicle">
         
-        <node id="scene">
+        
+        
+        <node id="flag_extra">
+            <appearanceref id="inherit"/>
             <transforms>
+                <transform type="translate" to="0 15 41"/>
+                <transform type="scale" factor="50 1 50"/>
+            </transforms>
+            <descendants></descendants>
+            <primitives>
+                <flag texture2="./testFiles/FEUP.jpg" texture="./testFiles/terrainmap2.jpg" vsfile="./testFiles/spaceflag.vrs" fsfile="./testFiles/spaceflag.frs"/>
+            </primitives>
+        </node>
+        
+        <node id="space_planes">
+            <transforms>
+                <transform type="translate" to="-10 -10 -20" />
+            </transforms>
+            <primitives></primitives>
+            <descendants>
+                <noderef id="space_plane_left"/>
+                <noderef id="space_flag_bottom"/>
+                <noderef id="space_plane_back"/>
+            </descendants>
+        </node>
+        
+        <node id="space_plane_left">
+            <transforms>
+                <transform type="translate" to="-25 15 5"/>
+                <transform type="rotate" axis="z" angle="-90"/>
+            </transforms>
+            <primitives></primitives>
+            <descendants>
+                <noderef id="stars_plane"/>
+            </descendants>
+        </node>
+        
+        <node id="space_flag_bottom">
+            <transforms>
+                <transform type="translate" to="0 -10 5"/>
+                <transform type="scale" factor="50 1 50"/>
             </transforms>
             <primitives>
+                <flag texture="./testFiles/paper.jpg" texture2="./testFiles/opengl.png"/>
             </primitives>
             <descendants>
-                <noderef id="vehicle_animations"/>
-                <noderef id="earth"/>
-                <noderef id="sun"/>
+                <!--<noderef id="stars_plane"/>-->
             </descendants>
+        </node>
+        
+        <node id="space_plane_right">
+            <transforms>
+                <transform type="translate" to="25 15 5" />
+                <transform type="rotate" axis="z" angle="90"/>
+            </transforms>
+            <primitives></primitives>
+            <descendants>
+                <noderef id="stars_plane"/>
+            </descendants>
+        </node>
+        
+        <node id="space_plane_back">
+            <transforms>
+                <transform type="translate" to="0 15 -20" />
+                <transform type="rotate" axis="x" angle="90"/>
+            </transforms>
+            <primitives></primitives>
+            <descendants>
+                <noderef id="stars_plane"/>
+            </descendants>
+        </node>
+        
+        <node id="stars_plane">
+            <appearanceref id="starsApp"/>
+            <transforms>
+                <transform type="scale" factor="50 1 50"/>
+            </transforms>
+            <descendants></descendants>
+            <primitives>
+                <plane parts="30"/>
+            </primitives>
         </node>
         
         
@@ -195,6 +274,7 @@
         <node id="vehicle">
             <animationref id="vehicleApproaching" />
             <animationref id="vehicleRotation" />
+            <animationref id="vehicleGoingAway" />
             
             <transforms>
                 <transform type="scale" factor="0.1 0.1 0.1"/>
