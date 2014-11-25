@@ -96,7 +96,8 @@ unsigned long LG_AnimationState::timePassed(unsigned long timeNow){
 
 bool LG_AnimationState::finished(unsigned long timenow){
 
-    
+	if (!started)
+		return false;
     return timenow-startTime>=animation->span;
     
 }
