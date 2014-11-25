@@ -163,7 +163,6 @@ void LG_LinearAnimation::configureInitialParameters(LG_AnimationState *state){
     }
     
     double percentFirstDistance=1;
-    printf("Total distance %f\n",totalDistance);
     if (totalDistance>0) {
         percentFirstDistance=distanceToFirst/totalDistance;
     }
@@ -281,7 +280,7 @@ void LG_LinearAnimation::configureTranslation(double timeSinceAnimationStart,LG_
     state->translate_afterRotation(lastPassedControlPoint[X_] + timeSincePassedControlPoint*velocityVector[X_], lastPassedControlPoint[Y_] + timeSincePassedControlPoint*velocityVector[Y_], lastPassedControlPoint[Z_] + timeSincePassedControlPoint*velocityVector[Z_]);
     
     
-    printf("translation to (%f,%f,%f)\n",lastPassedControlPoint[X_] + timeSincePassedControlPoint*velocityVector[X_], lastPassedControlPoint[Y_] + timeSincePassedControlPoint*velocityVector[Y_], lastPassedControlPoint[Z_] + timeSincePassedControlPoint*velocityVector[Z_]);
+    
     
     
     

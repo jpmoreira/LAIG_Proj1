@@ -122,11 +122,19 @@
             <controlpoint xx="0" yy="0" zz="-7" />
             
         </animation>
+        
+        <animation id="sunMoving" span="10" type="linear" >
+            
+            <controlpoint xx="0" yy="0" zz="0" />
+            <controlpoint xx="5" yy="0" zz="5" />
+            <controlpoint xx="5" yy="3" zz="5" />
+            
+        </animation>
     </animations>
     
     
     
-    <graph rootid="vehicle">
+    <graph rootid="earth_n_sun">
         
         
         
@@ -513,6 +521,7 @@
         
         <node id="sun">
             
+            <animationref id="sunMoving" />
             <appearanceref id="sunApp" />
             <transforms>
                 
