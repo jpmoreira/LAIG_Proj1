@@ -162,7 +162,7 @@
 
     <node id="space_planes">
       <transforms>
-        <transform type="translate" to="-10 -10 -20" />
+        <transform type="translate" to="-25 -10 -20" />
       </transforms>
       <primitives></primitives>
       <descendants>
@@ -255,6 +255,7 @@
             <descendants>
                 <noderef id="earth_anim"/>
                 <noderef id="sun" />
+                <noderef id="space_planes"/>
             </descendants>
             
         </node>
