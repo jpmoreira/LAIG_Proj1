@@ -71,7 +71,11 @@ void LG_LinearAnimation::update(unsigned long timeNow,LG_AnimationState *state){
         printf("Applying rotation\n");
         configureRotation(startDirVect, currentDirVect, state);
         
-        timeToSwitchSegment+=distanceBetweenPoints(controlPoints[currentSegment+1], controlPoints[currentSegment+2])/velocity;
+        if (velocity!=0) {
+            timeToSwitchSegment+=distanceBetweenPoints(controlPoints[currentSegment+1], controlPoints[currentSegment+2])/velocity;
+            
+        }
+        
         
         
         
@@ -158,15 +162,26 @@ void LG_LinearAnimation::configureInitialParameters(LG_AnimationState *state){
         
     }
     
-    double percentFirstDistance=distanceToFirst/totalDistance;
+    double percentFirstDistance=1;
+    printf("Total distance %f\n",totalDistance);
+    if (totalDistance>0) {
+        percentFirstDistance=distanceToFirst/totalDistance;
+    }
+    
     
     timeToSwitchSegment=percentFirstDistance*span;
     
-    velocity=totalDistance/span;
+    velocity=0;
+    if (span>0) velocity=totalDistance/span;
     
-    for (int i=0; i<controlPoints.size(); i++) {
-        controlPointHitTime[i]/=velocity;//vector now holds times
+    
+    
+    if (velocity!=0) {
+        for (int i=0; i<controlPoints.size(); i++) {
+            controlPointHitTime[i]/=velocity;//vector now holds times
+        }
     }
+    
     
     
     

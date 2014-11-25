@@ -161,10 +161,12 @@ inline void normalize(vector<double> & vector){
     double vectDimention=vectorLenght(vector);
     
     
+    if(vectDimention!=0){//only if dimention is not zero
+        vector[X_]/=vectDimention;
+        vector[Y_]/=vectDimention;
+        vector[Z_]/=vectDimention;
+    }
     
-    vector[X_]/=vectDimention;
-    vector[Y_]/=vectDimention;
-    vector[Z_]/=vectDimention;
     
 }
 
