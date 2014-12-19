@@ -47,10 +47,9 @@ private:
     void handleAppearance(LG_Node_Map *map,TiXmlElement *appearanceElement);
     
     void handleAnimation(LG_Node_Map *map,TiXmlElement * animationElement);
-    
-    
-    
-    
+
+protected:
+	bool selectable, visible;
     
     
 public:
