@@ -27,7 +27,7 @@
   <textures>
 
     <texture id="woodText" file="../data/woodText.jpg" texlength_s="1" texlength_t="1"/>
-    <texture id="tab_lidText" file="../data/copia.jpg" texlength_s="1" texlength_t="1"/>
+    <texture id="tab_lidText" file="../data/tzaarBoard.jpg" texlength_s="1" texlength_t="1"/>
 
   </textures>
   <!-- bloco de materiais; -->
@@ -50,13 +50,13 @@
 
   <animations/>
 
-  <graph rootid="tab">
+  <graph rootid="tabNCyls">
 
     <node id="tabNCyls">
       <appearanceref id="inherit"/>
       <transforms/>
       <descendants>
-        <noderef id="cyl"/>
+        <noderef id="cylTop"/>
         <noderef id="tab"/>
       </descendants>
     </node>
@@ -125,7 +125,7 @@
       </primitives>
     </node>
 
-    <node id="tab_left" visible="false" selectable="true">
+    <node id="tab_left" visible="true" selectable="true">
       <appearanceref id="inherit"/>
       <transforms>
         <transform type="translate" to="0 0.5 1"/>
@@ -151,14 +151,15 @@
       </primitives>
     </node>
     
-    <node id="cyl">
+    <node id="cylTop">
       <appearanceref id="inherit"/>
       <transforms>
-        <transform type="translate" to="0.5 0 1"/>
+        <transform type="translate" to="1 1 0.0794"/>
+        <transform type="rotate" axis="x" angle="-90"/>
       </transforms>
       <descendants/>
       <primitives>
-        <cylinder base="1" top="1" height="1" slices="10" stacks="5" />
+        <cylinder base="0.0522" top="0.0522" height="0.0522" slices="10" stacks="10" />
       </primitives>
     </node>
 
