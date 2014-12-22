@@ -11,7 +11,7 @@
   </cameras>
 
   <lights>
-    <light id="omniGrey" type="omni" enabled="false" marker="false" pos="10 5 10" >
+    <light id="omniGrey" type="omni" enabled="false" marker="false" pos="0 10 0" >
       <component type="ambient" value="0.2 0.2 0.2 0.1" />
       <component type="diffuse" value="0.2 0.2 0.2 0.1" />
       <component type="specular" value="0.2 0.2 0.2 0.1" />
@@ -52,7 +52,9 @@
 
     <node id="tabNCyls">
       <appearanceref id="inherit"/>
-      <transforms/>
+      <transforms>
+        <transform type="scale" factor="4 1 4"/> <!--tam original: x=2 y=0.2 z=2-->
+      </transforms>
       <descendants>
         <noderef id="cyls"/>
         <noderef id="tab"/>
@@ -77,7 +79,7 @@
       <appearanceref id="tab_lidApp"/>
       <!--set appearence-->
       <transforms>
-        <transform type="translate" to="1 1 1"/>
+        <transform type="translate" to="1 0.2 1"/>
         <transform type="scale" factor="2 1 2"/>
       </transforms>
       <descendants/>
@@ -100,8 +102,8 @@
 
     <node id="tab_front">
       <transforms>
-        <transform type="translate" to="1 0.5 2"/>
-        <transform type="scale" factor="2 1 1"/>
+        <transform type="translate" to="1 0.1 2"/>
+        <transform type="scale" factor="2 0.2 1"/>
         <transform type="rotate" axis="x" angle="90"/>
       </transforms>
       <descendants/>
@@ -110,11 +112,11 @@
       </primitives>
     </node>
 
-    <node id="tab_back" visible="true" selectable="false">
+    <node id="tab_back">
       <appearanceref id="inherit"/>
       <transforms>
-        <transform type="translate" to="1 0.5 0"/>
-        <transform type="scale" factor="2 1 1"/>
+        <transform type="translate" to="1 0.1 0"/>
+        <transform type="scale" factor="2 0.2 1"/>
         <transform type="rotate" axis="x" angle="-90"/>
       </transforms>
       <descendants/>
@@ -123,11 +125,11 @@
       </primitives>
     </node>
 
-    <node id="tab_left" visible="true" selectable="true">
+    <node id="tab_left">
       <appearanceref id="inherit"/>
       <transforms>
-        <transform type="translate" to="0 0.5 1"/>
-        <transform type="scale" factor="1 1 2"/>
+        <transform type="translate" to="0 0.1 1"/>
+        <transform type="scale" factor="1 0.2 2"/>
         <transform type="rotate" axis="z" angle="90"/>
       </transforms>
       <descendants/>
@@ -139,8 +141,8 @@
     <node id="tab_right">
       <appearanceref id="inherit"/>
       <transforms>
-        <transform type="translate" to="2 0.5 1"/>
-        <transform type="scale" factor="1 1 2"/>
+        <transform type="translate" to="2 0.1 1"/>
+        <transform type="scale" factor="1 0.2 2"/>
         <transform type="rotate" axis="z" angle="-90"/>
       </transforms>
       <descendants/>
@@ -239,12 +241,12 @@
     <node id="cylX_5Z_1" selectable="true" visible="true">
       <appearanceref id="inherit"/>
       <transforms>
-        <transform type="translate" to="1 1 0.0794"/>
+        <transform type="translate" to="1 0.2 0.0794"/>
         <transform type="rotate" axis="x" angle="-90"/>
       </transforms>
       <descendants/>
       <primitives>
-        <cylinder base="0.0522" top="0.0522" height="0.0522" slices="10" stacks="10" />
+        <cylinder base="0.0522" top="0.0522" height="0.05" slices="10" stacks="10" />
       </primitives>
     </node>
 
