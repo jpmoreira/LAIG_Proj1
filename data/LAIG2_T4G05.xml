@@ -12,9 +12,9 @@
 
   <lights>
     <light id="omniGrey" type="omni" enabled="false" marker="false" pos="0 10 0" >
-      <component type="ambient" value="0.2 0.2 0.2 0.1" />
-      <component type="diffuse" value="0.2 0.2 0.2 0.1" />
-      <component type="specular" value="0.2 0.2 0.2 0.1" />
+      <component type="ambient" value="0.2 0.2 0.2 1" />
+      <component type="diffuse" value="0.2 0.2 0.2 1" />
+      <component type="specular" value="0.4 0.4 0.4 1" />
     </light>
     <light id="spotWhite" type="spot" enabled="true" marker="false" pos="12 8 5" target="0 -1 0"
         angle="60" exponent="1" >
@@ -27,7 +27,7 @@
   <textures>
 
     <texture id="woodText" file="../data/woodText.jpg" texlength_s="1" texlength_t="1"/>
-    <texture id="tab_lidText" file="../data/tzaarBoard.jpg" texlength_s="1" texlength_t="1"/>
+    <texture id="tab_lidText" file="../data/tzaarBoard_.jpg" texlength_s="1" texlength_t="1"/>
 
   </textures>
   <!-- bloco de materiais; -->
@@ -48,12 +48,26 @@
   </appearances>
   <animations/>
 
-  <graph rootid="tabNCyls">
+  <graph rootid="wallsNGame">
+
+
+
+    <node id="wallsNGame">
+      <appearanceref id="inherit"/>
+      <transforms/>
+      <descendants>
+        <noderef id="tabNCyls"/>
+        <noderef id ="walls"/>
+      </descendants>
+      <primitives/>
+    </node>
 
     <node id="tabNCyls">
       <appearanceref id="inherit"/>
       <transforms>
-        <transform type="scale" factor="4 1 4"/> <!--tam original: x=2 y=0.2 z=2-->
+        <transform type="translate" to="5 5 5"/>
+        <!--<transform type="scale" factor="2 1 2"/>-->
+        <!--tam original: x=2 y=0.2 z=2-->
       </transforms>
       <descendants>
         <noderef id="cyls"/>
@@ -61,7 +75,15 @@
       </descendants>
     </node>
 
-    <node id="tab">
+
+    <!--
+    _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+    
+    BOARD
+    _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+    -->
+
+    <node id="tab" displaylist="true">
       <appearanceref id="tabApp"/>
       <transforms/>
       <descendants>
@@ -152,11 +174,10 @@
     </node>
 
     <!--
-    Cylinders
-    _________________________________________________________
-    _________________________________________________________
-    _________________________________________________________
-    _________________________________________________________
+    _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+    
+    CYLINDERS
+    _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
     -->
 
     <node id="cyls">
@@ -188,13 +209,13 @@
         <noderef id="cylX_3Z11"/>
         <noderef id="cylX_3Z13"/>
         <noderef id="cylX_3Z15"/>
-        <!--central+4-->       
+        <!--central+4-->
         <noderef id="cylX_9Z_5"/>
         <noderef id="cylX_9Z_7"/>
         <noderef id="cylX_9Z_9"/>
         <noderef id="cylX_9Z11"/>
         <noderef id="cylX_9Z13"/>
-        <!--central-4-->       
+        <!--central-4-->
         <noderef id="cylX_1Z_5"/>
         <noderef id="cylX_1Z_7"/>
         <noderef id="cylX_1Z_9"/>
@@ -538,8 +559,8 @@
       </descendants>
       <primitives></primitives>
     </node>
-    
-        <!--center-4-->
+
+    <!--center-4-->
     <node id="cylX_1Z_5" selectable="true" visible="true">
       <appearanceref id="inherit"/>
       <transforms>
@@ -905,6 +926,99 @@
         <noderef id="cylX_5Z_1"/>
       </descendants>
       <primitives></primitives>
+    </node>
+
+
+    <!--
+    _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+    
+    WALLS
+    _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+    -->
+    <!--cube wrapper inside faces visible only 10x10 origin centered-->
+    <node id="walls">
+      <appearanceref id="inherit"/>
+      <transforms/>
+      <descendants>
+        <noderef id="wallBack"/>
+        <noderef id="wallFront"/>
+        <noderef id="wallLeft"/>
+        <noderef id="wallRight"/>
+        <noderef id="wallFloor"/>
+        <noderef id="wallCeiling"/>
+      </descendants>
+      <primitives/>
+    </node>
+
+    <node id="wallBack">
+      <appearanceref id="inherit"/>
+      <transforms>
+        <transform type="translate" to="0 5 -5"/>
+        <transform type="rotate" axis="x" angle="90"/>
+      </transforms>
+      <descendants>
+        <noderef id="wallFloor"/>
+      </descendants>
+      <primitives/>
+    </node>
+
+    <node id="wallFront">
+      <appearanceref id="inherit"/>
+      <transforms>
+        <transform type="translate" to="0 5 5"/>
+        <transform type="rotate" axis="x" angle="-90"/>
+      </transforms>
+      <descendants>
+        <noderef id="wallFloor"/>
+      </descendants>
+      <primitives/>
+    </node>
+
+    <node id="wallLeft">
+      <appearanceref id="inherit"/>
+      <transforms>
+        <transform type="translate" to="-5 5 0"/>
+        <transform type="rotate" axis="z" angle="-90"/>
+      </transforms>
+      <descendants>
+        <noderef id="wallFloor"/>
+      </descendants>
+      <primitives/>
+    </node>
+
+    <node id="wallRight">
+      <appearanceref id="inherit"/>
+      <transforms>
+        <transform type="translate" to="5 5 0 "/>
+        <transform type="rotate" axis="z" angle="90"/>
+      </transforms>
+      <descendants>
+        <noderef id="wallFloor"/>
+      </descendants>
+      <primitives/>
+    </node>
+
+    <node id="wallFloor">
+      <appearanceref id="inherit"/>
+      <transforms>
+        <transform type="scale" factor="10 1 10"/>
+      </transforms>
+      <descendants/>
+      <primitives>
+        <plane parts="15"/>
+      </primitives>
+    </node>
+
+    <node id="wallCeiling">
+      <appearanceref id="inherit"/>
+      <transforms>
+        <transform type="translate" to="0 10 0"/>
+        <transform type="rotate" axis="x" angle="180"/>
+      </transforms>
+      <descendants>
+        <noderef id="wallFloor"/>
+      </descendants>
+      <primitives/>
     </node>
 
   </graph>
