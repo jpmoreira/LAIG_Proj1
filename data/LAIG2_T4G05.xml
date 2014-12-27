@@ -28,6 +28,10 @@
 
     <texture id="woodText" file="../data/woodText.jpg" texlength_s="1" texlength_t="1"/>
     <texture id="tab_lidText" file="../data/tzaarBoard_.jpg" texlength_s="1" texlength_t="1"/>
+    <texture id ="wallBoard" file="../data/wallBoard.jpg" texlength_s="1" texlength_t="1"/>
+    <texture id="wall" file="../data/wall.jpg" texlength_s="1" texlength_t="1"/>
+    <texture id="floor" file="../data/carpet.jpg" texlength_s="1" texlength_t="1"/>
+
 
   </textures>
   <!-- bloco de materiais; -->
@@ -44,6 +48,32 @@
       <component type="diffuse" value="0.65 0.5 0.39 1" />
       <component type="specular" value="0.65 0.5 0.39 1" />
     </appearance>
+
+    <appearance id="tzaarWallApp" shininess="0.3" textureref="wallBoard">
+      <component type="ambient" value="0.2 0.18 0.16 1" />
+      <component type="diffuse" value="0.580 0.478 0.380 1" />
+      <component type="specular" value="0.25 0.25 0.25 1" />
+    </appearance>
+
+    <appearance id="wallApp" shininess="0.6" textureref="wall">
+      <component type="ambient" value="0.2 0.18 0.16 1" />
+      <component type="diffuse" value="0.58 0.58 0.58 1" />
+      <component type="specular" value="0.25 0.25 0.25 1" />
+    </appearance>
+
+    <appearance id="floorApp" shininess="0.6" textureref="floor">
+      <component type="ambient" value="0.2 0.18 0.16 1" />
+      <component type="diffuse" value="0.58 0.58 0.58 1" />
+      <component type="specular" value="0.25 0.25 0.25 1" />
+    </appearance>
+
+    <appearance id="tableSupportApp" shininess="1.0">
+      <component type="ambient" value="0.0 0.0 0.00 1" />
+      <component type="diffuse" value="0.051 0.039 0.039 1" />
+      <component type="specular" value="0.102 0.078 0.078 1" />
+    </appearance>
+
+
 
   </appearances>
   <animations/>
@@ -62,19 +92,134 @@
       <primitives/>
     </node>
 
+    <!--board game dimensions: [2, 0.2, 2] starting at  x=0 y=0 z=0 to positives-->
     <node id="tabNCyls">
       <appearanceref id="inherit"/>
       <transforms>
-        <transform type="translate" to="5 5 5"/>
-        <!--<transform type="scale" factor="2 1 2"/>-->
-        <!--tam original: x=2 y=0.2 z=2-->
+        <transform type="translate" to="10 2 10"/>
       </transforms>
       <descendants>
+
         <noderef id="cyls"/>
         <noderef id="tab"/>
+        <noderef id="support"/>
       </descendants>
     </node>
 
+    <!--cube wrapper inside faces visible only 10x10 origin centered-->
+    <node id="walls">
+      <appearanceref id="wallApp"/>
+      <transforms>
+        <transform type="translate" to="13.335 0 13.335"/>
+        <transform type="scale" factor="2.667 1.5 2.667"/>
+        <!--factor * [10 1 10]-->
+      </transforms>
+      <descendants>
+        <noderef id="wallBack"/>
+        <noderef id="wallFront"/>
+        <noderef id="wallLeft"/>
+        <noderef id="wallRight"/>
+        <noderef id="wallFloor"/>
+        <noderef id="wallCeiling"/>
+      </descendants>
+      <primitives/>
+    </node>
+
+
+    <!--a plane to be used by those in need-->
+    <node id="plane">
+      <appearanceref id="inherit"/>
+      <transforms/>
+      <descendants/>
+      <primitives>
+        <plane parts="50"/>
+      </primitives>
+    </node>
+
+    <!--a cube-->
+    <node id="cube">
+      <appearanceref id="inherit"/>
+      <transforms/>
+      <descendants>
+        <noderef id="cubeTop"/>
+        <noderef id="cubeBottom"/>
+        <noderef id="cubeFront"/>
+        <noderef id="cubeBack"/>
+        <noderef id="cubeLeft"/>
+        <noderef id="cubeRight"/>
+      </descendants>
+    </node>
+
+    <node id="cubeTop">
+      <appearanceref id="inherit"/>
+      <transforms>
+        <transform type="translate" to="0 0.5 0"/>
+      </transforms>
+      <descendants>
+        <noderef id="plane"/>
+      </descendants>
+      <primitives/>
+    </node>
+
+    <node id="cubeBottom">
+      <appearanceref id="inherit"/>
+      <transforms>
+        <transform type="translate" to="0 -0.5 0"/>
+        <transform type="rotate" axis="x" angle="180"/>
+      </transforms>
+      <descendants>
+        <noderef id="plane"/>
+      </descendants>
+      <primitives/>
+    </node>
+
+    <node id="cubeFront">
+      <appearanceref id="inherit"/>
+      <transforms>
+        <transform type="translate" to="0 0 0.5"/>
+        <transform type="rotate" axis="x" angle="90"/>
+      </transforms>
+      <descendants>
+        <noderef id="plane"/>
+      </descendants>
+      <primitives/>
+    </node>
+
+    <node id="cubeBack">
+      <appearanceref id="inherit"/>
+      <transforms>
+        <transform type="translate" to="0 0 -0.5"/>
+        <transform type="rotate" axis="x" angle="-90"/>
+      </transforms>
+      <descendants>
+        <noderef id="plane"/>
+      </descendants>
+      <primitives/>
+    </node>
+
+    <node id="cubeLeft">
+      <appearanceref id="inherit"/>
+      <transforms>
+        <transform type="translate" to="-0.5 0 0"/>
+        <transform type="rotate" axis="z" angle="90"/>
+      </transforms>
+      <descendants>
+        <noderef id="plane"/>
+      </descendants>
+      <primitives/>
+    </node>
+
+    <node id="cubeRight">
+      <appearanceref id="inherit"/>
+      <transforms>
+        <transform type="translate" to="0.5 0 0"/>
+        <transform type="rotate" axis="z" angle="-90"/>
+      </transforms>
+      <descendants>
+        <noderef id="plane"/>
+      </descendants>
+      <primitives/>
+    </node>
 
     <!--
     _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
@@ -172,6 +317,100 @@
         <plane parts="30"/>
       </primitives>
     </node>
+
+    <!--
+    _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+    
+    BOARD SUPPORT
+    _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+    -->
+
+    <node id="support">
+      <appearanceref id="tableSupportApp"/>
+      <transforms></transforms>
+      <descendants>
+        <noderef id="supportLeft"/>
+        <noderef id="supportRight"/>
+      </descendants>
+      <primitives></primitives>
+    </node>
+
+
+    <node id="supportLeft">
+      <appearanceref id="inherit"/>
+      <transforms></transforms>
+      <descendants>
+        <noderef id="supHorLeftBack"/>
+        <noderef id="supHorLeftFront"/>
+        <noderef id="verLeftBack"/>
+        <noderef id="verLeftFront"/>
+        <noderef id="infHor"/>
+      </descendants>
+    </node>
+
+    <node id="supHorLeftBack">
+      <appearanceref id="inherit"/>
+      <transforms>
+        <transform type="translate" to="0.1 -0.025 0.1"/>
+        <transform type="scale" factor="0.2 0.05 0.2"/>
+      </transforms>
+      <descendants>
+        <noderef id="cube"/>
+      </descendants>
+    </node>
+
+    <node id="supHorLeftFront">
+      <appearanceref id="inherit"/>
+      <transforms>
+        <transform type="translate" to="0 0 1.8"/>
+      </transforms>
+      <descendants>
+        <noderef id="supHorLeftBack"/>
+      </descendants>
+    </node>
+
+    <node id="verLeftBack">
+      <appearanceref id="inherit"/>
+      <transforms>
+        <transform type="translate" to="0.1 -0.875 0.025"/>
+        <transform type="scale" factor="0.2 1.7 0.05"/>
+      </transforms>
+      <descendants>
+        <noderef id="cube"/>
+      </descendants>
+    </node>
+
+    <node id="verLeftFront">
+      <appearanceref id="inherit"/>
+      <transforms>
+        <transform type="translate" to="0 0 1.95"/>
+      </transforms>
+      <descendants>
+        <noderef id="verLeftBack"/>
+      </descendants>
+    </node>
+
+    <node id="infHor">
+      <appearance id="inherit"/>
+      <transforms>
+        <transform type="translate" to="0.1 -1.75 1"/>
+        <transform type="scale" factor="0.2 0.05 2"/>
+      </transforms>
+      <descendants>
+        <noderef id="cube"/>
+      </descendants>
+    </node>
+
+    <node id="supportRight">
+      <appearanceref id="inherit"/>
+      <transforms>
+        <transform type="translate" to="1.8 0 0"/>
+      </transforms>
+      <descendants>
+        <noderef id="supportLeft"/>
+      </descendants>
+    </node>
+
 
     <!--
     _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
@@ -935,29 +1174,16 @@
     WALLS
     _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
     -->
-    <!--cube wrapper inside faces visible only 10x10 origin centered-->
-    <node id="walls">
-      <appearanceref id="inherit"/>
-      <transforms/>
-      <descendants>
-        <noderef id="wallBack"/>
-        <noderef id="wallFront"/>
-        <noderef id="wallLeft"/>
-        <noderef id="wallRight"/>
-        <noderef id="wallFloor"/>
-        <noderef id="wallCeiling"/>
-      </descendants>
-      <primitives/>
-    </node>
 
     <node id="wallBack">
-      <appearanceref id="inherit"/>
+      <appearanceref id="tzaarWallApp"/>
       <transforms>
         <transform type="translate" to="0 5 -5"/>
         <transform type="rotate" axis="x" angle="90"/>
+      <transform type="scale" factor="10 1 10"/>
       </transforms>
       <descendants>
-        <noderef id="wallFloor"/>
+        <noderef id="plane"/>
       </descendants>
       <primitives/>
     </node>
@@ -967,9 +1193,10 @@
       <transforms>
         <transform type="translate" to="0 5 5"/>
         <transform type="rotate" axis="x" angle="-90"/>
+      <transform type="scale" factor="10 1 10"/>
       </transforms>
       <descendants>
-        <noderef id="wallFloor"/>
+        <noderef id="plane"/>
       </descendants>
       <primitives/>
     </node>
@@ -979,9 +1206,10 @@
       <transforms>
         <transform type="translate" to="-5 5 0"/>
         <transform type="rotate" axis="z" angle="-90"/>
+      <transform type="scale" factor="10 1 10"/>
       </transforms>
       <descendants>
-        <noderef id="wallFloor"/>
+        <noderef id="plane"/>
       </descendants>
       <primitives/>
     </node>
@@ -991,21 +1219,24 @@
       <transforms>
         <transform type="translate" to="5 5 0 "/>
         <transform type="rotate" axis="z" angle="90"/>
+      <transform type="scale" factor="10 1 10"/>
       </transforms>
       <descendants>
-        <noderef id="wallFloor"/>
+        <noderef id="plane"/>
       </descendants>
       <primitives/>
     </node>
 
     <node id="wallFloor">
-      <appearanceref id="inherit"/>
+      <appearanceref id="floorApp"/>
       <transforms>
         <transform type="scale" factor="10 1 10"/>
       </transforms>
-      <descendants/>
+      <descendants>
+        <noderef id="plane"/>
+      </descendants>
       <primitives>
-        <plane parts="15"/>
+        <!--<plane parts="100"/>-->
       </primitives>
     </node>
 
@@ -1014,6 +1245,7 @@
       <transforms>
         <transform type="translate" to="0 10 0"/>
         <transform type="rotate" axis="x" angle="180"/>
+      <transform type="scale" factor="10 1 10"/>
       </transforms>
       <descendants>
         <noderef id="wallFloor"/>
