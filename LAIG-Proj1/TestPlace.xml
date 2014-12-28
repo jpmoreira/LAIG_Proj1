@@ -1,0 +1,11 @@
+<place x="1" y="1">
+    <tzarra color="black"/>
+</place>
+<place x="1" y="2" pieces="3" >
+    <tzarra color="black"/>
+</place>
+<place x="1" y="3" pieces="3" />
+
+<placze x="1" y="2" pieces="3" >
+    <tzarra color="black"/>
+</placze>

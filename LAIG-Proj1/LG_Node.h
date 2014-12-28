@@ -14,20 +14,39 @@
 
 
 
+
 #include "LG_Essentials.h"
 
+#include <GL/glu.h>
+
+class LG_Transform;
+class LG_Appearance;
 
 
 
+
+class LG_AnimationState;
 
 class LG_Node{
     
     friend class LG_Graph;
     friend class LG_ANF;
+    friend class LG_Board_Place;
     
 protected:
     
     
+    
+    GLint displayListID;
+    
+    bool isDisplayList;
+    
+    
+    LG_Transform *transform;
+    
+    
+    
+    LG_Appearance *appearance;
     
     /**
      
@@ -46,14 +65,7 @@ protected:
     //LG_Properties *properties;
     
     
-    /**
-     
-     
-     The identifier for this node
-     
-     */
-    
-    string identifier;
+
     
     
     /**
@@ -67,8 +79,22 @@ protected:
     LG_Node_Map *map;
     
     
+    vector<LG_AnimationState *>animations;
+    int currentAnimation;
+    
+    
     
 public:
+
+    
+    /**
+     
+     
+     The identifier for this node
+     
+     */
+    
+    string identifier;
     
     
     /**
@@ -76,7 +102,7 @@ public:
      Simple constructor. It automatically adds the node to the map
      
      */
-    LG_Node(LG_Node_Map* theMap,string theIdentifier);
+    LG_Node(LG_Node_Map* theMap,string theIdentifier,LG_Transform *transform=NULL);
     
     
     
@@ -88,6 +114,15 @@ public:
      */
     
     virtual void draw();
+    
+    
+    /*
+     
+     
+     A method that draws all childs of the node
+     
+     */
+    virtual void drawChilds();
     
     
     /**
@@ -142,6 +177,11 @@ public:
 	string getIdentifier();
     
     virtual void config();
+    
+    
+    virtual void animationFinished(LG_AnimationState *state);
+    
+    bool isAnimating();
     
     
     

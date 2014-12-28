@@ -39,6 +39,11 @@
 			<key>orderHint</key>
 			<integer>14</integer>
 		</dict>
+		<key>LG_Board_Piece_Test.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>27</integer>
+		</dict>
 		<key>LG_Cameras_Tests.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -138,6 +143,16 @@
 		<dict>
 			<key>orderHint</key>
 			<integer>26</integer>
+		</dict>
+		<key>Test_Piece_Load.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>28</integer>
+		</dict>
+		<key>Test_Place.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>29</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -273,6 +288,26 @@
 			<true/>
 		</dict>
 		<key>54D8613119E58EE600B5695A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>54FDD64C1A496083005CCE8B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>54FDD7601A498A2D005CCE8B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>54FDD7A51A4AC3D6005CCE8B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>54FDD7F21A4D51BE005CCE8B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

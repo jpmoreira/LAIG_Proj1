@@ -26,14 +26,9 @@ class LG_Graph_Node:public LG_Parsable_Node{
     
 private:
     
-    LG_Transform *transform;
-    
-    LG_Appearance *appearance;
-    vector<LG_AnimationState *>animations;
-    int currentAnimation;
-    GLint displayListID;
-    
-    bool isDisplayList;
+   
+
+
     
     
     static string identifierForGraphNode(TiXmlElement *elem);
@@ -41,7 +36,7 @@ private:
     void handleDescendants(LG_Node_Map *node_map,TiXmlElement *descendantsElement);
     
     
-    vector<LG_Primitive *> handlePrimitives(LG_Node_Map *map,TiXmlElement *primitivesElement);
+    vector<LG_Primitive *> handlePrimitives(LG_Node_Map *map,LG_Node_Map *appMap,TiXmlElement *primitivesElement);
     
     
     void handleAppearance(LG_Node_Map *map,TiXmlElement *appearanceElement);
@@ -58,9 +53,9 @@ public:
     LG_Graph_Node(LG_Node_Map *map,LG_Node_Map *appearances_map,LG_Node_Map *anim_map,LG_Transform *transform,vector<LG_Primitive *> &primitives,string identifier);
     
     
-    void draw();
+    //void draw();
     
-    void update(unsigned long);
+    LG_Graph_Node * nodeWithID();
     
     
     virtual void config();

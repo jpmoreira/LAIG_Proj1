@@ -45,7 +45,7 @@ TEST_CASE("Test loading Graph Node from XML"){
     double pt2[3];
     points.push_back(pt1);
     points.push_back(pt2);
-    LG_LinearAnimation(animMap, "animID", points, 10);
+    new LG_LinearAnimation(animMap, "animID", points, 10);
     
     LG_LightArray_f amb,diff,spec;
     float s;
@@ -78,7 +78,7 @@ TEST_CASE("Test loading Graph Node from XML"){
             REQUIRE((dynamic_cast<LG_Torus *>(node1->child(1))!=NULL));
             
             REQUIRE(str_eq(node1->identifier.c_str(),"myID"));
-            REQUIRE(str_eq(node1->animation->identifier,"animID"));
+            REQUIRE(str_eq(node1->animations[0]->animation->identifier,"animID"));
         } catch (LG_Parse_Exception *ex) {
             FAIL("Thrown Exception while parsing perfectly fine Graph Node");
         }

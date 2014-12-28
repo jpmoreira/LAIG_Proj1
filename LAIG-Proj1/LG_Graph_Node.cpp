@@ -23,7 +23,7 @@
 #define LG_Appearance_Ref_Inherit_String "inherit"
 
 
-#include <GL/glu.h>
+
 
 #include "LG_Graph_Node.h"
 #include "LG_Sphere.h"
@@ -34,13 +34,14 @@
 #include "LG_Transform.h"
 #include "LG_Appearance.h"
 #include "LG_Flag.h"
+#include "LG_Board_Place.h"
 
 #include <iostream>
 
 
 #pragma mark - Constructors
 LG_Graph_Node::LG_Graph_Node(LG_Node_Map *map,LG_Node_Map *app_map,LG_Node_Map *anim_map, TiXmlElement *elem)
-:LG_Parsable_Node(map,identifierForGraphNode(elem)),animations(vector<LG_AnimationState *>()),appearance(NULL),currentAnimation(0)
+:LG_Parsable_Node(map,identifierForGraphNode(elem),NULL)
 {
     
     if (!str_eq(LG_Graph_Node_XML_Tag_Name, elem->Value())) {
@@ -87,7 +88,7 @@ LG_Graph_Node::LG_Graph_Node(LG_Node_Map *map,LG_Node_Map *app_map,LG_Node_Map *
         }
         else if(str_eq(LG_Graph_Node_Primitives_Tag_Name, childElement->Value())){
             primitivesSet=true;
-            vector<LG_Primitive *> prims=handlePrimitives(map, childElement);
+            vector<LG_Primitive *> prims=handlePrimitives(map,app_map, childElement);
             for (unsigned int i=0; i<prims.size(); i++) {
                 addChild(prims[i]);
             }
@@ -120,7 +121,7 @@ LG_Graph_Node::LG_Graph_Node(LG_Node_Map *map,LG_Node_Map *app_map,LG_Node_Map *
     
 }
 LG_Graph_Node::LG_Graph_Node(LG_Node_Map *map,LG_Node_Map *app_map,LG_Node_Map *anim_map, LG_Transform *t,vector<LG_Primitive *> &primitives,string identifier)
-:LG_Parsable_Node(map,identifier),transform(t),animations(vector<LG_AnimationState *>()),appearance(NULL),currentAnimation(0)
+:LG_Parsable_Node(map,identifier,t)
 {
     
     for (unsigned int i=0; i<primitives.size(); i++) {
@@ -180,7 +181,7 @@ void LG_Graph_Node::handleDescendants(LG_Node_Map *map,TiXmlElement *descendants
     
 }
 
-vector<LG_Primitive *> LG_Graph_Node::handlePrimitives(LG_Node_Map *map, TiXmlElement *primitivesElement){
+vector<LG_Primitive *> LG_Graph_Node::handlePrimitives(LG_Node_Map *map,LG_Node_Map *app_map, TiXmlElement *primitivesElement){
     
     vector<LG_Primitive *> primitives;
     
@@ -214,6 +215,9 @@ vector<LG_Primitive *> LG_Graph_Node::handlePrimitives(LG_Node_Map *map, TiXmlEl
         }
         else if (str_eq(LG_Flag_XML_Tag_Name, potentialPrimitive->Value())){
             primitives.push_back(new LG_Flag(map, potentialPrimitive));
+        }
+        else if(str_eq(LG_Board_Place_XML_Tag_Name, potentialPrimitive->Value())){
+            primitives.push_back(new LG_Board_Place(map,app_map,app_map,potentialPrimitive));
         }
         potentialPrimitive = potentialPrimitive->NextSiblingElement();
     }
@@ -257,62 +261,13 @@ void LG_Graph_Node::handleAnimation(LG_Node_Map *map, TiXmlElement *animationEle
     if (it==map->end()) {
         throw new LG_Parse_Exception_Broken_Reference(LG_Graph_Node_XML_Tag_Name,id.c_str(),LG_Animation_XML_Tag_Name);
     }
-    else animations.push_back(new LG_AnimationState(this->map,(LG_Animation *)it->second));
+    else{
+        animations.push_back(new LG_AnimationState(this->map,(LG_Animation *)it->second,this));
+    }
 }
 
 #pragma mark - Drawing
 
-
-void LG_Graph_Node::draw(){
-    
-    
-    
-    if (isDisplayList){
-        
-        glCallList(displayListID);
-        
-    }
-    
-    
-    else{
-        
-        glPushMatrix();
-        
-        
-       
-        
-        
-        if(animations.size()>0){
-            
-            for (int i=currentAnimation; i>=0; i--) {
-                
-                animations.at(i)->apply();
-                
-            }
-        }
-        
-        
-         transform->draw();
-        
-        
-        if (appearance) appearance->apply();
-        
-        
-        for (unsigned int i=0; i<childsIDs.size(); i++) {
-            
-            child(i)->draw();
-            
-        }
-        
-        if (appearance) appearance->unapply();
-        
-        glPopMatrix();
-        
-    }
-    
-    
-    
-}
 
 #pragma mark - Configuration
 
@@ -345,38 +300,6 @@ void LG_Graph_Node::config(){
 }
 
 
-void LG_Graph_Node::update(unsigned long time){
-
-
-	if (str_eq(this->identifier, "vehicle"))
-	{
-		printf("Animacao corrente = %d\n", currentAnimation);
-	}
-    
-    if (animations.size()>0) {
-        LG_AnimationState *currentAnimationState=animations.at(currentAnimation);
-        
-		if (str_eq(this->identifier, "vehicle"))
-		{
-			printf("terminou = %d\n", currentAnimationState->finished(time));
-			//printf("start time = %d")
-		}
-
-        if (currentAnimationState->finished(time) && currentAnimation+1<animations.size()) {//change to next animation if this one has finished (and if there is one)
-            currentAnimation++;
-        }
-        
-        animations.at(currentAnimation)->update(time);
-        
-
-    }
-    
-    for (int i=0; i<childsIDs.size(); i++) {
-        
-        child(i)->update(time);
-    }
-    
-}
 
 
 
