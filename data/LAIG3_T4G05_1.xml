@@ -36,7 +36,6 @@
     </light>
   </lights>
 
-
   <textures>
 
     <texture id="woodText" file="../data/woodText.jpg" texlength_s="1" texlength_t="1"/>
@@ -109,7 +108,9 @@
 
 
   </appearances>
-  <animations/>
+
+  <animations>
+  </animations>
 
   <graph rootid="wallsNGame">
 
@@ -1517,8 +1518,5 @@
       <primitives/>
     </node>
   </graph>
-
-
-
 
 </anf>
