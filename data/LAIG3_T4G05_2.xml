@@ -11,24 +11,25 @@
   </cameras>
 
   <lights>
-    <light id="omni" type="omni" enabled="true" marker="false" pos="13.335 15 13.335" >
+    <light id="omni" type="omni" enabled="true" marker="false" pos="0 40 0" >
       <component type="ambient" value="0.8 0.8 0.8 1" />
       <component type="diffuse" value="0.8 0.8 0.8 1" />
       <component type="specular" value="0.3 0.3 0.3 1" />
     </light>
-    <light id="spotBoard" type="spot" enabled="true" marker="false" pos="13.335 7 13.335" target="0 0 -1"
+    <light id="sp" type="spot" enabled="true" marker="false" pos="35 30 17.5" target="0.71 -0.60 -0.35"
        angle="25" exponent="1" >
+      <!--|49.30|-->
       <component type="ambient" value="0.8 0.8 0.8 1" />
       <component type="diffuse" value="0.8 0.8 0.8 1" />
       <component type="specular" value="0.8 0.8 0.8 1" />
     </light>
-    <light id="spotRed" type="spot" enabled="true" marker="false" pos="15.65 6 13.335" target="-0.50 -0.86 0"
+    <light id="spotRed" type="spot" enabled="false" marker="false" pos="2.30 6 0" target="-0.50 -0.86 0"
         angle="15" exponent="1" >
       <component type="ambient" value="0.8 0.2 0.2 1" />
       <component type="diffuse" value="0.8 0.2 0.2 1" />
       <component type="specular" value="0.8 0.2 0.2 1" />
     </light>
-    <light id="spotBlue" type="spot" enabled="true" marker="false" pos="11.035 6 13.335" target="0.50 -0.86 0"
+    <light id="spotBlue" type="spot" enabled="false" marker="false" pos="-2.30 6 0" target="0.50 -0.86 0"
         angle="15" exponent="1" >
       <component type="ambient" value="0.1 0.1 0.8 1" />
       <component type="diffuse" value="0.1 0.1 0.8 1" />
@@ -108,8 +109,8 @@
       <component type="diffuse" value="0.4 0.4 0.4 1" />
       <component type="specular" value="0.4 0.4 0.4 1" />
     </appearance>
-    
-    
+
+
 
   </appearances>
 
@@ -122,13 +123,14 @@
     <node id="all">
       <appearanceref id="inherit"/>
       <descendants>
+
         <noderef id="ambient"/>
         <noderef id="tabNCylsNSupport"/>
       </descendants>
       <primitives/>
       <transforms/>
     </node>
-    
+
     <node id="ambient">
       <appearanceref id="inherit"/>
       <descendants>
@@ -140,12 +142,12 @@
         <noderef  id="city"/>
         <noderef  id="buildingB"/>
         <noderef  id="buildingF"/>
-        
+
       </descendants>
       <primitives/>
       <transforms/>
     </node>
-    
+
     <node id="tabNCylsNSupport">
       <transforms>
         <transform type="translate" to="0 2 0"/>
@@ -1232,7 +1234,7 @@
         <transform type="rotate" axis="x" angle="-90"/>
       </transforms>
     </node>
-    
+
     <node id="playFloor">
       <appearanceref id="basketFloorApp"/>
       <descendants/>
@@ -1322,7 +1324,7 @@
       </transforms>
     </node>
 
-    
+
     <node id="gStandLevelf">
       <appearanceref id="inherit"/>
       <descendants>
@@ -1348,7 +1350,7 @@
         <transform type="rotate" axis="y" angle="90"/>
       </transforms>
     </node>
-    
+
     <node id="gStandLevel1l">
       <appearanceref id="inherit"/>
       <descendants>
