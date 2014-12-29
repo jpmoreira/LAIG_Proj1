@@ -46,7 +46,7 @@ private:
     
     LG_Shading_Mode shading;
     
-    LG_LightArray background;
+    LG_LightArray_f background;
 
     
     

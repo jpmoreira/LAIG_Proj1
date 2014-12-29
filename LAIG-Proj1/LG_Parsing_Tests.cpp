@@ -16,7 +16,7 @@ TEST_CASE("Wrong attribute value Exception"){
     
     const char * actual=ex->what();
     
-    int compare=strcmp(actual, "Wrong Attribute Value on Element ElemX.\nValue: Actual\nExpected: [value1 or value2 or value3].");
+    int compare=strcmp(actual, "Wrong Attribute Value for attribute Attribute on Element ElemX.\nValue: Actual\nExpected: [value1 or value2 or value3].");
     
     REQUIRE(compare==0);
     

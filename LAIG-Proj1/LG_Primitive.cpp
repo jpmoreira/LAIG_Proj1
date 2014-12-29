@@ -13,12 +13,12 @@
 
 #pragma mark - Constructors
 
-LG_Primitive::LG_Primitive(LG_Node_Map *map,string indentif):LG_Parsable_Node(map,indentif){
+LG_Primitive::LG_Primitive(LG_Node_Map *map,string indentif):LG_Parsable_Node(map,indentif,NULL){
 
 
 }
 
-LG_Primitive::LG_Primitive(LG_Node_Map *map,string identif,LG_Appearance *app):LG_Parsable_Node(map,identif),app(app){
+LG_Primitive::LG_Primitive(LG_Node_Map *map,string identif,LG_Appearance *app):LG_Parsable_Node(map,identif,NULL),app(app){
 
 }
 
@@ -112,6 +112,8 @@ double * LG_Primitive::newells(vector<double *> &points){
 void LG_Primitive::draw(){
     
     calculateTextureCoordinates();
+    
+    LG_Node::draw();
 
 
 }

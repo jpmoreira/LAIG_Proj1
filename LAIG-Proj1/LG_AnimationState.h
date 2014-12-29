@@ -11,12 +11,16 @@
 
 #include <stdio.h>
 
-#include "LG_Animation.h"
+#include "LG_Bounce_Animation.h"
 
 class LG_AnimationState {
     
-    
+  
+
     friend class LG_Animation;
+    friend class LG_Bounce_Animation;
+    
+private:
     unsigned long startTime;
     double rotation_matrix[4][4];
     double translation_matrix[4][4];
@@ -24,14 +28,21 @@ class LG_AnimationState {
     LG_Animation *animation;
     int currentSegment;
     bool started;
+    LG_Node *owner;
+    bool notifiedOwnerOfFinish;
+    
+    double velocity,currentY,currentDampingFactor;
     
     
 public:
-    LG_AnimationState(LG_Node_Map *map,TiXmlElement *elem);
+    LG_AnimationState(LG_Node_Map *map,TiXmlElement *elem,LG_Node *owner);
     
-    LG_AnimationState(LG_Node_Map *map,LG_Animation *anim);
+    LG_AnimationState(LG_Node_Map *map,LG_Animation *anim,LG_Node *owner);
     
     virtual bool finished(unsigned long timeNow);
+    
+    bool finished();
+    
     void update(unsigned long timeNow);
     void apply();
     

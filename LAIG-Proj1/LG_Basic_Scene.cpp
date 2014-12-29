@@ -73,7 +73,7 @@ void LG_Basic_Scene::init()
     LG_Node_Map *animMap=new LG_Node_Map();
     string identifier="uniqueExistingApp";
 
-    graph=new LG_Graph(LG_Graph(appMap, animMap, doc->FirstChildElement());
+    graph=new LG_Graph(LG_Graph(appMap, animMap, doc->FirstChildElement()));
     
     //graph=new LG_Graph(appMap,doc->FirstChildElement());
     

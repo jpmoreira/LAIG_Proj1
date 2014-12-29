@@ -714,7 +714,7 @@ public:
 	 In case some error occurs false is returned and the array is filled with the value LG_LightValue_Not_Set
 	 */
 
-	static inline bool lightArrayValue_(const char  *att, LG_LightArray& lightArrayToFill){
+	static inline bool lightArrayValue_(const char  *att, LG_LightArray lightArrayToFill){
 
 		double dummy;
 
@@ -910,7 +910,8 @@ public:
             throw  new LG_Parse_Exception_Missing_Attribute(new string(element->Value()), new string(att_name));
         
         
-        bool ok=lightArrayValue_(att_value, values);
+      
+        bool ok=lightArrayValue_f_(att_value,values);
         
         if (!ok){
             throw new LG_Parse_Exception_Wrong_Attribute_Value(new string(element->Value()), new string(att_name), new string(att_value));

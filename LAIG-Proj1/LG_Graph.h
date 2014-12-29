@@ -25,6 +25,8 @@ public:
     
     void update(unsigned long);
     
+    LG_Graph_Node *root;
+    
 private:
     
     
@@ -32,7 +34,7 @@ private:
     LG_Node_Map *appearancesMap;
     LG_Node_Map *animationsMap;
     
-    LG_Graph_Node *root;
+    
     
     /**
      
@@ -57,6 +59,7 @@ private:
     
 public:
     LG_Graph(LG_Node_Map *appearancesMap,LG_Node_Map *animationMap,TiXmlElement *elem);
+    LG_Graph(LG_Node_Map *appearancesMap,LG_Node_Map *animationsMap,TiXmlElement *elem,LG_Node_Map *map);
     
   
     

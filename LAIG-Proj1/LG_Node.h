@@ -14,20 +14,39 @@
 
 
 
+
 #include "LG_Essentials.h"
 
+#include <GL/glu.h>
+
+class LG_Transform;
+class LG_Appearance;
 
 
 
+
+class LG_AnimationState;
 
 class LG_Node{
     
     friend class LG_Graph;
     friend class LG_ANF;
+    friend class LG_Board_Place;
     
 protected:
     
     
+    
+    GLint displayListID;
+    
+    bool isDisplayList;
+    
+    
+    LG_Transform *transform;
+    
+    
+    
+    LG_Appearance *appearance;
     
     /**
      
@@ -46,14 +65,7 @@ protected:
     //LG_Properties *properties;
     
     
-    /**
-     
-     
-     The identifier for this node
-     
-     */
-    
-    string identifier;
+
     
     
     /**
@@ -67,8 +79,30 @@ protected:
     LG_Node_Map *map;
     
     
+    /**
+    
+    A bool that states whether the node is selected
+     
+    */
+    
+    bool selected;
+    
+    vector<LG_AnimationState *>animations;
+    int currentAnimation;
+    
+    
     
 public:
+
+    
+    /**
+     
+     
+     The identifier for this node
+     
+     */
+    
+    string identifier;
     
     
     /**
@@ -76,7 +110,7 @@ public:
      Simple constructor. It automatically adds the node to the map
      
      */
-    LG_Node(LG_Node_Map* theMap,string theIdentifier);
+    LG_Node(LG_Node_Map* theMap,string theIdentifier,LG_Transform *transform=NULL);
     
     
     
@@ -88,6 +122,15 @@ public:
      */
     
     virtual void draw();
+    
+    
+    /*
+     
+     
+     A method that draws all childs of the node
+     
+     */
+    virtual void drawChilds();
     
     
     /**
@@ -131,17 +174,45 @@ public:
 
 	/**
 	
-	A method that retuns how many children this element has
+	A method that returns how many children this element has
 	
 	*/
 
 	int getNrChildren();
     
     
+    /**
+     
+    A method that sets the selected state of the node
+     
+    */
+    virtual void setSelected(bool selected);
+    
     
 	string getIdentifier();
     
     virtual void config();
+    
+    virtual void animationFinished(LG_AnimationState *state);
+    
+
+    
+    /**
+    
+     A method that says wether this node is animating or not.
+     If the parameter subtree is set to false only the node itself is taken into account. Else, the subtree is taken into account.
+     
+    */
+    bool isAnimating(bool subtree=true);
+    
+    /**
+     
+     
+     A method that says wether this node is selected or not.
+     If subtree is set to true, then a node is considered selected if it is selected or a node in it's subtree is selected. If subtree is set to false a node is considered selected only if it is itself selected.
+     
+     */
+    bool isSelected(bool subtree=true);
     
     
     

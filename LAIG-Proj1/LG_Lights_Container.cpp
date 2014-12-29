@@ -2,7 +2,7 @@
 
 
 
-LG_Lights_Container::LG_Lights_Container(TiXmlElement *element) : LG_Parsable_Node(NULL, LG_LIGHTS_CONTAINER_ID)
+LG_Lights_Container::LG_Lights_Container(TiXmlElement *element) : LG_Parsable_Node(NULL, LG_LIGHTS_CONTAINER_ID,NULL)
 {
 
 	map = new LG_Node_Map();

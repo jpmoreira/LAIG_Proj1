@@ -11,7 +11,7 @@
 
 
 
-LG_Parsable_Node::LG_Parsable_Node(LG_Node_Map *map, string identif) :LG_Node(map, identif){
+LG_Parsable_Node::LG_Parsable_Node(LG_Node_Map *map, string identif,LG_Transform *transform) :LG_Node(map, identif,transform){
 
 
 }
@@ -214,4 +214,23 @@ const char *  LG_Parse_Exception_Redundant_Reference::what() {
     string message= "Redundant Reference to Element with ID "+*element;
     
     return strdup(message.c_str());
+}
+
+
+#pragma mark - Load Snipset Exception
+
+
+LG_Parse_Exception_Unable_Load_Snipset::LG_Parse_Exception_Unable_Load_Snipset(string *elem,string* fname):LG_Parse_Exception(elem){
+    
+    this->filename=new string(*fname);
+    
+}
+const char* LG_Parse_Exception_Unable_Load_Snipset::what(){
+
+    
+    string message= "Unable to load snipset located on file  "+*filename+" for element "+*element;
+    
+    return strdup(message.c_str());
+
+
 }

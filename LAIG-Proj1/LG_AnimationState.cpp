@@ -10,7 +10,7 @@
 
 
 
-LG_AnimationState::LG_AnimationState(LG_Node_Map *map,TiXmlElement *elem):animation(LG_Animation::animationForElement(map, elem)),started(false),currentSegment(0),startTime(0){
+LG_AnimationState::LG_AnimationState(LG_Node_Map *map,TiXmlElement *elem,LG_Node *owner):animation(LG_Animation::animationForElement(map, elem)),started(false),currentSegment(0),startTime(0),notifiedOwnerOfFinish(false),owner(owner),velocity(0),currentY(0),currentDampingFactor(1){
     
     rotate(0, 1, 0, 0);
     translate(0,0,0);
@@ -22,7 +22,7 @@ LG_AnimationState::LG_AnimationState(LG_Node_Map *map,TiXmlElement *elem):animat
 
 
 
-LG_AnimationState::LG_AnimationState(LG_Node_Map *map,LG_Animation *anim):animation(anim),started(false),currentSegment(0),startTime(0){
+LG_AnimationState::LG_AnimationState(LG_Node_Map *map,LG_Animation *anim,LG_Node *owner):animation(anim),started(false),currentSegment(0),startTime(0),notifiedOwnerOfFinish(false),owner(owner),velocity(0),currentY(0),currentDampingFactor(1){
 
     
     rotate(0, 1, 0, 0);
@@ -52,7 +52,13 @@ void LG_AnimationState::update(unsigned long timeNow){
         startTime=timeNow;
         return;
     }
-    else if (timeNow>startTime+animation->span) timeNow=startTime+animation->span;
+    else if (timeNow>startTime+animation->span){
+        timeNow=startTime+animation->span;
+        if (owner!=NULL && !notifiedOwnerOfFinish){
+            owner->animationFinished(this);
+            notifiedOwnerOfFinish=true;
+        }
+    }
 
     animation->update(timeNow, this);
 
@@ -103,6 +109,11 @@ bool LG_AnimationState::finished(unsigned long timenow){
 }
 
 
+bool LG_AnimationState::finished(){
+
+
+    return notifiedOwnerOfFinish;
+}
 int LG_AnimationState::getCurrentSegment(){
     
     

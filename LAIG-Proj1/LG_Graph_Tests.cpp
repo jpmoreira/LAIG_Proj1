@@ -36,11 +36,10 @@ TEST_CASE("Testing Graphs parsing"){
     
     
     LG_Node_Map *appMap=new LG_Node_Map();
-    LG_LightArray amb,diff,spec;
+    LG_LightArray_f amb,diff,spec;
     double s;
     string identifier="uniqueExistingApp";
     LG_Appearance *app=new LG_Appearance(appMap, amb, diff, spec, s, identifier, NULL);
-    
     
     TiXmlElement *firstElement=doc->FirstChildElement();
     TiXmlElement *secondElement=firstElement->NextSiblingElement();
@@ -52,7 +51,7 @@ TEST_CASE("Testing Graphs parsing"){
     
         
         try {
-            LG_Graph *g=new LG_Graph(appMap,firstElement);
+            LG_Graph *g=new LG_Graph(appMap,NULL,firstElement);
             REQUIRE(g->root==g->map->find("node2")->second);
             REQUIRE(g->map->size()==5);//1 torus 2 transforms and 2 nodes
             REQUIRE(g->root->appearance==app);
@@ -72,7 +71,7 @@ TEST_CASE("Testing Graphs parsing"){
     SECTION("Testing graph with broken root reference"){
     
         try {
-            LG_Graph *g=new LG_Graph(appMap,secondElement);
+            LG_Graph *g=new LG_Graph(appMap,NULL,secondElement);
             FAIL("Failed to detect broken root reference");
         } catch (LG_Parse_Exception_Broken_Reference *ex) {
             
@@ -88,7 +87,7 @@ TEST_CASE("Testing Graphs parsing"){
     
     
         try {
-            LG_Graph *g=new LG_Graph(appMap,thirdElement);
+            LG_Graph *g=new LG_Graph(appMap,NULL,thirdElement);
             
             
             LG_Node *node1=g->map->find("node1")->second;
@@ -116,7 +115,7 @@ TEST_CASE("Testing Graphs parsing"){
         
         
         try {
-            LG_Graph *g=new LG_Graph(appMap,fourthElement);
+            LG_Graph *g=new LG_Graph(appMap,NULL,fourthElement);
             
             
             FAIL("Failed to detect broken child reference in node3");

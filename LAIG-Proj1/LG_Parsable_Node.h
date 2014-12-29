@@ -207,6 +207,16 @@ public:
 
 };
 
+class LG_Parse_Exception_Unable_Load_Snipset : public LG_Parse_Exception{
+    
+private:
+    string *filename;
+public:
+    LG_Parse_Exception_Unable_Load_Snipset(string *elem,string* filename);
+    const char* what();
+    
+};
+
 class LG_Parsable_Node : public LG_Node{
 
 public:
@@ -217,7 +227,7 @@ public:
 
 	 */
 
-	LG_Parsable_Node(LG_Node_Map *map, string identif);
+	LG_Parsable_Node(LG_Node_Map *map, string identif,LG_Transform *transform=NULL);
 
 
 public:
@@ -783,10 +793,10 @@ public:
 	 In case some error occurs false is returned and the array is filled with the value LG_LightValue_Not_Set
 	 */
 
-	static inline bool lightArrayValue(TiXmlAttribute *att, LG_LightArray& lightArrayToFill){
+	static inline bool lightArrayValue(TiXmlAttribute *att, LG_LightArray_f lightArrayToFill){
 
 
-		return lightArrayValue_(att->Value(), lightArrayToFill);
+		return lightArrayValue_f_(att->Value(), lightArrayToFill);
 
 
 	}
@@ -797,7 +807,7 @@ public:
 	 In case some error occurs false is returned and the array is filled with the value LG_LightValue_Not_Set
 	 */
 
-	static inline bool lightArrayValue_(const char  *att, LG_LightArray& lightArrayToFill){
+	static inline bool lightArrayValue_(const char  *att,  double* lightArrayToFill){
 
 		double dummy;
 
@@ -822,7 +832,7 @@ public:
 	 In case some error occurs false is returned and the array is filled with the value LG_LightValue_Not_Set
 	 */
 
-	static inline bool lightArrayValue_f_(const char  *att, LG_LightArray_f& lightArrayToFill){
+	static inline bool lightArrayValue_f_(const char  *att, LG_LightArray_f lightArrayToFill){
 
 		float dummy;
 
@@ -1008,7 +1018,7 @@ public:
 
 	 */
 
-	static inline void lightArray_tryToAttributeVariable(const char * att_name, TiXmlElement *element, LG_LightArray & values){
+	static inline void lightArray_tryToAttributeVariable(const char * att_name, TiXmlElement *element, LG_LightArray_f & values){
 
 
 		char *att_value = (char *)element->Attribute(att_name);
@@ -1017,7 +1027,7 @@ public:
 			throw  new LG_Parse_Exception_Missing_Attribute(new string(element->Value()), new string(att_name));
 
 
-		bool ok = lightArrayValue_(att_value, values);
+		bool ok = lightArrayValue_f_(att_value, (float *)values);
 
 		if (!ok){
 			throw new LG_Parse_Exception_Wrong_Attribute_Value(new string(element->Value()), new string(att_name), new string(att_value));

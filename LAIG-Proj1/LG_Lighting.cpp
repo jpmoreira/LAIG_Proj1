@@ -6,7 +6,7 @@
 #pragma mark - Constructors
 
 
-LG_Lighting::LG_Lighting(LG_Node_Map *map, TiXmlElement *element) :LG_Parsable_Node(map, LG_Lighting_Node_ID), doublesided(false), local(true), enabled(true){
+LG_Lighting::LG_Lighting(LG_Node_Map *map, TiXmlElement *element) :LG_Parsable_Node(map, LG_Lighting_Node_ID,NULL), doublesided(false), local(true), enabled(true){
 
 	verifyElementName(element);
 	verifyAttributesAndValues(element);

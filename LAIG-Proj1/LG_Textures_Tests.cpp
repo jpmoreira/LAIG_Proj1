@@ -93,12 +93,12 @@ TEST_CASE("Testing texture parsing from XML"){
         
         
         try {
-            LG_Texture_Container *textureContainer=new LG_Texture_Container(&map,fourthElement);
+            LG_Texture_Container *textureContainer=new LG_Texture_Container(fourthElement);
             
             REQUIRE(textureContainer->childsIDs.size()==2);
             REQUIRE(str_eq(textureContainer->child(0)->identifier.c_str(),"texture1"));
             
-        } catch (LG_Parse_Exception *ex) {
+        } catch (exception *ex) {
             FAIL("Thrown exception while parsing perfectly well formed texture container");
         }
         
@@ -112,7 +112,7 @@ TEST_CASE("Testing texture parsing from XML"){
         
         try{
         
-            LG_Texture_Container *textContainer=new LG_Texture_Container(&map,fifthElement);
+            LG_Texture_Container *textContainer=new LG_Texture_Container(fifthElement);
             FAIL("Failed to recognize typo in texture container element");
         
         }catch(LG_Parse_Exception_Wrong_Element_Name *ex){

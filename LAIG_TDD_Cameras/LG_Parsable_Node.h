@@ -58,6 +58,8 @@ public:
 
 };
 
+
+
 class LG_Parse_Exception_Wrong_Attribute_Value :public LG_Parse_Exception{
 
 private:
@@ -199,6 +201,17 @@ public:
     const char * what ();
 
 
+};
+
+
+class LG_Parse_Exception_Unable_Load_Snipset : public LG_Parse_Exception{
+    
+private:
+    string *filename;
+public:
+    LG_Parse_Exception_Unable_Load_Snipset(string *elem,string* filename);
+    const char* what();
+    
 };
 
 class LG_Parsable_Node : public LG_Node{
@@ -740,11 +753,11 @@ public:
 	 In case some error occurs false is returned and the array is filled with the value LG_LightValue_Not_Set
 	 */
 
-	static inline bool lightArrayValue_(const char  *att, LG_LightArray& lightArrayToFill){
+	static inline bool lightArrayValue_(const char  *att, LG_LightArray_f lightArrayToFill){
 
-		double dummy;
+		float dummy;
 
-		int nrFound = sscanf(att, "%lf %lf %lf %lf %lf", &(lightArrayToFill[0]), &(lightArrayToFill[1]), &(lightArrayToFill[2]), &(lightArrayToFill[3]), &dummy);//try to match one more... if it's matched then some error happened....
+		int nrFound = sscanf(att, "%f %f %f %f %f", &(lightArrayToFill[0]), &(lightArrayToFill[1]), &(lightArrayToFill[2]), &(lightArrayToFill[3]), &dummy);//try to match one more... if it's matched then some error happened....
 
 		if (nrFound != 4){
 

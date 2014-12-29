@@ -86,10 +86,10 @@ TEST_CASE("Test loading Graph Node from XML"){
         try {
             LG_Appearance *app=new LG_Appearance(map,secondElement,textureMap);
             
-            REQUIRE(app->ambient[0]==LG_INVALID_DOUBLE);
-            REQUIRE(app->ambient[1]==LG_INVALID_DOUBLE);
-            REQUIRE(app->ambient[2]==LG_INVALID_DOUBLE);
-            REQUIRE(app->ambient[3]==LG_INVALID_DOUBLE);
+            REQUIRE(app->ambient[0]>LG_INVALID_DOUBLE);
+            REQUIRE(app->ambient[1]>LG_INVALID_DOUBLE);
+            REQUIRE(app->ambient[2]>LG_INVALID_DOUBLE);
+            REQUIRE(app->ambient[3]>LG_INVALID_DOUBLE);
 
         } catch (LG_Parse_Exception *ex) {
             FAIL("Thrown exception while parsing exception that is only missing an optional ambient component");
@@ -130,7 +130,7 @@ TEST_CASE("Test loading Graph Node from XML"){
         
         
         try {
-            LG_Appearance_Container *container=new LG_Appearance_Container(map,fifthElement,textureMap);
+            LG_Appearance_Container *container=new LG_Appearance_Container(fifthElement,textureMap);
             
             LG_Appearance *app1=(LG_Appearance *)container->child(0);
             LG_Appearance *app2=(LG_Appearance *)container->child(1);

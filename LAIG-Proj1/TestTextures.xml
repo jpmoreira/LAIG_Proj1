@@ -10,8 +10,8 @@
 
 
 <textures>
-    <texture id="texture1" file="tex1.png" texlength_s="3.1" texlength_t="2.1" />
-    <texture id="texture2" file="tex2.png" texlength_s="2" texlength_t="3" />
+    <texture id="texture1" file="./testFiles/rubber.jpeg" texlength_s="3.1" texlength_t="2.1" />
+    <texture id="texture2" file="./testFiles/rubber.jpeg" texlength_s="2" texlength_t="3" />
 </textures>
 
 
