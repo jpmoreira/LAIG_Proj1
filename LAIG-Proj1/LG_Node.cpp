@@ -21,7 +21,7 @@ using std::vector;
 
 
 #pragma mark - Constructors
-LG_Node::LG_Node(LG_Node_Map *map,string theIdentifier,LG_Transform *t):childsIDs(LG_ID_Vector()),identifier(theIdentifier),map(map),animations(vector<LG_AnimationState *>()),currentAnimation(0),appearance(NULL),transform(t){
+LG_Node::LG_Node(LG_Node_Map *map,string theIdentifier,LG_Transform *t):childsIDs(LG_ID_Vector()),identifier(theIdentifier),map(map),animations(vector<LG_AnimationState *>()),currentAnimation(0),appearance(NULL),transform(t),selected(false){
     
     if (map==NULL)return;
     LG_Node_Map_Pair pair(identifier,this);
@@ -187,20 +187,49 @@ void LG_Node::animationFinished(LG_AnimationState *state){
 }
 
 
-bool LG_Node::isAnimating(){
+bool LG_Node::isAnimating(bool subtree){
 
     if (currentAnimation>=0 && currentAnimation<animations.size()) {
         LG_AnimationState *state=animations[currentAnimation];
-        if (!state->finished())return true;
+        if (!state->finished() )return true;
     }
     
-    for (int i=0; i<childsIDs.size(); i++) {
-        LG_Node *theChild=child(i);
-        if (theChild->isAnimating())return true;
+    if(subtree){
+        for (int i=0; i<childsIDs.size(); i++) {
+            LG_Node *theChild=child(i);
+            if (theChild->isAnimating(subtree))return true;
+        }
     }
+
     
     return false;
     
     
+
+}
+
+
+#pragma mark - Selection
+
+void LG_Node::setSelected(bool selected){
+
+    this->selected=selected;
+
+}
+
+bool LG_Node::isSelected(bool subtree){
+
+
+    if (selected)return true;
+    
+    if (subtree) {
+        
+        for (int i=0; i<childsIDs.size(); i++) {
+            
+            if(child(0)->isSelected(subtree))return true;
+        }
+    }
+    
+    return false;
 
 }
