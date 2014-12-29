@@ -15,9 +15,9 @@ const char * getDocumentName(int argc,char * argv[]){
     
     if (argc<2) {
         std::cout<<"No file name provided."<<std::endl;
-		std::cout << "Will assume file with name: ../data/LAIG3_T4G05_2.xml " << std::endl;
+		std::cout << "Will assume file with name: ../data/LAIG3_T4G05_1.xml " << std::endl;
 
-		return "../data/LAIG3_T4G05_2.xml";
+		return "../data/LAIG3_T4G05_1.xml";
     }
     
     return argv[1];

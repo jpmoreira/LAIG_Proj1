@@ -112,11 +112,11 @@
   <animations>
   </animations>
 
-  <graph rootid="wallsNGame">
+  <graph rootid="tabNCyls">
 
 
 
-    <node id="wallsNGame">
+    <!--<node id="wallsNGame">
       <appearanceref id="inherit"/>
       <transforms/>
       <descendants>
@@ -124,18 +124,18 @@
         <noderef id ="wallsNFurniture"/>
       </descendants>
       <primitives/>
-    </node>
+    </node>-->
 
 
-    <node id="tabNCylsNSupport">
+    <!--<node id="tabNCylsNSupport">
       <transforms>
-        <transform type="translate" to="12.335 2 12.335"/>
+        <transform type="translate" to="13.335 2 13.335"/>
       </transforms>
       <descendants>
         <noderef id="tabNCyls"/>
         <noderef id="support"/>
       </descendants>
-    </node>
+    </node>-->
 
     <!--board game dimensions: [2, 0.2, 2] starting at  x=0 y=0 z=0 to positives-->
     <node id="tabNCyls">
@@ -144,14 +144,15 @@
         <!--<transform type="rotate" axis="y" angle="-90"/>-->
       </transforms>
       <descendants>
-        <noderef id="cyls"/>
         <noderef id="tab"/>
+        <noderef id="cyls"/>
+
       </descendants>
     </node>
 
     <!--cube wrapper inside faces visible only 10x10 origin centered-->
 
-    <node id="wallsNFurniture">
+    <!--<node id="wallsNFurniture">
       <transforms/>
       <descendants>
         <noderef id="walls"/>
@@ -173,7 +174,7 @@
       <transforms>
         <transform type="translate" to="13.335 0 13.335"/>
         <transform type="scale" factor="2.667 1.5 2.667"/>
-        <!--factor * [10 1 10]-->
+        --><!--factor * [10 1 10]--><!--
       </transforms>
       <descendants>
         <noderef id="wallBack"/>
@@ -184,21 +185,21 @@
         <noderef id="wallCeiling"/>
       </descendants>
       <primitives/>
-    </node>
+    </node>-->
 
 
     <!--a plane -->
-    <node id="plane">
+    <!--<node id="plane">
       <appearanceref id="inherit"/>
       <transforms/>
       <descendants/>
       <primitives>
         <plane parts="5"/>
       </primitives>
-    </node>
+    </node>-->
 
     <!--a cube made from plane-->
-    <node id="cube">
+    <!--<node id="cube">
       <appearanceref id="inherit"/>
       <transforms/>
       <descendants>
@@ -280,7 +281,7 @@
         <noderef id="plane"/>
       </descendants>
       <primitives/>
-    </node>
+    </node>-->
 
     <!--
     _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
@@ -292,6 +293,7 @@
     <node id="tab" displaylist="true">
       <appearanceref id="tabApp"/>
       <transforms>
+        <transform type="rotate" axis="y" angle="90"/>
       </transforms>
       <descendants>
         <noderef id="tab_front"/>
@@ -308,7 +310,7 @@
       <appearanceref id="tab_lidApp"/>
       <!--set appearence-->
       <transforms>
-        <transform type="translate" to="1 0.2 1"/>
+        <transform type="translate" to="0 0.2 0"/>
         <transform type="scale" factor="2 1 2"/>
       </transforms>
       <descendants/>
@@ -319,7 +321,7 @@
 
     <node id="tab_bottom">
       <transforms>
-        <transform type="translate" to="1 0 1"/>
+        <!--<transform type="translate" to="0 0 0"/>-->
         <transform type="rotate" axis="x" angle="180"/>
         <transform type="scale" factor="2 1 2"/>
       </transforms>
@@ -331,7 +333,7 @@
 
     <node id="tab_front">
       <transforms>
-        <transform type="translate" to="1 0.1 2"/>
+        <transform type="translate" to="0 0.1 1"/>
         <transform type="scale" factor="2 0.2 1"/>
         <transform type="rotate" axis="x" angle="90"/>
       </transforms>
@@ -344,7 +346,7 @@
     <node id="tab_back">
       <appearanceref id="inherit"/>
       <transforms>
-        <transform type="translate" to="1 0.1 0"/>
+        <transform type="translate" to="0 0.1 -1"/>
         <transform type="scale" factor="2 0.2 1"/>
         <transform type="rotate" axis="x" angle="-90"/>
       </transforms>
@@ -357,7 +359,7 @@
     <node id="tab_left">
       <appearanceref id="inherit"/>
       <transforms>
-        <transform type="translate" to="0 0.1 1"/>
+        <transform type="translate" to="-1 0.1 0"/>
         <transform type="scale" factor="1 0.2 2"/>
         <transform type="rotate" axis="z" angle="90"/>
       </transforms>
@@ -370,7 +372,7 @@
     <node id="tab_right">
       <appearanceref id="inherit"/>
       <transforms>
-        <transform type="translate" to="2 0.1 1"/>
+        <transform type="translate" to="1 0.1 0"/>
         <transform type="scale" factor="1 0.2 2"/>
         <transform type="rotate" axis="z" angle="-90"/>
       </transforms>
@@ -387,10 +389,10 @@
     _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
     -->
 
-    <node id="support">
+    <!--<node id="support">
       <appearanceref id="tableSupportApp"/>
       <transforms>
-        <transform type="translate" to="0 0 2"/>
+        <transform type="translate" to="-1 0 1"/>
         <transform type="rotate" axis="y" angle="90"/>
       </transforms>
       <descendants>
@@ -473,7 +475,7 @@
       <descendants>
         <noderef id="supportLeft"/>
       </descendants>
-    </node>
+    </node>-->
 
 
     <!--
@@ -485,397 +487,157 @@
 
     <node id="cyls">
       <appearanceref id="inherit"/>
-      <transforms/>
+      <transforms>
+        <!--<transform type="translate" to="-1 0 -1"/>-->
+      </transforms>
       <descendants>
+        <noderef id="cylX1Z1"/>
+        <noderef id="cylX2Z1"/>
+        <!--<noderef id="cylX3Z1"/>
+        <noderef id="cylX4Z1"/>
+        <noderef id="cylX5Z1"/>-->
         <!--central-->
-        <noderef id="cylX_5Z_1"/>
+        <!--<noderef id="cylX_5Z_1"/>
         <noderef id="cylX_5Z_3"/>
         <noderef id="cylX_5Z_5"/>
         <noderef id="cylX_5Z_7"/>
         <noderef id="cylX_5Z11"/>
         <noderef id="cylX_5Z13"/>
         <noderef id="cylX_5Z15"/>
-        <noderef id="cylX_5Z17"/>
+        <noderef id="cylX_5Z17"/>-->
         <!--central+2-->
-        <noderef id="cylX_7Z_3"/>
+        <!--<noderef id="cylX_7Z_3"/>
         <noderef id="cylX_7Z_5"/>
         <noderef id="cylX_7Z_7"/>
         <noderef id="cylX_7Z_9"/>
         <noderef id="cylX_7Z11"/>
         <noderef id="cylX_7Z13"/>
-        <noderef id="cylX_7Z15"/>
+        <noderef id="cylX_7Z15"/>-->
         <!--central-2-->
-        <noderef id="cylX_3Z_3"/>
+        <!--<noderef id="cylX_3Z_3"/>
         <noderef id="cylX_3Z_5"/>
         <noderef id="cylX_3Z_7"/>
         <noderef id="cylX_3Z_9"/>
         <noderef id="cylX_3Z11"/>
         <noderef id="cylX_3Z13"/>
-        <noderef id="cylX_3Z15"/>
+        <noderef id="cylX_3Z15"/>-->
         <!--central+4-->
-        <noderef id="cylX_9Z_5"/>
+        <!--<noderef id="cylX_9Z_5"/>
         <noderef id="cylX_9Z_7"/>
         <noderef id="cylX_9Z_9"/>
         <noderef id="cylX_9Z11"/>
-        <noderef id="cylX_9Z13"/>
+        <noderef id="cylX_9Z13"/>-->
         <!--central-4-->
-        <noderef id="cylX_1Z_5"/>
+        <!--<noderef id="cylX_1Z_5"/>
         <noderef id="cylX_1Z_7"/>
         <noderef id="cylX_1Z_9"/>
         <noderef id="cylX_1Z11"/>
-        <noderef id="cylX_1Z13"/>
+        <noderef id="cylX_1Z13"/>-->
         <!--central+1-->
-        <noderef id="cylX_6Z_2"/>
+        <!--<noderef id="cylX_6Z_2"/>
         <noderef id="cylX_6Z_4"/>
         <noderef id="cylX_6Z_6"/>
         <noderef id="cylX_6Z_8"/>
         <noderef id="cylX_6Z10"/>
         <noderef id="cylX_6Z12"/>
         <noderef id="cylX_6Z14"/>
-        <noderef id="cylX_6Z16"/>
+        <noderef id="cylX_6Z16"/>-->
         <!--central-1-->
-        <noderef id="cylX_4Z_2"/>
+        <!--<noderef id="cylX_4Z_2"/>
         <noderef id="cylX_4Z_4"/>
         <noderef id="cylX_4Z_6"/>
         <noderef id="cylX_4Z_8"/>
         <noderef id="cylX_4Z10"/>
         <noderef id="cylX_4Z12"/>
         <noderef id="cylX_4Z14"/>
-        <noderef id="cylX_4Z16"/>
+        <noderef id="cylX_4Z16"/>-->
         <!--central+3-->
-        <noderef id="cylX_8Z_4"/>
+        <!--<noderef id="cylX_8Z_4"/>
         <noderef id="cylX_8Z_6"/>
         <noderef id="cylX_8Z_8"/>
         <noderef id="cylX_8Z10"/>
         <noderef id="cylX_8Z12"/>
-        <noderef id="cylX_8Z14"/>
+        <noderef id="cylX_8Z14"/>-->
         <!--central-3-->
-        <noderef id="cylX_2Z_4"/>
+        <!--<noderef id="cylX_2Z_4"/>
         <noderef id="cylX_2Z_6"/>
         <noderef id="cylX_2Z_8"/>
         <noderef id="cylX_2Z10"/>
         <noderef id="cylX_2Z12"/>
-        <noderef id="cylX_2Z14"/>
+        <noderef id="cylX_2Z14"/>-->
 
       </descendants>
       <primitives/>
     </node>
 
-    <!--center-->
-    <node id="cylX_5Z_1" selectable="true" visible="true">
+    <!--X_Z1-->
+    <node id="cylX1Z1" selectable="true" visible="true">
       <appearanceref id="inherit"/>
       <transforms>
-        <transform type="translate" to="1 0.2 0.0794"/>
-        <transform type="rotate" axis="x" angle="-90"/>
+        <transform type="translate" to="-0.4626 0.206 -0.8013"/>
       </transforms>
-      <descendants/>
+      <descendants>
+      </descendants>
       <primitives>
-        <cylinder base="0.0522" top="0.0522" height="0.05" slices="10" stacks="10" />
+        <place x="1" y="1">
+          <tzarra color="white"/>
+        </place>
       </primitives>
     </node>
-
-    <node id="cylX_5Z_3" selectable="true" visible="true">
+    <node id="cylX2Z1" selectable="true" visible="true">
       <appearanceref id="inherit"/>
       <transforms>
-        <transform type="translate" to="0 0 0.2313"/>
+        <transform type="translate" to="-0.2313 0.206 -0.8013"/>
       </transforms>
       <descendants>
-        <noderef id="cylX_5Z_1"/>
       </descendants>
-      <primitives></primitives>
+      <primitives>
+        <place x="2" y="1">
+          <tzarra color="white"/>
+        </place>
+      </primitives>
     </node>
-
-    <node id="cylX_5Z_5" selectable="true" visible="true">
+    <!--<node id="cylX3Z1" selectable="true" visible="true">
       <appearanceref id="inherit"/>
       <transforms>
-        <transform type="translate" to="0 0 0.4626"/>
+        <transform type="translate" to="0 0.206 -0.8013"/>
       </transforms>
       <descendants>
-        <noderef id="cylX_5Z_1"/>
       </descendants>
-      <primitives></primitives>
+      <primitives>
+        <place x="3" y="1">
+          <tzarra color="white"/>
+        </place>
+      </primitives>
     </node>
-
-    <node id="cylX_5Z_7" selectable="true" visible="true">
+    <node id="cylX4Z1" selectable="true" visible="true">
       <appearanceref id="inherit"/>
       <transforms>
-        <transform type="translate" to="0 0 0.6939"/>
+        <transform type="translate" to="0.2313 0.206 -0.8013"/>
       </transforms>
       <descendants>
-        <noderef id="cylX_5Z_1"/>
       </descendants>
-      <primitives></primitives>
+      <primitives>
+        <place x="4" y="1">
+          <tzarra color="white"/>
+        </place>
+      </primitives>
     </node>
-
-    <node id="cylX_5Z11" selectable="true" visible="true">
+    <node id="cylX5Z1" selectable="true" visible="true">
       <appearanceref id="inherit"/>
       <transforms>
-        <transform type="translate" to="0 0 1.1565"/>
+        <transform type="translate" to="0.4626 0.206 -0.8013"/>
       </transforms>
       <descendants>
-        <noderef id="cylX_5Z_1"/>
       </descendants>
-      <primitives></primitives>
-    </node>
+      <primitives>
+        <place x="5" y="1">
+          <tzarra color="white"/>
+        </place>
+      </primitives>
+    </node>-->
 
-    <node id="cylX_5Z13" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="0 0 1.3878"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <node id="cylX_5Z15" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="0 0 1.6191"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <node id="cylX_5Z17" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="0 0 1.8504"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <!--center+2-->
-    <node id="cylX_7Z_3" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="0.4006 0 0.2313"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <node id="cylX_7Z_5" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="0.4006 0 0.4626"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <node id="cylX_7Z_7" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="0.4006 0 0.6939"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <node id="cylX_7Z_9" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="0.4006 0 0.9252"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <node id="cylX_7Z11" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="0.4006 0 1.1565"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <node id="cylX_7Z13" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="0.4006 0 1.3878"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <node id="cylX_7Z15" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="0.4006 0 1.6191"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <!--center-2-->
-    <node id="cylX_3Z_3" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="-0.4006 0 0.2313"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <node id="cylX_3Z_5" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="-0.4006 0 0.4626"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <node id="cylX_3Z_7" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="-0.4006 0 0.6939"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <node id="cylX_3Z_9" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="-0.4006 0 0.9252"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <node id="cylX_3Z11" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="-0.4006 0 1.1565"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <node id="cylX_3Z13" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="-0.4006 0 1.3878"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <node id="cylX_3Z15" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="-0.4006 0 1.6191"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <!--center+4-->
-    <node id="cylX_9Z_5" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="0.8013 0 0.4626"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <node id="cylX_9Z_7" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="0.8013 0 0.6939"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <node id="cylX_9Z_9" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="0.8013 0 0.9252"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <node id="cylX_9Z11" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="0.8013 0 1.1565"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <node id="cylX_9Z13" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="0.8013 0 1.3878"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <!--center-4-->
-    <node id="cylX_1Z_5" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="-0.8013 0 0.4626"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <node id="cylX_1Z_7" selectable="true" visible="true">
+    <!--<node id="cylX_1Z_7" selectable="true" visible="true">
       <appearanceref id="inherit"/>
       <transforms>
         <transform type="translate" to="-0.8013 0 0.6939"/>
@@ -917,320 +679,7 @@
         <noderef id="cylX_5Z_1"/>
       </descendants>
       <primitives></primitives>
-    </node>
-
-    <!--center+1-->
-    <node id="cylX_6Z_2" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="0.2003 0 0.1157"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <node id="cylX_6Z_4" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="0.2003 0 0.3470"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <node id="cylX_6Z_6" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="0.2003 0 0.5783"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <node id="cylX_6Z_8" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="0.2003 0 0.8096"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <node id="cylX_6Z10" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="0.2003 0 1.0409"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <node id="cylX_6Z12" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="0.2003 0 1.2722"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <node id="cylX_6Z14" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="0.2003 0 1.5035"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <node id="cylX_6Z16" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="0.2003 0 1.7348"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <!--center-1-->
-    <node id="cylX_4Z_2" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="-0.2003 0 0.1157"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <node id="cylX_4Z_4" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="-0.2003 0 0.3470"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <node id="cylX_4Z_6" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="-0.2003 0 0.5783"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <node id="cylX_4Z_8" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="-0.2003 0 0.8096"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <node id="cylX_4Z10" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="-0.2003 0 1.0409"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <node id="cylX_4Z12" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="-0.2003 0 1.2722"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <node id="cylX_4Z14" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="-0.2003 0 1.5035"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <node id="cylX_4Z16" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="-0.2003 0 1.7348"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <!--center+3-->
-    <node id="cylX_8Z_4" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="0.6009 0 0.3470"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <node id="cylX_8Z_6" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="0.6009 0 0.5783"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <node id="cylX_8Z_8" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="0.6009 0 0.8096"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <node id="cylX_8Z10" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="0.6009 0 1.0409"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <node id="cylX_8Z12" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="0.6009 0 1.2722"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <node id="cylX_8Z14" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="0.6009 0 1.5035"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <!--center-3-->
-    <node id="cylX_2Z_4" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="-0.6009 0 0.3470"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <node id="cylX_2Z_6" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="-0.6009 0 0.5783"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <node id="cylX_2Z_8" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="-0.6009 0 0.8096"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <node id="cylX_2Z10" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="-0.6009 0 1.0409"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <node id="cylX_2Z12" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="-0.6009 0 1.2722"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
-    <node id="cylX_2Z14" selectable="true" visible="true">
-      <appearanceref id="inherit"/>
-      <transforms>
-        <transform type="translate" to="-0.6009 0 1.5035"/>
-      </transforms>
-      <descendants>
-        <noderef id="cylX_5Z_1"/>
-      </descendants>
-      <primitives></primitives>
-    </node>
-
+    </node>-->
 
     <!--
     _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
@@ -1239,7 +688,7 @@
     _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
     -->
 
-    <node id="wallBack">
+    <!--<node id="wallBack">
       <appearanceref id="tzaarWallApp"/>
       <transforms>
         <transform type="translate" to="0 5 -5"/>
@@ -1247,7 +696,7 @@
         <transform type="scale" factor="10 1 10"/>
       </transforms>
       <descendants>
-        <!--<noderef id="plane"/>-->
+        --><!--<noderef id="plane"/>--><!--
       </descendants>
       <primitives>
         <plane parts="100"/>
@@ -1275,7 +724,7 @@
         <transform type="scale" factor="10 1 10"/>
       </transforms>
       <descendants>
-        <!--<noderef id="plane"/>-->
+        --><!--<noderef id="plane"/>--><!--
       </descendants>
       <primitives>
         <plane parts="50"/>
@@ -1290,7 +739,7 @@
         <transform type="scale" factor="10 1 10"/>
       </transforms>
       <descendants>
-        <!--<noderef id="plane"/>-->
+        --><!--<noderef id="plane"/>--><!--
       </descendants>
       <primitives>
         <plane parts="50"/>
@@ -1303,7 +752,7 @@
         <transform type="scale" factor="10 1 10"/>
       </transforms>
       <descendants>
-        <!--<noderef id="plane"/>-->
+        --><!--<noderef id="plane"/>--><!--
       </descendants>
       <primitives>
         <plane parts="100"/>
@@ -1318,12 +767,12 @@
         <transform type="scale" factor="10 1 10"/>
       </transforms>
       <descendants>
-        <!--<noderef id="plane"/>-->
+        --><!--<noderef id="plane"/>--><!--
       </descendants>
       <primitives>
         <plane parts="5"/>
       </primitives>
-    </node>
+    </node>-->
 
     <!--
     _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
@@ -1332,7 +781,7 @@
     _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
     -->
 
-    <node id="door">
+    <!--<node id="door">
       <appearanceref id="doorApp"/>
       <transforms>
         <transform type="translate" to="0.05 3.55 2"/>
@@ -1516,7 +965,7 @@
         <noderef id="cube"/>
       </descendants>
       <primitives/>
-    </node>
+    </node>-->
   </graph>
 
 </anf>

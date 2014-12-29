@@ -46,8 +46,8 @@ LG_Board_Place::LG_Board_Place(LG_Node_Map *map,LG_Node_Map *app_map, LG_Node_Ma
     
     }
     
-    LG_Bounce_Animation *anim=new LG_Bounce_Animation(map);
-    this->animations.push_back( new LG_AnimationState(map, anim, this));
+    //LG_Bounce_Animation *anim=new LG_Bounce_Animation(map);
+    //this->animations.push_back( new LG_AnimationState(map, anim, this));
     
 
 
