@@ -238,6 +238,9 @@
 		544FCA2519D94AB500E2A008 /* LG_Sphere.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5469678219D8A016001DBA15 /* LG_Sphere.cpp */; };
 		544FCA2719D94AC700E2A008 /* LG_All_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 544FCA2619D94AC700E2A008 /* LG_All_Tests.cpp */; };
 		544FCA2819D94BF700E2A008 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4619D0AD9E00D4831A /* OpenGL.framework */; };
+		5452F1CF1A5354C500273FC4 /* LG_Board_Place.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54FDD6401A482CA1005CCE8B /* LG_Board_Place.cpp */; };
+		5452F1D01A5354C500273FC4 /* LG_Board_Piece.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54FDD6431A482E3F005CCE8B /* LG_Board_Piece.cpp */; };
+		5452F1D11A5354D700273FC4 /* LG_Bounce_Animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 549FCC7C1A50290E00704A31 /* LG_Bounce_Animation.cpp */; };
 		5458029C19D1DA5000C9DF32 /* LG_Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5458029A19D1DA5000C9DF32 /* LG_Node.cpp */; };
 		545802A019D1EC0500C9DF32 /* LG_Triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5458029E19D1EC0500C9DF32 /* LG_Triangle.cpp */; };
 		545802AF19D2BEC700C9DF32 /* LG_Nodes_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 545802A319D2BE4D00C9DF32 /* LG_Nodes_Tests.cpp */; };
@@ -3196,6 +3199,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5452F1D11A5354D700273FC4 /* LG_Bounce_Animation.cpp in Sources */,
+				5452F1CF1A5354C500273FC4 /* LG_Board_Place.cpp in Sources */,
+				5452F1D01A5354C500273FC4 /* LG_Board_Piece.cpp in Sources */,
 				54FDD6DE1A497048005CCE8B /* LG_Patch.cpp in Sources */,
 				54FDD6DD1A497040005CCE8B /* LG_Flag.cpp in Sources */,
 				54FDD6DC1A497037005CCE8B /* LG_AnimationState.cpp in Sources */,

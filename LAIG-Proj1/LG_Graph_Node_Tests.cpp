@@ -73,6 +73,7 @@ TEST_CASE("Test loading Graph Node from XML"){
             REQUIRE(node1->transform->matrix[0][0]==3);
             REQUIRE(node1->transform->matrix[1][1]==4);
             REQUIRE(node1->transform->matrix[2][2]==5);
+            REQUIRE(node1->selectable);
             
             REQUIRE((dynamic_cast<LG_Sphere *>(node1->child(0))!=NULL));
             REQUIRE((dynamic_cast<LG_Torus *>(node1->child(1))!=NULL));
@@ -115,6 +116,8 @@ TEST_CASE("Test loading Graph Node from XML"){
             LG_Graph_Node *node=new LG_Graph_Node(map,appMap,animMap,thirElement);
             
             REQUIRE(node->child(2)==child);
+            REQUIRE(node->selectable==false);
+            REQUIRE(child->selectable==true);
         } catch (LG_Parse_Exception *ex) {
             FAIL("Thrown exception while parsing perfectly well formed node");
         }

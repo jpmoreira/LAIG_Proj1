@@ -1,4 +1,4 @@
-<node id="myID">
+<node id="myID" selectable="true">
     <!-- bloco "transforms" obrigatorio -->
     <transforms>
         <transform type="scale" factor="3 4 5" />

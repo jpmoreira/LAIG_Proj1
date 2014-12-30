@@ -12,6 +12,7 @@
 #define LG_Graph_Node_Ref_XML_Tag_Name "noderef"
 #define LG_Graph_Node_Ref_ID_XML_Att_Name "id"
 #define LG_Graph_Node_ID_XML_Att_Name "id"
+#define LG_Graph_Node_selectable_XML_Att_Name "selectable"
 #define LG_Graph_Node_DisplayList_Att_Name "displaylist"
 
 #define LG_Graph_Node_Descendants_Tag_Name "descendants"
@@ -43,18 +44,26 @@
 LG_Graph_Node::LG_Graph_Node(LG_Node_Map *map,LG_Node_Map *app_map,LG_Node_Map *anim_map, TiXmlElement *elem)
 :LG_Parsable_Node(map,identifierForGraphNode(elem),NULL)
 {
-
-	if (str_eq(this->identifier, "cylX1Z1"))
-		printf("a\n");
-	if (str_eq(this->identifier, "cylX2Z1"))
-		printf("b\n");
-
     
     
     if (!str_eq(LG_Graph_Node_XML_Tag_Name, elem->Value())) {
         
         throw new LG_Parse_Exception_Wrong_Element_Name(LG_Graph_Node_XML_Tag_Name,elem->Value());
     }
+    
+    
+    try {
+        bool_tryToAttributeVariable(LG_Graph_Node_selectable_XML_Att_Name, elem, selectable);
+    } catch (LG_Parse_Exception_Missing_Attribute *ex) {
+        selectable=false;
+    }
+    catch(LG_Parse_Exception_Wrong_Attribute_Value *ex){
+    
+        std::cout<<"Parsing Error Found: "<<std::endl;
+        std::cout<<ex->what()<<std::endl;
+        std::cout<<"Error was Ignored. False value assumed."<<std::endl;
+    }
+    
     
     try {
         bool_tryToAttributeVariable(LG_Graph_Node_DisplayList_Att_Name, elem, isDisplayList);
