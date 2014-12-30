@@ -66,7 +66,7 @@ public:
 	void verifyAttributesAndValues(TiXmlElement *element);
 	void verifyElementName(TiXmlElement *element);
     
-    void draw();
+    void draw(bool selectMode=false);
     
 };
 #endif /* defined(__LAIG_Proj1__LG_Culling__) */

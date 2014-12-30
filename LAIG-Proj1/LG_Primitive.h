@@ -40,7 +40,7 @@ protected:
     
     virtual void calculateTextureCoordinates ()=0;
     
-    virtual void draw();
+    virtual void draw(bool selectMode);
     
     virtual void config();
     

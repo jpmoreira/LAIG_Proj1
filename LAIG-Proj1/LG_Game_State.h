@@ -29,7 +29,7 @@ public:
     
     // events
     virtual void draw(bool selectMode);
-    virtual void drawMenu();
+    virtual void drawMenu(bool selectMode);
     virtual void showMenuButtonClicked();
     virtual void startPlaying();
     virtual void nodeSelected(LG_Node *node);

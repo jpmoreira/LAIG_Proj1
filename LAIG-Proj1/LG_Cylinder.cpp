@@ -66,10 +66,10 @@ LG_Cylinder::LG_Cylinder(LG_Node_Map *map,double base,double top,double h,int st
 
 #pragma mark - Inherited Methods
 
-void LG_Cylinder::draw() {
+void LG_Cylinder::draw(bool selectMode) {
     
     
-    LG_Primitive::draw();
+    LG_Primitive::draw(selectMode);
     glPushMatrix();
     glRotated(180, 1, 0, 0);
     gluDisk(quadric, 0, baseRadius, slices, stacks);

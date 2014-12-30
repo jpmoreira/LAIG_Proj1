@@ -77,7 +77,7 @@ public:
     
     
     
-    void draw();
+    void draw(bool selectMode=false);
     
 
     void config();
@@ -145,6 +145,9 @@ public:
      */
     
     LG_Animation_Container *getAnimations();
+    
+    
+    LG_Node * nodeWithPickingID(unsigned int selectID);
     
 
 

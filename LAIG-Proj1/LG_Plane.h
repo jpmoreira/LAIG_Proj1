@@ -25,7 +25,7 @@ private:
 public:
     LG_Plane(LG_Node_Map *map,TiXmlElement *elem);
 	LG_Plane(LG_Node_Map *map, string LG_Primitive_Identifier);
-    void draw();
+    void draw(bool selectMode);
     void config();
     void calculateTextureCoordinates();
 	void setPatch();

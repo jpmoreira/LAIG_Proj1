@@ -69,8 +69,9 @@ public:
     LG_Board_Place(LG_Node_Map *map,LG_Node_Map *app_map, LG_Node_Map *text_Map,TiXmlElement *element);
     LG_Board_Place(LG_Node_Map *map,LG_Node_Map *app_map, LG_Node_Map *text_Map,int x, int y,int nrPieces, LG_Board_Piece *piece);
     
-    virtual void drawChilds();
+    virtual void drawChilds(bool selectMode);
     
+    void setSelected(bool selected);
     
 };
 

@@ -173,12 +173,14 @@ void LG_Board_Piece::calculateTextureCoordinates(){
 
 
 
-void LG_Board_Piece::draw(){
+void LG_Board_Piece::draw(bool selectMode){
 
+    //if (selectMode)return;
     
-    LG_Node::draw();
+    LG_Node::draw(selectMode);
 
-    this->child(0)->draw();
+    //selectMode=true;
+    //this->child(0)->draw();
 
 }
 

@@ -20,7 +20,7 @@ class LG_Graph: public LG_Node{
     
 public:
     
-    void draw();
+    void draw(bool selectMode=false);
     void config();
     
     void update(unsigned long);
@@ -61,6 +61,7 @@ public:
 	LG_Graph(LG_Node_Map *appearancesMap, LG_Node_Map *animationsMap, TiXmlElement *elem, LG_Node_Map *map = new LG_Node_Map(), bool verifyReferences=true);
     
   
+    LG_Node * nodeWithPickingID(unsigned int selectID);
     
     
 };

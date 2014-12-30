@@ -69,7 +69,7 @@ void LG_Culling::verifyElementName(TiXmlElement *element){
 
 
 
-void LG_Culling::draw() {
+void LG_Culling::draw(bool selectMode) {
     
     glEnable(GL_CULL_FACE);
     

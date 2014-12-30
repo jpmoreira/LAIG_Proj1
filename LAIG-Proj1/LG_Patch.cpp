@@ -107,7 +107,7 @@ void LG_Patch::config(){
 #pragma mark - Inherited Methods
 
 
-void LG_Patch::draw(){
+void LG_Patch::draw(bool selectMode){
 
 	//glGet
 

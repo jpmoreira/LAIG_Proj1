@@ -38,7 +38,7 @@ public:
 	LG_Patch(LG_Node_Map *map, TiXmlElement *elem);
 	LG_Patch(LG_Node_Map * map, string LG__Primitive_Identifier);
 	~LG_Patch();
-	void draw();
+	void draw(bool selectMode);
 	void config();
 	void calculateTextureCoordinates();
 	void setTextCoords();

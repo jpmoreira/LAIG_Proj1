@@ -19,7 +19,7 @@ class LG_Waterline: public CGFshader, public LG_Plane {
     
     LG_Waterline(LG_Node_Map *map, TiXmlElement *elem);
     ~LG_Waterline();
-    void draw();
+    void draw(bool selectMode);
     void config();
     void calculateTextureCoordinates();
     

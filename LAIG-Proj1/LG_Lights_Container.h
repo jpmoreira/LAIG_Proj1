@@ -16,6 +16,6 @@ private:
 public:
 	LG_Lights_Container( TiXmlElement *element);
 	~LG_Lights_Container();
-	void draw();
+	void draw(bool selectMode);
 };
 

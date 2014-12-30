@@ -19,16 +19,19 @@ LG_State_Menu::LG_State_Menu(LG_Tzaar *tzaar):LG_Game_State(tzaar){
 #pragma mark - Actions
 
 
-void LG_State_Menu::drawMenu(){
+void LG_State_Menu::drawMenu(bool selectMode){
     
-    this->game->menu_anf->draw();
+    this->game->menu_anf->draw(selectMode);
 
 
 }
 
 
+
 void LG_State_Menu::processMouse(int button, int state, int x, int y){
 
+    
+    
 
     
     

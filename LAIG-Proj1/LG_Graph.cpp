@@ -116,10 +116,10 @@ void LG_Graph::verifyNodeReferences(TiXmlElement *graphElement){
 #pragma mark - Drawing
 
 
-void LG_Graph::draw(){
+void LG_Graph::draw(bool selecMode){
 
 
-	root->draw();
+	root->draw(selecMode);
 
 }
 
@@ -136,4 +136,13 @@ void LG_Graph::config(){
 void LG_Graph::update(unsigned long time){
 
 	root->update(time);
+}
+
+
+#pragma mark - Picking
+
+LG_Node * LG_Graph::nodeWithPickingID(unsigned int identif){
+    
+    return this->root->nodeWithPickingID(identif);
+
 }

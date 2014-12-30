@@ -118,12 +118,12 @@ void LG_Waterline::config(){
 #pragma mark - Inherited Methods
 
 
-void LG_Waterline::draw(){
+void LG_Waterline::draw(bool selectMode){
     
     
     bind();
     
-    LG_Patch::draw();
+    LG_Patch::draw(selectMode);
     
     unbind();
     

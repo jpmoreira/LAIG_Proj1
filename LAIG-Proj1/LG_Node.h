@@ -36,6 +36,13 @@ class LG_Node{
 protected:
     
     
+    static unsigned int nextFreePickingID;
+    
+    
+    unsigned int pickingID;
+    
+    
+    
     
     GLint displayListID;
     
@@ -105,6 +112,8 @@ public:
     string identifier;
     
     
+    bool selectable;
+    
     /**
      
      Simple constructor. It automatically adds the node to the map
@@ -121,7 +130,7 @@ public:
      
      */
     
-    virtual void draw();
+    virtual void draw(bool selectMode=false);
     
     
     /*
@@ -130,7 +139,7 @@ public:
      A method that draws all childs of the node
      
      */
-    virtual void drawChilds();
+    virtual void drawChilds(bool selectMode=false);
     
     
     /**
@@ -213,6 +222,10 @@ public:
      
      */
     bool isSelected(bool subtree=true);
+    
+    
+    
+    virtual LG_Node * nodeWithPickingID(unsigned int selectID);
     
     
     

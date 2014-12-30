@@ -2,7 +2,7 @@
 
 <!-- ---------- BLACK TOTT --------------- -->
 
-<texture id="black_tott_text" file="./testFiles/black_tott.png" texlength_s="1" texlength_t="1" />
+<texture id="black_tott_text" file="../data/black_tott.png" texlength_s="1" texlength_t="1" />
 
 <appearance id="black_tott_app" shininess="0.8" textureref="black_tott_text" >
 <component type="ambient" value="0.0 0.0 0.0 1"/>

@@ -9,7 +9,7 @@
 <component type="specular" value="0.1 0.1 0.1 1"/>
 </appearance>
 
-<texture id="black_tzarra_text" file="./testFiles/black_tzarra.png" texlength_s="1" texlength_t="1" />
+<texture id="black_tzarra_text" file="../data/black_tzarra.png" texlength_s="1" texlength_t="1" />
 
 <graph rootid="black_tzarra">
 

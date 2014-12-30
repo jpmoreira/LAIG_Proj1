@@ -37,7 +37,7 @@ public:
     LG_Torus(LG_Node_Map *map,TiXmlElement *elem,LG_Appearance *app);
     LG_Torus(LG_Node_Map *map,double inner,double outer,int sl,int loop);
 
-	void draw();
+	void draw(bool selectMode);
     
     
     void calculateTextureCoordinates();

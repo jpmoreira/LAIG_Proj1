@@ -109,11 +109,11 @@ double * LG_Primitive::newells(vector<double *> &points){
 #pragma mark - Inherited Methods
 
 
-void LG_Primitive::draw(){
+void LG_Primitive::draw(bool selectMode){
     
     calculateTextureCoordinates();
     
-    LG_Node::draw();
+    LG_Node::draw(selectMode);
 
 
 }

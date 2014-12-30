@@ -4,7 +4,7 @@
 
 <!-- ---------- BLACK TZAAR --------------- -->
 
-<texture id="black_tzaar_text" file="./testFiles/black_tzaar.png" texlength_s="1" texlength_t="1" />
+<texture id="black_tzaar_text" file="../data/black_tzaar.png" texlength_s="1" texlength_t="1" />
 
 <appearance id="black_tzaar_app" shininess="0.8" textureref="black_tzaar_text" >
 <component type="ambient" value="0.1 0.1 0.1 1"/>

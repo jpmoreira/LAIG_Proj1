@@ -4,7 +4,7 @@
 
 <!-- ---------- WHITE TZAAR --------------- -->
 
-<texture id="white_tzaar_text" file="./testFiles/white_tzaar.png" texlength_s="1" texlength_t="1" />
+<texture id="white_tzaar_text" file="../data/white_tzaar.png" texlength_s="1" texlength_t="1" />
 
 <appearance id="white_tzaar_app" shininess="0.8" textureref="white_tzaar_text" >
 <component type="ambient" value="0.5 0.5 0.5 1"/>

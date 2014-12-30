@@ -42,7 +42,7 @@ public:
      
      
      */
-    void draw ();
+    void draw(bool selectMode);
     
     
     void calculateTextureCoordinates();

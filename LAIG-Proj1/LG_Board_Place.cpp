@@ -17,6 +17,7 @@
 
 LG_Board_Place::LG_Board_Place(LG_Node_Map *map,LG_Node_Map *app_map, LG_Node_Map *text_Map,TiXmlElement *element):LG_Primitive(map,idForElement(element)){
     
+    selectable=true;//board places are selectable
     
     evalElemName(LG_Board_Place_XML_Tag_Name, element->Value());
     
@@ -46,7 +47,7 @@ LG_Board_Place::LG_Board_Place(LG_Node_Map *map,LG_Node_Map *app_map, LG_Node_Ma
     
     }
     
-    LG_Bounce_Animation *anim=new LG_Bounce_Animation(map);
+    //LG_Bounce_Animation *anim=new LG_Bounce_Animation(map);
     //this->animations.push_back( new LG_AnimationState(map, anim, this));
     
 
@@ -87,27 +88,34 @@ void LG_Board_Place::stackFrom(LG_Board_Place *originalPlace){
 }
 
 
-
-
-
-
-
-
-
 void LG_Board_Place::calculateTextureCoordinates(){
     
     
 }
 
-void LG_Board_Place::drawChilds(){
+void LG_Board_Place::drawChilds(bool selectMode){
 
     for (int i=0; i<nrPieces; i++) {
         
-        piece->draw();
+        piece->draw(selectMode);
         glTranslated(0, 0.5, 0);
         
     }
 
+}
+
+void LG_Board_Place::setSelected(bool selected){
+    
+    LG_Node::setSelected(selected);
+    if (selected) {
+        LG_Bounce_Animation *anim=new LG_Bounce_Animation(map);
+        this->animations.push_back( new LG_AnimationState(map, anim, this));
+    }
+    else{
+        this->animations.pop_back();
+    }
+    
+    
 }
 
 

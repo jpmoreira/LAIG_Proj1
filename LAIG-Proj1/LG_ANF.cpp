@@ -219,11 +219,11 @@ void LG_ANF::selective_config(){
 
 
 
-void LG_ANF::draw(){
+void LG_ANF::draw(bool selectMode){
 
 	
-    graph->draw();
-	lights->draw();
+    graph->draw(selectMode);
+	lights->draw(selectMode);
 
 }
 
@@ -277,4 +277,11 @@ LG_Drawing* LG_ANF::getDrawing()
 LG_Animation_Container * LG_ANF::getAnimations(){
 
     return animations;
+}
+
+#pragma mark - Picking
+
+LG_Node * LG_ANF::nodeWithPickingID(unsigned int identif){
+
+    return this->graph->nodeWithPickingID(identif);
 }

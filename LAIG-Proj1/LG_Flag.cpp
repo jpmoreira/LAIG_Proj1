@@ -171,12 +171,12 @@ void LG_Flag::config(){
 #pragma mark - Inherited Methods
 
 
-void LG_Flag::draw(){
+void LG_Flag::draw(bool selectMode){
 
 
 	bind();
 
-	LG_Patch::draw();
+	LG_Patch::draw(selectMode);
 
 	unbind();
 

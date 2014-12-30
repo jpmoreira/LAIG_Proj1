@@ -58,9 +58,9 @@ LG_Sphere::LG_Sphere(LG_Node_Map *map,double r,int st,int sl):LG_Glu_Primitive(m
 #pragma mark - Inherited Methods
 
 
-void LG_Sphere::draw() {
+void LG_Sphere::draw(bool selectMode) {
     
-    LG_Primitive::draw();
+    LG_Primitive::draw(selectMode);
     
     gluSphere(quadric, radius, slices, stacks);
 }

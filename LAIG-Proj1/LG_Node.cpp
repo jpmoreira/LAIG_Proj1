@@ -19,9 +19,12 @@
 using std::vector;
 
 
+unsigned int LG_Node::nextFreePickingID=1;
+
+
 
 #pragma mark - Constructors
-LG_Node::LG_Node(LG_Node_Map *map,string theIdentifier,LG_Transform *t):childsIDs(LG_ID_Vector()),identifier(theIdentifier),map(map),animations(vector<LG_AnimationState *>()),currentAnimation(0),appearance(NULL),transform(t),selected(false),isDisplayList(false){
+LG_Node::LG_Node(LG_Node_Map *map,string theIdentifier,LG_Transform *t):childsIDs(LG_ID_Vector()),identifier(theIdentifier),map(map),animations(vector<LG_AnimationState *>()),currentAnimation(0),appearance(NULL),transform(t),selected(false),isDisplayList(false),pickingID(nextFreePickingID++),selectable(false){
     
     if (map==NULL)return;
     LG_Node_Map_Pair pair(identifier,this);
@@ -35,19 +38,26 @@ LG_Node::LG_Node(LG_Node_Map *map,string theIdentifier,LG_Transform *t):childsID
 #pragma mark - Drawing
 
 
-void LG_Node::drawChilds(){
+void LG_Node::drawChilds(bool selectMode){
 
     for (unsigned int i=0; i<childsIDs.size(); i++) {
         
-        child(i)->draw();
+        child(i)->draw(selectMode);
         
     }
 
 }
 
-void LG_Node::draw(){
+void LG_Node::draw(bool selectMode){
     
     
+    
+    if (selectMode && selectable){
+    
+        glPushName(pickingID);
+        //glLoadName(pickingID);
+        
+    }
     if (isDisplayList){
         
         glCallList(displayListID);
@@ -73,14 +83,19 @@ void LG_Node::draw(){
         
         if (appearance) appearance->apply();
         
-        drawChilds();
+        drawChilds(selectMode);
         
         if (appearance) appearance->unapply();
         
         glPopMatrix();
         
     }
+    
+    if(selectMode && selectable){
+    
+        glPopName();
 
+    }
 
 
     
@@ -231,5 +246,23 @@ bool LG_Node::isSelected(bool subtree){
     }
     
     return false;
+
+}
+
+
+LG_Node * LG_Node::nodeWithPickingID(unsigned int selectID){
+
+    if (this->pickingID==selectID){
+        return this;
+    }
+    for (int i=0; i<childsIDs.size(); i++) {
+        
+        LG_Node * nodeInSubtree=child(i)->nodeWithPickingID(selectID);
+        
+        if (nodeInSubtree!=NULL)return nodeInSubtree;
+       
+    }
+    
+    return NULL;
 
 }

@@ -79,11 +79,11 @@ void LG_Rectangle::copyPoints(LG_Point3D point1,LG_Point3D point2){
 #pragma mark - Inherited Methods
 
 
-void LG_Rectangle::draw(){
+void LG_Rectangle::draw(bool selectMode){
 
     
     
-    LG_Primitive::draw();
+    LG_Primitive::draw(selectMode);
     
     glBegin(GL_QUADS);
 

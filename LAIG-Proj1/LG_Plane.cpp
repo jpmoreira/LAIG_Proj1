@@ -49,9 +49,9 @@ void LG_Plane::config(){
 #pragma mark - Inherited Methods
 
 
-void LG_Plane::draw(){
+void LG_Plane::draw(bool selectMode){
 
-	LG_Patch::draw();
+	LG_Patch::draw(selectMode);
 }
 
 void LG_Plane::calculateTextureCoordinates(){

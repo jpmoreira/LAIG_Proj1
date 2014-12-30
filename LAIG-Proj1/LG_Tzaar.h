@@ -53,10 +53,16 @@ public:
     void setDocNameForShortMenu(string name);
     
     
+    //picking
+    
+    void performPicking(int x, int y);
+    LG_Node* processHits (GLint hits, GLuint buffer[]);
+    
+    
     //actions
     
     void draw(bool selectMode);
-    void drawMenu();
+    void drawMenu(bool selectMode);
     void showMenuButtonClicked();
     void startPlaying();
     void nodeSelected(LG_Node *node);

@@ -75,11 +75,8 @@ private:
      **/
     inline string filenameForContent(){
         
-#ifdef _WIN32
-		return "../data/"+this->typeSpecifier() + "_" + this->colorSpecifier() + ".anfsnipset";
-#endif
 
-        return this->typeSpecifier()+"_"+this->colorSpecifier()+".anfsnipset";
+		return "../data/"+this->typeSpecifier() + "_" + this->colorSpecifier() + ".anfsnipset";
         
     }
 
@@ -138,7 +135,9 @@ public:
     
     Color getColor();
     
-    virtual void draw();
+    virtual void draw(bool selectMode=false);
+    
+    
 };
 
 #endif /* defined(__LAIG_Proj1__LG_Board_Piece__) */

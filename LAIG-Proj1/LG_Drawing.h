@@ -60,7 +60,7 @@ public:
     void verifyElementName(TiXmlElement *element);
     void verifyElementAttributesAndValues(TiXmlElement *element);
     
-    void draw();
+    void draw(bool selectMode=false);
 
 	LG_Drawing_Mode getMode();
 	void setMode(LG_Drawing_Mode mode);

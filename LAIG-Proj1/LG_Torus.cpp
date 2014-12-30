@@ -65,10 +65,10 @@ LG_Torus::LG_Torus(LG_Node_Map *map,double inner,double outer,int sl,int loop):L
 
 
 #pragma mark - Inherited Methods
-void LG_Torus::draw()
+void LG_Torus::draw(bool selectMode)
 {
     
-    LG_Primitive::draw();
+    LG_Primitive::draw(selectMode);
     
     
     

@@ -48,8 +48,9 @@ LG_Lights_Container::~LG_Lights_Container()
 }
 
 
-void LG_Lights_Container::draw(){
+void LG_Lights_Container::draw(bool selectMode){
 
+    if(selectMode)return;//dont draw lights for select mode
 	for (unsigned int i = 0; i < this->childsIDs.size(); i++)
 	{
 

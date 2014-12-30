@@ -161,7 +161,7 @@ void LG_Drawing::verifyElementAttributesAndValues(TiXmlElement *element){
 
 #pragma mark - Inherited Methods
 
-void LG_Drawing::draw() {
+void LG_Drawing::draw(bool selectMode) {
 
 
 

@@ -20,7 +20,7 @@ class LG_Flag :
 public:
 	LG_Flag(LG_Node_Map *map, TiXmlElement *elem);
 	~LG_Flag();
-	void draw();
+	void draw(bool selectMode);
 	void config();
 	void calculateTextureCoordinates();
 	

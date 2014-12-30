@@ -53,7 +53,7 @@ public:
     LG_Rectangle(LG_Node_Map *map,TiXmlElement *elem,LG_Appearance *app);
     
     
-    void draw();
+    void draw(bool selectMode);
     
     void calculateTextureCoordinates();
     

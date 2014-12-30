@@ -21,9 +21,11 @@ public:
     
     LG_State_Menu(LG_Tzaar *tzaar);
     
-    void drawMenu();
+    void drawMenu(bool selectMode);
     
     void processMouse(int button, int state, int x, int y);
+    
+    //void nodeSelected(LG_Node *node);
 
 };
 

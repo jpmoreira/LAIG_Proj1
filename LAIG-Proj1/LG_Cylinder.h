@@ -69,7 +69,7 @@ public:
      
      
      */
-    void draw ();
+    void draw (bool selecMode=false);
     
     
     

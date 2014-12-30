@@ -93,10 +93,10 @@ LG_Triangle::LG_Triangle(LG_Node_Map *map,string identifier):LG_Primitive(map,id
 #pragma mark - Inherited Methods
 
 
-void LG_Triangle::draw(){
+void LG_Triangle::draw(bool selectMode){
     
     
-    LG_Primitive::draw();
+    LG_Primitive::draw(selectMode);
     
     glBegin(GL_TRIANGLES);
     

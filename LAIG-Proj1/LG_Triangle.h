@@ -89,7 +89,7 @@ public:
      */
     LG_Triangle(LG_Node_Map *map,string identif);
     
-    virtual void draw();
+    virtual void draw(bool selectMode);
     
     
 
