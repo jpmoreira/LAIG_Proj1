@@ -14,8 +14,35 @@
 #include <CGFscene.h>
 #include <CGFinterface.h>
 #include "LG_ANF.h"
+#include "LG_Board_Piece.h"
 
 
+
+
+typedef enum{
+
+
+    player_vs_player,
+    player_vs_computer,
+    computer_vs_computer
+    
+} GameMode;
+
+typedef enum {
+
+    easy,
+    medium,
+    hard
+    
+
+} Difficulty;
+
+typedef enum{
+
+    phase1,
+    phase2
+
+} GamePhase;
 
 class LG_Tzaar: public CGFscene , public CGFinterface {
     
@@ -32,6 +59,18 @@ public:
     LG_ANF *scene_anf;
     LG_ANF *menu_anf;
     LG_ANF *short_menu_anf;
+    
+    
+    //Game settings
+    
+    
+    GameMode mode;
+    Difficulty difficulty;
+    GamePhase phase;
+    Color playingColor;
+    
+    
+    
     
     
     //GCFscene

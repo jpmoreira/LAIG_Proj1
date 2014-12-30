@@ -12,7 +12,7 @@
 #include "LG_Graph.h"
 
 
-#define LG_Board_Piece_XML_Color_Attribute_Name "color"
+
 
 
 
@@ -27,7 +27,9 @@ LG_Board_Piece * LG_Board_Piece::pieceForElement(LG_Node_Map *map, LG_Node_Map *
         return dynamic_cast<LG_Board_Piece *>(it->second);
     }
     
-    return new LG_Board_Piece(map,app_map,textureMap,elem);
+    
+    LG_Board_Piece *piece=new LG_Board_Piece(map,app_map,textureMap,elem);
+    return piece;
     
     
 

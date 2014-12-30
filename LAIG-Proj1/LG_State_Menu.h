@@ -23,7 +23,7 @@ public:
     
     void drawMenu(bool selectMode);
     
-    void processMouse(int button, int state, int x, int y);
+    //void processMouse(int button, int state, int x, int y);
     
     //void nodeSelected(LG_Node *node);
 

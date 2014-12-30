@@ -21,12 +21,7 @@ void LG_Game_State::nodeSelected(LG_Node *node){
 
     if (node==NULL)return;
     
-    if (node->isSelected()) {
-        node->setSelected(false);
-    }
-    else{
-        node->setSelected(true);
-    }
+    node->toggleSelected();
 
 }
 void LG_Game_State::movementValidation(bool valid){}

@@ -24,7 +24,7 @@ class LG_Board_Place: public LG_Primitive {
     
 private:
     
-    LG_Board_Piece *piece;
+    
     int x,y;
     int nrPieces;
     
@@ -55,6 +55,8 @@ private:
     }
     
 public:
+    
+    LG_Board_Piece *piece;
     
     
     void calculateTextureCoordinates();

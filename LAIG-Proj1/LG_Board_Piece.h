@@ -23,6 +23,8 @@
 #define LG_Board_Piece_Color_XML_Attribute_Value_Black "black"
 #define LG_Board_Piece_Color_XML_Attribute_Value_White "white"
 
+#define LG_Board_Piece_XML_Color_Attribute_Name "color"
+
 #define LG_Board_Piece_ID "LG_Board_Piece_ID_"
 
 
@@ -113,16 +115,17 @@ private:
 		string a = LG_Board_Piece_ID;
 
 		string b = elem->Value();
-		TiXmlElement *childElement = elem->FirstChildElement();
 
-		string color("");
+		string color;
 		try{
-			string_tryToAttributeVariable("color", elem, color);
+			string_tryToAttributeVariable(LG_Board_Piece_XML_Color_Attribute_Name, elem, color);
 		}
 		catch (LG_Parse_Exception &e){
 			printf("No color found for piece\n");
 		}
 		color = "_" + color;
+        
+        string name=string(a + b + color);
 	
 	return string(a + b + color);
 

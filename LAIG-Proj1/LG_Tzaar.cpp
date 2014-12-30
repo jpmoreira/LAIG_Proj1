@@ -9,6 +9,7 @@
 #include "LG_Tzaar.h"
 #include <iostream>
 #include "LG_State_Menu.h"
+#include "LG_State_Waiting_Piece_Selection.h"
 
 #define BUFSIZE 10
 GLuint selectBuf[BUFSIZE];
@@ -60,7 +61,13 @@ void LG_Tzaar::defaultMouseProcessing(int button, int state, int x, int y){
 
 void LG_Tzaar::init() {
     
-    this->state=new LG_Game_State(this);//initial state is menu;
+    this->state=new LG_State_Waiting_Piece_Selection(this);//initial state is menu;
+    this->mode=player_vs_player;
+    this->difficulty=easy;
+    this->phase=phase1;
+    this->playingColor=White;
+    
+    
     
     TiXmlDocument *docForScene = new TiXmlDocument(docNameForScene.c_str());
     

@@ -53,13 +53,36 @@
     
     <graph rootid="spots">
         
+        
         <node id="spots" >
+            <transforms/>
+            <primitive/>
+            <descendants>
+                <noderef id="spot1"/>
+                <noderef id="spot2"/>
+            </descendants>
+        </node >
+        
+        
+        
+        <node id="spot2" >
             <transforms>
-                <transform type="translate" to="0 -0.05 -1" />
-                <transform type="scale" factor="0.5 0.5 0.5" />
+                <transform type="translate" to="5 -0.05 -1" />
             </transforms>
             <primitives>
                 <place x="1" y="1" pieces="3" >
+                    <tott color="white"/>
+                </place>
+            </primitives>
+            <descendants/>
+        </node >
+        
+        <node id="spot1" >
+            <transforms>
+                <transform type="translate" to="0 -0.05 -1" />
+            </transforms>
+            <primitives>
+                <place x="1" y="2" pieces="3" >
                     <tzaar color="black"/>
                 </place>
             </primitives>

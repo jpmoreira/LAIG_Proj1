@@ -198,6 +198,9 @@ public:
     virtual void setSelected(bool selected);
     
     
+    void toggleSelected();
+    
+    
 	string getIdentifier();
     
     virtual void config();

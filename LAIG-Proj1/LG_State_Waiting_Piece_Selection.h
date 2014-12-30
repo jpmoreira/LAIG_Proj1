@@ -18,5 +18,11 @@ class LG_State_Waiting_Piece_Selection: public LG_Game_State {
     
 public:
     
+    
+    LG_State_Waiting_Piece_Selection(LG_Tzaar *tzaar);
+    
+    void nodeSelected(LG_Node *node);
+    
+    
 };
 #endif /* defined(__LAIG_Proj1__LG_State_Waiting_Piece_Selection__) */

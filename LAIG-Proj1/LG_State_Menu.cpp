@@ -9,6 +9,8 @@
 #include "LG_State_Menu.h"
 #include "LG_Tzaar.h"
 
+#define playButtonID "playButton"
+
 
 LG_State_Menu::LG_State_Menu(LG_Tzaar *tzaar):LG_Game_State(tzaar){
 
@@ -26,13 +28,3 @@ void LG_State_Menu::drawMenu(bool selectMode){
 
 }
 
-
-
-void LG_State_Menu::processMouse(int button, int state, int x, int y){
-
-    
-    
-
-    
-    
-}

@@ -249,6 +249,14 @@ bool LG_Node::isSelected(bool subtree){
 
 }
 
+void LG_Node::toggleSelected(){
+
+    if (this->selected) {
+        this->setSelected(false);
+    }
+    else this->setSelected(true);
+
+}
 
 LG_Node * LG_Node::nodeWithPickingID(unsigned int selectID){
 
@@ -266,3 +274,5 @@ LG_Node * LG_Node::nodeWithPickingID(unsigned int selectID){
     return NULL;
 
 }
+
+
