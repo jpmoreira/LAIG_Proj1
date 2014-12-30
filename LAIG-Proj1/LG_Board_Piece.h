@@ -28,19 +28,19 @@
 
 typedef enum {
 
-    Tzaar,
-    Tzarra,
-    Tott
-    
-    
+	Tzaar,
+	Tzarra,
+	Tott
+
+
 } PieceType;
 
 typedef enum {
 
 
-    Black,
-    White
-    
+	Black,
+	White
+
 } Color;
 
 
@@ -50,94 +50,105 @@ typedef enum {
 
 
 
-class LG_Board_Piece: public LG_Primitive {
-    
-    
+class LG_Board_Piece : public LG_Primitive {
+
+
 private:
-    
-    PieceType type;
-    Color color;
-    
-    
-    
-    /**
-     *
-     * Loads the content of the piece.
-     *
-     **/
-    LG_Graph_Node * loadContents(LG_Node_Map *map,LG_Node_Map *app_map,LG_Node_Map *textureMap,TiXmlElement *elem);
-    
-    
-    /**
-     *
-     *Returns the name for the file containing the subtree stuff contained in this piece
-     *
-     **/
-    inline string filenameForContent(){
-        
 
-		return "../data/"+this->typeSpecifier() + "_" + this->colorSpecifier() + ".anfsnipset";
-        
-    }
 
-    /**
-     *
-     * Returns the color filename specifier for the color of this piece
-     *
-     **/
-    inline string colorSpecifier(){
-    
-        if (this->color==White) return LG_Board_Piece_Color_XML_Attribute_Value_White;
-        return LG_Board_Piece_Color_XML_Attribute_Value_Black;
-    
-    }
-    
-    /**
-     *
-     * Returns the type filename specifier for the color of this piece
-     *
-     **/
-    inline string typeSpecifier(){
-    
-    
-        if(this->type==Tzaar)return LG_Board_Piece_XML_Tag_Name_Tzaar;
-        else if (this->type==Tzarra) return LG_Board_Piece_XML_Tag_Name_Tzarra;
-        return LG_Board_Piece_XML_Tag_Name_Tott;
-    }
-    
-    
-    
-   static inline string idForElement(TiXmlElement *elem){
-       
-       string a=LG_Board_Piece_ID;
-        
-        string b=elem->Value();
-        return string (a+b);
-        
-       
-        
-   }
-    
+	PieceType type;
+	Color color;
 
-    LG_Board_Piece(LG_Node_Map *map,LG_Node_Map *app_map,LG_Node_Map *textureMap,TiXmlElement *elem);
-    
-    
+
+
+	/**
+	 *
+	 * Loads the content of the piece.
+	 *
+	 **/
+	LG_Graph_Node * loadContents(LG_Node_Map *map, LG_Node_Map *app_map, LG_Node_Map *textureMap, TiXmlElement *elem);
+
+
+	/**
+	 *
+	 *Returns the name for the file containing the subtree stuff contained in this piece
+	 *
+	 **/
+	inline string filenameForContent(){
+
+
+		return "../data/" + this->typeSpecifier() + "_" + this->colorSpecifier() + ".anfsnipset";
+
+	}
+
+	/**
+	 *
+	 * Returns the color filename specifier for the color of this piece
+	 *
+	 **/
+	inline string colorSpecifier(){
+
+		if (this->color == White) return LG_Board_Piece_Color_XML_Attribute_Value_White;
+		return LG_Board_Piece_Color_XML_Attribute_Value_Black;
+
+	}
+
+	/**
+	 *
+	 * Returns the type filename specifier for the color of this piece
+	 *
+	 **/
+	inline string typeSpecifier(){
+
+
+		if (this->type == Tzaar)return LG_Board_Piece_XML_Tag_Name_Tzaar;
+		else if (this->type == Tzarra) return LG_Board_Piece_XML_Tag_Name_Tzarra;
+		return LG_Board_Piece_XML_Tag_Name_Tott;
+	}
+
+
+
+	static inline string idForElement(TiXmlElement *elem){
+
+		string a = LG_Board_Piece_ID;
+
+		string b = elem->Value();
+		TiXmlElement *childElement = elem->FirstChildElement();
+
+		string color("");
+		try{
+			string_tryToAttributeVariable("color", elem, color);
+		}
+		catch (LG_Parse_Exception &e){
+			printf("No color found for piece\n");
+		}
+		color = "_" + color;
+	
+	return string(a + b + color);
+
+
+
+}
+
+
+LG_Board_Piece(LG_Node_Map *map, LG_Node_Map *app_map, LG_Node_Map *textureMap, TiXmlElement *elem);
+
+
 public:
-    
-    
-  
-    
-    static LG_Board_Piece *pieceForElement(LG_Node_Map *map,LG_Node_Map *app_map,LG_Node_Map *textureMap,TiXmlElement *elem);
-    
-    virtual void calculateTextureCoordinates ();
-    
-    PieceType getType();
-    
-    Color getColor();
-    
-    virtual void draw(bool selectMode=false);
-    
-    
+
+
+
+
+	static LG_Board_Piece *pieceForElement(LG_Node_Map *map, LG_Node_Map *app_map, LG_Node_Map *textureMap, TiXmlElement *elem);
+
+	virtual void calculateTextureCoordinates();
+
+	PieceType getType();
+
+	Color getColor();
+
+	virtual void draw(bool selectMode);
+
 };
 
 #endif /* defined(__LAIG_Proj1__LG_Board_Piece__) */

@@ -118,7 +118,9 @@ void LG_Waterline::config(){
 #pragma mark - Inherited Methods
 
 
+
 void LG_Waterline::draw(bool selectMode){
+
     
     
     bind();

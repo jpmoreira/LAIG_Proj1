@@ -36,12 +36,10 @@ private:
     
         positiveInt_tryToAttributeVariable(LG_Board_Place_X_XML_Att_Name, elem, x);
         positiveInt_tryToAttributeVariable(LG_Board_Place_Y_XML_Att_Name, elem, y);
+
         
         return idForElement(x,y);
-        
-        
-        
-    
+           
     }
     
     static inline string idForElement(int x, int y){
