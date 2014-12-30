@@ -75,6 +75,10 @@ private:
      **/
     inline string filenameForContent(){
         
+#ifdef _WIN32
+		return "../data/"+this->typeSpecifier() + "_" + this->colorSpecifier() + ".anfsnipset";
+#endif
+
         return this->typeSpecifier()+"_"+this->colorSpecifier()+".anfsnipset";
         
     }

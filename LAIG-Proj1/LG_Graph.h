@@ -58,8 +58,7 @@ private:
     
     
 public:
-    LG_Graph(LG_Node_Map *appearancesMap,LG_Node_Map *animationMap,TiXmlElement *elem);
-    LG_Graph(LG_Node_Map *appearancesMap,LG_Node_Map *animationsMap,TiXmlElement *elem,LG_Node_Map *map);
+	LG_Graph(LG_Node_Map *appearancesMap, LG_Node_Map *animationsMap, TiXmlElement *elem, LG_Node_Map *map = new LG_Node_Map(), bool verifyReferences=true);
     
   
     

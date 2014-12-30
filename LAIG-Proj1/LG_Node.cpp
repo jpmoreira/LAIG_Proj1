@@ -21,7 +21,7 @@ using std::vector;
 
 
 #pragma mark - Constructors
-LG_Node::LG_Node(LG_Node_Map *map,string theIdentifier,LG_Transform *t):childsIDs(LG_ID_Vector()),identifier(theIdentifier),map(map),animations(vector<LG_AnimationState *>()),currentAnimation(0),appearance(NULL),transform(t),selected(false){
+LG_Node::LG_Node(LG_Node_Map *map,string theIdentifier,LG_Transform *t):childsIDs(LG_ID_Vector()),identifier(theIdentifier),map(map),animations(vector<LG_AnimationState *>()),currentAnimation(0),appearance(NULL),transform(t),selected(false),isDisplayList(false){
     
     if (map==NULL)return;
     LG_Node_Map_Pair pair(identifier,this);

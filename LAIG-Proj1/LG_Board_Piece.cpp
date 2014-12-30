@@ -143,7 +143,7 @@ LG_Graph_Node * LG_Board_Piece::loadContents(LG_Node_Map *map,LG_Node_Map *app_m
     
     if(element){
         
-        graph=new LG_Graph(app_map,NULL,element,map);
+        graph=new LG_Graph(app_map,NULL,element,map, false);
         
     }
     
