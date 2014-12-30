@@ -112,11 +112,11 @@
   <animations>
   </animations>
 
-  <graph rootid="tabNCyls">
+  <graph rootid="wallsNGame">
 
 
 
-    <!--<node id="wallsNGame">
+    <node id="wallsNGame">
       <appearanceref id="inherit"/>
       <transforms/>
       <descendants>
@@ -124,10 +124,10 @@
         <noderef id ="wallsNFurniture"/>
       </descendants>
       <primitives/>
-    </node>-->
+    </node>
 
 
-    <!--<node id="tabNCylsNSupport">
+    <node id="tabNCylsNSupport">
       <transforms>
         <transform type="translate" to="13.335 2 13.335"/>
       </transforms>
@@ -135,7 +135,7 @@
         <noderef id="tabNCyls"/>
         <noderef id="support"/>
       </descendants>
-    </node>-->
+    </node>
 
     <!--board game dimensions: [2, 0.2, 2] starting at  x=0 y=0 z=0 to positives-->
     <node id="tabNCyls">
@@ -152,7 +152,7 @@
 
     <!--cube wrapper inside faces visible only 10x10 origin centered-->
 
-    <!--<node id="wallsNFurniture">
+    <node id="wallsNFurniture">
       <transforms/>
       <descendants>
         <noderef id="walls"/>
@@ -168,15 +168,12 @@
         <noderef id="storageUnit"/>
       </descendants>
     </node>
-
+      
     <node id="walls">
       <appearanceref id="wallApp"/>
       <transforms>
         <transform type="translate" to="13.335 0 13.335"/>
         <transform type="scale" factor="2.667 1.5 2.667"/>
-        -->
-    <!--factor * [10 1 10]-->
-    <!--
       </transforms>
       <descendants>
         <noderef id="wallBack"/>
@@ -187,21 +184,21 @@
         <noderef id="wallCeiling"/>
       </descendants>
       <primitives/>
-    </node>-->
+    </node>
 
 
     <!--a plane -->
-    <!--<node id="plane">
+    <node id="plane">
       <appearanceref id="inherit"/>
       <transforms/>
       <descendants/>
       <primitives>
         <plane parts="5"/>
       </primitives>
-    </node>-->
+    </node>
 
     <!--a cube made from plane-->
-    <!--<node id="cube">
+    <node id="cube">
       <appearanceref id="inherit"/>
       <transforms/>
       <descendants>
@@ -283,7 +280,7 @@
         <noderef id="plane"/>
       </descendants>
       <primitives/>
-    </node>-->
+    </node>
 
     <!--
     _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
@@ -391,7 +388,7 @@
     _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
     -->
 
-    <!--<node id="support">
+    <node id="support">
       <appearanceref id="tableSupportApp"/>
       <transforms>
         <transform type="translate" to="-1 0 1"/>
@@ -477,7 +474,7 @@
       <descendants>
         <noderef id="supportLeft"/>
       </descendants>
-    </node>-->
+    </node>
 
 
     <!--
@@ -628,7 +625,7 @@
       </descendants>
       <primitives>
         <place x="5" y="1">
-           <tott color="white"/>
+          <tott color="white"/>
         </place>
       </primitives>
     </node>
@@ -918,7 +915,7 @@
       </descendants>
       <primitives>
         <place x="1" y="5">
-          <tzarra color="white"/>
+          <tott color="white"/>
         </place>
       </primitives>
     </node>
@@ -1023,7 +1020,7 @@
       </descendants>
       <primitives>
         <place x="2" y="6">
-         <tott color="black"/>
+          <tott color="black"/>
         </place>
       </primitives>
     </node>
@@ -1289,7 +1286,7 @@
         </place>
       </primitives>
     </node>
-     <!--X_Z9-->
+    <!--X_Z9-->
     <node id="cylX5Z9" selectable="true" visible="true">
       <appearanceref id="inherit"/>
       <transforms>
@@ -1363,7 +1360,7 @@
     _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
     -->
 
-    <!--<node id="wallBack">
+    <node id="wallBack">
       <appearanceref id="tzaarWallApp"/>
       <transforms>
         <transform type="translate" to="0 5 -5"/>
@@ -1371,9 +1368,6 @@
         <transform type="scale" factor="10 1 10"/>
       </transforms>
       <descendants>
-        -->
-    <!--<noderef id="plane"/>-->
-    <!--
       </descendants>
       <primitives>
         <plane parts="100"/>
@@ -1400,11 +1394,7 @@
         <transform type="rotate" axis="z" angle="-90"/>
         <transform type="scale" factor="10 1 10"/>
       </transforms>
-      <descendants>
-        -->
-    <!--<noderef id="plane"/>-->
-    <!--
-      </descendants>
+      <descendants></descendants>
       <primitives>
         <plane parts="50"/>
       </primitives>
@@ -1417,11 +1407,7 @@
         <transform type="rotate" axis="z" angle="90"/>
         <transform type="scale" factor="10 1 10"/>
       </transforms>
-      <descendants>
-        -->
-    <!--<noderef id="plane"/>-->
-    <!--
-      </descendants>
+      <descendants></descendants>
       <primitives>
         <plane parts="50"/>
       </primitives>
@@ -1432,11 +1418,7 @@
       <transforms>
         <transform type="scale" factor="10 1 10"/>
       </transforms>
-      <descendants>
-        -->
-    <!--<noderef id="plane"/>-->
-    <!--
-      </descendants>
+      <descendants/>
       <primitives>
         <plane parts="100"/>
       </primitives>
@@ -1450,14 +1432,12 @@
         <transform type="scale" factor="10 1 10"/>
       </transforms>
       <descendants>
-        -->
-    <!--<noderef id="plane"/>-->
-    <!--
+        <noderef id="plane"/>
       </descendants>
       <primitives>
         <plane parts="5"/>
       </primitives>
-    </node>-->
+    </node>
 
     <!--
     _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
@@ -1466,7 +1446,7 @@
     _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
     -->
 
-    <!--<node id="door">
+    <node id="door">
       <appearanceref id="doorApp"/>
       <transforms>
         <transform type="translate" to="0.05 3.55 2"/>
@@ -1650,7 +1630,7 @@
         <noderef id="cube"/>
       </descendants>
       <primitives/>
-    </node>-->
+    </node>
   </graph>
 
 </anf>
