@@ -1059,7 +1059,7 @@
       </descendants>
       <primitives>
         <place x="5" y="6">
-          <tott color="white"/>
+          <tott color="black"/>
         </place>
       </primitives>
     </node>
@@ -1190,7 +1190,7 @@
       </descendants>
       <primitives>
         <place x="8" y="7">
-          <tzarra color="white"/>
+          <tzarra color="black"/>
         </place>
       </primitives>
     </node>
@@ -1230,7 +1230,7 @@
       </descendants>
       <primitives>
         <place x="5" y="8">
-          <tzarra color="white"/>
+          <tzarra color="black"/>
         </place>
       </primitives>
     </node>
