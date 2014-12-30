@@ -122,8 +122,8 @@
     <node id="all">
       <appearanceref id="inherit"/>
       <descendants>
-        <noderef id="ambient"/>
         <noderef id="tabNCylsNSupport"/>
+        <noderef id="ambient"/>       
       </descendants>
       <primitives/>
       <transforms/>
@@ -147,6 +147,7 @@
     </node>
     
     <node id="tabNCylsNSupport">
+      <appearanceref id="inherit"/>
       <transforms>
         <transform type="translate" to="0 1.8 0"/>
         <transform type="rotate" axis="y" angle="90"/>
