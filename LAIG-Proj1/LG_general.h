@@ -10,9 +10,10 @@
 #define __LAIG_Proj1__LG_general__
 
 #include <stdio.h>
+#include <vector>
 
 
-const char * getDocumentName(int argc,char * argv[]);
+const std::vector<std::string> getDocumentNames(int argc,char * argv[]);
 
 
 #endif /* defined(__LAIG_Proj1__LG_general__) */

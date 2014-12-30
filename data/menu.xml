@@ -1,0 +1,36 @@
+<anf>
+    <globals>
+        <drawing mode="fill" shading="gouraud" background="0.2 0.2 0.2 0" />
+        <culling face="back" order="ccw" />
+        <lighting doublesided="false" local="true" enabled="true" ambient="0.6 0.6 0.6 1" />
+    </globals>
+    
+    <cameras initial="perspective1" >
+        <perspective id="perspective1" near="1" far="200" angle="30" pos="0 20 20" target="20 0 0" />
+        <ortho id="ortho1" direction="x" near="20" far="-20" left="-10" right="5" top="20" bottom="0" />
+    </cameras>
+    
+    <lights>
+
+    </lights>
+    
+    <textures/>
+    <appearances/>
+    <animations/>
+    
+    
+    <graph rootid="menu">
+        
+        <node id="menu" >
+            <transforms>
+                <transform type="translate" to="0 0 -0.5" />
+            </transforms>
+            <primitives>
+                <rectangle xy1="-0.15 -0.15" xy2="0.15 0.15" />
+            </primitives>
+            <descendants/>
+        </node >
+        
+    </graph>
+    
+</anf>

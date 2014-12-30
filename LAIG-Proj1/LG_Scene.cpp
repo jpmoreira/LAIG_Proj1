@@ -14,56 +14,6 @@
 #include <iostream>
 #include "LG_Appearance.h"
 
-float pi = acos(-1.0);
-float deg2rad=pi/180.0;
-
-#define BOARD_HEIGHT 6.0
-#define BOARD_WIDTH 6.4
-
-
-// Positions for two lights
-float light0_pos[4] = {3.25, 8.0, 3.25, 1.0};
-float light1_pos[4] = {0, 2, 0, 1.0};
-
-float light2_pos[4] = {3.25, 8.0, 9.75, 1.0};
-float light3_pos[4] = {9.75, 8.0, 9.75, 1.0};
-
-// Global ambient light (do not confuse with ambient component of individual lights)
-float globalAmbientLight[4]= {0,0,0,1};
-
-// number of divisions
-#define BOARD_A_DIVISIONS 30
-#define BOARD_B_DIVISIONS 100
-
-// Coefficients for material A
-float ambA[3] = {0.2, 0.2, 0.2};
-float difA[3] = {0.6, 0.6, 0.6};
-float specA[3] = {0, 0.8, 0.8};
-float shininessA = 120.f;
-
-// Coefficients for material B
-float ambB[3] = {0.2, 0.2, 0.2};
-float difB[3] = {0.6, 0.6, 0.6};
-float specB[3] = {0.8, 0.8, 0.8};
-float shininessB = 40.f;
-
-// Coefficients for material floor
-float amb_wall[3] = {0.135, 0.223, 0.1575};
-float dif_wall[3] = {0.54, 0.89, 0.63};
-float spec_wall[3] = {0.316, 0.316, 0.316};
-float shininess_wall = 0.1;
-
-// Coefficients for material wall
-float amb_floor[3] = {0.02, 0.02, 0.02};
-float dif_floor[3] = {0.65, 0.59, 0.48};
-float spec_floor[3] = {0.26, 0.236, 0.192};
-float shininess_floor = 0.15;
-
-
-float ambientNull[4]={0,0,0,1};
-float yellow[4]={1,1,0,1};
-
-
 
 
 void LG_Scene::setDocName(string name){

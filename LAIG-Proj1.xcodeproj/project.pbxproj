@@ -256,13 +256,7 @@
 		5458BC221A4DB64F000FFC4F /* tott_white.anfsnipset in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54FDD7E31A4AE27D005CCE8B /* tott_white.anfsnipset */; };
 		545E74FD1A111ED700B83CC9 /* LG_Flag.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 545E74F91A111ED700B83CC9 /* LG_Flag.cpp */; };
 		545E74FE1A111ED700B83CC9 /* LG_Patch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 545E74FB1A111ED700B83CC9 /* LG_Patch.cpp */; };
-		545E750C1A112AB600B83CC9 /* evaltext.bmp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 545E75021A111FD400B83CC9 /* evaltext.bmp */; };
-		545E750D1A112AB600B83CC9 /* evaltext.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 545E75031A111FD400B83CC9 /* evaltext.jpg */; };
-		545E750E1A112AB600B83CC9 /* FEUP.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 545E75041A111FD400B83CC9 /* FEUP.jpg */; };
-		545E750F1A112AB600B83CC9 /* terrainmap2.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 545E75051A111FD400B83CC9 /* terrainmap2.jpg */; };
 		545E75171A11420300B83CC9 /* CGFshader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 545E75161A11420300B83CC9 /* CGFshader.cpp */; };
-		545E751A1A12069B00B83CC9 /* fragmentshader.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 545E75191A12069000B83CC9 /* fragmentshader.fs */; };
-		545E751B1A12069B00B83CC9 /* vertexshader.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 545E75181A12068400B83CC9 /* vertexshader.vs */; };
 		546184EC19DAFBFB005C6166 /* LG_Transform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 546184EA19DAFBFB005C6166 /* LG_Transform.cpp */; };
 		546184FE19DB133C005C6166 /* LG_Transform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 546184EA19DAFBFB005C6166 /* LG_Transform.cpp */; };
 		546184FF19DB133C005C6166 /* LG_Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5458029A19D1DA5000C9DF32 /* LG_Node.cpp */; };
@@ -385,7 +379,6 @@
 		546C50491A00189600AE1A22 /* LG_Animation_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 546C50481A00189600AE1A22 /* LG_Animation_Tests.cpp */; };
 		546C504D1A001E4D00AE1A22 /* LG_CircularAnimation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 546C504B1A001E4D00AE1A22 /* LG_CircularAnimation.cpp */; };
 		546C504E1A001E4D00AE1A22 /* LG_CircularAnimation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 546C504B1A001E4D00AE1A22 /* LG_CircularAnimation.cpp */; };
-		547DE8B819F6B53500328518 /* cgra_robot in CopyFiles */ = {isa = PBXBuildFile; fileRef = 547DE8B719F6B52D00328518 /* cgra_robot */; };
 		54831C9719E3FC920090418B /* LG_Graph_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54831C9619E3FC920090418B /* LG_Graph_Tests.cpp */; };
 		54831C9A19E3FD190090418B /* TestGraphs.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54831C9819E3FCFB0090418B /* TestGraphs.xml */; };
 		54831C9B19E3FD9E0090418B /* LG_Graph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5461853119DC4222005C6166 /* LG_Graph.cpp */; };
@@ -470,10 +463,7 @@
 		54858E0519F9894D000DC238 /* LG_Sphere.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5469678219D8A016001DBA15 /* LG_Sphere.cpp */; };
 		54858E0619F9894D000DC238 /* LG_Torus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54118C4A19D9B73D0015D962 /* LG_Torus.cpp */; };
 		54858E0719F9894D000DC238 /* LG_Glu_Primitive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54DE089919E5560000E283B6 /* LG_Glu_Primitive.cpp */; };
-		54858E5219F99246000DC238 /* TestEvaluators.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54858E1419F99162000DC238 /* TestEvaluators.xml */; };
 		54858E5319FA320D000DC238 /* LG_Plane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 541FBADD19F9740D00EA9CA8 /* LG_Plane.cpp */; };
-		548BA54E1A137C0F00AFF8DB /* us_.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 548BA54D1A137C0C00AFF8DB /* us_.png */; };
-		548BA5541A13845E00AFF8DB /* wing.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 548BA5531A13845700AFF8DB /* wing.png */; };
 		548CA5DF19ED85C7008AD9F7 /* libGLEWmx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE5019D0ADFF00D4831A /* libGLEWmx.a */; };
 		548CA5E019ED85C7008AD9F7 /* libGLEW.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4E19D0ADF500D4831A /* libGLEW.a */; };
 		548CA5E119ED85C7008AD9F7 /* GLUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4C19D0ADC800D4831A /* GLUI.framework */; };
@@ -512,36 +502,25 @@
 		548CA60319ED8631008AD9F7 /* LG_ANF.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 542D82B219E7BF86004DC691 /* LG_ANF.cpp */; };
 		548CA60519ED8658008AD9F7 /* LG_ANF_Tests_External.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 548CA60419ED8658008AD9F7 /* LG_ANF_Tests_External.cpp */; };
 		548CA68819EDC5E1008AD9F7 /* coordinateSystems.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 540B932019EB25890034E113 /* coordinateSystems.cpp */; };
-		548CA68A19EEBFE8008AD9F7 /* metal.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 548CA5D219ED80FD008AD9F7 /* metal.jpg */; };
-		548CA68B19EEBFE8008AD9F7 /* leather.jpeg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 540B933819ED61CE0034E113 /* leather.jpeg */; };
-		548CA68C19EEBFE8008AD9F7 /* rubber.jpeg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 540B933619ED61170034E113 /* rubber.jpeg */; };
-		548CA68D19EEBFE8008AD9F7 /* chao.jpeg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 540B933319ED1CEE0034E113 /* chao.jpeg */; };
-		548CA68E19EEBFE8008AD9F7 /* TestANF.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 540939A619E7DC6800961C05 /* TestANF.xml */; };
 		549FCC7E1A50290E00704A31 /* LG_Bounce_Animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 549FCC7C1A50290E00704A31 /* LG_Bounce_Animation.cpp */; };
 		549FCC7F1A5036ED00704A31 /* LG_Bounce_Animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 549FCC7C1A50290E00704A31 /* LG_Bounce_Animation.cpp */; };
+		549FCC821A5198F800704A31 /* LG_Tzaar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 549FCC801A5198F800704A31 /* LG_Tzaar.cpp */; };
+		549FCC861A51994000704A31 /* LG_Game_State.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 549FCC841A51994000704A31 /* LG_Game_State.cpp */; };
+		549FCC8A1A519B9700704A31 /* LG_State_Menu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 549FCC881A519B9700704A31 /* LG_State_Menu.cpp */; };
+		549FCC8D1A519BB700704A31 /* LG_State_Waiting_Piece_Selection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 549FCC8B1A519BB700704A31 /* LG_State_Waiting_Piece_Selection.cpp */; };
+		549FCC901A519C0C00704A31 /* LG_State_Selected_Piece.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 549FCC8E1A519C0C00704A31 /* LG_State_Selected_Piece.cpp */; };
+		54B7405C1A519C6500D4B710 /* LG_State_Validating_Move.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54B7405A1A519C6500D4B710 /* LG_State_Validating_Move.cpp */; };
+		54B7405F1A519C8900D4B710 /* LG_State_Animating_Move.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54B7405D1A519C8900D4B710 /* LG_State_Animating_Move.cpp */; };
+		54B740621A519CB300D4B710 /* LG_State_Checking_GameOver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54B740601A519CB300D4B710 /* LG_State_Checking_GameOver.cpp */; };
+		54B740671A51B11700D4B710 /* LG_Tzaar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 549FCC801A5198F800704A31 /* LG_Tzaar.cpp */; };
+		54B740681A51B12C00D4B710 /* LG_Game_State.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 549FCC841A51994000704A31 /* LG_Game_State.cpp */; };
 		54B9EDE019F04C9F001F8C34 /* LG_SceneInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54B9EDDF19F04C9F001F8C34 /* LG_SceneInterface.cpp */; };
 		54B9EDE119F04CB1001F8C34 /* LG_SceneInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54B9EDDF19F04C9F001F8C34 /* LG_SceneInterface.cpp */; };
-		54B9EDE219F04CB2001F8C34 /* LG_SceneInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54B9EDDF19F04C9F001F8C34 /* LG_SceneInterface.cpp */; };
 		54B9EDE319F04F8D001F8C34 /* LG_Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 540939C619E9355000961C05 /* LG_Scene.cpp */; };
-		54BEFD701A24A88300C68412 /* spaceflag.frs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5407E34D1A1E8A32007CBE41 /* spaceflag.frs */; };
-		54BEFD711A24A88300C68412 /* spaceflag.vrs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5407E34E1A1E8A32007CBE41 /* spaceflag.vrs */; };
-		54BEFD731A24A8B800C68412 /* paper.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54BEFD721A24A8AF00C68412 /* paper.jpg */; };
-		54BEFD751A24A9A500C68412 /* opengl.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54BEFD741A24A99A00C68412 /* opengl.png */; };
-		54BEFD7A1A24A9DC00C68412 /* fiftyfifty.vrs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54BEFD761A24A9D100C68412 /* fiftyfifty.vrs */; };
-		54BEFD7B1A24A9DC00C68412 /* one_text.vrs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54BEFD771A24A9D100C68412 /* one_text.vrs */; };
-		54BEFD7C1A24A9DC00C68412 /* fiftyfifty.frs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54BEFD781A24A9D100C68412 /* fiftyfifty.frs */; };
-		54BEFD7D1A24A9DC00C68412 /* one_text.frs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54BEFD791A24A9D100C68412 /* one_text.frs */; };
-		54BEFD7E1A24A9DC00C68412 /* chess__.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 548BA5411A13721800AFF8DB /* chess__.jpg */; };
-		54BEFD7F1A24A9DC00C68412 /* fiftyfifty.vrs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5407E34B1A1E89DF007CBE41 /* fiftyfifty.vrs */; };
-		54BEFD801A24A9DC00C68412 /* one_text.vrs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5407E34C1A1E89DF007CBE41 /* one_text.vrs */; };
-		54BEFD811A24A9DC00C68412 /* waterLineShader.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5407E3531A1EA0E2007CBE41 /* waterLineShader.vs */; };
-		54BEFD821A24A9DC00C68412 /* waterLineShader.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5407E3541A1EA0EC007CBE41 /* waterLineShader.fs */; };
-		54BEFD891A25089E00C68412 /* white_tott.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54BEFD861A25078900C68412 /* white_tott.png */; };
-		54BEFD8A1A25089E00C68412 /* white_tzaar.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54BEFD871A25078900C68412 /* white_tzaar.png */; };
-		54BEFD8B1A25089E00C68412 /* white_tzarra.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54BEFD881A25078900C68412 /* white_tzarra.png */; };
-		54BEFD8C1A25089E00C68412 /* black_tott.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54BEFD831A25077C00C68412 /* black_tott.png */; };
-		54BEFD8D1A25089E00C68412 /* black_tzaar.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54BEFD841A25077C00C68412 /* black_tzaar.png */; };
-		54BEFD8E1A25089E00C68412 /* black_tzarra.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54BEFD851A25077C00C68412 /* black_tzarra.png */; };
+		54BBD3881A52C39300E6DAE8 /* scene.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54BBD3841A52C25100E6DAE8 /* scene.xml */; };
+		54BBD3891A52C53D00E6DAE8 /* menu.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54BBD3851A52C25700E6DAE8 /* menu.xml */; };
+		54BBD38A1A52C53D00E6DAE8 /* short_menu.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54BBD3861A52C25F00E6DAE8 /* short_menu.xml */; };
+		54BBD38B1A52C8CF00E6DAE8 /* LG_State_Menu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 549FCC881A519B9700704A31 /* LG_State_Menu.cpp */; };
 		54C925E119F1B25F0007FB91 /* LG_general.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54C925DF19F1B25F0007FB91 /* LG_general.cpp */; };
 		54C925E219F1B30E0007FB91 /* LG_general.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54C925DF19F1B25F0007FB91 /* LG_general.cpp */; };
 		54C925E319F1B3140007FB91 /* LG_general.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54C925DF19F1B25F0007FB91 /* LG_general.cpp */; };
@@ -557,9 +536,6 @@
 		54DE08A119E5560000E283B6 /* LG_Glu_Primitive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54DE089919E5560000E283B6 /* LG_Glu_Primitive.cpp */; };
 		54F94B3B1A1A0AE600A4B250 /* LG_AnimationState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54F94B391A1A0AE600A4B250 /* LG_AnimationState.cpp */; };
 		54F94B3C1A1B360900A4B250 /* LG_CircularAnimation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 546C504B1A001E4D00AE1A22 /* LG_CircularAnimation.cpp */; };
-		54F94B3E1A1BCFE300A4B250 /* earth.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54F94B3D1A1BCFD600A4B250 /* earth.jpg */; };
-		54F94B401A1BD89F00A4B250 /* sun.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54F94B3F1A1BD89600A4B250 /* sun.jpg */; };
-		54F94B421A1D175000A4B250 /* stars.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54F94B411A1D174600A4B250 /* stars.jpg */; };
 		54FDD6421A482CA1005CCE8B /* LG_Board_Place.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54FDD6401A482CA1005CCE8B /* LG_Board_Place.cpp */; };
 		54FDD6451A482E3F005CCE8B /* LG_Board_Piece.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54FDD6431A482E3F005CCE8B /* LG_Board_Piece.cpp */; };
 		54FDD6461A488318005CCE8B /* LG_Board_Place.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54FDD6401A482CA1005CCE8B /* LG_Board_Place.cpp */; };
@@ -914,46 +890,12 @@
 		542D82B719E7C0CD004DC691 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
-			dstPath = testFiles;
+			dstPath = ../data;
 			dstSubfolderSpec = 16;
 			files = (
-				54BEFD891A25089E00C68412 /* white_tott.png in CopyFiles */,
-				54BEFD8A1A25089E00C68412 /* white_tzaar.png in CopyFiles */,
-				54BEFD8B1A25089E00C68412 /* white_tzarra.png in CopyFiles */,
-				54BEFD8C1A25089E00C68412 /* black_tott.png in CopyFiles */,
-				54BEFD8D1A25089E00C68412 /* black_tzaar.png in CopyFiles */,
-				54BEFD8E1A25089E00C68412 /* black_tzarra.png in CopyFiles */,
-				54BEFD7A1A24A9DC00C68412 /* fiftyfifty.vrs in CopyFiles */,
-				54BEFD7B1A24A9DC00C68412 /* one_text.vrs in CopyFiles */,
-				54BEFD7C1A24A9DC00C68412 /* fiftyfifty.frs in CopyFiles */,
-				54BEFD7D1A24A9DC00C68412 /* one_text.frs in CopyFiles */,
-				545E750F1A112AB600B83CC9 /* terrainmap2.jpg in CopyFiles */,
-				54BEFD7E1A24A9DC00C68412 /* chess__.jpg in CopyFiles */,
-				54BEFD7F1A24A9DC00C68412 /* fiftyfifty.vrs in CopyFiles */,
-				54BEFD801A24A9DC00C68412 /* one_text.vrs in CopyFiles */,
-				54BEFD811A24A9DC00C68412 /* waterLineShader.vs in CopyFiles */,
-				54BEFD821A24A9DC00C68412 /* waterLineShader.fs in CopyFiles */,
-				54BEFD751A24A9A500C68412 /* opengl.png in CopyFiles */,
-				54BEFD731A24A8B800C68412 /* paper.jpg in CopyFiles */,
-				54BEFD701A24A88300C68412 /* spaceflag.frs in CopyFiles */,
-				54BEFD711A24A88300C68412 /* spaceflag.vrs in CopyFiles */,
-				54F94B421A1D175000A4B250 /* stars.jpg in CopyFiles */,
-				54F94B401A1BD89F00A4B250 /* sun.jpg in CopyFiles */,
-				54F94B3E1A1BCFE300A4B250 /* earth.jpg in CopyFiles */,
-				548BA5541A13845E00AFF8DB /* wing.png in CopyFiles */,
-				548BA54E1A137C0F00AFF8DB /* us_.png in CopyFiles */,
-				545E751A1A12069B00B83CC9 /* fragmentshader.fs in CopyFiles */,
-				545E751B1A12069B00B83CC9 /* vertexshader.vs in CopyFiles */,
-				545E750C1A112AB600B83CC9 /* evaltext.bmp in CopyFiles */,
-				545E750D1A112AB600B83CC9 /* evaltext.jpg in CopyFiles */,
-				545E750E1A112AB600B83CC9 /* FEUP.jpg in CopyFiles */,
-				54858E5219F99246000DC238 /* TestEvaluators.xml in CopyFiles */,
-				547DE8B819F6B53500328518 /* cgra_robot in CopyFiles */,
-				548CA68A19EEBFE8008AD9F7 /* metal.jpg in CopyFiles */,
-				548CA68B19EEBFE8008AD9F7 /* leather.jpeg in CopyFiles */,
-				548CA68C19EEBFE8008AD9F7 /* rubber.jpeg in CopyFiles */,
-				548CA68D19EEBFE8008AD9F7 /* chao.jpeg in CopyFiles */,
-				548CA68E19EEBFE8008AD9F7 /* TestANF.xml in CopyFiles */,
+				54BBD3891A52C53D00E6DAE8 /* menu.xml in CopyFiles */,
+				54BBD38A1A52C53D00E6DAE8 /* short_menu.xml in CopyFiles */,
+				54BBD3881A52C39300E6DAE8 /* scene.xml in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1400,13 +1342,32 @@
 		548CA69519EEE93F008AD9F7 /* table.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = table.jpg; sourceTree = "<group>"; };
 		548CA69619EEE93F008AD9F7 /* window.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = window.jpg; sourceTree = "<group>"; };
 		548CA69E19EEECA3008AD9F7 /* party_hats.anf */ = {isa = PBXFileReference; lastKnownFileType = text; path = party_hats.anf; sourceTree = "<group>"; };
-		549FCC7C1A50290E00704A31 /* LG_Bounce_Animation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Bounce_Animation.cpp; sourceTree = "<group>"; };
-		549FCC7D1A50290E00704A31 /* LG_Bounce_Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_Bounce_Animation.h; sourceTree = "<group>"; };
+		549FCC7C1A50290E00704A31 /* LG_Bounce_Animation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LG_Bounce_Animation.cpp; path = ../LG_Bounce_Animation.cpp; sourceTree = "<group>"; };
+		549FCC7D1A50290E00704A31 /* LG_Bounce_Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LG_Bounce_Animation.h; path = ../LG_Bounce_Animation.h; sourceTree = "<group>"; };
+		549FCC801A5198F800704A31 /* LG_Tzaar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Tzaar.cpp; sourceTree = "<group>"; };
+		549FCC811A5198F800704A31 /* LG_Tzaar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_Tzaar.h; sourceTree = "<group>"; };
+		549FCC841A51994000704A31 /* LG_Game_State.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Game_State.cpp; sourceTree = "<group>"; };
+		549FCC851A51994000704A31 /* LG_Game_State.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_Game_State.h; sourceTree = "<group>"; };
+		549FCC881A519B9700704A31 /* LG_State_Menu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_State_Menu.cpp; sourceTree = "<group>"; };
+		549FCC891A519B9700704A31 /* LG_State_Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_State_Menu.h; sourceTree = "<group>"; };
+		549FCC8B1A519BB700704A31 /* LG_State_Waiting_Piece_Selection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_State_Waiting_Piece_Selection.cpp; sourceTree = "<group>"; };
+		549FCC8C1A519BB700704A31 /* LG_State_Waiting_Piece_Selection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_State_Waiting_Piece_Selection.h; sourceTree = "<group>"; };
+		549FCC8E1A519C0C00704A31 /* LG_State_Selected_Piece.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_State_Selected_Piece.cpp; sourceTree = "<group>"; };
+		549FCC8F1A519C0C00704A31 /* LG_State_Selected_Piece.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_State_Selected_Piece.h; sourceTree = "<group>"; };
+		54B7405A1A519C6500D4B710 /* LG_State_Validating_Move.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_State_Validating_Move.cpp; sourceTree = "<group>"; };
+		54B7405B1A519C6500D4B710 /* LG_State_Validating_Move.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_State_Validating_Move.h; sourceTree = "<group>"; };
+		54B7405D1A519C8900D4B710 /* LG_State_Animating_Move.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_State_Animating_Move.cpp; sourceTree = "<group>"; };
+		54B7405E1A519C8900D4B710 /* LG_State_Animating_Move.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_State_Animating_Move.h; sourceTree = "<group>"; };
+		54B740601A519CB300D4B710 /* LG_State_Checking_GameOver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_State_Checking_GameOver.cpp; sourceTree = "<group>"; };
+		54B740611A519CB300D4B710 /* LG_State_Checking_GameOver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_State_Checking_GameOver.h; sourceTree = "<group>"; };
 		54B9EDDE19F04C9F001F8C34 /* LG_SceneInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_SceneInterface.h; sourceTree = "<group>"; };
 		54B9EDDF19F04C9F001F8C34 /* LG_SceneInterface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_SceneInterface.cpp; sourceTree = "<group>"; };
 		54B9EDE419F050CF001F8C34 /* wall-e.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "wall-e.xml"; sourceTree = "<group>"; };
 		54B9EDE519F05113001F8C34 /* LAIG_TP1_ANF_T06_G01_v3.anf */ = {isa = PBXFileReference; lastKnownFileType = text; path = LAIG_TP1_ANF_T06_G01_v3.anf; sourceTree = "<group>"; };
 		54B9EDE619F0513A001F8C34 /* LAIG_TP1_ANF_T01_G03_v2.anf */ = {isa = PBXFileReference; lastKnownFileType = text; path = LAIG_TP1_ANF_T01_G03_v2.anf; sourceTree = "<group>"; };
+		54BBD3841A52C25100E6DAE8 /* scene.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = scene.xml; sourceTree = "<group>"; };
+		54BBD3851A52C25700E6DAE8 /* menu.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = menu.xml; sourceTree = "<group>"; };
+		54BBD3861A52C25F00E6DAE8 /* short_menu.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = short_menu.xml; sourceTree = "<group>"; };
 		54BEFD721A24A8AF00C68412 /* paper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = paper.jpg; sourceTree = "<group>"; };
 		54BEFD741A24A99A00C68412 /* opengl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = opengl.png; sourceTree = "<group>"; };
 		54BEFD761A24A9D100C68412 /* fiftyfifty.vrs */ = {isa = PBXFileReference; lastKnownFileType = text; path = fiftyfifty.vrs; sourceTree = "<group>"; };
@@ -1432,8 +1393,8 @@
 		54D8613219E58EE600B5695A /* LG_Textures_Tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LG_Textures_Tests; sourceTree = BUILT_PRODUCTS_DIR; };
 		54DE089919E5560000E283B6 /* LG_Glu_Primitive.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Glu_Primitive.cpp; sourceTree = "<group>"; };
 		54DE089A19E5560000E283B6 /* LG_Glu_Primitive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_Glu_Primitive.h; sourceTree = "<group>"; };
-		54F94B391A1A0AE600A4B250 /* LG_AnimationState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LG_AnimationState.cpp; path = "LAIG-Proj1/LG_AnimationState.cpp"; sourceTree = "<group>"; };
-		54F94B3A1A1A0AE600A4B250 /* LG_AnimationState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LG_AnimationState.h; path = "LAIG-Proj1/LG_AnimationState.h"; sourceTree = "<group>"; };
+		54F94B391A1A0AE600A4B250 /* LG_AnimationState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_AnimationState.cpp; sourceTree = "<group>"; };
+		54F94B3A1A1A0AE600A4B250 /* LG_AnimationState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_AnimationState.h; sourceTree = "<group>"; };
 		54F94B3D1A1BCFD600A4B250 /* earth.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = earth.jpg; sourceTree = "<group>"; };
 		54F94B3F1A1BD89600A4B250 /* sun.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sun.jpg; sourceTree = "<group>"; };
 		54F94B411A1D174600A4B250 /* stars.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = stars.jpg; sourceTree = "<group>"; };
@@ -1838,10 +1799,6 @@
 		54174DBE19D033CB0039E991 = {
 			isa = PBXGroup;
 			children = (
-				549FCC7C1A50290E00704A31 /* LG_Bounce_Animation.cpp */,
-				549FCC7D1A50290E00704A31 /* LG_Bounce_Animation.h */,
-				54F94B391A1A0AE600A4B250 /* LG_AnimationState.cpp */,
-				54F94B3A1A1A0AE600A4B250 /* LG_AnimationState.h */,
 				545E75141A1141E100B83CC9 /* CGF */,
 				545E74FF1A111FD400B83CC9 /* data */,
 				54174DC919D033CC0039E991 /* LAIG-Proj1 */,
@@ -1886,6 +1843,9 @@
 		54174DC919D033CC0039E991 /* LAIG-Proj1 */ = {
 			isa = PBXGroup;
 			children = (
+				549FCC831A51992B00704A31 /* State Design Pattern */,
+				549FCC801A5198F800704A31 /* LG_Tzaar.cpp */,
+				549FCC811A5198F800704A31 /* LG_Tzaar.h */,
 				54C925DF19F1B25F0007FB91 /* LG_general.cpp */,
 				54C925E019F1B25F0007FB91 /* LG_general.h */,
 				540B933219ED1CE00034E113 /* Resources */,
@@ -1992,6 +1952,7 @@
 				546184ED19DAFC03005C6166 /* Primitivas */,
 				542D82B019E6FB1C004DC691 /* Appearances */,
 				542D82AF19E6FB10004DC691 /* Textures */,
+				546C501019FFD3E000AE1A22 /* Animation */,
 				5407E34F1A1E8BE2007CBE41 /* LG_Waterline.cpp */,
 				5407E3501A1E8BE2007CBE41 /* LG_Waterline.h */,
 				545802D419D3175500C9DF32 /* LG_Lighting.cpp */,
@@ -2008,7 +1969,6 @@
 				54831CA619E42C520090418B /* LG_Essentials.h */,
 				542D82B219E7BF86004DC691 /* LG_ANF.cpp */,
 				542D82B319E7BF86004DC691 /* LG_ANF.h */,
-				546C501019FFD3E000AE1A22 /* Animation */,
 				541FBADD19F9740D00EA9CA8 /* LG_Plane.cpp */,
 				541FBADE19F9740D00EA9CA8 /* LG_Plane.h */,
 				545E74F91A111ED700B83CC9 /* LG_Flag.cpp */,
@@ -2098,6 +2058,9 @@
 				5407E34E1A1E8A32007CBE41 /* spaceflag.vrs */,
 				5407E3531A1EA0E2007CBE41 /* waterLineShader.vs */,
 				5407E3541A1EA0EC007CBE41 /* waterLineShader.fs */,
+				54BBD3841A52C25100E6DAE8 /* scene.xml */,
+				54BBD3851A52C25700E6DAE8 /* menu.xml */,
+				54BBD3861A52C25F00E6DAE8 /* short_menu.xml */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -2177,6 +2140,10 @@
 		546C501019FFD3E000AE1A22 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
+				549FCC7C1A50290E00704A31 /* LG_Bounce_Animation.cpp */,
+				549FCC7D1A50290E00704A31 /* LG_Bounce_Animation.h */,
+				54F94B391A1A0AE600A4B250 /* LG_AnimationState.cpp */,
+				54F94B3A1A1A0AE600A4B250 /* LG_AnimationState.h */,
 				546C500D19FFD3DA00AE1A22 /* LG_Animation.cpp */,
 				546C500E19FFD3DA00AE1A22 /* LG_Animation.h */,
 				546C501119FFE2F500AE1A22 /* LG_LinearAnimation.cpp */,
@@ -2264,6 +2231,35 @@
 				548CA69619EEE93F008AD9F7 /* window.jpg */,
 			);
 			path = T06_G01;
+			sourceTree = "<group>";
+		};
+		549FCC831A51992B00704A31 /* State Design Pattern */ = {
+			isa = PBXGroup;
+			children = (
+				549FCC871A5199AC00704A31 /* States */,
+			);
+			name = "State Design Pattern";
+			sourceTree = "<group>";
+		};
+		549FCC871A5199AC00704A31 /* States */ = {
+			isa = PBXGroup;
+			children = (
+				549FCC841A51994000704A31 /* LG_Game_State.cpp */,
+				549FCC851A51994000704A31 /* LG_Game_State.h */,
+				549FCC881A519B9700704A31 /* LG_State_Menu.cpp */,
+				549FCC891A519B9700704A31 /* LG_State_Menu.h */,
+				549FCC8B1A519BB700704A31 /* LG_State_Waiting_Piece_Selection.cpp */,
+				549FCC8C1A519BB700704A31 /* LG_State_Waiting_Piece_Selection.h */,
+				549FCC8E1A519C0C00704A31 /* LG_State_Selected_Piece.cpp */,
+				549FCC8F1A519C0C00704A31 /* LG_State_Selected_Piece.h */,
+				54B7405A1A519C6500D4B710 /* LG_State_Validating_Move.cpp */,
+				54B7405B1A519C6500D4B710 /* LG_State_Validating_Move.h */,
+				54B7405D1A519C8900D4B710 /* LG_State_Animating_Move.cpp */,
+				54B7405E1A519C8900D4B710 /* LG_State_Animating_Move.h */,
+				54B740601A519CB300D4B710 /* LG_State_Checking_GameOver.cpp */,
+				54B740611A519CB300D4B710 /* LG_State_Checking_GameOver.h */,
+			);
+			name = States;
 			sourceTree = "<group>";
 		};
 		54D8610919E5890500B5695A /* Lights */ = {
@@ -2911,6 +2907,7 @@
 				540B932219EB25890034E113 /* coordinateSystems.cpp in Sources */,
 				542D370F1A012D0C00908D63 /* LG_Animations_Container.cpp in Sources */,
 				545802D919D31C6700C9DF32 /* LG_Parsable_Node.cpp in Sources */,
+				54B7405C1A519C6500D4B710 /* LG_State_Validating_Move.cpp in Sources */,
 				5461855C19DD3CDA005C6166 /* LG_Light_Omni.cpp in Sources */,
 				542D82E319E7C151004DC691 /* LG_Cameras_Container.cpp in Sources */,
 				54118C4C19D9B73D0015D962 /* LG_Torus.cpp in Sources */,
@@ -2919,19 +2916,25 @@
 				545802D619D3175500C9DF32 /* LG_Lighting.cpp in Sources */,
 				54FDD6421A482CA1005CCE8B /* LG_Board_Place.cpp in Sources */,
 				545802A019D1EC0500C9DF32 /* LG_Triangle.cpp in Sources */,
+				549FCC821A5198F800704A31 /* LG_Tzaar.cpp in Sources */,
 				5458029C19D1DA5000C9DF32 /* LG_Node.cpp in Sources */,
 				542D82DD19E7C151004DC691 /* LG_Camera_Ortho.cpp in Sources */,
 				54C925E119F1B25F0007FB91 /* LG_general.cpp in Sources */,
 				546184EC19DAFBFB005C6166 /* LG_Transform.cpp in Sources */,
+				549FCC901A519C0C00704A31 /* LG_State_Selected_Piece.cpp in Sources */,
+				549FCC861A51994000704A31 /* LG_Game_State.cpp in Sources */,
 				542D82A819E6EA24004DC691 /* LG_Texture_Container.cpp in Sources */,
+				549FCC8D1A519BB700704A31 /* LG_State_Waiting_Piece_Selection.cpp in Sources */,
 				54D8610F19E5894100B5695A /* LG_Lights_Container.cpp in Sources */,
 				5435E70019D842FB004169BD /* LG_Rectangle.cpp in Sources */,
 				5458030A19D5804400C9DF32 /* LG_Drawing.cpp in Sources */,
 				54FDD7EE1A4D514E005CCE8B /* LG_Board_Place_Test.cpp in Sources */,
 				546C501319FFE2F500AE1A22 /* LG_LinearAnimation.cpp in Sources */,
+				54B7405F1A519C8900D4B710 /* LG_State_Animating_Move.cpp in Sources */,
 				5469678419D8A016001DBA15 /* LG_Sphere.cpp in Sources */,
 				546C500F19FFD3DA00AE1A22 /* LG_Animation.cpp in Sources */,
 				549FCC7E1A50290E00704A31 /* LG_Bounce_Animation.cpp in Sources */,
+				54B740621A519CB300D4B710 /* LG_State_Checking_GameOver.cpp in Sources */,
 				5405EFC419D09E4F00BEED1E /* main.cpp in Sources */,
 				542D82B419E7BF86004DC691 /* LG_ANF.cpp in Sources */,
 				54FDD6451A482E3F005CCE8B /* LG_Board_Piece.cpp in Sources */,
@@ -2945,6 +2948,7 @@
 				5435E6FC19D83982004169BD /* LG_Primitive.cpp in Sources */,
 				546C504D1A001E4D00AE1A22 /* LG_CircularAnimation.cpp in Sources */,
 				5469676C19D88BDB001DBA15 /* LG_Cylinder.cpp in Sources */,
+				549FCC8A1A519B9700704A31 /* LG_State_Menu.cpp in Sources */,
 				5461853619DC59E7005C6166 /* LG_Appearance.cpp in Sources */,
 				5458030719D5803600C9DF32 /* LG_Culling.cpp in Sources */,
 			);
@@ -2962,6 +2966,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54BBD38B1A52C8CF00E6DAE8 /* LG_State_Menu.cpp in Sources */,
+				54B740681A51B12C00D4B710 /* LG_Game_State.cpp in Sources */,
+				54B740671A51B11700D4B710 /* LG_Tzaar.cpp in Sources */,
 				549FCC7F1A5036ED00704A31 /* LG_Bounce_Animation.cpp in Sources */,
 				54FDD6461A488318005CCE8B /* LG_Board_Place.cpp in Sources */,
 				54FDD6471A488318005CCE8B /* LG_Board_Piece.cpp in Sources */,
@@ -2999,7 +3006,6 @@
 				540939BB19E860C400961C05 /* LG_Appearance_Container.cpp in Sources */,
 				540939BC19E860C400961C05 /* LG_Appearance.cpp in Sources */,
 				540939BD19E860C400961C05 /* LG_Texture_Container.cpp in Sources */,
-				54B9EDE219F04CB2001F8C34 /* LG_SceneInterface.cpp in Sources */,
 				545E74FE1A111ED700B83CC9 /* LG_Patch.cpp in Sources */,
 				540939BE19E860C400961C05 /* LG_Texture.cpp in Sources */,
 				540939BF19E860C400961C05 /* LG_Lighting.cpp in Sources */,
