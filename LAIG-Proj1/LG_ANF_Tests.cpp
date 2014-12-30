@@ -7,9 +7,10 @@
 #include <string>
 #include "LG_ANF.h"
 #include "LG_Scene.h"
-#include "LG_SceneInterface.h"
 #include "LG_general.h"
 #include "LG_Flag.h"
+
+#include "LG_Tzaar.h"
 
 int main(int argc, char * argv[]){
 
@@ -22,24 +23,23 @@ int main(int argc, char * argv[]){
     try {
         app.init(&argc, argv);
         
-        LG_Scene *scene=new LG_Scene();
-		LG_SceneInterface *scene_interface = new LG_SceneInterface();
+        //LG_Scene *scene=new LG_Scene();
+        LG_Tzaar tzaar_scene=LG_Tzaar();
+		//LG_SceneInterface *scene_interface = new LG_SceneInterface();
 
 
+    
+        vector<string> fileNames=getDocumentNames(argc, argv);
 
-#ifdef _WIN32
-        scene->setDocName(getDocumentName(argc, argv));
-#else
-        scene->setDocName(getDocumentName(argc, argv));
-#endif
+        tzaar_scene.setDocNameForScene(fileNames[0]);
+        tzaar_scene.setDocNameForMenu(fileNames[1]);
+        tzaar_scene.setDocNameForShortMenu(fileNames[2]);
         
         
-        app.setScene(scene);
-		scene_interface->setLightsContainer(scene);
-		scene_interface->setCamerasContainer(scene);
-		scene_interface->setDrawing(scene);
-		scene_interface->setWind_var(LG_Flag::getWind());
-        app.setInterface(scene_interface);
+        app.setScene(&tzaar_scene);
+        
+        
+        app.setInterface(&tzaar_scene);
         
         app.run();
     }

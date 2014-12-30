@@ -25,9 +25,11 @@
 
 #include <CGFapplication.h>
 
+class LG_Tzaar;
 class LG_ANF: public LG_Node {
     
 	    friend class LG_Scene;
+    friend class LG_Tzaar;
     
 private:
     
