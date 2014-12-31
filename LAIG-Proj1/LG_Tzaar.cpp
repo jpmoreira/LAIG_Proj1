@@ -61,7 +61,7 @@ void LG_Tzaar::defaultMouseProcessing(int button, int state, int x, int y){
 
 void LG_Tzaar::init() {
     
-    this->state=new LG_State_Waiting_Piece_Selection(this);//initial state is menu;
+    this->state=new LG_State_Menu(this);//initial state is menu;
     this->mode=player_vs_player;
     this->difficulty=easy;
     this->phase=phase1;

@@ -1,8 +1,8 @@
 <anf>
   <globals>
-    <drawing mode="fill" shading="gouraud" background="0.2 0.2 0.2 0" />
+    <drawing mode="fill" shading="gouraud" background="0.2 0.2 0.2 1" />
     <culling face="back" order="ccw" />
-    <lighting doublesided="false" local="true" enabled="true" ambient="0.4 0.3 0.2 1" />
+    <lighting doublesided="false" local="true" enabled="true" ambient="0.3 0.3 0.3 1" />
   </globals>
 
   <cameras initial="perspective1" >
@@ -11,24 +11,24 @@
   </cameras>
 
   <lights>
-    <light id="omni" type="omni" enabled="true" marker="false" pos="13.335 15 13.335" >
+    <light id="omni" type="omni" enabled="false" marker="false" pos="13.335 15 13.335" >
       <component type="ambient" value="0.8 0.8 0.8 1" />
       <component type="diffuse" value="0.8 0.8 0.8 1" />
       <component type="specular" value="0.3 0.3 0.3 1" />
     </light>
-    <light id="spotBoard" type="spot" enabled="true" marker="false" pos="13.335 7 13.335" target="0 0 -1"
+    <light id="spotBoard" type="spot" enabled="false" marker="false" pos="13.335 7 13.335" target="0 0 -1"
        angle="25" exponent="1" >
       <component type="ambient" value="0.8 0.8 0.8 1" />
       <component type="diffuse" value="0.8 0.8 0.8 1" />
       <component type="specular" value="0.8 0.8 0.8 1" />
     </light>
-    <light id="spotRed" type="spot" enabled="true" marker="false" pos="15.65 6 13.335" target="-0.50 -0.86 0"
+    <light id="spotRed" type="spot" enabled="false" marker="false" pos="15.65 6 13.335" target="-0.50 -0.86 0"
         angle="15" exponent="1" >
       <component type="ambient" value="0.8 0.2 0.2 1" />
       <component type="diffuse" value="0.8 0.2 0.2 1" />
       <component type="specular" value="0.8 0.2 0.2 1" />
     </light>
-    <light id="spotBlue" type="spot" enabled="true" marker="false" pos="11.035 6 13.335" target="0.50 -0.86 0"
+    <light id="spotBlue" type="spot" enabled="false" marker="false" pos="11.035 6 13.335" target="0.50 -0.86 0"
         angle="15" exponent="1" >
       <component type="ambient" value="0.1 0.1 0.8 1" />
       <component type="diffuse" value="0.1 0.1 0.8 1" />
