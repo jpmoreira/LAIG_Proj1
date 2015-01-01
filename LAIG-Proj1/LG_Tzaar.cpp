@@ -14,7 +14,22 @@
 #define BUFSIZE 10
 GLuint selectBuf[BUFSIZE];
 
+LG_Tzaar * LG_Tzaar::currentTzaar=NULL;
 
+
+
+#pragma mark - Singleton
+
+LG_Tzaar::LG_Tzaar():CGFscene(),CGFinterface(){
+
+}
+
+LG_Tzaar * LG_Tzaar::getCurrentTzaar(){
+
+    if (currentTzaar==NULL) currentTzaar=new LG_Tzaar();
+    return currentTzaar;
+
+}
 
 #pragma mark - Documents name setting
 
@@ -61,6 +76,10 @@ void LG_Tzaar::defaultMouseProcessing(int button, int state, int x, int y){
 
 void LG_Tzaar::init() {
     
+    
+    initReflection();
+    
+
     this->state=new LG_State_Waiting_Piece_Selection(this);//initial state is menu;
     this->mode=player_vs_player;
     this->difficulty=easy;
@@ -284,9 +303,7 @@ void LG_Tzaar::drawMenu(bool selectMode){
 void LG_Tzaar::showMenuButtonClicked(){
     this->state->showMenuButtonClicked();
 }
-void LG_Tzaar::startPlaying(){
-    this->state->startPlaying();
-}
+
 void LG_Tzaar::nodeSelected(LG_Node* node){
     this->state->nodeSelected(node);
 }
@@ -300,3 +317,58 @@ void LG_Tzaar::gameOverResult(bool gameover){
     this->state->gameOverResult(gameover);
 }
 
+
+
+#pragma mark - Button Actions
+
+
+void LG_Tzaar::playClicked(int difficulty){
+    this->state->startPlaying();
+}
+
+void LG_Tzaar::changeCameraClicked(){
+
+
+}
+
+void LG_Tzaar::exitGameClicked(){
+
+
+}
+
+void LG_Tzaar::setModeClicked(int mode){
+
+}
+
+#pragma mark - Reflection
+
+
+void LG_Tzaar::initReflection(){
+    
+    
+   
+    invocationMapNoArgs["changeCameraClicked"]=&LG_Tzaar::changeCameraClicked;
+    invocationMapNoArgs["exitGameClicked"]=&LG_Tzaar::exitGameClicked;
+    
+    invocationMapWithArgs["playClicked"]=&LG_Tzaar::playClicked;
+    invocationMapWithArgs["setMode"]=&LG_Tzaar::setModeClicked;
+    
+
+
+}
+void LG_Tzaar::invoke(string methodName,int param){
+
+
+    auto method=invocationMapNoArgs[methodName];
+    if (method!=NULL) {
+        
+        (this->*method)();
+    }
+    auto methodWithArgs=invocationMapWithArgs[methodName];
+    
+    if (methodWithArgs!=NULL) {
+        (this->*methodWithArgs)(param);
+    }
+    
+
+}
