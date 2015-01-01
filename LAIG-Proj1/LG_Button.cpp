@@ -16,6 +16,7 @@
 
 LG_Button::LG_Button(LG_Node_Map *map,LG_Node_Map *appearances_map,LG_Node_Map *animations_map,TiXmlElement *elem):LG_Graph_Node(map,appearances_map,animations_map,elem,false){
     
+    selectable=true;
     
     evalElemName(LG_Button_XML_Tag_Name, elem->Value());
     
