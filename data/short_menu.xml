@@ -1,68 +1,125 @@
 <anf>
-    <globals>
-        <drawing mode="fill" shading="gouraud" background="0.2 0.2 0.2 0" />
-        <culling face="back" order="ccw" />
-        <lighting doublesided="false" local="true" enabled="true" ambient="0.6 0.6 0.6 1" />
-    </globals>
-    
-    <cameras initial="perspective1" >
-        <perspective id="perspective1" near="1" far="200" angle="30" pos="0 20 20" target="20 0 0" />
-        <ortho id="ortho1" direction="x" near="20" far="-20" left="-10" right="5" top="20" bottom="0" />
-    </cameras>
-    
-    <lights>
-        <light id="omniYellow" type="omni" enabled="false" marker="true" pos="5 5 5" >
-            <component type="ambient" value="0.4 0.4 0.1 0.5" />
-            <component type="diffuse" value="0.4 0.4 0.1 0.5" />
-            <component type="specular" value="0.4 0.4 0.1 0.5" />
-        </light>
-        <light id="omniGreen" type="omni" enabled="false" marker="false" pos="20 10 20" >
-            <component type="ambient" value="0.1 0.4 0.1 0.5" />
-            <component type="diffuse" value="0.1 0.4 0.1 0.5" />
-            <component type="specular" value="0.1 0.4 0.1 0.5" />
-        </light>
-        <light id="omniGrey" type="omni" enabled="false" marker="false" pos="10 5 10" >
-            <component type="ambient" value="0.2 0.2 0.2 0.1" />
-            <component type="diffuse" value="0.2 0.2 0.2 0.1" />
-            <component type="specular" value="0.2 0.2 0.2 0.1" />
-        </light>
-        <light id="spotBlue" type="spot" enabled="false" marker="true" pos="12 8 5" target="0 -1 0"
-            angle="30" exponent="1" >
-            <component type="ambient" value="0.2 0.2 0.8 1" />
-            <component type="diffuse" value="0.2 0.2 0.8 1" />
-            <component type="specular" value="0.2 0.2 0.8 1" />
-        </light>
-        <light id="spotWhite" type="spot" enabled="false" marker="false" pos="12 8 5" target="0 -1 0"
-            angle="60" exponent="1" >
-            <component type="ambient" value="0.8 0.8 0.8 1" />
-            <component type="diffuse" value="0.8 0.8 0.8 1" />
-            <component type="specular" value="0.8 0.8 0.8 1" />
-        </light>
-        <light id="spotRed" type="spot" enabled="false" marker="false" pos="12 8 5" target="0 -1 0"
-            angle="30" exponent="20" >
-            <component type="ambient" value="0.8 0.2 0.2 1" />
-            <component type="diffuse" value="0.8 0.2 0.2 1" />
-            <component type="specular" value="0.8 0.2 0.2 1" />
-        </light>
-    </lights>
-    
-    <textures/>
-    <appearances/>
-    <animations/>
-    
-    
-    <graph rootid="spots">
-        
-        <node id="spots" >
-            <transforms/>
-            <primitives>
-                <place x="1" y="1" pieces="3" >
-                    <tzaar color="black"/>
-                </place>
-            </primitives>
-            <descendants/>
-        </node >
-        
-    </graph>
-    
+  <globals>
+    <drawing mode="fill" shading="gouraud" background="0.2 0.2 0.2 0" />
+    <culling face="back" order="ccw" />
+    <lighting doublesided="false" local="true" enabled="true" ambient="0.6 0.6 0.6 1" />
+  </globals>
+
+  <cameras initial="perspective1" >
+    <perspective id="perspective1" near="1" far="200" angle="30" pos="0 20 20" target="20 0 0" />
+    <ortho id="ortho1" direction="x" near="20" far="-20" left="-10" right="5" top="20" bottom="0" />
+  </cameras>
+
+  <lights>
+    <light id="omni_menu" type="omni" enabled="false" marker="false" pos="13.335 15 13.335" >
+      <component type="ambient" value="0.8 0.8 0.8 1" />
+      <component type="diffuse" value="0.8 0.8 0.8 1" />
+      <component type="specular" value="0.3 0.3 0.3 1" />
+    </light>
+  </lights>
+
+  <textures>
+    <texture id="menuShortbckg" file="../data/menuShortBckg.jpg" texlength_s="0.5" texlength_t="0.3"/>
+    <texture id="shortBtnScene" file="../data/btnScene.jpg" texlength_s="0.05" texlength_t="0.018"/>
+    <texture id="shortBtnUndo" file="../data/btnUndo.jpg" texlength_s="0.05" texlength_t="0.018"/>
+    <texture id="shortBtnExit" file="../data/btnExit.jpg" texlength_s="0.05" texlength_t="0.018"/>
+
+  </textures>
+  <appearances>
+
+    <appearance id="menuShortbckgApp" shininess="1" textureref="menuShortbckg">
+      <component type="ambient" value="0.0 0.0 0.9 1" />
+      <component type="diffuse" value="0.0 0.0 0.9 1" />
+      <component type="specular" value="0.0 0.0 0.9 1" />
+    </appearance>
+    <appearance id="shortBtnSceneApp" shininess="1" textureref="shortBtnScene">
+      <component type="ambient" value="0.70 0.70 0.70 1" />
+      <component type="diffuse" value="0.70 0.70 0.70 1" />
+      <component type="specular" value="0.70 0.70 0.70 1" />
+    </appearance>
+    <appearance id="shortBtnUndoApp" shininess="1" textureref="shortBtnUndo">
+      <component type="ambient" value="0.70 0.70 0.70 1" />
+      <component type="diffuse" value="0.70 0.70 0.70 1" />
+      <component type="specular" value="0.70 0.70 0.70 1" />
+    </appearance>
+    <appearance id="shortBtnExitApp" shininess="1" textureref="shortBtnExit">
+      <component type="ambient" value="0.70 0.70 0.70 1" />
+      <component type="diffuse" value="0.70 0.70 0.70 1" />
+      <component type="specular" value="0.70 0.70 0.70 1" />
+    </appearance>
+
+  </appearances>
+  <animations/>
+
+
+  <graph rootid="shortMenu">
+
+    <node id="shortMenu" >
+      <transforms>
+        <transform type="translate" to="0 0 -0.4" />
+      </transforms>
+      <primitives>
+        <!--<rectangle xy1="-0.15 -0.15" xy2="0.15 0.15" />-->
+      </primitives>
+      <descendants>
+        <noderef id="shortMenuBckg"/>
+        <noderef id="shortMenuOptions"/>
+      </descendants>
+    </node >
+
+    <node id="shortMenuBckg">
+      <appearanceref id="menuShortbckgApp"/>
+      <descendants/>
+      <primitives>
+        <rectangle xy1="-0.25 -0.15" xy2="0.25 -0.1125"/>
+      </primitives>
+      <transforms>
+      </transforms>
+    </node>
+
+
+    <node id="shortMenuOptions">
+      <descendants>
+        <noderef id="shortMenuScene"/>
+        <noderef id="shortMenuUndo"/>
+        <noderef id="shortMenuExit"/>
+      </descendants>
+      <primitives/>
+      <transforms>
+        <transform type="translate" to="0.08 0 0"/>
+      </transforms>
+    </node>
+
+    <node id="shortMenuScene" visible="true" selectable="true">
+      <appearanceref id="shortBtnSceneApp"/>
+      <descendants/>
+      <primitives>
+        <rectangle xy1="0.0 -0.14 " xy2="0.05 -0.122"/>
+      </primitives>
+      <transforms>
+      </transforms>
+    </node>
+
+    <node id="shortMenuUndo" visible="true" selectable="true">
+      <appearanceref id="shortBtnUndoApp"/>
+      <descendants/>
+      <primitives>
+        <rectangle xy1="0.055 -0.14 " xy2="0.105 -0.122"/>
+      </primitives>
+      <transforms>
+      </transforms>
+    </node>
+
+    <node id="shortMenuExit" visible="true" selectable="true">
+      <appearanceref id="shortBtnExitApp"/>
+      <descendants/>
+      <primitives>
+        <rectangle xy1="0.110 -0.14 " xy2="0.160 -0.122"/>
+      </primitives>
+      <transforms>
+      </transforms>
+    </node>
+
+  </graph>
+
 </anf>
