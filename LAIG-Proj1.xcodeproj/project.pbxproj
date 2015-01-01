@@ -242,6 +242,7 @@
 		5452F1D01A5354C500273FC4 /* LG_Board_Piece.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54FDD6431A482E3F005CCE8B /* LG_Board_Piece.cpp */; };
 		5452F1D11A5354D700273FC4 /* LG_Bounce_Animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 549FCC7C1A50290E00704A31 /* LG_Bounce_Animation.cpp */; };
 		5452F1D21A535C1300273FC4 /* LG_State_Waiting_Piece_Selection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 549FCC8B1A519BB700704A31 /* LG_State_Waiting_Piece_Selection.cpp */; };
+		5452F1D51A53656D00273FC4 /* LG_Button.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5452F1D31A53656D00273FC4 /* LG_Button.cpp */; };
 		5458029C19D1DA5000C9DF32 /* LG_Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5458029A19D1DA5000C9DF32 /* LG_Node.cpp */; };
 		545802A019D1EC0500C9DF32 /* LG_Triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5458029E19D1EC0500C9DF32 /* LG_Triangle.cpp */; };
 		545802AF19D2BEC700C9DF32 /* LG_Nodes_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 545802A319D2BE4D00C9DF32 /* LG_Nodes_Tests.cpp */; };
@@ -540,6 +541,7 @@
 		54C925E119F1B25F0007FB91 /* LG_general.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54C925DF19F1B25F0007FB91 /* LG_general.cpp */; };
 		54C925E219F1B30E0007FB91 /* LG_general.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54C925DF19F1B25F0007FB91 /* LG_general.cpp */; };
 		54C925E319F1B3140007FB91 /* LG_general.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54C925DF19F1B25F0007FB91 /* LG_general.cpp */; };
+		54CAF8CF1A5562BC00A72E6F /* LG_Button.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5452F1D31A53656D00273FC4 /* LG_Button.cpp */; };
 		54D8610C19E5893200B5695A /* LG_Light.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54D8610A19E5893200B5695A /* LG_Light.cpp */; };
 		54D8610F19E5894100B5695A /* LG_Lights_Container.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54D8610D19E5894100B5695A /* LG_Lights_Container.cpp */; };
 		54D8612419E58A3000B5695A /* TestLights.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54D8611019E5896C00B5695A /* TestLights.xml */; };
@@ -1249,6 +1251,8 @@
 		5436BE5019D0ADFF00D4831A /* libGLEWmx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGLEWmx.a; path = /usr/local/Cellar/glew/1.11.0/lib/libGLEWmx.a; sourceTree = "<absolute>"; };
 		544FCA0619D94A6D00E2A008 /* LG_All_Tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LG_All_Tests; sourceTree = BUILT_PRODUCTS_DIR; };
 		544FCA2619D94AC700E2A008 /* LG_All_Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_All_Tests.cpp; sourceTree = "<group>"; };
+		5452F1D31A53656D00273FC4 /* LG_Button.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Button.cpp; sourceTree = "<group>"; };
+		5452F1D41A53656D00273FC4 /* LG_Button.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_Button.h; sourceTree = "<group>"; };
 		5458029819D1D8BA00C9DF32 /* test.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = test.xml; sourceTree = "<group>"; };
 		5458029A19D1DA5000C9DF32 /* LG_Node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Node.cpp; sourceTree = "<group>"; };
 		5458029B19D1DA5000C9DF32 /* LG_Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_Node.h; sourceTree = "<group>"; };
@@ -1883,6 +1887,8 @@
 				5458029D19D1EBE900C9DF32 /* LG_Node */,
 				5405EFBF19D09E4F00BEED1E /* main.cpp */,
 				5458029819D1D8BA00C9DF32 /* test.xml */,
+				5452F1D31A53656D00273FC4 /* LG_Button.cpp */,
+				5452F1D41A53656D00273FC4 /* LG_Button.h */,
 			);
 			path = "LAIG-Proj1";
 			sourceTree = "<group>";
@@ -2964,6 +2970,7 @@
 				549FCC7E1A50290E00704A31 /* LG_Bounce_Animation.cpp in Sources */,
 				54B740621A519CB300D4B710 /* LG_State_Checking_GameOver.cpp in Sources */,
 				5405EFC419D09E4F00BEED1E /* main.cpp in Sources */,
+				5452F1D51A53656D00273FC4 /* LG_Button.cpp in Sources */,
 				542D82B419E7BF86004DC691 /* LG_ANF.cpp in Sources */,
 				54FDD6451A482E3F005CCE8B /* LG_Board_Piece.cpp in Sources */,
 				542D82AD19E6FB05004DC691 /* LG_Appearance_Container.cpp in Sources */,
@@ -2994,6 +3001,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54CAF8CF1A5562BC00A72E6F /* LG_Button.cpp in Sources */,
 				5452F1D21A535C1300273FC4 /* LG_State_Waiting_Piece_Selection.cpp in Sources */,
 				54BBD38B1A52C8CF00E6DAE8 /* LG_State_Menu.cpp in Sources */,
 				54B740681A51B12C00D4B710 /* LG_Game_State.cpp in Sources */,

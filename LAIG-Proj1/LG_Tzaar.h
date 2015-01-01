@@ -47,13 +47,26 @@ typedef enum{
 class LG_Tzaar: public CGFscene , public CGFinterface {
     
     LG_Game_State *state;
+    
+    
+    static LG_Tzaar *currentTzaar;
+    
+    LG_Tzaar();
 
     
     string docNameForScene;
     string docNameForMenu;
     string docNameForShortMenu;
     
+    std::map<string, void(LG_Tzaar::*)() > invocationMapNoArgs;
+    std::map<string, void(LG_Tzaar::*)(int) > invocationMapWithArgs;
+    
 public:
+    
+    
+    
+    //singleton
+    static LG_Tzaar * getCurrentTzaar();
     
     
     LG_ANF *scene_anf;
@@ -103,11 +116,25 @@ public:
     void draw(bool selectMode);
     void drawMenu(bool selectMode);
     void showMenuButtonClicked();
-    void startPlaying();
+    
     void nodeSelected(LG_Node *node);
     void movementValidation(bool valid);
     void animationFinished(LG_Animation *);
     void gameOverResult(bool gameover);
+    
+    
+    //button actions
+
+    void changeCameraClicked();
+    void exitGameClicked();
+    void playClicked(int difficulty);
+    void setModeClicked(int mode);
+    
+    
+    //reflection
+    
+    void initReflection();
+    void invoke(string method,int param=0);
 
 
 };

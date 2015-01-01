@@ -280,6 +280,35 @@ public:
 			throw new LG_Parse_Exception_Wrong_Attribute_Value(new string(elemName), new string(attName), new string(source));
 
 	}
+    
+    
+    /**
+     
+     A method that tries to attribute a particular attribute to an int variable.
+     Throws the appropriate exception in case something wrong happens.
+     @param attName the name of the attribute to be set. To be used in the thrown exception.
+     @param elem the element whose attribute is to be used
+     @param parameter the variable to be set.
+     
+     
+     
+     */
+    
+    static void inline int_tryToAttributeVariable(const char * attName, TiXmlElement* elem, int&parameter){
+        
+        const char *source = elem->Attribute(attName);
+        const char *elemName = elem->Value();
+        
+        if (source == NULL){
+            throw new LG_Parse_Exception_Missing_Attribute(new string(elemName), new string(attName));
+        }
+        
+        parameter = intValueForAttribute_(source);
+        
+        if (parameter == LG_INVALID_INT)
+            throw new LG_Parse_Exception_Wrong_Attribute_Value(new string(elemName), new string(attName), new string(source));
+        
+    }
 
 
 

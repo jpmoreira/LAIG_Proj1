@@ -41,15 +41,12 @@
 
 
 #pragma mark - Constructors
-LG_Graph_Node::LG_Graph_Node(LG_Node_Map *map,LG_Node_Map *app_map,LG_Node_Map *anim_map, TiXmlElement *elem)
+LG_Graph_Node::LG_Graph_Node(LG_Node_Map *map,LG_Node_Map *app_map,LG_Node_Map *anim_map, TiXmlElement *elem,bool verifyNodeName)
 :LG_Parsable_Node(map,identifierForGraphNode(elem),NULL)
 {
     
     
-    if (!str_eq(LG_Graph_Node_XML_Tag_Name, elem->Value())) {
-        
-        throw new LG_Parse_Exception_Wrong_Element_Name(LG_Graph_Node_XML_Tag_Name,elem->Value());
-    }
+    if (verifyNodeName) evalElemName(LG_Graph_Node_XML_Tag_Name, elem->Value());
     
     
     try {

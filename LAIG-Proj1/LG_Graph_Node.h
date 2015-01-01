@@ -48,7 +48,7 @@ protected:
     
     
 public:
-    LG_Graph_Node(LG_Node_Map *map,LG_Node_Map *appearances_map,LG_Node_Map *animations_map,TiXmlElement *elem);
+    LG_Graph_Node(LG_Node_Map *map,LG_Node_Map *appearances_map,LG_Node_Map *animations_map,TiXmlElement *elem,bool verifyNodeName=true);
     LG_Graph_Node(LG_Node_Map *map,LG_Node_Map *appearances_map,LG_Node_Map *anim_map,LG_Transform *transform,vector<LG_Primitive *> &primitives,string identifier);
     
     
