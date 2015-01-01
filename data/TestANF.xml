@@ -26,19 +26,19 @@
             <component type="diffuse" value="0.2 0.2 0.2 0.1" />
             <component type="specular" value="0.2 0.2 0.2 0.1" />
         </light>
-        <light id="spotBlue" type="spot" enabled="true" marker="true" pos="12 8 5" target="0 -1 0"
+        <light id="spotBlue" type="spot" enabled="false" marker="false" pos="12 8 5" target="0 -1 0"
             angle="30" exponent="1" >
             <component type="ambient" value="0.2 0.2 0.8 1" />
             <component type="diffuse" value="0.2 0.2 0.8 1" />
             <component type="specular" value="0.2 0.2 0.8 1" />
         </light>
-        <light id="spotWhite" type="spot" enabled="true" marker="false" pos="12 8 5" target="0 -1 0"
+        <light id="spotWhite" type="spot" enabled="false" marker="false" pos="12 8 5" target="0 -1 0"
             angle="60" exponent="1" >
             <component type="ambient" value="0.8 0.8 0.8 1" />
             <component type="diffuse" value="0.8 0.8 0.8 1" />
             <component type="specular" value="0.8 0.8 0.8 1" />
         </light>
-        <light id="spotRed" type="spot" enabled="true" marker="false" pos="12 8 5" target="0 -1 0"
+        <light id="spotRed" type="spot" enabled="false" marker="false" pos="12 8 5" target="0 -1 0"
             angle="30" exponent="20" >
             <component type="ambient" value="0.8 0.2 0.2 1" />
             <component type="diffuse" value="0.8 0.2 0.2 1" />
