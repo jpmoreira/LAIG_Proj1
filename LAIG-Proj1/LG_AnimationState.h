@@ -25,7 +25,7 @@ private:
     double rotation_matrix[4][4];
     double translation_matrix[4][4];
     double post_rotation_translation_matrix[4][4];
-    LG_Animation *animation;
+    
     int currentSegment;
     bool started;
     LG_Node *owner;
@@ -35,6 +35,10 @@ private:
     
     
 public:
+    
+    LG_Animation *animation;
+    
+    
     LG_AnimationState(LG_Node_Map *map,TiXmlElement *elem,LG_Node *owner);
     
     LG_AnimationState(LG_Node_Map *map,LG_Animation *anim,LG_Node *owner);
@@ -55,6 +59,8 @@ public:
     void translate_afterRotation(double x,double y,double z);
     
     unsigned long timePassed(unsigned long timeNow);
+    
+    void notifyOfFinish();
 };
 
 #endif /* defined(__LAIG_Proj1__LG_AnimationState__) */

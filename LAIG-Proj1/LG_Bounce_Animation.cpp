@@ -20,7 +20,7 @@
 int LG_Bounce_Animation::animNr=0;
 
 
-LG_Bounce_Animation::LG_Bounce_Animation(LG_Node_Map *map):LG_Animation(map,identifForAnim(),LG_Bounce_Animation_Duration){
+LG_Bounce_Animation::LG_Bounce_Animation(LG_Node_Map *map):LG_Animation(map,identifForAnim(),LG_Bounce_Animation_Duration),terminateAsSoonAsZeroIsHit(false){
 
 
 }
@@ -39,6 +39,12 @@ string LG_Bounce_Animation::identifForAnim(){
 #pragma mark - Inherit Methods
 
 void LG_Bounce_Animation::update(unsigned long timeNow,LG_AnimationState *state){
+    
+    
+    if (terminateAsSoonAsZeroIsHit && state->currentY==0.0) {
+        state->notifyOfFinish();
+        return;
+    }
     
     double timePassed=(state->timePassed(timeNow)/1000.);
     

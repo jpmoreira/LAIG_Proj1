@@ -18,6 +18,8 @@ class LG_State_Validating_Move: public LG_Game_State {
     
     
 public:
+    
+    LG_State_Validating_Move(LG_Tzaar *tzaar);
 
 };
 

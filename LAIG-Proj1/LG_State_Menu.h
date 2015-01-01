@@ -26,6 +26,8 @@ public:
     //void processMouse(int button, int state, int x, int y);
     
     //void nodeSelected(LG_Node *node);
+    
+    void buttonSelected(LG_Button *button);
 
 };
 

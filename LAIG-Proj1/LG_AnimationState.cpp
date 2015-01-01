@@ -125,3 +125,10 @@ void LG_AnimationState::incrementCurrentSegment(){
     currentSegment++;
     
 }
+
+
+void LG_AnimationState::notifyOfFinish(){
+
+    owner->animationFinished(this);
+
+}

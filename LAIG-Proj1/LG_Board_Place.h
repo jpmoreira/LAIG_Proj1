@@ -73,6 +73,8 @@ public:
     
     void setSelected(bool selected);
     
+    void animationFinished(LG_AnimationState *state);
+    
 };
 
 #endif /* defined(__LAIG_Proj1__LG_Board_Place__) */

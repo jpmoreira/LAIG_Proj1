@@ -15,6 +15,8 @@
 class LG_Node;
 class LG_Tzaar;
 class LG_Animation;
+class LG_Board_Place;
+class LG_Button;
 class LG_Game_State {
 
 protected:
@@ -32,7 +34,20 @@ public:
     virtual void drawMenu(bool selectMode);
     virtual void showMenuButtonClicked();
     virtual void startPlaying();
-    virtual void nodeSelected(LG_Node *node);
+    
+    
+    //selection
+    void nodeSelected(LG_Node *node);
+    virtual void placeSelected(LG_Board_Place *place);
+    virtual void currentPlayerPieceSelected(LG_Board_Place *place);
+    virtual void oponentPlayerPieceSelected(LG_Board_Place *place);
+    virtual void emptyPlaceSelected(LG_Board_Place *place);
+    virtual void fullPlaceSelected(LG_Board_Place *place);
+    virtual void buttonSelected(LG_Button *button);
+    
+    
+    
+    
     virtual void movementValidation(bool valid);
     virtual void animationFinished(LG_Animation *);
     virtual void gameOverResult(bool gameover);

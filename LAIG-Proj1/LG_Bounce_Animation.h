@@ -21,6 +21,8 @@ public:
     virtual void update(unsigned long timeNow,LG_AnimationState *state);
     virtual void configureInitialParameters(LG_AnimationState *state);
     
+    bool terminateAsSoonAsZeroIsHit;
+    
     static int animNr;
     static string identifForAnim();
     

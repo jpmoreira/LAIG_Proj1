@@ -21,7 +21,9 @@ public:
     
     LG_State_Waiting_Piece_Selection(LG_Tzaar *tzaar);
     
-    void nodeSelected(LG_Node *node);
+    
+    void currentPlayerPieceSelected(LG_Board_Place *place);
+    
     
     
 };

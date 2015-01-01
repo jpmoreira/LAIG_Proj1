@@ -46,8 +46,8 @@ typedef enum{
 
 class LG_Tzaar: public CGFscene , public CGFinterface {
     
-    LG_Game_State *state;
     
+    friend class LG_Game_State;
     
     static LG_Tzaar *currentTzaar;
     
@@ -61,9 +61,26 @@ class LG_Tzaar: public CGFscene , public CGFinterface {
     std::map<string, void(LG_Tzaar::*)() > invocationMapNoArgs;
     std::map<string, void(LG_Tzaar::*)(int) > invocationMapWithArgs;
     
+    
+
+    
+    //state design pattern
+    LG_Game_State *state;
+    
+    
+    
 public:
     
     
+    
+    //Game settings
+    
+    
+    GameMode mode;
+    Difficulty difficulty;
+    GamePhase phase;
+    Color playingColor;
+   
     
     //singleton
     static LG_Tzaar * getCurrentTzaar();
@@ -74,14 +91,15 @@ public:
     LG_ANF *short_menu_anf;
     
     
-    //Game settings
+    //movement setup
+    LG_Board_Place *origin;
+    LG_Board_Place *destination;
     
     
-    GameMode mode;
-    Difficulty difficulty;
-    GamePhase phase;
-    Color playingColor;
+
     
+    //State changing
+    void changeState(LG_Game_State *newState);
     
     
     
@@ -135,6 +153,10 @@ public:
     
     void initReflection();
     void invoke(string method,int param=0);
+    
+    
+    //prolog communication routines
+    void validateMove();
 
 
 };

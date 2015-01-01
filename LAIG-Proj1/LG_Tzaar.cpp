@@ -294,6 +294,16 @@ LG_Node * LG_Tzaar::processHits (GLint hits, GLuint buffer[])
 
 #pragma mark - State Design Pattern
 
+
+void LG_Tzaar::changeState(LG_Game_State *newState){
+
+    if (this->state) delete this->state;
+    this->state=newState;
+    
+
+}
+
+
 void LG_Tzaar::draw(bool selectMode){
     this->state->draw(selectMode);
 }
@@ -369,6 +379,17 @@ void LG_Tzaar::invoke(string methodName,int param){
     if (methodWithArgs!=NULL) {
         (this->*methodWithArgs)(param);
     }
+    
+
+}
+
+
+#pragma mark - Prolog Communication Routines
+
+
+void LG_Tzaar::validateMove(){
+
+
     
 
 }
