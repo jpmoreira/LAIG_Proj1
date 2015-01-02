@@ -173,7 +173,7 @@
       </transforms>
     </node>
 
-    <node id="levelExpert" visible="true" selectable="true">
+    <button action="playClicked" id="levelExpert" visible="true" selectable="true">
       <appearanceref id="menuLevelExpertApp"/>
       <descendants/>
       <primitives>
@@ -181,7 +181,7 @@
       </primitives>
       <transforms>
       </transforms>
-    </node>
+    </button>
 
   </graph>
 

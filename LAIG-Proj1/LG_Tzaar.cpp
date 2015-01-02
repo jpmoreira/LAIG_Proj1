@@ -80,7 +80,7 @@ void LG_Tzaar::init() {
     initReflection();
     
 
-    this->state=new LG_State_Waiting_Piece_Selection(this);//initial state is menu;
+    this->state=new LG_State_Menu(this);//initial state is menu;
     this->mode=player_vs_player;
     this->difficulty=easy;
     this->phase=phase1;
