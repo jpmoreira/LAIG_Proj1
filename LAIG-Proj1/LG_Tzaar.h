@@ -69,7 +69,16 @@ class LG_Tzaar: public CGFscene , public CGFinterface {
     
     
     
+    //loading stuff
+    
+    void loadScene();
+    void loadMenu();
+    void loadShortMenu();
+    
+    
 public:
+    
+    
     
     
     
@@ -144,7 +153,7 @@ public:
     //button actions
 
     void changeCameraClicked();
-    void exitGameClicked();
+    void exitButtonClicked();
     void playClicked(int difficulty);
     void setModeClicked(int mode);
     

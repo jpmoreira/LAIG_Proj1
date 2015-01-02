@@ -27,9 +27,13 @@ public:
     
     //void nodeSelected(LG_Node *node);
     
-    void buttonSelected(LG_Button *button);
 
 	void startPlaying(int difficulty);
+    
+    void processMouse(int button, int state, int x, int y);
+    
+    void exitButtonClicked();
+    
 };
 
 #endif /* defined(__LAIG_Proj1__LG_State_Menu__) */

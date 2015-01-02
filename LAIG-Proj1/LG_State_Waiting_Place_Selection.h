@@ -23,6 +23,7 @@ public:
     void currentPlayerPieceSelected(LG_Board_Place *place);
     void oponentPlayerPieceSelected(LG_Board_Place *place);
     void emptyPlaceSelected(LG_Board_Place *place);
+    void drawMenu(bool selectMode);
 
 };
 

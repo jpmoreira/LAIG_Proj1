@@ -36,7 +36,6 @@ void LG_State_Waiting_Place_Selection::currentPlayerPieceSelected(LG_Board_Place
     
 
 }
-
 void LG_State_Waiting_Place_Selection::oponentPlayerPieceSelected(LG_Board_Place *place){
     
     game->destination=place;
@@ -48,4 +47,8 @@ void LG_State_Waiting_Place_Selection::emptyPlaceSelected(LG_Board_Place *place)
     game->destination=place;
     game->changeState(new LG_State_Validating_Move(game));
 
+}
+void LG_State_Waiting_Place_Selection::drawMenu(bool selectMode){
+
+    game->short_menu_anf->draw(selectMode);
 }

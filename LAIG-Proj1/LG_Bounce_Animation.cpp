@@ -12,10 +12,10 @@
 #define LG_Bounce_Animation_ID_Prefix "LG_Bounce_Anim_"
 #define LG_Bounce_Animation_Duration 10000000
 
-#define initialVelocity 6.0
+#define initialVelocity 2.0
 #define gravityConstant 9.8
 #define dampeningFactorPerBounce 0.6
-#define maxHeightCuttOff 0.05
+#define maxHeightCuttOff 0.005
 
 int LG_Bounce_Animation::animNr=0;
 

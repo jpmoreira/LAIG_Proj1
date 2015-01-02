@@ -309,8 +309,8 @@ void LG_Tzaar::draw(bool selectMode){
 void LG_Tzaar::drawMenu(bool selectMode){
     this->state->drawMenu(selectMode);
 }
-void LG_Tzaar::showMenuButtonClicked(){
-    this->state->showMenuButtonClicked();
+void LG_Tzaar::exitButtonClicked(){
+    this->state->exitButtonClicked();
 }
 
 void LG_Tzaar::nodeSelected(LG_Node* node){
@@ -340,12 +340,12 @@ void LG_Tzaar::changeCameraClicked(){
 
 }
 
-void LG_Tzaar::exitGameClicked(){
-
-
-}
 
 void LG_Tzaar::setModeClicked(int mode){
+    
+    if (mode==1)this->mode=player_vs_player;
+    else if(mode==2)this->mode=player_vs_computer;
+    else this->mode=computer_vs_computer;
 
 }
 
@@ -353,14 +353,12 @@ void LG_Tzaar::setModeClicked(int mode){
 
 
 void LG_Tzaar::initReflection(){
-    
-    
    
     invocationMapNoArgs["changeCameraClicked"]=&LG_Tzaar::changeCameraClicked;
-    invocationMapNoArgs["exitGameClicked"]=&LG_Tzaar::exitGameClicked;
+    invocationMapNoArgs["exitButtonClicked"]=&LG_Tzaar::exitButtonClicked;
     
     invocationMapWithArgs["playClicked"]=&LG_Tzaar::playClicked;
-    invocationMapWithArgs["setMode"]=&LG_Tzaar::setModeClicked;
+    invocationMapWithArgs["setModeClicked"]=&LG_Tzaar::setModeClicked;
     
 
 
