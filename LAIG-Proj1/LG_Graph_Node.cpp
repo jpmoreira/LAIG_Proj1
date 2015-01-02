@@ -44,7 +44,8 @@
 LG_Graph_Node::LG_Graph_Node(LG_Node_Map *map,LG_Node_Map *app_map,LG_Node_Map *anim_map, TiXmlElement *elem,bool verifyNodeName)
 :LG_Parsable_Node(map,identifierForGraphNode(elem),NULL)
 {
-    
+	if (str_eq(identifier, "levelExpert"))
+		printf("");
     
     if (verifyNodeName) evalElemName(LG_Graph_Node_XML_Tag_Name, elem->Value());
     

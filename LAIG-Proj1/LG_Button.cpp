@@ -20,7 +20,7 @@ LG_Button::LG_Button(LG_Node_Map *map,LG_Node_Map *appearances_map,LG_Node_Map *
     
     evalElemName(LG_Button_XML_Tag_Name, elem->Value());
     
-    string_tryToAttributeVariable(LG_Button_Param_XML_Att_Name, elem, action);
+	string_tryToAttributeVariable(LG_Button_Action_XML_Att_Name, elem, action);
     
     
     try {
@@ -29,8 +29,6 @@ LG_Button::LG_Button(LG_Node_Map *map,LG_Node_Map *appearances_map,LG_Node_Map *
         param=0;
     }
     
-    
-
 }
 
 

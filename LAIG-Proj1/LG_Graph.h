@@ -12,6 +12,7 @@
 #include <stdio.h>
 
 #include "LG_Graph_Node.h"
+#include "LG_Button.h"
 #define LG_Graph_XML_Tag_Name "graph"
 
 class LG_Graph: public LG_Node{
