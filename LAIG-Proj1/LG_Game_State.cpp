@@ -18,7 +18,7 @@ LG_Game_State::LG_Game_State(LG_Tzaar *game):game(game){
 void LG_Game_State::draw(bool selectMode){}
 void LG_Game_State::drawMenu(bool selectMode){}
 void LG_Game_State::showMenuButtonClicked(){}
-void LG_Game_State::startPlaying(){}
+void LG_Game_State::startPlaying(int difficulty){}
 
 void LG_Game_State::movementValidation(bool valid){}
 void LG_Game_State::animationFinished(LG_Animation *){}

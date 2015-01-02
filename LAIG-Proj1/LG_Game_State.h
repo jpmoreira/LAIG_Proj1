@@ -33,7 +33,7 @@ public:
     virtual void draw(bool selectMode);
     virtual void drawMenu(bool selectMode);
     virtual void showMenuButtonClicked();
-    virtual void startPlaying();
+    virtual void startPlaying(int difficulty);
     
     
     //selection
