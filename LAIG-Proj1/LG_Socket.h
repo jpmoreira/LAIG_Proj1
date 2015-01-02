@@ -9,27 +9,42 @@
 #ifndef __Sockets__LG_Socket__
 #define __Sockets__LG_Socket__
 
-#include <stdio.h>
-#include <unistd.h>
+
+
+#include <string>
+
+#ifndef _WIN32
 #include <sys/types.h>
+#include <stdio.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
-#include <string>
+#include <unistd.h>
 #include <netdb.h>
+#else
+#pragma comment(lib, "Ws2_32.lib")
+#include <winsock2.h>
+//#include <iostream>
+
+#endif // !_WIN32
+#define ADDRESS "127.0.0.1"
+#define HOSTPORT 60070 
+
 
 class LG_Socket {
-    
+#ifndef _WIN32
     int sock;
+#else
+	SOCKET sock;	
+#endif
 
     char recieveBuffer[256];
+
     
 public:
 
-    LG_Socket(std::string address,int port);
-    
-    void write(std::string textToSend);
-    
+	LG_Socket(std::string address = std::string(ADDRESS), int port = HOSTPORT);
+    void write(std::string textToSend);   
     std::string read();
     
 };
