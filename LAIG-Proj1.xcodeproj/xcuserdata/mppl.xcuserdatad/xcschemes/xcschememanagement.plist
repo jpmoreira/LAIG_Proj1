@@ -139,6 +139,11 @@
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
+		<key>LG_Tzaar_Tests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>30</integer>
+		</dict>
 		<key>TestGeometryFunctions.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -163,6 +168,11 @@
 			<true/>
 		</dict>
 		<key>54174DC619D033CB0039E991</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>542366741A56F94E001B0C4A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

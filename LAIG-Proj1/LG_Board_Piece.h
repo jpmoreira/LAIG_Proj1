@@ -133,6 +133,17 @@ private:
 }
     
     
+    
+
+
+LG_Board_Piece(LG_Node_Map *map, LG_Node_Map *app_map, LG_Node_Map *textureMap, TiXmlElement *elem);
+    
+LG_Board_Piece(LG_Node_Map *map, LG_Node_Map *app_map, LG_Node_Map *textureMap, Color color,PieceType type);
+
+
+public:
+
+
     static inline string idForPiece(Color theColor,PieceType type){
         
         string a= LG_Board_Piece_ID;
@@ -156,17 +167,6 @@ private:
         
         
     }
-
-
-LG_Board_Piece(LG_Node_Map *map, LG_Node_Map *app_map, LG_Node_Map *textureMap, TiXmlElement *elem);
-    
-LG_Board_Piece(LG_Node_Map *map, LG_Node_Map *app_map, LG_Node_Map *textureMap, Color color,PieceType type);
-
-
-public:
-
-
-
 
 	static LG_Board_Piece *pieceForElement(LG_Node_Map *map, LG_Node_Map *app_map, LG_Node_Map *textureMap, TiXmlElement *elem);
     

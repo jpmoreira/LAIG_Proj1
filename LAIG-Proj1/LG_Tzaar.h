@@ -164,6 +164,7 @@ public:
     string boardString();
     
     void loadBoard(string boardRep);
+    void loadLine(string line,int lineNr);
 
 
 };

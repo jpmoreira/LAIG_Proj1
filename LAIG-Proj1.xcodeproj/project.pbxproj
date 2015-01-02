@@ -137,6 +137,15 @@
 		542366611A56BDAB001B0C4A /* menuPcvsPc.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5423665A1A56BD66001B0C4A /* menuPcvsPc.jpg */; };
 		542366621A56BDAB001B0C4A /* menuPlvsPc.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5423665B1A56BD66001B0C4A /* menuPlvsPc.jpg */; };
 		542366631A56BDAB001B0C4A /* menuPlvsPl.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5423665C1A56BD66001B0C4A /* menuPlvsPl.jpg */; };
+		542366681A56C075001B0C4A /* btnExit.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 542366651A56C063001B0C4A /* btnExit.jpg */; };
+		542366691A56C075001B0C4A /* btnScene.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 542366661A56C063001B0C4A /* btnScene.jpg */; };
+		5423666A1A56C075001B0C4A /* btnUndo.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 542366671A56C063001B0C4A /* btnUndo.jpg */; };
+		5423666B1A56C075001B0C4A /* menuShortBckg.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 542366641A56C045001B0C4A /* menuShortBckg.jpg */; };
+		5423666C1A56E5A2001B0C4A /* LG_Bounce_Animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 549FCC7C1A50290E00704A31 /* LG_Bounce_Animation.cpp */; };
+		5423666D1A56E5B0001B0C4A /* LG_Button.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5452F1D31A53656D00273FC4 /* LG_Button.cpp */; };
+		5423666E1A56E5C0001B0C4A /* LG_Tzaar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 549FCC801A5198F800704A31 /* LG_Tzaar.cpp */; };
+		5423666F1A56E5CE001B0C4A /* LG_Game_State.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 549FCC841A51994000704A31 /* LG_Game_State.cpp */; };
+		542366701A56E5DB001B0C4A /* LG_State_Menu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 549FCC881A519B9700704A31 /* LG_State_Menu.cpp */; };
 		542D370C1A00F6E500908D63 /* TestAnimations.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 546C504A1A00191700AE1A22 /* TestAnimations.xml */; };
 		542D370F1A012D0C00908D63 /* LG_Animations_Container.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 542D370D1A012D0C00908D63 /* LG_Animations_Container.cpp */; };
 		542D37101A012D0C00908D63 /* LG_Animations_Container.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 542D370D1A012D0C00908D63 /* LG_Animations_Container.cpp */; };
@@ -920,6 +929,10 @@
 			dstPath = ../data;
 			dstSubfolderSpec = 16;
 			files = (
+				542366681A56C075001B0C4A /* btnExit.jpg in CopyFiles */,
+				542366691A56C075001B0C4A /* btnScene.jpg in CopyFiles */,
+				5423666A1A56C075001B0C4A /* btnUndo.jpg in CopyFiles */,
+				5423666B1A56C075001B0C4A /* menuShortBckg.jpg in CopyFiles */,
 				5423665D1A56BDAB001B0C4A /* levelExpert.jpg in CopyFiles */,
 				5423665E1A56BDAB001B0C4A /* levelMedium.jpg in CopyFiles */,
 				5423665F1A56BDAB001B0C4A /* levelNovice.jpg in CopyFiles */,
@@ -1231,6 +1244,10 @@
 		5423665A1A56BD66001B0C4A /* menuPcvsPc.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = menuPcvsPc.jpg; sourceTree = "<group>"; };
 		5423665B1A56BD66001B0C4A /* menuPlvsPc.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = menuPlvsPc.jpg; sourceTree = "<group>"; };
 		5423665C1A56BD66001B0C4A /* menuPlvsPl.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = menuPlvsPl.jpg; sourceTree = "<group>"; };
+		542366641A56C045001B0C4A /* menuShortBckg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = menuShortBckg.jpg; sourceTree = "<group>"; };
+		542366651A56C063001B0C4A /* btnExit.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = btnExit.jpg; sourceTree = "<group>"; };
+		542366661A56C063001B0C4A /* btnScene.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = btnScene.jpg; sourceTree = "<group>"; };
+		542366671A56C063001B0C4A /* btnUndo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = btnUndo.jpg; sourceTree = "<group>"; };
 		542D370D1A012D0C00908D63 /* LG_Animations_Container.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Animations_Container.cpp; sourceTree = "<group>"; };
 		542D370E1A012D0C00908D63 /* LG_Animations_Container.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_Animations_Container.h; sourceTree = "<group>"; };
 		542D37151A0267EF00908D63 /* TestGeometryFunctions */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TestGeometryFunctions; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2090,6 +2107,10 @@
 		545E74FF1A111FD400B83CC9 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				542366651A56C063001B0C4A /* btnExit.jpg */,
+				542366661A56C063001B0C4A /* btnScene.jpg */,
+				542366671A56C063001B0C4A /* btnUndo.jpg */,
+				542366641A56C045001B0C4A /* menuShortBckg.jpg */,
 				542366561A56BD66001B0C4A /* levelExpert.jpg */,
 				542366571A56BD66001B0C4A /* levelMedium.jpg */,
 				542366581A56BD66001B0C4A /* levelNovice.jpg */,
@@ -3696,6 +3717,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				542366701A56E5DB001B0C4A /* LG_State_Menu.cpp in Sources */,
+				5423666F1A56E5CE001B0C4A /* LG_Game_State.cpp in Sources */,
+				5423666E1A56E5C0001B0C4A /* LG_Tzaar.cpp in Sources */,
+				5423666D1A56E5B0001B0C4A /* LG_Button.cpp in Sources */,
+				5423666C1A56E5A2001B0C4A /* LG_Bounce_Animation.cpp in Sources */,
 				54FDD8541A4D71C2005CCE8B /* LG_Board_Place_Test.cpp in Sources */,
 				54FDD8211A4D5229005CCE8B /* LG_AnimationState.cpp in Sources */,
 				54FDD8221A4D5229005CCE8B /* CGFtexture.cpp in Sources */,
