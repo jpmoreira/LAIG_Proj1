@@ -127,3 +127,40 @@ void LG_Board_Place::animationFinished(LG_AnimationState *state){
 }
 
 
+#pragma mark - Parsing Methods
+
+string LG_Board_Place::toString(){
+
+    string pieceCode;
+    string colorCode;
+    
+    if (piece->getColor()==Black) colorCode=string("'B'");
+    else colorCode=string("'W'");
+    
+    if (piece->getType()==Tzaar)pieceCode=string("'A'");
+    else if (piece->getType()==Tzarra)pieceCode=string("'B'");
+    else if (piece->getType()==Tzaar)pieceCode=string("'C'");
+
+    char buffer[20];
+    
+    sprintf(buffer, "[%s,%d,%s]",pieceCode.c_str(),nrPieces,colorCode.c_str());
+    
+    return string(buffer);
+    
+    
+
+}
+
+void LG_Board_Place::fromString(string s){
+    
+    
+    char buffer[20];
+    char type,color;
+    sscanf(buffer, "['%c',%d,'%c']",&type,&nrPieces,&color);
+    
+    
+   // this->piece=LG_Board_Piece::pieceForElement(map, , <#LG_Node_Map *textureMap#>, <#Color color#>, <#PieceType type#>)
+
+}
+
+

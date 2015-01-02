@@ -68,7 +68,8 @@ private:
 	 * Loads the content of the piece.
 	 *
 	 **/
-	LG_Graph_Node * loadContents(LG_Node_Map *map, LG_Node_Map *app_map, LG_Node_Map *textureMap, TiXmlElement *elem);
+	LG_Graph_Node * loadContents(LG_Node_Map *map, LG_Node_Map *app_map, LG_Node_Map *textureMap);
+
 
 
 	/**
@@ -124,17 +125,42 @@ private:
 			printf("No color found for piece\n");
 		}
 		color = "_" + color;
-        
-        string name=string(a + b + color);
 	
 	return string(a + b + color);
 
 
 
 }
+    
+    
+    static inline string idForPiece(Color theColor,PieceType type){
+        
+        string a= LG_Board_Piece_ID;
+        
+        string b;
+        
+        string color;
+        
+        if (type==Tzaar) b=LG_Board_Piece_XML_Tag_Name_Tzaar;
+        else if(type==Tzarra) b=LG_Board_Piece_XML_Tag_Name_Tzarra;
+        else b=LG_Board_Piece_XML_Tag_Name_Tott;
+        
+        if(theColor==Black)color=LG_Board_Piece_Color_XML_Attribute_Value_Black;
+        else color=LG_Board_Piece_Color_XML_Attribute_Value_White;
+        
+        color="_"+color;
+        
+        
+        return string(a+b+color);
+        
+        
+        
+    }
 
 
 LG_Board_Piece(LG_Node_Map *map, LG_Node_Map *app_map, LG_Node_Map *textureMap, TiXmlElement *elem);
+    
+LG_Board_Piece(LG_Node_Map *map, LG_Node_Map *app_map, LG_Node_Map *textureMap, Color color,PieceType type);
 
 
 public:
@@ -143,6 +169,9 @@ public:
 
 
 	static LG_Board_Piece *pieceForElement(LG_Node_Map *map, LG_Node_Map *app_map, LG_Node_Map *textureMap, TiXmlElement *elem);
+    
+    
+    static LG_Board_Piece * pieceForElement(LG_Node_Map *map, LG_Node_Map *app_map, LG_Node_Map *textureMap, Color color, PieceType type);
 
 	virtual void calculateTextureCoordinates();
 

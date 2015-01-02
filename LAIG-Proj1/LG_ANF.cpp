@@ -285,3 +285,9 @@ LG_Node * LG_ANF::nodeWithPickingID(unsigned int identif){
 
     return this->graph->nodeWithPickingID(identif);
 }
+
+
+LG_Node * LG_ANF::nodeWithID(string identif){
+
+    return graph->nodeWithID(identif);
+}

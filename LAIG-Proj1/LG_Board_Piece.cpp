@@ -35,7 +35,41 @@ LG_Board_Piece * LG_Board_Piece::pieceForElement(LG_Node_Map *map, LG_Node_Map *
 
 }
 
+LG_Board_Piece * LG_Board_Piece::pieceForElement(LG_Node_Map *map, LG_Node_Map *app_map, LG_Node_Map *textureMap, Color color, PieceType type){
+    
+    
+    string identifier=idForPiece(color, type);
+    
+    
+    auto it=map->find(identifier);
+    if(it!=map->end()){
+        return dynamic_cast<LG_Board_Piece *>(it->second);
+    }
+    
+    
+    LG_Board_Piece *piece=new LG_Board_Piece(map,app_map,textureMap,color,type);
+    return piece;
+    
+    
+    
+}
 
+LG_Board_Piece::LG_Board_Piece(LG_Node_Map *map,LG_Node_Map *app_map,LG_Node_Map *textureMap,Color color,PieceType type):LG_Primitive(map,idForPiece(color, type)){
+    
+    
+    
+    this->type=type;
+    
+    this->color=color;
+    
+    LG_Graph_Node *root=loadContents(map,app_map,textureMap);
+    
+    this->addChild(root);
+    
+    
+    
+    
+}
 
 LG_Board_Piece::LG_Board_Piece(LG_Node_Map *map,LG_Node_Map *app_map,LG_Node_Map *textureMap,TiXmlElement *elem):LG_Primitive(map,idForElement(elem)){
 
@@ -64,14 +98,14 @@ LG_Board_Piece::LG_Board_Piece(LG_Node_Map *map,LG_Node_Map *app_map,LG_Node_Map
     
     
     vector<string> possibleValues;
-    possibleValues.push_back(string("black"));
-    possibleValues.push_back(string("white"));
+    possibleValues.push_back(string(LG_Board_Piece_Color_XML_Attribute_Value_Black));
+    possibleValues.push_back(string(LG_Board_Piece_Color_XML_Attribute_Value_White));
     int save;
     enum_tryToAttribute(LG_Board_Piece_XML_Color_Attribute_Name, elem, save, &possibleValues);
     
     this->color=(Color)save;
     
-    LG_Graph_Node *root=loadContents(map,app_map,textureMap,elem);
+    LG_Graph_Node *root=loadContents(map,app_map,textureMap);
     
     this->addChild(root);
     
@@ -96,7 +130,7 @@ LG_Board_Piece::LG_Board_Piece(LG_Node_Map *map,LG_Node_Map *app_map,LG_Node_Map
 
 
 
-LG_Graph_Node * LG_Board_Piece::loadContents(LG_Node_Map *map,LG_Node_Map *app_map,LG_Node_Map *textureMap,TiXmlElement *elem){
+LG_Graph_Node * LG_Board_Piece::loadContents(LG_Node_Map *map,LG_Node_Map *app_map,LG_Node_Map *textureMap){
     
     
     string fileForContent=this->filenameForContent();
@@ -110,7 +144,11 @@ LG_Graph_Node * LG_Board_Piece::loadContents(LG_Node_Map *map,LG_Node_Map *app_m
     
     if(!couldLoad){
         
-        string s=string(elem->Value());
+        string s;
+        if (this->type==Tzaar) s=LG_Board_Piece_XML_Tag_Name_Tzaar;
+        else if(this->type==Tzarra) s= LG_Board_Piece_XML_Tag_Name_Tzarra;
+        else s= LG_Board_Piece_XML_Tag_Name_Tott;
+        
         throw new LG_Parse_Exception_Unable_Load_Snipset(&s,&fileForContent);
     
     }
