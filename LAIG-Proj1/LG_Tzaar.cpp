@@ -393,3 +393,22 @@ void LG_Tzaar::validateMove(){
     
 
 }
+
+
+#pragma mark - Helper Methods
+
+
+string LG_Tzaar::boardString(){
+
+    
+    string board;
+    string currentID;
+    
+    return NULL;
+
+}
+
+void LG_Tzaar::loadBoard(string boardRep){
+
+
+}

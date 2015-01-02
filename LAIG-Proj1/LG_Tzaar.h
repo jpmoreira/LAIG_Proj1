@@ -157,6 +157,13 @@ public:
     
     //prolog communication routines
     void validateMove();
+    
+    
+    //helper methods
+    
+    string boardString();
+    
+    void loadBoard(string boardRep);
 
 
 };

@@ -64,6 +64,8 @@ public:
   
     LG_Node * nodeWithPickingID(unsigned int selectID);
     
+    LG_Node * nodeWithID(string identif);
+    
     
 };
 

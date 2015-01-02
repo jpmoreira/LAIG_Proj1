@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5405EFC419D09E4F00BEED1E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5405EFBF19D09E4F00BEED1E /* main.cpp */; };
+		54076D8F1A5698A300742FC7 /* LG_Socket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54076D8D1A5698A300742FC7 /* LG_Socket.cpp */; };
 		5407E3511A1E8BE2007CBE41 /* LG_Waterline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5407E34F1A1E8BE2007CBE41 /* LG_Waterline.cpp */; };
 		5407E3521A1E8BE2007CBE41 /* LG_Waterline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5407E34F1A1E8BE2007CBE41 /* LG_Waterline.cpp */; };
 		5409399D19E7DBE000961C05 /* libGLEW.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5436BE4E19D0ADF500D4831A /* libGLEW.a */; };
@@ -1177,6 +1178,8 @@
 
 /* Begin PBXFileReference section */
 		5405EFBF19D09E4F00BEED1E /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		54076D8D1A5698A300742FC7 /* LG_Socket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Socket.cpp; sourceTree = "<group>"; };
+		54076D8E1A5698A300742FC7 /* LG_Socket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_Socket.h; sourceTree = "<group>"; };
 		5407E34B1A1E89DF007CBE41 /* fiftyfifty.vrs */ = {isa = PBXFileReference; lastKnownFileType = text; path = fiftyfifty.vrs; sourceTree = "<group>"; };
 		5407E34C1A1E89DF007CBE41 /* one_text.vrs */ = {isa = PBXFileReference; lastKnownFileType = text; path = one_text.vrs; sourceTree = "<group>"; };
 		5407E34D1A1E8A32007CBE41 /* spaceflag.frs */ = {isa = PBXFileReference; lastKnownFileType = text; path = spaceflag.frs; sourceTree = "<group>"; };
@@ -1815,6 +1818,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		54076D8C1A56989500742FC7 /* Comunication */ = {
+			isa = PBXGroup;
+			children = (
+				54076D8D1A5698A300742FC7 /* LG_Socket.cpp */,
+				54076D8E1A5698A300742FC7 /* LG_Socket.h */,
+			);
+			name = Comunication;
+			sourceTree = "<group>";
+		};
 		540B933219ED1CE00034E113 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -1876,6 +1888,7 @@
 		54174DC919D033CC0039E991 /* LAIG-Proj1 */ = {
 			isa = PBXGroup;
 			children = (
+				54076D8C1A56989500742FC7 /* Comunication */,
 				549FCC831A51992B00704A31 /* State Design Pattern */,
 				549FCC801A5198F800704A31 /* LG_Tzaar.cpp */,
 				549FCC811A5198F800704A31 /* LG_Tzaar.h */,
@@ -2963,6 +2976,7 @@
 				54D8610F19E5894100B5695A /* LG_Lights_Container.cpp in Sources */,
 				5435E70019D842FB004169BD /* LG_Rectangle.cpp in Sources */,
 				5458030A19D5804400C9DF32 /* LG_Drawing.cpp in Sources */,
+				54076D8F1A5698A300742FC7 /* LG_Socket.cpp in Sources */,
 				54FDD7EE1A4D514E005CCE8B /* LG_Board_Place_Test.cpp in Sources */,
 				546C501319FFE2F500AE1A22 /* LG_LinearAnimation.cpp in Sources */,
 				54B7405F1A519C8900D4B710 /* LG_State_Animating_Move.cpp in Sources */,

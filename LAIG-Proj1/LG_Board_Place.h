@@ -75,6 +75,10 @@ public:
     
     void animationFinished(LG_AnimationState *state);
     
+    string toString();
+    
+    void fromString(string s);
+    
 };
 
 #endif /* defined(__LAIG_Proj1__LG_Board_Place__) */

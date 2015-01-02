@@ -155,3 +155,15 @@ LG_Node * LG_Graph::nodeWithPickingID(unsigned int identif){
 	return this->root->nodeWithPickingID(identif);
 
 }
+
+
+#pragma mark - Finding Node
+
+LG_Node * LG_Graph::nodeWithID(string identif){
+
+
+    auto it=this->root->map->find(identif);
+    
+    if (it==this->root->map->end())return NULL;
+    return it->second;
+}
