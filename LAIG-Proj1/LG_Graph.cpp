@@ -37,8 +37,17 @@ LG_Graph::LG_Graph(LG_Node_Map *appearancesMap, LG_Node_Map *animationsMap, TiXm
 
 
 
-		new LG_Graph_Node(map, appearancesMap, animationsMap, childElement);//create node and add it to mapForNodes
+		if (str_eq(LG_Graph_Node_XML_Tag_Name, childElement->Value()))
+			new LG_Graph_Node(map, appearancesMap, animationsMap, childElement, false);//create node and add it to mapForNodes
+		else
+			if (str_eq(LG_Button_XML_Tag_Name, childElement->Value()))
+				new LG_Button(map, appearancesMap, animationsMap, childElement);
 
+
+		LG_Node *debug;
+		auto it = map->find("levelExpert");
+		if (it != map->end())
+			debug = it->second;
 
 		childElement = childElement->NextSiblingElement();
 	}
@@ -142,7 +151,7 @@ void LG_Graph::update(unsigned long time){
 #pragma mark - Picking
 
 LG_Node * LG_Graph::nodeWithPickingID(unsigned int identif){
-    
-    return this->root->nodeWithPickingID(identif);
+
+	return this->root->nodeWithPickingID(identif);
 
 }

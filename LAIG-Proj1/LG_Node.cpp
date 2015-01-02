@@ -51,7 +51,8 @@ void LG_Node::drawChilds(bool selectMode){
 void LG_Node::draw(bool selectMode){
     
     
-    
+	if (str_eq(identifier, "levelExpert"))
+		printf("");
     if (selectMode && selectable){
     
         glPushName(pickingID);

@@ -44,7 +44,7 @@ private:
     void handleAnimation(LG_Node_Map *map,TiXmlElement * animationElement);
 
 protected:
-	bool selectable, visible;
+	bool visible;
     
     
 public:
