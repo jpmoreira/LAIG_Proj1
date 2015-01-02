@@ -332,7 +332,7 @@ void LG_Tzaar::gameOverResult(bool gameover){
 
 
 void LG_Tzaar::playClicked(int difficulty){
-    this->state->startPlaying();
+    this->state->startPlaying(difficulty);
 }
 
 void LG_Tzaar::changeCameraClicked(){

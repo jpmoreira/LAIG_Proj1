@@ -9,6 +9,7 @@
 #include "LG_State_Menu.h"
 #include "LG_Tzaar.h"
 #include "LG_Button.h"
+#include "LG_State_Waiting_Piece_Selection.h"
 
 #define playButtonID "playButton"
 
@@ -36,3 +37,20 @@ void LG_State_Menu::buttonSelected(LG_Button *button){
 
 }
 
+
+void LG_State_Menu::startPlaying(int difficulty)
+{
+	switch (difficulty)
+	{
+	case 1:
+		game->difficulty = easy;
+		break;
+	case 2:
+		game->difficulty = medium;
+		break;
+	default:
+		game->difficulty = hard;
+	}
+	
+	game->changeState(new LG_State_Waiting_Piece_Selection(game));
+}

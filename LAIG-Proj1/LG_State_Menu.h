@@ -29,6 +29,7 @@ public:
     
     void buttonSelected(LG_Button *button);
 
+	void startPlaying(int difficulty);
 };
 
 #endif /* defined(__LAIG_Proj1__LG_State_Menu__) */
