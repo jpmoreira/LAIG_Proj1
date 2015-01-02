@@ -154,12 +154,24 @@ string LG_Board_Place::toString(){
 void LG_Board_Place::fromString(string s){
     
     
-    char buffer[20];
     char type,color;
-    sscanf(buffer, "['%c',%d,'%c']",&type,&nrPieces,&color);
+    Color theColor;
+    PieceType theType;
+    sscanf(s.c_str(), "['%c',%d,'%c']",&type,&nrPieces,&color);
     
+    if (color=='B')theColor=Black;
+    else theColor=White;
     
-   // this->piece=LG_Board_Piece::pieceForElement(map, , <#LG_Node_Map *textureMap#>, <#Color color#>, <#PieceType type#>)
+    if(type=='A')theType=Tzaar;
+    else if(type=='B')theType=Tzarra;
+    else theType=Tott;
+    
+    ;
+    
+    auto it=this->map->find(LG_Board_Piece::idForPiece(theColor, theType));
+    
+    if (it!=map->end())this->piece=dynamic_cast<LG_Board_Piece *>(it->second);
+    else this->piece=NULL;
 
 }
 

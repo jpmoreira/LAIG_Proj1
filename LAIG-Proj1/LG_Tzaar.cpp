@@ -10,13 +10,12 @@
 #include <iostream>
 #include "LG_State_Menu.h"
 #include "LG_State_Waiting_Piece_Selection.h"
+#include <regex>
 
 #define BUFSIZE 10
 GLuint selectBuf[BUFSIZE];
 
 LG_Tzaar * LG_Tzaar::currentTzaar=NULL;
-
-
 
 #pragma mark - Singleton
 
@@ -137,7 +136,7 @@ void LG_Tzaar::init() {
     menu_anf->config();
     short_menu_anf->config();
     
-    
+
     
 }
 
@@ -408,7 +407,63 @@ string LG_Tzaar::boardString(){
 
 }
 
-void LG_Tzaar::loadBoard(string boardRep){
 
+void LG_Tzaar::loadBoard(string boardRep){
+    
+    
+    const char * rep=&(boardRep.c_str()[2]);
+    string linha;
+    int lineNr=1;
+
+    while (*(rep+1)!='\0') {
+        
+        linha+=*rep;
+        
+        if(*rep==']' && *(rep+1)==']'){
+            
+            loadLine(linha,lineNr);
+            linha="";
+            rep+=3;
+        
+        }
+        
+        rep++;
+        lineNr++;
+        
+        
+    }
+
+
+}
+
+void LG_Tzaar::loadLine(string line,int lineNr){
+    
+    int phase,turn;
+    int parsed=sscanf(line.c_str(), "'@info,%d,%d]",&phase,&turn);
+    
+    if(parsed!=0){//in case is info
+    
+    }
+    
+    else{
+    
+        int found=1;
+        while (found>0) {
+            char color,type;
+            int nr;
+            found=sscanf(line.c_str(), "['%c',%d,'%c']",&type,&nr,&color);
+            if(found==3){
+                string nrString=std::to_string(nr);
+                const char * str=line.c_str();
+                line=string(&(str[11+nrString.length()]));
+                
+            }
+            if(found==1){
+            
+            }
+        }
+        
+    
+    }
 
 }

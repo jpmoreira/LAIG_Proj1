@@ -45,6 +45,8 @@ TEST_CASE("Testing Board Places"){
     TiXmlElement *secondElement=firstElement->NextSiblingElement();
     TiXmlElement *thirdElement=secondElement->NextSiblingElement();
     TiXmlElement *fourthElement=thirdElement->NextSiblingElement();
+    TiXmlElement *fifthElement=fourthElement->NextSiblingElement();
+    TiXmlElement *sixthElement=fifthElement->NextSiblingElement();
     
     
     
@@ -113,6 +115,29 @@ TEST_CASE("Testing Board Places"){
 
         } catch (LG_Parse_Exception_Wrong_Element_Name *ex) {
             REQUIRE(str_eq(ex->element, "placze"));
+        }
+    
+    }
+    
+    
+    SECTION("Parsing well formed place and empty one to be filled afterwards"){
+    
+        try {
+            
+            LG_Board_Place *place=new LG_Board_Place(&map,&app_map,&text_map,fifthElement);
+            string string=place->toString();
+            
+            REQUIRE(str_eq(string, "['B',3,'B']"));
+            LG_Board_Place *emptyPlace=new LG_Board_Place(&map,&app_map,&text_map,sixthElement);
+            REQUIRE(emptyPlace->piece==NULL);
+            
+            emptyPlace->fromString(string);
+            
+            REQUIRE(emptyPlace->piece==place->piece);
+            REQUIRE(emptyPlace->nrPieces==place->nrPieces);
+            
+        } catch (LG_Parse_Exception *ex) {
+            FAIL("Failed to parse well formed node");
         }
     
     }
