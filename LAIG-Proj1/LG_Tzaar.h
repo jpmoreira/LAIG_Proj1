@@ -165,7 +165,7 @@ public:
 
 
 	//prolog communication routines
-	void validateMove();
+	bool validateMove();
 
 
 	//helper methods

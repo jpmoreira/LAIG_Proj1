@@ -390,7 +390,7 @@ void LG_Tzaar::invoke(string methodName, int param){
 #pragma mark - Prolog Communication Routines
 
 
-void LG_Tzaar::validateMove(){
+bool LG_Tzaar::validateMove(){
 
 
 
