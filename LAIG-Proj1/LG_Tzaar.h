@@ -47,8 +47,17 @@ typedef enum{
 class LG_Tzaar : public CGFscene, public CGFinterface {
 
 
-	friend class LG_Game_State;
+    
+    //state design pattern
+    LG_Game_State *state;
+    
+    
+    
 
+    
+    
+public:
+    
 	static LG_Tzaar *currentTzaar;
 
 	LG_Tzaar();
@@ -63,23 +72,6 @@ class LG_Tzaar : public CGFscene, public CGFinterface {
 
 
 
-
-	//state design pattern
-	LG_Game_State *state;
-
-
-
-    
-    //state design pattern
-    LG_Game_State *state;
-    
-    
-    
-
-    
-    
-public:
-    
     //loading stuff
     
     void loadScene();
@@ -88,31 +80,7 @@ public:
     
     void reloadSceneGraph();
     
-    
-    
-    //Game settings
-    
-    
-    GameMode mode;
-    Difficulty difficulty;
-    GamePhase phase;
-    Color playingColor;
-   
-    
-    //singleton
-    static LG_Tzaar * getCurrentTzaar();
-    
-    
-    LG_ANF *scene_anf;
-    LG_ANF *menu_anf;
-    LG_ANF *short_menu_anf;
-    
-    
-    //movement setup
-    LG_Board_Place *origin;
-    LG_Board_Place *destination;
-    
-    
+public:
 
 
 

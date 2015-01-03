@@ -132,6 +132,9 @@ void LG_Tzaar::defaultMouseProcessing(int button, int state, int x, int y){
 
 
 void LG_Tzaar::init() {
+    
+    
+    initReflection();
 
     this->state=new LG_State_Menu(this);//initial state is menu;
     this->mode=player_vs_player;
@@ -433,8 +436,7 @@ string LG_Tzaar::boardString(){
 				if (x != z + 4)
 					board += ","; //comma for the next position in line until there's none
 			}
-			else
-				throw new exception("Node not found while converting board to string for prolog communication");
+			
 		}
 		board += "],"; //close line and give a comma for the next one
 	}
@@ -456,8 +458,7 @@ string LG_Tzaar::boardString(){
 			if (x != 9)
 				board += ","; //comma for the next position in line until there's none
 		}
-		else
-			throw new exception("Node not found while converting board to string for prolog communication");
+		
 	}
 	board += "],"; //close line and give a comma for the next one
 
@@ -476,8 +477,6 @@ string LG_Tzaar::boardString(){
 				if (x != 9)
 					board += ","; //comma for the next position in line until there's none
 			}
-			else
-				throw new exception("Node not found while converting board to string for prolog communication");
 		}
 		board += "],"; //close line
 
