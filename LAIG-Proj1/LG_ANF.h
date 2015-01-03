@@ -46,6 +46,8 @@ private:
     
     LG_Graph * graph;
     
+    TiXmlElement *graphElement;
+    
     static LG_ANF * current_anf;
     
     
@@ -151,9 +153,11 @@ public:
     
     LG_Node * nodeWithID(string identif);
 
-
-
     void selective_config();
+    
+    void replaceGraph();
+    
+    ~LG_ANF();
  
 };
 

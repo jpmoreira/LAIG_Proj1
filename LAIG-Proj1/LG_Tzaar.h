@@ -47,8 +47,17 @@ typedef enum{
 class LG_Tzaar : public CGFscene, public CGFinterface {
 
 
-	friend class LG_Game_State;
+    
+    //state design pattern
+    LG_Game_State *state;
+    
+    
+    
 
+    
+    
+public:
+    
 	static LG_Tzaar *currentTzaar;
 
 	LG_Tzaar();
@@ -63,18 +72,13 @@ class LG_Tzaar : public CGFscene, public CGFinterface {
 
 
 
-
-	//state design pattern
-	LG_Game_State *state;
-
-
-
     //loading stuff
     
     void loadScene();
     void loadMenu();
     void loadShortMenu();
     
+    void reloadSceneGraph();
     
 public:
 

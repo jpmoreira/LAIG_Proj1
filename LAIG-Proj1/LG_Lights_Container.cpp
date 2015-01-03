@@ -45,6 +45,8 @@ LG_Lights_Container::LG_Lights_Container(TiXmlElement *element) : LG_Parsable_No
 
 LG_Lights_Container::~LG_Lights_Container()
 {
+    
+    for(auto pair:*map)delete pair.second;
 }
 
 

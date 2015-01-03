@@ -22,7 +22,7 @@ public:
     LG_Appearance_Container(TiXmlElement *elem,LG_Node_Map *texturesMap);
     
     
-    
+    ~LG_Appearance_Container();
     
 };
 

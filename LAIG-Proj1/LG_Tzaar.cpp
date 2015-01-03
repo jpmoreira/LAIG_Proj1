@@ -20,9 +20,64 @@ GLuint selectBuf[BUFSIZE];
 
 LG_Tzaar * LG_Tzaar::currentTzaar = NULL;
 
+
+#pragma mark - Loading
+
+void LG_Tzaar::loadScene(){
+    
+    
+    if(scene_anf)delete scene_anf;
+    TiXmlDocument *docForScene = new TiXmlDocument(docNameForScene.c_str());
+    
+    if(!docForScene->LoadFile()){
+        
+        std::cout<<"Unable to load scene in file named "<<docNameForScene<<"."<<std::endl;
+        std::cout<<"Execution will be aborted"<<std::endl;
+        exit(EXIT_FAILURE);
+        
+    }
+    
+
+    
+    scene_anf=LG_ANF::anfForXML(docForScene);
+    scene_anf->config();
+
+
+}
+void LG_Tzaar::loadMenu(){
+    
+    TiXmlDocument *docForMenu = new TiXmlDocument(docNameForMenu.c_str());
+    
+    if(!docForMenu->LoadFile()){
+        
+        std::cout<<"Unable to load menu in file named "<<docNameForMenu<<"."<<std::endl;
+        std::cout<<"Execution will be aborted"<<std::endl;
+        exit(EXIT_FAILURE);
+        
+    }
+    menu_anf=LG_ANF::anfForXML(docForMenu);
+    
+}
+void LG_Tzaar::loadShortMenu(){
+    
+    
+    TiXmlDocument *docForShortMenu = new TiXmlDocument(docNameForShortMenu.c_str());
+    
+    if(!docForShortMenu->LoadFile()){
+        
+        std::cout<<"Unable to load short menu in file named "<<docNameForShortMenu<<"."<<std::endl;
+        std::cout<<"Execution will be aborted"<<std::endl;
+        exit(EXIT_FAILURE);
+        
+    }
+    
+    short_menu_anf=LG_ANF::anfForXML(docForShortMenu);
+
+}
+
 #pragma mark - Singleton
 
-LG_Tzaar::LG_Tzaar() :CGFscene(), CGFinterface(){
+LG_Tzaar::LG_Tzaar():CGFscene(),CGFinterface(),scene_anf(NULL),menu_anf(NULL),short_menu_anf(NULL){
 
 }
 
@@ -77,70 +132,25 @@ void LG_Tzaar::defaultMouseProcessing(int button, int state, int x, int y){
 
 
 void LG_Tzaar::init() {
+    
+    
+    initReflection();
 
-
-	initReflection();
-
-
-	this->state = new LG_State_Menu(this);//initial state is menu;
-	this->mode = player_vs_player;
-	this->difficulty = easy;
-	this->phase = phase1;
-	this->playingColor = White;
-
-
-
-	TiXmlDocument *docForScene = new TiXmlDocument(docNameForScene.c_str());
-
-	TiXmlDocument *docForMenu = new TiXmlDocument(docNameForMenu.c_str());
-
-	TiXmlDocument *docForShortMenu = new TiXmlDocument(docNameForShortMenu.c_str());
-
-
-
-	if (!docForScene->LoadFile()){
-
-		std::cout << "Unable to load scene in file named " << docNameForScene << "." << std::endl;
-		std::cout << "Execution will be aborted" << std::endl;
-		exit(EXIT_FAILURE);
-
-	}
-
-	if (!docForMenu->LoadFile()){
-
-		std::cout << "Unable to load menu in file named " << docNameForMenu << "." << std::endl;
-		std::cout << "Execution will be aborted" << std::endl;
-		exit(EXIT_FAILURE);
-
-	}
-
-	if (!docForShortMenu->LoadFile()){
-
-		std::cout << "Unable to load short menu in file named " << docNameForShortMenu << "." << std::endl;
-		std::cout << "Execution will be aborted" << std::endl;
-		exit(EXIT_FAILURE);
-
-	}
-
-
-
-	scene_anf = LG_ANF::anfForXML(docForScene);
-	menu_anf = LG_ANF::anfForXML(docForMenu);
-	short_menu_anf = LG_ANF::anfForXML(docForShortMenu);
-
-
-
-	glEnable(GL_NORMALIZE);
-
-	setUpdatePeriod(20);
-
-
-	scene_anf->config();
-	menu_anf->config();
-	short_menu_anf->config();
-
-
-
+    this->state=new LG_State_Menu(this);//initial state is menu;
+    this->mode=player_vs_player;
+    this->difficulty=easy;
+    this->phase=phase1;
+    this->playingColor=White;
+    
+    
+    loadScene();
+    loadMenu();
+    loadShortMenu();
+    
+    glEnable (GL_NORMALIZE);
+    
+    setUpdatePeriod(20);
+    
 }
 
 
@@ -295,6 +305,8 @@ LG_Node * LG_Tzaar::processHits(GLint hits, GLuint buffer[])
 }
 
 
+
+
 #pragma mark - State Design Pattern
 
 
@@ -424,8 +436,7 @@ string LG_Tzaar::boardString(){
 				if (x != z + 4)
 					board += ","; //comma for the next position in line until there's none
 			}
-			else
-				throw new exception("Node not found while converting board to string for prolog communication");
+			
 		}
 		board += "],"; //close line and give a comma for the next one
 	}
@@ -447,8 +458,7 @@ string LG_Tzaar::boardString(){
 			if (x != 9)
 				board += ","; //comma for the next position in line until there's none
 		}
-		else
-			throw new exception("Node not found while converting board to string for prolog communication");
+		
 	}
 	board += "],"; //close line and give a comma for the next one
 
@@ -467,8 +477,6 @@ string LG_Tzaar::boardString(){
 				if (x != 9)
 					board += ","; //comma for the next position in line until there's none
 			}
-			else
-				throw new exception("Node not found while converting board to string for prolog communication");
 		}
 		board += "],"; //close line
 

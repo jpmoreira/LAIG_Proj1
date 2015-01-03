@@ -23,6 +23,8 @@ public:
     
     LG_Animation_Container(TiXmlElement *elem);
     LG_Animation_Container();
+    ~LG_Animation_Container();
+
     
 };
 

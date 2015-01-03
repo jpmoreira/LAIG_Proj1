@@ -66,6 +66,8 @@ public:
     
     LG_Node * nodeWithID(string identif);
     
+    ~LG_Graph();
+    
     
 };
 

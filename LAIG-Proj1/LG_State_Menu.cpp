@@ -15,6 +15,7 @@
 
 
 LG_State_Menu::LG_State_Menu(LG_Tzaar *tzaar):LG_Game_State(tzaar){
+    
 
 
 }

@@ -85,6 +85,7 @@ LG_ANF::LG_ANF(TiXmlElement *elem):LG_Node(NULL,LG_ANF_ID){
                 animations=new LG_Animation_Container();
             }
             
+            this->graphElement=(TiXmlElement *)subElement->Clone();
 
             graph=new LG_Graph(apperances->map,animations->map,subElement);
         }
@@ -290,4 +291,37 @@ LG_Node * LG_ANF::nodeWithPickingID(unsigned int identif){
 LG_Node * LG_ANF::nodeWithID(string identif){
 
     return graph->nodeWithID(identif);
+}
+
+
+#pragma mark - Replacement
+
+void LG_ANF::replaceGraph(){
+
+
+    delete this->graph;
+    
+    graph=new LG_Graph(apperances->map,animations->map,graphElement);
+    
+    this->graph->config();
+    
+
+
+}
+
+
+#pragma mark - Destructor
+
+
+LG_ANF::~LG_ANF(){
+
+    
+    
+    for (auto pair : *map) {
+        
+        if (pair.second!=this)delete pair.second;
+        
+    }
+
+
 }

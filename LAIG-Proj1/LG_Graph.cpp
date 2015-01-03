@@ -167,3 +167,9 @@ LG_Node * LG_Graph::nodeWithID(string identif){
     if (it==this->root->map->end())return NULL;
     return it->second;
 }
+
+LG_Graph::~LG_Graph(){
+    
+    for(auto pair:*map)delete pair.second;
+
+}
