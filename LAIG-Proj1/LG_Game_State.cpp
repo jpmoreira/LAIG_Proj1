@@ -10,6 +10,7 @@
 #include "LG_Tzaar.h"
 #include "LG_Board_Place.h"
 #include "LG_Button.h"
+#include "LG_State_Menu.h"
 
 LG_Game_State::LG_Game_State(LG_Tzaar *game):game(game){
 }
@@ -17,7 +18,11 @@ LG_Game_State::LG_Game_State(LG_Tzaar *game):game(game){
 
 void LG_Game_State::draw(bool selectMode){}
 void LG_Game_State::drawMenu(bool selectMode){}
-void LG_Game_State::showMenuButtonClicked(){}
+void LG_Game_State::exitButtonClicked(){
+
+    game->changeState(new LG_State_Menu(game));
+
+}
 void LG_Game_State::startPlaying(int difficulty){}
 
 void LG_Game_State::movementValidation(bool valid){}
@@ -85,6 +90,8 @@ void LG_Game_State::oponentPlayerPieceSelected(LG_Board_Place *place){
 void LG_Game_State::buttonSelected(LG_Button *button){
 
 
+    button->setSelected(true);
+    
 }
 
 

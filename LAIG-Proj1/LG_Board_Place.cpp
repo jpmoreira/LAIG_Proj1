@@ -134,6 +134,9 @@ string LG_Board_Place::toString(){
     string pieceCode;
     string colorCode;
     
+    
+    if(piece==NULL)return "[*]";
+    
     if (piece->getColor()==Black) colorCode=string("'B'");
     else colorCode=string("'W'");
     

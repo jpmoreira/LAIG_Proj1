@@ -56,13 +56,13 @@
 
     <node id="shortMenu" >
       <transforms>
-        <transform type="translate" to="0 0 -0.4" />
+        <transform type="translate" to="-0.015 -0.015 -0.4" />
       </transforms>
       <primitives>
         <!--<rectangle xy1="-0.15 -0.15" xy2="0.15 0.15" />-->
       </primitives>
       <descendants>
-        <noderef id="shortMenuBckg"/>
+        <!--<noderef id="shortMenuBckg"/>-->
         <noderef id="shortMenuOptions"/>
       </descendants>
     </node >
@@ -110,7 +110,7 @@
       </transforms>
     </node>
 
-    <node id="shortMenuExit" visible="true" selectable="true">
+    <button action="exitButtonClicked" id="shortMenuExit" >
       <appearanceref id="shortBtnExitApp"/>
       <descendants/>
       <primitives>
@@ -118,7 +118,7 @@
       </primitives>
       <transforms>
       </transforms>
-    </node>
+    </button>
 
   </graph>
 

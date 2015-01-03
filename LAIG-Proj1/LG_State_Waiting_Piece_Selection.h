@@ -23,7 +23,7 @@ public:
     
     
     void currentPlayerPieceSelected(LG_Board_Place *place);
-    
+    void drawMenu(bool selectMode);
     
     
 };

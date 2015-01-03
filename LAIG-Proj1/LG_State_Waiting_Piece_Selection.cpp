@@ -29,3 +29,9 @@ void LG_State_Waiting_Piece_Selection::currentPlayerPieceSelected(LG_Board_Place
     }
 
 }
+
+void LG_State_Waiting_Piece_Selection::drawMenu(bool selectMode){
+
+    game->short_menu_anf->draw(selectMode);
+
+}

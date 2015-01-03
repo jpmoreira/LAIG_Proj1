@@ -109,7 +109,7 @@
       </transforms>
     </node>
 
-    <node id="menuPlvsPl" visible="true" >
+    <button action="setModeClicked" param="1" id="menuPlvsPl">
       <appearanceref id="menuPlvsPlApp"/>
       <descendants/>
       <primitives>
@@ -117,9 +117,9 @@
       </primitives>
       <transforms>
       </transforms>
-    </node>
+    </button>
 
-    <node id="menuPlvsPc" visible="true">
+    <button action="setModeClicked" param="2" id="menuPlvsPc">
       <appearanceref id="menuPlvsPcApp"/>
       <descendants/>
       <primitives>
@@ -127,9 +127,9 @@
       </primitives>
       <transforms>
       </transforms>
-    </node>
+    </button>
 
-    <node id="menuPcvsPc" visible="true">
+    <button action="setModeClicked" param="3" id="menuPcvsPc">
       <appearanceref id="menuPcvsPcApp"/>
       <descendants/>
       <primitives>
@@ -137,7 +137,7 @@
       </primitives>
       <transforms>
       </transforms>
-    </node>
+    </button>
 
     <node id="gameLevel">
       <descendants>
@@ -153,7 +153,7 @@
 
     </node>
 
-    <node id="levelNovice" visible="true">
+    <button action="playClicked" param="1" id="levelNovice" >
       <appearanceref id="menuLevelNoviceApp"/>
       <descendants/>
       <primitives>
@@ -161,9 +161,9 @@
       </primitives>
       <transforms>
       </transforms>
-    </node>
+    </button>
 
-    <node id="levelMedium" visible="true">
+    <button action="playClicked" param="2" id="levelMedium" >
       <appearanceref id="menuLevelMediumApp"/>
       <descendants/>
       <primitives>
@@ -171,9 +171,9 @@
       </primitives>
       <transforms>
       </transforms>
-    </node>
+    </button>
 
-    <button action="playClicked" param="3" id="levelExpert" visible="true" selectable="true">
+    <button action="playClicked" param="3" id="levelExpert" >
       <appearanceref id="menuLevelExpertApp"/>
       <descendants/>
       <primitives>

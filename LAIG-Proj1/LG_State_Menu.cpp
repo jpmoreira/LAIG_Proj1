@@ -31,11 +31,6 @@ void LG_State_Menu::drawMenu(bool selectMode){
 }
 
 
-void LG_State_Menu::buttonSelected(LG_Button *button){
-
-    button->toggleSelected();
-
-}
 
 
 void LG_State_Menu::startPlaying(int difficulty)
@@ -53,4 +48,16 @@ void LG_State_Menu::startPlaying(int difficulty)
 	}
 	
 	game->changeState(new LG_State_Waiting_Piece_Selection(game));
+}
+
+void LG_State_Menu::processMouse(int button, int state, int x, int y){
+
+    //do nothing
+}
+
+
+void LG_State_Menu::exitButtonClicked(){
+
+    exit(0);//exit program
+
 }
