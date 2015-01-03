@@ -78,6 +78,9 @@ public:
     string toString();
     
     void fromString(string s);
+
+	int getX();
+	int getY();
     
 };
 

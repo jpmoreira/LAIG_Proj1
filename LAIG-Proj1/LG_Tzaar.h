@@ -15,6 +15,7 @@
 #include <CGFinterface.h>
 #include "LG_ANF.h"
 #include "LG_Board_Piece.h"
+#include "LG_Socket.h"
 
 
 
@@ -70,6 +71,8 @@ public:
 	std::map<string, void(LG_Tzaar::*)() > invocationMapNoArgs;
 	std::map<string, void(LG_Tzaar::*)(int) > invocationMapWithArgs;
 
+
+	LG_Socket *sock = new LG_Socket();
 
 
     //loading stuff
