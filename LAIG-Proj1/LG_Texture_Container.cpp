@@ -45,4 +45,14 @@ LG_Texture_Container::LG_Texture_Container(TiXmlElement *elem):LG_Parsable_Node(
 }
 
 
+LG_Texture_Container::~LG_Texture_Container(){
+
+    for (auto pair: *map) {
+        
+        delete pair.second;
+    }
+
+
+}
+
 

@@ -69,16 +69,18 @@ class LG_Tzaar: public CGFscene , public CGFinterface {
     
     
     
+
+    
+    
+public:
+    
     //loading stuff
     
     void loadScene();
     void loadMenu();
     void loadShortMenu();
     
-    
-public:
-    
-    
+    void reloadSceneGraph();
     
     
     

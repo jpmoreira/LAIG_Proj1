@@ -20,6 +20,8 @@ class LG_Texture_Container:public LG_Parsable_Node {
 public:
     LG_Texture_Container(TiXmlElement *element);
     
+    ~LG_Texture_Container();
+    
 };
 
 #endif /* defined(__LAIG_Proj1__LG_Texture_Container__) */

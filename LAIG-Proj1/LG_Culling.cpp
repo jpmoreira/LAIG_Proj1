@@ -85,3 +85,9 @@ void LG_Culling::draw(bool selectMode) {
     
     
 }
+
+LG_Culling::~LG_Culling(){
+
+
+    printf("deleting culling");
+}

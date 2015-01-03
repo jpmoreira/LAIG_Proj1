@@ -94,6 +94,8 @@ bool LG_Cameras_Container::setOrthoCams(TiXmlElement *element,string & initialID
 
 LG_Cameras_Container::~LG_Cameras_Container()
 {
+    
+    for(auto pair:*map)delete pair.second;
 }
 
 #pragma mark - Getters & Setters

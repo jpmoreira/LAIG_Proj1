@@ -42,3 +42,10 @@ LG_Parsable_Node(NULL,LG_Appearance_Container_ID){
 
 
 }
+
+
+LG_Appearance_Container::~LG_Appearance_Container(){
+    
+    for(auto pair: *map) delete pair.second;
+
+}

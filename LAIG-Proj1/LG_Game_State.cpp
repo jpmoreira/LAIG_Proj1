@@ -21,6 +21,7 @@ void LG_Game_State::drawMenu(bool selectMode){}
 void LG_Game_State::exitButtonClicked(){
 
     game->changeState(new LG_State_Menu(game));
+    game->scene_anf->replaceGraph();
 
 }
 void LG_Game_State::startPlaying(int difficulty){}

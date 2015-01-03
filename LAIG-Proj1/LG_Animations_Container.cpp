@@ -49,3 +49,9 @@ LG_Animation_Container::LG_Animation_Container():LG_Parsable_Node(NULL,LG_Animat
     
     
 }
+
+LG_Animation_Container::~LG_Animation_Container(){
+
+    for(auto pair:*map)delete pair.second;
+    
+}
