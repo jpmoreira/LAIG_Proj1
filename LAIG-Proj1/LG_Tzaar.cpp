@@ -179,6 +179,7 @@ void LG_Tzaar::display(){
 
 	glutSwapBuffers();
 
+	cout << boardString() << endl;
 
 }
 
@@ -408,20 +409,20 @@ string LG_Tzaar::boardString(){
 
 	LG_Board_Place *place;
 
-	
+
 	for (int z = 1; z < 5; z++){ //taking care of the top 4 rows, z stands for row, x for diagonal
 		board += "[";	//start a line
-		for (int x = 1; x < z+5; x++){
+		for (int x = 1; x < z + 5; x++){
 			ostringstream current_id;
 			current_id << prefix << x << "_" << z;
-			
+
 			auto it = this->scene_anf->graph->map->find(current_id.str());
 
 			if (it != this->scene_anf->graph->map->end()){
 				place = dynamic_cast<LG_Board_Place *>(it->second);
 				board += place->toString();
-				if (x!=z+4)
-					board +=","; //comma for the next position in line until there's none
+				if (x != z + 4)
+					board += ","; //comma for the next position in line until there's none
 			}
 			else
 				throw new exception("Node not found while converting board to string for prolog communication");
@@ -431,7 +432,7 @@ string LG_Tzaar::boardString(){
 
 	//special case, middle row
 	board += "[";
-	for (int x = 1, z=5; x < 10; x++) //z for row, x for diagonal
+	for (int x = 1, z = 5; x < 10; x++) //z for row, x for diagonal
 	{
 		if (x == 5)		//it's a hole
 			continue;
@@ -454,7 +455,7 @@ string LG_Tzaar::boardString(){
 	/*Z reachs a max value of 9rows, and x always ends at 9, varying the starting index*/
 	for (int z = 6; z < 10; z++){ //taking care of the bottom 4 rows, z stands for row, x for diagonal
 		board += "[";	//start a line
-		for (int x = z-4; x < 10; x++){
+		for (int x = z - 4; x < 10; x++){
 			ostringstream current_id;
 			current_id << prefix << x << "_" << z;
 
@@ -469,12 +470,12 @@ string LG_Tzaar::boardString(){
 			else
 				throw new exception("Node not found while converting board to string for prolog communication");
 		}
-		board += "]"; //close line
-		if (z != 9)
-			board += ",";	//there's a next line
-		else board += "]"+'/0'; //last line, close and terminate string
-	}
+		board += "],"; //close line
 
+	}
+	ostringstream oss;
+	oss << "" << this->playingColor + 1 << "," << this->phase + 1;
+	board += "['@info'," + oss.str() + "]]\0"; //last line, close and terminate string
 
 
 	return board;

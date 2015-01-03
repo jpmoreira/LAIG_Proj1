@@ -139,7 +139,7 @@ string LG_Board_Place::toString(){
     
     if (piece->getType()==Tzaar)pieceCode=string("'A'");
     else if (piece->getType()==Tzarra)pieceCode=string("'B'");
-    else if (piece->getType()==Tzaar)pieceCode=string("'C'");
+    else if (piece->getType()==Tott)pieceCode=string("'C'");
 
     char buffer[20];
     
