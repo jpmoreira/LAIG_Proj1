@@ -71,19 +71,7 @@ protected:
      */
     //LG_Properties *properties;
     
-    
-
-    
-    
-    /**
-     
-     The map that has all the nodes;
-     
-     
-     */
-    
-    
-    LG_Node_Map *map;
+  
     
     
     /**
@@ -101,6 +89,15 @@ protected:
     
 public:
 
+	/**
+
+	The map that has all the nodes;
+
+
+	*/
+
+
+	LG_Node_Map *map;
     
     /**
      
