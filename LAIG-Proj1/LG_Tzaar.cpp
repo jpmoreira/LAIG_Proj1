@@ -179,7 +179,7 @@ void LG_Tzaar::display(){
 
 	glutSwapBuffers();
 
-	cout << boardString() << endl;
+	//cout << boardString() << endl;
 
 }
 
