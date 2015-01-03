@@ -22,46 +22,52 @@
 typedef enum{
 
 
-    player_vs_player,
-    player_vs_computer,
-    computer_vs_computer
-    
+	player_vs_player,
+	player_vs_computer,
+	computer_vs_computer
+
 } GameMode;
 
 typedef enum {
 
-    easy,
-    medium,
-    hard
-    
+	easy,
+	medium,
+	hard
+
 
 } Difficulty;
 
 typedef enum{
 
-    phase1,
-    phase2
+	phase1,
+	phase2
 
 } GamePhase;
 
-class LG_Tzaar: public CGFscene , public CGFinterface {
-    
-    
-    friend class LG_Game_State;
-    
-    static LG_Tzaar *currentTzaar;
-    
-    LG_Tzaar();
+class LG_Tzaar : public CGFscene, public CGFinterface {
 
-    
-    string docNameForScene;
-    string docNameForMenu;
-    string docNameForShortMenu;
-    
-    std::map<string, void(LG_Tzaar::*)() > invocationMapNoArgs;
-    std::map<string, void(LG_Tzaar::*)(int) > invocationMapWithArgs;
-    
-    
+
+	friend class LG_Game_State;
+
+	static LG_Tzaar *currentTzaar;
+
+	LG_Tzaar();
+
+
+	string docNameForScene;
+	string docNameForMenu;
+	string docNameForShortMenu;
+
+	std::map<string, void(LG_Tzaar::*)() > invocationMapNoArgs;
+	std::map<string, void(LG_Tzaar::*)(int) > invocationMapWithArgs;
+
+
+
+
+	//state design pattern
+	LG_Game_State *state;
+
+
 
     
     //state design pattern
@@ -108,74 +114,99 @@ public:
     
     
 
-    
-    //State changing
-    void changeState(LG_Game_State *newState);
-    
-    
-    
-    
-    //GCFscene
-    
-    void init();
-    void display();
-    void update(unsigned long millis);
-    
-    
-    //CGFInterface
-    void processKeyboard(unsigned char key, int x, int y);
-    void processMouse(int button, int state, int x, int y);
-    
-    void defaultMouseProcessing(int button, int state, int x, int y);
-    
-    //setting names
-    void setDocNameForScene(string name);
-    void setDocNameForMenu(string name);
-    void setDocNameForShortMenu(string name);
-    
-    
-    //picking
-    
-    void performPicking(int x, int y);
-    LG_Node* processHits (GLint hits, GLuint buffer[]);
-    
-    
-    //actions
-    
-    void draw(bool selectMode);
-    void drawMenu(bool selectMode);
-    void showMenuButtonClicked();
-    
-    void nodeSelected(LG_Node *node);
-    void movementValidation(bool valid);
-    void animationFinished(LG_Animation *);
-    void gameOverResult(bool gameover);
-    
-    
-    //button actions
 
-    void changeCameraClicked();
+
+    
+    
+	//Game settings
+
+
+	GameMode mode;
+	Difficulty difficulty;
+	GamePhase phase;
+	Color playingColor;
+
+
+	//singleton
+	static LG_Tzaar * getCurrentTzaar();
+
+
+	LG_ANF *scene_anf;
+	LG_ANF *menu_anf;
+	LG_ANF *short_menu_anf;
+
+
+	//movement setup
+	LG_Board_Place *origin;
+	LG_Board_Place *destination;
+
+
+
+
+	//State changing
+	void changeState(LG_Game_State *newState);
+
+
+
+
+	//GCFscene
+
+	void init();
+	void display();
+	void update(unsigned long millis);
+
+
+	//CGFInterface
+	void processKeyboard(unsigned char key, int x, int y);
+	void processMouse(int button, int state, int x, int y);
+
+	void defaultMouseProcessing(int button, int state, int x, int y);
+
+	//setting names
+	void setDocNameForScene(string name);
+	void setDocNameForMenu(string name);
+	void setDocNameForShortMenu(string name);
+
+
+	//picking
+
+	void performPicking(int x, int y);
+	LG_Node* processHits(GLint hits, GLuint buffer[]);
+
+
+	//actions
+
+	void draw(bool selectMode);
+	void drawMenu(bool selectMode);
+	void showMenuButtonClicked();
+
+	void nodeSelected(LG_Node *node);
+	void movementValidation(bool valid);
+	void animationFinished(LG_Animation *);
+	void gameOverResult(bool gameover);
+
+
+	//button actions
+
+	void changeCameraClicked();
     void exitButtonClicked();
-    void playClicked(int difficulty);
-    void setModeClicked(int mode);
-    
-    
-    //reflection
-    
-    void initReflection();
-    void invoke(string method,int param=0);
-    
-    
-    //prolog communication routines
-    void validateMove();
-    
-    
-    //helper methods
-    
-    string boardString();
-    
-    void loadBoard(string boardRep);
-    void loadLine(string line,int lineNr);
+	void playClicked(int difficulty);
+	void setModeClicked(int mode);
+
+
+	//reflection
+
+	void initReflection();
+	void invoke(string method, int param = 0);
+
+
+	//prolog communication routines
+	void validateMove();
+
+
+	//helper methods
+
+	string boardString();
 
 
 };

@@ -39,9 +39,9 @@ typedef enum {
 
 typedef enum {
 
-
-	Black,
-	White
+	White,
+	Black
+	
 
 } Color;
 

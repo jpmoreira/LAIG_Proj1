@@ -20,12 +20,12 @@
 
   <textures>
     <texture id="background" file="../data/menuBackground.jpg" texlength_s="0.5" texlength_t="0.3"/>
-    <texture id="plVpl" file="../data/menuPlvsPl.jpg" texlength_s="0.1" texlength_t="0.036"/>
-    <texture id="plVpc" file="../data/menuPlvsPc.jpg" texlength_s="0.1" texlength_t="0.036"/>
-    <texture id="pcVpc" file="../data/menuPcvsPc.jpg" texlength_s="0.1" texlength_t="0.036"/>
-    <texture id="menuLevelNovice" file="../data/levelNovice.jpg" texlength_s="0.05" texlength_t="0.018"/>
-    <texture id="menuLevelMedium" file="../data/levelMedium.jpg" texlength_s="0.05" texlength_t="0.018"/>
-    <texture id="menuLevelExpert" file="../data/levelExpert.jpg" texlength_s="0.05" texlength_t="0.018"/>
+    <texture id="plVpl" file="../data/btnVersus1P.png" texlength_s="0.1" texlength_t="0.036"/>
+    <texture id="plVpc" file="../data/btnVersus2P.png" texlength_s="0.1" texlength_t="0.036"/>
+    <texture id="pcVpc" file="../data/btnVersusPC.png" texlength_s="0.1" texlength_t="0.036"/>
+    <texture id="menuLevelNovice" file="../data/btnLevelEasy.png" texlength_s="0.05" texlength_t="0.018"/>
+    <texture id="menuLevelMedium" file="../data/btnLevelMedium.png" texlength_s="0.05" texlength_t="0.018"/>
+    <texture id="menuLevelExpert" file="../data/btnLevelExpert.png" texlength_s="0.05" texlength_t="0.018"/>
   </textures>
   <appearances>
 
