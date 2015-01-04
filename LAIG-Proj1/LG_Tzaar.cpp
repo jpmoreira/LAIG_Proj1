@@ -284,6 +284,8 @@ void LG_Tzaar::update(unsigned long millis){
         this->state=s;
     }
 
+	this->state->update(millis);
+
 }
 
 
@@ -422,6 +424,7 @@ void LG_Tzaar::exitButtonClicked(){
         delete this->state;
         this->state=s;
     }
+	memorizedPlays->clear();
 }
 
 void LG_Tzaar::nodeSelected(LG_Node* node){
