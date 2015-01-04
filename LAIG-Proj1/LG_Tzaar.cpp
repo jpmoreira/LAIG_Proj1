@@ -599,11 +599,11 @@ string LG_Tzaar::gameOverFOR_TESTS(string query){
 	ans= sock->read();
 
 	if (str_eq(ans, "'B'.\r"))
-		printf("black %s\n", ans);
+		printf("black %s\n", ans.c_str());
 	else if (str_eq(ans, "'W'.\r"))
-		printf("white %s\n", ans);
+		printf("white %s\n", ans.c_str());
 	else if (str_eq(ans, "no.\r"))
-		printf("none %s\n", ans);
+		printf("none %s\n", ans.c_str());
 
 	return ans;
 }

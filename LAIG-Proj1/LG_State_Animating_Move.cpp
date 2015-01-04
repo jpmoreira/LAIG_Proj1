@@ -67,6 +67,6 @@ void LG_State_Animating_Move::animationFinished(LG_Animation *anim){
         game->playingColor=White;
     }
     
-    game->changeState(new LG_State_Checking_GameOver(game));
+    //game->changeState(new LG_State_Checking_GameOver(game));
 
 }
