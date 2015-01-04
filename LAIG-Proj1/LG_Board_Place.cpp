@@ -206,3 +206,7 @@ int LG_Board_Place::getY(){
 	return y;
 }
 
+
+void LG_Board_Place::setNrPieces(int nr){
+	this->nrPieces = nr;
+}

@@ -16,7 +16,8 @@
 #include <CGFscene.h>
 #include <CGFinterface.h>
 #include "LG_ANF.h"
-#include "LG_Board_Piece.h"
+#include "LG_Movement.h"
+#include <vector>
 
 
 class LG_Socket;
@@ -61,7 +62,7 @@ class LG_Tzaar : public CGFscene, public CGFinterface {
     
     //state design pattern
     LG_Game_State *state;
-    
+	vector<LG_Movement> *memorizedPlays;
     
     
 
@@ -172,6 +173,7 @@ public:
 	void changeSceneClicked();
 	void playClicked(int difficulty);
 	void setModeClicked(int mode);
+	void undoButtonClicked();
 
 
 	//reflection
@@ -196,6 +198,8 @@ public:
     
     void cameraAnimationFinished();
 
+
+	void doUndo(LG_Movement mov);
 
 };
 
