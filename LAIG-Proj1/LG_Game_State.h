@@ -28,7 +28,7 @@ public:
     LG_Game_State(LG_Tzaar *game);
     
     
-    
+	~LG_Game_State();
     
     // events
     virtual LG_Game_State * draw(bool selectMode);

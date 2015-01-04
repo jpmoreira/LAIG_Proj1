@@ -150,4 +150,8 @@ LG_Game_State * LG_Game_State::buttonSelected(LG_Button *button){
     
 }
 
+LG_Game_State::~LG_Game_State(){
+
+}
+
 

@@ -87,7 +87,7 @@ void LG_Tzaar::loadShortMenu(){
 #pragma mark - Singleton
 
 LG_Tzaar::LG_Tzaar() :CGFscene(), CGFinterface(), scene_anf(NULL), menu_anf(NULL), short_menu_anf(NULL), nrVictoriesPlayerA(0), nrVictoriesPlayerB(0),
-sock(new LG_Socket()), memorizedPlays(new vector<LG_Movement>){
+sock(new LG_Socket()), memorizedPlays(new vector<LG_Movement>), state(NULL){
 
 }
 
@@ -128,9 +128,9 @@ void LG_Tzaar::processMouse(int button, int state, int x, int y){
 
 	LG_Game_State *s=this->state->processMouse(button, state, x, y);
     if(s){
-    
-        delete this->state;
-        this->state=s;
+		LG_Game_State *tmp = this->state;
+		this->state = s;
+        delete tmp;
     }
 
 	if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
@@ -280,8 +280,9 @@ void LG_Tzaar::update(unsigned long millis){
     
     LG_Game_State *s=this->state->update(millis);
     if(s){
-        delete this->state;
-        this->state=s;
+		LG_Game_State *tmp = this->state;
+		this->state = s;
+		delete tmp;
     }
 
 	this->state->update(millis);
@@ -341,8 +342,9 @@ void LG_Tzaar::performPicking(int x, int y)
 	LG_Node *node = processHits(hits, selectBuf);
 	LG_Game_State *s=this->state->nodeSelected(node);
     if (s) {
-        delete this->state;
-        this->state=s;
+		LG_Game_State *tmp = this->state;
+		this->state = s;
+		delete tmp;
     }
 }
 
@@ -407,22 +409,25 @@ LG_Node * LG_Tzaar::processHits(GLint hits, GLuint buffer[])
 void LG_Tzaar::draw(bool selectMode){
 	LG_Game_State *s=this->state->draw(selectMode);
     if (s) {
-        delete this->state;
-        this->state=s;
+		LG_Game_State *tmp = this->state;
+		this->state = s;
+		delete tmp;
     }
 }
 void LG_Tzaar::drawMenu(bool selectMode){
 	LG_Game_State *s=this->state->drawMenu(selectMode);
     if (s) {
-        delete this->state;
-        this->state=s;
+		LG_Game_State *tmp = this->state;
+		this->state = s;
+		delete tmp;
     }
 }
 void LG_Tzaar::exitButtonClicked(){
 	LG_Game_State *s=this->state->exitButtonClicked();
     if (s) {
-        delete this->state;
-        this->state=s;
+		LG_Game_State *tmp = this->state;
+		this->state = s;
+		delete tmp;
     }
 	memorizedPlays->clear();
 }
@@ -430,22 +435,26 @@ void LG_Tzaar::exitButtonClicked(){
 void LG_Tzaar::nodeSelected(LG_Node* node){
 	LG_Game_State *s=this->state->nodeSelected(node);
     if (s) {
-        delete this->state;
-        this->state=s;
+		LG_Game_State *tmp = this->state;
+		this->state = s;
+		delete tmp;
     }
 }
 void LG_Tzaar::movementValidation(bool valid){
 	LG_Game_State *s=this->state->movementValidation(valid);
     if (s) {
-        delete this->state;
-        this->state=s;
+		LG_Game_State *tmp = this->state;
+		this->state = s;
+		delete tmp;
     }
 }
 void LG_Tzaar::animationFinished(LG_Animation *anim){
 	LG_Game_State *s=this->state->animationFinished(anim);
     if (s) {
-        delete this->state;
-        this->state=s;
+		LG_Game_State *tmp = this->state;
+		this->state = s;
+        delete tmp;
+		printf("");
     }
     
 }
@@ -454,8 +463,9 @@ void LG_Tzaar::gameEnded(int winner){
     else nrVictoriesPlayerB++;
 	LG_Game_State *s=this->state->gameFinished(winner);
     if (s) {
-        delete this->state;
-        this->state=s;
+		LG_Game_State *tmp = this->state;
+		this->state = s;
+		delete tmp;
     }
 }
 
@@ -467,8 +477,9 @@ void LG_Tzaar::gameEnded(int winner){
 void LG_Tzaar::playClicked(int difficulty){
 	LG_Game_State *s=this->state->startPlaying(difficulty);
     if (s) {
-        delete this->state;
-        this->state=s;
+		LG_Game_State *tmp = this->state;
+		this->state = s;
+		delete tmp;
     }
 }
 
