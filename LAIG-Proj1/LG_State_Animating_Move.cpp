@@ -11,9 +11,17 @@
 #include "LG_Board_Place.h"
 #include "LG_Move_Piece_Animation_State.h"
 #include "LG_Move_Piece_Animation.h"
-#include "LG_State_Checking_GameOver.h"
+#include "LG_State_Waiting_Piece_Selection.h"
+#include "LG_State_GameOver.h"
 
 
+
+LG_Game_State * LG_State_Animating_Move::state(LG_Tzaar *tzaar){
+
+
+    return new LG_State_Animating_Move(tzaar);
+    
+}
 
 LG_State_Animating_Move::LG_State_Animating_Move(LG_Tzaar *tzaar):LG_Game_State(tzaar){
     
@@ -27,11 +35,11 @@ LG_State_Animating_Move::LG_State_Animating_Move(LG_Tzaar *tzaar):LG_Game_State(
 }
 
 
-void LG_State_Animating_Move::animationFinished(LG_Animation *anim){
+LG_Game_State* LG_State_Animating_Move::animationFinished(LG_Animation *anim){
 
     LG_Move_Piece_Animation *move_anim=dynamic_cast<LG_Move_Piece_Animation *>(anim);
     
-    if (!move_anim)return;
+    if (!move_anim)return NULL;
     
     
     if(!game->destination->piece){//if no piece at destination
@@ -61,12 +69,29 @@ void LG_State_Animating_Move::animationFinished(LG_Animation *anim){
     else if(game->playingColor==White){
     
         game->playingColor=Black;
+        game->phase=phase1;
     }
     else if(game->playingColor==Black){
     
         game->playingColor=White;
+        game->phase=phase1;
     }
     
-    //game->changeState(new LG_State_Checking_GameOver(game));
+    
+    
+    
+//Verify GameOver
+    
+    
+    Victory v=game->gameOver();
+    
+    game->origin=NULL;
+    game->destination=NULL;
+    
+    if (v==VicNone) return LG_State_Waiting_Piece_Selection::state(game);
+    
+    return new LG_State_GameOver(game);
+    
+    
 
 }

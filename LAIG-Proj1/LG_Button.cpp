@@ -36,7 +36,7 @@ void LG_Button::setSelected(bool selected){
 
     LG_Node::setSelected(selected);
     
-    if(selected) LG_Tzaar::getCurrentTzaar()->invoke(action,param);
+    LG_Tzaar::getCurrentTzaar()->invoke(action,param);
 
 }
 

@@ -16,17 +16,19 @@
 class LG_State_Waiting_Place_Selection: public LG_Game_State{
     
     
-public:
-    
     LG_State_Waiting_Place_Selection(LG_Tzaar *tzaar);
     
-    void currentPlayerPieceSelected(LG_Board_Place *place);
-    void oponentPlayerPieceSelected(LG_Board_Place *place);
-    void emptyPlaceSelected(LG_Board_Place *place);
-    void drawMenu(bool selectMode);
+public:
+    
+   static LG_Game_State * state(LG_Tzaar *tzaar);
+    
+    LG_Game_State * currentPlayerPieceSelected(LG_Board_Place *place);
+    LG_Game_State * oponentPlayerPieceSelected(LG_Board_Place *place);
+    LG_Game_State * emptyPlaceSelected(LG_Board_Place *place);
+    LG_Game_State * drawMenu(bool selectMode);
     
     
-    void validateMoveAndHandleResult();
+    LG_Game_State * validateMoveAndHandleResult();
 
 };
 

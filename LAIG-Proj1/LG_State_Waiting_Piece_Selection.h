@@ -16,14 +16,16 @@
 class LG_State_Waiting_Piece_Selection: public LG_Game_State {
     
     
-public:
-    
-    
     LG_State_Waiting_Piece_Selection(LG_Tzaar *tzaar);
     
+public:
     
-    void currentPlayerPieceSelected(LG_Board_Place *place);
-    void drawMenu(bool selectMode);
+
+    
+    static LG_Game_State * state(LG_Tzaar *tzaar);
+    
+    LG_Game_State * currentPlayerPieceSelected(LG_Board_Place *place);
+    LG_Game_State * drawMenu(bool selectMode);
     
     
 };

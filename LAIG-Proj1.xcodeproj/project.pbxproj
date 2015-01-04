@@ -191,7 +191,7 @@
 		5427716C1A597DD600B9E913 /* LG_Move_Piece_Animation_State.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5427716A1A597DD600B9E913 /* LG_Move_Piece_Animation_State.cpp */; };
 		5427716D1A5987D300B9E913 /* LG_Move_Piece_Animation_State.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5427716A1A597DD600B9E913 /* LG_Move_Piece_Animation_State.cpp */; };
 		5427716E1A5987E000B9E913 /* LG_Move_Piece_Animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 542771671A597CD200B9E913 /* LG_Move_Piece_Animation.cpp */; };
-		5427716F1A59AC0700B9E913 /* LG_State_Checking_GameOver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54B740601A519CB300D4B710 /* LG_State_Checking_GameOver.cpp */; };
+		5427716F1A59AC0700B9E913 /* LG_State_GameOver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54B740601A519CB300D4B710 /* LG_State_GameOver.cpp */; };
 		542771771A59AD0E00B9E913 /* city.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 542771761A59AD0500B9E913 /* city.jpg */; };
 		542771781A59AD0E00B9E913 /* cementWall.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 542771751A59ACF800B9E913 /* cementWall.jpg */; };
 		542771791A59AD0F00B9E913 /* greyBrickWall.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 542771731A59ACDE00B9E913 /* greyBrickWall.jpg */; };
@@ -584,9 +584,8 @@
 		549FCC8A1A519B9700704A31 /* LG_State_Menu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 549FCC881A519B9700704A31 /* LG_State_Menu.cpp */; };
 		549FCC8D1A519BB700704A31 /* LG_State_Waiting_Piece_Selection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 549FCC8B1A519BB700704A31 /* LG_State_Waiting_Piece_Selection.cpp */; };
 		549FCC901A519C0C00704A31 /* LG_State_Waiting_Place_Selection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 549FCC8E1A519C0C00704A31 /* LG_State_Waiting_Place_Selection.cpp */; };
-		54B7405C1A519C6500D4B710 /* LG_State_Validating_Move.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54B7405A1A519C6500D4B710 /* LG_State_Validating_Move.cpp */; };
 		54B7405F1A519C8900D4B710 /* LG_State_Animating_Move.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54B7405D1A519C8900D4B710 /* LG_State_Animating_Move.cpp */; };
-		54B740621A519CB300D4B710 /* LG_State_Checking_GameOver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54B740601A519CB300D4B710 /* LG_State_Checking_GameOver.cpp */; };
+		54B740621A519CB300D4B710 /* LG_State_GameOver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54B740601A519CB300D4B710 /* LG_State_GameOver.cpp */; };
 		54B740671A51B11700D4B710 /* LG_Tzaar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 549FCC801A5198F800704A31 /* LG_Tzaar.cpp */; };
 		54B740681A51B12C00D4B710 /* LG_Game_State.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 549FCC841A51994000704A31 /* LG_Game_State.cpp */; };
 		54B9EDE019F04C9F001F8C34 /* LG_SceneInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54B9EDDF19F04C9F001F8C34 /* LG_SceneInterface.cpp */; };
@@ -600,7 +599,6 @@
 		54C925E219F1B30E0007FB91 /* LG_general.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54C925DF19F1B25F0007FB91 /* LG_general.cpp */; };
 		54C925E319F1B3140007FB91 /* LG_general.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54C925DF19F1B25F0007FB91 /* LG_general.cpp */; };
 		54CAF8CF1A5562BC00A72E6F /* LG_Button.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5452F1D31A53656D00273FC4 /* LG_Button.cpp */; };
-		54CAF8D01A55792B00A72E6F /* LG_State_Validating_Move.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54B7405A1A519C6500D4B710 /* LG_State_Validating_Move.cpp */; };
 		54D8610C19E5893200B5695A /* LG_Light.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54D8610A19E5893200B5695A /* LG_Light.cpp */; };
 		54D8610F19E5894100B5695A /* LG_Lights_Container.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54D8610D19E5894100B5695A /* LG_Lights_Container.cpp */; };
 		54D8612419E58A3000B5695A /* TestLights.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54D8611019E5896C00B5695A /* TestLights.xml */; };
@@ -1533,12 +1531,10 @@
 		549FCC8C1A519BB700704A31 /* LG_State_Waiting_Piece_Selection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_State_Waiting_Piece_Selection.h; sourceTree = "<group>"; };
 		549FCC8E1A519C0C00704A31 /* LG_State_Waiting_Place_Selection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_State_Waiting_Place_Selection.cpp; sourceTree = "<group>"; };
 		549FCC8F1A519C0C00704A31 /* LG_State_Waiting_Place_Selection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_State_Waiting_Place_Selection.h; sourceTree = "<group>"; };
-		54B7405A1A519C6500D4B710 /* LG_State_Validating_Move.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_State_Validating_Move.cpp; sourceTree = "<group>"; };
-		54B7405B1A519C6500D4B710 /* LG_State_Validating_Move.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_State_Validating_Move.h; sourceTree = "<group>"; };
 		54B7405D1A519C8900D4B710 /* LG_State_Animating_Move.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_State_Animating_Move.cpp; sourceTree = "<group>"; };
 		54B7405E1A519C8900D4B710 /* LG_State_Animating_Move.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_State_Animating_Move.h; sourceTree = "<group>"; };
-		54B740601A519CB300D4B710 /* LG_State_Checking_GameOver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_State_Checking_GameOver.cpp; sourceTree = "<group>"; };
-		54B740611A519CB300D4B710 /* LG_State_Checking_GameOver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_State_Checking_GameOver.h; sourceTree = "<group>"; };
+		54B740601A519CB300D4B710 /* LG_State_GameOver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_State_GameOver.cpp; sourceTree = "<group>"; };
+		54B740611A519CB300D4B710 /* LG_State_GameOver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_State_GameOver.h; sourceTree = "<group>"; };
 		54B9EDDE19F04C9F001F8C34 /* LG_SceneInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_SceneInterface.h; sourceTree = "<group>"; };
 		54B9EDDF19F04C9F001F8C34 /* LG_SceneInterface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_SceneInterface.cpp; sourceTree = "<group>"; };
 		54B9EDE419F050CF001F8C34 /* wall-e.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "wall-e.xml"; sourceTree = "<group>"; };
@@ -2490,12 +2486,10 @@
 				549FCC8C1A519BB700704A31 /* LG_State_Waiting_Piece_Selection.h */,
 				549FCC8E1A519C0C00704A31 /* LG_State_Waiting_Place_Selection.cpp */,
 				549FCC8F1A519C0C00704A31 /* LG_State_Waiting_Place_Selection.h */,
-				54B7405A1A519C6500D4B710 /* LG_State_Validating_Move.cpp */,
-				54B7405B1A519C6500D4B710 /* LG_State_Validating_Move.h */,
 				54B7405D1A519C8900D4B710 /* LG_State_Animating_Move.cpp */,
 				54B7405E1A519C8900D4B710 /* LG_State_Animating_Move.h */,
-				54B740601A519CB300D4B710 /* LG_State_Checking_GameOver.cpp */,
-				54B740611A519CB300D4B710 /* LG_State_Checking_GameOver.h */,
+				54B740601A519CB300D4B710 /* LG_State_GameOver.cpp */,
+				54B740611A519CB300D4B710 /* LG_State_GameOver.h */,
 			);
 			name = States;
 			sourceTree = "<group>";
@@ -3146,7 +3140,6 @@
 				542D370F1A012D0C00908D63 /* LG_Animations_Container.cpp in Sources */,
 				545802D919D31C6700C9DF32 /* LG_Parsable_Node.cpp in Sources */,
 				5427716C1A597DD600B9E913 /* LG_Move_Piece_Animation_State.cpp in Sources */,
-				54B7405C1A519C6500D4B710 /* LG_State_Validating_Move.cpp in Sources */,
 				5461855C19DD3CDA005C6166 /* LG_Light_Omni.cpp in Sources */,
 				542D82E319E7C151004DC691 /* LG_Cameras_Container.cpp in Sources */,
 				54118C4C19D9B73D0015D962 /* LG_Torus.cpp in Sources */,
@@ -3177,7 +3170,7 @@
 				5469678419D8A016001DBA15 /* LG_Sphere.cpp in Sources */,
 				546C500F19FFD3DA00AE1A22 /* LG_Animation.cpp in Sources */,
 				549FCC7E1A50290E00704A31 /* LG_Bounce_Animation.cpp in Sources */,
-				54B740621A519CB300D4B710 /* LG_State_Checking_GameOver.cpp in Sources */,
+				54B740621A519CB300D4B710 /* LG_State_GameOver.cpp in Sources */,
 				5405EFC419D09E4F00BEED1E /* main.cpp in Sources */,
 				5452F1D51A53656D00273FC4 /* LG_Button.cpp in Sources */,
 				542D82B419E7BF86004DC691 /* LG_ANF.cpp in Sources */,
@@ -3211,7 +3204,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5427716F1A59AC0700B9E913 /* LG_State_Checking_GameOver.cpp in Sources */,
+				5427716F1A59AC0700B9E913 /* LG_State_GameOver.cpp in Sources */,
 				5427716E1A5987E000B9E913 /* LG_Move_Piece_Animation.cpp in Sources */,
 				5427716D1A5987D300B9E913 /* LG_Move_Piece_Animation_State.cpp in Sources */,
 				542771661A59773100B9E913 /* LG_Socket.cpp in Sources */,
@@ -3219,7 +3212,6 @@
 				542771641A5976EF00B9E913 /* LG_VictoryCounter.cpp in Sources */,
 				542366B51A587E46001B0C4A /* LG_Counter.cpp in Sources */,
 				542366B41A587E3B001B0C4A /* LG_Clock.cpp in Sources */,
-				54CAF8D01A55792B00A72E6F /* LG_State_Validating_Move.cpp in Sources */,
 				54CAF8CF1A5562BC00A72E6F /* LG_Button.cpp in Sources */,
 				5452F1D21A535C1300273FC4 /* LG_State_Waiting_Piece_Selection.cpp in Sources */,
 				54BBD38B1A52C8CF00E6DAE8 /* LG_State_Menu.cpp in Sources */,

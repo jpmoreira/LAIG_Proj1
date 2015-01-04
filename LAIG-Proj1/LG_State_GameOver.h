@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 José Pedro Moreira. All rights reserved.
 //
 
-#ifndef __LAIG_Proj1__LG_State_Checking_GameOver__
-#define __LAIG_Proj1__LG_State_Checking_GameOver__
+#ifndef __LAIG_Proj1__LG_State_GameOver__
+#define __LAIG_Proj1__LG_State_GameOver__
 
 #include <stdio.h>
 #include "LG_Game_State.h"
@@ -16,12 +16,12 @@
 class LG_Tzaar;
 
 
-class LG_State_Checking_GameOver: public LG_Game_State {
+class LG_State_GameOver: public LG_Game_State {
     
     
 public:
     
-    LG_State_Checking_GameOver(LG_Tzaar *game);
+    LG_State_GameOver(LG_Tzaar *game);
 
 };
 

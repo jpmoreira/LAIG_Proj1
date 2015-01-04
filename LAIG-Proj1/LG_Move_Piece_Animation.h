@@ -29,6 +29,8 @@ public:
     
     void update(unsigned long timeNow,LG_AnimationState *state);
     void configureInitialParameters(LG_AnimationState *state);
+    
+    ~LG_Move_Piece_Animation();
 };
 
 #endif /* defined(__LAIG_Proj1__LG_Move_Piece_Animation__) */

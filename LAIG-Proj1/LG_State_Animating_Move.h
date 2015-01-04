@@ -16,12 +16,17 @@
 class LG_State_Animating_Move: public LG_Game_State {
     
     
-    
-public:
-
     LG_State_Animating_Move(LG_Tzaar *tzaar);
     
-    void animationFinished(LG_Animation *);
+    
+public:
+    
+    
+    static LG_Game_State *state(LG_Tzaar *tzaar);
+    
+
+    
+    LG_Game_State * animationFinished(LG_Animation *);
 };
 
 #endif /* defined(__LAIG_Proj1__LG_State_Animating_Move__) */

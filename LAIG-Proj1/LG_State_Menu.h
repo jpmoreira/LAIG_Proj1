@@ -21,19 +21,19 @@ public:
     
     LG_State_Menu(LG_Tzaar *tzaar);
     
-    void drawMenu(bool selectMode);
+    LG_Game_State * drawMenu(bool selectMode);
     
-    void update(unsigned long time);
+    LG_Game_State * update(unsigned long time);
     //void processMouse(int button, int state, int x, int y);
     
     //void nodeSelected(LG_Node *node);
     
 
-	void startPlaying(int difficulty);
+	LG_Game_State * startPlaying(int difficulty);
     
-    void processMouse(int button, int state, int x, int y);
+    LG_Game_State * processMouse(int button, int state, int x, int y);
     
-    void exitButtonClicked();
+    LG_Game_State * exitButtonClicked();
     
 };
 

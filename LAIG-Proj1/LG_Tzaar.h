@@ -127,11 +127,6 @@ public:
 
 
 
-	//State changing
-	void changeState(LG_Game_State *newState);
-
-
-
 
 	//GCFscene
 

@@ -99,7 +99,7 @@ void LG_Board_Place::drawChilds(bool selectMode){
     for (int i=0; i<nrPieces; i++) {
         
         piece->draw(selectMode);
-        glTranslated(0, 0.5, 0);
+        glTranslated(0, 0.010001, 0);
         
     }
 
@@ -134,7 +134,9 @@ void LG_Board_Place::animationFinished(LG_AnimationState *state){
     
     LG_Tzaar::currentTzaar->animationFinished(state->animation);
 
+    //delete state->animation;
     delete state;//state no longer needed
+    
     
     
     

@@ -125,7 +125,12 @@ void LG_Tzaar::processKeyboard(unsigned char key, int x, int y){
 void LG_Tzaar::processMouse(int button, int state, int x, int y){
 
 
-	this->state->processMouse(button, state, x, y);
+	LG_Game_State *s=this->state->processMouse(button, state, x, y);
+    if(s){
+    
+        delete this->state;
+        this->state=s;
+    }
 
 	if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
 		this->performPicking(x, y);
@@ -272,7 +277,11 @@ void LG_Tzaar::display(){
 
 void LG_Tzaar::update(unsigned long millis){
     
-    this->state->update(millis);
+    LG_Game_State *s=this->state->update(millis);
+    if(s){
+        delete this->state;
+        this->state=s;
+    }
 
 }
 
@@ -327,7 +336,11 @@ void LG_Tzaar::performPicking(int x, int y)
 	GLint hits;
 	hits = glRenderMode(GL_RENDER);
 	LG_Node *node = processHits(hits, selectBuf);
-	this->state->nodeSelected(node);
+	LG_Game_State *s=this->state->nodeSelected(node);
+    if (s) {
+        delete this->state;
+        this->state=s;
+    }
 }
 
 LG_Node * LG_Tzaar::processHits(GLint hits, GLuint buffer[])
@@ -386,40 +399,60 @@ LG_Node * LG_Tzaar::processHits(GLint hits, GLuint buffer[])
 #pragma mark - State Design Pattern
 
 
-void LG_Tzaar::changeState(LG_Game_State *newState){
-
-	if (this->state) delete this->state;
-	this->state = newState;
-
-
-}
 
 
 void LG_Tzaar::draw(bool selectMode){
-	this->state->draw(selectMode);
+	LG_Game_State *s=this->state->draw(selectMode);
+    if (s) {
+        delete this->state;
+        this->state=s;
+    }
 }
 void LG_Tzaar::drawMenu(bool selectMode){
-	this->state->drawMenu(selectMode);
+	LG_Game_State *s=this->state->drawMenu(selectMode);
+    if (s) {
+        delete this->state;
+        this->state=s;
+    }
 }
 void LG_Tzaar::exitButtonClicked(){
-	this->state->exitButtonClicked();
+	LG_Game_State *s=this->state->exitButtonClicked();
+    if (s) {
+        delete this->state;
+        this->state=s;
+    }
 }
 
 void LG_Tzaar::nodeSelected(LG_Node* node){
-	this->state->nodeSelected(node);
+	LG_Game_State *s=this->state->nodeSelected(node);
+    if (s) {
+        delete this->state;
+        this->state=s;
+    }
 }
 void LG_Tzaar::movementValidation(bool valid){
-	this->state->movementValidation(valid);
+	LG_Game_State *s=this->state->movementValidation(valid);
+    if (s) {
+        delete this->state;
+        this->state=s;
+    }
 }
 void LG_Tzaar::animationFinished(LG_Animation *anim){
-	this->state->animationFinished(anim);
+	LG_Game_State *s=this->state->animationFinished(anim);
+    if (s) {
+        delete this->state;
+        this->state=s;
+    }
     
-    delete anim;
 }
 void LG_Tzaar::gameEnded(int winner){
     if (winner==1) nrVictoriesPlayerA++;
     else nrVictoriesPlayerB++;
-	this->state->gameFinished(winner);
+	LG_Game_State *s=this->state->gameFinished(winner);
+    if (s) {
+        delete this->state;
+        this->state=s;
+    }
 }
 
 
@@ -428,7 +461,11 @@ void LG_Tzaar::gameEnded(int winner){
 
 
 void LG_Tzaar::playClicked(int difficulty){
-	this->state->startPlaying(difficulty);
+	LG_Game_State *s=this->state->startPlaying(difficulty);
+    if (s) {
+        delete this->state;
+        this->state=s;
+    }
 }
 
 void LG_Tzaar::changeCameraClicked(){
@@ -577,6 +614,8 @@ vector<LG_Board_Place *> LG_Tzaar::chooseMove(){
 
 Victory LG_Tzaar::gameOver(){
 	 
+    
+    return VicNone;
 	ostringstream oss;
 	string ans;
 

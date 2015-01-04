@@ -24,20 +24,24 @@ LG_State_Menu::LG_State_Menu(LG_Tzaar *tzaar):LG_Game_State(tzaar){
 #pragma mark - Actions
 
 
-void LG_State_Menu::drawMenu(bool selectMode){
+LG_Game_State * LG_State_Menu::drawMenu(bool selectMode){
     
     this->game->menu_anf->draw(selectMode);
+    
+    return NULL;
 
 
 }
 
 
-void LG_State_Menu::update(unsigned long time){
+LG_Game_State * LG_State_Menu::update(unsigned long time){
+    
+    return NULL;
 
 }
 
 
-void LG_State_Menu::startPlaying(int difficulty)
+LG_Game_State * LG_State_Menu::startPlaying(int difficulty)
 {
 	switch (difficulty)
 	{
@@ -51,17 +55,18 @@ void LG_State_Menu::startPlaying(int difficulty)
 		game->difficulty = hard;
 	}
 	
-	game->changeState(new LG_State_Waiting_Piece_Selection(game));
+    return LG_State_Waiting_Piece_Selection::state(game);
 }
 
-void LG_State_Menu::processMouse(int button, int state, int x, int y){
+LG_Game_State * LG_State_Menu::processMouse(int button, int state, int x, int y){
 
-    //do nothing
+    return NULL;
 }
 
 
-void LG_State_Menu::exitButtonClicked(){
+LG_Game_State * LG_State_Menu::exitButtonClicked(){
 
     exit(0);//exit program
+    return NULL;
 
 }

@@ -29,31 +29,32 @@ public:
     
     
     
+    
     // events
-    virtual void draw(bool selectMode);
-    virtual void drawMenu(bool selectMode);
-    virtual void update(unsigned long time);
+    virtual LG_Game_State * draw(bool selectMode);
+    virtual LG_Game_State * drawMenu(bool selectMode);
+    virtual LG_Game_State * update(unsigned long time);
     
     
-    virtual void exitButtonClicked();
-    virtual void startPlaying(int difficulty);
-    virtual void gameFinished(int winner);
+    virtual LG_Game_State * exitButtonClicked();
+    virtual LG_Game_State * startPlaying(int difficulty);
+    virtual LG_Game_State * gameFinished(int winner);
     
     //selection
-    void nodeSelected(LG_Node *node);
-    virtual void placeSelected(LG_Board_Place *place);
-    virtual void currentPlayerPieceSelected(LG_Board_Place *place);
-    virtual void oponentPlayerPieceSelected(LG_Board_Place *place);
-    virtual void emptyPlaceSelected(LG_Board_Place *place);
-    virtual void fullPlaceSelected(LG_Board_Place *place);
-    virtual void buttonSelected(LG_Button *button);
+    LG_Game_State * nodeSelected(LG_Node *node);
+    virtual LG_Game_State * placeSelected(LG_Board_Place *place);
+    virtual LG_Game_State * currentPlayerPieceSelected(LG_Board_Place *place);
+    virtual LG_Game_State * oponentPlayerPieceSelected(LG_Board_Place *place);
+    virtual LG_Game_State * emptyPlaceSelected(LG_Board_Place *place);
+    virtual LG_Game_State * fullPlaceSelected(LG_Board_Place *place);
+    virtual LG_Game_State * buttonSelected(LG_Button *button);
     
     
     
     
-    virtual void movementValidation(bool valid);
-    virtual void animationFinished(LG_Animation *);
-    virtual void processMouse(int button, int state, int x, int y);
+    virtual LG_Game_State * movementValidation(bool valid);
+    virtual LG_Game_State * animationFinished(LG_Animation *);
+    virtual LG_Game_State * processMouse(int button, int state, int x, int y);
     
     
     

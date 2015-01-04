@@ -25,3 +25,8 @@ void LG_Move_Piece_Animation::configureInitialParameters(LG_AnimationState *stat
 
 
 }
+
+
+LG_Move_Piece_Animation::~LG_Move_Piece_Animation(){
+
+}
