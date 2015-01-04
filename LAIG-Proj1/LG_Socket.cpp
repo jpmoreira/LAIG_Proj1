@@ -43,6 +43,7 @@ LG_Socket::LG_Socket(string address,int port){
 }
 
 #else
+#include <winsock2.h>
 LG_Socket::LG_Socket(string address, int port){
 
 

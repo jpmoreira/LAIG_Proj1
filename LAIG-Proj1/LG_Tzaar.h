@@ -9,6 +9,8 @@
 #ifndef __LAIG_Proj1__LG_Tzaar__
 #define __LAIG_Proj1__LG_Tzaar__
 
+
+
 #include <stdio.h>
 #include "LG_Game_State.h"
 #include <CGFscene.h>
@@ -17,6 +19,7 @@
 #include "LG_Board_Piece.h"
 
 
+class LG_Socket;
 
 
 typedef enum{
@@ -73,6 +76,8 @@ public:
 	std::map<string, void(LG_Tzaar::*)() > invocationMapNoArgs;
 	std::map<string, void(LG_Tzaar::*)(int) > invocationMapWithArgs;
 
+
+	LG_Socket *sock;
 
 
     //loading stuff
@@ -172,8 +177,11 @@ public:
 
 
 	//prolog communication routines
-	void validateMove();
+	bool validateMove();
+	bool validateMoveFOR_TESTS(int x1, int z1, int x2, int z2);
 
+	vector<LG_Board_Place *> chooseMove();
+	
 
 	//helper methods
 

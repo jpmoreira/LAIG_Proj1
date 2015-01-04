@@ -178,4 +178,12 @@ void LG_Board_Place::fromString(string s){
 
 }
 
+int LG_Board_Place::getX(){
+	return x;
+}
+
+
+int LG_Board_Place::getY(){
+	return y;
+}
 

@@ -23,7 +23,7 @@
 #include <netdb.h>
 #else
 #pragma comment(lib, "Ws2_32.lib")
-#include <winsock2.h>
+
 //#include <iostream>
 
 #endif // !_WIN32
@@ -35,7 +35,7 @@ class LG_Socket {
 #ifndef _WIN32
     int sock;
 #else
-	SOCKET sock;	
+	unsigned int sock;	
 #endif
 
     char recieveBuffer[256];
