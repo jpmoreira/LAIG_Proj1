@@ -88,3 +88,12 @@ void LG_Bounce_Animation::configureInitialParameters(LG_AnimationState *state){
 
 
 }
+
+
+#pragma mark - Destructor
+
+
+LG_Bounce_Animation::~LG_Bounce_Animation(){
+
+
+}

@@ -164,9 +164,9 @@ void LG_Node::update(unsigned long time){
     
 
     
-    if (str_eq(this->identifier, "vehicle"))
+    if (str_eq(this->identifier, "LG_Board_Place_9_5"))
     {
-        printf("Animacao corrente = %d\n", currentAnimation);
+        
     }
     
     if (animations.size()>0) {

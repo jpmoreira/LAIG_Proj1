@@ -84,7 +84,7 @@ void LG_Tzaar::loadShortMenu(){
 
 #pragma mark - Singleton
 
-LG_Tzaar::LG_Tzaar():CGFscene(),CGFinterface(),scene_anf(NULL),menu_anf(NULL),short_menu_anf(NULL),nrVictoriesPlayerA(0),nrVictoriesPlayerB(0){
+LG_Tzaar::LG_Tzaar():CGFscene(),CGFinterface(),scene_anf(NULL),menu_anf(NULL),short_menu_anf(NULL),nrVictoriesPlayerA(0),nrVictoriesPlayerB(0),sock(new LG_Socket()){
 
 }
 
@@ -359,6 +359,8 @@ void LG_Tzaar::movementValidation(bool valid){
 }
 void LG_Tzaar::animationFinished(LG_Animation *anim){
 	this->state->animationFinished(anim);
+    
+    delete anim;
 }
 void LG_Tzaar::gameEnded(int winner){
     if (winner==1) nrVictoriesPlayerA++;
@@ -427,6 +429,11 @@ void LG_Tzaar::invoke(string methodName, int param){
 
 
 bool LG_Tzaar::validateMove(){
+    
+    
+    return true;
+
+#warning remove later
     
     if(destination==NULL && phase==phase2)return true;//if pass on phase 2 then it's ok
 

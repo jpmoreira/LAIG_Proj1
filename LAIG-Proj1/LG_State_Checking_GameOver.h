@@ -12,10 +12,16 @@
 #include <stdio.h>
 #include "LG_Game_State.h"
 
+
+class LG_Tzaar;
+
+
 class LG_State_Checking_GameOver: public LG_Game_State {
     
     
 public:
+    
+    LG_State_Checking_GameOver(LG_Tzaar *game);
 
 };
 

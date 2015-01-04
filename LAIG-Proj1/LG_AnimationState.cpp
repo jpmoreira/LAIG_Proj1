@@ -28,7 +28,8 @@ LG_AnimationState::LG_AnimationState(LG_Node_Map *map,LG_Animation *anim,LG_Node
     rotate(0, 1, 0, 0);
     translate(0,0,0);
     translate_afterRotation(0, 0, 0);
-    animation->configureInitialParameters(this);
+    if(animation)
+        animation->configureInitialParameters(this);
 
     
     

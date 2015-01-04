@@ -49,7 +49,7 @@ public:
      */
     virtual void configureInitialParameters(LG_AnimationState *state)=0;
     
-    
+    virtual ~LG_Animation();
     
     
 protected:

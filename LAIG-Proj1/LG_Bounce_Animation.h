@@ -27,6 +27,8 @@ public:
     static string identifForAnim();
     
     LG_Bounce_Animation(LG_Node_Map *map);
+    
+    ~LG_Bounce_Animation();
 
 };
 
