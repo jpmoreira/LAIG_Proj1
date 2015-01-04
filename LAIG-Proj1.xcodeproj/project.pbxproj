@@ -577,6 +577,9 @@
 		548CA60319ED8631008AD9F7 /* LG_ANF.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 542D82B219E7BF86004DC691 /* LG_ANF.cpp */; };
 		548CA60519ED8658008AD9F7 /* LG_ANF_Tests_External.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 548CA60419ED8658008AD9F7 /* LG_ANF_Tests_External.cpp */; };
 		548CA68819EDC5E1008AD9F7 /* coordinateSystems.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 540B932019EB25890034E113 /* coordinateSystems.cpp */; };
+		548DD4F11A59E4D50087DAA7 /* LG_Movement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 548DD4EF1A59E4D50087DAA7 /* LG_Movement.cpp */; };
+		548DD4F21A59E4DE0087DAA7 /* LG_Movement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 548DD4EF1A59E4D50087DAA7 /* LG_Movement.cpp */; };
+		548DD4F31A59E5060087DAA7 /* LG_State_Waiting_Place_Selection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 549FCC8E1A519C0C00704A31 /* LG_State_Waiting_Place_Selection.cpp */; };
 		549FCC7E1A50290E00704A31 /* LG_Bounce_Animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 549FCC7C1A50290E00704A31 /* LG_Bounce_Animation.cpp */; };
 		549FCC7F1A5036ED00704A31 /* LG_Bounce_Animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 549FCC7C1A50290E00704A31 /* LG_Bounce_Animation.cpp */; };
 		549FCC821A5198F800704A31 /* LG_Tzaar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 549FCC801A5198F800704A31 /* LG_Tzaar.cpp */; };
@@ -1519,6 +1522,8 @@
 		548CA69519EEE93F008AD9F7 /* table.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = table.jpg; sourceTree = "<group>"; };
 		548CA69619EEE93F008AD9F7 /* window.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = window.jpg; sourceTree = "<group>"; };
 		548CA69E19EEECA3008AD9F7 /* party_hats.anf */ = {isa = PBXFileReference; lastKnownFileType = text; path = party_hats.anf; sourceTree = "<group>"; };
+		548DD4EF1A59E4D50087DAA7 /* LG_Movement.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Movement.cpp; sourceTree = "<group>"; };
+		548DD4F01A59E4D50087DAA7 /* LG_Movement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_Movement.h; sourceTree = "<group>"; };
 		549FCC7C1A50290E00704A31 /* LG_Bounce_Animation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Bounce_Animation.cpp; sourceTree = "<group>"; };
 		549FCC7D1A50290E00704A31 /* LG_Bounce_Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LG_Bounce_Animation.h; sourceTree = "<group>"; };
 		549FCC801A5198F800704A31 /* LG_Tzaar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LG_Tzaar.cpp; sourceTree = "<group>"; };
@@ -2021,6 +2026,8 @@
 		54174DC919D033CC0039E991 /* LAIG-Proj1 */ = {
 			isa = PBXGroup;
 			children = (
+				548DD4EF1A59E4D50087DAA7 /* LG_Movement.cpp */,
+				548DD4F01A59E4D50087DAA7 /* LG_Movement.h */,
 				54076D8C1A56989500742FC7 /* Comunication */,
 				549FCC831A51992B00704A31 /* State Design Pattern */,
 				549FCC801A5198F800704A31 /* LG_Tzaar.cpp */,
@@ -3147,6 +3154,7 @@
 				540939C819E9355000961C05 /* LG_Scene.cpp in Sources */,
 				545802D619D3175500C9DF32 /* LG_Lighting.cpp in Sources */,
 				54FDD6421A482CA1005CCE8B /* LG_Board_Place.cpp in Sources */,
+				548DD4F11A59E4D50087DAA7 /* LG_Movement.cpp in Sources */,
 				545802A019D1EC0500C9DF32 /* LG_Triangle.cpp in Sources */,
 				542771691A597CD200B9E913 /* LG_Move_Piece_Animation.cpp in Sources */,
 				549FCC821A5198F800704A31 /* LG_Tzaar.cpp in Sources */,
@@ -3204,6 +3212,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				548DD4F31A59E5060087DAA7 /* LG_State_Waiting_Place_Selection.cpp in Sources */,
+				548DD4F21A59E4DE0087DAA7 /* LG_Movement.cpp in Sources */,
 				5427716F1A59AC0700B9E913 /* LG_State_GameOver.cpp in Sources */,
 				5427716E1A5987E000B9E913 /* LG_Move_Piece_Animation.cpp in Sources */,
 				5427716D1A5987D300B9E913 /* LG_Move_Piece_Animation_State.cpp in Sources */,
