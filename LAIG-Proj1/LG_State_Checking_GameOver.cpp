@@ -9,3 +9,8 @@
 #include "LG_State_Checking_GameOver.h"
 
 
+
+LG_State_Checking_GameOver::LG_State_Checking_GameOver(LG_Tzaar *tzaar):LG_Game_State(tzaar){
+
+    
+}

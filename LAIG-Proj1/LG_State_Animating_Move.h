@@ -21,6 +21,7 @@ public:
 
     LG_State_Animating_Move(LG_Tzaar *tzaar);
     
+    void animationFinished(LG_Animation *);
 };
 
 #endif /* defined(__LAIG_Proj1__LG_State_Animating_Move__) */

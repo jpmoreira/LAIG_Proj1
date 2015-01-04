@@ -7,6 +7,7 @@
 //
 
 #include "LG_Board_Place.h"
+#include "LG_Tzaar.h"
 
 
 #define LG_Board_Place_Nr_Pieces_XML_Att_Name "pieces"
@@ -108,8 +109,8 @@ void LG_Board_Place::setSelected(bool selected){
     
     LG_Node::setSelected(selected);
     if (selected) {
-        LG_Bounce_Animation *anim=new LG_Bounce_Animation(map);
-        this->animations.push_back( new LG_AnimationState(map, anim, this));
+        LG_Bounce_Animation *anim=new LG_Bounce_Animation(NULL);
+        this->animations.push_back( new LG_AnimationState(NULL, anim, this));
     }
     else{
         
@@ -122,7 +123,23 @@ void LG_Board_Place::setSelected(bool selected){
 
 void LG_Board_Place::animationFinished(LG_AnimationState *state){
     
-    this->animations.pop_back();
+    
+    for (int i=0;i<animations.size();i++) {
+        
+        if (animations[i]==state) {
+            animations.erase(animations.begin()+i);
+            break;
+        }
+    }
+    
+    LG_Tzaar::currentTzaar->animationFinished(state->animation);
+
+    delete state;//state no longer needed
+    
+    
+    
+    
+
 
 }
 

@@ -91,3 +91,9 @@ string LG_Animation::extractIDForSuper(TiXmlElement *elem){
     return id;
 
 }
+
+
+#pragma mark -Destructor
+
+LG_Animation::~LG_Animation(){
+}

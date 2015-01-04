@@ -25,8 +25,8 @@ class LG_Board_Place: public LG_Primitive {
 private:
     
     
-    int x,y;
-    int nrPieces;
+    
+    
     
     
     static inline string idForElement(TiXmlElement *elem){
@@ -55,6 +55,10 @@ private:
     }
     
 public:
+    
+    int x,y;
+    
+    int nrPieces;
     
 	void setNrPieces(int nr);
 

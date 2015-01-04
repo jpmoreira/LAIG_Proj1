@@ -82,13 +82,15 @@ protected:
     
     bool selected;
     
-    vector<LG_AnimationState *>animations;
+    
     int currentAnimation;
     
     
     
 public:
 
+    
+    vector<LG_AnimationState *>animations;
 	/**
 
 	The map that has all the nodes;

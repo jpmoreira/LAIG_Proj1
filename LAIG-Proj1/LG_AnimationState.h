@@ -20,7 +20,7 @@ class LG_AnimationState {
     friend class LG_Animation;
     friend class LG_Bounce_Animation;
     
-private:
+protected:
     unsigned long startTime;
     double rotation_matrix[4][4];
     double translation_matrix[4][4];
@@ -47,7 +47,7 @@ public:
     
     bool finished();
     
-    void update(unsigned long timeNow);
+    virtual void update(unsigned long timeNow);
     void apply();
     
     int getCurrentSegment();
