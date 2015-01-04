@@ -56,6 +56,8 @@ private:
     
 public:
     
+	void setNrPieces(int nr);
+
     LG_Board_Piece *piece;
     
     

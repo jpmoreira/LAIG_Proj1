@@ -86,7 +86,8 @@ void LG_Tzaar::loadShortMenu(){
 
 #pragma mark - Singleton
 
-LG_Tzaar::LG_Tzaar():CGFscene(),CGFinterface(),scene_anf(NULL),menu_anf(NULL),short_menu_anf(NULL),nrVictoriesPlayerA(0),nrVictoriesPlayerB(0),sock(new LG_Socket()){
+LG_Tzaar::LG_Tzaar() :CGFscene(), CGFinterface(), scene_anf(NULL), menu_anf(NULL), short_menu_anf(NULL), nrVictoriesPlayerA(0), nrVictoriesPlayerB(0),
+sock(new LG_Socket()), memorizedPlays(new vector<LG_Movement>){
 
 }
 
@@ -202,9 +203,9 @@ void LG_Tzaar::display(){
 #pragma region TEST_ZONE_PROLOG
 
 	/*
-	
+
 	Validate Moves
-	
+
 	*/
 	//if (!validateMoveFOR_TESTS(2, 3, 3, 3))
 	//{
@@ -221,9 +222,9 @@ void LG_Tzaar::display(){
 
 
 	/*
-	
+
 	Game Over
-	
+
 	*/
 	//string test_vic_black("gameOver([[['C',1,'B'],['C',1,'B'],['C',1,'B'],['C',1,'B'],['C',1,'W']],[['C',1,'W'],['B',1,'B'],['B',1,'B'],['B',1,'B'],['B',1,'W'],['C',1,'W']],[['C',1,'W'],['B',1,'W'],['A',1,'B'],['A',1,'B'],[*],['B',1,'W'],['C',1,'W']],[['C',1,'W'],['B',1,'W'],[*],['C',1,'B'],['C',1,'W'],[*],['B',1,'W'],['C',1,'W']],[['C',1,'W'],['B',1,'W'],[*],['C',1,'W'],['C',1,'B'],['A',1,'B'],['B',1,'B'],['C',1,'B']],[['C',1,'B'],['B',1,'B'],['A',1,'B'],['C',1,'B'],['C',1,'W'],['A',1,'B'],['B',1,'B'],['C',1,'B']],[['C',1,'B'],['B',1,'B'],['A',1,'B'],[*],[*],['B',1,'B'],['C',1,'B']],[['C',1,'B'],['B',1,'B'],['B',1,'W'],['B',1,'W'],['B',1,'W'],['C',1,'B']],[['C',1,'B'],['C',1,'W'],['C',1,'W'],['C',1,'W'],['C',1,'W']],['@info',1,1,['3']]], Winner).\n");
 	//string test_vic_white("gameOver([[['C',1,'B'],['C',1,'B'],['C',1,'B'],['C',1,'B'],['C',1,'W']],[['C',1,'W'],['B',1,'B'],['B',1,'B'],['B',1,'B'],['B',1,'W'],['C',1,'W']],[['C',1,'W'],['B',1,'W'],[*],[*],['A',1,'W'],['B',1,'W'],['C',1,'W']],[['C',1,'W'],['B',1,'W'],['A',1,'W'],['C',1,'B'],['C',1,'W'],['A',1,'W'],['B',1,'W'],['C',1,'W']],[['C',1,'W'],['B',1,'W'],['A',1,'W'],['C',1,'W'],['C',1,'B'],[*],['B',1,'B'],['C',1,'B']],[['C',1,'B'],['B',1,'B'],[*],['C',1,'B'],['C',1,'W'],[*],['B',1,'B'],['C',1,'B']],[['C',1,'B'],['B',1,'B'],[*],['A',1,'W'],['A',1,'W'],['B',1,'B'],['C',1,'B']],[['C',1,'B'],['B',1,'B'],['B',1,'W'],['B',1,'W'],['B',1,'W'],['C',1,'B']],[['C',1,'B'],['C',1,'W'],['C',1,'W'],['C',1,'W'],['C',1,'W']],['@info',1,1,['3']]], Winner).\n");
@@ -256,14 +257,14 @@ void LG_Tzaar::display(){
 
 
 	/*
-		
+
 	Print Board
-	
+
 	*/
 	string testBoard = boardString();
 	printf("");
 
-	
+
 #pragma endregion
 
 
@@ -271,8 +272,8 @@ void LG_Tzaar::display(){
 }
 
 void LG_Tzaar::update(unsigned long millis){
-    
-    this->state->update(millis);
+
+	this->state->update(millis);
 
 }
 
@@ -403,6 +404,7 @@ void LG_Tzaar::drawMenu(bool selectMode){
 }
 void LG_Tzaar::exitButtonClicked(){
 	this->state->exitButtonClicked();
+	memorizedPlays->clear();
 }
 
 void LG_Tzaar::nodeSelected(LG_Node* node){
@@ -415,8 +417,8 @@ void LG_Tzaar::animationFinished(LG_Animation *anim){
 	this->state->animationFinished(anim);
 }
 void LG_Tzaar::gameEnded(int winner){
-    if (winner==1) nrVictoriesPlayerA++;
-    else nrVictoriesPlayerB++;
+	if (winner == 1) nrVictoriesPlayerA++;
+	else nrVictoriesPlayerB++;
 	this->state->gameFinished(winner);
 }
 
@@ -435,13 +437,60 @@ void LG_Tzaar::changeCameraClicked(){
 }
 
 void LG_Tzaar::changeSceneClicked(){
-	
+
 	if (str_eq(scene_anf->graph->root->getIdentifier(), SCENE1_STR))
 		scene_anf->graph->root = (LG_Graph_Node *)this->scene_anf->graph->map->find(SCENE2_STR)->second;
 	else
 		scene_anf->graph->root = (LG_Graph_Node *)this->scene_anf->graph->map->find(SCENE1_STR)->second;
 }
 
+void LG_Tzaar::undoButtonClicked(){
+	if (!(this->mode == computer_vs_computer))		//guarantee that exists a player
+	{
+
+		int lastPlayedIndex = memorizedPlays->size() - 1;
+
+		if (this->mode == player_vs_computer)
+		{
+			while (memorizedPlays->at(lastPlayedIndex).getFrom()->piece->getColor() != White){
+
+				doUndo(memorizedPlays->at(lastPlayedIndex));
+				memorizedPlays->pop_back();
+				lastPlayedIndex--;
+			}
+			doUndo(memorizedPlays->at(lastPlayedIndex));
+		}
+		else if (this->mode == player_vs_player)
+		{
+			doUndo(memorizedPlays->at(lastPlayedIndex));
+		}
+
+		
+	}
+}
+
+void LG_Tzaar::doUndo(LG_Movement movement)
+{
+	
+	movement.getFrom()->piece = movement.getFromPiece();
+	movement.getTo()->piece = movement.getToPiece();
+
+	movement.getFrom()->setNrPieces(movement.getFromNrPieces());
+	movement.getTo()->setNrPieces(movement.getToNrPieces());
+
+
+	if (this->phase == phase2)
+		this->phase = phase1;
+	else
+	{
+		this->phase = phase2;
+		if (this->playingColor == White)
+			playingColor = Black;
+		else this->playingColor = White;
+	}
+
+
+}
 
 void LG_Tzaar::setModeClicked(int mode){
 
@@ -461,6 +510,7 @@ void LG_Tzaar::initReflection(){
 	invocationMapNoArgs["changeCameraClicked"] = &LG_Tzaar::changeCameraClicked;
 	invocationMapNoArgs["exitButtonClicked"] = &LG_Tzaar::exitButtonClicked;
 	invocationMapNoArgs["changeSceneClicked"] = &LG_Tzaar::changeSceneClicked;
+	invocationMapNoArgs["undoButtonClicked"] = &LG_Tzaar::undoButtonClicked;
 
 	invocationMapWithArgs["playClicked"] = &LG_Tzaar::playClicked;
 	invocationMapWithArgs["setModeClicked"] = &LG_Tzaar::setModeClicked;
@@ -490,8 +540,8 @@ void LG_Tzaar::invoke(string methodName, int param){
 
 
 bool LG_Tzaar::validateMove(){
-    
-    if(destination==NULL && phase==phase2)return true;//if pass on phase 2 then it's ok
+
+	if (destination == NULL && phase == phase2)return true;//if pass on phase 2 then it's ok
 
 	ostringstream oss;
 	string sep = ",";
@@ -536,7 +586,7 @@ vector<LG_Board_Place *> LG_Tzaar::chooseMove(){
 
 	string qst, ans;
 	//TODO replace hardcoded value 3 to game mode when playing against a.i.
-	oss << PL_FUNC_chooseMove2 << "('" << this->mode+1 << "'" + sep << this->boardString() << sep << "NextBoard, SelectedMove, Result).";
+	oss << PL_FUNC_chooseMove2 << "('" << this->mode + 1 << "'" + sep << this->boardString() << sep << "NextBoard, SelectedMove, Result).";
 	qst = oss.str() + "\n";
 	sock->write(qst);
 	ans = sock->read();
@@ -569,7 +619,7 @@ vector<LG_Board_Place *> LG_Tzaar::chooseMove(){
 }
 
 Victory LG_Tzaar::gameOver(){
-	 
+
 	ostringstream oss;
 	string ans;
 
@@ -582,14 +632,14 @@ Victory LG_Tzaar::gameOver(){
 	else if (str_eq(ans, "'W'.\r"))
 		return VicWhite;
 
-	
+
 	return VicNone;
 }
 
 string LG_Tzaar::gameOverFOR_TESTS(string query){
 	string ans;
 	sock->write(query);
-	ans= sock->read();
+	ans = sock->read();
 
 	if (str_eq(ans, "'B'.\r"))
 		printf("black %s\n", ans);
@@ -621,7 +671,7 @@ string LG_Tzaar::boardString(){
 		board += "[";	//start a line
 		for (int x = 1; x < z + 5; x++){
 			ostringstream current_id;
-			
+
 			//aux_oss << "[ " << x << ", " << z << " ]";
 			current_id << prefix << x << "_" << z;
 
@@ -689,7 +739,7 @@ string LG_Tzaar::boardString(){
 	ostringstream oss;
 	oss << "['@info'," << this->playingColor + 1 << "," << this->phase + 1 << ",['" << this->difficulty + 1 << "']]]";
 	board += oss.str(); //last row, close and terminate string
-	
+
 	//aux_board = aux_oss.str();
 	//cout << aux_board;
 
