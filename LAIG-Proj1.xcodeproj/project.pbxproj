@@ -184,6 +184,9 @@
 		542366E51A588C94001B0C4A /* xpto.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 542366E41A588C8B001B0C4A /* xpto.jpg */; };
 		542366E71A5896AC001B0C4A /* clockSeparator.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 542366E61A589658001B0C4A /* clockSeparator.jpg */; };
 		542366EA1A58A4F8001B0C4A /* LG_VictoryCounter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 542366E81A58A4F8001B0C4A /* LG_VictoryCounter.cpp */; };
+		542771641A5976EF00B9E913 /* LG_VictoryCounter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 542366E81A58A4F8001B0C4A /* LG_VictoryCounter.cpp */; };
+		542771651A59772200B9E913 /* LG_State_Animating_Move.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54B7405D1A519C8900D4B710 /* LG_State_Animating_Move.cpp */; };
+		542771661A59773100B9E913 /* LG_Socket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54076D8D1A5698A300742FC7 /* LG_Socket.cpp */; };
 		542D370C1A00F6E500908D63 /* TestAnimations.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 546C504A1A00191700AE1A22 /* TestAnimations.xml */; };
 		542D370F1A012D0C00908D63 /* LG_Animations_Container.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 542D370D1A012D0C00908D63 /* LG_Animations_Container.cpp */; };
 		542D37101A012D0C00908D63 /* LG_Animations_Container.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 542D370D1A012D0C00908D63 /* LG_Animations_Container.cpp */; };
@@ -3165,6 +3168,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				542771661A59773100B9E913 /* LG_Socket.cpp in Sources */,
+				542771651A59772200B9E913 /* LG_State_Animating_Move.cpp in Sources */,
+				542771641A5976EF00B9E913 /* LG_VictoryCounter.cpp in Sources */,
 				542366B51A587E46001B0C4A /* LG_Counter.cpp in Sources */,
 				542366B41A587E3B001B0C4A /* LG_Clock.cpp in Sources */,
 				54CAF8D01A55792B00A72E6F /* LG_State_Validating_Move.cpp in Sources */,

@@ -19,6 +19,8 @@ class LG_State_Animating_Move: public LG_Game_State {
     
 public:
 
+    LG_State_Animating_Move(LG_Tzaar *tzaar);
+    
 };
 
 #endif /* defined(__LAIG_Proj1__LG_State_Animating_Move__) */

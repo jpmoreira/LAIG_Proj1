@@ -478,6 +478,8 @@ void LG_Tzaar::invoke(string methodName, int param){
 
 
 bool LG_Tzaar::validateMove(){
+    
+    if(destination==NULL && phase==phase2)return true;//if pass on phase 2 then it's ok
 
 	ostringstream oss;
 	string sep = ",";

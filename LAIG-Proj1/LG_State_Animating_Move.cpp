@@ -9,3 +9,8 @@
 #include "LG_State_Animating_Move.h"
 
 
+
+LG_State_Animating_Move::LG_State_Animating_Move(LG_Tzaar *tzaar):LG_Game_State(tzaar){
+
+    
+}
