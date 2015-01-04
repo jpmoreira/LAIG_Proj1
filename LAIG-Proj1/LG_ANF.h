@@ -44,7 +44,7 @@ private:
     LG_Appearance_Container *apperances;
     LG_Animation_Container *animations;
     
-    LG_Graph * graph;
+    
     
     TiXmlElement *graphElement;
     
@@ -76,7 +76,7 @@ private:
 public:
     
     
-    
+    LG_Graph * graph;
     
     
     void draw(bool selectMode=false);

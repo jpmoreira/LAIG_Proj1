@@ -31,6 +31,8 @@ public:
     
     void applyView();
     
+    void update(unsigned long time);
+    
     /*
     bool moveTo(int axis, float value, float increment);
     
@@ -40,6 +42,10 @@ public:
      */
 private:
 	double angle;
-	LG_Point3D pos, target;
+    bool animating;
+    unsigned long animationStart;
+    LG_Node * owner;
+    
+	LG_Point3D pos, target,currentPos;
 };
 

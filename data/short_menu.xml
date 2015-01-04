@@ -56,16 +56,34 @@
 
     <node id="shortMenu" >
       <transforms>
-        <transform type="translate" to="-0.015 -0.015 -0.4" />
+        <transform type="translate" to="0 0 -0.4" />
       </transforms>
       <primitives>
+          <!--<rectangle xy1="0 0" xy2="0.012 0.02"/>-->
         <!--<rectangle xy1="-0.15 -0.15" xy2="0.15 0.15" />-->
       </primitives>
       <descendants>
         <!--<noderef id="shortMenuBckg"/>-->
         <noderef id="shortMenuOptions"/>
+        <noderef id="clockNode"/>
       </descendants>
     </node >
+    
+    
+    <node id="clockNode" >
+        <transforms>
+            <transform type="translate" to="-0.12 -0.13 0" />
+        </transforms>
+        <primitives>
+            <clock/>
+        </primitives>
+        <descendants/>
+    </node >
+    
+    
+    
+    
+    
 
     <node id="shortMenuBckg">
       <appearanceref id="menuShortbckgApp"/>

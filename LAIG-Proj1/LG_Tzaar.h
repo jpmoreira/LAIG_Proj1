@@ -69,6 +69,9 @@ class LG_Tzaar : public CGFscene, public CGFinterface {
     
 public:
     
+    
+    int nrVictoriesPlayerA,nrVictoriesPlayerB;
+    
 	static LG_Tzaar *currentTzaar;
 
 	LG_Tzaar();
@@ -92,6 +95,8 @@ public:
     void loadShortMenu();
     
     void reloadSceneGraph();
+    
+
 
 
 
@@ -162,7 +167,7 @@ public:
 	void nodeSelected(LG_Node *node);
 	void movementValidation(bool valid);
 	void animationFinished(LG_Animation *);
-	void gameOverResult(bool gameover);
+	void gameEnded(int winner);
 
 
 	//button actions
@@ -191,6 +196,9 @@ public:
 	//helper methods
 
 	string boardString();
+    
+    
+    void cameraAnimationFinished();
 
 
 };

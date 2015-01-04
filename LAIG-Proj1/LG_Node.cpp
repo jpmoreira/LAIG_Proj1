@@ -162,6 +162,7 @@ void LG_Node::config(){
 
 void LG_Node::update(unsigned long time){
     
+
     
     if (str_eq(this->identifier, "vehicle"))
     {
