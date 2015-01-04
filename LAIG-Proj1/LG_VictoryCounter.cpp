@@ -8,6 +8,7 @@
 
 #include "LG_VictoryCounter.h"
 #include "LG_Tzaar.h"
+#include "LG_Rectangle.h"
 
 LG_VictoryCounter::LG_VictoryCounter(LG_Node_Map *map,TiXmlElement *elem):LG_Counter(map,LG_VictoryCounter_ID){
 

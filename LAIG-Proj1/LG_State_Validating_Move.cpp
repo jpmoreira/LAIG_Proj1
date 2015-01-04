@@ -11,6 +11,5 @@
 
 LG_State_Validating_Move::LG_State_Validating_Move(LG_Tzaar *tzaar):LG_Game_State(tzaar){
 
-    game->validateMove();
 
 }

@@ -24,6 +24,9 @@ public:
     void oponentPlayerPieceSelected(LG_Board_Place *place);
     void emptyPlaceSelected(LG_Board_Place *place);
     void drawMenu(bool selectMode);
+    
+    
+    void validateMoveAndHandleResult();
 
 };
 
