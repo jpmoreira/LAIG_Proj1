@@ -1692,7 +1692,7 @@
     </node>
 
     <node id="groundStand1">
-      <appearanceref id="brickWallApp"/>
+      <appearanceref id="inherit"/>
       <descendants>
         <noderef id="gStandLevel1"/>
         <noderef id="gStandLevel2"/>
@@ -1704,7 +1704,7 @@
       </transforms>
     </node>
     <node id="groundStand2">
-      <appearanceref id="brickWallApp"/>
+      <appearanceref id="inherit"/>
       <descendants>
         <noderef id="gStandLevel1"/>
         <noderef id="gStandLevel2"/>

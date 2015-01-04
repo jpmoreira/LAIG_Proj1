@@ -23,6 +23,8 @@ GLuint selectBuf[BUFSIZE];
 #define PL_FUNC_goodMoveForPhase "goodMoveForPhase"
 #define PL_FUNC_chooseMove2 "chooseMove2"
 #define PL_FUNC_gameOver "gameOver"
+#define SCENE1_STR "scene1"
+#define SCENE2_STR "scene2"
 
 
 LG_Tzaar * LG_Tzaar::currentTzaar = NULL;
@@ -432,6 +434,14 @@ void LG_Tzaar::changeCameraClicked(){
 
 }
 
+void LG_Tzaar::changeSceneClicked(){
+	
+	if (str_eq(scene_anf->graph->root->getIdentifier(), SCENE1_STR))
+		scene_anf->graph->root = (LG_Graph_Node *)this->scene_anf->graph->map->find(SCENE2_STR)->second;
+	else
+		scene_anf->graph->root = (LG_Graph_Node *)this->scene_anf->graph->map->find(SCENE1_STR)->second;
+}
+
 
 void LG_Tzaar::setModeClicked(int mode){
 
@@ -450,6 +460,7 @@ void LG_Tzaar::initReflection(){
 
 	invocationMapNoArgs["changeCameraClicked"] = &LG_Tzaar::changeCameraClicked;
 	invocationMapNoArgs["exitButtonClicked"] = &LG_Tzaar::exitButtonClicked;
+	invocationMapNoArgs["changeSceneClicked"] = &LG_Tzaar::changeSceneClicked;
 
 	invocationMapWithArgs["playClicked"] = &LG_Tzaar::playClicked;
 	invocationMapWithArgs["setModeClicked"] = &LG_Tzaar::setModeClicked;

@@ -174,6 +174,7 @@ public:
 
 	void changeCameraClicked();
     void exitButtonClicked();
+	void changeSceneClicked();
 	void playClicked(int difficulty);
 	void setModeClicked(int mode);
 
