@@ -50,7 +50,7 @@ LG_Game_State * LG_Game_State::exitButtonClicked(){
     game->phase=phase1;
     game->playingColor=White;
     
-    return new LG_State_Menu(game);
+    return LG_State_Menu::state(game);
 
 }
 LG_Game_State * LG_Game_State::startPlaying(int difficulty){return NULL;}

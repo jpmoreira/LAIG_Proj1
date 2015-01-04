@@ -28,7 +28,6 @@ public:
     LG_Game_State(LG_Tzaar *game);
     
     
-	~LG_Game_State();
     
     // events
     virtual LG_Game_State * draw(bool selectMode);
@@ -55,6 +54,9 @@ public:
     virtual LG_Game_State * movementValidation(bool valid);
     virtual LG_Game_State * animationFinished(LG_Animation *);
     virtual LG_Game_State * processMouse(int button, int state, int x, int y);
+    
+    
+    virtual ~LG_Game_State();
     
     
     

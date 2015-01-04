@@ -151,7 +151,7 @@ void LG_Tzaar::init() {
 
 	initReflection();
 
-	this->state = new LG_State_Menu(this);//initial state is menu;
+    this->state = LG_State_Menu::state(this);//initial state is menu;
 	this->mode = player_vs_player;
 	this->difficulty = easy;
 	this->phase = phase1;
@@ -453,7 +453,7 @@ void LG_Tzaar::animationFinished(LG_Animation *anim){
     if (s) {
 		LG_Game_State *tmp = this->state;
 		this->state = s;
-        delete tmp;
+        //delete tmp;
 		printf("");
     }
     

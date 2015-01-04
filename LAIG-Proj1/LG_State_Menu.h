@@ -15,11 +15,11 @@
 class LG_State_Menu: public LG_Game_State {
     
     
-    
+    LG_State_Menu(LG_Tzaar *tzaar);
     
 public:
     
-    LG_State_Menu(LG_Tzaar *tzaar);
+    static LG_Game_State * state(LG_Tzaar *tzaar);
     
     LG_Game_State * drawMenu(bool selectMode);
     

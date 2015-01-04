@@ -14,6 +14,11 @@
 #define playButtonID "playButton"
 
 
+LG_Game_State * LG_State_Menu::state(LG_Tzaar *tzaar){
+
+    return new LG_State_Menu(tzaar);
+}
+
 LG_State_Menu::LG_State_Menu(LG_Tzaar *tzaar):LG_Game_State(tzaar){
     
 
