@@ -32,6 +32,9 @@ void LG_State_Menu::drawMenu(bool selectMode){
 }
 
 
+void LG_State_Menu::update(unsigned long time){
+
+}
 
 
 void LG_State_Menu::startPlaying(int difficulty)

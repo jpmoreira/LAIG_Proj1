@@ -32,6 +32,9 @@ LG_Texture::LG_Texture(LG_Node_Map *map, TiXmlElement *element) :LG_Parsable_Nod
 LG_Texture::LG_Texture(LG_Node_Map *map,string file,double s,double t,string identifier):LG_Parsable_Node(map,identifier,NULL),texlength_s(s),texlength_t(t),file(file) {
     
     
+    configTexture();
+    
+    
 }
 #pragma mark - Helper Methods
 

@@ -77,7 +77,7 @@ void LG_Tzaar::loadShortMenu(){
 
 #pragma mark - Singleton
 
-LG_Tzaar::LG_Tzaar():CGFscene(),CGFinterface(),scene_anf(NULL),menu_anf(NULL),short_menu_anf(NULL){
+LG_Tzaar::LG_Tzaar():CGFscene(),CGFinterface(),scene_anf(NULL),menu_anf(NULL),short_menu_anf(NULL),nrVictoriesPlayerA(0),nrVictoriesPlayerB(0){
 
 }
 
@@ -194,10 +194,9 @@ void LG_Tzaar::display(){
 }
 
 void LG_Tzaar::update(unsigned long millis){
+    
+    this->state->update(millis);
 
-	scene_anf->getAnimations()->update(millis);
-
-	scene_anf->graph->update(millis);
 }
 
 
@@ -338,8 +337,10 @@ void LG_Tzaar::movementValidation(bool valid){
 void LG_Tzaar::animationFinished(LG_Animation *anim){
 	this->state->animationFinished(anim);
 }
-void LG_Tzaar::gameOverResult(bool gameover){
-	this->state->gameOverResult(gameover);
+void LG_Tzaar::gameEnded(int winner){
+    if (winner==1) nrVictoriesPlayerA++;
+    else nrVictoriesPlayerB++;
+	this->state->gameFinished(winner);
 }
 
 
@@ -487,5 +488,11 @@ string LG_Tzaar::boardString(){
 
 
 	return board;
+
+}
+
+#pragma mark - Camera Animation
+
+void LG_Tzaar::cameraAnimationFinished(){
 
 }

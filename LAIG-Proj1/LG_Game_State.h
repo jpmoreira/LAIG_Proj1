@@ -32,11 +32,12 @@ public:
     // events
     virtual void draw(bool selectMode);
     virtual void drawMenu(bool selectMode);
+    virtual void update(unsigned long time);
     
     
     virtual void exitButtonClicked();
     virtual void startPlaying(int difficulty);
-    
+    virtual void gameFinished(int winner);
     
     //selection
     void nodeSelected(LG_Node *node);
@@ -52,7 +53,6 @@ public:
     
     virtual void movementValidation(bool valid);
     virtual void animationFinished(LG_Animation *);
-    virtual void gameOverResult(bool gameover);
     virtual void processMouse(int button, int state, int x, int y);
     
     

@@ -3,6 +3,8 @@
 #endif
 
 #include "LG_Camera_Perspective.h"
+#include "LG_Tzaar.h"
+#define cameraAnimationDuration 2.0;
 //#include "coordinateSystems.h"
 
 
@@ -13,11 +15,15 @@
 #endif
 
 //passing LG_Camera_Perspective_Node_ID won't work, ID must be unique and there may be more than one perspective
-LG_Camera_Perspective::LG_Camera_Perspective(LG_Node_Map *map, TiXmlElement *element) :LG_Camera(map, element, identifierForSuper(element))
+LG_Camera_Perspective::LG_Camera_Perspective(LG_Node_Map *map, TiXmlElement *element) :LG_Camera(map, element, identifierForSuper(element)),animating(false),animationStart(0)
 {
 	verifyElementName(element);
 	verifyAttributesAndValues(element);
 
+    currentPos[0]=pos[0];
+    currentPos[1]=pos[1];
+    currentPos[2]=pos[2];
+    
 
 	position[0] = -pos[0];
 	position[1] = -pos[1];
@@ -119,3 +125,23 @@ void LG_Camera_Perspective::updateProjectionMatrix(int width, int height){
 
 
 
+#pragma mark - Animation
+
+
+void LG_Camera_Perspective::update(unsigned long time){
+
+    if(!animating)return;
+    
+    if (animationStart==0) animationStart=time;
+    
+    
+    double secondsPassed=(time-animationStart)/1000.;
+    double percentagePassed=secondsPassed/cameraAnimationDuration;
+    
+    if (percentagePassed>=1.0){
+        animating=false;
+        animationStart=0;
+        LG_Tzaar::currentTzaar->cameraAnimationFinished();
+    }
+
+}
