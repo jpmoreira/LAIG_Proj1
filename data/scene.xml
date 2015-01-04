@@ -11,6 +11,8 @@
   </cameras>
 
   <lights>
+
+    <!--SCENE 1-->
     <light id="omni" type="omni" enabled="true" marker="false" pos="13.335 15 13.335" >
       <component type="ambient" value="0.8 0.8 0.8 1" />
       <component type="diffuse" value="0.8 0.8 0.8 1" />
@@ -34,96 +36,138 @@
       <component type="diffuse" value="0.1 0.1 0.8 1" />
       <component type="specular" value="0.1 0.1 0.8 1" />
     </light>
+    <!--SCENE 2-->
   </lights>
 
   <textures>
-
+    <!--BOTH-->
     <texture id="woodText" file="../data/woodText.jpg" texlength_s="1" texlength_t="1"/>
     <texture id="tab_lidText" file="../data/tzaarBoard_.jpg" texlength_s="1" texlength_t="1"/>
+    <!--SCENE 1-->
     <texture id ="wallBlue" file="../data/wallBlue.jpg" texlength_s="1" texlength_t="1"/>
     <texture id="wall" file="../data/wall.jpg" texlength_s="1" texlength_t="1"/>
     <texture id="blackBoard" file="../data/blackBoard.jpg" texlength_s="1" texlength_t="1"/>
     <texture id="floor" file="../data/carpet.jpg" texlength_s="1" texlength_t="1"/>
     <texture id="door" file="../data/door.jpg" texlength_s="1" texlength_t="1"/>
-
-
+    <!--SCENE 2-->
+    <texture id="basketFloor" file="../data/basket2.jpg" texlength_s="1" texlength_t="1"/>
+    <texture id="cementFloor" file="../data/cement.jpg" texlength_s="3" texlength_t="3"/>
+    <texture id="brickWall" file="../data/redBrickWall.jpg" texlength_s="5" texlength_t="5"/>
+    <texture id="greyBrickWall" file="../data/greyBrickWall.jpg" texlength_s="4" texlength_t="4"/>
+    <texture id="tallBuilding1" file="../data/tallBuilding1.jpg" texlength_s="12" texlength_t="8"/>
+    <texture id="cementWall" file="../data/cementWall.jpg" texlength_s="20" texlength_t="20"/>
+    <texture id="city" file="../data/city.jpg" texlength_s="1" texlength_t="1"/>
   </textures>
 
   <appearances>
-
+    <!--BOTH-->
     <appearance id="tabApp" shininess="0.2" textureref="woodText">
       <component type="ambient" value="0.65 0.5 0.39 1" />
       <component type="diffuse" value="0.65 0.5 0.39 1" />
       <component type="specular" value="0.65 0.5 0.39 1" />
     </appearance>
-
     <appearance id="tab_lidApp" shininess="0.2" textureref="tab_lidText">
       <component type="ambient" value="0.65 0.5 0.39 1" />
       <component type="diffuse" value="0.65 0.5 0.39 1" />
       <component type="specular" value="0.65 0.5 0.39 1" />
     </appearance>
-
-    <appearance id="tzaarWallApp" shininess="0.3" textureref="wallBlue">
-      <component type="ambient" value="0.2 0.18 0.16 1" />
-      <component type="diffuse" value="0.380 0.478 0.580 1" />
-      <component type="specular" value="0.25 0.25 0.25 1" />
-    </appearance>
-
-    <appearance id="wallApp" shininess="1.0" >
-      <component type="ambient" value="0.55 0.18 0.10 1" />
-      <component type="diffuse" value="0.55 0.18 0.10 1" />
-      <component type="specular" value="0.55 0.18 0.10 1" />
-    </appearance>
-
-    <appearance id="wallCeilApp" shininess="1.0" >
-      <component type="ambient" value="0.8 0.8 0.8 1" />
-      <component type="diffuse" value="0.8 0.8 0.8 1" />
-      <component type="specular" value="0.8 0.8 0.8 1" />
-    </appearance>
-
-    <appearance id="floorApp" shininess="0.6" textureref="floor">
-      <component type="ambient" value="0.2 0.18 0.16 1" />
-      <component type="diffuse" value="0.58 0.58 0.58 1" />
-      <component type="specular" value="0.25 0.25 0.25 1" />
-    </appearance>
-
     <appearance id="tableSupportApp" shininess="1.0">
       <component type="ambient" value="0.0 0.0 0.00 1" />
       <component type="diffuse" value="0.051 0.039 0.039 1" />
       <component type="specular" value="0.102 0.078 0.078 1" />
     </appearance>
-
+    <!--SCENE 1-->
+    <appearance id="tzaarWallApp" shininess="0.3" textureref="wallBlue">
+      <component type="ambient" value="0.2 0.18 0.16 1" />
+      <component type="diffuse" value="0.380 0.478 0.580 1" />
+      <component type="specular" value="0.25 0.25 0.25 1" />
+    </appearance>
+    <appearance id="wallApp" shininess="1.0" >
+      <component type="ambient" value="0.55 0.18 0.10 1" />
+      <component type="diffuse" value="0.55 0.18 0.10 1" />
+      <component type="specular" value="0.55 0.18 0.10 1" />
+    </appearance>
+    <appearance id="wallCeilApp" shininess="1.0" >
+      <component type="ambient" value="0.8 0.8 0.8 1" />
+      <component type="diffuse" value="0.8 0.8 0.8 1" />
+      <component type="specular" value="0.8 0.8 0.8 1" />
+    </appearance>
+    <appearance id="floorApp" shininess="0.6" textureref="floor">
+      <component type="ambient" value="0.2 0.18 0.16 1" />
+      <component type="diffuse" value="0.58 0.58 0.58 1" />
+      <component type="specular" value="0.25 0.25 0.25 1" />
+    </appearance>
     <appearance id="doorApp" shininess="1.0" textureref="door">
       <component type="ambient" value="0.03 0.03 0.03 1" />
       <component type="diffuse" value="0.3 0.3 0.3 1" />
       <component type="specular" value="0.7 0.7 0.7 1" />
     </appearance>
-
     <appearance id="blackBoardApp" shininess="1.0" textureref="blackBoard">
       <component type="ambient" value="0.03 0.03 0.03 1" />
       <component type="diffuse" value="0.4 0.4 0.4 1" />
       <component type="specular" value="0.8 0.8 0.8 1" />
     </appearance>
-
-
+    <!--SCENE 2-->
+    <appearance id="basketFloorApp" shininess="0.2" textureref="basketFloor">
+      <component type="ambient" value="0.2 0.2 0.2 1" />
+      <component type="diffuse" value="0.2 0.2 0.2 1" />
+      <component type="specular" value="0.4 0.4 0.4 1" />
+    </appearance>
+    <appearance id="cementFloorApp" shininess="0.2" textureref="cementFloor">
+      <component type="ambient" value="0.2 0.2 0.2 1" />
+      <component type="diffuse" value="0.2 0.2 0.2 1" />
+      <component type="specular" value="0.4 0.4 0.4 1" />
+    </appearance>
+    <appearance id="brickWallApp" shininess="0.4" textureref="brickWall">
+      <component type="ambient" value="0.2 0.2 0.2 1" />
+      <component type="diffuse" value="0.4 0.4 0.4 1" />
+      <component type="specular" value="0.4 0.4 0.4 1" />
+    </appearance>
+    <appearance id="greyBrickWallApp" shininess="0.4" textureref="greyBrickWall">
+      <component type="ambient" value="0.2 0.2 0.2 1" />
+      <component type="diffuse" value="0.4 0.4 0.4 1" />
+      <component type="specular" value="0.4 0.4 0.4 1" />
+    </appearance>
+    <appearance id="tallBuilding1App" shininess="0.4" textureref="tallBuilding1">
+      <component type="ambient" value="0.2 0.2 0.2 1" />
+      <component type="diffuse" value="0.4 0.4 0.4 1" />
+      <component type="specular" value="0.4 0.4 0.4 1" />
+    </appearance>
+    <appearance id="cityApp" shininess="0.4" textureref="city">
+      <component type="ambient" value="0.9 0.9 0.9 1" />
+      <component type="diffuse" value="0.9 0.9 0.9 1" />
+      <component type="specular" value="0.9 0.9 0.9 1" />
+    </appearance>
+    <appearance id="cementWallApp" shininess="0.4" textureref="cementWall">
+      <component type="ambient" value="0.2 0.2 0.2 1" />
+      <component type="diffuse" value="0.4 0.4 0.4 1" />
+      <component type="specular" value="0.4 0.4 0.4 1" />
+    </appearance>
 
   </appearances>
 
   <animations>
+    <!--SCENE 1-->
   </animations>
 
   <graph rootid="scene1">
 
+
+    <!--NODES IN COMMON WITH BOTH SCENES-->
+    <!--________________________________-->
+    <!--________________________________-->
+
     <node id="tabNCylsNSupport">
       <transforms>
-        <transform type="translate" to="13.335 2 13.335"/>
+        <!--<transform type="translate" to="13.335 2 13.335"/>-->
+        <transform type="translate" to="0 2 0"/>
       </transforms>
       <descendants>
         <noderef id="tabNCyls"/>
         <noderef id="support"/>
       </descendants>
     </node>
-      
+
     <node id="tabNCyls">
       <appearanceref id="inherit"/>
       <transforms>
@@ -222,8 +266,8 @@
         <plane parts="5"/>
       </primitives>
     </node>
-    
-        
+
+
     <node id="cyls">
       <appearanceref id="inherit"/>
       <transforms>
@@ -1092,8 +1136,7 @@
       </primitives>
     </node>
 
-    
-    
+
     <node id="support">
       <appearanceref id="tableSupportApp"/>
       <transforms>
@@ -1118,7 +1161,6 @@
         <noderef id="infHor"/>
       </descendants>
     </node>
-
     <node id="supHorLeftBack">
       <appearanceref id="inherit"/>
       <transforms>
@@ -1129,7 +1171,6 @@
         <noderef id="cube"/>
       </descendants>
     </node>
-
     <node id="supHorLeftFront">
       <appearanceref id="inherit"/>
       <transforms>
@@ -1139,7 +1180,6 @@
         <noderef id="supHorLeftBack"/>
       </descendants>
     </node>
-
     <node id="verLeftBack">
       <appearanceref id="inherit"/>
       <transforms>
@@ -1150,7 +1190,6 @@
         <noderef id="cube"/>
       </descendants>
     </node>
-
     <node id="verLeftFront">
       <appearanceref id="inherit"/>
       <transforms>
@@ -1160,7 +1199,6 @@
         <noderef id="verLeftBack"/>
       </descendants>
     </node>
-
     <node id="infHor">
       <appearance id="inherit"/>
       <transforms>
@@ -1171,7 +1209,6 @@
         <noderef id="cube"/>
       </descendants>
     </node>
-
     <node id="supportRight">
       <appearanceref id="inherit"/>
       <transforms>
@@ -1182,63 +1219,7 @@
       </descendants>
     </node>
 
-    <node id="scene1">
-      <appearanceref id="inherit"/>
-      <transforms/>
-      <descendants>
-        <noderef id="tabNCylsNSupport"/> <!--node in commmon-->
-        <noderef id ="wallsNFurniture"/>
-      </descendants>
-      <primitives/>
-    </node>
 
-
-    <node id="wallsNFurniture">
-      <transforms/>
-      <descendants>
-        <noderef id="walls"/>
-        <noderef id="furniture"/>
-      </descendants>
-    </node>
-
-    <node id="furniture">
-      <transforms/>
-      <descendants>
-        <noderef id="door"/>
-        <noderef id="blackBoard"/>
-        <noderef id="storageUnit"/>
-      </descendants>
-    </node>
-
-    <node id="walls">
-      <appearanceref id="wallApp"/>
-      <transforms>
-        <transform type="translate" to="13.335 0 13.335"/>
-        <transform type="scale" factor="2.667 1.5 2.667"/>
-      </transforms>
-      <descendants>
-        <noderef id="wallBack"/>
-        <noderef id="wallFront"/>
-        <noderef id="wallLeft"/>
-        <noderef id="wallRight"/>
-        <noderef id="wallFloor"/>
-        <noderef id="wallCeiling"/>
-      </descendants>
-      <primitives/>
-    </node>
-
-
-    <!--a plane -->
-    <node id="plane">
-      <appearanceref id="inherit"/>
-      <transforms/>
-      <descendants/>
-      <primitives>
-        <plane parts="5"/>
-      </primitives>
-    </node>
-
-    <!--a cube made from plane-->
     <node id="cube">
       <appearanceref id="inherit"/>
       <transforms/>
@@ -1262,7 +1243,6 @@
       </descendants>
       <primitives/>
     </node>
-
     <node id="cubeBottom">
       <appearanceref id="inherit"/>
       <transforms>
@@ -1274,7 +1254,6 @@
       </descendants>
       <primitives/>
     </node>
-
     <node id="cubeFront">
       <appearanceref id="inherit"/>
       <transforms>
@@ -1286,7 +1265,6 @@
       </descendants>
       <primitives/>
     </node>
-
     <node id="cubeBack">
       <appearanceref id="inherit"/>
       <transforms>
@@ -1298,7 +1276,6 @@
       </descendants>
       <primitives/>
     </node>
-
     <node id="cubeLeft">
       <appearanceref id="inherit"/>
       <transforms>
@@ -1310,7 +1287,6 @@
       </descendants>
       <primitives/>
     </node>
-
     <node id="cubeRight">
       <appearanceref id="inherit"/>
       <transforms>
@@ -1323,31 +1299,68 @@
       <primitives/>
     </node>
 
-    <!--
-    _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    <node id="plane">
+      <appearanceref id="inherit"/>
+      <transforms/>
+      <descendants/>
+      <primitives>
+        <plane parts="5"/>
+      </primitives>
+    </node>
+
+
+    <!--END OF NODES IN COMMON WITH BOTH SCENES-->
+    <!--_______________________________________-->
+    <!--_______________________________________-->
+
+
+
+
+    <!--SCENE 1-->
+    <!--_______-->
+    <!--_______-->
+
+    <node id="scene1">
+      <appearanceref id="inherit"/>
+      <transforms/>
+      <descendants>
+        <noderef id="tabNCylsNSupport"/>
+        <!--node in commmon-->
+        <noderef id ="allScene1"/>
+      </descendants>
+      <primitives/>
+    </node>
+
+    <node id="allScene1">
+      <transforms>
+        <transform type="translate" to="-13.335 0 -13.335"/>
+      </transforms>
+      <descendants>
+        <noderef id="walls"/>
+        <noderef id="furniture"/>
+      </descendants>
+    </node>
     
-    BOARD
-    _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-    -->
-
-
-
-    <!--
-    _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
     
-    BOARD SUPPORT
-    _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-    -->
-
-
-
+    <!--WALLS-->
     
-    <!--
-    _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-    
-    WALLS
-    _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-    -->
+    <node id="walls">
+      <appearanceref id="wallApp"/>
+      <transforms>
+        <transform type="translate" to="13.335 0 13.335"/>
+        <transform type="scale" factor="2.667 1.5 2.667"/>
+      </transforms>
+      <descendants>
+        <noderef id="wallBack"/>
+        <noderef id="wallFront"/>
+        <noderef id="wallLeft"/>
+        <noderef id="wallRight"/>
+        <noderef id="wallFloor"/>
+        <noderef id="wallCeiling"/>
+      </descendants>
+      <primitives/>
+    </node>
 
     <node id="wallBack">
       <appearanceref id="tzaarWallApp"/>
@@ -1362,7 +1375,6 @@
         <plane parts="10"/>
       </primitives>
     </node>
-
     <node id="wallFront">
       <appearanceref id="inherit"/>
       <transforms>
@@ -1375,7 +1387,6 @@
       </descendants>
       <primitives/>
     </node>
-
     <node id="wallLeft">
       <appearanceref id="inherit"/>
       <transforms>
@@ -1388,7 +1399,6 @@
         <plane parts="50"/>
       </primitives>
     </node>
-
     <node id="wallRight">
       <appearanceref id="inherit"/>
       <transforms>
@@ -1401,7 +1411,6 @@
         <plane parts="50"/>
       </primitives>
     </node>
-
     <node id="wallFloor">
       <appearanceref id="floorApp"/>
       <transforms>
@@ -1412,7 +1421,6 @@
         <plane parts="100"/>
       </primitives>
     </node>
-
     <node id="wallCeiling">
       <appearanceref id="wallCeilApp"/>
       <transforms>
@@ -1428,13 +1436,15 @@
       </primitives>
     </node>
 
-    <!--
-    _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-    
-    FURNITURE
-    _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-    -->
-
+    <!--FURNITURE-->
+    <node id="furniture">
+      <transforms/>
+      <descendants>
+        <noderef id="door"/>
+        <noderef id="blackBoard"/>
+        <noderef id="storageUnit"/>
+      </descendants>
+    </node>
     <node id="door">
       <appearanceref id="doorApp"/>
       <transforms>
@@ -1448,7 +1458,6 @@
         <plane parts="10"/>
       </primitives>
     </node>
-
     <node id="blackBoard">
       <appearanceref id="blackBoardApp"/>
       <transforms>
@@ -1461,7 +1470,6 @@
         <plane parts="40"/>
       </primitives>
     </node>
-
     <node id="storageUnit">
       <appearanceref id="tabApp"/>
       <descendants>
@@ -1476,7 +1484,6 @@
       </transforms>
       <primitives/>
     </node>
-
     <node id="rowShelfs">
       <appearanceref id="inherit"/>
       <transforms></transforms>
@@ -1499,7 +1506,6 @@
       </descendants>
       <primitives></primitives>
     </node>
-
     <node id="shelfBottomStorage">
       <appearanceref id="inherit"/>
       <descendants>
@@ -1511,8 +1517,6 @@
       </transforms>
       <primitives/>
     </node>
-
-
     <node id="shelfMaster">
       <appearanceref id="inherit"/>
       <transforms></transforms>
@@ -1620,6 +1624,339 @@
       </descendants>
       <primitives/>
     </node>
+
+
+    <!--SCENE 2-->
+    <!--_______-->
+    <!--_______-->
+
+    <node id="scene2">
+      <appearanceref id="inherit"/>
+      <descendants>
+        <noderef id="tabNCylsNSupport"/>
+        <noderef id="ambient"/>
+      </descendants>
+      <primitives/>
+      <transforms/>
+    </node>
+
+    <node id="ambient">
+      <appearanceref id="inherit"/>
+      <descendants>
+        <noderef id="playFloor"/>
+        <noderef id="floor"/>
+        <noderef id="groundStands"/>
+        <noderef id="walls2"/>
+        <noderef  id="backBuilding"/>
+        <noderef  id="city"/>
+        <noderef  id="buildingB"/>
+        <noderef  id="buildingF"/>
+
+      </descendants>
+      <primitives/>
+      <transforms/>
+    </node>
+
+    <node id="floor">
+      <appearanceref id="cementFloorApp"/>
+      <descendants/>
+      <primitives>
+        <rectangle xy1="-35 -17.5" xy2="35 17.5" />
+      </primitives>
+      <transforms>
+        <transform type="translate" to="0 -0.01 0"/>
+        <transform type="rotate" axis="x" angle="-90"/>
+      </transforms>
+    </node>
+
+    <node id="playFloor">
+      <appearanceref id="basketFloorApp"/>
+      <descendants/>
+      <primitives>
+        <plane parts="100"/>
+      </primitives>
+      <transforms>
+        <transform type="scale" factor="50 1 25"/>
+      </transforms>
+    </node>
+
+    <node id="groundStands">
+      <appearanceref id="brickWallApp"/>
+      <descendants>
+        <noderef id="groundStand1"/>
+        <noderef id="groundStand2"/>
+      </descendants>
+      <primitives></primitives>
+      <transforms>
+      </transforms>
+    </node>
+
+    <node id="groundStand1">
+      <appearanceref id="brickWallApp"/>
+      <descendants>
+        <noderef id="gStandLevel1"/>
+        <noderef id="gStandLevel2"/>
+        <noderef id="gStandLevel3"/>
+      </descendants>
+      <primitives></primitives>
+      <transforms>
+        <transform type="translate" to="-30 0 0"/>
+      </transforms>
+    </node>
+    <node id="groundStand2">
+      <appearanceref id="brickWallApp"/>
+      <descendants>
+        <noderef id="gStandLevel1"/>
+        <noderef id="gStandLevel2"/>
+        <noderef id="gStandLevel3"/>
+      </descendants>
+      <primitives></primitives>
+      <transforms>
+        <transform type="translate" to="30 0 0"/>
+        <transform type="rotate" axis="y" angle="180"/>
+      </transforms>
+    </node>
+
+    <node id="gStandLevel1">
+      <appearanceref id="inherit"/>
+      <descendants>
+        <noderef id="gStandLevelf"/>
+        <noderef id="gStandLevelt"/>
+        <noderef id="gStandLevel1l"/>
+        <noderef id="gStandLevel1r"/>
+      </descendants>
+      <primitives></primitives>
+      <transforms>
+      </transforms>
+    </node>
+    <node id="gStandLevel2">
+      <appearanceref id="inherit"/>
+      <descendants>
+        <noderef id="gStandLevelf"/>
+        <noderef id="gStandLevelt"/>
+        <noderef id="gStandLevel2l"/>
+        <noderef id="gStandLevel2r"/>
+      </descendants>
+      <primitives></primitives>
+      <transforms>
+        <transform type="translate" to="-1.5 1.5 0"/>
+      </transforms>
+    </node>
+    <node id="gStandLevel3">
+      <appearanceref id="inherit"/>
+      <descendants>
+        <noderef id="gStandLevelf"/>
+        <noderef id="gStandLevelt"/>
+        <noderef id="gStandLevel3l"/>
+        <noderef id="gStandLevel3r"/>
+      </descendants>
+      <primitives></primitives>
+      <transforms>
+        <transform type="translate" to="-3 3 0"/>
+      </transforms>
+    </node>
+
+
+    <node id="gStandLevelf">
+      <appearanceref id="inherit"/>
+      <descendants>
+        <!--<noderef id="cube"/>-->
+      </descendants>
+      <primitives>
+        <rectangle xy1="-15 -0.75" xy2="15 0.75" />
+      </primitives>
+      <transforms>
+        <transform type="rotate" axis="y" angle="90"/>
+      </transforms>
+    </node>
+    <node id="gStandLevelt">
+      <appearanceref id="inherit"/>
+      <descendants>
+      </descendants>
+      <primitives>
+        <rectangle xy1="-15 -0.75" xy2="15 0.75" />
+      </primitives>
+      <transforms>
+        <transform type="translate" to="-0.75 0.75 0"/>
+        <transform type="rotate" axis="z" angle="90"/>
+        <transform type="rotate" axis="y" angle="90"/>
+      </transforms>
+    </node>
+
+    <node id="gStandLevel1l">
+      <appearanceref id="inherit"/>
+      <descendants>
+      </descendants>
+      <primitives>
+        <rectangle xy1="-2.25 -0.75" xy2="2.25 0.75" />
+      </primitives>
+      <transforms>
+        <transform type="translate" to="-2.25 0 15"/>
+      </transforms>
+    </node>
+    <node id="gStandLevel1r">
+      <appearanceref id="inherit"/>
+      <descendants>
+      </descendants>
+      <primitives>
+        <rectangle xy1="-2.25 -0.75" xy2="2.25 0.75" />
+      </primitives>
+      <transforms>
+        <transform type="translate" to="-2.25 0 -15"/>
+        <transform type="rotate" axis="y" angle="180"/>
+      </transforms>
+    </node>
+
+    <node id="gStandLevel2l">
+      <appearanceref id="inherit"/>
+      <descendants>
+      </descendants>
+      <primitives>
+        <rectangle xy1="-1.5 -0.75" xy2="1.5 0.75" />
+      </primitives>
+      <transforms>
+        <transform type="translate" to="-1.5 0 15"/>
+      </transforms>
+    </node>
+    <node id="gStandLevel2r">
+      <appearanceref id="inherit"/>
+      <descendants>
+      </descendants>
+      <primitives>
+        <rectangle xy1="-1.5 -0.75" xy2="1.5 0.75" />
+      </primitives>
+      <transforms>
+        <transform type="translate" to="-1.5 0 -15"/>
+        <transform type="rotate" axis="y" angle="180"/>
+      </transforms>
+    </node>
+
+    <node id="gStandLevel3l">
+      <appearanceref id="inherit"/>
+      <descendants>
+      </descendants>
+      <primitives>
+        <rectangle xy1="-0.75 -0.75" xy2="0.75 0.75" />
+      </primitives>
+      <transforms>
+        <transform type="translate" to="-0.75 0 15"/>
+      </transforms>
+    </node>
+    <node id="gStandLevel3r">
+      <appearanceref id="inherit"/>
+      <descendants>
+      </descendants>
+      <primitives>
+        <rectangle xy1="-0.75 -0.75" xy2="0.75 0.75" />
+      </primitives>
+      <transforms>
+        <transform type="translate" to="-0.75 0 -15"/>
+        <transform type="rotate" axis="y" angle="180"/>
+      </transforms>
+    </node>
+
+    <node id="walls2">
+      <appearanceref id="greyBrickWallApp"/>
+      <descendants>
+        <noderef id="wallF"/>
+        <noderef id="wallB"/>
+        <noderef id="wallL"/>
+        <noderef id="wallR"/>
+      </descendants>
+      <primitives/>
+      <transforms></transforms>
+    </node>
+    <node id="wallF">
+      <appearanceref id="inherit"/>
+      <descendants></descendants>
+      <primitives>
+        <rectangle xy1="-35 -5" xy2="35 5" />
+      </primitives>
+      <transforms>
+        <transform type="translate" to="0 5 17.5"/>
+        <transform type="rotate" axis="y" angle="180"/>
+      </transforms>
+    </node>
+    <node id="wallB">
+      <appearanceref id="inherit"/>
+      <descendants></descendants>
+      <primitives>
+        <rectangle xy1="-35 -5" xy2="35 5" />
+      </primitives>
+      <transforms>
+        <transform type="translate" to="0 5 -17.5"/>
+      </transforms>
+    </node>
+    <node id="wallL">
+      <appearanceref id="inherit"/>
+      <descendants></descendants>
+      <primitives>
+        <rectangle xy1="-17.5 -5" xy2="17.5 5" />
+      </primitives>
+      <transforms>
+        <transform type="translate" to="-35 5 0"/>
+        <transform type="rotate" axis="y" angle="90"/>
+      </transforms>
+    </node>
+    <node id="wallR">
+      <appearanceref id="inherit"/>
+      <descendants></descendants>
+      <primitives>
+        <rectangle xy1="-17.5 -5" xy2="17.5 5" />
+      </primitives>
+      <transforms>
+        <transform type="translate" to="35 5 0"/>
+        <transform type="rotate" axis="y" angle="-90"/>
+      </transforms>
+    </node>
+
+    <node id="backBuilding">
+      <appearanceref id="tallBuilding1App"/>
+      <descendants></descendants>
+      <primitives>
+        <rectangle xy1="-20.5 10" xy2="17.5 40" />
+      </primitives>
+      <transforms>
+        <transform type="translate" to="-40 0 0"/>
+        <transform type="rotate" axis="y" angle="90"/>
+      </transforms>
+    </node>
+    <node id="city">
+      <appearanceref id="cityApp"/>
+      <descendants></descendants>
+      <primitives>
+        <plane parts="50"/>
+        <!--<rectangle xy1="-25.5 10" xy2="25 40" />-->
+      </primitives>
+      <transforms>
+        <transform type="translate" to="40 20 0"/>
+        <transform type="rotate" axis="y" angle="-90"/>
+        <transform type="rotate" axis="x" angle="90"/>
+        <transform type="scale" factor="70 1 30"/>
+      </transforms>
+    </node>
+    <node id="buildingB">
+      <appearanceref id="cementWallApp"/>
+      <descendants></descendants>
+      <primitives>
+        <rectangle xy1="-35 8" xy2="32 35" />
+      </primitives>
+      <transforms>
+        <transform type="translate" to="0 0 -20"/>
+      </transforms>
+    </node>
+    <node id="buildingF">
+      <appearanceref id="cementWallApp"/>
+      <descendants></descendants>
+      <primitives>
+        <rectangle xy1="-35 8" xy2="40 35" />
+      </primitives>
+      <transforms>
+        <transform type="rotate" axis="y" angle="180"/>
+        <transform type="translate" to="0 0 -20"/>
+      </transforms>
+    </node>
+
   </graph>
 
 </anf>

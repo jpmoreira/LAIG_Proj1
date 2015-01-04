@@ -84,7 +84,7 @@ void LG_Tzaar::loadShortMenu(){
 
 #pragma mark - Singleton
 
-LG_Tzaar::LG_Tzaar():CGFscene(),CGFinterface(),scene_anf(NULL),menu_anf(NULL),short_menu_anf(NULL),nrVictoriesPlayerA(0),nrVictoriesPlayerB(0){
+LG_Tzaar::LG_Tzaar():CGFscene(),CGFinterface(),scene_anf(NULL),menu_anf(NULL),short_menu_anf(NULL),nrVictoriesPlayerA(0),nrVictoriesPlayerB(0),sock(new LG_Socket()){
 
 }
 
@@ -258,7 +258,8 @@ void LG_Tzaar::display(){
 	Print Board
 	
 	*/
-	//cout << boardString() << endl;
+	string testBoard = boardString();
+	printf("");
 
 	
 #pragma endregion
@@ -492,7 +493,9 @@ bool LG_Tzaar::validateMove(){
 	sock->write(qst);
 	ans = sock->read();
 
-	return str_eq(ans, PL_NO);
+	bool isValidMove = !str_eq(ans, "no.\r");
+
+	return isValidMove;
 }
 
 bool LG_Tzaar::validateMoveFOR_TESTS(int x1, int z1, int x2, int z2){

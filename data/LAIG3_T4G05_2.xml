@@ -56,43 +56,36 @@
       <component type="diffuse" value="0.65 0.5 0.39 1" />
       <component type="specular" value="0.65 0.5 0.39 1" />
     </appearance>
-
     <appearance id="tab_lidApp" shininess="0.2" textureref="tab_lidText">
       <component type="ambient" value="0.65 0.5 0.39 1" />
       <component type="diffuse" value="0.65 0.5 0.39 1" />
       <component type="specular" value="0.65 0.5 0.39 1" />
     </appearance>
-
     <appearance id="tableSupportApp" shininess="1.0">
       <component type="ambient" value="0.0 0.0 0.00 1" />
       <component type="diffuse" value="0.051 0.039 0.039 1" />
       <component type="specular" value="0.102 0.078 0.078 1" />
     </appearance>
-
     <appearance id="basketFloorApp" shininess="0.2" textureref="basketFloor">
       <component type="ambient" value="0.2 0.2 0.2 1" />
       <component type="diffuse" value="0.2 0.2 0.2 1" />
       <component type="specular" value="0.4 0.4 0.4 1" />
     </appearance>
-
     <appearance id="cementFloorApp" shininess="0.2" textureref="cementFloor">
       <component type="ambient" value="0.2 0.2 0.2 1" />
       <component type="diffuse" value="0.2 0.2 0.2 1" />
       <component type="specular" value="0.4 0.4 0.4 1" />
     </appearance>
-
     <appearance id="brickWallApp" shininess="0.4" textureref="brickWall">
       <component type="ambient" value="0.2 0.2 0.2 1" />
       <component type="diffuse" value="0.4 0.4 0.4 1" />
       <component type="specular" value="0.4 0.4 0.4 1" />
     </appearance>
-
     <appearance id="greyBrickWallApp" shininess="0.4" textureref="greyBrickWall">
       <component type="ambient" value="0.2 0.2 0.2 1" />
       <component type="diffuse" value="0.4 0.4 0.4 1" />
       <component type="specular" value="0.4 0.4 0.4 1" />
     </appearance>
-
     <appearance id="tallBuilding1App" shininess="0.4" textureref="tallBuilding1">
       <component type="ambient" value="0.2 0.2 0.2 1" />
       <component type="diffuse" value="0.4 0.4 0.4 1" />
@@ -1545,7 +1538,7 @@
       </transforms>
     </node>
 
-    <node id="walls">
+    <node id="walls2">
       <appearanceref id="greyBrickWallApp"/>
       <descendants>
         <noderef id="wallF"/>
