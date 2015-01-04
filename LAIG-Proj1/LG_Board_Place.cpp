@@ -135,7 +135,7 @@ void LG_Board_Place::animationFinished(LG_AnimationState *state){
     LG_Tzaar::currentTzaar->animationFinished(state->animation);
 
     //delete state->animation;
-    delete state;//state no longer needed
+   // delete state;//state no longer needed
     
     
     

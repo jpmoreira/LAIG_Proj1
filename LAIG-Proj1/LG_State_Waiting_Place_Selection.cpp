@@ -7,6 +7,7 @@
 //
 
 #include "LG_State_Waiting_Place_Selection.h"
+#include "LG_State_Waiting_Piece_Selection.h"
 #include "LG_Board_Place.h"
 #include "LG_Tzaar.h"
 #include "LG_State_Animating_Move.h"
@@ -31,7 +32,7 @@ LG_Game_State * LG_State_Waiting_Place_Selection::currentPlayerPieceSelected(LG_
     if(place->isSelected()){
         
         place->toggleSelected();
-        return new LG_State_Waiting_Piece_Selection(game);
+        return LG_State_Waiting_Piece_Selection:: state(game);
     
     }
     
@@ -80,9 +81,9 @@ LG_Game_State * LG_State_Waiting_Place_Selection::validateMoveAndHandleResult(){
     
     bool valid=game->validateMove();
     
-    if (valid && game->destination!=NULL) return new LG_State_Animating_Move(game);
+    if (valid && game->destination!=NULL) return LG_State_Animating_Move::state(game);
     
-    else return new LG_State_Waiting_Piece_Selection(game);
+    else return LG_State_Waiting_Piece_Selection::state(game);
     
     
 
