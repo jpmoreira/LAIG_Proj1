@@ -47,6 +47,14 @@ typedef enum{
 
 } GamePhase;
 
+typedef enum {
+
+	VicNone,
+	VicWhite,
+	VicBlack
+
+} Victory;
+
 class LG_Tzaar : public CGFscene, public CGFinterface {
 
 
@@ -166,6 +174,7 @@ public:
 
 	void changeCameraClicked();
     void exitButtonClicked();
+	void changeSceneClicked();
 	void playClicked(int difficulty);
 	void setModeClicked(int mode);
 
@@ -182,6 +191,8 @@ public:
 
 	vector<LG_Board_Place *> chooseMove();
 	
+	Victory gameOver();
+	string gameOverFOR_TESTS(string query);
 
 	//helper methods
 

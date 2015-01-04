@@ -59,7 +59,7 @@
         <transform type="translate" to="0 0 -0.4" />
       </transforms>
       <primitives>
-          <!--<rectangle xy1="0 0" xy2="0.012 0.02"/>-->
+        <!--<rectangle xy1="0 0" xy2="0.012 0.02"/>-->
         <!--<rectangle xy1="-0.15 -0.15" xy2="0.15 0.15" />-->
       </primitives>
       <descendants>
@@ -68,22 +68,22 @@
         <noderef id="clockNode"/>
       </descendants>
     </node >
-    
-    
+
+
     <node id="clockNode" >
-        <transforms>
-            <transform type="translate" to="-0.12 -0.13 0" />
-        </transforms>
-        <primitives>
-            <clock/>
-        </primitives>
-        <descendants/>
+      <transforms>
+        <transform type="translate" to="-0.12 -0.13 0" />
+      </transforms>
+      <primitives>
+        <clock/>
+      </primitives>
+      <descendants/>
     </node >
-    
-    
-    
-    
-    
+
+
+
+
+
 
     <node id="shortMenuBckg">
       <appearanceref id="menuShortbckgApp"/>
@@ -108,7 +108,7 @@
       </transforms>
     </node>
 
-    <node id="shortMenuScene" visible="true" selectable="true">
+    <button id="shortMenuScene" action="changeSceneClicked">
       <appearanceref id="shortBtnSceneApp"/>
       <descendants/>
       <primitives>
@@ -116,7 +116,7 @@
       </primitives>
       <transforms>
       </transforms>
-    </node>
+    </button>
 
     <node id="shortMenuUndo" visible="true" selectable="true">
       <appearanceref id="shortBtnUndoApp"/>
