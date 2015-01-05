@@ -299,7 +299,7 @@ LG_Node * LG_ANF::nodeWithID(string identif){
 void LG_ANF::replaceGraph(){
 
 
-    delete this->graph;
+    //delete this->graph;
     
     graph=new LG_Graph(apperances->map,animations->map,graphElement);
     

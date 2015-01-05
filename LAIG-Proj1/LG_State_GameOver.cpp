@@ -33,8 +33,10 @@ LG_Game_State * LG_State_GameOver::state(LG_Tzaar *tzaar){
     tzaar->playingColor=White;
     tzaar->phase=phase1;
     
-    tzaar->origin->setSelected(false);
-    tzaar->destination->setSelected(false);
+    
+    if(tzaar->origin)tzaar->origin->setSelected(false);
+    if(tzaar->destination)tzaar->destination->setSelected(false);
+    
     
     if (v==VicWhite) {
         tzaar->nrVictoriesPlayerA++;

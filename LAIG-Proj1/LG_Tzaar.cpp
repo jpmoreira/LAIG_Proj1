@@ -680,6 +680,11 @@ vector<LG_Board_Place *> LG_Tzaar::chooseMove(){
 	if (it != this->scene_anf->graph->map->end())
 		move.push_back(dynamic_cast<LG_Board_Place *>(it->second));
 
+    if(move[0]==NULL ||move[1]==NULL){
+    
+        printf("bla");
+    }
+    
 	return move;
 
 
@@ -696,9 +701,9 @@ Victory LG_Tzaar::gameOver(){
 	sock->write(oss.str());
 	ans = sock->read();
 
-	if (str_eq(ans, "'B'.\r"))
+	if (str_eq(ans, "'B'.\r") || str_eq(ans, "'B'."))
 		return VicBlack;
-	else if (str_eq(ans, "'W'.\r"))
+	else if (str_eq(ans, "'W'.\r") || str_eq(ans, "'W'."))
 		return VicWhite;
 
 

@@ -78,6 +78,7 @@
         <!--<noderef id="shortMenuBckg"/>-->
         <noderef id="shortMenuOptions"/>
         <noderef id="clockNode"/>
+        <noderef id="counterNode"/>
       </descendants>
     </node >
 

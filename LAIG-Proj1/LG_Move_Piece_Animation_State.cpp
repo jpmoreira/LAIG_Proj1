@@ -50,7 +50,7 @@ void LG_Move_Piece_Animation_State::update(unsigned long timeNow){
     percentagePassed/=Move_Piece_Animation_Duration;
     
     
-    double dy=sin(M_PI*percentagePassed);
+    double dy=0.5*sin(M_PI*percentagePassed);
 
     translate(2*dx*percentagePassed, dy, dz*percentagePassed);
     

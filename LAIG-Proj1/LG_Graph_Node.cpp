@@ -37,6 +37,7 @@
 #include "LG_Flag.h"
 #include "LG_Board_Place.h"
 #include "LG_Clock.h"
+#include "LG_VictoryCounter.h"
 
 #include <iostream>
 
@@ -234,6 +235,10 @@ vector<LG_Primitive *> LG_Graph_Node::handlePrimitives(LG_Node_Map *map,LG_Node_
         }
         else if(str_eq(LG_Clock_XML_Tag_Name, potentialPrimitive->Value())){
             primitives.push_back(new LG_Clock(map,potentialPrimitive));
+        }
+        else if(str_eq(LG_VictoryCounter_XML_Tag_Name, potentialPrimitive->Value())){
+        
+            primitives.push_back(new LG_VictoryCounter(map,potentialPrimitive));
         }
         
         potentialPrimitive = potentialPrimitive->NextSiblingElement();

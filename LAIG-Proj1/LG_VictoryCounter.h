@@ -19,9 +19,8 @@ class LG_VictoryCounter:public LG_Counter {
     
     
     LG_Appearance * appForFirstPlayerVictories1;
-    LG_Appearance * appForFirstPlayerVictories2;
     LG_Appearance * appForSecondPlayerVictories1;
-    LG_Appearance * appForSecondPlayerVictories2;
+    LG_Appearance * appForFrame;
     
 public:
     LG_VictoryCounter(LG_Node_Map *map,TiXmlElement * elem);
@@ -31,6 +30,8 @@ public:
     void reset();
     
     void updateNrVictories(int nrVictoriesA,int nrVictoriesB);
+    
+    void calculateTextureCoordinates ();
 };
 
 #endif /* defined(__LAIG_Proj1__LG_VictoryCounter__) */
