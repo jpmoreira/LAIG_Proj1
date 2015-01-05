@@ -33,12 +33,17 @@ LG_Game_State * LG_State_GameOver::state(LG_Tzaar *tzaar){
     tzaar->playingColor=White;
     tzaar->phase=phase1;
     
+    tzaar->origin->setSelected(false);
+    tzaar->destination->setSelected(false);
+    
     if (v==VicWhite) {
         tzaar->nrVictoriesPlayerA++;
     }
     else{
         tzaar->nrVictoriesPlayerB++;
     }
+    
+    printf("gameover with phase=%d turn=%d\n",tzaar->phase, tzaar->playingColor);
     
     return LG_State_Waiting_Piece_Selection::state(tzaar);
 

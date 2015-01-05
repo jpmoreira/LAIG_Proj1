@@ -94,6 +94,16 @@
 
 
 
+    <node id="counterNode" >
+        <transforms>
+            <transform type="translate" to="-0.12 -0.13 0" />
+        </transforms>
+        <primitives>
+            <counter/>
+        </primitives>
+        <descendants/>
+    </node >
+
 
 
 

@@ -12,10 +12,12 @@
 
 LG_VictoryCounter::LG_VictoryCounter(LG_Node_Map *map,TiXmlElement *elem):LG_Counter(map,LG_VictoryCounter_ID){
 
-    double pt1[3]={-nrWidth/2.0,-nrHeight/2., 0};
-    double pt2[3]={nrWidth/2.0, nrHeight/2.0, 0};
+    double pt1[3]={-4.0*nrWidth,-nrHeight/2.0, 0};
+    double pt2[3]={4.0*nrWidth, nrHeight/2.0, 0};
+
     
     this->addChild(new LG_Rectangle(map, pt1, pt2));
+    this->addChild(new LG_Rectangle(map,)
     
     appForFirstPlayerVictories1=nrApps[0];
     appForFirstPlayerVictories2=nrApps[0];
@@ -27,6 +29,9 @@ LG_VictoryCounter::LG_VictoryCounter(LG_Node_Map *map,TiXmlElement *elem):LG_Cou
 
 
 void LG_VictoryCounter::draw(bool selectMode){
+    
+    
+    this->child(0)->draw();
 
 
 }
