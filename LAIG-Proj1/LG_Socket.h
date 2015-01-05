@@ -38,7 +38,7 @@ class LG_Socket {
 	unsigned int sock;	
 #endif
 
-    char recieveBuffer[256];
+    char recieveBuffer[2048];
 
     
 public:
