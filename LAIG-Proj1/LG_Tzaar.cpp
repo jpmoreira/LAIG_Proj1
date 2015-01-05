@@ -644,6 +644,7 @@ vector<LG_Board_Place *> LG_Tzaar::chooseMove(){
 	lastCommand = oss.str() + "\n";
 	sock->write(qst);
 	ans = sock->read();
+	
 
 	oss.str(std::string());
 	oss.clear();
@@ -651,6 +652,8 @@ vector<LG_Board_Place *> LG_Tzaar::chooseMove(){
 	int x1, x2, z1, z2;
 	int result = 0;
 	result = sscanf(ans.c_str(), "[%d,%d,%d,%d].\r", &x1, &z1, &x2, &z2);
+	if (result != 4)
+		result = sscanf(ans.c_str(), "[%d,%d,%d,%d].\n", &x1, &z1, &x2, &z2);
 
 	if (result != 4){
 		move.push_back(this->origin);
@@ -680,6 +683,9 @@ vector<LG_Board_Place *> LG_Tzaar::chooseMove(){
 	if (it != this->scene_anf->graph->map->end())
 		move.push_back(dynamic_cast<LG_Board_Place *>(it->second));
 
+
+	if (move.at(0) == NULL || move.at(1) == NULL)
+		printf("");
 	return move;
 
 
