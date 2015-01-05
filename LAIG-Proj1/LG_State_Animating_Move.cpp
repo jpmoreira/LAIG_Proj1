@@ -107,6 +107,14 @@ LG_Game_State * LG_State_Animating_Move::cameraAnimationFinished(){
     
     if (v==VicNone) return LG_State_Waiting_Piece_Selection::state(game);
     
-    return new LG_State_GameOver(game);
+    return LG_State_GameOver::state(game);
+
+}
+
+LG_Game_State * LG_State_Animating_Move::drawMenu(bool selectMode){
+
+    
+    game->short_menu_anf->draw(selectMode);
+    return NULL;
 
 }

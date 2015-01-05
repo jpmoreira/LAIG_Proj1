@@ -8,6 +8,8 @@
 
 #include "LG_State_GameOver.h"
 #include "LG_Tzaar.h"
+#include "LG_Clock.h"
+#include "LG_State_Waiting_Piece_Selection.h"
 
 
 
@@ -15,5 +17,29 @@ LG_State_GameOver::LG_State_GameOver(LG_Tzaar *tzaar):LG_Game_State(tzaar){
     
     
 
+
+
+}
+
+
+LG_Game_State * LG_State_GameOver::state(LG_Tzaar *tzaar){
+
+    
+    Victory v=tzaar->gameOver();
+    
+    tzaar->scene_anf->replaceGraph();
+    LG_Clock *clock=dynamic_cast<LG_Clock *>(tzaar->short_menu_anf->graph->nodeWithID(LG_Clock_ID));
+    clock->reset();
+    tzaar->playingColor=White;
+    tzaar->phase=phase1;
+    
+    if (v==VicWhite) {
+        tzaar->nrVictoriesPlayerA++;
+    }
+    else{
+        tzaar->nrVictoriesPlayerB++;
+    }
+    
+    return LG_State_Waiting_Piece_Selection::state(tzaar);
 
 }

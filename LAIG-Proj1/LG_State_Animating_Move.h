@@ -28,6 +28,7 @@ public:
     
     LG_Game_State * animationFinished(LG_Animation *);
     LG_Game_State * cameraAnimationFinished();
+    LG_Game_State * drawMenu(bool selectMode);
 };
 
 #endif /* defined(__LAIG_Proj1__LG_State_Animating_Move__) */

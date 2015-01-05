@@ -19,9 +19,11 @@ class LG_Tzaar;
 class LG_State_GameOver: public LG_Game_State {
     
     
+     LG_State_GameOver(LG_Tzaar *game);
+    
 public:
     
-    LG_State_GameOver(LG_Tzaar *game);
+    static LG_Game_State * state(LG_Tzaar *tzaar);
 
 };
 
