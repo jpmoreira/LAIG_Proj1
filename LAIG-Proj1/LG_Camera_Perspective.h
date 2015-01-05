@@ -16,6 +16,8 @@
 class LG_Camera_Perspective : public LG_Camera
 {
 public:
+    
+    bool animating;
 	LG_Camera_Perspective(LG_Node_Map *map, TiXmlElement *element);
 	~LG_Camera_Perspective();
 
@@ -42,7 +44,9 @@ public:
      */
 private:
 	double angle;
-    bool animating;
+    double distance;
+    double initialAngle;
+    
     unsigned long animationStart;
     LG_Node * owner;
     

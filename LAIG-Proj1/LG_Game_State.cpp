@@ -27,6 +27,8 @@ LG_Game_State * LG_Game_State::update(unsigned long time){
     
     game->short_menu_anf->graph->update(time);
     
+    game->scene_anf->getCamerasContainer()->getCurrentCamera()->update(time);
+    
     return NULL;
 
 }
@@ -152,6 +154,16 @@ LG_Game_State * LG_Game_State::buttonSelected(LG_Button *button){
 
 LG_Game_State::~LG_Game_State(){
 
+}
+
+
+#pragma mark - Camera
+
+
+LG_Game_State * LG_Game_State::cameraAnimationFinished(){
+
+    
+    return NULL;
 }
 
 

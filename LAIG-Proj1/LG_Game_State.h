@@ -56,6 +56,9 @@ public:
     virtual LG_Game_State * processMouse(int button, int state, int x, int y);
     
     
+    virtual LG_Game_State * cameraAnimationFinished();
+    
+    
     virtual ~LG_Game_State();
     
     

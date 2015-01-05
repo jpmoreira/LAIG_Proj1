@@ -87,7 +87,7 @@ void LG_Tzaar::loadShortMenu(){
 #pragma mark - Singleton
 
 LG_Tzaar::LG_Tzaar() :CGFscene(), CGFinterface(), scene_anf(NULL), menu_anf(NULL), short_menu_anf(NULL), nrVictoriesPlayerA(0), nrVictoriesPlayerB(0),
-sock(new LG_Socket()), memorizedPlays(new vector<LG_Movement>), state(NULL){
+sock(new LG_Socket()), memorizedPlays(new vector<LG_Movement>), state(NULL),cameraAnimationActive(true){
 
 }
 
@@ -196,7 +196,9 @@ void LG_Tzaar::display(){
 
 	this->drawMenu(selectMode);
 
-	CGFscene::activeCamera->applyView();
+    this->scene_anf->cameras->getCurrentCamera()->applyView();
+    
+	//CGFscene::activeCamera->applyView();
 
 	axis.draw();
 
@@ -285,7 +287,6 @@ void LG_Tzaar::update(unsigned long millis){
 		delete tmp;
     }
 
-	this->state->update(millis);
 
 }
 
@@ -483,10 +484,6 @@ void LG_Tzaar::playClicked(int difficulty){
     }
 }
 
-void LG_Tzaar::changeCameraClicked(){
-
-
-}
 
 void LG_Tzaar::changeSceneClicked(){
 
@@ -808,6 +805,50 @@ string LG_Tzaar::boardString(){
 
 #pragma mark - Camera Animation
 
-void LG_Tzaar::cameraAnimationFinished(){
+void LG_Tzaar::tellCameraToAnimate(){
+
+    if (!cameraAnimationActive) {
+        cameraAnimationFinished();
+    }
+    LG_Camera_Perspective *cam=(LG_Camera_Perspective *) scene_anf->cameras->getCurrentCamera();
+    cam->animating=true;
 
 }
+
+void LG_Tzaar::cameraAnimationFinished(){
+    
+    LG_Game_State *s=this->state->cameraAnimationFinished();
+    if(s){
+    
+        LG_Game_State *tmp=this->state;
+        this->state=s;
+        delete tmp;
+    }
+
+}
+
+void LG_Tzaar::toggleCameraAnimationActivation(){
+
+    cameraAnimationActive=!cameraAnimationActive;
+
+}
+
+void LG_Tzaar::changeCameraClicked(){
+    
+    LG_Camera *currentCam=this->scene_anf->getCamerasContainer()->getCurrentCamera();
+    
+
+    for (int i=0; i<this->scene_anf->getCamerasContainer()->getNrChildren(); i++) {
+        
+        LG_Camera *cam=(LG_Camera *)this->scene_anf->getCamerasContainer()->child(i);
+        if (cam==currentCam && i+1<scene_anf->getCamerasContainer()->getNrChildren()) {
+            this->scene_anf->getCamerasContainer()->setCurrentCamera(i+1);
+        }
+        else if(cam==currentCam){
+            this->scene_anf->getCamerasContainer()->setCurrentCamera(0);
+        }
+    }
+    
+}
+
+

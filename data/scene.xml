@@ -6,8 +6,10 @@
   </globals>
 
   <cameras initial="perspective1" >
-    <perspective id="perspective1" near="1" far="200" angle="30" pos="0 20 20" target="20 0 0" />
-    <ortho id="ortho1" direction="x" near="20" far="-20" left="-10" right="5" top="20" bottom="0" />
+    <perspective id="perspective1" near="1" far="200" angle="30" pos="0 6 4" target="0 0 0" />
+    <perspective id="top" near="1" far="200" angle="30" pos="0 6 0.00001" target="0 0 0" />
+    <perspective id="perspective2" near="1" far="200" angle="30" pos="0 70 70" target="0 0 0" />
+    
   </cameras>
 
   <lights>

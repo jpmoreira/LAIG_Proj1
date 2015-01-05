@@ -22,7 +22,9 @@
     <texture id="menuShortbckg" file="../data/menuShortBckg.jpg" texlength_s="0.5" texlength_t="0.3"/>
     <texture id="shortBtnScene" file="../data/btnScene.jpg" texlength_s="0.05" texlength_t="0.018"/>
     <texture id="shortBtnUndo" file="../data/btnUndo.jpg" texlength_s="0.05" texlength_t="0.018"/>
-    <texture id="shortBtnExit" file="../data/btnExit.jpg" texlength_s="0.05" texlength_t="0.018"/>
+   <texture id="shortBtnExit" file="../data/btnExit.jpg" texlength_s="0.05" texlength_t="0.018"/>
+   <!-- <texture id="shortBtnPass" file="../data/btnPass.jpg" texlength_s="0.05" texlength_t="0.018"/>
+    <texture id="shortBtnChangeCamera" file="../data/btnChangeCamera.jpg" texlength_s="0.05" texlength_t="0.018"/>-->
 
   </textures>
   <appearances>
@@ -46,6 +48,16 @@
       <component type="ambient" value="0.70 0.70 0.70 1" />
       <component type="diffuse" value="0.70 0.70 0.70 1" />
       <component type="specular" value="0.70 0.70 0.70 1" />
+    </appearance>
+   <!-- <appearance id="shortBtnPassApp" shininess="1" textureref="shortBtnPass">
+        <component type="ambient" value="0.70 0.70 0.70 1" />
+        <component type="diffuse" value="0.70 0.70 0.70 1" />
+        <component type="specular" value="0.70 0.70 0.70 1" />
+    </appearance>-->
+    <appearance id="shortBtnChangeCameraApp" shininess="1" >
+        <component type="ambient" value="0.70 0.70 0.70 1" />
+        <component type="diffuse" value="0.70 0.70 0.70 1" />
+        <component type="specular" value="0.70 0.70 0.70 1" />
     </appearance>
 
   </appearances>
@@ -101,12 +113,23 @@
         <noderef id="shortMenuScene"/>
         <noderef id="shortMenuUndo"/>
         <noderef id="shortMenuExit"/>
+        <noderef id="shortMenuChangeCamera"/>
       </descendants>
       <primitives/>
       <transforms>
         <transform type="translate" to="0.08 0 0"/>
       </transforms>
     </node>
+    
+    <button id="shortMenuChangeCamera" action="changeCameraClicked">
+        <appearanceref id="shortBtnChangeCameraApp"/>
+        <descendants/>
+        <primitives>
+            <rectangle xy1="-0.055 -0.14 " xy2="-0.005 -0.122"/>
+        </primitives>
+        <transforms>
+        </transforms>
+    </button>
 
     <button id="shortMenuScene" action="changeSceneClicked">
       <appearanceref id="shortBtnSceneApp"/>

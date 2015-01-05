@@ -65,7 +65,13 @@ LG_Game_State* LG_State_Animating_Move::animationFinished(LG_Animation *anim){
     game->origin->piece=NULL;
     
     
-    if(game->phase==phase1)game->phase=phase2;
+    if(game->phase==phase1){
+    
+        game->phase=phase2;
+        return this->cameraAnimationFinished();//do whatever it does
+        
+    }
+    
     else if(game->playingColor==White){
     
         game->playingColor=Black;
@@ -79,9 +85,19 @@ LG_Game_State* LG_State_Animating_Move::animationFinished(LG_Animation *anim){
     
     
     
+    game->tellCameraToAnimate();
+    
     
 //Verify GameOver
     
+    return NULL;
+    
+    
+
+}
+
+LG_Game_State * LG_State_Animating_Move::cameraAnimationFinished(){
+
     
     Victory v=game->gameOver();
     
@@ -91,7 +107,5 @@ LG_Game_State* LG_State_Animating_Move::animationFinished(LG_Animation *anim){
     if (v==VicNone) return LG_State_Waiting_Piece_Selection::state(game);
     
     return new LG_State_GameOver(game);
-    
-    
 
 }

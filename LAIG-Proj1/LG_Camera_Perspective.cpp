@@ -15,7 +15,7 @@
 #endif
 
 //passing LG_Camera_Perspective_Node_ID won't work, ID must be unique and there may be more than one perspective
-LG_Camera_Perspective::LG_Camera_Perspective(LG_Node_Map *map, TiXmlElement *element) :LG_Camera(map, element, identifierForSuper(element)),animating(false),animationStart(0)
+LG_Camera_Perspective::LG_Camera_Perspective(LG_Node_Map *map, TiXmlElement *element) :LG_Camera(map, element, identifierForSuper(element)),animating(false),animationStart(0),initialAngle(0)
 {
 	verifyElementName(element);
 	verifyAttributesAndValues(element);
@@ -35,6 +35,8 @@ LG_Camera_Perspective::LG_Camera_Perspective(LG_Node_Map *map, TiXmlElement *ele
 	pt[0] = target[0] - pos[0];
 	pt[1] = target[1] - pos[1];
 	pt[2] = target[2] - pos[2];
+    
+    distance=sqrt(fabs(pt[X_]*pt[X_])+fabs(pt[Z_]*pt[Z_]));
 
 	double angleY = atan(pt[0] / pt[2])*180. / M_PI;
 	if (pt[2] == 0 && pt[0] > 0) {
@@ -108,7 +110,7 @@ const LG_Point3D *LG_Camera_Perspective::getTarget()
 void LG_Camera_Perspective::applyView(){
 
 
-    gluLookAt(pos[0], pos[1], pos[2], target[0], target[1], target[2], 0, 1, 0);
+    gluLookAt(currentPos[0], currentPos[1], currentPos[2], target[0], target[1], target[2], 0, 1, 0);
 
 }
 
@@ -131,16 +133,35 @@ void LG_Camera_Perspective::updateProjectionMatrix(int width, int height){
 void LG_Camera_Perspective::update(unsigned long time){
 
     if(!animating)return;
+    if (!str_eq(this->identifier, "perspective1")){//dont animate other cameras
     
-    if (animationStart==0) animationStart=time;
+        animating=false;
+        animationStart=0;
+        LG_Tzaar::currentTzaar->cameraAnimationFinished();
+        return;
+    }
     
+    if (animationStart==0){
+        animationStart=time;
+    
+        currentPos[X_]=pos[X_];
+        currentPos[Y_]=pos[Y_];
+        currentPos[Z_]=pos[Z_];
+    }
     
     double secondsPassed=(time-animationStart)/1000.;
     double percentagePassed=secondsPassed/cameraAnimationDuration;
     
+    if(percentagePassed>1.0)percentagePassed=1.0;
+    
+    currentPos[X_]=distance*sin(initialAngle+percentagePassed*M_PI);
+    currentPos[Z_]=distance*cos(initialAngle+percentagePassed*M_PI);
+    
+    
     if (percentagePassed>=1.0){
         animating=false;
         animationStart=0;
+        initialAngle+=M_PI;
         LG_Tzaar::currentTzaar->cameraAnimationFinished();
     }
 
