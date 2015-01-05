@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 #include "LG_Animation.h"
-#define Move_Piece_Animation_Duration 2.0
+#define Move_Piece_Animation_Duration 1.0
 
 
 class LG_Board_Place;

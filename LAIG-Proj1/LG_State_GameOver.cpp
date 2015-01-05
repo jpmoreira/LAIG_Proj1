@@ -9,6 +9,7 @@
 #include "LG_State_GameOver.h"
 #include "LG_Tzaar.h"
 #include "LG_Clock.h"
+#include "LG_VictoryCounter.h"
 #include "LG_State_Waiting_Piece_Selection.h"
 
 
@@ -44,6 +45,9 @@ LG_Game_State * LG_State_GameOver::state(LG_Tzaar *tzaar){
     else{
         tzaar->nrVictoriesPlayerB++;
     }
+    
+    LG_VictoryCounter *counter=dynamic_cast<LG_VictoryCounter *>(tzaar->short_menu_anf->graph->nodeWithID(LG_VictoryCounter_ID));
+    counter->updateNrVictories(tzaar->nrVictoriesPlayerA, tzaar->nrVictoriesPlayerB);
     
     printf("gameover with phase=%d turn=%d\n",tzaar->phase, tzaar->playingColor);
     

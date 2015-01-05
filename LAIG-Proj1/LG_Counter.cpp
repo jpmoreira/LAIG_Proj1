@@ -82,7 +82,7 @@ void LG_Counter::initializeNrApps(){
     nrApps.push_back(app);
     
     
-    text=new LG_Texture(&nrAppsMap, "../data/counterFrame.jpg", nrWidth, nrHeight, "clockSeparator");
+    text=new LG_Texture(&nrAppsMap, "../data/counterFrame.jpg", 8*nrWidth, nrHeight, "clockSeparator");
     app=new LG_Appearance(&nrAppsMap,f,f,f,nrShininess,"counterFrameApp",text);
     
     nrApps.push_back(app);

@@ -14,6 +14,7 @@
 #include "LG_State_Menu.h"
 #include "LG_Clock.h"
 #include "LG_VictoryCounter.h"
+#include "LG_VictoryCounter.h"
 
 LG_Game_State::LG_Game_State(LG_Tzaar *game):game(game){
 }
@@ -48,6 +49,10 @@ LG_Game_State * LG_Game_State::exitButtonClicked(){
     game->scene_anf->replaceGraph();
     LG_Clock *clock=dynamic_cast<LG_Clock *>(game->short_menu_anf->graph->nodeWithID(LG_Clock_ID));
     clock->reset();
+    
+    LG_VictoryCounter *counter=dynamic_cast<LG_VictoryCounter *>(game->short_menu_anf->graph->nodeWithID(LG_VictoryCounter_ID));
+    counter->reset();
+    
     game->nrVictoriesPlayerA=0;
     game->nrVictoriesPlayerB=0;
     game->phase=phase1;
