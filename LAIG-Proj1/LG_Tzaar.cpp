@@ -87,7 +87,7 @@ void LG_Tzaar::loadShortMenu(){
 #pragma mark - Singleton
 
 LG_Tzaar::LG_Tzaar() :CGFscene(), CGFinterface(), scene_anf(NULL), menu_anf(NULL), short_menu_anf(NULL), nrVictoriesPlayerA(0), nrVictoriesPlayerB(0),
-sock(new LG_Socket()), state(NULL),cameraAnimationActive(true){
+sock(new LG_Socket()), state(NULL),cameraAnimationActive(true),movieMode(false){
 
 }
 
@@ -497,6 +497,24 @@ void LG_Tzaar::undoButtonClicked(){
 	this->state->undo();
 }
 
+void LG_Tzaar::movieModeClicked(){
+
+    
+    
+    movieMode=true;
+    currentMoviePos=0;
+    
+    
+    phase=phase1;
+    playingColor=White;
+    
+    this->scene_anf->replaceGraph();
+    
+    this->state=LG_State_Waiting_Piece_Selection::state(this);
+
+
+}
+
 void LG_Tzaar::skipMoveButton(){}
 
 void LG_Tzaar::doUndo(LG_Movement movement)
@@ -542,6 +560,8 @@ void LG_Tzaar::initReflection(){
 	invocationMapNoArgs["changeSceneClicked"] = &LG_Tzaar::changeSceneClicked;
 	invocationMapNoArgs["undoButtonClicked"] = &LG_Tzaar::undoButtonClicked;
 	invocationMapNoArgs["skipMoveClicked"] = &LG_Tzaar::skipMoveButton;
+    invocationMapNoArgs["movieModeClicked"] = &LG_Tzaar::movieModeClicked;
+
 
 	invocationMapWithArgs["playClicked"] = &LG_Tzaar::playClicked;
 	invocationMapWithArgs["setModeClicked"] = &LG_Tzaar::setModeClicked;

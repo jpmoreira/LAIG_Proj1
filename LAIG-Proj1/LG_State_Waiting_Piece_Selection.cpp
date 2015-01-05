@@ -20,7 +20,27 @@ LG_Game_State * LG_State_Waiting_Piece_Selection::state(LG_Tzaar *tzaar){
     bool computerPlaying=tzaar->mode==player_vs_computer && tzaar->playingColor==Black;
     computerPlaying = (computerPlaying || tzaar->mode==computer_vs_computer);
     
-    if (!computerPlaying) {
+    
+    
+    
+    if(tzaar->movieMode && tzaar->currentMoviePos<tzaar->memorizedPlays.size()){
+    
+        
+        LG_Movement move=tzaar->memorizedPlays[tzaar->currentMoviePos];
+        tzaar->currentMoviePos++;
+        
+        tzaar->origin=move.getFrom();
+        tzaar->destination=move.getTo();
+        
+        return LG_State_Animating_Move::state(tzaar);
+    
+    }
+    else if(tzaar->movieMode && tzaar->currentMoviePos==tzaar->memorizedPlays.size()){
+    
+        tzaar->movieMode=false;
+        return LG_State_Waiting_Piece_Selection::state(tzaar);//recursive invocation
+    }
+    else if (!computerPlaying) {
         return new LG_State_Waiting_Piece_Selection(tzaar);
     }
     

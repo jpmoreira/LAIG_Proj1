@@ -28,8 +28,13 @@ LG_State_Animating_Move::LG_State_Animating_Move(LG_Tzaar *tzaar) :LG_Game_State
 
 	game->origin->setSelected(false);//stop animation
 
-	LG_Movement movement = LG_Movement(game->origin, game->destination);
-	game->memorizedPlays.push_back(movement);
+    if(!tzaar->movieMode){
+        LG_Movement movement = LG_Movement(game->origin, game->destination);
+        game->memorizedPlays.push_back(movement);
+    }
+    else{
+        printf("");
+    }
 	game->origin->animations.push_back(new LG_Move_Piece_Animation_State(NULL, new LG_Move_Piece_Animation(NULL, game->origin, game->destination)));
 
 

@@ -24,7 +24,7 @@
     <texture id="shortBtnUndo" file="../data/btnUndo.jpg" texlength_s="0.05" texlength_t="0.018"/>
    <texture id="shortBtnExit" file="../data/btnExit.jpg" texlength_s="0.05" texlength_t="0.018"/>
    <texture id="shortBtnSkip" file="../data/btnSkip.png" texlength_s="0.05" texlength_t="0.018"/>
-    <texture id="shortBtnChangeCamera" file="../data/btnCamera.png" texlength_s="0.05" texlength_t="0.018"/>-->
+    <texture id="shortBtnChangeCamera" file="../data/btnCamera.png" texlength_s="0.05" texlength_t="0.018"/>
 
   </textures>
   <appearances>
@@ -143,7 +143,7 @@
         </transforms>
     </button>
     
-        <button id="shortMenuSkip" action="skipMoveClicked">
+        <button id="shortMenuSkip" action="movieModeClicked">
         <appearanceref id="shortBtnSkipApp"/>
         <descendants/>
         <primitives>

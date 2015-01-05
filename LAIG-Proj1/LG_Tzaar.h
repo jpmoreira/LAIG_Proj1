@@ -72,6 +72,9 @@ class LG_Tzaar : public CGFscene, public CGFinterface {
     
     
 public:
+    
+    
+    bool movieMode;
 	vector<LG_Movement> memorizedPlays;
     bool cameraAnimationActive;
 	string lastCommand;
@@ -109,7 +112,7 @@ public:
     
 	//Game settings
 
-
+    int currentMoviePos;
 	GameMode mode;
 	Difficulty difficulty;
 	GamePhase phase;
@@ -168,6 +171,7 @@ public:
 	void movementValidation(bool valid);
 	void animationFinished(LG_Animation *);
 	void gameEnded(int winner);
+    void movieModeClicked();
 
 
 	//button actions
