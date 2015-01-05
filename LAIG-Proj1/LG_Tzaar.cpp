@@ -453,7 +453,7 @@ void LG_Tzaar::animationFinished(LG_Animation *anim){
     if (s) {
 		LG_Game_State *tmp = this->state;
 		this->state = s;
-        //delete tmp;
+        delete tmp;
 		printf("");
     }
     

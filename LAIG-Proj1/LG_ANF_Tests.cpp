@@ -26,22 +26,25 @@ int main(int argc, char * argv[]){
         app.init(&argc, argv);
         
         //LG_Scene *scene=new LG_Scene();
-        LG_Tzaar *tzaar_scene=LG_Tzaar::getCurrentTzaar();
+        LG_Tzaar tzaar_scene;
+        LG_Tzaar::currentTzaar=&tzaar_scene;
+        
+        //LG_Tzaar *tzaar_scene=LG_Tzaar::getCurrentTzaar();
 		//LG_SceneInterface *scene_interface = new LG_SceneInterface();
 
 
     
         vector<string> fileNames=getDocumentNames(argc, argv);
 
-        tzaar_scene->setDocNameForScene(fileNames[0]);
-        tzaar_scene->setDocNameForMenu(fileNames[1]);
-        tzaar_scene->setDocNameForShortMenu(fileNames[2]);
+        tzaar_scene.setDocNameForScene(fileNames[0]);
+        tzaar_scene.setDocNameForMenu(fileNames[1]);
+        tzaar_scene.setDocNameForShortMenu(fileNames[2]);
         
         
-        app.setScene(tzaar_scene);
+        app.setScene(&tzaar_scene);
         
         
-        app.setInterface(tzaar_scene);
+        app.setInterface(&tzaar_scene);
         
         app.run();
     }
