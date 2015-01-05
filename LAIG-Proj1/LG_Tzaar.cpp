@@ -87,7 +87,7 @@ void LG_Tzaar::loadShortMenu(){
 #pragma mark - Singleton
 
 LG_Tzaar::LG_Tzaar() :CGFscene(), CGFinterface(), scene_anf(NULL), menu_anf(NULL), short_menu_anf(NULL), nrVictoriesPlayerA(0), nrVictoriesPlayerB(0),
-sock(new LG_Socket()), memorizedPlays(new vector<LG_Movement>), state(NULL),cameraAnimationActive(true){
+sock(new LG_Socket()), state(NULL),cameraAnimationActive(true){
 
 }
 
@@ -599,7 +599,7 @@ void LG_Tzaar::invoke(string methodName, int param){
 bool LG_Tzaar::validateMove(){
 
     
-    return true;
+    //return true;
 
 
     

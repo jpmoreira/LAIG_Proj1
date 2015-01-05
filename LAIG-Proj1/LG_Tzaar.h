@@ -74,6 +74,7 @@ class LG_Tzaar : public CGFscene, public CGFinterface {
 public:
     
     bool cameraAnimationActive;
+	string lastCommand;
     int nrVictoriesPlayerA,nrVictoriesPlayerB;
     
 	static LG_Tzaar *currentTzaar;
