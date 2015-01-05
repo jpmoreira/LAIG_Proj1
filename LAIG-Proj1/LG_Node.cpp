@@ -51,8 +51,7 @@ void LG_Node::drawChilds(bool selectMode){
 void LG_Node::draw(bool selectMode){
     
     
-	if (str_eq(identifier, "LG_Board_Place_5_1") && selectMode)
-		printf("");
+
     if (selectMode && selectable){
     
         glPushName(pickingID);

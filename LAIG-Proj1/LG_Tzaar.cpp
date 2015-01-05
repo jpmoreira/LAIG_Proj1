@@ -269,7 +269,7 @@ void LG_Tzaar::display(){
 
 	*/
 	string testBoard = boardString();
-	printf("");
+
 
 
 #pragma endregion
@@ -455,7 +455,7 @@ void LG_Tzaar::animationFinished(LG_Animation *anim){
 		LG_Game_State *tmp = this->state;
 		this->state = s;
         //delete tmp;
-		printf("");
+
     }
     
 }
@@ -683,11 +683,7 @@ vector<LG_Board_Place *> LG_Tzaar::chooseMove(){
 	if (it != this->scene_anf->graph->map->end())
 		move.push_back(dynamic_cast<LG_Board_Place *>(it->second));
 
-    if(move[0]==NULL ||move[1]==NULL){
-    
-        printf("bla");
-    }
-    
+
 	return move;
 
 
