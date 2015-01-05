@@ -32,7 +32,7 @@ LG_State_Animating_Move::LG_State_Animating_Move(LG_Tzaar *tzaar) :LG_Game_State
 	game->memorizedPlays.push_back(movement);
 	game->origin->animations.push_back(new LG_Move_Piece_Animation_State(NULL, new LG_Move_Piece_Animation(NULL, game->origin, game->destination)));
 
-	
+
 
 }
 
@@ -109,14 +109,14 @@ LG_Game_State * LG_State_Animating_Move::cameraAnimationFinished(){
 
 	if (v == VicNone) return LG_State_Waiting_Piece_Selection::state(game);
 
-    return LG_State_GameOver::state(game);
+	return LG_State_GameOver::state(game);
 
 }
 
 LG_Game_State * LG_State_Animating_Move::drawMenu(bool selectMode){
 
-    
-    game->short_menu_anf->draw(selectMode);
-    return NULL;
+
+	game->short_menu_anf->draw(selectMode);
+	return NULL;
 
 }

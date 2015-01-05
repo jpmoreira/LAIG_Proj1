@@ -117,26 +117,28 @@ LG_Game_State* LG_Game_State::undo(){
 
 		int lastPlayedIndex = game->memorizedPlays.size() - 1;
 
+		if (game->memorizedPlays.size() == 0)
+			return NULL;
+
 		if (this->game->mode == player_vs_computer)
 		{
-			while (lastPlayedIndex >= 0){
-				if (game->memorizedPlays.at(lastPlayedIndex).getFrom()->piece->getColor() != White)
+			while (game->memorizedPlays.size() > 0){
+				LG_Movement mov = game->memorizedPlays.at(game->memorizedPlays.size()-1);
+				if (mov.getFromPiece()->getColor() != White)
 				{
-					game->doUndo(game->memorizedPlays.at(lastPlayedIndex));
+					game->doUndo(mov);
 					game->memorizedPlays.pop_back();
-					lastPlayedIndex--;
 				}
 				else{
-					game->doUndo(game->memorizedPlays.at(lastPlayedIndex));
+					game->doUndo(mov);
 					game->memorizedPlays.pop_back();
-					lastPlayedIndex--;
 					break;
 				}
 			}
 		}
-		else if (lastPlayedIndex >= 0 && this->game->mode == player_vs_player)
+		else if (game->memorizedPlays.size() > 0 && this->game->mode == player_vs_player)
 		{
-			game->doUndo(game->memorizedPlays.at(lastPlayedIndex));
+			game->doUndo(game->memorizedPlays.at(game->memorizedPlays.size()-1));
 			game->memorizedPlays.pop_back();
 		}
 

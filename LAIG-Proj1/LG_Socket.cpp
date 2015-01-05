@@ -108,6 +108,8 @@ string LG_Socket::read(){
 			break;
 		pos++;
 	}
+	if (recieveBuffer[pos - 1] == '\r')
+		recieveBuffer[pos - 1] = 0;
 	recieveBuffer[pos] = 0;// null terminator
 	return string(recieveBuffer);
 
