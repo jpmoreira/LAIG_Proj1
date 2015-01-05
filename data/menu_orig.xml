@@ -1,0 +1,188 @@
+<anf>
+  <globals>
+    <drawing mode="fill" shading="gouraud" background="0.2 0.2 0.2 0" />
+    <culling face="back" order="ccw" />
+    <lighting doublesided="false" local="true" enabled="true" ambient="0.6 0.6 0.6 1" />
+  </globals>
+
+  <cameras initial="perspective1" >
+    <perspective id="perspective1" near="1" far="200" angle="30" pos="0 20 20" target="20 0 0" />
+    <ortho id="ortho1" direction="x" near="20" far="-20" left="-10" right="5" top="20" bottom="0" />
+  </cameras>
+
+  <lights>
+    <light id="omni_menu" type="omni" enabled="false" marker="false" pos="13.335 15 13.335" >
+      <component type="ambient" value="0.8 0.8 0.8 1" />
+      <component type="diffuse" value="0.8 0.8 0.8 1" />
+      <component type="specular" value="0.3 0.3 0.3 1" />
+    </light>
+  </lights>
+
+  <textures>
+    <texture id="background" file="../data/menuBackground.jpg" texlength_s="0.5" texlength_t="0.3"/>
+    <texture id="plVpl" file="../data/menuPlvsPl.jpg" texlength_s="0.1" texlength_t="0.036"/>
+    <texture id="plVpc" file="../data/menuPlvsPc.jpg" texlength_s="0.1" texlength_t="0.036"/>
+    <texture id="pcVpc" file="../data/menuPcvsPc.jpg" texlength_s="0.1" texlength_t="0.036"/>
+    <texture id="menuLevelNovice" file="../data/levelNovice.jpg" texlength_s="0.05" texlength_t="0.018"/>
+    <texture id="menuLevelMedium" file="../data/levelMedium.jpg" texlength_s="0.05" texlength_t="0.018"/>
+    <texture id="menuLevelExpert" file="../data/levelExpert.jpg" texlength_s="0.05" texlength_t="0.018"/>
+  </textures>
+  <appearances>
+
+    <appearance id="menuBackgrounApp" shininess="0.25" textureref="background">
+      <component type="ambient" value="0.0 0.0 0.9 1" />
+      <component type="diffuse" value="0.0 0.0 0.9 1" />
+      <component type="specular" value="0.0 0.0 0.9 1" />
+    </appearance>
+    <appearance id="menuPlvsPlApp" shininess="0.2" textureref="plVpl">
+      <component type="ambient" value="0.70 0.70 0.70 1" />
+      <component type="diffuse" value="0.70 0.70 0.70 1" />
+      <component type="specular" value="0.70 0.70 0.70 1" />
+    </appearance>
+    <appearance id="menuPlvsPcApp" shininess="0.2" textureref="plVpc">
+      <component type="ambient" value="0.70 0.70 0.70 1" />
+      <component type="diffuse" value="0.70 0.70 0.70 1" />
+      <component type="specular" value="0.70 0.70 0.70 1" />
+    </appearance>
+    <appearance id="menuPcvsPcApp" shininess="0.2" textureref="pcVpc">
+      <component type="ambient" value="0.70 0.70 0.70 1" />
+      <component type="diffuse" value="0.70 0.70 0.70 1" />
+      <component type="specular" value="0.70 0.70 0.70 1" />
+    </appearance>
+    <appearance id="menuLevelNoviceApp" shininess="0.2" textureref="menuLevelNovice">
+      <component type="ambient" value="0.70 0.70 0.70 1" />
+      <component type="diffuse" value="0.70 0.70 0.70 1" />
+      <component type="specular" value="0.70 0.70 0.70 1" />
+    </appearance>
+    <appearance id="menuLevelMediumApp" shininess="0.2" textureref="menuLevelMedium">
+      <component type="ambient" value="0.70 0.70 0.70 1" />
+      <component type="diffuse" value="0.70 0.70 0.70 1" />
+      <component type="specular" value="0.70 0.70 0.70 1" />
+    </appearance>
+    <appearance id="menuLevelExpertApp" shininess="0.2" textureref="menuLevelExpert">
+      <component type="ambient" value="0.70 0.70 0.70 1" />
+      <component type="diffuse" value="0.70 0.70 0.70 1" />
+      <component type="specular" value="0.70 0.70 0.70 1" />
+    </appearance>
+
+  </appearances>
+  <animations/>
+
+
+  <graph rootid="menu">
+
+    <node id="menu" >
+      <transforms>
+        <transform type="translate" to="0 0 -0.4" />
+      </transforms>
+      <primitives>
+        <!--<rectangle xy1="-0.15 -0.15" xy2="0.15 0.15" />-->
+      </primitives>
+      <descendants>
+        <noderef id="menuBackground"/>
+        <noderef id="menuOptions"/>
+        <noderef id="gameLevel"/>
+      </descendants>
+    </node >
+
+    <node id="menuBackground">
+      <appearanceref id="menuBackgrounApp"/>
+      <descendants/>
+      <primitives>
+        <rectangle xy1="-0.25 -0.15" xy2="0.25 0.15"/>
+      </primitives>
+      <transforms>
+      </transforms>
+    </node>
+
+
+    <node id="menuOptions">
+      <descendants>
+        <noderef id="menuPlvsPl"/>
+        <noderef id="menuPlvsPc"/>
+        <noderef id="menuPcvsPc"/>
+      </descendants>
+      <primitives/>
+      <transforms>
+        <transform type="translate" to="0.1 0.08 0"/>
+        <transform type="scale" factor="0.8 0.8 1"/>
+      </transforms>
+    </node>
+
+    <node id="menuPlvsPl" visible="true" selectable="true">
+      <appearanceref id="menuPlvsPlApp"/>
+      <descendants/>
+      <primitives>
+        <rectangle xy1="0.0 0.0 " xy2="0.1 0.036"/>
+      </primitives>
+      <transforms>
+      </transforms>
+    </node>
+
+    <node id="menuPlvsPc" visible="true" selectable="true">
+      <appearanceref id="menuPlvsPcApp"/>
+      <descendants/>
+      <primitives>
+        <rectangle xy1="0.0 -0.037 " xy2="0.1 -0.001"/>
+      </primitives>
+      <transforms>
+      </transforms>
+    </node>
+
+    <node id="menuPcvsPc" visible="true" selectable="true">
+      <appearanceref id="menuPcvsPcApp"/>
+      <descendants/>
+      <primitives>
+        <rectangle xy1="0.0 -0.0741 " xy2="0.1 -0.0371"/>
+      </primitives>
+      <transforms>
+      </transforms>
+    </node>
+
+    <node id="gameLevel">
+      <descendants>
+        <noderef id="levelNovice"/>
+        <noderef id="levelMedium"/>
+        <noderef id="levelExpert"/>
+      </descendants>
+      <primitives/>
+      <transforms>
+        <transform type="translate" to="0.065 -0.03 0"/>
+        <!--<transform type="scale" factor="0.8 0.8 1"/>-->
+      </transforms>
+
+    </node>
+
+    <node id="levelNovice" visible="true" selectable="true">
+      <appearanceref id="menuLevelNoviceApp"/>
+      <descendants/>
+      <primitives>
+        <rectangle xy1="0.0 0.0 " xy2="0.05 0.018"/>
+      </primitives>
+      <transforms>
+      </transforms>
+    </node>
+
+    <node id="levelMedium" visible="true" selectable="true">
+      <appearanceref id="menuLevelMediumApp"/>
+      <descendants/>
+      <primitives>
+        <rectangle xy1="0.051 0.0 " xy2="0.101 0.018"/>
+      </primitives>
+      <transforms>
+      </transforms>
+    </node>
+
+    <node id="levelExpert" visible="true" selectable="true">
+      <appearanceref id="menuLevelExpertApp"/>
+      <descendants/>
+      <primitives>
+        <rectangle xy1="0.102 0.0 " xy2="0.152 0.018"/>
+      </primitives>
+      <transforms>
+      </transforms>
+    </node>
+
+  </graph>
+
+</anf>
