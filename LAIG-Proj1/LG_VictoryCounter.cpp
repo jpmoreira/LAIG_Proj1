@@ -17,7 +17,7 @@ LG_VictoryCounter::LG_VictoryCounter(LG_Node_Map *map,TiXmlElement *elem):LG_Cou
 
     
     this->addChild(new LG_Rectangle(map, pt1, pt2));
-    this->addChild(new LG_Rectangle(map,)
+    //this->addChild(new LG_Rectangle(map,)
     
     appForFirstPlayerVictories1=nrApps[0];
     appForFirstPlayerVictories2=nrApps[0];
