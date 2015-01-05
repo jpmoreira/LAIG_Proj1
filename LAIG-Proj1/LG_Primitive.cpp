@@ -13,7 +13,7 @@
 
 #pragma mark - Constructors
 
-LG_Primitive::LG_Primitive(LG_Node_Map *map,string indentif):LG_Parsable_Node(map,indentif,NULL){
+LG_Primitive::LG_Primitive(LG_Node_Map *map,string indentif):LG_Parsable_Node(map,indentif,NULL), app(NULL){
 
 
 }

@@ -18,6 +18,7 @@
 #include "LG_ANF.h"
 #include "LG_Movement.h"
 #include <vector>
+#include <vld.h>
 
 
 class LG_Socket;
@@ -62,7 +63,9 @@ class LG_Tzaar : public CGFscene, public CGFinterface {
     
     //state design pattern
     LG_Game_State *state;
-	vector<LG_Movement> *memorizedPlays;
+	vector<LG_Movement> memorizedPlays;
+
+	
     
     
 
@@ -70,7 +73,7 @@ class LG_Tzaar : public CGFscene, public CGFinterface {
     
 public:
     
-    
+	string lastCommand;
     int nrVictoriesPlayerA,nrVictoriesPlayerB;
     
 	static LG_Tzaar *currentTzaar;

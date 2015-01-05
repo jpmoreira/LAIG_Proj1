@@ -113,7 +113,8 @@ void LG_Board_Place::setSelected(bool selected){
         this->animations.push_back( new LG_AnimationState(NULL, anim, this));
     }
     else{
-        
+		if (this->animations.size() == 0)
+			return;
         LG_Bounce_Animation *anim=dynamic_cast<LG_Bounce_Animation *>(this->animations[0]->animation);
         anim->terminateAsSoonAsZeroIsHit=true;//dont just abruptly terminate....
     }

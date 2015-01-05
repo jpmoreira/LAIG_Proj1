@@ -41,13 +41,14 @@ LG_Game_State* LG_State_Animating_Move::animationFinished(LG_Animation *anim){
     
     if (!move_anim)return NULL;
     
-    
+	string s = game->lastCommand;
+
     if(!game->destination->piece){//if no piece at destination
         game->destination->piece=game->origin->piece;
         game->destination->nrPieces=game->origin->nrPieces;
         
     }
-    
+	
     else if(game->destination->piece->getColor()==game->origin->piece->getColor()){
         
         game->destination->nrPieces+=game->origin->nrPieces;
