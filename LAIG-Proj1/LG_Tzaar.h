@@ -3,7 +3,7 @@
 //  LAIG-Proj1
 //
 //  Created by José Pedro Moreira on 29/12/14.
-//  Copyright (c) 2014 José Pedro Moreira. All rights reserved.
+//  Copyright (c) >2014 José Pedro Moreira. All rights reserved.
 //
 
 #ifndef __LAIG_Proj1__LG_Tzaar__
@@ -18,6 +18,7 @@
 #include "LG_ANF.h"
 #include "LG_Movement.h"
 #include <vector>
+
 
 
 class LG_Socket;
@@ -62,7 +63,9 @@ class LG_Tzaar : public CGFscene, public CGFinterface {
     
     //state design pattern
     LG_Game_State *state;
-	vector<LG_Movement> *memorizedPlays;
+	vector<LG_Movement> memorizedPlays;
+
+	
     
     
 

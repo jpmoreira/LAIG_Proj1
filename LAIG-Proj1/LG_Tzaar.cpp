@@ -200,7 +200,7 @@ void LG_Tzaar::display(){
     
 	//CGFscene::activeCamera->applyView();
 
-	axis.draw();
+	//axis.draw();
 
 	scene_anf->draw(selectMode);
 
@@ -430,7 +430,7 @@ void LG_Tzaar::exitButtonClicked(){
 		this->state = s;
 		delete tmp;
     }
-	memorizedPlays->clear();
+	memorizedPlays.clear();
 }
 
 void LG_Tzaar::nodeSelected(LG_Node* node){
@@ -497,21 +497,29 @@ void LG_Tzaar::undoButtonClicked(){
 	if (!(this->mode == computer_vs_computer))		//guarantee that exists a player
 	{
 
-		int lastPlayedIndex = memorizedPlays->size() - 1;
+		int lastPlayedIndex = memorizedPlays.size() - 1;
 
 		if (this->mode == player_vs_computer)
 		{
-			while (memorizedPlays->at(lastPlayedIndex).getFrom()->piece->getColor() != White){
-
-				doUndo(memorizedPlays->at(lastPlayedIndex));
-				memorizedPlays->pop_back();
-				lastPlayedIndex--;
+			while (lastPlayedIndex>=0){
+				if (memorizedPlays.at(lastPlayedIndex).getFrom()->piece->getColor() != White)
+				{
+					doUndo(memorizedPlays.at(lastPlayedIndex));
+					memorizedPlays.pop_back();
+					lastPlayedIndex--;
+				}
+				else{
+					doUndo(memorizedPlays.at(lastPlayedIndex));
+					memorizedPlays.pop_back();
+					lastPlayedIndex--;
+					break;
+				}			
 			}
-			doUndo(memorizedPlays->at(lastPlayedIndex));
 		}
-		else if (this->mode == player_vs_player)
+		else if (lastPlayedIndex >= 0 &&  this->mode == player_vs_player)
 		{
-			doUndo(memorizedPlays->at(lastPlayedIndex));
+			doUndo(memorizedPlays.at(lastPlayedIndex));
+			memorizedPlays.pop_back();
 		}
 
 		
@@ -601,6 +609,23 @@ bool LG_Tzaar::validateMove(){
 	string sep = ",";
 
 	string qst, ans;
+
+	int x1 = origin->getX(), x2 = destination->getX(), z1 = origin->getY(), z2 = destination->getY();
+	x1--; x2--; z1--; z2--;
+
+	if (z1 == 4 && x1 >=5)
+	{
+		x1--;
+	}
+
+	if (z2 == 4 && x2 >= 5)
+	{
+		x2--;
+	}
+
+
+
+	else
 	oss << PL_FUNC_goodMoveForPhase << "(" << boardString() << sep << origin->getX() - 1 << sep << origin->getY() - 1
 		<< sep << destination->getX() - 1 << sep << destination->getY() - 1 << sep << this->phase + 1 << ").\n";
 
@@ -642,6 +667,7 @@ vector<LG_Board_Place *> LG_Tzaar::chooseMove(){
 	//TODO replace hardcoded value 3 to game mode when playing against a.i.
 	oss << PL_FUNC_chooseMove2 << "('" << this->mode + 1 << "'" + sep << this->boardString() << sep << "NextBoard, SelectedMove, Result).";
 	qst = oss.str() + "\n";
+	lastCommand = oss.str() + "\n";
 	sock->write(qst);
 	ans = sock->read();
 
@@ -649,8 +675,21 @@ vector<LG_Board_Place *> LG_Tzaar::chooseMove(){
 	oss.clear();
 
 	int x1, x2, z1, z2;
-	sscanf(ans.c_str(), "[%d,%d,%d,%d]", &x1, &z1, &x2, &z2);
+	int result = 0;
+	result = sscanf(ans.c_str(), "[%d,%d,%d,%d].\r", &x1, &z1, &x2, &z2);
+
+	if (result != 4){
+		move.push_back(this->origin);
+		move.push_back(this->origin);
+		return move;
+	}
+
+	if (z1 == 4 && x1 >= 4)
+		x1++;
+	if (z2 == 4 && x2 >= 4)
+		x2++;
 	x1++; x2++; z1++; z2++;
+
 
 	oss << prefix << x1 << "_" << z1;
 	auto it = this->scene_anf->graph->map->find(oss.str());
@@ -675,7 +714,7 @@ vector<LG_Board_Place *> LG_Tzaar::chooseMove(){
 Victory LG_Tzaar::gameOver(){
 	 
     
-    return VicNone;
+    
 	ostringstream oss;
 	string ans;
 
@@ -793,7 +832,7 @@ string LG_Tzaar::boardString(){
 
 	}
 	ostringstream oss;
-	oss << "['@info'," << this->playingColor + 1 << "," << this->phase + 1 << ",['" << this->difficulty + 1 << "']]]";
+	oss << "['@info'," << this->phase + 1 << "," << this->playingColor + 1 << ",['" << this->difficulty + 1 << "']]]";
 	board += oss.str(); //last row, close and terminate string
 
 	//aux_board = aux_oss.str();
