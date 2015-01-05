@@ -27,6 +27,7 @@ public:
     
     LG_Game_State(LG_Tzaar *game);
     
+	virtual LG_Game_State *undo();
     
     
     // events

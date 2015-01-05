@@ -63,7 +63,7 @@ class LG_Tzaar : public CGFscene, public CGFinterface {
     
     //state design pattern
     LG_Game_State *state;
-	vector<LG_Movement> memorizedPlays;
+	
 
 	
     
@@ -72,7 +72,7 @@ class LG_Tzaar : public CGFscene, public CGFinterface {
     
     
 public:
-    
+	vector<LG_Movement> memorizedPlays;
     bool cameraAnimationActive;
 	string lastCommand;
     int nrVictoriesPlayerA,nrVictoriesPlayerB;
@@ -178,6 +178,7 @@ public:
 	void playClicked(int difficulty);
 	void setModeClicked(int mode);
 	void undoButtonClicked();
+	void skipMoveButton();
 
 
 	//reflection

@@ -20,6 +20,7 @@ class LG_State_Waiting_Place_Selection: public LG_Game_State{
     
 public:
     
+	LG_Game_State * undo();
    static LG_Game_State * state(LG_Tzaar *tzaar);
     
     LG_Game_State * currentPlayerPieceSelected(LG_Board_Place *place);

@@ -20,11 +20,17 @@ LG_State_Waiting_Place_Selection::LG_State_Waiting_Place_Selection(LG_Tzaar *tza
 
 
 
+
 LG_Game_State * LG_State_Waiting_Place_Selection::state(LG_Tzaar *tzaar){
     
     return new LG_State_Waiting_Place_Selection(tzaar);
     
     
+}
+
+LG_Game_State * LG_State_Waiting_Place_Selection::undo(){
+	game->origin->setSelected(false);
+	return LG_Game_State::undo();
 }
 
 LG_Game_State * LG_State_Waiting_Place_Selection::currentPlayerPieceSelected(LG_Board_Place *place){

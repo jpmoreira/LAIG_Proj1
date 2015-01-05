@@ -25,7 +25,7 @@ public:
     static LG_Game_State *state(LG_Tzaar *tzaar);
     
 
-    
+	LG_Game_State * undo();
     LG_Game_State * animationFinished(LG_Animation *);
     LG_Game_State * cameraAnimationFinished();
     LG_Game_State * drawMenu(bool selectMode);
