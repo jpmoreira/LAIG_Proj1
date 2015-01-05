@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 José Pedro Moreira. All rights reserved.
 //
 
+#include "LG_State_Waiting_Piece_Selection.h"
 #include "LG_Game_State.h"
 #include "LG_Tzaar.h"
 #include "LG_Board_Place.h"
@@ -110,6 +111,41 @@ LG_Game_State * LG_Game_State::nodeSelected(LG_Node *node){
     
 }
 
+LG_Game_State* LG_Game_State::undo(){
+	if (!(this->game->mode == computer_vs_computer))		//guarantee that exists a player
+	{
+
+		int lastPlayedIndex = game->memorizedPlays.size() - 1;
+
+		if (this->game->mode == player_vs_computer)
+		{
+			while (lastPlayedIndex >= 0){
+				if (game->memorizedPlays.at(lastPlayedIndex).getFrom()->piece->getColor() != White)
+				{
+					game->doUndo(game->memorizedPlays.at(lastPlayedIndex));
+					game->memorizedPlays.pop_back();
+					lastPlayedIndex--;
+				}
+				else{
+					game->doUndo(game->memorizedPlays.at(lastPlayedIndex));
+					game->memorizedPlays.pop_back();
+					lastPlayedIndex--;
+					break;
+				}
+			}
+		}
+		else if (lastPlayedIndex >= 0 && this->game->mode == player_vs_player)
+		{
+			game->doUndo(game->memorizedPlays.at(lastPlayedIndex));
+			game->memorizedPlays.pop_back();
+		}
+
+
+	}
+	//game->origin = NULL;
+	//game->destination = NULL;
+	return LG_State_Waiting_Piece_Selection::state(game);
+}
 
 LG_Game_State * LG_Game_State::placeSelected(LG_Board_Place *place){
     

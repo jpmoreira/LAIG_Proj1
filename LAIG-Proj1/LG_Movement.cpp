@@ -9,8 +9,8 @@ LG_Movement::LG_Movement(LG_Board_Place *from, LG_Board_Place *to)
 	this->fromPiece = from->piece;
 	this->toPiece = to->piece;
 
-	this->fromNrPieces = from->getNrChildren();
-	this->toNrPieces = to->getNrChildren();
+	this->fromNrPieces = from->nrPieces;
+	this->toNrPieces = to->nrPieces;
 }
 
 LG_Board_Place * LG_Movement::getFrom(){

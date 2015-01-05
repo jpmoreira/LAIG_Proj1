@@ -494,37 +494,10 @@ void LG_Tzaar::changeSceneClicked(){
 }
 
 void LG_Tzaar::undoButtonClicked(){
-	if (!(this->mode == computer_vs_computer))		//guarantee that exists a player
-	{
-
-		int lastPlayedIndex = memorizedPlays.size() - 1;
-
-		if (this->mode == player_vs_computer)
-		{
-			while (lastPlayedIndex>=0){
-				if (memorizedPlays.at(lastPlayedIndex).getFrom()->piece->getColor() != White)
-				{
-					doUndo(memorizedPlays.at(lastPlayedIndex));
-					memorizedPlays.pop_back();
-					lastPlayedIndex--;
-				}
-				else{
-					doUndo(memorizedPlays.at(lastPlayedIndex));
-					memorizedPlays.pop_back();
-					lastPlayedIndex--;
-					break;
-				}			
-			}
-		}
-		else if (lastPlayedIndex >= 0 &&  this->mode == player_vs_player)
-		{
-			doUndo(memorizedPlays.at(lastPlayedIndex));
-			memorizedPlays.pop_back();
-		}
-
-		
-	}
+	this->state->undo();
 }
+
+void LG_Tzaar::skipMoveButton(){}
 
 void LG_Tzaar::doUndo(LG_Movement movement)
 {
@@ -568,6 +541,7 @@ void LG_Tzaar::initReflection(){
 	invocationMapNoArgs["exitButtonClicked"] = &LG_Tzaar::exitButtonClicked;
 	invocationMapNoArgs["changeSceneClicked"] = &LG_Tzaar::changeSceneClicked;
 	invocationMapNoArgs["undoButtonClicked"] = &LG_Tzaar::undoButtonClicked;
+	invocationMapNoArgs["skipMoveClicked"] = &LG_Tzaar::skipMoveButton;
 
 	invocationMapWithArgs["playClicked"] = &LG_Tzaar::playClicked;
 	invocationMapWithArgs["setModeClicked"] = &LG_Tzaar::setModeClicked;

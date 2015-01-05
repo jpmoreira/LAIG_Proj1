@@ -23,8 +23,8 @@
     <texture id="shortBtnScene" file="../data/btnScene.jpg" texlength_s="0.05" texlength_t="0.018"/>
     <texture id="shortBtnUndo" file="../data/btnUndo.jpg" texlength_s="0.05" texlength_t="0.018"/>
    <texture id="shortBtnExit" file="../data/btnExit.jpg" texlength_s="0.05" texlength_t="0.018"/>
-   <!-- <texture id="shortBtnPass" file="../data/btnPass.jpg" texlength_s="0.05" texlength_t="0.018"/>
-    <texture id="shortBtnChangeCamera" file="../data/btnChangeCamera.jpg" texlength_s="0.05" texlength_t="0.018"/>-->
+   <texture id="shortBtnSkip" file="../data/btnSkip.png" texlength_s="0.05" texlength_t="0.018"/>
+    <texture id="shortBtnChangeCamera" file="../data/btnCamera.png" texlength_s="0.05" texlength_t="0.018"/>-->
 
   </textures>
   <appearances>
@@ -49,12 +49,12 @@
       <component type="diffuse" value="0.70 0.70 0.70 1" />
       <component type="specular" value="0.70 0.70 0.70 1" />
     </appearance>
-   <!-- <appearance id="shortBtnPassApp" shininess="1" textureref="shortBtnPass">
+    <appearance id="shortBtnSkipApp" shininess="1" textureref="shortBtnSkip">
         <component type="ambient" value="0.70 0.70 0.70 1" />
         <component type="diffuse" value="0.70 0.70 0.70 1" />
         <component type="specular" value="0.70 0.70 0.70 1" />
-    </appearance>-->
-    <appearance id="shortBtnChangeCameraApp" shininess="1" >
+    </appearance>
+    <appearance id="shortBtnChangeCameraApp" shininess="1"  textureref="shortBtnChangeCamera">
         <component type="ambient" value="0.70 0.70 0.70 1" />
         <component type="diffuse" value="0.70 0.70 0.70 1" />
         <component type="specular" value="0.70 0.70 0.70 1" />
@@ -113,6 +113,7 @@
         <noderef id="shortMenuScene"/>
         <noderef id="shortMenuUndo"/>
         <noderef id="shortMenuExit"/>
+        <noderef id="shortMenuSkip"/>
         <noderef id="shortMenuChangeCamera"/>
       </descendants>
       <primitives/>
@@ -130,6 +131,16 @@
         <transforms>
         </transforms>
     </button>
+    
+        <button id="shortMenuSkip" action="skipMoveClicked">
+        <appearanceref id="shortBtnSkipApp"/>
+        <descendants/>
+        <primitives>
+            <rectangle xy1="-0.110 -0.14 " xy2="-0.060 -0.122"/>
+        </primitives>
+        <transforms>
+        </transforms>
+    </button>
 
     <button id="shortMenuScene" action="changeSceneClicked">
       <appearanceref id="shortBtnSceneApp"/>
@@ -141,7 +152,7 @@
       </transforms>
     </button>
 
-    <node id="shortMenuUndo" visible="true" selectable="true">
+    <button id="shortMenuUndo" action="undoButtonClicked">
       <appearanceref id="shortBtnUndoApp"/>
       <descendants/>
       <primitives>
@@ -149,7 +160,7 @@
       </primitives>
       <transforms>
       </transforms>
-    </node>
+    </button>
 
     <button action="exitButtonClicked" id="shortMenuExit" >
       <appearanceref id="shortBtnExitApp"/>
